@@ -1,0 +1,9 @@
+marshmallow>=3.13.0
+marshmallow-enum>=1.5.1
+SQLAlchemy>=1.4.0.*
+
+[all]
+pytest>=6.2.5
+
+[test]
+pytest>=6.2.5
