@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+bofa_scraper/__init__.py
+bofa_scraper/account.py
+bofa_scraper/transaction.py
+bofa_scraper.egg-info/PKG-INFO
+bofa_scraper.egg-info/SOURCES.txt
+bofa_scraper.egg-info/dependency_links.txt
+bofa_scraper.egg-info/not-zip-safe
+bofa_scraper.egg-info/requires.txt
+bofa_scraper.egg-info/top_level.txt
