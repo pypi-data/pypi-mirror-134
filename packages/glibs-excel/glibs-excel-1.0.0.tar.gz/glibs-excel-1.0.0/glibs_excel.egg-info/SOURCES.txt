@@ -1,0 +1,12 @@
+LICENSE
+pyproject.toml
+setup.cfg
+setup.py
+glibs/__init__.py
+glibs/excel.py
+glibs_excel.egg-info/PKG-INFO
+glibs_excel.egg-info/SOURCES.txt
+glibs_excel.egg-info/dependency_links.txt
+glibs_excel.egg-info/namespace_packages.txt
+glibs_excel.egg-info/requires.txt
+glibs_excel.egg-info/top_level.txt
