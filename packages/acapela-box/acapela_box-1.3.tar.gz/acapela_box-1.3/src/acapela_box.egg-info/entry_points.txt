@@ -1,0 +1,3 @@
+[console_scripts]
+acapela_box = acapela_box.__main__:main
+
