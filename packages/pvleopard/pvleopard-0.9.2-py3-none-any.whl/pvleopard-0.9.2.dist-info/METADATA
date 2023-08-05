@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pvleopard
+Version: 0.9.2
+Summary: Leopard Speech-to-Text Engine.
+Home-page: https://github.com/Picovoice/leopard
+Author: Picovoice
+Author-email: hello@picovoice.ai
+License: UNKNOWN
+Keywords: Speech-to-Text,Speech Recognition,Voice Recognition,ASR
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: enum34
+
+UNKNOWN
+
+
