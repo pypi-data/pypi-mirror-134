@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/setup_teardown/SetupTeardown.py
+src/setup_teardown/__init__.py
+src/setup_teardown.egg-info/PKG-INFO
+src/setup_teardown.egg-info/SOURCES.txt
+src/setup_teardown.egg-info/dependency_links.txt
+src/setup_teardown.egg-info/top_level.txt
