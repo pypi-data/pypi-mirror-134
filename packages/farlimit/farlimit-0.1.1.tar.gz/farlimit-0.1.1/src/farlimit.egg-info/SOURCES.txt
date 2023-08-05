@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+src/farlimit.egg-info/PKG-INFO
+src/farlimit.egg-info/SOURCES.txt
+src/farlimit.egg-info/dependency_links.txt
+src/farlimit.egg-info/top_level.txt
