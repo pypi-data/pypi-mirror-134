@@ -1,0 +1,12 @@
+kontakt/__init__.py,sha256=g2BoIS5258Mpxw0fs27B49na1Y3-1aNVVbnNktNHQ4s,6326
+kontakt/config_options.py,sha256=FHYcEbhbZHlWAyoFHNNAJC_HRVUKMok2X_F3up842dU,3256
+kontakt/version.py,sha256=NMhxQ3RszEkVUrqzje7164dfHB4aFrKzjR9ipsnDYy8,72
+kontakt/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kontakt/examples/configurable_extension.py,sha256=7bObNtBkltU_wx2kx4EnSB3TY7D8OAzQEKMX5i7YIRM,843
+kontakt/examples/extension.py,sha256=LDrAhQa195ol0cnDXGtudQ-3Y-9N64IoFoFJXxQ7Lv4,682
+kontakt-3.0.0.dist-info/LICENSE,sha256=_XN_vt6OgDwyvUJ20tEI50IFTgC8ChEful5U0qN_eVs,1053
+kontakt-3.0.0.dist-info/METADATA,sha256=UPTHiTAF1r9gk9PdPVRLcG09mAUnK_ZLteyCrbu5Nhc,1279
+kontakt-3.0.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+kontakt-3.0.0.dist-info/entry_points.txt,sha256=8BqnvLzQRm_nhxFRFFxdNxTdEofCze4E8NpdqavhrBc,239
+kontakt-3.0.0.dist-info/top_level.txt,sha256=G7ROT5PKfhngcPTnolToCKDOjzRWE5OC7X0A_hGclBs,8
+kontakt-3.0.0.dist-info/RECORD,,
