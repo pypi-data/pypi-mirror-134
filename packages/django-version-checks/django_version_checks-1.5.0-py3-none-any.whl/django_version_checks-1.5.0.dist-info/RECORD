@@ -1,0 +1,11 @@
+django_version_checks/__init__.py,sha256=6n7U3XRbI5-pAA9ByRXckEqWn6Lyi2vgIcO8jQ_SkX8,126
+django_version_checks/apps.py,sha256=Z2fdrhP1arCdCbTbq0O3zgmGxYW96WVmMwNLDnB2WyU,589
+django_version_checks/checks.py,sha256=eK9ti6DS0SpDkRgaRKdLs5cJtxq1bwDBEOOz2x385JE,8515
+django_version_checks/compat.py,sha256=ow6CEB7TOyTh9Zq6LIIi2lLK5Mr0WZO9-lHIsRpQu6k,545
+django_version_checks/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_version_checks/typing.py,sha256=DxGy4JaEKGwnUs1ZQFdEnWs4D97Nw_b3CliLxAqAjik,65
+django_version_checks-1.5.0.dist-info/LICENSE,sha256=SCABx5luXM0TahLbPpAy3dMBDkRxqzPKsabkfA7m3_Y,1074
+django_version_checks-1.5.0.dist-info/METADATA,sha256=1Dnang4_D3MJmGvlLzPY7vD4zsLQRoQwbzUqZGEKXng,8611
+django_version_checks-1.5.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+django_version_checks-1.5.0.dist-info/top_level.txt,sha256=vdpJjeml8R7o3oFjivoIWnGXNZLlNQ8t8KMpf8P7Qyc,22
+django_version_checks-1.5.0.dist-info/RECORD,,
