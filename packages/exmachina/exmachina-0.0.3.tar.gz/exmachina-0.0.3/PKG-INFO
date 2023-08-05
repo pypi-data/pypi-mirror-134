@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: exmachina
+Version: 0.0.3
+Summary: botを作るためのフレームワークです
+Home-page: https://github.com/agarichan/exmachina
+License: MIT
+Author: agarichan
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: fastapi (>=0.71.0,<0.72.0)
+Project-URL: Repository, https://github.com/agarichan/exmachina
+Description-Content-Type: text/markdown
+
+# Ex-Machina
+
+[![python-version](https://img.shields.io/pypi/pyversions/exmachina)](https://pypi.org/project/exmachina/)
+[![Test](https://github.com/agarichan/exmachina/actions/workflows/test.yaml/badge.svg)](https://github.com/agarichan/exmachina/actions/workflows/test.yaml)
+
+python で bot 書くためのフレームワークです。
+
+## インストール
+
+using pip
+
+```
+pip install exmachina
+```
+
+using poetry
+
+```
+poetry add exmachina
+```
+
+## 開発
+
+### init
+
+```bash
+poetry install
+poetry shell
+```
+
+### fmt
+
+```
+poe fmt
+```
+
+### lint
+
+```
+poe lint
+```
+
+### test
+
+```
+poe test
+```
+
