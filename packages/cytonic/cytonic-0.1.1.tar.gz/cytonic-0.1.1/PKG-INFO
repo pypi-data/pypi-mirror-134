@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: cytonic
+Version: 0.1.1
+Summary: A Python framework to define REST APIs and automatically generate server side bindings and clients.
+Home-page: https://gitea.nkl.st/_/cytonic
+Author: Niklas Rosenstein
+Author-email: rosensteinniklas@gmail.com
+License: MIT
+Description: # Cytonic
+        
+        A Python framework to define REST APIs and automatically generate server side bindings and clients.
+        
+        __Features__
+        
+        * Generate Python language bindings from YAML API definitions
+        * Use the same bindings for clients and to implement the server side
+        
+        ## Quickstart
+        
+        Check out the [examples/todolist](examples/todolist) folder.
+        
+        ## Why the name "Cytonic"?
+        
+        The name is inspired by the great Skyward book series by Brandon Sanderson, where "cytonics" are people
+        or other organisms that can enter the space of the delvers to teleport to any location in the galaxy.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.10.0,<4.0.0
+Description-Content-Type: text/markdown
+Provides-Extra: fastapi
+Provides-Extra: test

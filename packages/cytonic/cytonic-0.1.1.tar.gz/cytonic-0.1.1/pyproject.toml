@@ -1,0 +1,16 @@
+
+[tool.mypy]
+pretty = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+show_error_context = true
+show_error_codes = true
+
+[tool.isort]
+src_paths = "src"
+indent = "  "
+lines_before_imports = 1
+order_by_type = true
+line_length = 120
