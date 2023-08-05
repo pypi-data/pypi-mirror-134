@@ -1,0 +1,13 @@
+numpy
+numba
+pandas
+ta-lib
+vectorbt
+python-binance
+tqdm
+
+[full]
+click
+statsmodels
+pyecharts
+seaborn
