@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+awflow/__init__.py
+awflow/schedulers.py
+awflow/spec.py
+awflow/workflow.py
+awflow.egg-info/PKG-INFO
+awflow.egg-info/SOURCES.txt
+awflow.egg-info/dependency_links.txt
+awflow.egg-info/entry_points.txt
+awflow.egg-info/not-zip-safe
+awflow.egg-info/requires.txt
+awflow.egg-info/top_level.txt
+awflow/bin/__init__.py
+awflow/bin/processor.py

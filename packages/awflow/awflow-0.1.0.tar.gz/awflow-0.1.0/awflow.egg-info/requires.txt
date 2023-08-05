@@ -1,0 +1,13 @@
+cloudpickle
+
+[dev]
+build
+pytest
+pytest-cov
+sphinx
+sphinx-markdown-builder
+sphinx-autodoc-typehints
+twine
+
+[examples]
+numpy
