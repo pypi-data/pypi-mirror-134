@@ -1,0 +1,9 @@
+imktk/__init__.py,sha256=24FIfOZYveoz9ap_pu3PwiTTB2GmNrQvgPew0pb78t0,482
+imktk/dataarray_methods/.gitinclude,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+imktk/dataarray_methods/anomalies.py,sha256=nT_8gXjM794mSUjYdhMKy_4OTdZcNoZGVMqkjC7wIU8,405
+imktk/dataset_methods/.gitinclude,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+imktk/toolkit.py,sha256=JO87WsKe5ItOaU98b9wn4dDhmD7GGn8XyVJHCtiQgUU,2739
+imktk-0.1.0.dist-info/entry_points.txt,sha256=-C9IOP_7UIvAcQKRAQ8trYCKhO2evs_XHHM-G8o3y3w,36
+imktk-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+imktk-0.1.0.dist-info/METADATA,sha256=0QGwoD1KPd8ypcM3tdmeWSvNKL2w6-s3GY-G5XFkv_4,500
+imktk-0.1.0.dist-info/RECORD,,
