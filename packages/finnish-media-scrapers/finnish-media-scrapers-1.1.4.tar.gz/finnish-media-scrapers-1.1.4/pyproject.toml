@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "finnish-media-scrapers"
+version = "1.1.4"
+description = "Scrapers for extracting articles from Finnish journalistic media websites."
+authors = ["Human Sciences - Computing Interaction Research Group <eetu.makela@helsinki.fi>"]
+license = "MIT"
+repository = "https://github.com/hsci-r/finnish-media-scraper/"
+documentation = "https://finnish-media-scrapers.readthedocs.io/"
+readme = "README.md"
+keywords = [
+  "Web scraping",
+  "Media research"
+]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Topic :: Text Processing :: Markup :: HTML",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary",
+  "Operating System :: OS Independent"
+]
+
+[tool.poetry.scripts]
+fms-query-yle = "finnish_media_scrapers.scripts.query_yle:main"
+fms-query-il = "finnish_media_scrapers.scripts.query_il:main"
+fms-query-is = "finnish_media_scrapers.scripts.query_is:main"
+fms-query-hs = "finnish_media_scrapers.scripts.query_hs:main"
+fms-fetch-hs = "finnish_media_scrapers.scripts.fetch_hs:main"
+fms-fetch-open = "finnish_media_scrapers.scripts.fetch_open:main"
+fms-html-to-text-yle = "finnish_media_scrapers.scripts.htmltotext_yle:main"
+fms-html-to-text-svyle = "finnish_media_scrapers.scripts.htmltotext_svyle:main"
+fms-html-to-text-il = "finnish_media_scrapers.scripts.htmltotext_il:main"
+fms-html-to-text-is = "finnish_media_scrapers.scripts.htmltotext_is:main"
+fms-html-to-text-hs = "finnish_media_scrapers.scripts.htmltotext_hs:main"
+fms-post-filter = "finnish_media_scrapers.scripts.post_filter:main"
+
+[tool.poetry.dependencies]
+python = ">=3.7.1,<4.0"
+lxml = "^4.6.3"
+beautifulsoup4 = "^4.9.3"
+attrs = "^21.2.0"
+aiohttp = "^3.7.4"
+pyppeteer = "^0.2.5"
+Sphinx = {version = "^4.0.2", optional = true}
+sphinx-rtd-theme = {version = "^0.5.2", optional = true}
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.7"
+pre-commit = "^2.13.0"
+pylint = "^2.8.3"
+pandas = "^1.2.5"
+pytest = "^6.2.5"
+
+[tool.poetry.extras]
+docs = ["Sphinx","sphinx-rtd-theme"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
