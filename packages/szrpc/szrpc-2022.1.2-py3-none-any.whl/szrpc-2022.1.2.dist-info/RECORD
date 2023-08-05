@@ -1,0 +1,8 @@
+szrpc/__init__.py,sha256=LpNASvGCMueahTv3a1nUdP6YR2xIKGcul0VVblCfDsU,1398
+szrpc/client.py,sha256=V26_2reV9zk8CdvRnUzIFaCzyVLC93pTsF0N0Ygb59U,2603
+szrpc/log.py,sha256=483qRSzzia0oqn3Bghin9Cz6rxZl2MCjPM1dFgfTsDI,3041
+szrpc/server.py,sha256=ux1wuRpoJg6BwYNGBgjRk2A7mN_iMOri7xSPRcUl2Qg,8564
+szrpc-2022.1.2.dist-info/METADATA,sha256=0DiRiwa7n0bO-foQ6S1VbgCfwE7TBu7eQvRoA7KvMKE,786
+szrpc-2022.1.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+szrpc-2022.1.2.dist-info/top_level.txt,sha256=8lOw8y4QZ4OhhZpfuaC4vSGVyZVMTjkjckfsbbRGwSs,6
+szrpc-2022.1.2.dist-info/RECORD,,
