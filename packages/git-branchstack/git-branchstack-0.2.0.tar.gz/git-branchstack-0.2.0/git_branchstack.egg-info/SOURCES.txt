@@ -1,0 +1,12 @@
+LICENSE
+README.md
+git-branchstack-pick
+setup.py
+git_branchstack.egg-info/PKG-INFO
+git_branchstack.egg-info/SOURCES.txt
+git_branchstack.egg-info/dependency_links.txt
+git_branchstack.egg-info/entry_points.txt
+git_branchstack.egg-info/requires.txt
+git_branchstack.egg-info/top_level.txt
+gitbranchstack/__init__.py
+gitbranchstack/main.py
