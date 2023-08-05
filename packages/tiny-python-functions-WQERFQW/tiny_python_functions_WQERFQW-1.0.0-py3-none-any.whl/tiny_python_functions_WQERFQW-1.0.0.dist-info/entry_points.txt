@@ -1,0 +1,3 @@
+[console_scripts]
+realpython = adder.__main__:main
+
