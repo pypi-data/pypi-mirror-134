@@ -1,0 +1,9 @@
+darkdetect
+gelidum
+jedi
+numpy
+parso
+pillow>=8.2
+randomname
+requests
+websocket-client
