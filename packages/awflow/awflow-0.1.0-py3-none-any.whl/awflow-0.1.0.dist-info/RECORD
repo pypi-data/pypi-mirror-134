@@ -1,0 +1,12 @@
+awflow/__init__.py,sha256=t9mHfVY3n9Rga7jbbKNOi7FUVZ5rMEAvnV4O8ZQCOxU,2439
+awflow/schedulers.py,sha256=qwM96Es3snYkOd_N8Q2HYIEhD7k_1yu6cHt5k_3zXDo,7706
+awflow/spec.py,sha256=dl-kolhUUyfrM1Fbe-2PoBTIjfL-fdhG5pYzdXK56LQ,68
+awflow/workflow.py,sha256=zM_g8_N12kewp7idjUvmB2yH9lB_vMtvI402mq4Olng,5363
+awflow/bin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+awflow/bin/processor.py,sha256=sLfDagHiFzr5Q-DxDOvV2-NyiZLTqc5cK9a5lruzgqs,365
+awflow-0.1.0.dist-info/LICENSE.txt,sha256=Geb8zaPZrdK0xOoyRwu8reotNzyx6y9R_9CwsVJm8eY,1521
+awflow-0.1.0.dist-info/METADATA,sha256=s2Kh4qyX9TfYNQ9qEIZ5qy-gkZEOnfP6l7GuqY7keAU,5727
+awflow-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+awflow-0.1.0.dist-info/entry_points.txt,sha256=eqGnTHtEVMYwfXVk1Z9MhC8O2N8wuqAbr0lisLmrkxs,20
+awflow-0.1.0.dist-info/top_level.txt,sha256=g-4A9H8PLNkDp95sDwtbYfwx0BiIZz6Bmi0_vZWVbqs,7
+awflow-0.1.0.dist-info/RECORD,,
