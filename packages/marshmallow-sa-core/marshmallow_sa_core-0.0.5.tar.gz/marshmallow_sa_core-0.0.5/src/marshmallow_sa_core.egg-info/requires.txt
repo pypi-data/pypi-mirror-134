@@ -1,0 +1,17 @@
+marshmallow>=3.13.0
+marshmallow-enum>=1.5.1
+SQLAlchemy>=1.4.0.*
+
+[all]
+pytest>=6.2.5
+sphinx
+sphinx_rtd_theme>=1.0.0
+recommonmark>=0.7.1
+
+[docs]
+sphinx
+sphinx_rtd_theme>=1.0.0
+recommonmark>=0.7.1
+
+[test]
+pytest>=6.2.5
