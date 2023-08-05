@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+src/slack_report.py
+src/slack_report.egg-info/PKG-INFO
+src/slack_report.egg-info/SOURCES.txt
+src/slack_report.egg-info/dependency_links.txt
+src/slack_report.egg-info/entry_points.txt
+src/slack_report.egg-info/requires.txt
+src/slack_report.egg-info/top_level.txt
