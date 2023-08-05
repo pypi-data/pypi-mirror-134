@@ -1,0 +1,16 @@
+souschef/__init__.py,sha256=j4MoGzVzAOM81AIBBpPz6FndFJD4LbsA3zqNS9WRZDs,129
+souschef/_version.py,sha256=2r7o2DjizNkDQwXrByFUQtdb6p118mMJM9ZBfHhjCjg,142
+souschef/comment.py,sha256=kE9sMhufyxa1QwGP-Hh2hZGbz-BMTGWJZQE_facc7Gg,2255
+souschef/config.py,sha256=vp9tq8yEOXOlAl8JE8pnGcGBNI6iJvQjxU4Bjh6E_J8,122
+souschef/ingredient.py,sha256=f4qK-pl6lZ_FdcDnmkhJ-ek8DtZ4DJzh-CBphmzSvEQ,3048
+souschef/jinja_expression.py,sha256=RjCEOxBtU_gAo9XaqDU-IyUdQYjvwsFRwHWWthsOt2Q,2317
+souschef/mixins.py,sha256=SgBdLhXt764uEDB_E92GtwS8hBZCfLPjsP0bVGoh5WQ,9830
+souschef/recipe.py,sha256=ZtOPzqoW2t_t6KjixYcWYSrWgOsqINeI0hv5WdVIXSI,2363
+souschef/section.py,sha256=tQ5nzxdNx8kZMae0hkR2bukXAAdz9AV4Ee4gzxm8dqw,1147
+souschef/tools.py,sha256=RkXY_40dqoTsH3N82T_-S8XhdqQinA1JrIjvDP-EPyY,1350
+conda_souschef-1.1.0.dist-info/AUTHORS,sha256=LyCZUWjUT5QDjwHT4fMSCZHAZTeCp-IY2Iy10Jp2QyY,70
+conda_souschef-1.1.0.dist-info/LICENSE,sha256=xTsVK0EWdWkfLCHjFd1cKBl4X1yPKvTzcbWklIUPkEE,11354
+conda_souschef-1.1.0.dist-info/METADATA,sha256=Qvnb-U8Vc1qkZxm70RQejCahtsEQPz1q_NjHFDt0odQ,1798
+conda_souschef-1.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+conda_souschef-1.1.0.dist-info/top_level.txt,sha256=MsMtqb_-1j-V1vJKJq4H_0k7JDFwdDQ5VWsQk6yk_ng,9
+conda_souschef-1.1.0.dist-info/RECORD,,
