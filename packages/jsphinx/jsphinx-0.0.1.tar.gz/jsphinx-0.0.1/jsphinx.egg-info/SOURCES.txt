@@ -1,0 +1,8 @@
+README.md
+setup.py
+jsphinx/__init__.py
+jsphinx.egg-info/PKG-INFO
+jsphinx.egg-info/SOURCES.txt
+jsphinx.egg-info/dependency_links.txt
+jsphinx.egg-info/requires.txt
+jsphinx.egg-info/top_level.txt
