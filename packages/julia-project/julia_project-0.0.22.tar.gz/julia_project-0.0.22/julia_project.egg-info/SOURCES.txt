@@ -1,0 +1,13 @@
+LICENSE.md
+README.md
+setup.cfg
+setup.py
+julia_project/__init__.py
+julia_project/_julia_project.py
+julia_project/_utils.py
+julia_project/_version.py
+julia_project.egg-info/PKG-INFO
+julia_project.egg-info/SOURCES.txt
+julia_project.egg-info/dependency_links.txt
+julia_project.egg-info/requires.txt
+julia_project.egg-info/top_level.txt
