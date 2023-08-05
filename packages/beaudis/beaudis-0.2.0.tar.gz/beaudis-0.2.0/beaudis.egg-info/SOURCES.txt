@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+beaudis.egg-info/PKG-INFO
+beaudis.egg-info/SOURCES.txt
+beaudis.egg-info/dependency_links.txt
+beaudis.egg-info/entry_points.txt
+beaudis.egg-info/requires.txt
+beaudis.egg-info/top_level.txt
+beautifuldiscord/__init__.py
+beautifuldiscord/__main__.py
+beautifuldiscord/app.py
+beautifuldiscord/asar.py
