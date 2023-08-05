@@ -1,0 +1,3 @@
+[console_scripts]
+slack-report = slack_report:main
+
