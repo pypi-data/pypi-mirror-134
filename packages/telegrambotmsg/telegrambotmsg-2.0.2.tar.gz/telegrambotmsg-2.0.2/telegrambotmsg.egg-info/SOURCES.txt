@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+telegrambotmsg/__init__.py
+telegrambotmsg.egg-info/PKG-INFO
+telegrambotmsg.egg-info/SOURCES.txt
+telegrambotmsg.egg-info/dependency_links.txt
+telegrambotmsg.egg-info/top_level.txt
