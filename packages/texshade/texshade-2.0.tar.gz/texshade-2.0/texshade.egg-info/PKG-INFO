@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: texshade
+Version: 2.0
+Summary: Memory-efficient implementation of texture-shading method for visualizing elevation
+Home-page: https://github.com/fasiha/texshade-py
+Author: Ahmed Fasih
+Author-email: ahmed@aldebrn.me
+License: Unlicense
+Keywords: texture shading elevation terrain fractional laplacian hankel overlap save spatial frequency
+Platform: UNKNOWN
+
+Texture-shading via a spatial-domain transform of the full Fourier-domain fractional-Laplacian via the Hankel transform and overlap-save method of fast-convolution
+

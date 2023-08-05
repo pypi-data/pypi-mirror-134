@@ -1,0 +1,5 @@
+array-range
+nextprod
+numpy
+overlap-save
+scipy
