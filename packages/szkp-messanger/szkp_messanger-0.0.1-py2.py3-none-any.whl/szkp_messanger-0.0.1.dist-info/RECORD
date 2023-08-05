@@ -1,0 +1,18 @@
+L8 server/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/decors.py,sha256=5OnXzSXJR8QXgcIEe9-D2KnNdgGTFSiW1qeGGGMxk4I,4215
+L8 server/server.py,sha256=oMSYDdA0AdyOdSQzFRGkGG4wKFsC04OWJ8jvRZ7SkWA,27102
+L8 server/common/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/common/func.py,sha256=MQFDptT3z0oCcrLDEEUOMVbuU6p4OsDb7ShkXKl7_dk,1690
+L8 server/common/settings.py,sha256=uUlgLGdi_QAG7Z1lsuv-71HBbxaKenJDENRQFoqjknA,2193
+L8 server/gui/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/gui/server_administration.py,sha256=sCMhOUTdISPKEyH8__sYe2as4WnGk20k0iP6aY8DDUA,16082
+L8 server/log/conf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/log/conf/server_log_config.py,sha256=0batwLwhZqXVSMZRPvL5z8cQgR2cbApCsJv9vbLehzg,1340
+L8 server/log/logs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 server/tests/test_func.py,sha256=uaD1MIwWTzXwgnsA7kiGTgutGse-irW9tmhG8cW3B3o,7002
+L8 server/tests/test_server.py,sha256=MmwebUpd4YZF8wwjp9TXhIN0P4xQ0tBZ4BRVZL3bywk,8379
+szkp_messanger-0.0.1.dist-info/METADATA,sha256=a6TFSntXrRSYzlh0vmgOV3h-g6NJ9gS_qzXyMweVH4I,164
+szkp_messanger-0.0.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+szkp_messanger-0.0.1.dist-info/top_level.txt,sha256=qvxl5NxIVlC87CdjzVE73vC8V85f0PMpwtuzaxAsQe8,95
+szkp_messanger-0.0.1.dist-info/RECORD,,
