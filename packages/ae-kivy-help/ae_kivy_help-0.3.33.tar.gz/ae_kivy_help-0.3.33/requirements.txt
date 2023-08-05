@@ -1,0 +1,6 @@
+# dependencies of the kivy_help portion
+kivy
+ae_core
+ae_gui_help
+ae_kivy_glsl
+ae_kivy_relief_canvas
