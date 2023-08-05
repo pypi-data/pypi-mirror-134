@@ -1,0 +1,5 @@
+mutwo<1.0.0,>=0.45.0
+
+[testing]
+nose
+coveralls
