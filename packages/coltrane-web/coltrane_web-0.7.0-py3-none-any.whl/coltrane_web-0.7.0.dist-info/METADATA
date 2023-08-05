@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: coltrane-web
+Version: 0.7.0
+Summary: A simple content site framework that harnesses the power of Django without the hassle.
+Home-page: https://github.com/adamghill/coltrane/
+License: MIT
+Keywords: django,python,static,markdown
+Author: adamghill
+Author-email: adam@adamghill.com
+Requires-Python: >3.6.2,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Provides-Extra: docs
+Provides-Extra: gunicorn
+Requires-Dist: Django (>3.0)
+Requires-Dist: Sphinx (>=4.3.2,<5.0.0); extra == "docs"
+Requires-Dist: click (>=8.0.0,<9.0.0)
+Requires-Dist: furo (>=2021.11.23,<2022.0.0); extra == "docs"
+Requires-Dist: gunicorn (>=20.1.0,<21.0.0); extra == "gunicorn"
+Requires-Dist: linkify-it-py (>=1.0.3,<2.0.0); extra == "docs"
+Requires-Dist: markdown2 (>=2.4.2,<3.0.0)
+Requires-Dist: myst-parser (>=0.16.1,<0.17.0); extra == "docs"
+Requires-Dist: python-dotenv (>0.17)
+Requires-Dist: sphinx-autobuild (>=2021.3.14,<2022.0.0); extra == "docs"
+Requires-Dist: sphinx-copybutton (>=0.4.0,<0.5.0); extra == "docs"
+Project-URL: Funding, https://github.com/sponsors/adamghill
+Project-URL: Repository, https://github.com/adamghill/coltrane/
+Description-Content-Type: text/markdown
+
+# coltrane
+
+A simple content site framework that harnesses the power of Django without the hassle.
+
+## Features
+
+- Can either generate a static HTML, be used as a standalone Django site, or integrated into an existing Django site
+- Can use data from JSON files in templates and content
+- All the power of Django templates, template tags, and filters
+- Renders markdown files automatically (for a dynamic site)
+- Can include other Django apps
+
+## Documentation
+
+https://coltrane.readthedocs.io
+
