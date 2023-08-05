@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: brewmaster
+Version: 0.0.1
+Summary: A package trying to accelerate the pandasapply in a parallel manner.
+Home-page: UNKNOWN
+Author: Zhengkai Yang
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+
+UNKNOWN
+
