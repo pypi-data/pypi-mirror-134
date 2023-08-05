@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: qleet
+Version: 0.2.0
+Summary: The qLEET Package for visualizing quantum circuit behavior
+Author-email: Utkarsh Azad <utkarsh.azad@research.iiit.ac.in>, Animesh Sinha <animesh.sinha@research.iiit.ac.in>
+Project-URL: Home, https://github.com/QLemma/qleet/
