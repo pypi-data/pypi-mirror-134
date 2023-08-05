@@ -1,0 +1,12 @@
+[
+  "test_http.py::test_200_ok",
+  "test_http.py::test_404_not_found",
+  "test_http.py::test_404_not_found_with_raise_status_error",
+  "test_http.py::test_request_limit",
+  "test_http.py::test_session_auth",
+  "test_http2.py::test_200_ok",
+  "test_http2.py::test_404_not_found",
+  "test_http2.py::test_404_not_found_with_raise_status_error",
+  "test_http2.py::test_session_auth",
+  "test_swagger.py::test_swagger_service"
+]
