@@ -1,0 +1,7 @@
+matplotlib
+numpy
+pyaudio
+setuptools>=40.1.0
+
+[extras]
+ipywidgets<8,>=7.6.4
