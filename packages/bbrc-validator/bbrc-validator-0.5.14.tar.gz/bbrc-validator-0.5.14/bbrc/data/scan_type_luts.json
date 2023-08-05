@@ -1,0 +1,72 @@
+{
+  "EMPTY" :
+  {
+    "T1": [],
+    "T2": [],
+    "RS": [],
+    "DWI": [],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : [],
+    "ASL" : [],
+    "M0" : []
+  },
+  "testenv" :
+  {
+    "T1": ["T1_ALFA1", "sT1W_3D_TFE_HR_32 iso1.2 long AT"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "ASL" : ["pCASL", "SOURCE - pCASL_SENSE"],
+    "M0" : ["M0_ASL"]
+  },
+  "ALFA1" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"]
+  },
+  "ALFA" :
+  {
+    "T1": ["SAG FSPGR 3D"],
+    "T2": ["AXIAL T2 FRFSE"],
+    "RS": ["RESTING"],
+    "DWI": ["Ax DTI (64 direc) iso 2"],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : ["Ax T2 FLAIR_FS"]
+  },
+  "EPAD" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": [],
+    "RS": [],
+    "DWI": [],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : ["FLAIR_SAG"]
+  },
+  "ALFA_PLUS2" :
+  {
+    "T1": ["sT1W_3D_TFE_HR_32 iso1.2 long AT", "T1_ALFA1"],
+    "ASL" : ["pCASL", "SOURCE - pCASL_SENSE"],
+    "M0" : ["M0_ASL"],
+    "T2": ["T2_ALFA1"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"]
+  },
+  "PENSA" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_PENSA"],
+    "FLAIR" : ["FLAIR_ALFA1"]
+  }
+}
