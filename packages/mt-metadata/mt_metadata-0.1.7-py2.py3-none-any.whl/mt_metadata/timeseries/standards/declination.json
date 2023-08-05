@@ -1,0 +1,44 @@
+{
+    "comments": {
+        "type": "string",
+        "required": false,
+        "style": "free form",
+        "units": null,
+        "description": "Any comments on declination",
+        "options": [],
+        "alias": [],
+        "example": "estimated from WMM 2016",
+		"default": null
+    },
+    "model": {
+        "type": "string",
+        "required": true,
+        "style": "controlled vocabulary",
+        "units": null,
+        "description": "Geomagnetic reference model used to calculate declination plus the year estimated.",
+        "options": [
+			"WMM",
+            "EMAG2",
+            "EMM",
+            "HDGM",
+            "IGRF",
+            "WMM",
+            "unknown",
+			"other"
+        ],
+        "alias": [],
+        "example": "WMM-16",
+		"default": "WMM"
+    },
+    "value": {
+        "type": "float",
+        "required": true,
+        "style": "number",
+        "units": "degrees",
+        "description": "Geomagnetic declination angle relative to geographic north positive clockwise.",
+        "options": [],
+        "alias": [],
+        "example": "12.3",
+		"default": 0.0
+    }
+}
