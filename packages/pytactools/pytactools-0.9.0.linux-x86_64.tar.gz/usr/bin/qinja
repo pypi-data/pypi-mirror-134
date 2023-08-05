@@ -1,0 +1,6 @@
+#!/usr/bin/python
+
+from qinja import start_with_args
+
+if __name__ == "__main__":
+    start_with_args()
