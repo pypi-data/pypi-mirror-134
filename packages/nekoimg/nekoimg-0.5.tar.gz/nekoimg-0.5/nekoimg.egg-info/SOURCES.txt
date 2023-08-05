@@ -1,0 +1,9 @@
+README.md
+setup.py
+nekoimg/__init__.py
+nekoimg/nekoimg.py
+nekoimg.egg-info/PKG-INFO
+nekoimg.egg-info/SOURCES.txt
+nekoimg.egg-info/dependency_links.txt
+nekoimg.egg-info/requires.txt
+nekoimg.egg-info/top_level.txt
