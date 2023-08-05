@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tox.ini
+.github/workflows/test_and_deploy.yml
+Image_Composer/__init__.py
+Image_Composer/_version.py
+Image_Composer/image_compose.py
+Image_Composer.egg-info/PKG-INFO
+Image_Composer.egg-info/SOURCES.txt
+Image_Composer.egg-info/dependency_links.txt
+Image_Composer.egg-info/entry_points.txt
+Image_Composer.egg-info/requires.txt
+Image_Composer.egg-info/top_level.txt
