@@ -1,0 +1,14 @@
+eyja_email/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+eyja_email/models/__init__.py,sha256=AEIdiagTDD45roXSyZPBVb8ZwS3ZPkkuAO628Zmvfhw,54
+eyja_email/models/email.py,sha256=Dwqk_Sw31l_GxBI6N31C_ubXJXJHMiKYocUFhf7LJ2U,530
+eyja_email/operators/__init__.py,sha256=SNIfhmcVLq7u45tubWbeeVibdQskk3e7YNcRmab96TI,70
+eyja_email/operators/email/__init__.py,sha256=rXrRvx8Y-16dHAV5rwPAD6NfM0s6NCBZ7qKvvltOUZE,73
+eyja_email/operators/email/operator.py,sha256=qt27MJ8ZccH7GsF9X3fi2hOyoI9-yGifh2AIyK1D2sI,1772
+eyja_email/operators/email/statuses.py,sha256=_AgI8vhrmm1pjOmUaedooEmJiZLlptUkW_mjLcryTAw,105
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_email.py,sha256=6kVE0Wgr3fPaKEtlKS97ObzepgRsfmc2rPTiYy77l1I,1719
+eyja_email-0.1.1.dist-info/METADATA,sha256=9uf-TNNZZ58KnusHnKKkV3xafIfn_o4tN4YQeKOyCoU,663
+eyja_email-0.1.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+eyja_email-0.1.1.dist-info/top_level.txt,sha256=yiWSBqhq5t4mukNXTDD1YPD0QPOK9y1wy50T3OZ95Tk,17
+eyja_email-0.1.1.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+eyja_email-0.1.1.dist-info/RECORD,,
