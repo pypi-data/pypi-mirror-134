@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: OpenSeaScripts
+Version: 1.0.0
+Summary: Scripts for automating OpenSea operations
+Home-page: https://github.com/MRegirouard/OpenSeaScripts
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# OpenSeaScripts
+A suite of Python scripts for using OpenSea where API's are limited. OSS uses Selenium to control a Google Chrome window to find, fetch, and interact with HTML elements on OpenSea's website.
+
+
