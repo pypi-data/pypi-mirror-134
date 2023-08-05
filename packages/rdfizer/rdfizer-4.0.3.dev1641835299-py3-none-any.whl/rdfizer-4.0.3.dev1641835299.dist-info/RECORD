@@ -1,0 +1,11 @@
+rdfizer/__init__.py,sha256=Ihu5CA1hIANAFhn7BXAZEx_9grD6hJ1hLLlZC5aGKhE,229085
+rdfizer/__main__.py,sha256=9-YU7fQRCn-7hBMgS4hBY-vBxLeyNPPNCFOYYzNgXw8,1122
+rdfizer/functions.py,sha256=yRTVvSYpc5YLTaiaVAtYVP0IB-GS6fx7jaudzOYqSLk,39960
+rdfizer/semantify.py,sha256=mzvvwShBVfmEsjnLIPMqPEfDkcR6GxQjTfZOeTqxZio,230650
+rdfizer/triples_map/TriplesMap.py,sha256=VlEfMDGFHtJrn2I_7ugWGgDyVKJbbDnD2ZgOChLOslg,4830
+rdfizer/triples_map/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rdfizer-4.0.3.dev1641835299.dist-info/METADATA,sha256=73JrXqExzZyBpVVi7Gl-X0QXk_qpv0mFJKx8tdfpL8s,11689
+rdfizer-4.0.3.dev1641835299.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+rdfizer-4.0.3.dev1641835299.dist-info/entry_points.txt,sha256=Py-cGJYRI_EPTqrxTsWgjKqvtBTZdAhSbkspasD7uvc,51
+rdfizer-4.0.3.dev1641835299.dist-info/top_level.txt,sha256=PMhBgnoDsh1_kppZeKe1Zo-JQp1_moBI7SifgWSBS58,8
+rdfizer-4.0.3.dev1641835299.dist-info/RECORD,,
