@@ -1,0 +1,15 @@
+axisvm/__init__.py,sha256=H4kxzmUhB-IvIZzxD8KbVk-ZzxJ0tmXKNXeQIblAMHU,164
+axisvm/com/__init__.py,sha256=fly1tWTxcKHAWUgJzFJ0bXW_3KEpEhqBn4R0lrLtTOc,29
+axisvm/com/axapp.py,sha256=N2DWT4hSCgQjmXYRIbyMygYMVSPjhl61Q4TQQRKKNI4,1577
+axisvm/com/axdomain.py,sha256=PG3LSuc3Um-of3nYlvtJcorwl-PY6W1Xxu9A70-QuwY,1169
+axisvm/com/axmodel.py,sha256=AcwOLxnqq5RnisVZDWOamzihCETUQKC2nduMJDBlgSc,1331
+axisvm/com/client.py,sha256=4i1gXCNRoj-B04yVfLGUJ6T_-aBON9Ehy6jSkAfMITM,3867
+axisvm/com/tlb.py,sha256=gCG3k9ys_ClsSUyEz9NwFmnSCp6DPaksr6_DII4idiE,2245
+axisvm/com/core/__init__.py,sha256=fly1tWTxcKHAWUgJzFJ0bXW_3KEpEhqBn4R0lrLtTOc,29
+axisvm/com/core/utils.py,sha256=2mVO759yjFYStZC0t0XSNAwasIRbpvod-2YDI730YYA,582
+axisvm/com/core/wrap.py,sha256=YJhdjI7hbCoIUFNk6I5stiFw6csN5mwbDS3cy6vqkds,4328
+axisvm-1.0.2.dist-info/LICENSE,sha256=tWxFAFDPPfzeMWsUpF0nmkImBCQBQ6RtPDK7gZyHj_Q,1095
+axisvm-1.0.2.dist-info/METADATA,sha256=a_xH33byqO8SV8PUJJRn89pv8kujEK3Ug9_wIXhtd7U,6205
+axisvm-1.0.2.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+axisvm-1.0.2.dist-info/top_level.txt,sha256=UrfcARBXK0uC5fgFVfxOS1Na6Kk2BWolds-Pg-lwon8,7
+axisvm-1.0.2.dist-info/RECORD,,
