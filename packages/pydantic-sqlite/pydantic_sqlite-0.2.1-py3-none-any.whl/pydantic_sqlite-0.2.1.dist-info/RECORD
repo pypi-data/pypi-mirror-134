@@ -1,0 +1,9 @@
+LICENSE,sha256=e5txhlPv-Kn5VIDbZayc1--0RGO0z9C4p6EmzxVXjV8,1064
+pydantic_sqlite/__init__.py,sha256=FI2EGEiaWgkTlTJ6bqglkQum9Ftyh7fMKWAuoAHoGiE,109
+pydantic_sqlite/_core.py,sha256=_YgCp0Dfbt6ipOuiScQNJbsVx7tZ3vVUoLM-5ShcYzY,11369
+pydantic_sqlite/_handler.py,sha256=CVgm-VhbuSMCK_lYrzQejBhWoYvMR9shqsYfydTb5Jc,1022
+pydantic_sqlite/_misc.py,sha256=svuk_yWgGqGuft43hmhQ1vH8erOdXUbLN3ITBWxFQcw,351
+pydantic_sqlite-0.2.1.dist-info/LICENSE,sha256=e5txhlPv-Kn5VIDbZayc1--0RGO0z9C4p6EmzxVXjV8,1064
+pydantic_sqlite-0.2.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+pydantic_sqlite-0.2.1.dist-info/METADATA,sha256=maCS_izmSh9wn4ckjQtm1GCqKLbP8ZTAxGJH28cj714,6801
+pydantic_sqlite-0.2.1.dist-info/RECORD,,
