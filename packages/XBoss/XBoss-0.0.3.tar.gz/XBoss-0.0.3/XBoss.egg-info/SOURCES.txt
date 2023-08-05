@@ -1,0 +1,8 @@
+setup.py
+XBoss/XB.py
+XBoss/__init__.py
+XBoss.egg-info/PKG-INFO
+XBoss.egg-info/SOURCES.txt
+XBoss.egg-info/dependency_links.txt
+XBoss.egg-info/requires.txt
+XBoss.egg-info/top_level.txt
