@@ -1,0 +1,4 @@
+[console_scripts]
+atmanager = autotransform.manager:main
+regexmod = autotransform.regexmod:main
+
