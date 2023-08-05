@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: subdomain-takeover-tools
+Version: 0.1
+Summary: Some helper subdomain_takeover_tools to validate subdomain takeovers
+Home-page: https://github.com/martinvw/subdomain-takeover-tools
+Author: Martin van Wingerden
+Author-email: info@martinvw.nl
+License: MIT
+Keywords: subdomain-takeover,subtake,elb,s3,shopify
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Terminals
+Classifier: Topic :: Utilities
+License-File: LICENSE
+
+UNKNOWN
+
