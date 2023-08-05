@@ -1,0 +1,15 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "qleet"
+authors = [
+    {name = "Utkarsh Azad", email = "utkarsh.azad@research.iiit.ac.in"},
+    {name = "Animesh Sinha", email = "animesh.sinha@research.iiit.ac.in"},]
+version = "0.2.0.1"
+readme = "README.md"
+description = "qLEET is an open-source library for exploring Loss landscape, Expressibility, Entangling capability and Training trajectories of noisy parameterized quantum circuits."
+
+[project.urls]
+Home = "https://github.com/QLemma/qleet/"
