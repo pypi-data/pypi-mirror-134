@@ -1,0 +1,10 @@
+README.md
+setup.py
+gitstat/__init__.py
+gitstat/gittools.py
+gitstat.egg-info/PKG-INFO
+gitstat.egg-info/SOURCES.txt
+gitstat.egg-info/dependency_links.txt
+gitstat.egg-info/entry_points.txt
+gitstat.egg-info/requires.txt
+gitstat.egg-info/top_level.txt
