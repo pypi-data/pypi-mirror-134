@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/jericho_validator/__init__.py
+src/jericho_validator/jericho.py
+src/jericho_validator.egg-info/PKG-INFO
+src/jericho_validator.egg-info/SOURCES.txt
+src/jericho_validator.egg-info/dependency_links.txt
+src/jericho_validator.egg-info/requires.txt
+src/jericho_validator.egg-info/top_level.txt
