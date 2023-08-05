@@ -1,0 +1,8 @@
+aiohttp_catcher/__init__.py,sha256=zGFHwiZRfJ-4OF_2-cbhWt1Oxa-oAlsmEbLHX9-_wlg,141
+aiohttp_catcher/canned/__init__.py,sha256=-Nio66wDkUpWTi6tfoeGUXJ6pP8mNHPn9pARXk3yByM,115
+aiohttp_catcher/canned/aiohttp_errors.py,sha256=tgBBQ6BALjIX1kU2SGNrrbdfxl1PxqFl075XUoOZJlc,4512
+aiohttp_catcher/catcher.py,sha256=oBRJ-1zSX00aLU3Md4gGUbul4o40oj_7vlbeqmf0ULA,2488
+aiohttp_catcher/scenario.py,sha256=YDIkavtc9uASJlzuenDY-eot3TdkTOYRT6obAArdcHw,2568
+aiohttp_catcher-0.3.1.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+aiohttp_catcher-0.3.1.dist-info/METADATA,sha256=QyI-6JjkThn_ab8y6AuNl7DhGpxBWPood2jP7PBxJ64,9192
+aiohttp_catcher-0.3.1.dist-info/RECORD,,
