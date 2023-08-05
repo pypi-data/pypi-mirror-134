@@ -1,0 +1,9 @@
+setup.py
+resourcies/__init__.py
+resourcies/functions.py
+resourcies/hello.py
+resourcies.egg-info/PKG-INFO
+resourcies.egg-info/SOURCES.txt
+resourcies.egg-info/dependency_links.txt
+resourcies.egg-info/not-zip-safe
+resourcies.egg-info/top_level.txt
