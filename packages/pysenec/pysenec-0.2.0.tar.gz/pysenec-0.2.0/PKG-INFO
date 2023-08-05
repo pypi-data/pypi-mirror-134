@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pysenec
+Version: 0.2.0
+Summary: Unofficial, local SENEC Battery Client
+License: Apache-2.0
+Author: Mikołaj Chwalisz
+Author-email: m.chwalisz@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
