@@ -1,0 +1,4 @@
+fastybird-metadata
+kink
+redis
+setuptools
