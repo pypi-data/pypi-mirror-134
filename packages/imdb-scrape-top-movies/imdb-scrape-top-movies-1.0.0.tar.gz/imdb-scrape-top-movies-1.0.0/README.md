@@ -1,0 +1,37 @@
+Imdb is a python library to search for top 250 movies on imdb using browser automation. 
+It currently runs only on windows.
+
+### Example 1:- Buy through Debit Card 
+In this example we first import library, then we login with cookies, then we buy product using credit/debit cards.
+```sh
+from imdb_scrape_top_movies import *
+response = scraper.scrape_imdb_top250movies()
+#response = {"body": [{"rating": "9.2","title": "The Shawshank Redemption"},......]}
+```
+
+#### BotStudio
+[bot_studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which product will be bought. To buy first login will need to be done. Login can be done either with credentials or via cookies
+
+
+### Installation
+
+```sh
+pip install imdb-scrape-top-movies
+```
+
+### Import
+```sh
+from imdb-scrape-top-movies import *
+```
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Cookies
+To login with cookies [Edit this Cookie Extension](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) can be added to browser. Please check [this](https://abhishek-chaudhary.medium.com/how-to-get-cookies-of-any-website-from-browser-22b3d6348ed2) link how to get cookies to login to your amazon.
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
