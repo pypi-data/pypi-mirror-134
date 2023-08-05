@@ -1,0 +1,15 @@
+ntfsutils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ntfsutils/fs.py,sha256=8m_2BNaJmB8WkAU-bKSDybcywFXZixkKEPy8yHFIGgY,5133
+ntfsutils/hardlink.py,sha256=Wik-UAG7YDLc9__4tkNY8iIzzGknLfDk6gzcrIeyujQ,1150
+ntfsutils/junction.py,sha256=mW4H8rnjW-vsV_AIbctq_haKNNiI7fKm31tVoy2DrPw,6701
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/common.py,sha256=tVhysxOR0pKtXnrrfrFUc2iBXHAgm3N5P7nTnucvEc0,937
+tests/test_fs.py,sha256=KPJurZZYlr650rfI7ePZuWVyQ3KD_iOHG25jVOT6kcQ,340
+tests/test_hardlink.py,sha256=qoRgElNCbvM6w6Doeh13PMfOHAluYy-FyFuVBsVsOS4,520
+tests/test_junction.py,sha256=eRBLPkppQeQGGo60uvDPGJsC1y2Ajn4VKX-Z7WKH8O0,726
+ntfsutils-0.1.5.dist-info/LICENSE,sha256=ID5VM1O07oQVQdV4vViNaIFLoQiJ2xr6gfxDqN0nHR0,1328
+ntfsutils-0.1.5.dist-info/METADATA,sha256=YPGKfob2D0NlCG_3uKCOo7gHH87Zyl63FuX0J68xmEU,2580
+ntfsutils-0.1.5.dist-info/NOTICE.txt,sha256=X9LlXdZj7T85uiSatcl5AzD_h2qdF87Kx9q6HSR-qN0,277
+ntfsutils-0.1.5.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ntfsutils-0.1.5.dist-info/top_level.txt,sha256=tY3LVF4xcNq3dcQ0Qvac4UjsioCmtSlSNjlDVl0MbC0,16
+ntfsutils-0.1.5.dist-info/RECORD,,
