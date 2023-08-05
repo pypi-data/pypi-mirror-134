@@ -1,0 +1,3 @@
+[console_scripts]
+get-correlation-dataset = npd_cat_corr.main:main
+
