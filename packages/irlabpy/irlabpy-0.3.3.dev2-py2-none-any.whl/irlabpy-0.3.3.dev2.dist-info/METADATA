@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: irlabpy
+Version: 0.3.3.dev2
+Summary: UNKNOWN
+Home-page: https://code.alipay.com/neo/irlab.git
+Author: chenghao
+Author-email: xuguiqiang.xuguiqi@antgroup.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests (~=2.25.1)
+Requires-Dist: setuptools (~=49.2.0)
+Requires-Dist: Deprecated (~=1.2.12)
+Requires-Dist: mmh3 (~=3.0.0)
+Requires-Dist: tbase (~=0.2.15)
+
+this is irlabpy python sdk
+
+
