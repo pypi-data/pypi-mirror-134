@@ -1,0 +1,12 @@
+napari_medical_image_formats/__init__.py,sha256=3VzN6AGZEbsQkBCffN_NVku0fHmy-D91U_vlrdIIoMc,245
+napari_medical_image_formats/_reader.py,sha256=92AwirICRLqxAGoxKpNH2_f7Cy5UZCBZOKWxsK_Ikr0,6054
+napari_medical_image_formats/_version.py,sha256=4ZT8isaqqfH7NGxY71VgBJQo2Zkx9ILZRpi2mfJIyt8,142
+napari_medical_image_formats/_writer.py,sha256=Pn4S8IKJyxIOOhaRIK5YFea_0P0mqCg5H4mORqLx2UE,3372
+napari_medical_image_formats/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_medical_image_formats/_tests/test_reader.py,sha256=8VbgLBf56vU6K3kurq_lfpwiqIIPwo-lKFgLeyz51RU,989
+napari_medical_image_formats-0.3.8.dist-info/LICENSE,sha256=dQjPLlenXMWkX0RodyStjePUr2Dd9YGmTCodQLqG5i0,1499
+napari_medical_image_formats-0.3.8.dist-info/METADATA,sha256=_65V52AWO82RHHXIikR0Wo3QnisMLridUaQGtrFUZ_Y,3052
+napari_medical_image_formats-0.3.8.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+napari_medical_image_formats-0.3.8.dist-info/entry_points.txt,sha256=O5nW5M82kRlx5EeZaR4mPjnCeYMrNJ8xUskEQXKs4wM,77
+napari_medical_image_formats-0.3.8.dist-info/top_level.txt,sha256=mXmLnFCpWdklfua8xtd2tSEs8-9fM4m7NPujbSYsZUI,29
+napari_medical_image_formats-0.3.8.dist-info/RECORD,,
