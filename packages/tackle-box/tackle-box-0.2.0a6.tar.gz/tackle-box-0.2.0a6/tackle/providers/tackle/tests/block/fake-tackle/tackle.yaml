@@ -1,0 +1,6 @@
+inner: innertings
+
+blocker->:
+  merge: true
+  stuff->: print here
+  things->: print "{{ stuff }}"
