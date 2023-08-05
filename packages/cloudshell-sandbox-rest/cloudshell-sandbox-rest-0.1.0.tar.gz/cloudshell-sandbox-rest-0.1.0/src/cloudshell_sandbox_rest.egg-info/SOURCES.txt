@@ -1,0 +1,13 @@
+LICENSE
+pyproject.toml
+setup.cfg
+setup.py
+src/cloudshell/__init__.py
+src/cloudshell/sandbox_rest/__init__.py
+src/cloudshell/sandbox_rest/exceptions.py
+src/cloudshell/sandbox_rest/sandbox_api.py
+src/cloudshell_sandbox_rest.egg-info/PKG-INFO
+src/cloudshell_sandbox_rest.egg-info/SOURCES.txt
+src/cloudshell_sandbox_rest.egg-info/dependency_links.txt
+src/cloudshell_sandbox_rest.egg-info/requires.txt
+src/cloudshell_sandbox_rest.egg-info/top_level.txt

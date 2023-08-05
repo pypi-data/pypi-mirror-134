@@ -1,0 +1,2 @@
+requests<3,>=2
+abstract-http-client<2,>=1
