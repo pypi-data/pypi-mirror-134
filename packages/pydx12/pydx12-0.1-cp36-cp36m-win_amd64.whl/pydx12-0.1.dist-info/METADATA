@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pydx12
+Version: 0.1
+Summary: DirectX12 python wrapper
+Home-page: https://github.com/rdeioris/pydx12
+Author: Roberto De Ioris
+Author-email: roberto.deioris@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+
+
+Exposes DirectX12 features to python.
+
+
