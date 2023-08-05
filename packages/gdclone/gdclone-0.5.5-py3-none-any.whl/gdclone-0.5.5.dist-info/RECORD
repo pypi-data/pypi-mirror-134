@@ -1,0 +1,12 @@
+folderclone/__init__.py,sha256=10_w7o2juYBrGMh32_KbveULW9jk2tejpyUAD-uC6PE,4
+folderclone/_helpers.py,sha256=PjjkXEEz4Z7bKeod6N547PfBdl1BANifeHDjR2Yl50U,1671
+folderclone/multifolderclone.py,sha256=M1vgP-7bAYncMLQ0I34JFguh5nlwvSd7VoK2IL6IgaI,13809
+folderclone/multimanager.py,sha256=AD5ZzH9H3usiYSWwWB1kUbVN_QkCWfU1TSFRYsRyl3s,12978
+folderclonecli/__init__.py,sha256=10_w7o2juYBrGMh32_KbveULW9jk2tejpyUAD-uC6PE,4
+folderclonecli/mfcparse.py,sha256=LOm0RCLJX34oZn4ZauYtRDmjXMswoukAB4V9Ta0-ik8,2254
+folderclonecli/mmparse.py,sha256=96im0itBEkQjeh-NOaAEFxSQvJkyAlgC4ZVngkz4Qcg,13340
+gdclone-0.5.5.dist-info/METADATA,sha256=0jUcf8MH9rRUlBT2EPdFJ7fdtN_utbhENcmLI4aWRoY,3223
+gdclone-0.5.5.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+gdclone-0.5.5.dist-info/entry_points.txt,sha256=vVGUHwZ0DLg4jVZdBd4Y25N9UtSInsU1qWrDf1in-xY,110
+gdclone-0.5.5.dist-info/top_level.txt,sha256=Vg2FKuaqgtyCH0HlPAO8q5o9uQlJ3o85THRM09t2-GU,27
+gdclone-0.5.5.dist-info/RECORD,,
