@@ -1,0 +1,12 @@
+arrow
+BeautifulSoup4
+click
+httpx
+lxml
+patool
+pyyaml
+tabulate
+toml
+tqdm
+yachalk
+yarl
