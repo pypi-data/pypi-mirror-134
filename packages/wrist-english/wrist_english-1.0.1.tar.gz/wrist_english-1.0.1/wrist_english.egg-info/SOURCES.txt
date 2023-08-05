@@ -1,0 +1,8 @@
+setup.py
+wrist_english/__init__.py
+wrist_english/english.py
+wrist_english.egg-info/PKG-INFO
+wrist_english.egg-info/SOURCES.txt
+wrist_english.egg-info/dependency_links.txt
+wrist_english.egg-info/requires.txt
+wrist_english.egg-info/top_level.txt
