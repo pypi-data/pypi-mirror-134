@@ -1,0 +1,12 @@
+LICENCE.md
+README.md
+setup.py
+bncode/__init__.py
+bncode/bncode.py
+bncode.egg-info/PKG-INFO
+bncode.egg-info/SOURCES.txt
+bncode.egg-info/dependency_links.txt
+bncode.egg-info/requires.txt
+bncode.egg-info/top_level.txt
+test/__init__.py
+test/create_n_decode.py
