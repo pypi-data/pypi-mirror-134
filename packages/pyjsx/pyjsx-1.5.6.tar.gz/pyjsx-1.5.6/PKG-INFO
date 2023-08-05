@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pyjsx
+Version: 1.5.6
+Summary: Extendscript to Python Bridging
+Home-page: UNKNOWN
+Author: Yahia Boudah
+Author-email: yahiabouda@hotmail.com
+License: GNU
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PYJSX
+
+Send requests to python, call python functions from within extendscript easily.
+
