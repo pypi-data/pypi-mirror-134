@@ -1,0 +1,5 @@
+blake3-0.3.0.dist-info/METADATA,sha256=j1QgIsadRNS05mMQh5uWijg3FybWQm0LVLbhTCU3H8c,4457
+blake3-0.3.0.dist-info/WHEEL,sha256=QaCZO-1jwEGC5kxVYYNk_Nf_NQhke5stDiWpAhwrmyg,103
+blake3/__init__.py,sha256=WByztplDR-KADI2kRGDiqOCmmrZWTNiOKhlcl6lcVkE,48
+blake3/blake3.cpython-39-darwin.so,sha256=P7RJ97p-T02zQg3uoUBqrAip3-gJKT1EkUC8oQWwusc,763596
+blake3-0.3.0.dist-info/RECORD,,
