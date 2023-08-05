@@ -1,0 +1,2 @@
+py_zipkin>=0.20.2
+nameko>=2.14.0
