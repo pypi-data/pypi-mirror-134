@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+_version.py
+requirements.txt
+setup.py
+cli/__init__.py
+cli/cli.py
+co_connect_pseudonymise.egg-info/PKG-INFO
+co_connect_pseudonymise.egg-info/SOURCES.txt
+co_connect_pseudonymise.egg-info/dependency_links.txt
+co_connect_pseudonymise.egg-info/entry_points.txt
+co_connect_pseudonymise.egg-info/requires.txt
+co_connect_pseudonymise.egg-info/top_level.txt
