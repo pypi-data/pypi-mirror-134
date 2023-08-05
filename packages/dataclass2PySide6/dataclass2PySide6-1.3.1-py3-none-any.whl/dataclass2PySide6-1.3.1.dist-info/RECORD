@@ -1,0 +1,12 @@
+dataclass2PySide6/__init__.py,sha256=5OZ9AIlNPjj0lVfEt55ltI9joB5L1uyCswojOwK7Im0,500
+dataclass2PySide6/dataclass_widget.py,sha256=QGXBWd1KHsJjIW2JawlZ0P7peQy6di8SvKFIcgpyvSY,9406
+dataclass2PySide6/datawidgets.py,sha256=piwHIxrAcwvPrbzLgIaN3wrOzQ8XbS4V1obv1RsH2kA,13741
+dataclass2PySide6/version.py,sha256=-ypEJktJToAL9by62JJKWEzDo_KPCQtmE5kwFgX24z4,22
+dataclass2PySide6/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataclass2PySide6/tests/test_dataclass_widget.py,sha256=4pS7tnD6KdY0LudrkW1_FIL1bPUIO-L5rbd6zbgW-aU,11641
+dataclass2PySide6/tests/test_datawidgets.py,sha256=5c51bPap5EiWG_1m0UTiWIW92WU_MVhvgQnii63BRdA,6594
+dataclass2PySide6-1.3.1.dist-info/LICENSE.txt,sha256=ZVetxLwdWSMuJ1Z6GF3XDPLsyjFUAYsL5h6inPnoFOI,7633
+dataclass2PySide6-1.3.1.dist-info/METADATA,sha256=xHtmKsqLshtBkvHda4rPYwA0fFJdnh70E9V7NVO-Lww,2757
+dataclass2PySide6-1.3.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dataclass2PySide6-1.3.1.dist-info/top_level.txt,sha256=OIuOX2br-_bdm2J87Ao26IFUteh3dwf0bV43ZMC-BqI,18
+dataclass2PySide6-1.3.1.dist-info/RECORD,,
