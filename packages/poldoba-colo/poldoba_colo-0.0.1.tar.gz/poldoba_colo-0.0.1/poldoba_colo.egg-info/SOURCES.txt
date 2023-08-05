@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+poldoba_colo/__init__.py
+poldoba_colo.egg-info/PKG-INFO
+poldoba_colo.egg-info/SOURCES.txt
+poldoba_colo.egg-info/dependency_links.txt
+poldoba_colo.egg-info/top_level.txt
