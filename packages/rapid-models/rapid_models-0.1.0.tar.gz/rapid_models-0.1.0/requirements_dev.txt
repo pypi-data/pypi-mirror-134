@@ -1,0 +1,17 @@
+bump2version
+wheel
+watchdog
+flake8
+black
+tox
+coverage
+Sphinx
+sphinx-rtd-theme
+sphinx-autoapi
+twine
+Click
+pytest
+pyDOE2
+plotly
+ipywidgets>=7.0.0
+sklearn

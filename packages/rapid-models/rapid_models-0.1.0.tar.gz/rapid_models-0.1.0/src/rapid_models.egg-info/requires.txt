@@ -1,0 +1,4 @@
+Click>=7.0
+click-log
+pyDOE2
+torch==1.10.0
