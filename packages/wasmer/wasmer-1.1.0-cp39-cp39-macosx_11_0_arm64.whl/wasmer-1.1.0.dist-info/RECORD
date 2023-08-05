@@ -1,0 +1,5 @@
+wasmer-1.1.0.dist-info/METADATA,sha256=0qvyfFck6oCTYmrZlsKA1xBPBunPvb2kOlCRH99af3g,12347
+wasmer-1.1.0.dist-info/WHEEL,sha256=SyzdjhryWQs2dAh8G5BBhz7tHo-lOfA65XIHMXvVt7I,103
+wasmer/__init__.py,sha256=OSH3Ur5wJyPwi_a6YM4jtkWyZbj0kcoHZy4BVLOHEKQ,48
+wasmer/wasmer.cpython-39-darwin.so,sha256=o13lms12GD5XEOZycWf3YUb5pk1fAPASbN-4cv3iIiw,3462732
+wasmer-1.1.0.dist-info/RECORD,,
