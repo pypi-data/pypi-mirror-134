@@ -1,0 +1,4 @@
+[console_scripts]
+mex = mmp.cli.mex:main
+mmp = mmp.cli.main:main
+
