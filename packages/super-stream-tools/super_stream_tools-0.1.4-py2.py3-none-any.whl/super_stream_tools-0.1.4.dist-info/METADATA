@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: super-stream-tools
+Version: 0.1.4
+Summary: A tool to interact with streaming URLs easily
+Home-page: https://github.com/korigamik/media-tools
+Author: KorigamiK
+Author-email: korigamik@gmail.com
+License: MIT
+Keywords: python,video,stream,video stream,encode,ffmpeg
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: asyncio
+Requires-Dist: aiohttp
+Requires-Dist: aiofiles
+
+
+# Super Stream Tools
+
+A nice, fast and asynchronous library written for python developers to interact easily with streaming URLs.
+
+
