@@ -1,0 +1,4 @@
+weasyprint
+requests-file
+requests-html
+domonic
