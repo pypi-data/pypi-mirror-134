@@ -1,0 +1,13 @@
+anyio>=3.0
+
+[doc]
+packaging
+sphinx_rtd_theme
+sphinx-autodoc-typehints>=1.2.0
+
+[test]
+aiosmtpd>=1.4.2
+coverage[toml]>=4.5
+pytest>=6.0
+trio>=0.19
+trustme
