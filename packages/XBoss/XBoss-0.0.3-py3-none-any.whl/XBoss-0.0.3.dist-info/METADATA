@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: XBoss
+Version: 0.0.3
+Summary: a library for xb_boss Developer
+Home-page: https://github.com/feignwf
+Author: F.w
+Author-email: 164175317@qq.com
+License: MIT License
+Keywords: XBOSS
+Platform: any
+Requires-Dist: requests (>=2.17.1)
+Requires-Dist: pandas (>=1.0.0)
+
+UNKNOWN
+
