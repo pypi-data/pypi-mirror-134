@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+letsdns/__init__.py
+letsdns/config.py
+letsdns/main.py
+letsdns.egg-info/PKG-INFO
+letsdns.egg-info/SOURCES.txt
+letsdns.egg-info/dependency_links.txt
+letsdns.egg-info/requires.txt
+letsdns.egg-info/top_level.txt
