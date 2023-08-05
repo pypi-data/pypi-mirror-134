@@ -1,0 +1,21 @@
+#mqtt_Thread <br />
+
+Connexion à un server mqtt via un thread <br />
+Envoi et réception des messages mqtt en Python <br />
+Trace de graphe mathPlotlib temps réel<br />
+Sauvegarde des données reçues au format csv <br />
+
+INSTALLATION :<br />
+		py -m pip mqtt_thread<br />
+		ou <br />
+		py -m pip mqtt_thread==x.x.x (mettre numéro de version)<br />
+
+exemple :<br />
+m = MQTT.MQTT_Thread("url_mqtt",8443,"username","password","proto")        # crée le thread proto ='websockets' ou 'tcp'<br />
+m.topic = ["node_iot2020/#","autre/topic/"]  # topics auquels on s'abonne<br />
+m.selectKey(["ecl","temps"]) # selection des clés des données voulues , les données seront dans m.data[0], m.data[1],... <br />
+m.record = True  # enregistrement des données True/False<br />
+m.selectNomFichier("data.csv") <br />
+m.start()     # démarre le thread, (exécution indépendante du programme principal)<br />
+...<br />
+m.client.publish("node_iot2020/test/in",payload="{\"pression\":1024}",qos=0) # publication d'un message<br />
