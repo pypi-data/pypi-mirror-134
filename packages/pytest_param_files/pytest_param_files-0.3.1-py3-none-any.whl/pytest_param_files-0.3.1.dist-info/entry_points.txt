@@ -1,0 +1,3 @@
+[pytest11]
+pytest_param_files=pytest_param_files.main
+
