@@ -1,0 +1,13 @@
+README.md
+setup.py
+prism/__init__.py
+prism/datasets.py
+prism/generate_paraphrases.py
+prism/models.py
+prism/prism_scorer.py
+prism/sequence_scorer.py
+prism_mt.egg-info/PKG-INFO
+prism_mt.egg-info/SOURCES.txt
+prism_mt.egg-info/dependency_links.txt
+prism_mt.egg-info/requires.txt
+prism_mt.egg-info/top_level.txt

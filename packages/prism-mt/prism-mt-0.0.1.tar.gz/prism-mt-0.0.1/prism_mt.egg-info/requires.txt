@@ -1,0 +1,6 @@
+sentencepiece
+fairseq
+sacrebleu
+torch
+torchvision
+pytorch-nlp
