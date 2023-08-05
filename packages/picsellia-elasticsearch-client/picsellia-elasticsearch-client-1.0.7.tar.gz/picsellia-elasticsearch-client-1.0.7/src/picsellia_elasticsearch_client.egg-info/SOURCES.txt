@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/picsellia_elasticsearch_client/__init__.py
+src/picsellia_elasticsearch_client/abstract_client.py
+src/picsellia_elasticsearch_client/alert.py
+src/picsellia_elasticsearch_client/client.py
+src/picsellia_elasticsearch_client/document.py
+src/picsellia_elasticsearch_client/error.py
+src/picsellia_elasticsearch_client/metric.py
+src/picsellia_elasticsearch_client/mocked_client.py
+src/picsellia_elasticsearch_client.egg-info/PKG-INFO
+src/picsellia_elasticsearch_client.egg-info/SOURCES.txt
+src/picsellia_elasticsearch_client.egg-info/dependency_links.txt
+src/picsellia_elasticsearch_client.egg-info/top_level.txt
