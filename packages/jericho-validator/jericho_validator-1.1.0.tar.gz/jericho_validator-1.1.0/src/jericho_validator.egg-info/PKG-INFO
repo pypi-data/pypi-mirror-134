@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: jericho-validator
+Version: 1.1.0
+Summary: Validate arbitrary base64-encoded image uploads as incoming data urls while preserving image integrity but removing EXIF and unwanted artifacts and mitigating RCE-exploit potential.
+Home-page: https://github.com/hostinfodev/jericho-validator
+Author: github.com/hostinfodev
+Author-email: aero@recon.us.com
+License: UNKNOWN
+Project-URL: Example Usage, https://github.com/hostinfodev/jericho-validator/tree/main/example
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jericho-validator
+ Validate arbitrary image uploads from incoming data urls while preserving file integrity but removing EXIF and unwanted artifacts and RCE exploit potential.
+
+### Installation
+PyPi: `pip install jericho-validator`
+
+Manually: `python setup.py install`
+
+ ### Example Usage
+```python
+
+from jericho_validator import jerichoValidator, jerichoExceptions
+
+with open('example.png.b64') as f:
+    data = f.read()
+    
+try:
+    
+    # Check the data URL (image)
+    j = jerichoValidator(data)
+
+except jerichoExceptions.ImageTooLarge:
+    print('Image is too large.')
+
+except jerichoExceptions.EmptyFileName:
+    print('File name is empty.')
+    
+except jerichoExceptions.UnsupportedImageType:
+    print('Image type not supported.')
+
+except Exception as e:
+    print(e)
+    
+if j.isValid:
+    print('Image is valid.')
+    print('Image size in bytes: ' + str(j.sizeBytes))
+    print('Image dimensions: ' + str(j.dimensions))
+    print('Image filename: ' + j.filename)
+    print('Image extension: ' + j.extension)
+    print('Image format prefix: ' + j.formatPrefix)
+    
+else:
+    print('Image is invalid.')
+
+```
+
