@@ -1,0 +1,13 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+pyEDAA.ToolSetup.egg-info/PKG-INFO
+pyEDAA.ToolSetup.egg-info/SOURCES.txt
+pyEDAA.ToolSetup.egg-info/dependency_links.txt
+pyEDAA.ToolSetup.egg-info/requires.txt
+pyEDAA.ToolSetup.egg-info/top_level.txt
+pyEDAA/ToolSetup/DataModel.py
+pyEDAA/ToolSetup/__init__.py
+pyEDAA/ToolSetup/CLI/Configure.py
+pyEDAA/ToolSetup/CLI/__init__.py
