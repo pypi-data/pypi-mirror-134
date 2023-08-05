@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+saintBioutils.egg-info/PKG-INFO
+saintBioutils.egg-info/SOURCES.txt
+saintBioutils.egg-info/dependency_links.txt
+saintBioutils.egg-info/requires.txt
+saintBioutils.egg-info/top_level.txt
