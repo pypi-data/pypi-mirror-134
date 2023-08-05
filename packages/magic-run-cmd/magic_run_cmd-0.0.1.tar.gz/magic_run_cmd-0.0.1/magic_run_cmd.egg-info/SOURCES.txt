@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+magic_run_cmd.egg-info/PKG-INFO
+magic_run_cmd.egg-info/SOURCES.txt
+magic_run_cmd.egg-info/dependency_links.txt
+magic_run_cmd.egg-info/requires.txt
+magic_run_cmd.egg-info/top_level.txt
+run_cmd/__init__.py
+run_cmd/run_cmd.py
