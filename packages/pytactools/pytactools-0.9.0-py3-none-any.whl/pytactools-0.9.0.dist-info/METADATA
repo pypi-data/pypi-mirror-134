@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pytactools
+Version: 0.9.0
+Summary: This runs my script which is great.
+Home-page: UNKNOWN
+Author: Me
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: jinja2
+
+UNKNOWN
+
