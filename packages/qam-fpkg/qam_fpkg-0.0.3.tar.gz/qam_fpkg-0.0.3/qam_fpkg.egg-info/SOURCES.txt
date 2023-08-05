@@ -1,0 +1,12 @@
+LICENCE
+README.md
+setup.py
+qam_fpkg/__init__.py
+qam_fpkg/add.py
+qam_fpkg/sub.py
+qam_fpkg.egg-info/PKG-INFO
+qam_fpkg.egg-info/SOURCES.txt
+qam_fpkg.egg-info/dependency_links.txt
+qam_fpkg.egg-info/top_level.txt
+qam_fpkg/demo/__init__.py
+qam_fpkg/demo/multi.py
