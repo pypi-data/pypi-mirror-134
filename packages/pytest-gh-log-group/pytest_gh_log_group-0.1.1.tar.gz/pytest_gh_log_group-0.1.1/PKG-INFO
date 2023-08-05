@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: pytest_gh_log_group
+Version: 0.1.1
+Summary: pytest plugin for gh actions
+Home-page: https://github.com/embedded-community/pytest_gh_log_group
+Author: Jussi Vatjus-Anttila
+Author-email: jussiva@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/embedded-community/pytest_gh_log_group
+Keywords: py.test pytest github actions log grouping
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+[![ci](https://github.com/embedded-community/pytest_gh_log_group/actions/workflows/push.yml/badge.svg)](https://github.com/embedded-community/pytest_gh_log_group/actions/workflows/push.yml)
+[![PyPI version](https://badge.fury.io/py/pytest-gh-log-group.svg)](https://pypi.org/project/pytest-gh-log-group/)
+
+
+## pytest github log grouping plugin
+
+This plugin provides grouping functionality for GitHub action console view.
+
+![img.png](img.png)
+
+### Usage
+
+```
+pip install pytest_gh_log_group
+```
+
+plugin name: `pytest_gh_log_group`
+
+activated by env variable: `GITHUB_ACTIONS`. By default, GitHub action have this variable.
+
+
+### NOTE
+
+GitHub does not currently support nesting groups.
+
+pytest prints outcome letters (.sxFE) by default, and it can't be turned off. 
+This behaviour causes conflict with GitHub grouping functionality and this library 
+not yet solve conflict perfectly. 
+However, pytest can be customized in many ways, including the outcome printing which potentially solves this conflict.
+
+
