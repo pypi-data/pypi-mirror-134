@@ -1,0 +1,8 @@
+README.md
+setup.py
+pygitt/__init__.py
+pygitt/git.py
+pygitt.egg-info/PKG-INFO
+pygitt.egg-info/SOURCES.txt
+pygitt.egg-info/dependency_links.txt
+pygitt.egg-info/top_level.txt
