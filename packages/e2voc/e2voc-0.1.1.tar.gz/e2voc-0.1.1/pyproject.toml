@@ -1,0 +1,31 @@
+[tool.black]
+line-length = 100
+target-version = ['py27']
+
+[tool.poetry]
+name = "e2voc"
+version = "0.1.1"
+description = ""
+authors = ["Andreas Oberritter <obi@saftware.de>"]
+license = "MIT"
+repository = "https://github.com/mtdcr/e2voc"
+packages = [
+    { include = "c3voc.py", from = "src" },
+    { include = "epgdb.py", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "~2.7 || ^3.6"
+requests = "^2"
+
+[tool.poetry.dev-dependencies]
+fakenigma = "^0.1.0"
+time-machine = { version = "^2.5", python = "^3.6" }
+xmlschema = { version = "^1.9", python = "^3.6" }
+
+[tool.poetry.scripts]
+c3vocupdate = "c3voc:update_streams_v2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
