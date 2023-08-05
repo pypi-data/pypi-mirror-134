@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+django_orm_filter.egg-info/PKG-INFO
+django_orm_filter.egg-info/SOURCES.txt
+django_orm_filter.egg-info/dependency_links.txt
+django_orm_filter.egg-info/requires.txt
+django_orm_filter.egg-info/top_level.txt
+orm_filter/__init__.py
+orm_filter/filter.py
