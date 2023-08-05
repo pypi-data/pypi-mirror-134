@@ -1,0 +1,1 @@
+from .decorators.classes import ClassPropertyDescriptor, classproperty 
