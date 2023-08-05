@@ -1,0 +1,14 @@
+README.md
+setup.py
+django_vendor_files.egg-info/PKG-INFO
+django_vendor_files.egg-info/SOURCES.txt
+django_vendor_files.egg-info/dependency_links.txt
+django_vendor_files.egg-info/requires.txt
+django_vendor_files.egg-info/top_level.txt
+vendor_files/__init__.py
+vendor_files/models.py
+vendor_files/management/__init__.py
+vendor_files/management/commands/__init__.py
+vendor_files/management/commands/download_vendor_files.py
+vendor_files/templatetags/__init__.py
+vendor_files/templatetags/vendor_tags.py
