@@ -1,0 +1,12 @@
+PyInquirer
+PyYAML
+grpcio
+jsonpath-rw
+paho-mqtt
+pip
+protobuf
+pyfiglet
+regex
+requests
+simplejson
+termcolor
