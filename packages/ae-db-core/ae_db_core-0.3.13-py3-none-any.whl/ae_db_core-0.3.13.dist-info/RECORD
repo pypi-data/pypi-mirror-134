@@ -1,0 +1,16 @@
+ae/db_core.py,sha256=b1EufMgjZ3PaqfJZlZHPA6ULUK0rgso3IajtFYIJD_E,37254
+ae_db_core-0.3.13.data/data/.gitignore,sha256=d1eeFmqTjr75DcXA57cJKHbLr8NMn848v7KuKTt0Li0,1929
+ae_db_core-0.3.13.data/data/.gitlab-ci.yml,sha256=j2cf9ZPG0jlLMptyiRIJ0-GqC5svNm6ESufmIWuQjq8,1615
+ae_db_core-0.3.13.data/data/CONTRIBUTING.rst,sha256=ZZ69-SxyAfF8h9DS8LB5MlK8E88LFDFnrvXRHW0_bj8,7604
+ae_db_core-0.3.13.data/data/LICENSE.md,sha256=0zjP05EXIzg2gRpEufA97J0M8oRnObpDG1QDYbGnRwE,35001
+ae_db_core-0.3.13.data/data/README.md,sha256=Q0hlswVOzxl0fZz4Jw8PvpRyflQXxmhjzHIPU5Eboxs,3123
+ae_db_core-0.3.13.data/data/SECURITY.md,sha256=D_A9jsb5rMuaoe-wnENCWU1xxAXLHfvritmzxNczFhU,607
+ae_db_core-0.3.13.data/data/dev_requirements.txt,sha256=JZMKKytH2Jc2Q5tib2Kn6sqltEMbIJUG7kJwO6MPRnk,101
+ae_db_core-0.3.13.data/data/requirements.txt,sha256=7OsMyB_e7Y_Q81W50ZOCzxOHJ19T2LyKUCu0IOfarWo,75
+ae_db_core-0.3.13.data/data/setup.py,sha256=rkX1CaCF1RdmIzQmgP8jrvp14fy41Ksm5JqlweexvsA,686
+ae_db_core-0.3.13.dist-info/LICENSE.md,sha256=0zjP05EXIzg2gRpEufA97J0M8oRnObpDG1QDYbGnRwE,35001
+ae_db_core-0.3.13.dist-info/METADATA,sha256=ZgitjPbiJQEG7WPIGSJ4ufX8wwiB7K4ltcnEcPmTSoc,5080
+ae_db_core-0.3.13.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ae_db_core-0.3.13.dist-info/top_level.txt,sha256=vUdgAslSmhZLXWU48fm8AG2BjVnkOWLco8rzuW-5zY0,3
+ae_db_core-0.3.13.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+ae_db_core-0.3.13.dist-info/RECORD,,

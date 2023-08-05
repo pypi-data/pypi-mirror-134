@@ -1,0 +1,4 @@
+# dependencies of the db_core portion
+ae_inspector
+ae_lockname
+ae_sys_core
