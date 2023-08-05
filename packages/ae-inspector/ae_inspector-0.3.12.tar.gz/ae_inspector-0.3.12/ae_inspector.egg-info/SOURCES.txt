@@ -1,0 +1,16 @@
+.gitignore
+.gitlab-ci.yml
+CONTRIBUTING.rst
+LICENSE.md
+README.md
+SECURITY.md
+dev_requirements.txt
+requirements.txt
+setup.py
+ae/inspector.py
+ae_inspector.egg-info/PKG-INFO
+ae_inspector.egg-info/SOURCES.txt
+ae_inspector.egg-info/dependency_links.txt
+ae_inspector.egg-info/requires.txt
+ae_inspector.egg-info/top_level.txt
+ae_inspector.egg-info/zip-safe
