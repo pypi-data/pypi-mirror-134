@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: sre-bot-zabbix
+Version: 0.0.8
+Summary: SRE Bot for zabbix communication
+Home-page: https://github.com/marcwimmer/sre-bot-zabbix
+Author: Marc-Christian Wimmer
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# sre-bot-zabbix
+
+Uses zabbix-sender protocol to send values (char, int, float)
+to trapped zabbix-items.
+Automatically sets hosts in zabbix and adds trapped items, that can be filled.
+
+
+# Configuration
+
+```bash
+
+``
+
