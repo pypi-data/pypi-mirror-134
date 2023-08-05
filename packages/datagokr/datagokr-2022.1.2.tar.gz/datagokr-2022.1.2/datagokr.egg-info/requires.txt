@@ -1,0 +1,4 @@
+pendulum
+pydantic
+requests
+urllib3
