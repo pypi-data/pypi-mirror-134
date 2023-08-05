@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: edc-phq9
+Version: 0.1.4
+Summary: Classes for PHQ9
+Home-page: https://github.com/clinicedc/edc-phq9
+Author: Erik van Widenfelt
+Author-email: ew2789@gmail.com
+License: GPL license, see LICENSE
+Keywords: django edc phq9
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+
+|pypi| |actions| |codecov| |downloads|
+
+edc PHQ9
+--------
+
+Classes for PHQ9 (Patient Health Questionnaire)
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-phq9.svg
+    :target: https://pypi.python.org/pypi/edc-phq9
+
+.. |actions| image:: https://github.com/clinicedc/edc-phq9/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-phq9/actions?query=workflow:build
+
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-phq9/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-phq9
+
+.. |downloads| image:: https://pepy.tech/badge/edc-phq9
+   :target: https://pepy.tech/project/edc-phq9
+
+
