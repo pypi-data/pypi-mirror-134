@@ -1,0 +1,11 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_client.py,sha256=vPvaWZGXiq3qyL41s7fjO72PE99gOayBR4s8TZQY2uQ,3951
+tests/unittest_client.py,sha256=zwmvbcFswA24OgyDACg1eccr-nsm_bKOB_KYEpJg0zI,6005
+tests/test_data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_data/img_group_test_blurb.py,sha256=5-hV0sSHVXKxUsBd_I1caM0vSJ82U4Rhr8nP6l-E4ws,13911
+tests/test_data/interpolation_test_blurb.py,sha256=IpsIXzRsFA24qvQhlGqkSlAS5xWXlaN5RebXc-4rw2A,4909
+cord_client_python-0.1.22.dist-info/LICENSE,sha256=q0LFX6EkzNIoCmYsQTSvqlyeNCBLtUg39u5WEQbDjM4,11330
+cord_client_python-0.1.22.dist-info/METADATA,sha256=mczX6leMUwNBrNFlIkPfP1mfOOeWju8Gv5liyc6wTjs,3088
+cord_client_python-0.1.22.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+cord_client_python-0.1.22.dist-info/top_level.txt,sha256=EdW7283x-lr_cbuivW8Ij7ANAP-ZJ9sLtILQseEPxXg,6
+cord_client_python-0.1.22.dist-info/RECORD,,
