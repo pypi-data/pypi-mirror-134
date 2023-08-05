@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: underpants
+Version: 0.1.0
+Summary: Leverage the Rules Engine from the Pants Build System as a library.
+Home-page: UNKNOWN
+License: MIT
+Project-URL: Documentation, https://github.com/kaos/underpants/wiki
+Project-URL: Source, https://github.com/kaos/underpants
+Project-URL: Tracker, https://github.com/kaos/underpants/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+
+UNKNOWN
+
