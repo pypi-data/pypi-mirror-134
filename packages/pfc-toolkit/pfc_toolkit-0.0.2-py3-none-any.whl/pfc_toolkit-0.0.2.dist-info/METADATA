@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pfc-toolkit
+Version: 0.0.2
+Summary: The Precomputed Functional Connectome Toolkit
+Home-page: https://github.com/thewilliamdrew/pfc-toolkit
+Author: William Drew
+Author-email: william.drew100@gmail.com
+License: BSD License
+Project-URL: Bug Tracker, https://github.com/thewilliamdrew/pfc-toolkit/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tqdm
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: nilearn
+Requires-Dist: natsort
+Requires-Dist: importlib
+
+# pfc-toolkit
+The Precomputed Functional Connectome Toolkit
+
+
