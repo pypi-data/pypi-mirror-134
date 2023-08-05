@@ -1,0 +1,15 @@
+webarticlecurator/__init__.py,sha256=H_ket_kAmpzTa6QIbW9bdkywNrG1F_5MkAt9IjC3YRc,749
+webarticlecurator/__main__.py,sha256=sm7eR3uthxT3MjVM8fsaTNu4Bx-qDTQSaUvmbsT12-o,17464
+webarticlecurator/crawl_schema.yaml,sha256=3Y55s3zz9NyTi4TkqfjDjykCeUTMsQ4ANnhUbS8NxxY,567
+webarticlecurator/enhanced_downloader.py,sha256=m-KWjyblqKOHuoxv1RYXC4P_ChBFDf1pzw5kllLDYqk,24697
+webarticlecurator/logger.py,sha256=WiTFwtxkCn2pn5pa9qGiWzub4QYR8l2wmDgYtysfHVM,6411
+webarticlecurator/news_crawler.py,sha256=MkDfhVggO4YYW5tAfFvKpgtn8nbUUFVs0hs8ynSVk5o,22720
+webarticlecurator/other_modes.py,sha256=PXOtpKgeSkRltBrdiA1CpoJJPDfqkpKppntwknFmG0Q,6663
+webarticlecurator/site_schema.yaml,sha256=clzntNhruLusoGLIHC1TbJB8TGPiHsixfsglI776VDI,1689
+webarticlecurator/utils.py,sha256=k5VjQDkdzhK8ZvbgwgEYSpIStvpm2C6VhQ31QM-TAR0,12752
+webarticlecurator/version.py,sha256=u0PkCNcxFCUHhuWoGd64xeNinI_dlMbNMUtI6SNEunU,205
+webarticlecurator-1.10.0.dist-info/entry_points.txt,sha256=iNaV8s89rKKBjOcKL8fR8Nj-tzi_CovJSqiCQRmXkLo,69
+webarticlecurator-1.10.0.dist-info/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+webarticlecurator-1.10.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+webarticlecurator-1.10.0.dist-info/METADATA,sha256=Rz_Cv3JTxMUs7pq0Y8h97GiFnHWJMXZYj82damQ6dVE,14990
+webarticlecurator-1.10.0.dist-info/RECORD,,
