@@ -1,0 +1,6 @@
+# dependencies of the lisz_app_data portion
+ae_base
+ae_files
+ae_i18n
+ae_core
+ae_gui_app
