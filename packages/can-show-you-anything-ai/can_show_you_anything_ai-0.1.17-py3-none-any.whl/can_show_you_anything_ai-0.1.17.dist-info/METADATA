@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: can-show-you-anything-ai
+Version: 0.1.17
+Summary: 
+Author: Richard Brooker
+Author-email: richard@anghami.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: Pillow (==9.0.0)
+Requires-Dist: attrs (==21.2.0)
+Requires-Dist: filelock (==3.4.0)
+Requires-Dist: fire (>=0.4.0,<0.5.0)
+Requires-Dist: folium (==0.2.1)
+Requires-Dist: ftfy (>=6.0.3,<7.0.0)
+Requires-Dist: imgaug (==0.2.6)
+Requires-Dist: regex (>=2021.11.10,<2022.0.0)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: torch (>=1.10.0+cu111,<2.0.0)
+Requires-Dist: tqdm (==4.62.3)

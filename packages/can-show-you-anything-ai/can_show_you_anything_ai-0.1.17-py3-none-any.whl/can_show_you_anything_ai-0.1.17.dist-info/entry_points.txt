@@ -1,0 +1,5 @@
+[console_scripts]
+show_me_a=txt2img:cli
+showme=txt2img:cli
+showmea=txt2img:cli
+
