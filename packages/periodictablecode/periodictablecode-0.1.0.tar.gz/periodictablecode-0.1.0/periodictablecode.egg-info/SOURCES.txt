@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+periodictablecode/periodictablecode.py
+periodictablecode.egg-info/PKG-INFO
+periodictablecode.egg-info/SOURCES.txt
+periodictablecode.egg-info/dependency_links.txt
+periodictablecode.egg-info/top_level.txt
