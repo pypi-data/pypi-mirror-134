@@ -1,0 +1,11 @@
+[console_scripts]
+stor = stor.cmds.stor:main
+stor_farmer = stor.server.start_farmer:main
+stor_full_node = stor.server.start_full_node:main
+stor_full_node_simulator = stor.simulator.start_simulator:main
+stor_harvester = stor.server.start_harvester:main
+stor_introducer = stor.server.start_introducer:main
+stor_timelord = stor.server.start_timelord:main
+stor_timelord_launcher = stor.timelord.timelord_launcher:main
+stor_wallet = stor.server.start_wallet:main
+
