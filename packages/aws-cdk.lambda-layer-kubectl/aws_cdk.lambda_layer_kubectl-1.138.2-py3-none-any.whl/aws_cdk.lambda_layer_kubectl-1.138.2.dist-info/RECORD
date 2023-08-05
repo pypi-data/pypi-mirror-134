@@ -1,0 +1,10 @@
+aws_cdk/lambda_layer_kubectl/__init__.py,sha256=udqrhh9MxZoUfQHSgUkpaUJEVqXVuxidsPwnWfxqruI,1799
+aws_cdk/lambda_layer_kubectl/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/lambda_layer_kubectl/_jsii/__init__.py,sha256=lZ1lzzz8cue1WjPf-ytEau5N4vVWCrTjh9MUK7JFR3w,436
+aws_cdk/lambda_layer_kubectl/_jsii/lambda-layer-kubectl@1.138.2.jsii.tgz,sha256=6vzS1hW2KZnlw0YsQKWJ4aBOtENw0fbEwkscGwtrElQ,24197844
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/LICENSE,sha256=wX3LqRrxZ97zcDpw0dQ58Zb9AQalEDmXs6nP39muv7o,11391
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/METADATA,sha256=mIw3SrIq-5ZDpe6sZs4xHnI6gQx5dwe2RFE5Kifvby8,2026
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/NOTICE,sha256=yjhf0JCtt_IhBaFNSl1EnemzHFmxZH68skY1WLMuOJI,1443
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.lambda_layer_kubectl-1.138.2.dist-info/RECORD,,
