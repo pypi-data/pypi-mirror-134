@@ -1,0 +1,6 @@
+README.md
+setup.py
+emily_test_pip.egg-info/PKG-INFO
+emily_test_pip.egg-info/SOURCES.txt
+emily_test_pip.egg-info/dependency_links.txt
+emily_test_pip.egg-info/top_level.txt
