@@ -1,0 +1,15 @@
+README.md
+setup.py
+intuitive_vectorscript/__init__.py
+intuitive_vectorscript/dialog.py
+intuitive_vectorscript/dialog_item.py
+intuitive_vectorscript/item_multiple_choices.py
+intuitive_vectorscript/item_single_value_field.py
+intuitive_vectorscript/main.py
+intuitive_vectorscript/test.py
+intuitive_vectorscript/usefull_classes.py
+intuitive_vectorscript/usefull_functions.py
+intuitive_vectorscript.egg-info/PKG-INFO
+intuitive_vectorscript.egg-info/SOURCES.txt
+intuitive_vectorscript.egg-info/dependency_links.txt
+intuitive_vectorscript.egg-info/top_level.txt
