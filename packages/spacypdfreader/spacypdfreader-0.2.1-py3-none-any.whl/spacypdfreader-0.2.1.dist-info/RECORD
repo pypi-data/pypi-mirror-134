@@ -1,0 +1,12 @@
+spacypdfreader/__init__.py,sha256=np_n6O3ifzUZqLgme2wNj_iA0ICYKLbvAdrQP4OjOlw,76
+spacypdfreader/_utils.py,sha256=2HxRyUbcwZPPfcCz50FdHr8uMqQrNCk5wUh_-mmEUuk,1520
+spacypdfreader/console.py,sha256=UpMqeJ0C8i0pkue1AHnnyyX0bFJ9zZeJ7HBR6yhuA8A,54
+spacypdfreader/parsers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spacypdfreader/parsers/base.py,sha256=F9sIRci6v5005eEjJ_T0OA7KYs2IHH3Jla9uXBtaw0Y,1140
+spacypdfreader/parsers/pdfminer.py,sha256=6WwEa81AbE08_7WwVyOOdVwbBgVcqA9hRjrv0NCwQZM,2688
+spacypdfreader/parsers/pytesseract.py,sha256=N-TfAiLwPQN7_4c2laV6fjc5QzFnGu7gYZY-zJB5zuE,2918
+spacypdfreader/spacypdfreader.py,sha256=ch4ilmY2AgX8I__bD6nGBWb09BKhpW4nN6JnGQPvkBg,4284
+spacypdfreader-0.2.1.dist-info/LICENSE,sha256=LpHtcLiCjLcTeTkhrrAxvWVgVgEGPc86FRr84axY86g,1069
+spacypdfreader-0.2.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+spacypdfreader-0.2.1.dist-info/METADATA,sha256=6kltgI2mf8tYARQhE6YKoEH2pY_eCrHPU2cu9LsQrDI,5038
+spacypdfreader-0.2.1.dist-info/RECORD,,
