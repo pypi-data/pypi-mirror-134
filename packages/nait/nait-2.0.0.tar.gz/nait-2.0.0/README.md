@@ -1,0 +1,111 @@
+---
+
+# Nait
+
+---
+
+**Neural network module**
+**Made to be easy and fast**
+
+## Network - *class*
+
+---
+
+### Syntax
+
+**`Network()`**
+
+## train - *method*
+
+---
+
+### Syntax
+
+**`train(x, y, layer_size, layers, activation_function, learning_rate, epochs, backup)`**
+
+### Arguments
+
+- x `list` --- training inputs
+- y `list` --- training outputs
+- layer_size `integer` --- number of neurons in hidden layers
+- layers `integer` --- if the time when logged should be displayed in the message
+- activation_function `string` --- function applied to the output of each layer (linear / relu / step / sigmoid / leaky_relu)
+- learning_rate `float` --- how fast the network learns (faster learning may result in lower precision)
+- epochs `integer` --- number of epochs the network should train for
+- backup `string` --- file to backup network while training (if left blank or set to None the network will not backup)
+
+## predict - *method*
+
+---
+
+### Syntax
+
+**`predict(input)`**
+
+### Arguments
+
+- input `list` --- input
+
+## save - *method*
+
+---
+
+### Syntax
+
+**`save(file)`**
+
+### Arguments
+
+- file `string` --- file to save network to
+
+## load - *method*
+
+---
+
+### Syntax
+
+**`load(file)`**
+
+### Arguments
+
+- file `string` --- file to load network from
+
+## evaluate - *method*
+
+---
+
+### Syntax
+
+**`evaluate(x, y)`**
+
+### Arguments
+
+- x `list` --- testing inputs
+- y `list` --- testing outputs
+
+---
+
+# Nait v2.0.0 - Change Log
+
+---
+
+- Complete re-write
+
+- Added more network structure customization
+- Added activation functions
+- Added network backup
+- Added ability to have multiple saved networks in the same folder
+- Added ability to save / load networks from files
+- Added evaluation function
+- Added customizable training speed
+
+- Improved training algorithm
+- Improved training speed
+
+- Changed training display
+
+- Removed automatic saving after training
+- Removed having to load each function
+- Removed numpy dependency
+
+---
