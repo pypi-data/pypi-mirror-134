@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+ipyvtklink/__init__.py
+ipyvtklink/_version.py
+ipyvtklink/constants.py
+ipyvtklink/throttler.py
+ipyvtklink/viewer.py
+ipyvtklink.egg-info/PKG-INFO
+ipyvtklink.egg-info/SOURCES.txt
+ipyvtklink.egg-info/dependency_links.txt
+ipyvtklink.egg-info/requires.txt
+ipyvtklink.egg-info/top_level.txt
