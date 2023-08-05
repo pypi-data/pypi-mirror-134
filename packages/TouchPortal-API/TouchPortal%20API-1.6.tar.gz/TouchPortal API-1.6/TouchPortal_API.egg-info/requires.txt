@@ -1,0 +1,5 @@
+pyee
+requests
+
+[dev]
+pdoc
