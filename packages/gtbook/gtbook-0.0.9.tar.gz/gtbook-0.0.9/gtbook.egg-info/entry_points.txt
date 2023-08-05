@@ -1,0 +1,4 @@
+[console_scripts]
+gtbook_add_copyright = gtbook.cli:add_copyright
+gtbook_rename = gtbook.cli:rename
+
