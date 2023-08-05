@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "can_show_you_anything_ai"
+version = "0.1.17"
+description = ""
+authors = ["Richard Brooker <richard@anghami.com>"]
+packages = [
+    { include = "txt2img"},
+    { include = "can_show_you_anything_ai"},
+    { include = "show_anything"},
+    { include = "glide_text2im"},
+    { include = "glide_text2im/clip"},
+    { include = "glide_text2im/tokenizer"},
+]
+include = [
+	'glide_text2im/tokenizer/*.gz',
+	'glide_text2im/clip/*.yaml',
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fire = "^0.4.0"
+imgaug = "0.2.6"
+folium = "0.2.1"
+Pillow = "9.0.0"
+attrs = "21.2.0"
+torch = "^1.10.0+cu111"
+filelock = "3.4.0"
+requests = "2.23.0"
+tqdm = "4.62.3"
+ftfy = "^6.0.3"
+regex = "^2021.11.10"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+showme = "txt2img:cli"
+showmea = "txt2img:cli"
+show_me_a = "txt2img:cli"
