@@ -1,0 +1,8 @@
+meta_weather_cli/__init__.py,sha256=0cWkcRqWLPsNOOI2leNQM7gTcf7xT0X6BtZSP1QAyG4,19
+meta_weather_cli/city.py,sha256=chtOFN4qvd3htRORgzNbB_F1EvGRF0waIuKOrmH2OFY,897
+meta_weather_cli/cli.py,sha256=jg96PXC6SatgzuL_zx1_dQQXum-w4O-iSpfW_4u_R1U,648
+meta_weather_cli/country.py,sha256=r_dT1IdAjXoDFlRQrg7sKpsCjEIBag84-8SiWxrbxBY,104
+meta_weather_cli-0.1.7.dist-info/entry_points.txt,sha256=StjaT8K4MGdLgb-zIS7KSPFjESbDoDccso0f-QpNVsI,57
+meta_weather_cli-0.1.7.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+meta_weather_cli-0.1.7.dist-info/METADATA,sha256=eU8kQINGdY8_ZKqi0ngleCMe8LNmnHbe_XZEtqdcmSo,319
+meta_weather_cli-0.1.7.dist-info/RECORD,,
