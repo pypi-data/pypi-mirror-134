@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+moshpdf/__init__.py
+moshpdf/text2pdf.py
+moshpdfggkiller.egg-info/PKG-INFO
+moshpdfggkiller.egg-info/SOURCES.txt
+moshpdfggkiller.egg-info/dependency_links.txt
+moshpdfggkiller.egg-info/top_level.txt
