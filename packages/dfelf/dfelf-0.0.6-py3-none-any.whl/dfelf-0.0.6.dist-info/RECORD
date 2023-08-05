@@ -1,0 +1,11 @@
+dfelf/__init__.py,sha256=O7r5peO9ujBZZVfa3exQX3-mU6f8V2ME6KEtsfexAN4,146
+dfelf/commons.py,sha256=9xKXyNGXZl9VN6SlXKr9gNg4wg3aHoYXFcW9FQttKzg,1019
+dfelf/cvsfileelf.py,sha256=kZKeiQl-U6f584OJstkk8zrsI2CAQgIxV0GjHE0d9Yk,21459
+dfelf/datafileelf.py,sha256=VrxbCGATgKvZxiddkRUYkhy99e9zJJ9A35Tpb5MSRtg,2698
+dfelf/imagefileelf.py,sha256=AUHDFJV1dOlJaLgXp1iK2howKLtt6-87kwrK9jGee1A,14744
+dfelf/pdffileelf.py,sha256=giaaGBLDLb8oxcrN889zPY25kap7cu9edhNUrqqEYyk,8853
+dfelf-0.0.6.dist-info/LICENSE,sha256=h1e8DPh-OUUfenwpKq4Bh-0XzzCQPuI-4iVaenYLRiU,1064
+dfelf-0.0.6.dist-info/METADATA,sha256=3weStwD6MREu-8Npuk_cff4HUzVdYjH3Du9KIVCbMvc,7683
+dfelf-0.0.6.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dfelf-0.0.6.dist-info/top_level.txt,sha256=pkth8GNfn__jecrSEkrFYbzPFwyEOSw-ZPHKDlt4iJ4,6
+dfelf-0.0.6.dist-info/RECORD,,
