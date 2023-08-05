@@ -1,0 +1,5 @@
+requests~=2.25.1
+setuptools~=49.2.0
+Deprecated~=1.2.12
+mmh3~=3.0.0
+tbase~=0.2.15
