@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: im-data-manager-job-decoder
+Version: 1.0.0
+Summary: Job decoding logic
+Home-page: https://github.com/informaticsmatters/data-manager-job-decoder
+Author: Alan Christie
+Author-email: achristie@informaticsmatters.com
+License: MIT
+Keywords: jinja2 decoder
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: POSIX :: Linux
+License-File: LICENSE
+Requires-Dist: jinja2 (==3.0.3)
+
+Informatics Matters Data Manager Job Decoder
+============================================
+
+.. image:: https://badge.fury.io/py/im-data-manager-job-decoder.svg
+   :target: https://badge.fury.io/py/im-data-manager-job-decoder
+   :alt: PyPI package (latest)
+
+Installation (Python)
+=====================
+
+The Job decoder is published on `PyPI`_ and can be installed from
+there::
+
+    pip install im-data-manager-job-decoder
+
+.. _PyPI: https://pypi.org/project/im-data-manager-job-decoder
+
+Get in touch
+============
+
+- Report bugs, suggest features or view the source code `on GitHub`_.
+
+.. _on GitHub: https://github.com/informaticsmatters/data-manager-job-decoder
+
+
