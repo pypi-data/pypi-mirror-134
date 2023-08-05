@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/toggl_to_sqlite/__init__.py
+src/toggl_to_sqlite/cli.py
+src/toggl_to_sqlite/utils.py
+src/toggl_to_sqlite.egg-info/PKG-INFO
+src/toggl_to_sqlite.egg-info/SOURCES.txt
+src/toggl_to_sqlite.egg-info/dependency_links.txt
+src/toggl_to_sqlite.egg-info/entry_points.txt
+src/toggl_to_sqlite.egg-info/requires.txt
+src/toggl_to_sqlite.egg-info/top_level.txt
