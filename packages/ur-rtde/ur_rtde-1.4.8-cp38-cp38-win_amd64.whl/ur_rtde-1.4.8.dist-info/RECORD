@@ -1,0 +1,14 @@
+dashboard_client.cp38-win_amd64.pyd,sha256=SBMihCcjMDXbyko8qL9iQsl1YMxkKNFYXNpKSNULupI,890880
+rtde.dll,sha256=kvnkQBlTYKMUj5pUKMEGEvw2q4-wxpu0JamaBTnQIto,656896
+rtde_control.cp38-win_amd64.pyd,sha256=MehkWJDlEINrNwJBXcwLAg1OpBrJMRm5x8YdmHlxSkU,890880
+rtde_io.cp38-win_amd64.pyd,sha256=Ooe5XmkuT7ahfWXe2-Gv5F_jkymbkiiac-OqMKlEd4c,890880
+rtde_receive.cp38-win_amd64.pyd,sha256=R_teCcN-_zl0-_fvDUIN9NlvUn_CSlh7aa_w0yQWm8c,890880
+script_client.cp38-win_amd64.pyd,sha256=mjZKipCaDbK76Z8p3vpZ9eoHJ_5qDLD0Vw7oBkw6ddc,890880
+ur_rtde-1.4.8.data/platlib/.load-order-ur_rtde-1.4.8,sha256=wy-BqAd9rm5_gtQrsXWxdm3TyuLUPdh3D29l4NtpzCo,14
+ur_rtde-1.4.8.data/platlib/msvcp140.dll,sha256=qBAokdBrXyHDXGfkqybrhPVEBbZ-Z-r3Xa3GLO8ItVo,567688
+ur_rtde-1.4.8.dist-info/DELVEWHEEL,sha256=WIIfhId5iwmA6OXIHbOqYHx6r0498C62OrycbzG_xyU,8
+ur_rtde-1.4.8.dist-info/LICENSE,sha256=HR_7k5ktn43zLc5GcfDkfEMLtUfcZMpZTCIm9decX6A,1113
+ur_rtde-1.4.8.dist-info/METADATA,sha256=mpIKsJg0UuEQaUWvgFpsVmwR7yVM2ujUIN1HlIbxrCo,4422
+ur_rtde-1.4.8.dist-info/RECORD,,
+ur_rtde-1.4.8.dist-info/top_level.txt,sha256=cQHKhzqRqcreja5_610bk4zuPL8gRTlbyD9EqDEkiy8,8
+ur_rtde-1.4.8.dist-info/WHEEL,sha256=HLtxc_HoM-kGM7FPJVPSnTt0Nv2G3fZEAjT3ICdG8uY,100
