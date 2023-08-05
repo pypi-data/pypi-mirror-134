@@ -1,0 +1,9 @@
+OlivOS/__init__.py,sha256=igq8g5mg7QdeIkCHC7LsWJYfTVwGe9JfWFKkAxvSlQI,1254
+OlivOS/messageAPI.py,sha256=ACeTwSt5AT7OJZjHGI6P-ig3NwBH21zZQ7P9faviNXc,29745
+OlivOS/middlewares/__init__.py,sha256=USGZgn6PZyiNIjgUS0pk95f6QU7M2Fa1CXbeLshLnms,7467
+OlivOS/middlewares/onebot.py,sha256=DIDAkBr2CP_akEGLWx3vyU4lxCiWaNUpHeOHf8MzBhQ,7982
+OlivOS/plugin.py,sha256=p-G_CgwkVr_fA5AaQvO3A5NRNMJOBnwitL6NXjxXcN0,3226
+olivos.nb2-0.1.5.dist-info/LICENSE,sha256=ILBn-G3jdarm2w8oOrLmXeJNU3czuJvVhDLBASWdhM8,34522
+olivos.nb2-0.1.5.dist-info/WHEEL,sha256=FMw6u7Kp3jrdDDtJRZ3hkPV-9adLQT8pbM4iifKUGfw,85
+olivos.nb2-0.1.5.dist-info/METADATA,sha256=kvTHvtip7uxnEBAzYpWT_diyJqF7IbMp2z0P01zXQyc,1638
+olivos.nb2-0.1.5.dist-info/RECORD,,
