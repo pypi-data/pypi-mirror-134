@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/dev/__init__.py
+src/dev/boot.py
+src/django_devapp.egg-info/PKG-INFO
+src/django_devapp.egg-info/SOURCES.txt
+src/django_devapp.egg-info/dependency_links.txt
+src/django_devapp.egg-info/entry_points.txt
+src/django_devapp.egg-info/requires.txt
+src/django_devapp.egg-info/top_level.txt
