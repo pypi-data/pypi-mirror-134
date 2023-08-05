@@ -1,0 +1,9 @@
+# dependencies of the gui_app portion
+ae_base
+ae_files
+ae_paths
+ae_updater
+ae_inspector
+ae_i18n
+ae_core
+ae_console
