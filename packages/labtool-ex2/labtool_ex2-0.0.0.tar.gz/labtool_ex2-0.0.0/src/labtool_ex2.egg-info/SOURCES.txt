@@ -1,0 +1,13 @@
+LICENSE
+pyproject.toml
+setup.cfg
+setup.py
+src/labtool_ex2/Equation.py
+src/labtool_ex2/Project.py
+src/labtool_ex2/__init__.py
+src/labtool_ex2.egg-info/PKG-INFO
+src/labtool_ex2.egg-info/SOURCES.txt
+src/labtool_ex2.egg-info/dependency_links.txt
+src/labtool_ex2.egg-info/not-zip-safe
+src/labtool_ex2.egg-info/requires.txt
+src/labtool_ex2.egg-info/top_level.txt
