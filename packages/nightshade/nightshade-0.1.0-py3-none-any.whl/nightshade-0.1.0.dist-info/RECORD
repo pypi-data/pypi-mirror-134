@@ -1,0 +1,12 @@
+nightshade/__init__.py,sha256=lpCZSkUtWYoEkxBzSFIM2m8mFIr1LleTpNtuCn979S8,639
+nightshade/csv.py,sha256=hs3t-kkGw3bu7I31DASOA2w1RiMgi-gakC_jrrLPs1w,7135
+nightshade/models.py,sha256=sBzoiGh-TTFhJ5Qv6a58HagaNf0Vq5TiupJZWoUNkWI,323
+nightshade/notion.py,sha256=ttMAEvTFA-7pfc_6ngYYPZ-s_PY6TN-YqLKoEidW250,7189
+nightshade/rottentomatoes.py,sha256=djU8e40164iqBWtggFeBlchbdygouZHFLjMOSAUQeqA,3844
+nightshade/search.py,sha256=xHMJYInCd16_m2HhfHrkY5uoZ9nL2m8dVpCJxRpOu44,1876
+nightshade/util.py,sha256=LoRwWVgiCcfsyVvL1Qyv4ipMXeq00L6ci5Nfc14pgSE,249
+nightshade-0.1.0.dist-info/entry_points.txt,sha256=o-b2e3BgyY1831CQETUJWp4a8V3FDyXjfwWW-4Q1YmQ,52
+nightshade-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+nightshade-0.1.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+nightshade-0.1.0.dist-info/METADATA,sha256=BNY2XrDmuqgy-KvoqxXYF98T12SoIuzmbVhG3mfszzc,637
+nightshade-0.1.0.dist-info/RECORD,,
