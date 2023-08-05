@@ -1,0 +1,17 @@
+spm12/__init__.py,sha256=Tq48sTZpJmUNx7D6ckLVfIJT24f6P_CQ1vU4ZDg9pu4,382
+spm12/__main__.py,sha256=BuuN_ZIxBZcdvg8wt2ZvdIZueVaXyJWpA1IIZi-74Is,137
+spm12/_dist_ver.py,sha256=b6-WiVk0Li5MaV2rBnHYl104TsouINojSWKqHDas0js,22
+spm12/amypad_coreg.m,sha256=OQipnQFpeT0lMMMPMbXy_NRBbh0G1tAT5_0Ul1prGVg,776
+spm12/amypad_coreg_modify_affine.m,sha256=3cf6pKtb5HU082UqziLxQnHGa-Z_SSi6IdObMQPgJNY,186
+spm12/amypad_normw.m,sha256=onK8mdr0d8TDSe49LbGq5nBN2llgkpH05ESowVeDM1w,303
+spm12/amypad_resample.m,sha256=Snmtg6541js52Fc8ASJrA9yQxsLpJhWHMCuF54xgyw0,641
+spm12/amypad_seg.m,sha256=h16FGQTZx8oUD0Os1Ux95F6q8Ar752FQfqW_MePNwtA,1792
+spm12/cli.py,sha256=sMJYWtdzQ8FDmus1LLI26MEwjd8K7bBjYk1VI4zsPHk,565
+spm12/regseg.py,sha256=erOKm6qqCv2D0Leoi7l26zKllP1KdJMHrUzEkDvMNd8,12115
+spm12/utils.py,sha256=Q34S20owaIdR8JeQgZGMy_BJZ4GwBoj0aDQsvRhzERE,2094
+spm12-1.1.0.dist-info/LICENCE.md,sha256=TzsQFOqgBCdjDy7PkwtmP-jGs6V2sYZ0KIyCpsWBBnQ,550
+spm12-1.1.0.dist-info/METADATA,sha256=bHg56uRBqIeJJTMDJiNC7DtbyZHtr7HEvcq5nBGO-kM,3713
+spm12-1.1.0.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+spm12-1.1.0.dist-info/entry_points.txt,sha256=Rq8DURN6DPMjUEvRtpbDDBW8ax54kfVuqZqXAWMCor4,42
+spm12-1.1.0.dist-info/top_level.txt,sha256=T8iVTXHUwKi7ZV3HDqKqGKTPUXffKgcFnuDARyP95nU,6
+spm12-1.1.0.dist-info/RECORD,,
