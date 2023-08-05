@@ -1,0 +1,10 @@
+hhs_vertretungsplan_parser/__init__.py,sha256=JMD28FXYHc_TM03visyUSd3UA9FZAaJMRStnfZoq50Y,21
+hhs_vertretungsplan_parser/const.py,sha256=K46CV_zFkeXRVcmQsWBK5lU2mlNNaH35Y-ltocvCHfY,227
+hhs_vertretungsplan_parser/vertretungsplan_parser.py,sha256=yskcHR0gulnEL1D2iCRqA7cfjziuN80uRZTy21sBeNI,5447
+hhs_vertretungsplan_parser/model/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hhs_vertretungsplan_parser/model/vertretung.py,sha256=RoUegFL0G4i6ZgE9-nOr80rjoU77QzhseLfPEqIu9mA,998
+hhs_vertretungsplan_parser-0.1.4.dist-info/LICENSE,sha256=ZjxOfQcjMNXUb1lA0RhnRy-cWgjI5OO_oNz7qqR5aMY,1085
+hhs_vertretungsplan_parser-0.1.4.dist-info/METADATA,sha256=na2f4VF2yuUC00AzLeIVMBwNpiHY-CdTAvoZdUET0KQ,2074
+hhs_vertretungsplan_parser-0.1.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+hhs_vertretungsplan_parser-0.1.4.dist-info/top_level.txt,sha256=pXnhV3eLYaEnsCKCg1OivUGOZ3TnBiIUFVtK7wkzwy8,27
+hhs_vertretungsplan_parser-0.1.4.dist-info/RECORD,,
