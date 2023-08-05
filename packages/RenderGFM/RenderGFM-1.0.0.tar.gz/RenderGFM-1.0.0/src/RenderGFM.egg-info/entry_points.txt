@@ -1,0 +1,3 @@
+[console_scripts]
+rendergfm = rendergfm.__main__:main
+
