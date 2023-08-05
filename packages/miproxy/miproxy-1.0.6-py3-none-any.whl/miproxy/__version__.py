@@ -1,0 +1,10 @@
+__title__ = 'miproxy'
+__description__ = 'miproxy'
+__url__ = 'https://minhht.com'
+__version__ = '1.0.6'
+__build__ = 0x010600
+__author__ = 'MinhHT'
+__author_email__ = 'htm.dev304@gmail.com'
+__license__ = ''
+__copyright__ = 'Copyright 2022 MinhHT'
+__cake__ = u'\u2728 \U0001f370 \u2728'
