@@ -1,0 +1,15 @@
+uhlive/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uhlive/stream/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uhlive/stream/conversation/__init__.py,sha256=a98yNQVlM_EfTJr32rd2f2SCB10bx-XhoD5A-kjLFhY,390
+uhlive/stream/conversation/client.py,sha256=3c8AYLom-U9sW-pv4wArkdQvaOY4K7n-nlnsY1m8HUw,6128
+uhlive/stream/conversation/error.py,sha256=IDZFQWx8qpZ0O7Ia2j5ISYCcQlf-zVpaEXIBGLPrE84,39
+uhlive/stream/conversation/events.py,sha256=czRxnUS0r11RalZd-eTjfXUXRZ2D-M4pVozR34OBNts,9537
+uhlive/stream/conversation/human_datetime.py,sha256=R8oGAKHJ0g7voWtBdmSG6JXyP1uZhMcx0ZAs_bX8wLI,214
+uhlive/stream/recognition/__init__.py,sha256=FMJdemMrYfQ2n2WrE4nB9z2_ij2GC9WLohE4kAGVbTQ,84
+uhlive/stream/recognition/client.py,sha256=2SV8ZWhetJJspXg30_TEiiTegcEEzsLeWWCg_ii3Zls,6364
+uhlive/stream/recognition/events.py,sha256=62AO7u3YldffZz1L62u3Ozr4gDvZZ_dwhfzdIwxHIgk,6558
+uhlive-1.1.0.dist-info/LICENSE,sha256=lhh29uUmTcngosda_37LaExE0zc_RbLDRzwlt_em-HY,1074
+uhlive-1.1.0.dist-info/METADATA,sha256=Fd1hs2bQs8wD6PuJ_h3oqTpKopPgFAjbql3Y9Xa9s7E,1843
+uhlive-1.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+uhlive-1.1.0.dist-info/top_level.txt,sha256=Wlz4k538vxOMRitJVFObVvV-AcBJ5SEmF7bCsFa8AZs,7
+uhlive-1.1.0.dist-info/RECORD,,
