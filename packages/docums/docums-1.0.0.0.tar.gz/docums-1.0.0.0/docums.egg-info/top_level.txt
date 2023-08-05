@@ -1,0 +1,10 @@
+docums
+docums\commands
+docums\config
+docums\contrib
+docums\contrib\search
+docums\structure
+docums\themes
+docums\themes\docums
+docums\themes\readthedocs
+docums\utils
