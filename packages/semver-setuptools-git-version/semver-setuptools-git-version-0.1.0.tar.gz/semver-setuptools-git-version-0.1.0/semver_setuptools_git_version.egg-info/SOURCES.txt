@@ -1,0 +1,8 @@
+README.md
+setup.py
+semver_setuptools_git_version.egg-info/PKG-INFO
+semver_setuptools_git_version.egg-info/SOURCES.txt
+semver_setuptools_git_version.egg-info/dependency_links.txt
+semver_setuptools_git_version.egg-info/entry_points.txt
+semver_setuptools_git_version.egg-info/requires.txt
+semver_setuptools_git_version.egg-info/top_level.txt
