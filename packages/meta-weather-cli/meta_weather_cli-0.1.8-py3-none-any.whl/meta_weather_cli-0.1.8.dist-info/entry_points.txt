@@ -1,0 +1,3 @@
+[console_scripts]
+meta-weather-cli=meta_weather_cli:cli
+
