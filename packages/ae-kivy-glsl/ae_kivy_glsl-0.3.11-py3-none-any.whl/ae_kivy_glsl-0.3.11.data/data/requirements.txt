@@ -1,0 +1,3 @@
+# dependencies of the kivy_glsl portion
+kivy
+ae_base
