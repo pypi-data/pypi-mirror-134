@@ -1,0 +1,7 @@
+# dependencies of the kivy_user_prefs portion (most of them hidden in kv string)
+ae_files
+ae_i18n
+ae_core
+kivy
+ae_gui_app
+ae_kivy_app
