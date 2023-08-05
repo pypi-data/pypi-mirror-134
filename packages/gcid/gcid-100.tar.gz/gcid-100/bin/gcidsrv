@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+# This file is placed in the Public Domain.
+
+
+"OTP-CR-117/19"
+
+
+import inspect
+import os
+import readline
+import sys
+import termios
+import time
+import traceback
+
+
+from gcidrun import watcher
+
+
+from gcid.evt import Event
+from gcid.fnc import format
+from gcid.krn import Cfg, boot, kcmd, root
+from gcid.obj import Object, update, values
+from gcid.prs import parse
+from gcid.hdl import Handler
+from gcid.tbl import scan
+from gcid.tms import tfmt
+from gcid.thr import launch
+
+
+from gcid.mod.irc import IRC
+from gcid.mod.irc import Cfg as ICfg
+from gcid.mod.rss import Fetcher
+
+
+import gcid.all
+import gcid.mod.all
+
+
+Cfg.wd = "/var/lib/gcid/"
+
+
+def main():
+    print("GCID service start at %s (reconsider OTP-CR-117/19)" % time.ctime(time.time()).replace("  ", " "))
+    print("user=%s!%s@%s port=%s channel=%s sasl=%s users=%s" % (ICfg.nick, ICfg.username, ICfg.server, ICfg.port, ICfg.channel, ICfg.sasl, ICfg.users))
+    sys.stdout.flush()
+    scan()
+    i = IRC()
+    launch(i.start)
+    watcher(i)
+    f = Fetcher()
+    f.start()
+    while 1:
+        time.sleep(1.0)
+    watcher(f)
+
+
+main()
