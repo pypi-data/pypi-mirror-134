@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+plodotrab/__init__.py
+plodotrab.egg-info/PKG-INFO
+plodotrab.egg-info/SOURCES.txt
+plodotrab.egg-info/dependency_links.txt
+plodotrab.egg-info/top_level.txt
