@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: django-devapp
+Version: 0.0.1
+Summary: Basic tools to manage a django application outside of a Django project.
+Home-page: https://github.com/raratiru/django-devapp
+Author: George Tantiras
+License: BSD 3-Clause License
+Project-URL: Bug Tracker, https://github.com/raratiru/django-devapp/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+
+# django-devapp
+Basic tools to manage a django application outside of a Django project
+
+

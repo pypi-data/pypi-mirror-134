@@ -1,0 +1,8 @@
+dev/__init__.py,sha256=Zdc3XO02EPPz6DH0RxUR-U1YJlTC3W5Xy2KwNFzkobc,48
+dev/boot.py,sha256=kJr4gz-wfDhtAKkoKVwVDJWlUFSjrmqZnjvdYlhGXbk,918
+django_devapp-0.0.1.dist-info/LICENSE,sha256=LyPoglkme1ctIrq4VqQ2uh6QYBJS3p9Gq_PvFBLJ-aU,1523
+django_devapp-0.0.1.dist-info/METADATA,sha256=QPXZOWM9KwEorarWZ5CUA4jeBJC1Eb44fqwgjfGA8OI,1248
+django_devapp-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+django_devapp-0.0.1.dist-info/entry_points.txt,sha256=AuiYG9KaccYt2FC0ApHTx9m-sQCeiRIR4MXKmwqjW2Q,40
+django_devapp-0.0.1.dist-info/top_level.txt,sha256=nFlV_JmmC49t7mz1gsRCDZHhs-KiAfUyyR4svfzn-lE,4
+django_devapp-0.0.1.dist-info/RECORD,,
