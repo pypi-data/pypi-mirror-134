@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: emily-test-pip
+Version: 0.0.1
+Summary: Standard utility and boilerplate for Emily backend services.
+Home-page: https://amboltio@dev.azure.com/amboltio/emily/_git/emily-shared
+Author: Anders Brams
+Author-email: abra@ambolt.io
+License: UNKNOWN
+Description: # Emily Shared
+        
+        This repository contains a PyPi package containing standard Emily backend boilerplate. This includes:
+        1. HTTP exceptions and handlers
+        2. Auth decoders and handlers
+        3. Versioned DTOs for every service
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
