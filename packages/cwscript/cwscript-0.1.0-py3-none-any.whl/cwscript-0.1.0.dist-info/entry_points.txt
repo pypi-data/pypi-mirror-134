@@ -1,0 +1,5 @@
+[console_scripts]
+cws-highlight=cwscript.highlight:main
+cwsc=cwsc:main
+cwsls=cwsls:start_server
+
