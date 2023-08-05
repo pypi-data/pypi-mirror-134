@@ -1,0 +1,15 @@
+pyVersioning/AppVeyor.py,sha256=b64eQtlDjiSZbtwwDuUf35gqooa3o5eyuNnhNK0Zixc,4468
+pyVersioning/CIService.py,sha256=y--k9pWutERP4OtMjJt4FwYIrbyECbAsrInuVPapv2A,5387
+pyVersioning/Configuration.py,sha256=EfLCfOLJB0niun9XouJCPKh7lhdh1z1CpOCOBy2DYdg,5878
+pyVersioning/GitHub.py,sha256=N5LBlGOQNtPChZVk240YkwKJz-1ejVxV5KtLJ0e67kI,4580
+pyVersioning/GitLab.py,sha256=1oLbZozXQ8-dJmx6KsGYLXggmFy-l-bJi2D6luCjx3M,4661
+pyVersioning/Travis.py,sha256=SGXocB9FZrro82G8pu5qbsnoXTEkk1mRNkRZqOtmHc0,4425
+pyVersioning/Utils.py,sha256=e3MQ70fllA-au4t2xaszuHb_ifmSF4JEDs8C7RmJbzk,256
+pyVersioning/__init__.py,sha256=2Mna5sMt4yO4ABwyUcWmSriGcQR4tYK9i8DGtNlS-YE,15385
+pyVersioning/cli.py,sha256=MWsCg1NO56HTyAXmYn6xbRVuGNL_M9G84bxM8I3Yljo,11800
+pyVersioning-0.8.0.dist-info/LICENSE.md,sha256=DF4r-Jbsz_ZASY4VjV0ZZVaaHYkH9a20BkVExpq8doE,10571
+pyVersioning-0.8.0.dist-info/METADATA,sha256=J_hiaP2AJhiabdCU8yhvE3rgCdOwenif-Uoeex_RgjI,5903
+pyVersioning-0.8.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyVersioning-0.8.0.dist-info/entry_points.txt,sha256=hqEjjRiSYavL4lrSbWq6U5NA4J0TEkmiIFFByN1b9MY,56
+pyVersioning-0.8.0.dist-info/top_level.txt,sha256=CCwZiEpw-1kaB7xiP9knz4gRDLEmpT4f0X6tg1DcQ1Y,13
+pyVersioning-0.8.0.dist-info/RECORD,,
