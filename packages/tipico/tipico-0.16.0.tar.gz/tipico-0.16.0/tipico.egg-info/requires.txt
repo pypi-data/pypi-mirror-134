@@ -1,0 +1,6 @@
+plico>=0.20
+numpy
+six
+astropy
+pyside2
+Qt.py
