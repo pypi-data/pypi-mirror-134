@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.cfg
+src/OOTUI/BorderRect.py
+src/OOTUI/Characters.py
+src/OOTUI/Rect.py
+src/OOTUI/ScalableWindow.py
+src/OOTUI/SuperDrawable.py
+src/OOTUI/Vector2.py
+src/OOTUI/Window.py
+src/OOTUI/__init__.py
+src/OOTUI/objects.py
+src/OOTUI.egg-info/PKG-INFO
+src/OOTUI.egg-info/SOURCES.txt
+src/OOTUI.egg-info/dependency_links.txt
+src/OOTUI.egg-info/top_level.txt
