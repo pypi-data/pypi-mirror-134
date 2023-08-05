@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: torte
+Version: 0.0.1
+Summary: A small Torch Trainer
+Home-page: https://github.com/mossjacob/torch-trainer
+Author: Jacob Moss
+Author-email: cob.mossy@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/mossjacob/torch-trainer/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: torch (>=1.7.1)
+
+# torch-trainer
+
