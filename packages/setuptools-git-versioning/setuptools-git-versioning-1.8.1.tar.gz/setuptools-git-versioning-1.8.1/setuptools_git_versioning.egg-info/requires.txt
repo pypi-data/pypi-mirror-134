@@ -1,0 +1,10 @@
+packaging
+six>=1.13.0
+toml>=0.10.2
+
+[:python_version < "3"]
+setuptools<45.0
+typing
+
+[:python_version >= "3.5"]
+setuptools
