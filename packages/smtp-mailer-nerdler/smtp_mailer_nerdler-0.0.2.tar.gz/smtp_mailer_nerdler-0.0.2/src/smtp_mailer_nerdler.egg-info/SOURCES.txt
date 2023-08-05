@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+src/smtp_mailer_nerdler/__init__.py
+src/smtp_mailer_nerdler/smtp_mailer.py
+src/smtp_mailer_nerdler.egg-info/PKG-INFO
+src/smtp_mailer_nerdler.egg-info/SOURCES.txt
+src/smtp_mailer_nerdler.egg-info/dependency_links.txt
+src/smtp_mailer_nerdler.egg-info/top_level.txt
