@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: statest
+Version: 0.0.1
+Summary: Statistical estimation.
+Home-page: https://github.com/ryu577/statest
+Author: Rohit Pandey
+Author-email: rohitpandey576@gmail.com
+License: MIT
+Description: # statest
+        Statistical estimation
+        
+        Estimate properties of distributions
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
