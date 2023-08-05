@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+migrations/__init__.py
+rcos_match.egg-info/PKG-INFO
+rcos_match.egg-info/SOURCES.txt
+rcos_match.egg-info/dependency_links.txt
+rcos_match.egg-info/requires.txt
+rcos_match.egg-info/top_level.txt

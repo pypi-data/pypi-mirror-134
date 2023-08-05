@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include rcos_match/static *
+recursive-include rcos_match/templates *
