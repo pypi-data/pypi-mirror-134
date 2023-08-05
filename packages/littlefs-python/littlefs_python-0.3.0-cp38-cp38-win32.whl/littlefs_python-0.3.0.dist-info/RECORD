@@ -1,0 +1,9 @@
+littlefs/__init__.py,sha256=ByNIV1U2a1Ag8zOhL7wcx03Lr3mdlVtyTKtasGjmWoU,12678
+littlefs/context.py,sha256=iTb08xZiwimHb7RJa82_32CRv9mmJ8SGYQX_PBXbUOI,2304
+littlefs/errors.py,sha256=k6L_fq9PYJoKqLfUhBtIsbr9DxEgGFJCcGQAIJ1_VMU,1344
+littlefs/lfs.cp38-win32.pyd,sha256=PxVObGZMkzmvRIsLAXbiw9Ev2ZDFNnQ3Nk2X6NFDDd0,145920
+littlefs_python-0.3.0.dist-info/LICENSE,sha256=pXUK4Zs9BSuHBxj-C0KBwPBjufyi-4ZhcCqm--m58tQ,1547
+littlefs_python-0.3.0.dist-info/METADATA,sha256=PT-gRvr6enKM4fWDF-RgtcUbFfDuDlkFz0cURdal_HE,4854
+littlefs_python-0.3.0.dist-info/WHEEL,sha256=sanSYrmzbAT-r2kLE2awKIGLX9GqwV3YKvxv8-Pld6Y,96
+littlefs_python-0.3.0.dist-info/top_level.txt,sha256=ODpjzoOixM9dzTvlv3Fgd78PG_icni-AmzUB6VfdDwU,9
+littlefs_python-0.3.0.dist-info/RECORD,,
