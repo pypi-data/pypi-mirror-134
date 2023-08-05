@@ -1,0 +1,16 @@
+pyyaml
+
+[full]
+pandas
+openpyxl
+
+[lint]
+flake8
+flake8-bugbear
+flake8-builtins
+flake8-blind-except
+mypy
+types-PyYAML
+
+[tests]
+pytest

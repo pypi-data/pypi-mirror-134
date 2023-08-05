@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: hugoutils
+Version: 1.2.1
+Summary: Utilities for converting websites to Hugo
+Home-page: https://github.com/scivision/hugo-utils
+Author: Michael Hirsch, Ph.D.
+Author-email: scivision@users.noreply.github.com
+License: UNKNOWN
+Keywords: hugo,jekyll
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Requires-Python: >=3.7
+Provides-Extra: full
+Provides-Extra: tests
+Provides-Extra: lint
+
+UNKNOWN
+

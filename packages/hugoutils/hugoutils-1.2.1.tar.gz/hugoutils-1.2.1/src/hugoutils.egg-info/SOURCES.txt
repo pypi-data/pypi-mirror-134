@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/hugoutils/__init__.py
+src/hugoutils/header.py
+src/hugoutils.egg-info/PKG-INFO
+src/hugoutils.egg-info/SOURCES.txt
+src/hugoutils.egg-info/dependency_links.txt
+src/hugoutils.egg-info/requires.txt
+src/hugoutils.egg-info/top_level.txt
+src/hugoutils/jekyll2hugo/__init__.py
