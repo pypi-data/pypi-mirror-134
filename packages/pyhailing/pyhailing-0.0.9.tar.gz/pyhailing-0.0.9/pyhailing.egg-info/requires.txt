@@ -1,0 +1,6 @@
+gym
+matplotlib
+numpy<1.22,>=1.19
+pandas
+Pillow
+scipy
