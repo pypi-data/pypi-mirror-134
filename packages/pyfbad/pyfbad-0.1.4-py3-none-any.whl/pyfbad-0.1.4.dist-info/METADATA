@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pyfbad
+Version: 0.1.4
+Summary: anomaly detector
+Home-page: UNKNOWN
+Author: teknasyon
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: mysql-connector-python
+Requires-Dist: plotly
+Requires-Dist: cython
+Requires-Dist: numpy
+Requires-Dist: PyMySQL
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: SQLAlchemy
+Requires-Dist: mysql-client
+Requires-Dist: pyyaml
+Requires-Dist: pymongo
+Requires-Dist: sshtunnel
+Requires-Dist: pystan (==2.19.1.1)
+Requires-Dist: fbprophet (==0.7)
+Requires-Dist: yagmail
+Requires-Dist: scikit-learn
+
+UNKNOWN
+
