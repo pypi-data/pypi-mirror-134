@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "tempo-async"
+version = "0.1.1"
+description = "An HTTP package for metering and managing async requests."
+license = "Apache-2.0"
+authors = ["Nicholas Ballard <nicholasericballard@gmail.com>"]
+maintainers = ["Nicholas Ballard <nicholasericballard@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/NicholasBallard/tempo"
+repository = "https://github.com/NicholasBallard/tempo"
+documentation = ""
+keywords = [
+    "async",
+    "asynchronous",
+    "requests",
+    "HTTP",
+    "meter",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AsyncIO",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP :: Site Management :: Link Checking",
+    "Topic :: Utilities",
+]
+packages = [
+    { include = "tempo"},
+]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.21.1"
+click = "^8.0.3"
+nest-asyncio = "^1.5.4"
+pydantic = "^1.9.0"
+
+[tool.poetry.dev-dependencies]
+pytest-asyncio = "^0.16.0"
+ipykernel = "^6.6.0"
+requests = "^2.26.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
