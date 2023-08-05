@@ -1,0 +1,103 @@
+pypoh
+=====
+
+A Python Wrapper for the Proof of Humanity Rest API.
+
+Overview
+========
+
+With pypoh you can easily access all the information available at
+https://app.proofofhumanity.id/ and integrate it in you apps and/or Data
+Analysis tools.
+
+-  Check if an ETH address has a registered profile at POH.
+-  Download a list of Humans with all their data (registry history,
+   given vouches, received vouches, name, photo link, etc).
+-  Use the built-in **Human()** class to manage this data faster.
+
+How to use it
+=============
+
+Import
+------
+
+You can easily import pypoh with:
+
+.. code:: python:
+
+   import pypoh
+
+Or import only the methods you need with:
+
+.. code:: python:
+
+   from pypoh import Human, ping, get_list_of_humans
+
+Human Class Usage
+-----------------
+
+pypoh comes with a class called “Human” that has all the data for a
+single real human registered at Proof of Humanity.
+
+.. code:: python:
+
+   human = Human(address="0xSOME_ETH_ADDRESS")
+
+Some Class Methods:
+~~~~~~~~~~~~~~~~~~~
+
+.. code:: python:
+
+   print(human.get_status_history)
+
+..
+
+   { “status”: “VOUCHING”, “time”: “2022-01-11T01:13:06.790Z” }
+
+.. code:: python:
+
+   print(human.get_given_vouches)
+
+..
+
+   { “eth_address”: “0xf49a19f72d0e106df462cfd6b5bebe42b6001616”,
+   “status”: “VOUCHING”, “vanity_id”: 1, “display_name”: “satoshin”,
+   “first_name”: “Satoshi”, “last_name”: “Nakamoto”, “registered”: true,
+   “photo”:
+   “https://ipfs.kleros.io/ipfs/QmXmLgii8brfAP7edaabbRHey5VKvFhqqpSFfJf4sD1Lf6/image.jpg”,
+   “video”:
+   “https://ipfs.kleros.io/ipfs/QmXmLgii8brfAP7edaabbRHey5VKvFhqqpSFfJf4sD1Lf6/video.mp4”,
+   “bio”: “Chancellor on brink of second bailout for banks.”, “profile”:
+   “https://app.proofofhumanity.id/profile/0xf49a19f72d0e106df462cfd6b5bebe42b6001615”,
+   “registered_time”: “2022-01-11T01:11:25.486Z”, “creation_time”:
+   “2022-01-11T01:11:25.486Z” }
+
+.. code:: python:
+
+   print(human.get_received_vouches)
+
+..
+
+   { “eth_address”: “0xf49a19f72d0e106df462cfd6b5bebe42b6001616”,
+   “status”: “VOUCHING”, “vanity_id”: 1, “display_name”: “satoshin”,
+   “first_name”: “Satoshi”, “last_name”: “Nakamoto”, “registered”: true,
+   “photo”:
+   “https://ipfs.kleros.io/ipfs/QmXmLgii8brfAP7edaabbRHey5VKvFhqqpSFfJf4sD1Lf6/image.jpg”,
+   “video”:
+   “https://ipfs.kleros.io/ipfs/QmXmLgii8brfAP7edaabbRHey5VKvFhqqpSFfJf4sD1Lf6/video.mp4”,
+   “bio”: “Chancellor on brink of second bailout for banks.”, “profile”:
+   “https://app.proofofhumanity.id/profile/0xf49a19f72d0e106df462cfd6b5bebe42b6001615”,
+   “registered_time”: “2022-01-11T01:11:25.486Z”, “creation_time”:
+   “2022-01-11T01:11:25.486Z” }
+
+Independent Methods
+-------------------
+
+-  get_raw_list_of_humans: It returns a list of dicts with each human
+   information based on the number and the “order_by” configuration you
+   want.
+-  get_raw_set_of_addresses: Similar to the previous ones but it returns
+   a python set instead of a list. It is a bit faster.
+-  get_list_of_humans: Similar to the previous ones, but this one
+   returns a list of already instantiated Humans instead.
+-  ping: Returns Tru
