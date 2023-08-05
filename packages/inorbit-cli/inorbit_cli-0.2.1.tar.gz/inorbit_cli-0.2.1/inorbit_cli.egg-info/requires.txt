@@ -1,0 +1,11 @@
+click>=8.0.3
+tabulate>=0.8.9
+pendulum>=2.1.2
+
+[dev]
+twine
+lark
+pytest
+pytest-env
+requests-mock
+black
