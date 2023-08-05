@@ -1,0 +1,4 @@
+# dependencies of the db_pg portion
+psycopg2-binary
+ae_sys_core
+ae_db_core
