@@ -1,0 +1,5 @@
+include README.rst
+include LICENSE
+include requirements.txt
+include disfork/bin/*.dll
+include disfork/py.typed
