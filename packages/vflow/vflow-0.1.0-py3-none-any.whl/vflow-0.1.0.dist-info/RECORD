@@ -1,0 +1,15 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_basic.py,sha256=0BkHJhH3_H_vdKdg7kEuxR6lGnQYlYOEjOW6-zX9hJo,1136
+tests/test_convert.py,sha256=qwaBoq5KAHz2GxTqjLUbZYNGRQa4rBrfdcZJOwKYx3k,72209
+tests/test_pipelines.py,sha256=QdiSU5v_rmJkLuLyL4G4Z-ckPyWR7Jpp6pfZDMyIqjk,15549
+vflow/__init__.py,sha256=v43mJ2y-XLKHEPKLUtRDPRgDlfN6PhU3fcOBx1rypEQ,203
+vflow/convert.py,sha256=aRrcpL0mrhCFrSpDpidmZ-jfKdb0mZTO4YDEFZ6FNA4,17847
+vflow/helpers.py,sha256=vHOXDIsdGfGwEjKgr-P8XGiwaz_1ExUfX_HQ6qINkVQ,5990
+vflow/pipeline.py,sha256=_9YZu9VENg0rKJTEhALZtZvMVAQz4xntcEFFZWS7ZdM,4373
+vflow/subkey.py,sha256=3hxtXIn7aw2S5zsLY0vCUpDC562watBt3VCmmEnhANs,3216
+vflow/vfunc.py,sha256=vIr_vFmi4xAIU3ziLjBewqZVNBVr9BcAdBSeiygtSes,3891
+vflow/vset.py,sha256=R2hIDYKxdCBD39wPaHcfW4cAVxOEtHltm7R49ersvaU,11628
+vflow-0.1.0.dist-info/METADATA,sha256=ceUfEF7ZL4SzgojhiK2VZIsep0Xj3P5KHiLMJwYDiTg,5694
+vflow-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+vflow-0.1.0.dist-info/top_level.txt,sha256=NSNx-6XZV7s88wMdAJ1CA5sSIL-sqC7MCe8VeQ1qd0k,12
+vflow-0.1.0.dist-info/RECORD,,
