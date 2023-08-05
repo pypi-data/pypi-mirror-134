@@ -1,0 +1,9 @@
+click>=8
+
+[dev]
+pre-commit
+build
+twine
+
+[tests]
+pytest
