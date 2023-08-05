@@ -1,0 +1,11 @@
+README.md
+setup.py
+notedb/__init__.py
+notedb.egg-info/PKG-INFO
+notedb.egg-info/SOURCES.txt
+notedb.egg-info/dependency_links.txt
+notedb.egg-info/requires.txt
+notedb.egg-info/top_level.txt
+notedb/dataset/__init__.py
+notedb/dataset/m3u8/__init__.py
+notedb/dataset/m3u8/dataset.py
