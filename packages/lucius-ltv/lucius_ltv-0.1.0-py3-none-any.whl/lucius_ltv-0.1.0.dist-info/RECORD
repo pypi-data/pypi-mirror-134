@@ -1,0 +1,9 @@
+LICENSE,sha256=kHiLCWKrMNzjzl2FoXAT7DV0YDcm7EML9DJxkRhypGk,1070
+lucius_ltv/__init__.py,sha256=jeLn5beWxbAG3SDJd4DNfgwW6m4ZafThJcg0qsGq6Ng,135
+lucius_ltv/model.py,sha256=Oex5Jen6StfWYGt_RKkptvhQ1zJ4VR3QDnXs3_TN1ag,7564
+lucius_ltv/plots.py,sha256=8D7xjEuGaTugORaFoa9AhzvC8ZgZyAQTD47z0W7tduk,2951
+lucius_ltv/utils.py,sha256=Q4x3p4EjZj8AFjq1BfYzBThdxxcumhidHgqIqnFXEpc,1083
+lucius_ltv-0.1.0.dist-info/LICENSE,sha256=kHiLCWKrMNzjzl2FoXAT7DV0YDcm7EML9DJxkRhypGk,1070
+lucius_ltv-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+lucius_ltv-0.1.0.dist-info/METADATA,sha256=vsbvbJInX3jha4bFh2yMPCSdwkPg4oG964_h_knkqjA,5989
+lucius_ltv-0.1.0.dist-info/RECORD,,
