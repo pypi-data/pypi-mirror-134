@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+src/pyasmtools/__init__.py
+src/pyasmtools/prettydiasm.py
+src/pyasmtools/prettytrace.py
+src/pyasmtools.egg-info/PKG-INFO
+src/pyasmtools.egg-info/SOURCES.txt
+src/pyasmtools.egg-info/dependency_links.txt
+src/pyasmtools.egg-info/top_level.txt
