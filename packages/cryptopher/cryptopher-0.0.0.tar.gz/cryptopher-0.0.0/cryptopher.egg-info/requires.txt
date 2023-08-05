@@ -1,0 +1,4 @@
+pandas
+plotly
+ccxt
+python-binance

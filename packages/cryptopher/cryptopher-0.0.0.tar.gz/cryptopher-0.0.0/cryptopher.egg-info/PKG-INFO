@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: cryptopher
+Version: 0.0.0
+Summary: Cryptopher library
+Home-page: https://github.com/PesseCanoe/cryptopher
+Author: Cryptopher
+Author-email: cryptopher.trader@gmail.com
+License: MIT
+Download-URL: https://github.com/PesseCanoe/cryptopher/archive/v0_0_0.tar.gz
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+=================================
+Welcome to cryptopher v 0.0.0
+=================================
+
+This is a trading analysis library.
+
+Source code
+
+  https://github.com/PesseCanoe/cryptopher
+  
+Features
+--------
+
+- Backtest analysis
+- Implementation of basic strategy (eg. RSI)
+- Strategy visualization
+- Wrapper for getting data from several libraries
+
+
+Quick Start
+-----------
+
+.. code:: bash
+
+  pip install cryptopher 
+
+
+
+
+
