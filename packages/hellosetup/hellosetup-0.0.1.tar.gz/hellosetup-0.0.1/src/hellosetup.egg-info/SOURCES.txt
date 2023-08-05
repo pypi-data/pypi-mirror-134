@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.cfg
+src/hellosetup/__init__.py
+src/hellosetup/module1.py
+src/hellosetup.egg-info/PKG-INFO
+src/hellosetup.egg-info/SOURCES.txt
+src/hellosetup.egg-info/dependency_links.txt
+src/hellosetup.egg-info/top_level.txt
+test/test_hellosetup.py
