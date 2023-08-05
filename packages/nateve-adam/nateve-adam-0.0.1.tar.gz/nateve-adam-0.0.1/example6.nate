@@ -1,0 +1,66 @@
+using "spanish"
+
+incluye "example5.nate"
+
+a = $
+| 1 5 |
+| 0 2 |
+$
+
+b = $
+|0 1|
+|1 0|
+$
+
+imprime("a = ")
+imprime(a)
+
+imprime("b = ")
+imprime(b)
+
+c = a.dot(b)
+
+imprime("a * b =")
+imprime(c)
+
+imprime("a + b =")
+print(a.plus(b))
+
+d = [1, 2, 3, 4, 5]
+imprime(d)
+
+e = [0, 1, 0, 1, 0]
+imprime(e)
+
+f = d.dot(e)
+imprime(f)
+
+g = d.plus(e)
+imprime(g)
+
+~ using spanish, "y" means "and".
+Then, we need to use other template like french ~
+
+using "french"
+
+definir r(x, y, z){
+retourner $
+|x|
+|y|
+|z|
+$
+}
+
+x, y, z = 1, 5, 3
+
+j = r(x, y, z)
+
+imprimer(j)
+
+k = $
+|2 0 0|
+|0 2 0|
+|0 0 2|
+$
+
+imprimer(k.dot(j))
