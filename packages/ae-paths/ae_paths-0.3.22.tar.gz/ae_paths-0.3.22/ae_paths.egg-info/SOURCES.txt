@@ -1,0 +1,16 @@
+.gitignore
+.gitlab-ci.yml
+CONTRIBUTING.rst
+LICENSE.md
+README.md
+SECURITY.md
+dev_requirements.txt
+requirements.txt
+setup.py
+ae/paths.py
+ae_paths.egg-info/PKG-INFO
+ae_paths.egg-info/SOURCES.txt
+ae_paths.egg-info/dependency_links.txt
+ae_paths.egg-info/requires.txt
+ae_paths.egg-info/top_level.txt
+ae_paths.egg-info/zip-safe
