@@ -1,0 +1,15 @@
+_p2pExtension.pypy38-pp73-x86_64-linux-gnu.so,sha256=Fn8jNqj6UjbzW2rQOvLvcr5VCJK0eNtTp7tudn2igOI,941552
+_p2pExtension.cpython-38-x86_64-linux-gnu.so,sha256=kb3GRnvONswWnIS-q2LK1gr6kpZk_AmCJ_-miOPiPec,974976
+spatial_access-1.0.2.dist-info/METADATA,sha256=ex4J9v-XG-4C4AfHjCON1dVY7hsxB3b5J3UWUZDHT3M,7493
+spatial_access-1.0.2.dist-info/WHEEL,sha256=WDsEedEc-zuvFdAjpMPfD2PW4LQ4fAbKttt3-rX_BAw,162
+spatial_access-1.0.2.dist-info/RECORD,,
+spatial_access-1.0.2.dist-info/top_level.txt,sha256=1M2nIi_Vy5Vt7V4zM3LmPGMGY2DAxWVJMWhqF83qxDA,29
+spatial_access/BaseModel.py,sha256=-Mkj3soxRcd-Iec7NwGIaQxu-DWoxac1w5gXfQuRhqQ,39574
+spatial_access/__init__.py,sha256=jfEXVDZi-S5DvBiQa1cYm_zBmmya_TDwwBZh0xdhKNs,142
+spatial_access/_parsers.py,sha256=aXNLJZgFd-KrI-iagOmOFaheC34td16Xspgv_Xxf1i0,4556
+spatial_access/Models.py,sha256=p1Mbov2VrmRNQ8ixdCBx8XRivknJi3EKz0KAqG3dSuk,29492
+spatial_access/Configs.py,sha256=V7A8NmxTzQeYOjGtuQ_slWv3H9-o7pFUfFxIX9Fv-qU,4907
+spatial_access/NetworkInterface.py,sha256=HmpZYT2PbvXjOwwkKWGHXI9OXWLZ5Ojk3aQ6lHt2cFs,12250
+spatial_access/SpatialAccessExceptions.py,sha256=jH4t1sTjwqA6elH_Ey7Oj7BEBY4C4pZgxfeTQ5bBObk,5236
+spatial_access/p2p.py,sha256=944mkHvzPjNwA_vK51yYx2FSpzKqZBU7CTv0Zep_IeE,20151
+spatial_access/MatrixInterface.py,sha256=kupjF5YoXIF2xxej-YUjaSH0RH5gL3hCzfJ4BlB6k-c,18127
