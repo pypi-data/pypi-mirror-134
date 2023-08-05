@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+cvplayer/__init__.py
+cvplayer/__main__.py
+cvplayer/player.py
+cvplayer.egg-info/PKG-INFO
+cvplayer.egg-info/SOURCES.txt
+cvplayer.egg-info/dependency_links.txt
+cvplayer.egg-info/entry_points.txt
+cvplayer.egg-info/requires.txt
+cvplayer.egg-info/top_level.txt

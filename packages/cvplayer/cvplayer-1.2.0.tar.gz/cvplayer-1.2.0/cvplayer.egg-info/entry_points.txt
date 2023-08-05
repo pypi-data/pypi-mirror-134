@@ -1,0 +1,3 @@
+[console_scripts]
+cvplay = cvplayer.__main__:main
+
