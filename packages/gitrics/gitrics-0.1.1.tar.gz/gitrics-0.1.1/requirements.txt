@@ -1,0 +1,4 @@
+colorgram.py
+glapi>=0.1.3
+networkx
+scipy

@@ -1,0 +1,9 @@
+colorgram.py
+glapi>=0.1.3
+networkx
+scipy
+
+[test]
+lorem
+pytest
+pytest-cov
