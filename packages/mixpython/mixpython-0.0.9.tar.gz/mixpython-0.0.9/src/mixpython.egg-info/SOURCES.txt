@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/mixpython/__init__.py
+src/mixpython/algorithms.py
+src/mixpython.egg-info/PKG-INFO
+src/mixpython.egg-info/SOURCES.txt
+src/mixpython.egg-info/dependency_links.txt
+src/mixpython.egg-info/top_level.txt
