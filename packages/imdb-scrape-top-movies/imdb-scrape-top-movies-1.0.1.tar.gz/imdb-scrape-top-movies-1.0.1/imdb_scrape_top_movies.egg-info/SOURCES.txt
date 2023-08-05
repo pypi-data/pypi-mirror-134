@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+imdb-scrape-top-movies/__init__.py
+imdb_scrape_top_movies.egg-info/PKG-INFO
+imdb_scrape_top_movies.egg-info/SOURCES.txt
+imdb_scrape_top_movies.egg-info/dependency_links.txt
+imdb_scrape_top_movies.egg-info/requires.txt
+imdb_scrape_top_movies.egg-info/top_level.txt
