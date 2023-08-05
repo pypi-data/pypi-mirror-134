@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pagemarks
+Version: 0.5.0
+Summary: Self-Hosted Static Bookmarks via Git and GitHub/GitLab Pages
+Home-page: https://pagemarks.org
+Author: Barfuin
+Author-email: oss@barfuin.org
+License: GPL-3.0-only
+Project-URL: Documentation, https://pagemarks.org
+Project-URL: Release notes, https://pagemarks.org/releases.html
+Project-URL: Source, https://gitlab.com/barfuin/pagemarks
+Project-URL: Tracker, https://gitlab.com/barfuin/pagemarks/-/issues
+Platform: UNKNOWN
+Requires-Python: >=3.7
+License-File: LICENSE
+
+UNKNOWN
+
