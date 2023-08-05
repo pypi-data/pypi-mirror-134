@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: lightningflower
+Version: 0.1.1
+Summary: Flower based Pytorch lightning framework
+Home-page: https://github.com/ManuelRoeder/lightningflower
+Author: Manuel Roeder
+Author-email: manuel.roeder@web.de
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.8.12
+License-File: LICENSE
+
+UNKNOWN
+

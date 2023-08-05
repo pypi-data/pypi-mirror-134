@@ -1,0 +1,4 @@
+torch
+flwr
+pytorch-lightning
+numpy
