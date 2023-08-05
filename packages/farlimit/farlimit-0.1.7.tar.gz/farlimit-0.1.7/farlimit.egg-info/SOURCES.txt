@@ -1,0 +1,11 @@
+README.md
+setup.py
+farlimit/__init__.py
+farlimit/errors.py
+farlimit/limiter.py
+farlimit/memory.py
+farlimit/per.py
+farlimit.egg-info/PKG-INFO
+farlimit.egg-info/SOURCES.txt
+farlimit.egg-info/dependency_links.txt
+farlimit.egg-info/top_level.txt

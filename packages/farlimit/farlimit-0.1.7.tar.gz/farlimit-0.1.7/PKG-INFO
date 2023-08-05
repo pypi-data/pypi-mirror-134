@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: farlimit
+Version: 0.1.7
+Summary: FastAPIRateLimit
+Home-page: https://github.com/omidekz/farlimit
+Author: Omid Karimzade
+Author-email: omidekz@gmail.com
+License: GPLv3
+Project-URL: Bug Tracker, https://github.com/omidekz/farlimit/issues
+Description: # FastAPIRateLimit
+        
+        ## Usage
+            pip install farlimit
+        NOTE you have to define `starlette.requests.Request` as first argument
+        
+        ```py
+        from farlimit import Limiter
+        from fastapi import APIRouter
+        from starlette.requests import Request
+        
+        router = APIRouter(...)
+        
+        @router.<any-method>(path)
+        @Limiter(times=3, per=5 * Limiter.SECONDS)
+        def test_ratelimit(request: Request):
+            return 'no limit'
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
