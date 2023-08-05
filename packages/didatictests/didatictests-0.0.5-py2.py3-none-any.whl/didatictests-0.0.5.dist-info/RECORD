@@ -1,0 +1,11 @@
+didatictests/__init__.py,sha256=nbAvyA3q-Uif6cGA_mjAq4WlbFKJske8t0Q3yBtA0Ek,404
+didatictests/didatictests.py,sha256=wvQLOwwy3g6ACvn-25ehw96ucrIupSkgzFmAEreE2mA,8486
+didatictests/example.py,sha256=Gnus8uzpvWRXkrtkfTq9qpdkl4pIPs5w34zAkn6ETOk,4044
+didatictests/bin/__init__.py,sha256=BFAQPAnJt9In1793MfYlQ3orstDLDuPlvoybq8pGklQ,69
+didatictests/bin/my_example.py,sha256=qVWCunjGp8pA4nc6YLUiiM5szWV9ZlNuFRXRc9kNWPQ,2894
+didatictests-0.0.5.dist-info/LICENSE,sha256=kZ7Ne1UI2xtXARqwe2h__uW9P-Ga6ZuhqsYszVfQctc,1082
+didatictests-0.0.5.dist-info/METADATA,sha256=g5FwM653WGMrXdXpYuaMlsiQ_PexQqIYPXgVk1pad1Y,6604
+didatictests-0.0.5.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+didatictests-0.0.5.dist-info/entry_points.txt,sha256=pAUESBC92kgLJgoUGN9jWuE-pulG-ziT63cb30XL19E,65
+didatictests-0.0.5.dist-info/top_level.txt,sha256=TB3IwuIroF8W9tECjPZa9eQvbNelrfx8TRdgqujXAgQ,13
+didatictests-0.0.5.dist-info/RECORD,,
