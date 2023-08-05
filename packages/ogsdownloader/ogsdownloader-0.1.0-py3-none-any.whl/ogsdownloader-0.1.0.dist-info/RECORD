@@ -1,0 +1,11 @@
+ogsdownloader/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ogsdownloader/__main__.py,sha256=Lr-p9bnkbadvZw1zgeQRMMwtgruru8bns8HvlChmRlY,4504
+ogsdownloader/exceptions.py,sha256=Vm8ixqjFT2eOz30ocw0ZWaY6KuIAGqSwqRGEXfD5RyM,151
+ogsdownloader/game.py,sha256=FY411B4_CbJqlThpUAJEVaXmmsUvh1krmtN-tZ-hDJU,1323
+ogsdownloader/oauth2.py,sha256=q6bDnJ3srCKw2u01zd1J9_eOIsiFGvJOA2IS9Ia0VeQ,1206
+ogsdownloader/player.py,sha256=6XRbJ_RZAPqBe9qwqrb7KqAHNE4hEsJ_UlUy7A_ohjM,3681
+ogsdownloader-0.1.0.dist-info/AUTHORS,sha256=vmtfhmCw-SLwIktRtgSBspm1IinvJdC42s4gNpwptDs,33
+ogsdownloader-0.1.0.dist-info/METADATA,sha256=y3MtB_Ae_dc0IpCAj2bUUzBcX9IAwMtycwg2jDe-7Nk,260
+ogsdownloader-0.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ogsdownloader-0.1.0.dist-info/top_level.txt,sha256=p3kdMukhKdv5a1b2ifoxlCGYFPaMqoptXg_Mlxgd-F4,14
+ogsdownloader-0.1.0.dist-info/RECORD,,
