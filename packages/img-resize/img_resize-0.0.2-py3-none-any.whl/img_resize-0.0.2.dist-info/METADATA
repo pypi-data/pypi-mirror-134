@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: img-resize
+Version: 0.0.2
+Summary: Image-Resize
+Home-page: UNKNOWN
+Author: Saumil Agrawal
+Author-email: saumil.agrawal10@gmail.com
+License: UNKNOWN
+Keywords: python,first package
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+Library to resize all images within a folder
+
+
