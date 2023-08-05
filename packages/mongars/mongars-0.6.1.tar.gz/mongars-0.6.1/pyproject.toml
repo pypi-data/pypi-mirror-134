@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "mongars"
+version = "0.6.1"
+description = "Show unread emails in INBOX using Gnome Online Accounts"
+authors = ["Chmouel Boudjnah <chmouel@chmouel.com>"]
+keywords = ["email", "cli"]
+readme = "README.md"
+license = "Apache-2.0"
+homepage = "https://github.com/chmouel/mongars"
+repository = "https://github.com/chmouel/mongars"
+include = [
+    "LICENSE"
+]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+PyGObject = "^3.42.0"
+
+[tool.poetry.scripts]
+mongars = "mongars.cli:main"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.12.2"
+mypy = "^0.920"
+yapf = "^0.31.0"
+icecream = "^2.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
