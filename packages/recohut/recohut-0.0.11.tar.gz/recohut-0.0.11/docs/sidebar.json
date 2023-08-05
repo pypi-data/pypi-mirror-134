@@ -1,0 +1,107 @@
+{
+    "Getting started": {
+        "Overview": "/"
+        },
+    "Datasets": {
+        "AOTM": "datasets.aotm.html",
+        "Avazu": "datasets.avazu.html",
+        "Base Common": "datasets.bases.common.html",
+        "Base Interactions": "datasets.bases.interactions.html",
+        "Criteo": "datasets.criteo.html",
+        "Diginetica": "datasets.diginetica.html",
+        "Gowalla": "datasets.gowalla.html",
+        "LastFM": "datasets.lastfm.html",
+        "MovieLens": "datasets.movielens.html",
+        "Music30": "datasets.music30.html",
+        "NowPlaying": "datasets.nowplaying.html",
+        "RetailRocket": "datasets.retailrocket.html",
+        "Sample Session": "datasets.sample_session.html",
+        "Synthetic Datasets": "datasets.synthetic.html",
+        "Tianchi": "datasets.tianchi.html",
+        "Tmall": "datasets.tmall.html",
+        "Weeplaces": "datasets.weeplaces.html",
+        "Yoochoose": "datasets.yoochoose.html"
+        },
+  "Transforms": {
+      "Aggregate": "transforms.aggregate.html",
+      "Bi-partite Dataset": "transforms.bipartite.html",
+      "Encode": "transforms.encode.html",
+      "Normalize": "transforms.normalize.html",
+      "Sampling": "transforms.sampling.html",
+      "Session": "transforms.session.html",
+      "Splitting": "transforms.splitting.html",
+      "User Grouping": "transforms.user_grouping.html"
+      },
+  "Layers": {
+      "Attention": "models.layers.attention.html",
+      "Common": "models.layers.models.layers.common.html",
+      "Message Passing": "models.layers.message_passing.html",
+      "OU Noise": "models.layers.ou_noise.html",
+      "TCN": "models.layers.tcn.html"
+      },
+  "Models": {
+      "Actor-critic": "models.actor_critic.html",
+      "AFM": "models.afm.html",
+      "AFN": "models.afn.html",
+      "AR": "models.ar.html",
+      "AutoInt": "models.autoint.html",
+      "Bandits": "models.bandits.html",
+      "BCQ": "models.bcq.html",
+      "BERT": "models.bert.html",
+      "COTREC": "models.cotrec.html",
+      "DCN": "models.dcn.html",
+      "DeepFM": "models.deepfm.html",
+      "DNNs": "models.dnn.html",
+      "DSSM": "models.dssm.html",
+      "Embedding": "models.embedding.html",
+      "Epsilon": "models.epsilon.html",
+      "Factorization": "models.factorization.html",
+      "FFM": "models.ffm.html",
+      "FM": "models.fm.html",
+      "FNFM": "models.fnfm.html",
+      "FNN": "models.fnn.html",
+      "GMF": "models.gmf.html",
+      "GroupIM": "models.groupim.html",
+      "HOFM": "models.hofm.html",
+      "LR": "models.lr.html",
+      "MLP": "models.mlp.html",
+      "MPM": "models.mpm.html",
+      "NARM": "models.narm.html",
+      "NCF": "models.ncf.html",
+      "NFM": "models.nfm.html",
+      "NMF": "models.nmf.html",
+      "PNN": "models.pnn.html",
+      "Prod2Vec": "models.prod2vec.html",
+      "SASRec": "models.sasrec.html",
+      "SiReN": "models.siren.html",
+      "S-Pop": "models.spop.html",
+      "SR": "models.sr.html",
+      "SRGNN": "models.srgnn.html",
+      "TAGNN": "models.tagnn.html",
+      "TAGNN++": "models.tagnn_pp.html",
+      "UltraGCN": "models.ultragcn.html",
+      "VSKNN": "models.vsknn.html",
+      "Wide&Deep": "models.wide_and_deep.html",
+      "xDeepFM": "models.xdeepfm.html"
+      },
+   "Evaluation": {
+    "Metrics": "evaluation.metrics.html"
+    },
+  "RL": {
+    "AB Test Agents": "rl.agents.ab_test_agent.html",
+    "DDPG": "rl.agents.ddpg.html",
+    "Replay Agents": "rl.agents.replay_agents.html",
+    "Bandit RL Environments": "rl.envs.bandits.html",
+    "RecSys RL Env": "rl.envs.recsys.html",
+    "Bandit Policies": "rl.policies.bandit_policies.html",
+    "RL Memory": "rl.memory.html"
+    },
+ "Utils": {
+     "AB Test Utils": "utils.ab_testing.html",
+     "Common utils": "utils.common_utils.html"
+     },
+ "Visualizations": {
+     "Basic Plots": "visualization.basic_plots.html",
+     "EDA Visualization": "visualization.eda.html"
+     }
+ }
