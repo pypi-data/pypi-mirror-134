@@ -1,0 +1,12 @@
+MANIFEST.in
+pyproject.toml
+setup.py
+fluidly/__init__.py
+fluidly/pipenv/__init__.py
+fluidly/pipenv/generate_requirements.py
+fluidly/pipenv/py.typed
+fluidly_pipenv.egg-info/PKG-INFO
+fluidly_pipenv.egg-info/SOURCES.txt
+fluidly_pipenv.egg-info/dependency_links.txt
+fluidly_pipenv.egg-info/namespace_packages.txt
+fluidly_pipenv.egg-info/top_level.txt
