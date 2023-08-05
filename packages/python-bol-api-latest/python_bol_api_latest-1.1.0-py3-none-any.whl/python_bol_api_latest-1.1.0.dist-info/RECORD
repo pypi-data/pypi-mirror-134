@@ -1,0 +1,16 @@
+bol/__init__.py,sha256=696RBFY5BL25wovz7le3mJjtFnsQ35odr3fo9wxy8gU,344
+bol/openapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bol/openapi/api.py,sha256=D2rqqaAnljWvkJGfpH2kHoZ3p7Cdus1j6NJXUqrn240,1676
+bol/plaza/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bol/plaza/api.py,sha256=UEG9PTDyHfVt6UdtlQkilXtQOq1vGj9yzVFILlC-Ptc,26603
+bol/plaza/models.py,sha256=TJCmRnRqwhxJdm6lu6uEPPTi0K5pByIBiDydrj0lWWs,10393
+bol/retailer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bol/retailer/api.py,sha256=2uRMNqN1tyY1yGA3UMnokywsa7_c8LdBTX3nppjBboA,16772
+bol/retailer/constants.py,sha256=flehu0sNu_y1haa16HMqx4whDMfO0gw_2aDGQZALlgQ,1391
+bol/retailer/models.py,sha256=fT48dRwG1Wpj4NID75zSTWT-KP3XwS2WRgV-YMa8QNU,9608
+python_bol_api_latest-1.1.0.dist-info/AUTHORS,sha256=5Z-GW-BfX8WzyL3yvc__R55DGqJE6g2K6gOv5knBF9Q,130
+python_bol_api_latest-1.1.0.dist-info/LICENSE,sha256=w9nsAJblvUra7_LPSDHZCD_E5fHfUXQ07WlX0XDmNCA,8153
+python_bol_api_latest-1.1.0.dist-info/METADATA,sha256=ObFG_KjpkjEZC6yaYolCk9rX0P5_464x_PIuKgTyqg8,3436
+python_bol_api_latest-1.1.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+python_bol_api_latest-1.1.0.dist-info/top_level.txt,sha256=aSW_wuSzz9rXQe3EKY4ICI9_L3ARTNrvyUqWWPfiCtA,4
+python_bol_api_latest-1.1.0.dist-info/RECORD,,
