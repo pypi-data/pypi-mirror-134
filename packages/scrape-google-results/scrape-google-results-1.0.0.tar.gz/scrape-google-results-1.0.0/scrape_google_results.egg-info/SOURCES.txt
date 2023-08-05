@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+scrape_google_results/__init__.py
+scrape_google_results.egg-info/PKG-INFO
+scrape_google_results.egg-info/SOURCES.txt
+scrape_google_results.egg-info/dependency_links.txt
+scrape_google_results.egg-info/requires.txt
+scrape_google_results.egg-info/top_level.txt
