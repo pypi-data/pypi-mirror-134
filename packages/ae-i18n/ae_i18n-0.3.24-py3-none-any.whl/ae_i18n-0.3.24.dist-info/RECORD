@@ -1,0 +1,16 @@
+ae/i18n.py,sha256=RMKbDesPaoyCvem9ZmRuL6_U6zXuYkklF9_fJ3QXhaY,16562
+ae_i18n-0.3.24.data/data/.gitignore,sha256=d1eeFmqTjr75DcXA57cJKHbLr8NMn848v7KuKTt0Li0,1929
+ae_i18n-0.3.24.data/data/.gitlab-ci.yml,sha256=j2cf9ZPG0jlLMptyiRIJ0-GqC5svNm6ESufmIWuQjq8,1615
+ae_i18n-0.3.24.data/data/CONTRIBUTING.rst,sha256=IVC_q9nTyYhHJ8VaHYH3r6uHMi-E_Gob-qjWF_g8USE,7592
+ae_i18n-0.3.24.data/data/LICENSE.md,sha256=0zjP05EXIzg2gRpEufA97J0M8oRnObpDG1QDYbGnRwE,35001
+ae_i18n-0.3.24.data/data/README.md,sha256=ASmC6u_MQ_RyA4gLtBEmdjaDLRj4baQdjzt6xjVRHqc,2998
+ae_i18n-0.3.24.data/data/SECURITY.md,sha256=D_A9jsb5rMuaoe-wnENCWU1xxAXLHfvritmzxNczFhU,607
+ae_i18n-0.3.24.data/data/dev_requirements.txt,sha256=JZMKKytH2Jc2Q5tib2Kn6sqltEMbIJUG7kJwO6MPRnk,101
+ae_i18n-0.3.24.data/data/requirements.txt,sha256=kVWanncgH86PP_JfCpwg86drSE4jMYdi4DllvH6iouo,113
+ae_i18n-0.3.24.data/data/setup.py,sha256=rkX1CaCF1RdmIzQmgP8jrvp14fy41Ksm5JqlweexvsA,686
+ae_i18n-0.3.24.dist-info/LICENSE.md,sha256=0zjP05EXIzg2gRpEufA97J0M8oRnObpDG1QDYbGnRwE,35001
+ae_i18n-0.3.24.dist-info/METADATA,sha256=JCalVUeZFRRp8L0R7uFrHQfv2klu7BNChFIvENjARGM,4952
+ae_i18n-0.3.24.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ae_i18n-0.3.24.dist-info/top_level.txt,sha256=vUdgAslSmhZLXWU48fm8AG2BjVnkOWLco8rzuW-5zY0,3
+ae_i18n-0.3.24.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+ae_i18n-0.3.24.dist-info/RECORD,,
