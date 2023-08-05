@@ -1,0 +1,18 @@
+L8 client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/client.py,sha256=F_2cFhf-AOrRnX7idia9zfnIfSE_jzE5scHJJw0S9k8,28731
+L8 client/decors.py,sha256=5OnXzSXJR8QXgcIEe9-D2KnNdgGTFSiW1qeGGGMxk4I,4215
+L8 client/common/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/common/func.py,sha256=MQFDptT3z0oCcrLDEEUOMVbuU6p4OsDb7ShkXKl7_dk,1690
+L8 client/common/settings.py,sha256=uUlgLGdi_QAG7Z1lsuv-71HBbxaKenJDENRQFoqjknA,2193
+L8 client/gui/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/gui/client_chat.py,sha256=6Z7uuOWuglW5q9BtdD9SUaL-NxTnhVUILf8I3mIvB9o,22866
+L8 client/log/conf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/log/conf/client_log_config.py,sha256=wEC2HwXeJH1kY1C56ZG7WhRar3CaJVwa9n_3IGfJNgc,1280
+L8 client/log/logs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+L8 client/tests/test_client.py,sha256=_JOJLszCB7aElj3uxXEF_zJc8qdfvaZiubW6ggaoRU8,4128
+L8 client/tests/test_func.py,sha256=uaD1MIwWTzXwgnsA7kiGTgutGse-irW9tmhG8cW3B3o,7002
+czkp_messanger-0.0.1.dist-info/METADATA,sha256=4KU_eUF4YAN3oXPwPfm9tQPy1uepCVxoGz1CIErWm90,164
+czkp_messanger-0.0.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+czkp_messanger-0.0.1.dist-info/top_level.txt,sha256=NAMWfcCb_TkDrfDV-oMG4tSBHSqQXA0zFyBKu9JfHuw,95
+czkp_messanger-0.0.1.dist-info/RECORD,,

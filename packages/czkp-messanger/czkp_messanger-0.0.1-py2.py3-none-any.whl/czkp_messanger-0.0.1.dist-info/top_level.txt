@@ -1,0 +1,6 @@
+L8 client
+L8 client/common
+L8 client/gui
+L8 client/log/conf
+L8 client/log/logs
+L8 client/tests
