@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+django_qd/__init__.py
+django_qd/django_qd.py
+django_qd.egg-info/PKG-INFO
+django_qd.egg-info/SOURCES.txt
+django_qd.egg-info/dependency_links.txt
+django_qd.egg-info/not-zip-safe
+django_qd.egg-info/top_level.txt
