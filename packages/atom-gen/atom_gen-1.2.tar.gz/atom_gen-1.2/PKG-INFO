@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: atom_gen
+Version: 1.2
+Summary: Atom feed helpers
+Home-page: https://github.com/flrt/atom_gen
+Author: Frederic Laurent
+Author-email: frederic.laurent@gmail.com
+License: MIT
+Description: 
+        ATOM feed generator and tools
+        
+        Released under MIT Licence.
+        
+Keywords: Atom,feed,XML
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
