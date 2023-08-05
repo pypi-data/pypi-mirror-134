@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: allround-utils
+Version: 1.0.0
+Summary: allround utils
+Home-page: https://allroundclub.com
+Author: allround
+Author-email: biz@allround.club
+License: UNKNOWN
+Keywords: python,utils,requests,allround
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+master package for utils for allround ecosystem
+
