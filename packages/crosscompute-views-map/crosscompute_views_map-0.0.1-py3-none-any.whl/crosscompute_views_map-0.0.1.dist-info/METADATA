@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: crosscompute-views-map
+Version: 0.0.1
+Summary: Render maps in your automations.
+Home-page: https://crosscompute.com
+Author: CrossCompute Inc.
+Author-email: support@crosscompute.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/crosscompute/crosscompute-views-map/issues
+Project-URL: Documentation, https://github.com/crosscompute/crosscompute-views-map
+Project-URL: Source Code, https://github.com/crosscompute/crosscompute-views-map
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: crosscompute
+
+# Map Views for CrossCompute
+
+Render maps in your CrossCompute automations. Here are the views included in this package:
+
+- map-mapbox
+- map-deck-screengrid
+
+Please see https://github.com/crosscompute/crosscompute for more information about the CrossCompute Analytics Automation Framework.
+
+## Usage
+
+```bash
+# Upgrade package
+pip install crosscompute-views-map --upgrade
+
+# Update configuration
+vim automate.yml
+  variables:
+    - id: buildings
+      view: map-mapbox
+    - id: incidents
+      view: map-deck-screengrid
+```
+
+
