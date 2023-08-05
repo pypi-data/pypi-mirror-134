@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: markdown-inline-mermaid
+Version: 1.0
+Summary: Render inline graphs with Markdown and Mermaid
+Home-page: https://github.com/johanneswuerbach/markdown-inline-mermaid
+Author: Johannes Wuerbach
+Author-email: johannes.wuerbach@googlemail.com
+License: MIT
+Description: Port of https://github.com/cesaremorel/markdown-inline-graphviz for mermaid.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Documentation
+Classifier: Topic :: Text Processing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
