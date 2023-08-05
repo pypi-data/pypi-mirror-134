@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+mkv_chapter_helper.egg-info/PKG-INFO
+mkv_chapter_helper.egg-info/SOURCES.txt
+mkv_chapter_helper.egg-info/dependency_links.txt
+mkv_chapter_helper.egg-info/entry_points.txt
+mkv_chapter_helper.egg-info/top_level.txt
+scripts/__init__.py
+scripts/main.py
