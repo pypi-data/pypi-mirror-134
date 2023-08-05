@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['agora', 'agora.io', 'agora.utils', 'logfile_parser']
+
+package_data = \
+{'': ['*'], 'logfile_parser': ['grammars/*']}
+
+install_requires = \
+['PyYAML>=6.0,<7.0']
+
+setup_kwargs = {
+    'name': 'aliby-agora',
+    'version': '0.2.5',
+    'description': 'A gathering of shared utilities for the Swain Lab image processing pipeline.',
+    'long_description': None,
+    'author': 'Julian Pietsch',
+    'author_email': 'jpietsch@ed.ac.uk',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': None,
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.7.1,<3.11',
+}
+
+
+setup(**setup_kwargs)
