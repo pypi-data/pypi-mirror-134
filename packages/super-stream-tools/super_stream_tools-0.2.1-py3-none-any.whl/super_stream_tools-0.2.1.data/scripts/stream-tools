@@ -1,0 +1,10 @@
+#!python
+
+import sys
+
+from super_stream_tools.cli import main
+
+try:
+    main()
+except ValueError as err:
+    print(err.args[0], file=sys.stderr)
