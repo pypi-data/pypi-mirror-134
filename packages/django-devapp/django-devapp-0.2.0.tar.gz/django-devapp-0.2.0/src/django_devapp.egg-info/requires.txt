@@ -1,0 +1,6 @@
+black
+build
+click
+django
+ipython
+twine
