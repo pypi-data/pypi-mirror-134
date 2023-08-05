@@ -1,0 +1,13 @@
+README.md
+setup.py
+eyja_redis/__init__.py
+eyja_redis/client.py
+eyja_redis/config.py
+eyja_redis.egg-info/PKG-INFO
+eyja_redis.egg-info/SOURCES.txt
+eyja_redis.egg-info/dependency_links.txt
+eyja_redis.egg-info/requires.txt
+eyja_redis.egg-info/top_level.txt
+eyja_redis.egg-info/zip-safe
+tests/__init__.py
+tests/test_client.py
