@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+pyes/__init__.py
+pyes/__main__.py
+pyes/_version.py
+pyes/file_interface.py
+pyes/pyjsx.py
+pyes/utils.py
+pyjsx.egg-info/PKG-INFO
+pyjsx.egg-info/SOURCES.txt
+pyjsx.egg-info/dependency_links.txt
+pyjsx.egg-info/entry_points.txt
+pyjsx.egg-info/requires.txt
+pyjsx.egg-info/top_level.txt
