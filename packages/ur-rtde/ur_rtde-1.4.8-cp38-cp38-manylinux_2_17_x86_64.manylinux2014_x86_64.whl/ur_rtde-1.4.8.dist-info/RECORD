@@ -1,0 +1,13 @@
+dashboard_client.cpython-38-x86_64-linux-gnu.so,sha256=o6PI56IUdB7FTIdvS6mDGrIcmZi1-A2Ra3MD2XrRY8Y,1474976
+rtde_receive.cpython-38-x86_64-linux-gnu.so,sha256=rkHBzZHYwswcvRd2bSv_eJD85UdhxStOPZJTp5NZEkY,1474976
+librtde.so,sha256=sKqqdQUgJ_ob8ppmzVPZ8QCaH48Pe-lJDeyWa2b10PI,1513752
+rtde_control.cpython-38-x86_64-linux-gnu.so,sha256=MKbZBT6OjuMGbTmTZtzdziNACDKlKvnx0yb-9GARqgs,1474976
+rtde_io.cpython-38-x86_64-linux-gnu.so,sha256=ELhMcRy66_RPufG0sI1eoZj-7DR2O0-s6oQyC_H8qh0,1474976
+librtde.so.1.4,sha256=sKqqdQUgJ_ob8ppmzVPZ8QCaH48Pe-lJDeyWa2b10PI,1513752
+script_client.cpython-38-x86_64-linux-gnu.so,sha256=Vf8c9aSf4mRz6usVQKjIubHNkiv4hedR9D4q5lIpdJk,1474976
+librtde.so.1.4.8,sha256=sKqqdQUgJ_ob8ppmzVPZ8QCaH48Pe-lJDeyWa2b10PI,1513752
+ur_rtde-1.4.8.dist-info/LICENSE,sha256=YX8LoHj7cTRVoVIH4hWazlEdOgvBslYWTGEv0OstRsw,1092
+ur_rtde-1.4.8.dist-info/RECORD,,
+ur_rtde-1.4.8.dist-info/METADATA,sha256=NsyhlT0skCKqwdvzEYk8BX2z9H-7h3Twas0xw_LQ1D4,4381
+ur_rtde-1.4.8.dist-info/WHEEL,sha256=paN2rHE-sLfyg0Z4YvQnentMRWXxZnkclRDH8E5J6qk,148
+ur_rtde-1.4.8.dist-info/top_level.txt,sha256=cQHKhzqRqcreja5_610bk4zuPL8gRTlbyD9EqDEkiy8,8
