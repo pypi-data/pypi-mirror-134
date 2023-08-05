@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+pipeline_storage_package_upload.egg-info/PKG-INFO
+pipeline_storage_package_upload.egg-info/SOURCES.txt
+pipeline_storage_package_upload.egg-info/dependency_links.txt
+pipeline_storage_package_upload.egg-info/top_level.txt
+storagedemo/__init__.py
+storagedemo/__main__.py
+storagedemo/example.py
