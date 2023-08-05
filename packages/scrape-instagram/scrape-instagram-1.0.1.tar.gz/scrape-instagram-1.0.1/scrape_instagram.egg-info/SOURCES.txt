@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+scrape_instagram/__init__.py
+scrape_instagram.egg-info/PKG-INFO
+scrape_instagram.egg-info/SOURCES.txt
+scrape_instagram.egg-info/dependency_links.txt
+scrape_instagram.egg-info/requires.txt
+scrape_instagram.egg-info/top_level.txt
