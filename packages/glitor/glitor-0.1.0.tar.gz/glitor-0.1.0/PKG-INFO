@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: glitor
+Version: 0.1.0
+Summary: 
+Author: Md Moin Uddin
+Author-email: moensam@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: docker (>=5.0.3,<6.0.0)
+Requires-Dist: fastapi (>=0.71.0,<0.72.0)
+Requires-Dist: fastapi-utils (>=0.2.1,<0.3.0)
+Requires-Dist: gunicorn (>=20.1.0,<21.0.0)
+Requires-Dist: uvicorn (>=0.16.0,<0.17.0)
