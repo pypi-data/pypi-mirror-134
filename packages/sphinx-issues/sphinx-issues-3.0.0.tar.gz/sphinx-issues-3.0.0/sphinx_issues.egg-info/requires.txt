@@ -1,0 +1,16 @@
+sphinx
+
+[dev]
+pytest
+flake8==3.9.2
+flake8-bugbear==20.11.1
+pre-commit~=2.7
+tox
+
+[lint]
+flake8==3.9.2
+flake8-bugbear==20.11.1
+pre-commit~=2.7
+
+[tests]
+pytest
