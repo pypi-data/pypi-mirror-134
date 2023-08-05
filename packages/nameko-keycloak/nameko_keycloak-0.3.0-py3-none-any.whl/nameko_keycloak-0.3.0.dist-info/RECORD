@@ -1,0 +1,13 @@
+nameko_keycloak/__init__.py,sha256=VrXpHDu3erkzwl_WXrqINBm9xWkcyUy53IQOj042dOs,22
+nameko_keycloak/auth.py,sha256=kajB_qnCvTrBsa5wEcroLgNayjcjrmwcCcDeSUMhQpU,1976
+nameko_keycloak/dependencies.py,sha256=WSI0K8sqipe_bHuHZJwH15Z264sSUY1pIGMrPQyc8eU,780
+nameko_keycloak/fakes.py,sha256=Oq15CEpATig-Pw0e4hWvSxdysCwHwULFCI1LPS6VJwk,2423
+nameko_keycloak/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+nameko_keycloak/service.py,sha256=_NuJGUj6rYm2TAQEYVx53XBC61A36914h-UtXbyO1kk,6267
+nameko_keycloak/types.py,sha256=5qvfyP5Iaw17GJEYI3YTZ0Fff9FdYBVG0wZynSBliGc,198
+nameko_keycloak-0.3.0.dist-info/AUTHORS.rst,sha256=ugsJH0DqqnuAzMxWqQpN9eK804b6qNWoBxJ_nNuClaw,55
+nameko_keycloak-0.3.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+nameko_keycloak-0.3.0.dist-info/METADATA,sha256=_pK6q6INJCwE4noILeOMbmwyZTBeFTmEM76nVcHn-Sw,6487
+nameko_keycloak-0.3.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+nameko_keycloak-0.3.0.dist-info/top_level.txt,sha256=-ILga-FfDeIhtjQ_ZNsrbWe_KC5I_I8KV8TkbPd4jkM,16
+nameko_keycloak-0.3.0.dist-info/RECORD,,
