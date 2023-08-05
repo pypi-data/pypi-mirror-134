@@ -1,0 +1,11 @@
+README.md
+setup.py
+concurrent_sync.egg-info/PKG-INFO
+concurrent_sync.egg-info/SOURCES.txt
+concurrent_sync.egg-info/dependency_links.txt
+concurrent_sync.egg-info/requires.txt
+concurrent_sync.egg-info/top_level.txt
+csync/__init__.py
+csync/__main__.py
+csync/cli.py
+csync/core.py
