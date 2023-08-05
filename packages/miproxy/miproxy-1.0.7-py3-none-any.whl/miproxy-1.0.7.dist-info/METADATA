@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: miproxy
+Version: 1.0.7
+Summary: miproxy
+Home-page: https://minhht.com
+Author: MinhHT
+Author-email: htm.dev304@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: selenium-wire (>=4.6.0)
+
+
+long_description
+
+
