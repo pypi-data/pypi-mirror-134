@@ -1,0 +1,68 @@
+{% extends 'base_navbar.html' %}
+{% block content %}
+<main class="container">
+    <div class="bg-light p-5 rounded">
+        <h1>Config</h1>
+        <form>
+            <h5>Sampling</h5>
+            <div class="col-auto">
+                Period(ms):
+                <input type="number" class="form-control"
+                       name="sample_period" value="{{ sample_period }}" min="0.25" max="5" step="0.25">
+
+                <!--
+                <select class="form-select"
+                        name="sample_period" aria-label="Default select example">
+                    <option selected>Select Period(ms)</option>
+                    <option value="0.33">0.33</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                </select>-->
+
+                Sample size:
+                <input type="number" class="form-control mb-1"
+                       name="sample_size" value="{{ sample_size }}" min="4" max="32" step="4">
+                <!--
+                <select class="form-select mb-1"
+                        name="sel_samples_per_measure" aria-label="Default select example">
+                    <option selected>Select Samples per Measure</option>
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="16">16</option>
+                    <option value="32">32</option>
+                </select>-->
+
+                <!--
+                <input type="number" class="form-control mb-3"
+                       name="dummy" value="0">-->
+            </div>
+
+            <h5>Logging</h5>
+            <div class="col-auto">
+                Max log counts:
+                <input type="number" class="form-control"
+                       name="log_max" value="{{ log_max }}" min="10" max="1000" step="10">
+            </div>
+
+            <h5>Processing</h5>
+            <select class="form-select" name="proc_method" aria-label="select">
+                <option selected>{{ proc_method }}</option>
+                <option value="MEAN">Mean Value</option>
+                <option value="MEDIAN">Median Value</option>
+            </select>
+
+
+            <hr>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="check_config_save" value="1"
+                       id="check_config_save">
+                <label class="form-check-label" for="check_config_save">Save this configuration</label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Submit Form Data</button>
+        </form>
+        <hr>
+    </div>
+
+</main>
+{% endblock %}
