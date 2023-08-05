@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: IUBBaseTools
+Version: 0.0.7
+Summary: A small script to read Yaml configuration file
+Home-page: https://github.com/Timmy93/IUBBaseTools
+Author: Timmy93
+Author-email: masomeno2006@hotmail.it
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Timmy93/IUBBaseTools/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# IUB Base tool
+IUB Base Tool contains a set of base class used for IUB scripts
+
+## Contained tools
+Here a list of the contained tools:
+* **IUBConfiguration**: used to read yaml settings from a file
+* **FTPUploader**: used to upload files inside a directory to cloud
+* **Locker**: check if another instance of the requested script is already running
+* **TorrentHandler**: send requests to the server that is controlling Transmission
+* **UploadDb**: store data to a text file as plaintext
+* **ApiHandler**: set of API used to communicate with IUB server
+
+## Build guide
+To release a new build:
+1. Edit the `setup.cfg` file setting the correct version
+2. Open powershell to the root directory of this project
+3. Build the new version running `py -m build`
+4. Uploaded the new version to pypy `py -m twine upload dist/*`
+5. Set as username: `__token__`
+6. Set as password the saved token `pypi-xxx`
+
