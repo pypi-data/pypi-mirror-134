@@ -1,0 +1,8 @@
+Flask
+m-caching
+m-singleton
+python-jose
+m-kafka-sdk
+redis
+pycryptodome
+mobio-license-sdk
