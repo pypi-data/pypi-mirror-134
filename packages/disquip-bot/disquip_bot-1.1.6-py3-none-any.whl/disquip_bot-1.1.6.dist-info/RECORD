@@ -1,0 +1,11 @@
+disquip/__init__.py,sha256=8zoe-LMCDMBGQx7g4SDoHmo7kCkLVRisl0YjBxG8Tds,28
+disquip/__main__.py,sha256=Bx_sH8yl5SmNFBVvfDozMyVyg4DgCpHaT6fkXMy-QHc,2756
+disquip/bot.py,sha256=dYj49pgsvMNPG3pMmv2wh0EmIp6dSK9KS7RVQ0DFFpA,22648
+disquip/discover.py,sha256=gtLGMy30BWmUIbraB1-C2XqQDUUAYA3Ad9NUWosi6Pw,6186
+disquip/normalize.py,sha256=4j9CnmsJSbtkyP053ZiV8dJ1RAXTukzQwfRBPCTjZAU,3661
+disquip_bot-1.1.6.dist-info/LICENSE,sha256=7b4jTl0WvQGA31R91OOr9OVxjr6EsWEugLfOETvNhoE,1092
+disquip_bot-1.1.6.dist-info/METADATA,sha256=PWINy_t2lPBt_UAevT0fHplYeyxt5gjkxcUU_fM_QZQ,18495
+disquip_bot-1.1.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+disquip_bot-1.1.6.dist-info/entry_points.txt,sha256=qqTpFUSuwP2j9yy-wWy41HzLx_5JbVNoWThunahkOCw,46
+disquip_bot-1.1.6.dist-info/top_level.txt,sha256=QazXpf1K6Hx-aGItd7ZAlfALG2qGcvMXMrXUY7fkCt4,8
+disquip_bot-1.1.6.dist-info/RECORD,,
