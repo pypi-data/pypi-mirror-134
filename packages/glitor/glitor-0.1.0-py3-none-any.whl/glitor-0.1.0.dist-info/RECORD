@@ -1,0 +1,8 @@
+glitor/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+glitor/asgi.py,sha256=mTZ_KCxcaOolNEK-NvTiAaMGN0cInOtVKACeX_P5iJU,48
+glitor/config.py,sha256=iWpxhlKkMlH0CsKeRpzmu4qqMWJ2Ms-wpRnqEt5npuI,1128
+glitor/main.py,sha256=PE9EGRQHvPKcX5JAJ_pFAsGSSRRPR8UaMDris4Ke7CA,652
+glitor/notifier.py,sha256=8LDXIVlkLhIq5BxZ3nfM0j9zjXceBh49QHlAenUx94M,2997
+glitor-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+glitor-0.1.0.dist-info/METADATA,sha256=JJ97Yx_39JHPmX4LeJkDeoEcoKw08i8CVZ2cJVcfVFY,503
+glitor-0.1.0.dist-info/RECORD,,
