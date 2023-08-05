@@ -1,0 +1,14 @@
+maritest/__init__.py,sha256=77yCEJo6dCMrurrhghTtMvJHc3nkcQHRDc7FeckrzkI,36
+maritest/assertion.py,sha256=TVMuLDpmJu-pdIeJPbzJGNle2ThFjB5nyqTaj9wdv0E,7336
+maritest/client.py,sha256=70VVufybm4cvQ8bC7f7y2El4pdBXttZdECAfnBENMkY,14912
+maritest/response.py,sha256=b3cd6-RVLnBEHV5p6LQdkwWxJTdsP3TcPvUhoApW7lg,3799
+maritest/version.py,sha256=P2-Jbb8SpGVrDJodG06HkhCZ9CRfp5vBl3FzuT8JEW8,156
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_assertion.py,sha256=pUd44qO6v322Ja5735Tcx5nRNcqjyrtmnJHCkAJNiPw,6183
+tests/test_clients.py,sha256=ToeTz77rpir2zN5SPcuzEnvZjMFIQSFFNwsOWVVV8-M,5835
+tests/test_response.py,sha256=7rXM9wLIczaeLC7vnqV64IBf-VkwGDrmfbgFj5g3fGc,966
+maritest-0.2.0.dist-info/LICENSE,sha256=CAYP2Tm-x6k-U6QHELKzPncyDK27JcJNAxwmimtOl0o,569
+maritest-0.2.0.dist-info/METADATA,sha256=Jh69jbrlxxq-p2-BDy4EXkejIQMlJp5LC0BZzFfw8sk,11388
+maritest-0.2.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+maritest-0.2.0.dist-info/top_level.txt,sha256=KAmwanmFmPPhZ_jhsfr8DnbicvooZP0UWxF_l8F1F78,15
+maritest-0.2.0.dist-info/RECORD,,
