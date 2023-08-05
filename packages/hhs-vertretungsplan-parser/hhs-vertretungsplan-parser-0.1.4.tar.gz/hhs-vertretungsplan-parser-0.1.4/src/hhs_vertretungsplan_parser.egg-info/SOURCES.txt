@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/hhs_vertretungsplan_parser/__init__.py
+src/hhs_vertretungsplan_parser/const.py
+src/hhs_vertretungsplan_parser/vertretungsplan_parser.py
+src/hhs_vertretungsplan_parser.egg-info/PKG-INFO
+src/hhs_vertretungsplan_parser.egg-info/SOURCES.txt
+src/hhs_vertretungsplan_parser.egg-info/dependency_links.txt
+src/hhs_vertretungsplan_parser.egg-info/not-zip-safe
+src/hhs_vertretungsplan_parser.egg-info/requires.txt
+src/hhs_vertretungsplan_parser.egg-info/top_level.txt
+src/hhs_vertretungsplan_parser/model/__init__.py
+src/hhs_vertretungsplan_parser/model/vertretung.py

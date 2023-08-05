@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: hhs-vertretungsplan-parser
+Version: 0.1.4
+Summary: A simple parser for Heinrich-Hertz-Schule, Hamburg, class substitution schedule
+Home-page: https://github.com/kongo09/hhs-vertretungsplan
+Author: kongo09
+Author-email: kongo09@gmail.com
+License: MIT License
+Project-URL: Bug Tracker, https://github.com/kongo09/hhs-vertretungsplan/issues
+Keywords: hhs
+Platform: UNKNOWN
+Requires-Python: !=2.*,>=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: all
+License-File: LICENSE
+
+# hhs-vertretungsplan
+Python parser for the Heinrich-Hertz-Schule, Hamburg, Vertretungsplan interface
+
+Retrieves latest status of classes being substituted.
+
+Ask your Elternvertreter for username and password.
+
+Usage:
+
+```python
+import aiohttp
+import asyncio
+import sys
+from hhs_vertretungsplan_parser.vertretungsplan_parser import HHSVertretungsplanParser
+
+async def main(user: str, password: str):
+    async with aiohttp.ClientSession() as session:
+        hhs = HHSVertretungsplanParser(session, user, password)
+        await hhs.load_data()
+        for vertretung in hhs.vertretungen:
+            print(f"Klasse {vertretung.klasse} hat am {vertretung.datum} in Stunde {vertretung.stunde} im Fach {vertretung.fach} bei {vertretung.vertreter} Vertretung.")
+
+if (__name__ == '__main__'):
+    # on Windows add:
+    # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    if len(sys.argv) == 3:
+        asyncio.run(main(sys.argv[1], sys.argv[2]))
+    else:
+        print(f"usage: python hhs-vertretungsplan.py <user> <password>")
+```
+
+
