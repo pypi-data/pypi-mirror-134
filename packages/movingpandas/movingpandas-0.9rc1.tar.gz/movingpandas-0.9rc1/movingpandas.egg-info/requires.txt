@@ -1,0 +1,14 @@
+numpy
+matplotlib
+shapely<1.8
+pandas
+geopandas
+hvplot
+bokeh
+cartopy
+geoviews
+pyproj
+geopy
+
+[smoothing]
+stonesoup
