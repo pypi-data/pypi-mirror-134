@@ -1,0 +1,17 @@
+signal_cli_dbus_rest_api/__init__.py,sha256=dCU4o3249pTNkKYUYoxp7Sb3LjKFHzCvTFdtYYyh2cA,999
+signal_cli_dbus_rest_api/api/__init__.py,sha256=BnMG2kxad27Fi62zFEKgnNer00Ywbg2BGAY56YCOLII,720
+signal_cli_dbus_rest_api/api/about/__init__.py,sha256=2efPaSid-Elq6RWNz6VbgwQWFbhs6N-pWwfW1m8dmYg,682
+signal_cli_dbus_rest_api/api/groups/__init__.py,sha256=wgbpOO7s-4NIS69R8l4wNqm0cVXFL3_7SOlZA4g9Sl8,3541
+signal_cli_dbus_rest_api/api/reactions/__init__.py,sha256=WjdNl4tkLszvLhoYkKcyXgQMKdLB8bBlwodaaMDawjI,4226
+signal_cli_dbus_rest_api/api/register_verify/__init__.py,sha256=kuaiisUI1bltiyJMHgSmFS-DtjxK5JKBazu3dOwdGQM,3074
+signal_cli_dbus_rest_api/api/search/__init__.py,sha256=gGM0YRez-sjDcxExSlBioQf8SGiJqsXKEFVL_UzpEWA,2000
+signal_cli_dbus_rest_api/api/send/__init__.py,sha256=gwfCQyrrv1Pui62XX6B1LxvdkcfjTbka5N2qtNvH8oE,5525
+signal_cli_dbus_rest_api/lib/__init__.py,sha256=Qrspa-jgtErQ5MNyrYcKEsB_-aj6nL312VJSspUhmMk,13
+signal_cli_dbus_rest_api/lib/dbus/__init__.py,sha256=IQ5Hnknh_fsYEoYM2MeyCEZlxDS2Ezw1eHE-BP3Bhxs,1231
+signal_cli_dbus_rest_api/lib/helper/__init__.py,sha256=3AqiwUBrh5SXRScER-oSmM1dkXWP1L6wogwaw8h_GMs,2442
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/LICENSE,sha256=ACwmltkrXIz5VsEQcrqljq-fat6ZXAMepjXGoe40KtE,1069
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/METADATA,sha256=Vid0nTnNlQzj6DFF0QB5v6ChXyzYW7544h6MOiz2wOw,897
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/entry_points.txt,sha256=gGBm-aduGqoptTTGbkTfdlQ36OKoTa2z2yd_cYn1Fmc,75
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/top_level.txt,sha256=adt_TSqHd23qk1U-_CMYhUmCnZlBH3Wpi5-5Vf2poXw,25
+signal_cli_dbus_rest_api-21.1.9.1.dist-info/RECORD,,
