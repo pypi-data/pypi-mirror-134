@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+README.rst
+setup.cfg
+setup.py
+QA_Annotator.egg-info/PKG-INFO
+QA_Annotator.egg-info/SOURCES.txt
+QA_Annotator.egg-info/dependency_links.txt
+QA_Annotator.egg-info/requires.txt
+QA_Annotator.egg-info/top_level.txt
+annotator/__init__.py
+annotator/app.py
+annotator/config.py
+annotator/exportSquadJson.py
+annotator/sqlDBCreate.py
