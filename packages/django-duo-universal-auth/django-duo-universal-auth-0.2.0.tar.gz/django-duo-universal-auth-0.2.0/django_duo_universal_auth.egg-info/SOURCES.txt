@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+django_duo_universal_auth.egg-info/PKG-INFO
+django_duo_universal_auth.egg-info/SOURCES.txt
+django_duo_universal_auth.egg-info/dependency_links.txt
+django_duo_universal_auth.egg-info/requires.txt
+django_duo_universal_auth.egg-info/top_level.txt
+duo_universal_auth/__init__.py
+duo_universal_auth/apps.py
+duo_universal_auth/middleware.py
+duo_universal_auth/urls.py
+duo_universal_auth/views.py
