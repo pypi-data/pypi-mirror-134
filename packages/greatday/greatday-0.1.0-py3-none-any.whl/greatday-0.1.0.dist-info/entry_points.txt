@@ -1,0 +1,3 @@
+[console_scripts]
+greatday = greatday.cli:main
+
