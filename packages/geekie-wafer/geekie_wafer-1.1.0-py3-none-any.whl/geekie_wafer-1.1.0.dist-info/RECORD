@@ -1,0 +1,10 @@
+wafer/__init__.py,sha256=VlMS42SWMtl-b9LAn2aiUi_aR-zDpPL--QH8AGxSopM,12948
+wafer/fields.py,sha256=7TNjCe6A_J60rIfoZ14cEtSFjTMoMtWzQzVHy2v8GQ8,3997
+wafer/repository.py,sha256=ChgqhS6sAxE4SB7LdatFbWTOIvEhuMih0NjDY9sIjaw,1974
+wafer/utils.py,sha256=MJgCLQmIXSc9GiafDmov5GY12wQMoH8nj6WYtVD78bM,195
+wafer/validators.py,sha256=d56T1t10_p5UUV0I7c0jQIiKz1QX1cGOFQoMuoKFvc8,4339
+geekie_wafer-1.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+geekie_wafer-1.1.0.dist-info/METADATA,sha256=_k2xjc41hNt4MILx2Muppeln7YExVgH3JYE11ZAuc_4,271
+geekie_wafer-1.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+geekie_wafer-1.1.0.dist-info/top_level.txt,sha256=2MK1IVMWfpLL8BZCQ3E9aG6L6L666gSA_teYlwan4fs,6
+geekie_wafer-1.1.0.dist-info/RECORD,,
