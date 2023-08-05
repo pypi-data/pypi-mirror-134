@@ -1,0 +1,11 @@
+README.md
+setup.py
+media_fixer/__init__.py
+media_fixer/__main__.py
+media_fixer/cli.py
+media_fixer/core.py
+media_fixer.egg-info/PKG-INFO
+media_fixer.egg-info/SOURCES.txt
+media_fixer.egg-info/dependency_links.txt
+media_fixer.egg-info/requires.txt
+media_fixer.egg-info/top_level.txt
