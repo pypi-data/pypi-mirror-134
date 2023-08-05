@@ -1,0 +1,8 @@
+vpn/controller.py,sha256=Ra-JDVcr2gOVU9DMrHba0kSVgMQidfU7QcBNiHoITkY,28772
+vpn/defaults.py,sha256=HHWA_c9nnBrwjdPRNy7Gnagk98_3sFyWdgpPRcXxBN0,1496
+vpn/helper.py,sha256=scWhe-IEfQjZvsj9oWFCuSbWHLHbVySPNQEdg6982ic,4754
+vpn_server-0.0.8.dist-info/LICENSE,sha256=QrtVd9OxjohKWoSGkqro3tPJR_7WGlpAQs_IYq269wg,1079
+vpn_server-0.0.8.dist-info/METADATA,sha256=yagmYIGmMeReC2e2OrNtYbL5h_y6eEE2Zh8uHa4mCck,11834
+vpn_server-0.0.8.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+vpn_server-0.0.8.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+vpn_server-0.0.8.dist-info/RECORD,,
