@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+number_utils/__init__.py
+number_utils/primes.py
+number_utils.egg-info/PKG-INFO
+number_utils.egg-info/SOURCES.txt
+number_utils.egg-info/dependency_links.txt
+number_utils.egg-info/top_level.txt
