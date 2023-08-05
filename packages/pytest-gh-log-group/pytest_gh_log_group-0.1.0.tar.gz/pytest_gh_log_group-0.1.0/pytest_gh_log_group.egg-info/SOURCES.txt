@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+img.png
+setup.py
+.github/workflows/push.yml
+pytest_gh_log_group.egg-info/PKG-INFO
+pytest_gh_log_group.egg-info/SOURCES.txt
+pytest_gh_log_group.egg-info/dependency_links.txt
+pytest_gh_log_group.egg-info/entry_points.txt
+pytest_gh_log_group.egg-info/requires.txt
+pytest_gh_log_group.egg-info/top_level.txt
+source/__init__.py
+source/github.py
+source/plugin.py
+tests/test_e2e.py
