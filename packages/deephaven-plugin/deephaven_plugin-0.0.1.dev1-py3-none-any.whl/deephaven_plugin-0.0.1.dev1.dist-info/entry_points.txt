@@ -1,0 +1,4 @@
+[console_scripts]
+deephaven-plugin-list-plugins = deephaven.plugin:list_plugins
+deephaven-plugin-list-registrations = deephaven.plugin:list_registrations
+
