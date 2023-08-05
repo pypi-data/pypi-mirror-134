@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+allcasts/__init__.py
+allcasts/allcasts.py
+allcasts/itunes_API.py
+allcasts.egg-info/PKG-INFO
+allcasts.egg-info/SOURCES.txt
+allcasts.egg-info/dependency_links.txt
+allcasts.egg-info/entry_points.txt
+allcasts.egg-info/requires.txt
+allcasts.egg-info/top_level.txt
