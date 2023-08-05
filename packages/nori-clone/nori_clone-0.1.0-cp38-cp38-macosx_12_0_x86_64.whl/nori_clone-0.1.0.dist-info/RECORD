@@ -1,0 +1,12 @@
+nori_clone-0.1.0.data/purelib/nori/__init__.py,sha256=6-dddG5LX1FkPVkIjXHzv3-WyEsF53q6QacWYRcwpqE,48
+nori_clone-0.1.0.data/purelib/nori/bind.so,sha256=4_rgxsxHxiOD-Wu82fkkzk5KV_18tRT_FXk23gQFGaM,4349264
+nori_clone-0.1.0.data/purelib/nori/dictionary/char.pb,sha256=xCmRi5OUT3gTSByt0kk0KIXhRS3daY1LDMoO4uH0p_k,211809
+nori_clone-0.1.0.data/purelib/nori/dictionary/costs.pb,sha256=E6R7vkU5V9BXReZHmsy1hZcNkRhDG-kxORFhxoiHbYg,6664309
+nori_clone-0.1.0.data/purelib/nori/dictionary/dictionary.bin,sha256=s28wD5KcoFfOavK4Jvb1V_VRzXITeyh3OFFYns2UZ_M,14359552
+nori_clone-0.1.0.data/purelib/nori/dictionary/dictionary_meta.pb,sha256=OnVTCPS3oGXCPaDuadvqUg_5-sTcha2wu2FrVxEQw30,6613075
+nori_clone-0.1.0.data/purelib/nori/dictionary/unk.pb,sha256=tXnnTOW82ktNkaAqPH0eZK4leCMFXTBVItaxyXQjVc8,169
+nori_clone-0.1.0.dist-info/LICENSE,sha256=UOZ1F5fFDe3XXvG4oNnkL1-Ecun7zpHzRxjp-XsMeAo,11324
+nori_clone-0.1.0.dist-info/METADATA,sha256=lgTbi17BSwCjzjf1z4Rdq9vb9fNo3_N49TiPvcrbiMQ,844
+nori_clone-0.1.0.dist-info/WHEEL,sha256=-vblNG-qJnkB-8FJYxbANQ5QciCUXCHG9mVZSanNJUI,109
+nori_clone-0.1.0.dist-info/top_level.txt,sha256=TWvdFbcapctPH008H8qXx7Mxqy5Z2LTm9vDk3gdN8KE,5
+nori_clone-0.1.0.dist-info/RECORD,,
