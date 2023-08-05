@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: nightshade
+Version: 0.1.0
+Summary: Tools for retrieving movie data from Rotten Tomatoes
+License: Apache-2.0
+Author: Roni Choudhury
+Author-email: aichoudh@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: beautifulsoup4 (>=4.10.0,<5.0.0)
+Requires-Dist: click (>=8.0.3,<9.0.0)
+Requires-Dist: nltk (>=3.6.5,<4.0.0)
+Requires-Dist: pydantic (>=1.8.2,<2.0.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
