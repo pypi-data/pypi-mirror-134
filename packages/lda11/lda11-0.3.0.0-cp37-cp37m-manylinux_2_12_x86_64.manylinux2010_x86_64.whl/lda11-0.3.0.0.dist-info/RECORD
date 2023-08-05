@@ -1,0 +1,10 @@
+lda11/util.py,sha256=fwbDp00w1Fnki-C1K8OixvMYnsekardF6uvB321QbdE,564
+lda11/__init__.py,sha256=WIU6ggsDBUDwL8QWV-OldUIk4f8AUU0UKel_7-_sybM,455
+lda11/labelled_lda.py,sha256=pjADjXLwhX31H9aWWrulMLWPnGIROa88bKgE9lPYIFE,3174
+lda11/_lda.cpython-37m-x86_64-linux-gnu.so,sha256=389xkEDGyXIuZxwM4RWx_7Ldoe8DME74rKNf0-L0-Co,23932528
+lda11/_lda.pyi,sha256=f-yI9LaGrQvYWTt_kTm4E6dWfLZri7wh3F0QMUMkMCM,4899
+lda11/lda.py,sha256=ZgbqMrKMoOfXk-BofIR4I1qbm0yMDdyX39xL5E7puRE,14173
+lda11-0.3.0.0.dist-info/METADATA,sha256=C7vpdhEu8KQ35ulirSF1QdKMsdiPnyUsdAdE2hjYgfk,1416
+lda11-0.3.0.0.dist-info/WHEEL,sha256=SyGcpGi1pkq23uayPq7EIty4fRv9OlQT7thlio7Ne6U,150
+lda11-0.3.0.0.dist-info/RECORD,,
+lda11-0.3.0.0.dist-info/top_level.txt,sha256=19COK0kNML9ZF4588WK08WfH5EXRKQ71AHWu2blPvxE,6
