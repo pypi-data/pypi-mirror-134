@@ -1,0 +1,7 @@
+JSON_minify
+setuptools
+requests
+websocket-client==0.57.0
+fake-useragent
+Amino-Socket==1.0.6
+psutil
