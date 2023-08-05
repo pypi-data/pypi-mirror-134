@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pytorch-common
+Version: 0.0.3
+Summary: Common torch tools and extension
+Keywords: pytorch,common
+Author: adrianmarino
+Author-email: adrianmarino@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: bunch (>=1.0.1,<2.0.0)
+Requires-Dist: ipython (>=7.31.0,<8.0.0)
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0)
+Requires-Dist: numpy (>=1.22.0,<2.0.0)
+Requires-Dist: scikit-learn (>=1.0.2,<2.0.0)
+Requires-Dist: seaborn (>=0.11.2,<0.12.0)
+Requires-Dist: torch (>=1.10.1,<2.0.0)
