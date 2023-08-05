@@ -1,0 +1,14 @@
+LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+mettmail/__init__.py,sha256=Pz8gS2ZTqI6vGF0_paIA5szUZ5BMer984I5rJXnd9pk,732
+mettmail/config_schema.py,sha256=5mkmfQU_dfHDFOa37fS0jGtW3EGo5E-1FZHFNGYG5II,1373
+mettmail/deliver_base.py,sha256=GIFt1l1wOmytgw90EXsD_8fU4DIQblRzSN5pUTsW5bQ,996
+mettmail/deliver_lmtp.py,sha256=6LGz0YS0SVV4Qb21S2bx74ukdAaCsEDlaqpvhq52W0U,6277
+mettmail/exceptions.py,sha256=S6iEkXD5j_m0RFvlP-zBwt95IWZRphtONkhzhjxwi8A,1956
+mettmail/fetch_imap.py,sha256=YSD1hl1Kw5rJCRq27oFlNdQs-Lx4ZOGq5iSEhSwMozk,15681
+mettmail/mettmail_cli.py,sha256=PsZgfkfD3X558peeYtjNsgdw0XEuAxM6CVYynJHv1nw,2778
+mettmail/mettmail_loop.py,sha256=zH98lsgtYCE-U3Q3l7TJsFN2kTFzY4eRKjAUyvlsUnM,2095
+mettmail-0.1.1.dist-info/entry_points.txt,sha256=4GjNRAIR--wvqTDLoql38UN9OEQDW2lz7ZsS4OlPLWA,54
+mettmail-0.1.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+mettmail-0.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+mettmail-0.1.1.dist-info/METADATA,sha256=DDHlKr68eB8JJVb-mKVRnYRO-7dLDe-jjmiadA6RAjs,2769
+mettmail-0.1.1.dist-info/RECORD,,

@@ -1,0 +1,3 @@
+[console_scripts]
+mettmail=mettmail.mettmail_cli:run
+
