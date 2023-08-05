@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{textwidth=500pt,top=20mm,bottom=20mm}
+
+\newcommand\MM{{\tt MulensModel}}
+
+
+\begin{document} % ########################################
+
+Microlensing parameters in \MM\, class {\tt ModelParameters}:
+
+\begin{table*}[h]
+\begin{tabular}{l l l p{10cm}}
+Parameter & Name in &  Unit & Description \\
+ & \MM &  & \\
+\hline
+$t_0$ & {\tt t\_0} & & The time of the closest approach between the source and the lens. \\
+$u_0$ & {\tt u\_0} & & The impact parameter between the source and the lens center of mass. \\
+$t_{\rm E}$ & {\tt t\_E} & d & The Einstein crossing time. \\
+$t_{\rm eff}$ & {\tt t\_eff} & d & The effective timescale, $t_{\rm eff} \equiv u_0 t_{\rm E}$. \\
+$\rho$ & {\tt rho} & & The radius of the source as a fraction of the Einstein ring. \\
+$t_{\star}$ & {\tt t\_star} & d & The source self-crossing time, $t_\star \equiv \rho t_{\rm E}$. \\
+$\pi_{{\rm E}, N}$ & {\tt pi\_E\_N} & & The North component of the microlensing parallax vector. \\
+$\pi_{{\rm E}, E}$ & {\tt pi\_E\_E} & & The East component of the microlensing parallax vector. \\
+$t_{0,{\rm par}}$ & {\tt t\_0\_par} & & The reference time for parameters in parallax models.$^a$ \\
+$s$ & {\tt s} & & The projected separation between the lens primary and its companion as a fraction of the Einstein ring radius. \\
+$q$ & {\tt q} & & The mass ratio between the lens companion and the lens primary $q \equiv m_2/m_1$. \\
+$\alpha$ & {\tt alpha} & deg. & The angle between the source trajectory and the binary axis. \\
+$ds/dt$ & {\tt ds\_dt} & yr$^{-1}$ & The rate of change of the separation. \\
+$d\alpha/dt$ & {\tt dalpha\_dt} & deg.~yr$^{-1}$ & The rate of change of $\alpha$. \\
+$t_{0,{\rm kep}}$ & {\tt t\_0\_kep} & & The reference time for lens orbital motion calculations.$^a$ \\
+$x_{\rm caustic, in}$ & {\tt x\_caustic\_in} & & Curvelinear coordinate of caustic entrance for a binary lens model.$^b$ \\
+$x_{\rm caustic, out}$ & {\tt x\_caustic\_out} & & Curvelinear coordinate of caustic exit for a binary lens model.$^b$ \\
+$t_{\rm caustic, in}$ & {\tt t\_caustic\_in} & & Epoch of caustic exit for a binary lens model.$^b$ \\
+$t_{\rm caustic, out}$ & {\tt t\_caustic\_out} & & Epoch of caustic exit for a binary lens model.$^b$ \\
+\hline
+\end{tabular}
+\caption{Notes: \newline
+$^a$ -- $t_{0,{\rm par}}$ and $t_{0,{\rm kep}}$ are reference parameters, hence, do not change these during fitting. \newline
+$^b$ -- The four parameters of binary lens in Cassan (2008) parameterization ($x_{\rm caustic, in}$, $x_{\rm caustic, out}$, $t_{\rm caustic, in}$, and $t_{\rm caustic, out}$) are used instead of ($t_0$, $u_0$, $t_{\rm E}$, and $\alpha$).
+%\label{}
+}
+\end{table*}
+
+Some of the parameters can be defined separately for each of the sources in binary source models.  
+In that case, add {\tt \_1} or {\tt \_2} to parameter name. These are:
+\begin{itemize}
+\item {\tt t\_0\_1}, {\tt t\_0\_2},
+\item {\tt u\_0\_1}, {\tt u\_0\_2},
+\item {\tt rho\_1}, {\tt rho\_2},
+\item {\tt t\_star\_1}, {\tt t\_star\_2}.
+\end{itemize}
+
+Also note that there are properties of the microlensing events that are not considered parameters in the \texttt{ModelParameters} class, but are implemented in other parts of the \texttt{MulensModel}. The most important are:
+\begin{itemize}
+ \item source and blending fluxes -- \texttt{Event} and \texttt{FitData}; also see use case 38,
+ \item sky coordinates -- \texttt{Model.coords},
+ \item limb-darkening coefficients -- \texttt{Model.set\_limb\_coeff\_gamma} and \texttt{Model.set\_limb\_coeff\_u},
+ \item flux ratio for binary source models -- \texttt{Model.set\_source\_flux\_ratio} and\\ \texttt{Model.set\_source\_flux\_ratio\_for\_band},
+ \item methods used to calculate magnification -- \texttt{Model.set\_magnification\_methods},
+ \item coordinates of space telescopes -- \texttt{Model.get\_satellite\_coords}.
+\end{itemize}
+
+\end{document}
+
