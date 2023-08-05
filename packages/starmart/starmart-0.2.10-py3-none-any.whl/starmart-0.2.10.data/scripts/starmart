@@ -1,0 +1,5 @@
+#!python
+
+from starmart.__main__ import main
+
+main()
