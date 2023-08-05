@@ -1,0 +1,9 @@
+pygeoshape/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pygeoshape/geolinestring.py,sha256=h6L6g-0Dxpe-wFp73oNSgkef95SvTnkpyM8meKx_rI4,7225
+pygeoshape/geopoint.py,sha256=tBQvsAZzcFjTNEmlTm7AnR1Bag1t7RybJSMquVKPE4o,6624
+pygeoshape/utils.py,sha256=tzBHU1NBo8za-duaGeixfBEP1h6IQAlTbdVcAW18RXs,540
+pygeoshape-0.0.4.dist-info/LICENSE,sha256=1HnxHVSOeV1VpyqyTetzQKG_ayTZyCXVwZykwnc8Zhk,1521
+pygeoshape-0.0.4.dist-info/METADATA,sha256=Yzxac8n_mvXSUb9bS1CSO0_25mXAnbaKav1Z_vcownk,2780
+pygeoshape-0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pygeoshape-0.0.4.dist-info/top_level.txt,sha256=icnW1JPnmqHBCNlQThLxUNWVxG0N5jgwEOFlkzXNtxo,11
+pygeoshape-0.0.4.dist-info/RECORD,,
