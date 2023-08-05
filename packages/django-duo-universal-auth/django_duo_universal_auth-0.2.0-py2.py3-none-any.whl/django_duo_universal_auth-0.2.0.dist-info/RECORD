@@ -1,0 +1,10 @@
+duo_universal_auth/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+duo_universal_auth/apps.py,sha256=wc5-hjgcaR_PAW-hRb31ouIRUPzSlReTP2_zzyj03I4,289
+duo_universal_auth/middleware.py,sha256=9iA5LgrWw5l9sTTQp9lN081SpP7o4GMIAKR6Mtcya2M,6136
+duo_universal_auth/urls.py,sha256=0tfx4ZberoIb1HOJ8h2nvaV8TEsQEO-N7mbxC5jQ3fE,262
+duo_universal_auth/views.py,sha256=71-36uU9Hvs_Gqj-59_b_4bXu2KGd8XUIRJmQMm9bsE,1526
+django_duo_universal_auth-0.2.0.dist-info/LICENSE,sha256=xnO2sWySkH2mBctH2OsN74wTQG4MGCzoHYN_KAULDrg,1547
+django_duo_universal_auth-0.2.0.dist-info/METADATA,sha256=Wb1vPc1I1xC9EV2KBD9eSKWtO3PufVLPQ-gRbF0ItvI,6018
+django_duo_universal_auth-0.2.0.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+django_duo_universal_auth-0.2.0.dist-info/top_level.txt,sha256=DnIwZgek_XSZYs3oGoKjrk5lWZY6c59trkdsQbxs9C0,19
+django_duo_universal_auth-0.2.0.dist-info/RECORD,,
