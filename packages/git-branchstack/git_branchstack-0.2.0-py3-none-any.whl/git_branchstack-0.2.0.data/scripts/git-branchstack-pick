@@ -1,0 +1,84 @@
+#!/bin/sh
+
+NAME="git ${0##*/git-}"
+usage() {
+	echo "\
+usage: $NAME <base_commit>..<commit> [<rebase-args>...]
+       $NAME ..<commit> [<rebase-args>...]
+
+Start a new interactive rebase, with these steps planned:
+- drop commits whose subjects start with \"[<topic>] \"
+- cherry-pick the given commit range and prefixes subjects with \"[<topic>] \"
+
+where <topic> is <commit> but with one leading path component removed.
+For example, <commit> can look like <remote>/<topic>.
+
+Arguments beyond the first are passed on to git-rebase(1)." && exit 1
+}
+
+if [ -z "$1" ] || [ "$1" = "-h" ]; then
+	usage
+fi
+range=$1
+shift
+
+if ! printf %s "$range" | grep -qF ..; then
+	echo "$NAME: argument must be a valid 'a..b' range: '$range'"
+	exit 1
+fi
+
+remote_branch=${range#*..} # Right part of range.
+topic=${remote_branch}
+if [ "${remote_branch#refs/}" != "${remote_branch}" ]; then
+	topic=gitref/${remote_branch#refs/} # Drop "refs/" to avoid ambiguous ref.
+elif git remote | grep -qxF -- "${remote_branch%%/*}"; then
+	topic=${remote_branch#*/} # Drop remote.
+fi
+base_commit=${range%%..*} # Left part of range.
+base_commit=${base_commit:-$remote_branch} # This is good enough if the remote is not stale.
+
+prefix=$(git config branchstack.subjectPrefixPrefix || echo [)
+suffix=$(git config branchstack.subjectPrefixSuffix || echo ])
+
+pick=pick
+drop=drop
+exec=exec
+if [ "$(git config rebase.abbreviateCommands)" = true ]; then
+	pick=p
+	drop=d
+	exec=x
+fi
+
+cherries=$(
+	git log --reverse --format="$pick %h $prefix${topic}$suffix %s" "$range"
+)
+if ! [ "$cherries" ]; then
+	echo "$NAME: nothing to cherry-pick from $range"
+	exit 0
+fi
+
+todo=$(IFS='
+'
+for cherry in $cherries
+do
+	printf "%s\n$exec %s\n" \
+		"$cherry" \
+		"GIT_EDITOR='perl -pi -e \"s{^}{$prefix${topic}$suffix } if $. == 1\"' git commit --amend --allow-empty"
+done
+)
+todo=$todo \
+editor=${GIT_SEQUENCE_EDITOR:-$(git var GIT_EDITOR)} \
+topic=$topic prefix=$prefix suffix=$suffix \
+pick=$pick drop=$drop \
+GIT_SEQUENCE_EDITOR='
+	perl -pi -e '\''
+		use Env;
+		if (m/^$pick \S+ \Q$prefix$topic\E(?::[^ ]+?)?\Q$suffix /) {
+			s/^$pick/$drop/;
+			$dropped_any = 1;
+		} elsif ($todo and ($dropped_any or m/^$/)) {
+			$_ = $todo . "\n" . $_;
+			$todo = "";
+		}
+		END { exec "$editor .git/rebase-merge/git-rebase-todo"; }
+	'\''' git rebase -i --no-autosquash "$(git merge-base "$base_commit" HEAD)" "$@"
