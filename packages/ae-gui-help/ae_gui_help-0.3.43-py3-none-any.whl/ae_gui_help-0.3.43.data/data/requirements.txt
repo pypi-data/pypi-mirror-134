@@ -1,0 +1,4 @@
+# dependencies of the gui_help portion
+ae_inspector
+ae_i18n
+ae_gui_app
