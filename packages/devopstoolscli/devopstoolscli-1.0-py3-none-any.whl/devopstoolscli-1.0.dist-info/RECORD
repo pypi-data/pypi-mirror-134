@@ -1,0 +1,8 @@
+devopstool/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devopstool/cli.py,sha256=Qxp8E6C8oh-xLo91V7BRw9cov5QqQx3H2ZjntssNyXw,915
+devopstool/dockerhub_list_tags.py,sha256=vjkuRn7y3OyCuylMi__rasG8igJwGMVRsPRFlaq67_c,521
+devopstoolscli-1.0.dist-info/METADATA,sha256=cFS7VPkgS9gr50rAQNm4pv-zZ5rEFnloTz79l39eQUw,158
+devopstoolscli-1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+devopstoolscli-1.0.dist-info/entry_points.txt,sha256=sygtaDJ_C0JnqqpWyRNvUMjhLhZG11jtxXQZj-135Y8,53
+devopstoolscli-1.0.dist-info/top_level.txt,sha256=9RYgDhMzr_vVPFMKx98LI1HN69ERGfnWTZrDdNOhV9Y,11
+devopstoolscli-1.0.dist-info/RECORD,,
