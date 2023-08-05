@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pylexis/__init__.py
+pylexis.egg-info/PKG-INFO
+pylexis.egg-info/SOURCES.txt
+pylexis.egg-info/dependency_links.txt
+pylexis.egg-info/requires.txt
+pylexis.egg-info/top_level.txt
