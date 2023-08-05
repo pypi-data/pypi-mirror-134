@@ -1,0 +1,12 @@
+srsly<1.1.0,>=1.0.2
+catalogue<1.1.0,>=0.0.7
+click
+datasette
+requests
+scipy
+scikit-learn
+matplotlib
+nltk
+pandas
+textacy
+word2vec
