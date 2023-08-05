@@ -1,0 +1,7 @@
+choices:
+  <: checkbox
+  message: You foo?
+  checked: true
+  choices:
+    - ya foo
+    - bar

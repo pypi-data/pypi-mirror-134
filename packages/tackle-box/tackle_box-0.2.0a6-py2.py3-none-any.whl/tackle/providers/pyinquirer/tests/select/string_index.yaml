@@ -1,0 +1,13 @@
+stuff: things
+
+choices:
+  <: select
+  message: You foo?
+  default: bar
+  index: true
+  choices:
+    - bar
+    - things
+
+debug:
+  <: print "{{ this }}"
