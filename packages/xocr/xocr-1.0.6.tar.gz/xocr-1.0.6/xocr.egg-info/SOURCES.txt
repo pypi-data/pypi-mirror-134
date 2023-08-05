@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+xocr/__init__.py
+xocr/ocr_captcha.py
+xocr/slide_captcha.py
+xocr.egg-info/PKG-INFO
+xocr.egg-info/SOURCES.txt
+xocr.egg-info/dependency_links.txt
+xocr.egg-info/requires.txt
+xocr.egg-info/top_level.txt
+xocr/test/__init__.py
+xocr/test/test_rm_files.py
+xocr/test/text_ocr_captcha.py
+xocr/test/text_slide_captcha.py
+xocr/until/__init__.py
+xocr/until/tools.py
