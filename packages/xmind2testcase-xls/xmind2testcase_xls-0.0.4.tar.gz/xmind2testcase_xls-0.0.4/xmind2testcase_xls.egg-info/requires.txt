@@ -1,0 +1,5 @@
+xmind
+flask
+arrow
+pandas
+openpyxl
