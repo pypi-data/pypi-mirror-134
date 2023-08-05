@@ -1,0 +1,11 @@
+boto3
+bs4
+click
+cryptography
+cssutils
+flask
+gunicorn
+jinja2
+jupyter-server
+more_click
+nbconvert
