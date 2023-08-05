@@ -1,0 +1,11 @@
+modern_greek_accentuation/accentuation.py,sha256=N1U-bElsI30ESTWB2IGMe8FhzcwTpsAVOqWYTkf0xDs,8099
+modern_greek_accentuation/augmentify.py,sha256=9QU7TjWFr9vJwvAhvT_7hRJZjK-xb3TKXZFafgU8G7c,6938
+modern_greek_accentuation/resources.py,sha256=CaDyAP8Ffndz_Vlt8CCaRPfQUNfsKy8Nj2MYg9jGEw8,6298
+modern_greek_accentuation/syllabify.py,sha256=KgzgC2afxR44eQKULxbUndXYCMbZcv6EeR_WQY-FAP4,5605
+modern_greek_accentuation/transcription.py,sha256=rE8SyQOQ_kB1Sw3OREk5srx6aGQ08_qBL9NpZRygYP8,4914
+modern_greek_accentuation-0.511.dist-info/AUTHORS,sha256=p0NhWzhipca6YOSK1X7RVI2IL9GEcxnRY_lmdY-vg3I,24
+modern_greek_accentuation-0.511.dist-info/LICENSE,sha256=swCHjXc8URrufTN0ioYwAY13yst_oKsyFmTO3sJc8jo,1091
+modern_greek_accentuation-0.511.dist-info/METADATA,sha256=ZCkqbGzW-TDceM_R2AyGaaWgdkg-FZhoUern5wGgmBM,2417
+modern_greek_accentuation-0.511.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+modern_greek_accentuation-0.511.dist-info/top_level.txt,sha256=bsaKqN9EumwGlr9b__v0VLY1xUBHkeliSUlPWJkMFDg,26
+modern_greek_accentuation-0.511.dist-info/RECORD,,
