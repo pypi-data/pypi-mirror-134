@@ -1,0 +1,12 @@
+deche/__init__.py,sha256=iOeG0rXmG7RRYR5WGBvZk-lFjuIWcSMsG0nwMEIeLDU,172
+deche/core.py,sha256=Rn77uWBI8BaxwlVnFYw3fo8sR_jA9rp4oVYG26xKyuU,14627
+deche/enums.py,sha256=7p1akN5mYq85lsh2cXGLyejv7rGYbeGJ-Vt9h9Vkyao,98
+deche/inspection.py,sha256=AUi1pX3KypLHgKmDUXtZEDBoiBvYmx0RqAc3LhcfU2s,609
+deche/serialization.py,sha256=pQ5bdXtLHxVnC-2FMp7iU-0PsJqMmaOZZPq852hg10w,38
+deche/test_utils/__init__.py,sha256=TIiNU4X64B2XOfwlvUNSXitYRIeWh-_qcsQlSIsMSws,1154
+deche/types.py,sha256=ILRAFS3MYcZM_ElwSM3-O-AK9tR9OGbhL8gZxbDTx7M,572
+deche/util.py,sha256=RdnLQZJnOUxemoMKYZTjD6KxUZzDfa3herxrFQpVpaI,1986
+deche/validators.py,sha256=5St6X2JGhJEQtqjozrOzwIhKqemlHtQ3U_XrWd9D9aw,660
+deche-0.4.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+deche-0.4.0.dist-info/METADATA,sha256=iLhNFkDHGtHDSRL1vJSdV8Oavw9bVmYhzocdX0yWsv0,685
+deche-0.4.0.dist-info/RECORD,,
