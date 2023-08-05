@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: zen-git
+Version: 0.1.7
+Summary: A git CLI utility tool
+License: MIT
+Author: Dragos Dumitrache
+Author-email: dragos@afterburner.dev
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: fuzzyfinder (>=2.1.0,<3.0.0)
+Requires-Dist: fuzzysearch (>=0.7.3,<0.8.0)
+Requires-Dist: simple-term-menu (>=1.4.1,<2.0.0)
+Requires-Dist: zen-core (>=0.2.0,<0.3.0)
+Description-Content-Type: text/markdown
+
+# Github Zen utility tools
+
+This is a simple project aimed at improving command-line developer workflow with git.
+
