@@ -1,0 +1,4 @@
+include chantilly/*.txt
+graft chantilly/static
+graft chantilly/templates
+global-exclude *.pyc
