@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+src/ma5_expert.egg-info/PKG-INFO
+src/ma5_expert.egg-info/SOURCES.txt
+src/ma5_expert.egg-info/dependency_links.txt
+src/ma5_expert.egg-info/top_level.txt
