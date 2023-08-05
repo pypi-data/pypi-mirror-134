@@ -1,0 +1,10 @@
+README.md
+setup.py
+easysockets/__init__.py
+easysockets/client_socket.py
+easysockets/connection.py
+easysockets/server_socket.py
+easysockets.egg-info/PKG-INFO
+easysockets.egg-info/SOURCES.txt
+easysockets.egg-info/dependency_links.txt
+easysockets.egg-info/top_level.txt
