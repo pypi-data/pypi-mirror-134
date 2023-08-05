@@ -1,0 +1,10 @@
+lda11/__init__.py,sha256=p_95WR7p8G0KmqhQ3tXwx4wQfi6JH5NOfxGWbDFJmcQ,473
+lda11/_lda.cp310-win_amd64.pyd,sha256=nTk21esIvcICMvlI6M2xlSPBSG3RNUTtv72jf7sQ2kQ,328704
+lda11/_lda.pyi,sha256=q_4vBruo0R-xfrfoflbrIUe4N4YPnzrQIUTikgXDfOY,5079
+lda11/labelled_lda.py,sha256=cIn8j3QJKSQdzpk3OVAnObuk0Qa3sQTi_lDGbTMb1rk,3283
+lda11/lda.py,sha256=w16E05SC71EzSqY-m18KOjO8C8ly4cYp0G7DAOlGMrw,13541
+lda11/util.py,sha256=Z2VGYDSHYIF7eNtGsLO9P39izPAsYpzmWXUFc_BIx1g,583
+lda11-0.3.0.1.dist-info/METADATA,sha256=0LYOwjhk8fbwJbO9Dm7dndcUcxTJMT9Jz86GAl_P5X0,1416
+lda11-0.3.0.1.dist-info/WHEEL,sha256=W26pYN7HLsBT1jrDSL9udgf_mdNKJmYmL23sIP-FcgM,102
+lda11-0.3.0.1.dist-info/top_level.txt,sha256=19COK0kNML9ZF4588WK08WfH5EXRKQ71AHWu2blPvxE,6
+lda11-0.3.0.1.dist-info/RECORD,,
