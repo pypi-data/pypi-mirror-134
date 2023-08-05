@@ -1,0 +1,13 @@
+narrow_down-0.3.0.dist-info/METADATA,sha256=Wp8ajRWQhcvZrMBMhu8DgRnzFetRHtmh0tYuRj4sgd8,5376
+narrow_down-0.3.0.dist-info/WHEEL,sha256=EyGWZL-0ucZ_qM9-Na11XjufQidgZ6J3DTjWsRyxMoc,128
+narrow_down/_rust.pyi,sha256=-4vMkqTXkI5fZCpvnfEOfzZGMl2pTTHpYFoR34BJLEA,442
+narrow_down/__init__.py,sha256=W5Bj3y5CDg0xeL4Z-sKaLzDbQ-PBjtMZK_wSnET9aNs,213
+narrow_down/storage.py,sha256=_fauiiKu34h30tJHBaLCTqXtRX5E5GrIenuNsRoRfhY,3899
+narrow_down/data_types.py,sha256=gddq8dCrIuYrhewQSAvDolKvkeJXVuULAQ7KmwqNVpI,2997
+narrow_down/hash.py,sha256=UksocrLYsoepUAj-eMeb0l2gqq0o9zxyr3sZunKz-II,620
+narrow_down/_minhash.py,sha256=3dZ_HaniNrkPc9SpaWsbtVPkQcsGjfsTJdfNRSVz9lc,8205
+narrow_down/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+narrow_down/similarity_store.py,sha256=TjdQXKE85R2hZjg7Kp4pJSGopdXwkgiMF_QW_ohDSn4,4511
+narrow_down/_tokenize.py,sha256=hTiqCmyTIFQ17lhznvkMYLICqBzyxb8-2kfcvGQB6lc,2288
+narrow_down/_rust.abi3.so,sha256=A8Pyceh7WmQNQZtSrav-gg1YvMwhjLE8cuajpJOk-v8,3837608
+narrow_down-0.3.0.dist-info/RECORD,,
