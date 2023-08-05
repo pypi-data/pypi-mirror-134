@@ -1,0 +1,4 @@
+click==8.0.3
+docker==5.0.3
+rich==10.16.2
+dockerpty==0.4.1
