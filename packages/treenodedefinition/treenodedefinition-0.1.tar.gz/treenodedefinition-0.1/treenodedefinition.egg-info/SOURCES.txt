@@ -1,0 +1,14 @@
+.coveragerc
+.gitattributes
+.gitignore
+CHANGELOG.md
+LICENSE
+README.md
+makefile
+setup.cfg
+setup.py
+treenodedefinition.py
+treenodedefinition.egg-info/PKG-INFO
+treenodedefinition.egg-info/SOURCES.txt
+treenodedefinition.egg-info/dependency_links.txt
+treenodedefinition.egg-info/top_level.txt
