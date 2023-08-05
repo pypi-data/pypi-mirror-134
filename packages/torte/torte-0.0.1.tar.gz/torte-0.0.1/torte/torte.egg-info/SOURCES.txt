@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.py
+torte/torte.egg-info/PKG-INFO
+torte/torte.egg-info/SOURCES.txt
+torte/torte.egg-info/dependency_links.txt
+torte/torte.egg-info/requires.txt
+torte/torte.egg-info/top_level.txt
