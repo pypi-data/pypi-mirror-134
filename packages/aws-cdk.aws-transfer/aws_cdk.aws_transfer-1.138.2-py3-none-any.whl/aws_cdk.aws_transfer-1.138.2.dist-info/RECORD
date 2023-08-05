@@ -1,0 +1,10 @@
+aws_cdk/aws_transfer/__init__.py,sha256=DnObD68z6nJl3zZXd4baHxcWEPmmDT8OLf0Tp7pGveA,132858
+aws_cdk/aws_transfer/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/aws_transfer/_jsii/__init__.py,sha256=nFo8EAf0SugoNUa2ZmL82QvpIj0DD1cFU6fEULS7fuM,375
+aws_cdk/aws_transfer/_jsii/aws-transfer@1.138.2.jsii.tgz,sha256=zcJOgzoriAqr6ym7JP4jftpB5Kf-48_xSrEocW1R4Go,60147
+aws_cdk.aws_transfer-1.138.2.dist-info/LICENSE,sha256=wX3LqRrxZ97zcDpw0dQ58Zb9AQalEDmXs6nP39muv7o,11391
+aws_cdk.aws_transfer-1.138.2.dist-info/METADATA,sha256=hpLhTI5pF0aAvlfes-xRF0brVjNhNK5LOYef_cjoW8c,2496
+aws_cdk.aws_transfer-1.138.2.dist-info/NOTICE,sha256=piksgoXop22-zO1J9i3rVrv57wUN9siPK1pqGzZ7-AE,113
+aws_cdk.aws_transfer-1.138.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+aws_cdk.aws_transfer-1.138.2.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.aws_transfer-1.138.2.dist-info/RECORD,,
