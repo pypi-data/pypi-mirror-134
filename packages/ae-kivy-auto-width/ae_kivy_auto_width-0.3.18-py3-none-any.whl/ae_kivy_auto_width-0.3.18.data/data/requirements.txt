@@ -1,0 +1,3 @@
+kivy
+#ae_gui_app     # optionally minimum/maximum font size constants (used as absolute min/max values)
+#ae_kivy_app    # optionally minimum/maximum font size calculated from win size and limited to the above constants
