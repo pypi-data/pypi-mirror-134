@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: ScrapyProxyCompat
+Version: 0.1.1
+Summary: A module to wrap PProxy and allow more proxy options in Scrapy
+Home-page: https://github.com/elihopk/ScrapyProxyCompat
+Author: Eli Hopkins
+Author-email: ewh3157@rit.edu
+License: MIT
+Download-URL: https://github.com/elihopk/ScrapyProxyCompat/archive/refs/tags/v_01_1.tar.gz
+Description: UNKNOWN
+Keywords: Scrapy,Proxy,socks5
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
