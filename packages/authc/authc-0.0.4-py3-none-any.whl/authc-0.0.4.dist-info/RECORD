@@ -1,0 +1,7 @@
+authc/__init__.py,sha256=JNIU0oIU4jwAeUB3r7pXblVYP8t8Yt_3LOnccYE_4Kg,1405
+authc/bin/dauth,sha256=5fJCyxqV8SaXT0NJFGnu1i-KbGSwq9fUFMMsGkTKHH4,520912
+authc/bin/lauth,sha256=3-SOOyTXWQgkeYD7iKWZoo3XKC9ABV6pzwPmzlRHXX0,551272
+authc-0.0.4.dist-info/METADATA,sha256=A-fCryGnCywat9yyhcOdIGg4F1sF5Zz775JHoQ5AiNE,481
+authc-0.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+authc-0.0.4.dist-info/top_level.txt,sha256=ME4fYzzdfspzO_9ymlP2Q50bFce2Hr2pxDgGtGKmpf4,6
+authc-0.0.4.dist-info/RECORD,,
