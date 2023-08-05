@@ -1,0 +1,12 @@
+sqlalchemy_kusto/__init__.py,sha256=P9OSwkiSdptwvc1naNvSL9irW8xy248xQtLygBKSCXM,794
+sqlalchemy_kusto/dbapi.py,sha256=pX5ntXIW_-uXUNG9dphbxhOtWnceIbjHRhyPkgxaE4M,9058
+sqlalchemy_kusto/dialect_base.py,sha256=nJ7v5VGAQo-fY_FtLwM2w2GympqJdGrdn3L_w44sdkY,6965
+sqlalchemy_kusto/dialect_kql.py,sha256=KlwpVDPzEzSR91PkaZtZMCBkIjLKrb9yijPG8ZFNOq8,6790
+sqlalchemy_kusto/dialect_sql.py,sha256=B_WSdvJFCYE3lWJedUmg7Ffo3G_mGmlCkSpV7vofSBk,1094
+sqlalchemy_kusto/errors.py,sha256=KFeeq_cCmcjJgbo8ep7mIjMlYLYVxWJUzPmzmOiQ3bA,479
+sqlalchemy_kusto-1.1.0.dist-info/LICENSE,sha256=pT2u1yFmor_ksdItWSkFX5tzvFGSHgeqwrxLF8iBq6M,11360
+sqlalchemy_kusto-1.1.0.dist-info/METADATA,sha256=vv5_QDTdjaXF9is2HJ2h7w71-bfB9dBy-AgqKwDiz0Q,3641
+sqlalchemy_kusto-1.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+sqlalchemy_kusto-1.1.0.dist-info/entry_points.txt,sha256=d_JuZHdX4x33cHNgHlrqq18xeWf6KJjjf04tkpP95Dw,157
+sqlalchemy_kusto-1.1.0.dist-info/top_level.txt,sha256=iLl2MMahxmk3b1zXJ4zwjMx5VNBEk4XEbXddiS-LN4A,17
+sqlalchemy_kusto-1.1.0.dist-info/RECORD,,

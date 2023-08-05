@@ -1,0 +1,4 @@
+[sqlalchemy.dialects]
+kustokql.https = sqlalchemy_kusto.dialect_kql:KustoKqlHttpsDialect
+kustosql.https = sqlalchemy_kusto.dialect_sql:KustoSqlHttpsDialect
+
