@@ -1,0 +1,10 @@
+qam_fpkg/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qam_fpkg/add.py,sha256=s2V4tVaPj4p68XOpLtQU6QsHgNBfwxIhEiBdsC2p08c,45
+qam_fpkg/sub.py,sha256=T2PglDHDft31yblZcpzHKAVvqvRdr2s6tJxRkb5bFI4,45
+qam_fpkg/demo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qam_fpkg/demo/multi.py,sha256=Oj-RPcmrAUmCvBqGEJ_bZsUTTbKRvSStidf6RNYpiOk,35
+qam_fpkg-0.0.3.dist-info/LICENCE,sha256=ctLwkzT4uH3e2UqDO6faBeUoDnegN8ojslH5bq5M9xk,35562
+qam_fpkg-0.0.3.dist-info/METADATA,sha256=Ql0exJK1s061dx1vMANMByCS26Zi0gRqEYZ_s4MYGwk,300
+qam_fpkg-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+qam_fpkg-0.0.3.dist-info/top_level.txt,sha256=-JKsHV9QoUvSz0de4wqfOHNj7dhVnrsgQHxsNX04WhQ,9
+qam_fpkg-0.0.3.dist-info/RECORD,,
