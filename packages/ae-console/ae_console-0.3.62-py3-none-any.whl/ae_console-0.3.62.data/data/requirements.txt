@@ -1,0 +1,6 @@
+ae_base
+ae_paths
+ae_core
+ae_literal
+# jnius (including Cython) is only needed on Android OS.
+pyjnius
