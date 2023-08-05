@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pathliberty
+Version: 0.1.0
+Summary: pathlib extensions
+Home-page: UNKNOWN
+Author: Egor Abramov
+Author-email: coreegor@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/coreegor/pathlib-ext/archive/refs/tags/0.1.0.tar.gz
+Project-URL: Source, https://github.com/pypa/sampleproject/
+Description: # pathliberty
+        Extended pathlib module
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown

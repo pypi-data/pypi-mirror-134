@@ -1,0 +1,2 @@
+# pathliberty
+Extended pathlib module
