@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.cfg
+envarclear/__init__.py
+envarclear/envarclear.py
+envarclear_karjakak.egg-info/PKG-INFO
+envarclear_karjakak.egg-info/SOURCES.txt
+envarclear_karjakak.egg-info/dependency_links.txt
+envarclear_karjakak.egg-info/top_level.txt
