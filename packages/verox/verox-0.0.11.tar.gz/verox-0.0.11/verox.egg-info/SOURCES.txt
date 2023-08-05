@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+verox/__init__.py
+verox/_about.py
+verox/base.py
+verox/client.py
+verox/server.py
+verox/ux.py
+verox.egg-info/PKG-INFO
+verox.egg-info/SOURCES.txt
+verox.egg-info/dependency_links.txt
+verox.egg-info/not-zip-safe
+verox.egg-info/requires.txt
+verox.egg-info/top_level.txt
