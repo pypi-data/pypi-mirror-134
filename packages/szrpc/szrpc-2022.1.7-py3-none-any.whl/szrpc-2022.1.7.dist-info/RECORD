@@ -1,0 +1,11 @@
+szrpc/__init__.py,sha256=LpNASvGCMueahTv3a1nUdP6YR2xIKGcul0VVblCfDsU,1398
+szrpc/client.py,sha256=nnE8ai0sxf2nKvR_grXLroT6GNXREcM_TUpyq13PpYk,3951
+szrpc/log.py,sha256=483qRSzzia0oqn3Bghin9Cz6rxZl2MCjPM1dFgfTsDI,3041
+szrpc/server.py,sha256=hw6YEOdCxfD0bJYaJnCgEuyPk3SJDqF4ffr7V3e6DJQ,8613
+szrpc/result/__init__.py,sha256=B9Re__sm7gBUpwQtRqMZ4t4czWuOWksqJ3mTJxk8qXg,3193
+szrpc/result/gresult.py,sha256=z5m6bgw23BHGeJ-fmQ_efrHHs-_kkQORq6yM9XmJ8SI,1613
+szrpc/result/qresult.py,sha256=TWCcjlEPkg3qE8Lt_VGET1tlst6AlKiFN4KFY4IkVtU,1967
+szrpc-2022.1.7.dist-info/METADATA,sha256=1OQxvTBpdl0UjRRpLvA04SHPiGZ43ejsdFz5WdBciZM,789
+szrpc-2022.1.7.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+szrpc-2022.1.7.dist-info/top_level.txt,sha256=8lOw8y4QZ4OhhZpfuaC4vSGVyZVMTjkjckfsbbRGwSs,6
+szrpc-2022.1.7.dist-info/RECORD,,
