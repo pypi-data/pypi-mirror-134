@@ -1,0 +1,10 @@
+deeps/__init__.py,sha256=NWS9rJVYCjzQtPwzPC3u7XMLOC-5x_yFmfdnzAvzrLI,132
+deeps/cli.py,sha256=sV94_4-nNuWI6CQjlUHhi3wrAt0Bd-Isa9jwWI3GscE,412
+deeps/main.py,sha256=YurUe4v7_BBDbJUbVpfJUgEkDUfiRh2xM45B5W-g6d0,10710
+deeps/model_torch.py,sha256=bFQDgZMzSyyGQZdJMdWP19NleoxFgtiamqUlKae4k2c,13295
+deeps/utils.py,sha256=0BO5mtmOVCg1kSQ3i5DYWjQRVCODGw7vfNf8yTcNx74,4835
+deeps_cibr-1.0.dist-info/METADATA,sha256=cz1TpiTm6E0tDFzATq75rf7cfj4C0Nd_-kZLPqb4oi4,479
+deeps_cibr-1.0.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+deeps_cibr-1.0.dist-info/entry_points.txt,sha256=CVFlPIsZdeJNwE1g0iO_H1_g21Mp0YK8KtO_YNrRaHs,44
+deeps_cibr-1.0.dist-info/top_level.txt,sha256=zzjwOFGJyQUasEi0dT4bmWSJIFYKpQzr-49OuooLzzQ,6
+deeps_cibr-1.0.dist-info/RECORD,,

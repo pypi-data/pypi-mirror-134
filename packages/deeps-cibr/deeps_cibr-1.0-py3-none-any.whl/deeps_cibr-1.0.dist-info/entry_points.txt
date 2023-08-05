@@ -1,0 +1,3 @@
+[console_scripts]
+deeps = deeps.cli:deeps_
+
