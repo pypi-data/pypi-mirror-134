@@ -1,0 +1,1 @@
+from nekoimg.nekoimg import nekoimg
