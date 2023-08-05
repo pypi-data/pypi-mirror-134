@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: apscale
+Version: 1.0.0
+Summary: Advanced Pipeline for Simple yet Comprehensive AnaLysEs of DNA metabarcoding data
+Home-page: https://github.com/DominikBuchner/apscale
+Author: Dominik Buchner
+Author-email: dominik.buchner524@googlemail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: openpyxl (>=3.0.6)
+Requires-Dist: psutil (>=5.8.0)
+Requires-Dist: pandas (>=1.2.1)
+Requires-Dist: demultiplexer (>=1.1.0)
+Requires-Dist: joblib (>=1.0.0)
+Requires-Dist: biopython (>=1.78)
+
+# apscale
+
+
