@@ -1,0 +1,13 @@
+fluidly_sqlalchemy-0.1.1-py3.7-nspkg.pth,sha256=ISOTwBOp5SRC3otZQxAtetjR67KrKaf_3vgFZnRwKW4,544
+fluidly/sqlalchemy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fluidly/sqlalchemy/db.py,sha256=oNpqvDG_KKqTweHbf1curHAmaTmrDow_Xd3eh5tXoKo,419
+fluidly/sqlalchemy/materialised_view_mixin.py,sha256=ODvCQHcPt1lTMDHYXaLZkqf2kRpubFEg3frSgka_6sE,212
+fluidly/sqlalchemy/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fluidly/sqlalchemy/timestamp_mixin.py,sha256=HWW-pPTNZ4CwcbRcxbnlCfmDWWbWhd1Lqd-E9t3Zo7s,312
+fluidly/sqlalchemy/upsert.py,sha256=T0m3ubq7MmbRTZp7XjI4jb0AROCKvR5KFcA6fSxKBzw,2918
+fluidly/sqlalchemy/user_action_mixin.py,sha256=xT0hVXI9AXi8ft8YvGPxDgGsdEARHWyv0j04ev9nfSY,564
+fluidly_sqlalchemy-0.1.1.dist-info/METADATA,sha256=4cDA0mwSK9db2luo2XcZvIINhB3H91aUpQ1Uz6M7HJk,338
+fluidly_sqlalchemy-0.1.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+fluidly_sqlalchemy-0.1.1.dist-info/namespace_packages.txt,sha256=DWXtAoT7iFTzk8XaOhatro7UKlWS6Ggjc5M7xjp1KvM,8
+fluidly_sqlalchemy-0.1.1.dist-info/top_level.txt,sha256=DWXtAoT7iFTzk8XaOhatro7UKlWS6Ggjc5M7xjp1KvM,8
+fluidly_sqlalchemy-0.1.1.dist-info/RECORD,,

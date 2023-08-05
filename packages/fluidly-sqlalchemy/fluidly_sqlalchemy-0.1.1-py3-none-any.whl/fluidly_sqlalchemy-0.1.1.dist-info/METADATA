@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: fluidly-sqlalchemy
+Version: 0.1.1
+Summary: Sql alchemy helpers
+Home-page: https://github.com/fluidly/python-shared
+Author: Fluidly
+Author-email: tech@fluidly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy
+
+Sql alchemy helpers
+
