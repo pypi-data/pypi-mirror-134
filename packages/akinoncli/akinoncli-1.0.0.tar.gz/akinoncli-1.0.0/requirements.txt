@@ -1,0 +1,6 @@
+cement==3.0.4
+pyyaml
+colorlog
+tinydb==4.3.0
+requests==2.25.0
+tabulate==0.8.7
