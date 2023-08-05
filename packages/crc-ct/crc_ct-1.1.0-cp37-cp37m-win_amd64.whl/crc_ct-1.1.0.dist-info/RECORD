@@ -1,0 +1,16 @@
+crc/__about__.py,sha256=yo5j4l7oIvR_vY6qw3YTaZFxZNnXm1j1xInizFFpL7A,225
+crc/__init__.py,sha256=0vx3GrERxKE4Gpikl2lEfRmN-q1lNnSlx5XGURCIQT4,240
+crc/_crc.py,sha256=fOOYhxqJ727el6JCeIIvbzT66CRKNGWDUZupM-ID0_w,5047
+crc/_dll.py,sha256=2_R-x4AEewY6qmBJ_RP58VY6Uy1ROE72KmKfNFrcE1Q,345
+crc/_platform/__init__.py,sha256=ezBLiSqusi4MRAK9e8IBGsfcObiz1y4JD5YXOi4LLpw,893
+crc/_platform/_linux.py,sha256=Wah8g38fDw5RPMHGKhkvoITeShxxSF3tz5MXvKEEm6U,797
+crc/_platform/_osx.py,sha256=Wah8g38fDw5RPMHGKhkvoITeShxxSF3tz5MXvKEEm6U,797
+crc/_platform/_windows.py,sha256=YnVAyyShT4GdXDFnmsk1fsFzOx4By9j0BS5yld4iNyg,956
+crc/_platform/crc.cp37-win_amd64.pyd,sha256=qpt2y1oklidaasX4AEZn9etm633x8ZNS-BFo3sq6Ppc,132096
+crc_ct-1.1.0.dist-info/LICENSE,sha256=l6ANeENtSCHAEXDJM4MC8B5gIw54_Y8PRe-stFLwjG0,860
+crc_ct-1.1.0.dist-info/METADATA,sha256=9J3RyrXGK_fciJqeFFEdyAa-hFwFfYzHzqz1y5m-t4I,4877
+crc_ct-1.1.0.dist-info/WHEEL,sha256=-FqDJjo4HrkrIaThvtAYef2eEAn1_QvVe5nINCnUEbQ,101
+crc_ct-1.1.0.dist-info/entry_points.txt,sha256=eqGnTHtEVMYwfXVk1Z9MhC8O2N8wuqAbr0lisLmrkxs,20
+crc_ct-1.1.0.dist-info/top_level.txt,sha256=Sjp3wVWQG8_qLNeLkkNYc9X3s7g1nmetgoXfq_yIEZ0,4
+crc_ct-1.1.0.dist-info/zip-safe,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+crc_ct-1.1.0.dist-info/RECORD,,
