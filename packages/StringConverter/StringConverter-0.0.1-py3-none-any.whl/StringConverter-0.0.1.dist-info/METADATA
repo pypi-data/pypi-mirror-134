@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: StringConverter
+Version: 0.0.1
+Summary: For generating PrettyStrings - currently support int only
+Home-page: UNKNOWN
+Author: Tamir Zecler
+Author-email: tamir.zec@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# StringConverter
+Python library for converting stuff to word representation
+
+## Installation
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install StringConverter.
+
+```bash
+pip install PrettyString
+```
+
+####import
+```python
+from StringConverter import intStringConverter 
+```
+
+## Usage
+####solution call
+```python
+from StringConverter import intStringConverter
+
+intStringConverter.intConverter(int)
+```      
+
+This returns word representation of an integer as a string
+
+
+
+
