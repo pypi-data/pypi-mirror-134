@@ -1,0 +1,5 @@
+[gui_scripts]
+tipico_basic_pyqt5_gui = tipico.gui.basic_pyqt5:main
+tipico_basic_pyside2_gui = tipico.gui.basic_pyside2:main
+tipico_basic_qt_gui = tipico.gui.basic_qt:main
+
