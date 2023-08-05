@@ -1,0 +1,3 @@
+[console_scripts]
+flake8-ls = flake8_ls:main
+
