@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+./pygeoshape/__init__.py
+./pygeoshape/geolinestring.py
+./pygeoshape/geopoint.py
+./pygeoshape/utils.py
+pygeoshape.egg-info/PKG-INFO
+pygeoshape.egg-info/SOURCES.txt
+pygeoshape.egg-info/dependency_links.txt
+pygeoshape.egg-info/requires.txt
+pygeoshape.egg-info/top_level.txt
