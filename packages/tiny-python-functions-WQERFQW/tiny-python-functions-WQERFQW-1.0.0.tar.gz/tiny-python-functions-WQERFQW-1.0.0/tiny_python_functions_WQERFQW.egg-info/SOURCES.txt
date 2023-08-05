@@ -1,0 +1,8 @@
+setup.py
+adder/add_functions.py
+tiny_python_functions_WQERFQW.egg-info/PKG-INFO
+tiny_python_functions_WQERFQW.egg-info/SOURCES.txt
+tiny_python_functions_WQERFQW.egg-info/dependency_links.txt
+tiny_python_functions_WQERFQW.egg-info/entry_points.txt
+tiny_python_functions_WQERFQW.egg-info/requires.txt
+tiny_python_functions_WQERFQW.egg-info/top_level.txt
