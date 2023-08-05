@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+setup.py
+audalign/__init__.py
+audalign/datalign.py
+audalign/filehandler.py
+audalign.egg-info/PKG-INFO
+audalign.egg-info/SOURCES.txt
+audalign.egg-info/dependency_links.txt
+audalign.egg-info/requires.txt
+audalign.egg-info/top_level.txt
