@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: py-linux-ports
+Version: 0.0.1
+Summary: Check Linux System Port's Status.
+Home-page: https://github.com/sujitmandal/py-linux-ports
+Author: Sujit Mandal
+Author-email: mandals974@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+## py-linux-ports
+Check Linux System Port's Status
+
+
+
+## Py-Linux-Port's: 
+```
+import json
+from PyLinuxPorts.PyLinuxPorts import portScan 
+
+IpAddress = "192.168.43.133"
+PortNumber = 65000
+
+result  = portScan(IpAddress, PortNumber)
+
+print(json.dumps(result, indent=4))
+
+with open('result.json', 'w') as i:
+    json.dump(result, i)
+```
+
+## License:
+MIT Licensed
+
+## Author:
+Sujit Mandal
+
+[GitHub](https://github.com/sujitmandal)
+
+[PyPi](https://pypi.org/user/sujitmandal/)
+
