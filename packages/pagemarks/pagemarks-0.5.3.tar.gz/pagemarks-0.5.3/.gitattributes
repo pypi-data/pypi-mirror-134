@@ -1,0 +1,6 @@
+* text=auto
+*.sh text eol=lf
+*.bat text eol=crlf
+
+/resources/css/open-iconic-bootstrap-*.min.css linguist-vendored
+/resources/fonts/** linguist-vendored

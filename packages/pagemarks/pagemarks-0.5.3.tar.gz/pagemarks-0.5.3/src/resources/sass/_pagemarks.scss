@@ -1,0 +1,84 @@
+/*
+ * pagemarks - Free git-based, self-hosted bookmarks on the web and via command line
+ * Copyright (c) 2019-2021 the pagemarks contributors
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License, version 3, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/gpl.html>.
+ */
+
+html {
+    /* set html background color to same as body so that page doesn't flash when css reloads
+     * (body invisible for a short time) */
+    background-color: $body-bg;
+}
+
+body {
+    // avoid overlap with the navbar
+    padding-top: $nav-link-height + 2 * $navbar-padding-y + $spacer;
+}
+
+.card {
+    margin-bottom: $spacer;
+}
+
+nav {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .oi {
+        top: 2px; // fix vertical centering on open iconic icons in the navbar
+    }
+
+    input.form-control {
+        min-width: 75px;
+        //border-right: 0;
+    }
+
+    .input-group-append {
+        z-index: 5; // prevent filter input box from bleeding into clear button on focus
+
+        .input-group-text {
+            background-color: $input-bg;
+            color: lighten($input-color, 30%);
+            cursor: pointer;
+        }
+
+        .oi {
+            top: 0;
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute !important;
+    }
+
+    &.navbar {
+        @include media-breakpoint-down(md) {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .nav-item {
+        @include media-breakpoint-down(md) {
+            padding-top: $nav-link-padding-y;
+        }
+    }
+}
+
+div.nav-center {
+    @include make-container();
+    @include make-container-max-widths();  /* TODO deprecated */
+    position: relative;
+    display: flex;
+}
+
+a.disabled {
+    cursor: default;
+}

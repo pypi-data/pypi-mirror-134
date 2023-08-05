@@ -1,0 +1,4 @@
+[console_scripts]
+pagemarks = main:app
+pm = main:app
+
