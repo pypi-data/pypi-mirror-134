@@ -1,0 +1,9 @@
+implicit_word_network/__init__.py,sha256=btVXEo8fiiWZ07zUGhY1-z0i9uKg-Dgq3-yzPjPj6X0,78
+implicit_word_network/build_graph.py,sha256=pxnZ5FLv7Zyjt-942fzVFeQLeb62kbtn0Az1vNdycP4,13051
+implicit_word_network/lib.py,sha256=gUBJgrP3vmaS8jYpd8FNYFk_VhdD-yRFqXgGD5aMyaE,513
+implicit_word_network/parse_documents.py,sha256=Vbsiaz8k0DpT6c9mJIapSpf5y4EbTutbs18CzSAFpPs,2652
+implicit_word_network-0.0.1.dist-info/LICENSE,sha256=8ZFb5S9x44YEqoCoBCgBNcfzXGXGYzCSD_qUd-1VlL0,1065
+implicit_word_network-0.0.1.dist-info/METADATA,sha256=U8NwkWRDypmMusRV0pvv5nCLINJUrSMSVXH8zbpauTs,1428
+implicit_word_network-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+implicit_word_network-0.0.1.dist-info/top_level.txt,sha256=2Skz4XNTRDm-F2DgIePNGQI4NpvEQG7Hmnz9Oqqbi6o,22
+implicit_word_network-0.0.1.dist-info/RECORD,,
