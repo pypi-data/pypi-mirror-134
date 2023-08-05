@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: fluidly-structlog
+Version: 0.1.8
+Summary: Logging config and helpers.
+Home-page: https://github.com/fluidly/python-shared
+Author: Fluidly
+Author-email: tech@fluidly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: structlog
+
+Logging config and helpers.
+

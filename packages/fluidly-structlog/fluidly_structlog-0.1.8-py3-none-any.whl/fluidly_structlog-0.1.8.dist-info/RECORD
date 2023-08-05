@@ -1,0 +1,11 @@
+fluidly_structlog-0.1.8-py3.7-nspkg.pth,sha256=ISOTwBOp5SRC3otZQxAtetjR67KrKaf_3vgFZnRwKW4,544
+fluidly/structlog/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fluidly/structlog/base_logger.py,sha256=tkx0oIQ4UF0674YmPnyh8AKMJHU9ubAIMfzPm3xvR5s,2845
+fluidly/structlog/pubsub_helper.py,sha256=3923X-1ayWYSmZarCXwroAKftK0Gdqi-QBOm7vwoJSQ,2335
+fluidly/structlog/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fluidly/structlog/timing.py,sha256=mLNn7gwbq2OIsqg2Y5T_e6Oz0XqrSB_rhDbXZkZIBX0,424
+fluidly_structlog-0.1.8.dist-info/METADATA,sha256=5oEg4FGMUQcv1CILw0hVxrrfhZKdQKWoblHDx2qZHHw,352
+fluidly_structlog-0.1.8.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+fluidly_structlog-0.1.8.dist-info/namespace_packages.txt,sha256=DWXtAoT7iFTzk8XaOhatro7UKlWS6Ggjc5M7xjp1KvM,8
+fluidly_structlog-0.1.8.dist-info/top_level.txt,sha256=DWXtAoT7iFTzk8XaOhatro7UKlWS6Ggjc5M7xjp1KvM,8
+fluidly_structlog-0.1.8.dist-info/RECORD,,
