@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/depyro/__init__.py
+src/depyro/constants.py
+src/depyro/core.py
+src/depyro.egg-info/PKG-INFO
+src/depyro.egg-info/SOURCES.txt
+src/depyro.egg-info/dependency_links.txt
+src/depyro.egg-info/requires.txt
+src/depyro.egg-info/top_level.txt
