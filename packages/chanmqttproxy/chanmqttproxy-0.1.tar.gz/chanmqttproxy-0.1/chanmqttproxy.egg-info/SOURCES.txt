@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+chanmqttproxy/__init__.py
+chanmqttproxy/channelsmqttproxy.py
+chanmqttproxy/mqttconsumer.py
+chanmqttproxy.egg-info/PKG-INFO
+chanmqttproxy.egg-info/SOURCES.txt
+chanmqttproxy.egg-info/dependency_links.txt
+chanmqttproxy.egg-info/requires.txt
+chanmqttproxy.egg-info/top_level.txt
