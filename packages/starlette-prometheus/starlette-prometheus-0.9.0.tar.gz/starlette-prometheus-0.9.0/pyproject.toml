@@ -1,0 +1,53 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "starlette-prometheus"
+version = "0.9.0"
+description = "Prometheus integration for Starlette"
+authors = ["José Antonio Perdiguero López <perdy@perdy.io>"]
+license = "GPL-3.0+"
+readme = "README.md"
+repository = "https://github.com/PeRDy/starlette-prometheus"
+keywords = ["starlette", "prometheus", "metrics"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Application Frameworks"
+]
+include = []
+exclude = []
+
+[tool.poetry.dependencies]
+python = "^3.7"
+starlette = ">=0.12.2"
+prometheus_client = "^0.12"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+pytest-xdist = "^2.0"
+pytest-cov = "^3.0"
+clinner = "^1.12"
+ipython = "^7.0"
+requests = "^2.27"
+ipdb = "^0.13"
+black = {version = "^19.3b0",allow-prereleases = true}
+isort = "^5.0"
+flake8 = "^4.0"
+Faker = "^8.2.0"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.tox
+  | build
+  | dist
+)/
+'''
