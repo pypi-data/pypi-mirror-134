@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: Gewel
+Version: 0.3.1
+Summary: Python animation tools.
+Home-page: https://gitlab.com/vengroff/gewel
+Author: Darren Erik Vengroff
+Author-email: vengroff@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE.md
+Requires-Dist: cairocffi
+Requires-Dist: imageio
+Requires-Dist: opencv-python
+Requires-Dist: colorcet (==2.0.6)
+Requires-Dist: pillow
+Requires-Dist: tk
+Requires-Dist: censusdata
+Requires-Dist: pandas (==1.2.4)
+Requires-Dist: geopandas
+Requires-Dist: rtree
+Requires-Dist: shapely
+Requires-Dist: ipython
+Requires-Dist: ipywidgets
+Requires-Dist: numpy
+Requires-Dist: sortedcontainers
+
+
+    Python animation tools. Based on the concept of time-varying values
+    that describe location and other attributes of drawable objects as a
+    function of time.
+    
+
