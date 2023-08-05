@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ibmJupyterNotebookStyles
+Version: 0.0.6
+Summary: IBM Jupyter Notebook Styles
+Home-page: UNKNOWN
+Author: (IBM)
+Author-email: <ionut.chereji@ro.ibm.com>
+License: MIT
+Description: A package for styling jupyter notebooks using the IBM design guidelines. Within your jupyter notebooks run these lines of code: import ibmJupyterNotebookStyles && ibmJupyterNotebookStyles.apply_ibm_styles()
+Keywords: ibm,style
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
