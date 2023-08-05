@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ttun
+Version: 1.0.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: websockets (~=10.0)
+Requires-Dist: aiohttp (~=3.8)
+Requires-Dist: appdirs (~=1.4)
+
+UNKNOWN
+
