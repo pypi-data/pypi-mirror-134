@@ -1,0 +1,3 @@
+[console_scripts]
+f8c=f8c.cli:cli
+
