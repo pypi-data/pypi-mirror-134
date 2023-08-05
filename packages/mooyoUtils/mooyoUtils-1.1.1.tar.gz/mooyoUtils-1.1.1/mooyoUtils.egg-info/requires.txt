@@ -1,0 +1,11 @@
+portion
+demjson
+python-dateutil
+paramiko
+redis
+jsonpath
+pymysql
+apscheduler
+requests
+gnupg
+xlrd
