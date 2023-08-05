@@ -1,0 +1,77 @@
+[tool.poetry]
+authors = ["William C. Canin <william.costa.canin@gmail.com>"]
+description = "Snakypy Helpers is a package that contains code ready to assist in the development of packages/applications so as not to replicate the code."
+homepage = "https://github.com/snakypy/snakypy-helpers"
+include = ["LICENSE"]
+keywords = ["snakypy", "helpers", "linux"]
+license = "MIT license"
+name = "snakypy-helpers"
+readme = "README.rst"
+repository = "https://github.com/snakypy/snakypy-helpers"
+version = "0.3.1"
+
+packages = [
+  {include = "snakypy"},
+]
+
+[tool.poetry.dependencies]
+pyfiglet = "0.8.post1"
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+black = "^21.5b1"
+flake8 = "^3.9.2"
+imake = "^0.3.0"
+ipython = "^7.24.0"
+isort = "^5.8.0"
+mypy = "^0.812"
+pytest = "^6.2.4"
+pytest-runner = "^5.3.1"
+recommonmark = "^0.7.1"
+sphinx = "^4.0.1"
+sphinx-rtd-theme = "^0.5.2"
+tomlkit = "^0.7.0"
+tox = "^3.23.1"
+twine = "^3.4.1"
+wheel = "^0.34.2"
+
+[tool.black]
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \venv
+    | build
+    | venv
+    | dist
+    | docs
+    | tmp
+  )/
+)
+'''
+include = '\.pyi?$'
+line-length = 88
+
+[tool.isort]
+force_grid_wrap = 0
+include_trailing_comma = true
+line_length = 88
+multi_line_output = 3
+profile = "black"
+src_paths = ["snakypy", "tests"]
+use_parentheses = true
+
+[tool.pytest.ini_options]
+cache_dir = "/tmp/.pytest_cache"
+minversion = "6.0"
+# addopts = "-ra -q"
+testpaths = ["tests"]
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
