@@ -1,0 +1,8 @@
+odoo/addons/product_standard_margin_kanban/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+odoo/addons/product_standard_margin_kanban/__manifest__.py,sha256=3ZVM3eBfWs_xeI2dtPEJy_xcivFHAPG2UCr_iMedqDw,601
+odoo/addons/product_standard_margin_kanban/i18n/es.po,sha256=iJTuVNQwv9abj7wkBhpjD9w-ypdCtKpywGrpyrdkEeU,641
+odoo/addons/product_standard_margin_kanban/views/product_views.xml,sha256=NiWyht2oei4RC2MzS_nmp8JhCxpGmrmJ8Lt-BChCC68,560
+odoo12_addon_product_standard_margin_kanban-12.0.1.0.1.dist-info/METADATA,sha256=9jxnjWWpQmdMxaeFBpT561Xj0g1_WUnanXb0uPspD3s,559
+odoo12_addon_product_standard_margin_kanban-12.0.1.0.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+odoo12_addon_product_standard_margin_kanban-12.0.1.0.1.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo12_addon_product_standard_margin_kanban-12.0.1.0.1.dist-info/RECORD,,
