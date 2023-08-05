@@ -1,0 +1,3 @@
+[console_scripts]
+imagecatalog=imagecatalog.__main__:main
+
