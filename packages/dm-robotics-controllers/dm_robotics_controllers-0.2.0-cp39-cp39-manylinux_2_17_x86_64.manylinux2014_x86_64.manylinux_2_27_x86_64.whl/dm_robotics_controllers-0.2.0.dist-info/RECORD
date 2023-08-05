@@ -1,0 +1,7 @@
+dm_robotics_controllers-0.2.0.dist-info/RECORD,,
+dm_robotics_controllers-0.2.0.dist-info/top_level.txt,sha256=PwGI6Ojc-tv5_VwqScCiV5qluWJnJMpk36_z824bktM,12
+dm_robotics_controllers-0.2.0.dist-info/WHEEL,sha256=zjc9ERMqoj6jnBQqlqOFNXuCyEtb8K4vgbdKj4xUE4k,185
+dm_robotics_controllers-0.2.0.dist-info/METADATA,sha256=Vv4jUu25ZG_oAQzliwr_xWAEwKaLvMbuu8kdaCgdmEY,5522
+dm_robotics/controllers/libosqp.so,sha256=P4M9UKtOANRJuTOHkODElIBKX-HjXzjSBYb8m3v0G2I,105800
+dm_robotics/controllers/cartesian_6d_to_joint_velocity_mapper.cpython-39-x86_64-linux-gnu.so,sha256=YcH3p9hyD5cic1THERpqlyfqBu5RhHrm5TUX5tZ8wxQ,2740936
+dm_robotics/controllers/libqdldl.so,sha256=BPaAIPQoJ_M6EiLfuOssEErOCAOeP5UPoAjOV5PndjA,7688
