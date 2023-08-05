@@ -1,0 +1,17 @@
+installed_packages_diff/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+installed_packages_diff/__main__.py,sha256=dLyK31NLxSR8Kg4tRAlBAAxdbr7eyqNfeStbyRVqp3c,82
+installed_packages_diff/config.py,sha256=7zBJMt44uO_CR254PbkyD68K4Keut6hTI5i70-fEYLY,2600
+installed_packages_diff/differ.py,sha256=yRM5gzzJpQpDoiws56FCV9247VKj_mzQv8CwEHHAYD0,2317
+installed_packages_diff/fetcher.py,sha256=N-iFyBSc3srqjmH_rWWrASEIfgNl3NxGIrQgmeD3LFg,778
+installed_packages_diff/local_transport.py,sha256=ttshzsgFuUZNjaoZqqDRdkRSbYDPcC6FPOy80PoAQw0,703
+installed_packages_diff/main.py,sha256=TcP_1Kliggyvgjq88eGtuGnJqeV-jsinjcUkLNlP-is,1730
+installed_packages_diff/package.py,sha256=mn2Gb9hDB31Vh_91Tm6j9mb2MNyo6nz7pF6_YLysev0,750
+installed_packages_diff/printing.py,sha256=Nv5E9zskpbVE09iGOQXerNOCuQhzhj--Vskmu2ZZrGI,273
+installed_packages_diff/ssh_transport.py,sha256=j3iwnzXlmTP0WOayS8Z_cfDBJR04-O2-POxwzws3NUw,1297
+installed_packages_diff/transport.py,sha256=yMRBOIZc6GLUBdlG1yeeNRHHqoi4Pa3Y0hPenqmQtrw,257
+installed_packages_diff/transport_factory.py,sha256=G2O_1vcz11tt3Y-O9PB0Ki8BzdM8OpWzeAuWoiz-RP4,302
+installed_packages_diff-3.1.0.dist-info/METADATA,sha256=TPLIclg5JCFyiPaGm3qNYd5J07IEv7jZhiRkLtEPqgY,2321
+installed_packages_diff-3.1.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+installed_packages_diff-3.1.0.dist-info/namespace_packages.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+installed_packages_diff-3.1.0.dist-info/top_level.txt,sha256=Hz9J5M5pqHZhtgr8BxvtP2BgPmiRpjHHqxztcbEVsIY,24
+installed_packages_diff-3.1.0.dist-info/RECORD,,
