@@ -1,0 +1,10 @@
+LICENCE
+README.md
+pyproject.toml
+setup.cfg
+src/SolarCalendar.egg-info/PKG-INFO
+src/SolarCalendar.egg-info/SOURCES.txt
+src/SolarCalendar.egg-info/dependency_links.txt
+src/SolarCalendar.egg-info/requires.txt
+src/SolarCalendar.egg-info/top_level.txt
+src/solarcalendar/__init__.py
