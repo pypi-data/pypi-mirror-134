@@ -1,0 +1,7 @@
+setup.py
+img_resize.egg-info/PKG-INFO
+img_resize.egg-info/SOURCES.txt
+img_resize.egg-info/dependency_links.txt
+img_resize.egg-info/top_level.txt
+img_resizer/__init__.py
+img_resizer/resize.py
