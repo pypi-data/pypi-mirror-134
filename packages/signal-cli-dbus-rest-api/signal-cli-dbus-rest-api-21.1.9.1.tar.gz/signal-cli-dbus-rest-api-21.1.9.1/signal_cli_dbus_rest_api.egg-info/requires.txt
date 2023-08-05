@@ -1,0 +1,4 @@
+sanic==21.12.0
+sanic-openapi==21.12.0
+python-magic==0.4.24
+pydbus==0.6.0
