@@ -1,0 +1,8 @@
+nba_transactions_scraper/__init__.py,sha256=UKRRYJYFWpPnstCjfsY5M7U1PCVGLArnTN4fmsiZkDc,31
+nba_transactions_scraper/api.py,sha256=TW79X5bH8RNjJVPWL51XBIFaPG9bDnEuy056c-MnGEU,1096
+nba_transactions_scraper/main.py,sha256=YGF5FlZrQpWM-1dsOZkqZflo7F7HO-5mfcg4t85I2Gc,3700
+nba_transactions_scraper-1.0.0.dist-info/LICENSE,sha256=ACwmltkrXIz5VsEQcrqljq-fat6ZXAMepjXGoe40KtE,1069
+nba_transactions_scraper-1.0.0.dist-info/METADATA,sha256=VlrwpgOkSQ0xnJqfUI8XwFQB6eNNJdTEG71tMgq7Geo,1751
+nba_transactions_scraper-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+nba_transactions_scraper-1.0.0.dist-info/top_level.txt,sha256=RDjG7LlY9lr--QOvMy06eIXTkNscUn4U1MTjHOHJLWA,25
+nba_transactions_scraper-1.0.0.dist-info/RECORD,,

@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: nba-transactions-scraper
+Version: 1.0.0
+Summary: A package for scraping NBA trades and transactions.
+Home-page: https://github.com/seleanridley/nba-transactions-scraper
+Author: Dominic Ridley
+Author-email: dominicsridley@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/seleanridley/nba-transactions-scraper/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: flask
+Requires-Dist: flask-restful
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: nba-api
+
+
+# NBA Trades and Transactions Scraper
+
+  
+
+This is a simple library to scrape NBA [ProSports](https://www.prosportstransactions.com/basketball/) trades and transactions data.
+
+  
+
+## Usage
+
+  
+
+  
+
+```bash
+
+pip install nba-transactions-scraper
+
+```
+
+  
+
+  
+
+## Methods
+
+  
+
+### `run(team, start, end)`
+
+returns a Pandas dataframe of NBA transactions for a specific team from start date to end date (defaults to current date). Date format: ('yyyy-mm-dd')
+
+  
+
+## Example
+
+`from nba_transactions_scraper.main import ProSports_Scraper`
+
+`scraper = ProSports_Scraper()`
+
+`results = scraper.run('Lakers', '2021-01-01') `
+
+  
+
+## Next Additions
+
+  
+
+- [ ] Multi-team argument
+
+- [ ] Extracting trade $ values
+
+- [ ] Draft Pick transactions
+
+- [ ] Category of transactions
+
+  
+
+  
+
+## Contributing
+
+  
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+  
+
+  
+
+## License
+
+  
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
