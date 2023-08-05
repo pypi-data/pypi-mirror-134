@@ -1,0 +1,7 @@
+setup.py
+log_creator/__init__.py
+log_creator/main.py
+log_creator.egg-info/PKG-INFO
+log_creator.egg-info/SOURCES.txt
+log_creator.egg-info/dependency_links.txt
+log_creator.egg-info/top_level.txt
