@@ -1,0 +1,17 @@
+README.md
+setup.py
+eyja_email/__init__.py
+eyja_email.egg-info/PKG-INFO
+eyja_email.egg-info/SOURCES.txt
+eyja_email.egg-info/dependency_links.txt
+eyja_email.egg-info/requires.txt
+eyja_email.egg-info/top_level.txt
+eyja_email.egg-info/zip-safe
+eyja_email/models/__init__.py
+eyja_email/models/email.py
+eyja_email/operators/__init__.py
+eyja_email/operators/email/__init__.py
+eyja_email/operators/email/operator.py
+eyja_email/operators/email/statuses.py
+tests/__init__.py
+tests/test_email.py
