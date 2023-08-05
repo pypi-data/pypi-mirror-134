@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+poldradoxvp/__init__.py
+poldradoxvp.egg-info/PKG-INFO
+poldradoxvp.egg-info/SOURCES.txt
+poldradoxvp.egg-info/dependency_links.txt
+poldradoxvp.egg-info/top_level.txt
