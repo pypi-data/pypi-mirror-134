@@ -1,0 +1,11 @@
+pyoxynet/__init__.py,sha256=bKM91hBKWQXqWwbosmUJQtkSXTzf4TtHfyUIb60ed60,96
+pyoxynet/utilities.py,sha256=fsjAYOY8VvD294axpMoiIkndajHvDgnP7wZ-PmJKdm8,5998
+pyoxynet/data_test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyoxynet/data_test/data_test.csv,sha256=6m59D1lFZCH3QAF3NfTiofg7vJkPEalEIl-5HjtXBYg,163078
+pyoxynet/models/tfl_model.pickle,sha256=bYBLCyCBB-oHiMX0bLyk3wfPfZICQtef7mF_B9qgIzw,110314
+pyoxynet/models/tfl_model.tflite,sha256=u0zG8CdUosNRTnwd3WTSkX4hL0_xNLFRZFIAJSPS57E,110260
+pyoxynet-0.0.7.4.dist-info/LICENSE.txt,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+pyoxynet-0.0.7.4.dist-info/METADATA,sha256=sIcJw18QBWePlfHOFeTbPWVakj3kry5vm0JM0SWP3Cw,2503
+pyoxynet-0.0.7.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyoxynet-0.0.7.4.dist-info/top_level.txt,sha256=6BpjetuuB0-WK2BhBHbtYPgs0ZV_VPzfZc1HoD7sEIU,9
+pyoxynet-0.0.7.4.dist-info/RECORD,,
