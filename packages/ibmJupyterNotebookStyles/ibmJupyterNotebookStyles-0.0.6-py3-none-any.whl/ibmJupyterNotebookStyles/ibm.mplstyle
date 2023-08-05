@@ -1,0 +1,62 @@
+# default IBM aesthetic
+# darkgrid + deep palette + notebook context
+
+axes.axisbelow: True
+axes.edgecolor: black
+axes.facecolor: white
+axes.grid: False
+axes.labelcolor: 005D5D
+axes.labelsize: 11
+axes.linewidth: 0.5
+axes.prop_cycle: cycler('color', ['1192E8', '005D5D', '6929C4', '9F1853', 'FA4D56'])
+axes.titlesize: 12
+axes3d.grid: True
+
+figure.facecolor: white
+figure.figsize: 8.0, 5.5
+
+font.family: sans-serif
+font.sans-serif: Arial, Liberation Sans, DejaVu Sans, Bitstream Vera Sans, sans-serif
+font.size: 12.0
+
+grid.color: 009D9A
+grid.linestyle: -
+grid.linewidth: 0.2
+
+
+image.cmap: divergent
+
+legend.fontsize: 10
+legend.frameon: False
+legend.numpoints: 1
+legend.scatterpoints: 1
+
+lines.linewidth: 1.75
+lines.markeredgewidth: 0
+lines.markersize: 7
+lines.solid_capstyle: round
+
+patch.linewidth: 0.2
+patch.edgecolor: 009D9A
+patch.facecolor: white
+patch.force_edgecolor: True
+
+text.color: .15
+
+xtick.color: .15
+xtick.direction: out
+xtick.labelsize: 10
+xtick.major.pad: 7
+xtick.major.size: 0
+xtick.major.width: 1
+xtick.minor.size: 0
+xtick.minor.width: .5
+
+ytick.color: .15
+ytick.direction: out
+ytick.labelsize: 10
+ytick.major.pad: 7
+ytick.major.size: 0
+ytick.major.width: 1
+ytick.minor.size: 0
+ytick.minor.width: .5

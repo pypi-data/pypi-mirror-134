@@ -1,0 +1,11 @@
+ibmJupyterNotebookStyles/CustomColorMaps.py,sha256=BWKx7ziEjiYq--XtVIq5YsP2JKeRHVInMifmRm_NPZg,2360
+ibmJupyterNotebookStyles/CustomCssStyling.py,sha256=HLt5GYr6L8quQNDiUy5e7Qi8OA0JZ_Ms0bO6bOJsWpQ,3007
+ibmJupyterNotebookStyles/CustomMplStyle.py,sha256=j1kcIWykqdPAXuQFCPB6C4lBfjVDG1n1VLiZ9tWXvyo,346
+ibmJupyterNotebookStyles/StylingBase.py,sha256=_3YYsOmhoofm1W00G2LHkHucq-j68TkOSHLPR35cQ4M,376
+ibmJupyterNotebookStyles/__init__.py,sha256=wdTe5eRxOaiJyWKNMAW4q25e2oX1O5WUHrwT2ccVxQE,685
+ibmJupyterNotebookStyles/ibm.mplstyle,sha256=x1poUHvahfz4PZxnLot2UYAsSmGkki5UB2HQZ2S8kh4,1277
+ibmJupyterNotebookStyles-0.0.6.dist-info/LICENSE,sha256=8Sh2-tgOeyiG2g2UYeewvl0JO0j7BT9XLsFwiYkOebg,1079
+ibmJupyterNotebookStyles-0.0.6.dist-info/METADATA,sha256=B9-GvstMTpXkExsgrecRsD_ZpFRb2Jq9-jZ2s9BIbR4,780
+ibmJupyterNotebookStyles-0.0.6.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+ibmJupyterNotebookStyles-0.0.6.dist-info/top_level.txt,sha256=0A6ifscugUXw8oSsXchfqzQVD5qSiNHjef-L9Ul8MB4,25
+ibmJupyterNotebookStyles-0.0.6.dist-info/RECORD,,
