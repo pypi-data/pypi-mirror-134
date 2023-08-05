@@ -1,0 +1,16 @@
+br-django-admin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+br-django-admin/__int__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+br-django-admin/admin.py,sha256=p6xop1PuuDG2Uwv3G_aRfldxOfBzTRfMaoZmORVkqyU,66
+br-django-admin/apps.py,sha256=eCPYjFndemAVOXt8WU2CsvBSjZmGQKk6MSFY7er4Zgk,162
+br-django-admin/models.py,sha256=4OVMcDDx9fVgBEJ91B7dfMEG2Ni1LRSLJOKzIkVPsKo,60
+br-django-admin/tests.py,sha256=GgiNZG_IVvwzrZUxlYDLLalGlwRdVzC5g8rZfYqTXlg,65
+br-django-admin/utils.py,sha256=wLqbXa6bhSHCD3Y2KJ_YcqQ1TveEemjtJxEiwsHIATY,16479
+br-django-admin/views.py,sha256=duNfyqZQLyWAJjhmEJZSInQ0ZmFY7CwLGRC2iZzLfCQ,68
+br-django-admin/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+br-django-admin/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+br-django-admin/templatetags/admin_volt.py,sha256=QgcRiTkJJnuxcmT5neB7HKZvkkRAKArovzO8-po2B34,2471
+br_django_admin-0.0.1.dist-info/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+br_django_admin-0.0.1.dist-info/METADATA,sha256=jIjfYatkQVFMbaNFIQe9RPFa7rSQI8Vhyk_hPAn4320,546
+br_django_admin-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+br_django_admin-0.0.1.dist-info/top_level.txt,sha256=Sq4AlFX90ytPYQhDKfQ26BgBJKc-02-TT930y6RiWpg,16
+br_django_admin-0.0.1.dist-info/RECORD,,
