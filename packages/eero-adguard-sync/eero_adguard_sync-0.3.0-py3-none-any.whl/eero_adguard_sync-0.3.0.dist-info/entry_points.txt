@@ -1,0 +1,3 @@
+[console_scripts]
+eag-sync = eero_adguard_sync.__main__:cli
+
