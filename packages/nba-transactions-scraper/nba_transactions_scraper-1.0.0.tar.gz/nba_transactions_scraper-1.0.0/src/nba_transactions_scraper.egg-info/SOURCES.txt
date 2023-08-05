@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/nba_transactions_scraper/__init__.py
+src/nba_transactions_scraper/api.py
+src/nba_transactions_scraper/main.py
+src/nba_transactions_scraper.egg-info/PKG-INFO
+src/nba_transactions_scraper.egg-info/SOURCES.txt
+src/nba_transactions_scraper.egg-info/dependency_links.txt
+src/nba_transactions_scraper.egg-info/requires.txt
+src/nba_transactions_scraper.egg-info/top_level.txt
