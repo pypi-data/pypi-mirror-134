@@ -1,0 +1,15 @@
+CHANGELOG.md
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/spps/__init__.py
+src/spps/argument_parser.py
+src/spps/simple_crypt.py
+src/spps/resources/__init__.py
+src/spps_py.egg-info/PKG-INFO
+src/spps_py.egg-info/SOURCES.txt
+src/spps_py.egg-info/dependency_links.txt
+src/spps_py.egg-info/requires.txt
+src/spps_py.egg-info/top_level.txt
