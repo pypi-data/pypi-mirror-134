@@ -1,0 +1,66 @@
+# DCiFR
+
+DCiFR (Demographic Characteristics in Facial Recognition) is a wrapper software that allows you to run deep learning models to parse demographic characteristics from an image. This open-source wrapper software written in Python has a GUI that will allow you to run complex models without any knowledge of coding. This includes functions from [deepface](https://github.com/serengil/deepface) and [fairface](https://github.com/dchen236/FairFace) and is built with [PyQT5](https://pypi.org/project/PyQt5/) to provide the GUI. 
+
+## Getting Started
+
+1. If you do not already have Python installed, navigate to [this link](https://docs.anaconda.com/anaconda/install/index.html) to install it.
+
+2. Download this repository to your local device.
+
+3. In the command line, change your working directory to <*download path*>.
+
+4. For initial run, enter the following in the command line.
++ Windows
+```
+dcifr.sh
+```
+
++ Mac
+```
+sh dcifr.sh
+```
+
+5. After the initial run, use the following code to run DCiFR.
+```
+python3 dcifr.py
+```
+
+## DeepFace Attributes
+
+
+Based on faces within images, DCIFR's DeepFace pipeline reports results of four attributes: age, emotion, gender, and race. 
+
++ Age - Predicted age will fall between 0 - 100. 
++ Emotion - One of seven possible emotions: Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral.
++ Gender - Reports either man or woman.
++ Race - The software predicts the probability of falling into one of seven race categories: Asian, black, Indian, Latino/Hispanic, Middle Eastern, or white. The results show the racial category with the highest probability.
+
+More information on the attributes and how they are modeled can be found [here](https://pypi.org/project/deepface/). 
+
+
+## FairFace Attributes
+
+
+Based on faces within images, DCiFR's FairFace pipeline reports results of eight attributes: race, race4, gender, age, race_scores_fair, race_scores_fair_4, gender_scores_fair, and age_scores_fair.
+
++ Race - Predicted probability of falling into one of seven race categories:  White, Black, Latino_Hispanic, East Asian, Southeast Asian, Indian, or Middle Eastern.
++ Race4 - Predicted probability of falling into one of four race categories: White, Black, Asian, or Indian.
++ Gender - Reports either male or female.
++ Age - Predicted age will fall within the following ranges: 0-2, 3-9, 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, or 70+.
++ Race_scores_fair - The model confidence score for predicting race.
++ Race_scores_fair_4 - The model confidence score for predicting race4.
++ Gender_scores_fair - The model confidence score for predicting gender.
++ Age_scores_fair - The model confidence score for predicting age.
+
+More information on the attributes and how they are modeled can be found [here](https://github.com/dchen236/FairFace). 
+
+
+## Output
+The results will be saved in a DCIFR folder within the user's Documents as *dcifr_Deepface_results* or *dcifr_Fairface_results* with the date and time of creation attached to the end of the file name.
+
+## Reference
+
++ [deepface](https://github.com/serengil/deepface)
++ [fairface](https://github.com/dchen236/FairFace)
++ [PyQT5](https://pypi.org/project/PyQt5/)

@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/dcifr.egg-info/PKG-INFO
+src/dcifr.egg-info/SOURCES.txt
+src/dcifr.egg-info/dependency_links.txt
+src/dcifr.egg-info/top_level.txt
+src/dcifr_package/__init__.py
+src/dcifr_package/dcifr.py
