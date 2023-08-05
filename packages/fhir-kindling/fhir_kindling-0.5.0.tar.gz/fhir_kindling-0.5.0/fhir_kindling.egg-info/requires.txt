@@ -1,0 +1,11 @@
+python-dotenv
+pandas
+fhir.resources
+requests
+requests-oauthlib
+pendulum
+tqdm
+click-spinner
+orjson
+pyyaml
+xmltodict
