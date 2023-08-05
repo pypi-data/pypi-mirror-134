@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+binary_tools/__init__.py
+binary_tools/binary_util.py
+binary_tools/bit_encoder.py
+binary_tools/byte_encoder.py
+binary_tools.egg-info/PKG-INFO
+binary_tools.egg-info/SOURCES.txt
+binary_tools.egg-info/dependency_links.txt
+binary_tools.egg-info/top_level.txt
