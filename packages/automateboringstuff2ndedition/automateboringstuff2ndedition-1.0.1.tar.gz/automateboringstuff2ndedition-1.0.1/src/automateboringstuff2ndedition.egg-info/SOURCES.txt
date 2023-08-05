@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/automateboringstuff2ndedition/__init__.py
+src/automateboringstuff2ndedition.egg-info/PKG-INFO
+src/automateboringstuff2ndedition.egg-info/SOURCES.txt
+src/automateboringstuff2ndedition.egg-info/dependency_links.txt
+src/automateboringstuff2ndedition.egg-info/requires.txt
+src/automateboringstuff2ndedition.egg-info/top_level.txt
