@@ -1,0 +1,8 @@
+setup.py
+guess_number_game_jenny/__init__.py
+guess_number_game_jenny/lets_play_number_guess.py
+guess_number_game_jenny.egg-info/PKG-INFO
+guess_number_game_jenny.egg-info/SOURCES.txt
+guess_number_game_jenny.egg-info/dependency_links.txt
+guess_number_game_jenny.egg-info/not-zip-safe
+guess_number_game_jenny.egg-info/top_level.txt
