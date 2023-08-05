@@ -1,0 +1,72 @@
+import os
+import re
+from pathlib import Path
+
+from ..type_specs import HotkeysWithModes
+from .base import Extractor
+from .sources import Command, File, Manpage
+
+
+class Sxiv(Extractor):
+    required = [Command("sxiv")]
+    sources = {
+        "default": [Manpage("sxiv")],
+        "key_handler": [
+            File(Path(os.environ["XDG_CONFIG_HOME"]) / "sxiv" / "exec" / "key-handler")
+        ],
+    }
+    has_modes = True
+
+    @staticmethod
+    def _clean_action(string):
+        return string.replace("\n", " ").strip()
+
+    @staticmethod
+    def _clean_key(string):
+        return string.replace(r"\-", "-").strip()
+
+    def extract(self, fetched) -> HotkeysWithModes:
+        content = fetched["default"][0]
+        # to select section from manpage
+        content_section = re.compile(r"\.SH KEYBOARD COMMANDS.*?\.SH", re.DOTALL)
+        # to split the section in different mode
+        content_modes = re.compile(r"\.SS\s(.*?)\n(.*?)(?=(\.SS)|$)", re.DOTALL)
+        # get each key/action from the mode section
+        mode_key_action = re.compile(r"\.B[R]?\s(.*?\n)(.*?)(=?\.TP\n)", re.DOTALL)
+        # clean up some stray strings
+        content_clean = re.compile(r'(", ")|(\.I[R]? )')
+        # only keep the desired man page section
+        match = re.search(content_section, content)
+        if match is None:
+            raise TypeError("Section match is None")
+        content = match[0]
+        # clean
+        content = re.sub(content_clean, "", content)
+        out = {}
+        # find all the modes
+        for mode_match in re.finditer(content_modes, content):
+            mode = mode_match[1]
+            mode_c = mode_match[2]
+            # add mode
+            if mode not in out.keys():
+                out[mode] = {}
+            # find all the key/actions
+            for key_action in re.finditer(mode_key_action, mode_c):
+                key = self._clean_key(key_action[1])
+                action = self._clean_action(key_action[2])
+                out[mode][key] = action
+
+        # extract key_handler
+        if fetched["key_handler"]:
+            out["key-handler"] = {}
+            content = fetched["key_handler"][0]
+            # remove comments
+            comments = re.compile(r"\s*#.*")
+            # get key/action
+            content_cases = re.compile(r"\s\"(.*)\"\)\s*\n\s*(.*(?=;;))")
+            # clean
+            content = re.sub(comments, "", content)
+            cases = re.finditer(content_cases, content)
+            for case in cases:
+                out["key-handler"][case[1]] = case[2]
+        return out

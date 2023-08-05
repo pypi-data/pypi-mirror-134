@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hag"
+version = "0.1.0"
+description = "A hotkey aggregator. All your hotkeys in one place."
+authors = ["Loic Coyle <loic.coyle@hotmail.fr>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+hag = 'hag.__main__:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
