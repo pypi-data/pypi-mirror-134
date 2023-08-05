@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: arknights
+Version: 0.1.9
+Summary: arknights CN request library
+Home-page: https://github.com/djkcyl/py_arknights
+License: MIT
+Author: djkcyl
+Author-email: cyl@cyllive.cn
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: httpx (>=0.21.3,<0.22.0)
+Requires-Dist: pydantic (>=1.9.0,<2.0.0)
+Project-URL: Repository, https://github.com/djkcyl/py_arknights
