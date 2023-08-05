@@ -1,0 +1,15 @@
+axiom/__init__.py,sha256=kBVHljkGDhMeNFJp3J0E4wKnY8M7ZZAR1tS5kz_9Bvo,105
+axiom/client.py,sha256=XJ_k7zGgP_qZPJ8of4SWg4tPUZIbwFioMgtFiUwL2qs,2427
+axiom/datasets.py,sha256=kToVWF447zYOiN1ZCSP8m5Sr5lm0nxERAPk1O11dYz4,10222
+axiom/logging.py,sha256=dbGh34nk86WNShEm4ypGL0i55XRumTkc49P1-KzgXkA,904
+axiom/query/__init__.py,sha256=S73vzHju5OCfOnlXVQZyJWPkK7G7F0iEyV2GqdUuUUs,115
+axiom/query/aggregation.py,sha256=FqxYW04X7xSUgDWNO_9poZ1Vh4Tr64MQVdvocA6pQCk,690
+axiom/query/filter.py,sha256=1FfNLQo-wOyXbjojHI1p63kM3BizNGmzsCKgfaCkLag,1119
+axiom/query/options.py,sha256=UTzonXjNKqC9BngdGq9p1tla3ZMGOJ8G7yOc8VIRhNw,583
+axiom/query/query.py,sha256=HAPjHFlgdZ-Q_m-PVvWSE2oL0VVn77htUz6IRh5dQLU,3230
+axiom/query/result.py,sha256=Ta6anaBhDNlhZX_wV6yvDQFVJlr7V-ij3cSQ3V2pYHM,4273
+axiom/util.py,sha256=dxA7IzDlWtD95fAyvAiMPegNhTZFyXpxJJcGtaChuEo,2174
+axiom_py-0.1.0b4.dist-info/LICENSE,sha256=FDg91-QvSwyvhDmqpLQWkeorsMeIZ29Zu_PENZUyTp4,1068
+axiom_py-0.1.0b4.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+axiom_py-0.1.0b4.dist-info/METADATA,sha256=Jcbk2B1VafyfD1qlBdNlbzZ0ivC2Fdc1_n9dNiJh5lY,726
+axiom_py-0.1.0b4.dist-info/RECORD,,
