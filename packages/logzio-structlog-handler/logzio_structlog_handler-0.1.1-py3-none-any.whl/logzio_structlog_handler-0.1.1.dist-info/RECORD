@@ -1,0 +1,6 @@
+structlogzio/__init__.py,sha256=VcHXfYUayhnNEKBput3iv4hkq0DK2QHbXgp3056-Wjo,446
+structlogzio/_handler.py,sha256=ybmWa7Ul2yWbv4Oo_H7kN4QKk_7N4sYvftvCUGDOOJo,4117
+logzio_structlog_handler-0.1.1.dist-info/LICENSE,sha256=MrushSAJHeeQgglx0DQsKvxI_5FSOBUtewyqp_cL2E0,1104
+logzio_structlog_handler-0.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+logzio_structlog_handler-0.1.1.dist-info/METADATA,sha256=ycfcqZx67LGkee2twem9rNDJr1iJ1RolvnSuWnGh2c0,2763
+logzio_structlog_handler-0.1.1.dist-info/RECORD,,
