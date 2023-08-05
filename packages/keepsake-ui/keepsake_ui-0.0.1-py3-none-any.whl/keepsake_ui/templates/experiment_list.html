@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container float-start">
+<table class="table caption-top">
+    <caption>Experiments</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Created</th>
+            <th>User</th>
+            <th>Duration</th>
+            <th>Primary Metric</th>
+            <th>Score</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in experiments %}
+            <tr>
+                <td><a href={{"/experiments/" ~ e["id"] }}>{{e["short_id"]}}</a></td>
+                <td>{{ e["created"] }}</td>
+                <td>{{ e["user"] }}</td>
+                <td>{{ e["duration"] }}</td>
+                <td>{{ e["primary_metric"] }}</td>
+                <td>{{ e["score"] }}</td>
+                <td>
+                    <div title="Delete Experiment">
+                        <a href={{ "/experiments/" ~ e["id"] ~ "/delete" }}>
+                            <i class="bi bi-x-square-fill" style="color: #dc3545;"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

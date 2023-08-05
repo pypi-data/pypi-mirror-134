@@ -1,0 +1,14 @@
+keepsake_ui/__init__.py,sha256=sXLh7g3KC4QCFxcZGBTpG2scR7hmmBsMjq6LqRptkRg,22
+keepsake_ui/app.py,sha256=Kz75NKFdHdUUFkQcy4czpA8PA8S0YRMbxewPPwaGld0,5823
+keepsake_ui/main.py,sha256=jZiT_KX66E6tbAosF3lfjkfqLa7_B1r_55RIghN7Oaw,1591
+keepsake_ui/templates/base.html,sha256=YKgDbnocj5f2h-LZXv4QF0N1O2RM_g1D-wzRT-D2OCE,705
+keepsake_ui/templates/compare.html,sha256=GokFA1zVmeaUNHXPt-_ZQLXJm1jnU6uZO2ZGwFUjRAQ,2499
+keepsake_ui/templates/error.html,sha256=jwdTbSIT-D_nO-PoxoCoJurV0QBLTKczFLhXHqjFYrI,181
+keepsake_ui/templates/experiment.html,sha256=IMNIs30tfib6PUGoby_YBoSKOswLTBK5-cHnN_poE_8,2292
+keepsake_ui/templates/experiment_list.html,sha256=3kwvTaDQkIPDzYpHEu_HcIbCHVc9qN16VFFOd25r8d4,1179
+keepsake_ui-0.0.1.dist-info/LICENCE,sha256=kYT2QTJ6syVm_s8x4NXT5XrFspSvtn4CMzMDBY_qbjY,11352
+keepsake_ui-0.0.1.dist-info/METADATA,sha256=yhO2W-ViGW4SVsffktewCSbh8YlmHS0VqwSlbzC4MdU,1019
+keepsake_ui-0.0.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+keepsake_ui-0.0.1.dist-info/entry_points.txt,sha256=SC_OptxJWrc2g7r2fXqgiREmHowyk2Fk4lRil5XhF70,55
+keepsake_ui-0.0.1.dist-info/top_level.txt,sha256=NCV5UPEpHoTZHQXKiw7bLNW9aHNmzGjP-4BN_aeAHXA,12
+keepsake_ui-0.0.1.dist-info/RECORD,,

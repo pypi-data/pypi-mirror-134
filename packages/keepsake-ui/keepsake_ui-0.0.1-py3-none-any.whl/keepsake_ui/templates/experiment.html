@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container float-start">
+    <div>
+        <table class="table table-bordered caption-top">
+            <caption>Experiment: {{ short_id }}</caption>
+            <tbody>
+            <tr>
+                <th scope="row">Created</th>
+                <td>{{ created }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Command</th>
+                <td>{{ command }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Parameters</th>
+            </tr>
+            {% for k, v in params.items() %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <table class="table caption-top">
+            <caption>Checkpoints</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Created</th>
+                    <th>Step</th>
+                    {% for i in all_metrics %}
+                        <th>{{ i }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for ch in checkpoints %}
+                    <tr>
+                        {% if ch["best"] %}
+                            <td>{{ ch["id"]~" (best)" }}</td>
+                        {% else %}
+                            <td>{{ ch["id"] }}</td>
+                        {% endif %}
+                        <td>{{ ch["created"] }}</td>
+                        <td>{{ ch["step"] }}</td>
+                        {% for i in all_metrics %}
+                            {% if i in ch["metrics"] %}
+                                <td>{{ "%.3f"|format(ch["metrics"][i]) }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a class="btn btn-outline-danger" href={{ "/experiments/" ~ id ~ "/delete" }}>
+            <i class="bi bi-x-square-fill" style="color: #dc3545;"></i>
+            Delete
+        </a>
+    </div>
+</div>
+{% endblock %}
