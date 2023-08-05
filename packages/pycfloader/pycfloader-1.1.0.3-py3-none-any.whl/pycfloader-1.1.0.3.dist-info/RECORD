@@ -1,0 +1,17 @@
+pycfloader/__init__.py,sha256=GbMSi9jQcQBfJ5P-IyG2rjuEZ_piqYo177wHy4N0guA,164
+pycfloader/pycfloader.cp310-win_amd64.pyd,sha256=MKDHeLXdVuWJ3661uLu2ADb0f5-ur1Bu4huM-TOJYZw,605696
+pycfloader/pycfloader.cp36-win_amd64.pyd,sha256=LSUnoPeMUHi1b-fWlW_FqaX1aY863hnEydZgwoMKGRw,618496
+pycfloader/pycfloader.cp37-win_amd64.pyd,sha256=VW4MKi7LpuR7vzWZ1qdAq3R_jZlFEHnz-LtB2P4lJXY,608256
+pycfloader/pycfloader.cp38-win_amd64.pyd,sha256=-rLARSmc1QbOOLgMGVjjzna5_rA0atC8qOY7NWhJn6c,612864
+pycfloader/pycfloader.cp39-win_amd64.pyd,sha256=goiLWZnMwy5KEHG8_iiRFRddOoiCT_qdiczzAdTnkhA,605696
+pycfloader/pycfloader.cpython-310-x86_64-linux-gnu.so,sha256=Dqxt9nwlJ0sPLnWyjZW9pB_O6fmgrzkcTXNteKqajtc,6659184
+pycfloader/pycfloader.cpython-35m-x86_64-linux-gnu.so,sha256=85gYoqSnzWZf8daimzymJsDK9fGuSbTLO7GCOR9oBkQ,5529080
+pycfloader/pycfloader.cpython-36m-x86_64-linux-gnu.so,sha256=8hryb0kslB-O8nmZJYM19-VM09IuNeZ6ZxqNZfs6nxQ,5548896
+pycfloader/pycfloader.cpython-37m-x86_64-linux-gnu.so,sha256=-s2FjyE1XFJF5Yggyh8QTVBLlKe3UjnQLoMNGKBeKdY,5561272
+pycfloader/pycfloader.cpython-38-x86_64-linux-gnu.so,sha256=iRbCWrFG1IwHoSGWwBhcGb1YxBiMPr4re-2-8EgmX0E,10056184
+pycfloader/pycfloader.cpython-39-x86_64-linux-gnu.so,sha256=cGkqRqa5HCC6axqF1uDOmpIrqU-embdJE3WnvAMGFpc,6681232
+pycfloader-1.1.0.3.dist-info/LICENSE.txt,sha256=vCDsSU8tygEAj-BVnB3FVWD5VUPJPOu4Xh43Ep7ukLI,176
+pycfloader-1.1.0.3.dist-info/METADATA,sha256=aAw4do2OjV2iQTkUYXvzeMvPNTHY1cZy_SEYUd8IqnU,989
+pycfloader-1.1.0.3.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+pycfloader-1.1.0.3.dist-info/top_level.txt,sha256=NTq7LmlqX9grJC_pNjwb3-xK4lr4vpiJM0LXp-UCh8Q,11
+pycfloader-1.1.0.3.dist-info/RECORD,,
