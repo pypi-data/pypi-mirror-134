@@ -1,0 +1,8 @@
+pandas
+praw
+psaw
+scipy
+click>=8.0
+
+[analysis]
+matplotlib
