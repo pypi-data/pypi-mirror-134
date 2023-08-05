@@ -1,0 +1,6 @@
+[console_scripts]
+blockchain_lab_create = blockchain_lab.blockchain_lab:blockchain_lab.create
+blockchain_lab_delete = blockchain_lab.blockchain_lab:blockchain_lab.delete
+blockchain_lab_send_transaction = blockchain_lab.blockchain_lab:blockchain_lab_send_transaction
+blockchain_lab_status = blockchain_lab.blockchain_lab:blockchain_lab.status
+
