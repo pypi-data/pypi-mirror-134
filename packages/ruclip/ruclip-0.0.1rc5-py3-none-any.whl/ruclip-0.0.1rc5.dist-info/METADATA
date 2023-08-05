@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: ruclip
+Version: 0.0.1rc5
+Summary: RuCLIP: Zero-shot image classification models for Russian language
+Home-page: UNKNOWN
+Author: SberAI, SberDevices
+Author-email: shonenkov@phystech.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: huggingface-hub (==0.2.1)
+Requires-Dist: youtokentome (~=1.0.6)
+Requires-Dist: more-itertools (==8.12.0)
+
+# RuCLIP
+
+Zero-shot image classification model for Russian language
+
+---
+
+**RuCLIP** (**Ru**ssian **C**ontrastive **L**anguage–**I**mage **P**retraining) is a multimodal model 
+for obtaining images and text similarities and rearranging captions and pictures. 
+RuCLIP builds on a large body of work on zero-shot transfer, computer vision, natural language processing and 
+multimodal learning. This repo has the prototypes model of OpenAI CLIP's Russian version following [this paper](https://arxiv.org/abs/2103.00020).
+
+
+### Models
+
++ [ruclip-vit-base-patch32-224](https://huggingface.co/sberbank-ai/ruclip-vit-base-patch32-224) 🤗
++ [ruclip-vit-base-patch16-224](https://huggingface.co/sberbank-ai/ruclip-vit-base-patch16-224) 🤗
++ [ruclip-vit-large-patch14-224](https://huggingface.co/sberbank-ai/ruclip-vit-large-patch14-224) 🤗
++ ruclip-vit-large-patch14-336  ☁️[SberCloud only](https://sbercloud.ru/ru/ai-services)
++ ruclip-vit-base-patch32-384 🤗
++ ruclip-vit-base-patch16-384 🤗
++ ruclip-vit-large-patch14-384 ☁️[SberCloud only](https://sbercloud.ru/ru/ai-services) ️
+
+
+### Performance
+
+We have evaluated the performance on the following datasets:
+
+| Dataset       | Metric Name    | ruclip-vit-base-patch32-224 | ruclip-vit-base-patch16-224 | ruclip-vit-large-patch14-224   | ruclip-vit-large-patch14-336 ☁️[SberCloud only](https://sbercloud.ru/ru/ai-services) | ruclip-vit-base-patch32-384 | ruclip-vit-base-patch16-384 | ruclip-vit-large-patch14-384 ☁️[SberCloud only](https://sbercloud.ru/ru/ai-services) |
+|:--------------|:---------------|:----------------------------|:----------------------------|:-------------------------------|:------------------------------------------------------------------------------------|:----------------------------|:----------------------------|:------------------------------------------------------------------------------------|
+| Food101       | acc            | 0.505		                | 0.552		      	          | 0.597		      	           | 0.712	                                                                              | -                           | -	                          | -	                                                                                  |
+| CIFAR10       | acc            | 0.818                       | 0.810	                      | 0.878	                       | 0.906                                                                               | -                           | -                           | -                                                                                   |
+| CIFAR100      | acc            | 0.504                       | 0.496                       | 0.511                          | 0.591                                                                               | -                           | -                           | -                                                                                   |
+| Birdsnap      | acc            | 0.115                       | 0.117                       | 0.172                          | 0.213                                                                               | -                           | -                           | -                                                                                   |
+| SUN397        | acc            | 0.452                       | 0.462                       | 0.484                          | 0.523                                                                               | -                           | -                           | -                                                                                   |
+| Stanford Cars | acc            | 0.433                       | 0.487                       | 0.559                          | 0.659                                                                               | -                           | -                           | -                                                                                   |
+| DTD           | acc            | 0.380	                    | 0.401	                      | 0.370	                       | 0.408	                                                                              | -	                          | -	                          | -	                                                                                  |
+| MNIST         | acc            | 0.447	                    | 0.464	                      | 0.337	                       | 0.242	                                                                              | -	                          | -	                          | -	                                                                                  |
+| STL10         | acc            | 0.932	                    | 0.932	                      | 0.934	                       | 0.956	                                                                              | -	                          | -	                          | -	                                                                                  |
+| PCam          | acc            | 0.501                       | 0.505                       | 0.520                          | 0.554                                                                               | -                           | -                           | -                                                                                   |
+| CLEVR         | acc            | 0.148                       | 0.128                       | 0.152                          | 0.142                                                                               | -                           | -                           | -                                                                                   |
+| Rendered SST2 | acc            | 0.489                       | 0.527                       | 0.529                          | 0.539                                                                               | -                           | -                           | -                                                                                   |
+| ImageNet      | acc            | 0.375                       | 0.401                       | 0.426                          | 0.488                                                                               | -                           | -                           | -                                                                                   |
+| FGVC Aircraft | mean-per-class | 0.033                       | 0.043                       | 0.046                          | 0.075                                                                               | -                           | -                           | -                                                                                   |
+| Oxford Pets   | mean-per-class | 0.560                       | 0.595                       | 0.604                          | 0.546                                                                               | -                           | -                           | -                                                                                   |
+| Caltech101    | mean-per-class | 0.786                       | 0.775                       | 0.777                          | 0.835                                                                               | -                           | -                           | -                                                                                   |
+| Flowers102    | mean-per-class | 0.401                       | 0.388                       | 0.455                          | 0.517                                                                               | -                           | -                           | -                                                                                   |
+| HatefulMemes  | roc-auc        | 0.564                       | 0.516                       | 0.530                          | 0.519                                                                               | -                           | -                           | -                                                                                   |
+
+
+
+# Supported by
+
+[<img src="https://raw.githubusercontent.com/sberbank-ai/ru-dolph/master/pics/logo/sberai-logo.png" height="115"/>](https://github.com/sberbank-ai) \
+[<img src="https://raw.githubusercontent.com/sberbank-ai/ru-dolph/master/pics/logo/sberdevices-logo.png" height="40"/>](https://sberdevices.ru)
+
+[<img src="https://raw.githubusercontent.com/sberbank-ai/ru-dolph/master/pics/logo/sbercloud-logo.png" height="80"/>](https://sbercloud.ru/) \
+[<img src="https://raw.githubusercontent.com/sberbank-ai/ru-dolph/master/pics/logo/airi-logo.png" height="50"/>](https://airi.net)
+
+
