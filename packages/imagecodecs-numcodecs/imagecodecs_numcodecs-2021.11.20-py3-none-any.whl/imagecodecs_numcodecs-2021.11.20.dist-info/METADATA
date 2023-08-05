@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: imagecodecs-numcodecs
+Version: 2021.11.20
+Summary: Numcodecs entry points for the imagecodecs package
+Home-page: https://www.lfd.uci.edu/~gohlke/
+Author: Christoph Gohlke
+Author-email: cgohlke@uci.edu
+License: BSD
+Project-URL: Bug Tracker, https://github.com/cgohlke/imagecodecs/issues
+Project-URL: Source Code, https://github.com/cgohlke/imagecodecs
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Requires-Dist: numcodecs
+Requires-Dist: imagecodecs (==2021.11.20)
+
+UNKNOWN
+
