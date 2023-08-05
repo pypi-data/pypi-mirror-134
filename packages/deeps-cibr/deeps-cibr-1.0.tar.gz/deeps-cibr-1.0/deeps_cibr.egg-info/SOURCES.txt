@@ -1,0 +1,12 @@
+setup.py
+deeps/__init__.py
+deeps/cli.py
+deeps/main.py
+deeps/model_torch.py
+deeps/utils.py
+deeps_cibr.egg-info/PKG-INFO
+deeps_cibr.egg-info/SOURCES.txt
+deeps_cibr.egg-info/dependency_links.txt
+deeps_cibr.egg-info/entry_points.txt
+deeps_cibr.egg-info/requires.txt
+deeps_cibr.egg-info/top_level.txt
