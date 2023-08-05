@@ -1,0 +1,73 @@
+# name: test_read_todos_from_file[todo_file0]
+  <class 'list'> [
+    <class 'dict'> {
+      'contexts': <class 'tuple'> (
+      ),
+      'create_date': None,
+      'desc': 'First item.',
+      'done_date': None,
+      'marked_done': False,
+      'metadata': None,
+      'priority': 'N',
+      'projects': <class 'tuple'> (
+      ),
+    },
+    <class 'dict'> {
+      'contexts': <class 'tuple'> (
+        'high',
+      ),
+      'create_date': None,
+      'desc': 'High-priority item @high',
+      'done_date': None,
+      'marked_done': False,
+      'metadata': None,
+      'priority': 'A',
+      'projects': <class 'tuple'> (
+      ),
+    },
+    <class 'dict'> {
+      'contexts': <class 'tuple'> (
+      ),
+      'create_date': datetime.date(2022, 1, 1),
+      'desc': 'Done item',
+      'done_date': datetime.date(2022, 1, 10),
+      'marked_done': True,
+      'metadata': None,
+      'priority': 'B',
+      'projects': <class 'tuple'> (
+      ),
+    },
+    <class 'dict'> {
+      'contexts': <class 'tuple'> (
+      ),
+      'create_date': datetime.date(2022, 1, 11),
+      'desc': 'Item is due:2022-01-31',
+      'done_date': None,
+      'marked_done': False,
+      'metadata': <class 'dict'> {
+        'due': '2022-01-31',
+      },
+      'priority': 'N',
+      'projects': <class 'tuple'> (
+      ),
+    },
+    <class 'dict'> {
+      'contexts': <class 'tuple'> (
+        'stuff',
+      ),
+      'create_date': datetime.date(1900, 1, 1),
+      'desc': 'This +test item is awesome:True and has lots of @stuff too_long:NoWay DoFoo:22',
+      'done_date': datetime.date(1999, 1, 1),
+      'marked_done': True,
+      'metadata': <class 'dict'> {
+        'DoFoo': '22',
+        'awesome': 'True',
+        'too_long': 'NoWay',
+      },
+      'priority': 'Z',
+      'projects': <class 'tuple'> (
+        'test',
+      ),
+    },
+  ]
+---
