@@ -1,0 +1,13 @@
+maaml/DL_UAHdataset.py,sha256=bsr58N4AN4IRyjoiB9drs2hJ_ifMG9jJTTK0RtB7ul8,19238
+maaml/Datasets/UAH_dataset/__init__.py,sha256=yfdi4fbCKqSwZHbIElI14O6p9mAyoAAohp3qrQNVtRU,39
+maaml/Datasets/UAH_dataset/data_acquisition.py,sha256=6Z8KC2E0mK981yM9vdls-xDvIbGDAYPX4HGd0dwG0Qs,34021
+maaml/Datasets/UAH_dataset/dataset/UAHDataset.csv,sha256=UTvjAtM4mndkHxHyImp-YX32fIUK4jQ7FlVCdynOST8,6397440
+maaml/Datasets/UAH_dataset/time_series.py,sha256=_fw5np4iQjlpYxIrapVA8UThAi0pAXIZAaYmkp-R2LI,43951
+maaml/Datasets/__init__.py,sha256=cf4-poosLVliMTsjMoJS2ZWLLoLVrcGYBOjFFTLwaj8,27
+maaml/__init__.py,sha256=LCrZ70N7uhfTnLs9vDrlTrtpSn1ikI1jtt4hXo_tMyg,162
+maaml/preprocessing/preprocessing.py,sha256=UHL9y6_JBWhh2ffdvmU2mLG-0K0YlRli6Pc9OaUPbnw,2756
+maaml/preprocessing_and_ML_functions_build.py,sha256=XSAOSR5n4yU2FGuM_tqetG_yKQBz0_kEas5PrF9ad4I,15066
+maaml-0.0.1.dist-info/LICENSE,sha256=cvTSrfSd4SsQtw6ljm8WiIpqkL53B28ta694N-dqxII,36147
+maaml-0.0.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+maaml-0.0.1.dist-info/METADATA,sha256=gG1bQx-o9T6XVttYSQGqH5jj3LCmI46VQElkzWDmrIw,516
+maaml-0.0.1.dist-info/RECORD,,
