@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+StringConverter/__init__.py
+StringConverter/intStringConverter.py
+StringConverter/test_code.py
+StringConverter.egg-info/PKG-INFO
+StringConverter.egg-info/SOURCES.txt
+StringConverter.egg-info/dependency_links.txt
+StringConverter.egg-info/top_level.txt
