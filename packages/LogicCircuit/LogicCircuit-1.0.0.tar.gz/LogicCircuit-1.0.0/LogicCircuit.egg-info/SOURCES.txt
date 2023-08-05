@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+LogicCircuit.egg-info/PKG-INFO
+LogicCircuit.egg-info/SOURCES.txt
+LogicCircuit.egg-info/dependency_links.txt
+LogicCircuit.egg-info/requires.txt
+LogicCircuit.egg-info/top_level.txt
+logiccircuit/__init__.py
+logiccircuit/__main__.py
+logiccircuit/classes.py
+logiccircuit/colors.py
+logiccircuit/logic.py
+logiccircuit/logiccircuit.py
+logiccircuit/py.typed
