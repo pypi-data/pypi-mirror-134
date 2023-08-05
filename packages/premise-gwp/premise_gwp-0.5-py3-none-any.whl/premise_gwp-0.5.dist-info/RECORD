@@ -1,0 +1,15 @@
+premise_gwp/__init__.py,sha256=TlYcH3q2hI0T-7uSbQu6scTym2D-yD4WqOEpe4n8LDE,2379
+premise_gwp/biosphere.py,sha256=lQDToaTetT0l86_KCAQSocsAV3llmYvpBbwmfi4-_lQ,198
+premise_gwp/version.py,sha256=22loIoMyvvdINiTQYwen0OBvH0ZkHQ_-tLSYnwLT-es,17
+premise_gwp/data/LCIA_Implementation_3.8.xlsx,sha256=1SPbZBpXaO8wpEplT0BGF1MUki8dD74Gmi2G4q_VBWw,84350
+premise_gwp/data/lcia_gtp_100a_w_bio.xlsx,sha256=q1j0bE2YLhHjpnzHBWshkVxV7REfvv8KppH7JZJxjFw,12964
+premise_gwp/data/lcia_gtp_20a_w_bio.xlsx,sha256=B6ObVLAB3REa6wUYi4JkWisHyIxsz4YaZIifUNa762g,12986
+premise_gwp/data/lcia_gwp_100a.xlsx,sha256=CpHOhHewfu0o1UeVCpKyRuK689jIxnvCTtwRu5J0KBs,12921
+premise_gwp/data/lcia_gwp_100a_w_bio.xlsx,sha256=gyjEf8OvKVZZh6R1whxTNNI3M3-JithWq3ml7drKu2w,13091
+premise_gwp/data/lcia_gwp_20a.xlsx,sha256=TqJuMdMuWRpCtky6ChHoFywgIPwxlatxTdRxJW4PgJM,12986
+premise_gwp/data/lcia_gwp_20a_w_bio.xlsx,sha256=AI6mvab_49fNBsjdue5sOhgmQuigGONAIQYTaugxrIA,13118
+premise_gwp-0.5.dist-info/LICENSE,sha256=zzFEDzLwNvc342SHRY8jMxD68Pc94hVgcNlNoJkkgsY,1513
+premise_gwp-0.5.dist-info/METADATA,sha256=xU_3H1NiZwERFVCiz68dL02if1jBVc2sq2J0Dqy60vM,2785
+premise_gwp-0.5.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+premise_gwp-0.5.dist-info/top_level.txt,sha256=Bz3Ax9hVXvQP-1VfHX-eOjUFW7ihB_YUg33TVL6awow,12
+premise_gwp-0.5.dist-info/RECORD,,
