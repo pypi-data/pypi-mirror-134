@@ -1,0 +1,11 @@
+version_differ/__init__.py,sha256=x4D0sEoq_na-ZHaqkBp2bvySSjLGw4I8QTzA3nujOw8,133
+version_differ/__main__.py,sha256=350x_00YsnR7QaT4l66bKEp9BJAdS8iNX9ctjXqU7Aw,360
+version_differ/common.py,sha256=jpMikCJve0E-mIPC9TR3IR5N6-JClf8Hep6cicbaa9Y,203
+version_differ/download.py,sha256=i8oyMdpZdyBzRxl6Y1B0Lq1LCLGX77724fGuQTCFMmU,5140
+version_differ/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+version_differ/version_differ.py,sha256=sIbCo79q7OdXOkoReUnfgWtTadS9AfWqthPwjwfGcRk,10024
+version_differ-0.3.5.dist-info/entry_points.txt,sha256=c6F-5I7DvUN-wIAQQR5t7twz1pc-Hk9c5SQI6lqQNEw,63
+version_differ-0.3.5.dist-info/LICENSE,sha256=qhgGSqs83OwOoas7B65NQbGe-jQfr_0q9N5ebVqa9wk,1070
+version_differ-0.3.5.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+version_differ-0.3.5.dist-info/METADATA,sha256=gaHAt-Ci8s8FoBFBjATwcQon36s4E1QwFh20Qz7tgzI,4266
+version_differ-0.3.5.dist-info/RECORD,,
