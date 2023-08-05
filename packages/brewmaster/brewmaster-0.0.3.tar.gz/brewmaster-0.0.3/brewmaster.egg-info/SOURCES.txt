@@ -1,0 +1,9 @@
+README.md
+setup.py
+brewmaster/__init__.py
+brewmaster/brewmaster.py
+brewmaster.egg-info/PKG-INFO
+brewmaster.egg-info/SOURCES.txt
+brewmaster.egg-info/dependency_links.txt
+brewmaster.egg-info/requires.txt
+brewmaster.egg-info/top_level.txt
