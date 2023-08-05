@@ -1,0 +1,15 @@
+MANIFEST.in
+pyproject.toml
+setup.py
+fluidly/__init__.py
+fluidly/structlog/__init__.py
+fluidly/structlog/base_logger.py
+fluidly/structlog/pubsub_helper.py
+fluidly/structlog/py.typed
+fluidly/structlog/timing.py
+fluidly_structlog.egg-info/PKG-INFO
+fluidly_structlog.egg-info/SOURCES.txt
+fluidly_structlog.egg-info/dependency_links.txt
+fluidly_structlog.egg-info/namespace_packages.txt
+fluidly_structlog.egg-info/requires.txt
+fluidly_structlog.egg-info/top_level.txt
