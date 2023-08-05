@@ -1,0 +1,10 @@
+bdtheme/__init__.py,sha256=g8B7G4A4i6qCi2mD8TCWtrimQVMqddSRr5q5Iom86GY,18
+bdtheme/src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bdtheme/src/curses_app.py,sha256=V3lH2XgdAWM5Y_zrW6qutSaklXOos8gXqIymYsYDiKE,3356
+bdtheme/src/main.py,sha256=FiyfJCslGWXNk0TmDFgVqux_8eS-7Qk54FWjCa9l82M,2213
+bdtheme/src/themes.py,sha256=2-HRwb4oaQmU0kCKVuS71il37wz3bUVNVlRSqti-_8I,4004
+bdtheme-0.0.1.dist-info/METADATA,sha256=9HIU5qsVJpZP71P0zN5jbwi32DJAaw5_7duq3V0ZIUw,292
+bdtheme-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+bdtheme-0.0.1.dist-info/entry_points.txt,sha256=V2JbAN-_l9Q1f7E2fz9rv1Dfsm2Beo8vzMKDKhqerxA,58
+bdtheme-0.0.1.dist-info/top_level.txt,sha256=YcKZY09fK-od6ZggoWMNcsrx2mLYpid5bjBNT5mxH8I,8
+bdtheme-0.0.1.dist-info/RECORD,,
