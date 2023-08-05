@@ -1,0 +1,10 @@
+README.md
+setup.py
+docums_redirects/__init__.py
+docums_redirects/plugin.py
+docums_redirects.egg-info/PKG-INFO
+docums_redirects.egg-info/SOURCES.txt
+docums_redirects.egg-info/dependency_links.txt
+docums_redirects.egg-info/entry_points.txt
+docums_redirects.egg-info/requires.txt
+docums_redirects.egg-info/top_level.txt

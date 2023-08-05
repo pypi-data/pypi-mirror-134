@@ -1,0 +1,3 @@
+[docums.plugins]
+redirects = docums_redirects.plugin:RedirectPlugin
+
