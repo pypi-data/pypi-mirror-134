@@ -1,0 +1,7 @@
+rocksdict-0.2.16.dist-info/METADATA,sha256=6Q_7BYQDCw_SlgQIm7vMV6OwRp0hsGuxqKkknVdzLjg,3512
+rocksdict-0.2.16.dist-info/WHEEL,sha256=lXxQ5J54ES3Ep4ACuSv5Ak68ctR-kHLmq3MV0DzO5fs,147
+rocksdict/__init__.py,sha256=JoO_RRxY6VwcikqpliKm2EBKIA3JAcsidEFY8zbsKMA,907
+rocksdict/rocksdict.pyi,sha256=1weVDOJcngwainKtZEojZu6WGLOLLQnTUbDnkG0S_jY,24883
+rocksdict/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rocksdict/rocksdict.cpython-310-darwin.so,sha256=YEvHLiw3DNyyv-yglugg4aC_Kk6HixUywkxLWqPqdgE,13312399
+rocksdict-0.2.16.dist-info/RECORD,,
