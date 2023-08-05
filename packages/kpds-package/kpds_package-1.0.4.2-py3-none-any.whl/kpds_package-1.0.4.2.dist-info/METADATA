@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: kpds-package
+Version: 1.0.4.2
+Summary: data_feeding_api
+Home-page: https://github.com/insunzo/kpds_package
+Author: IT_Service
+Author-email: rracllwh@koreapds.com
+License: UNKNOWN
+Download-URL: https://github.com/insunzo/kpds_package/archive/master.zip
+Keywords: kpds_package,kpds
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Requires-Dist: requests
+Requires-Dist: pandas
+
+UNKNOWN
+
+
