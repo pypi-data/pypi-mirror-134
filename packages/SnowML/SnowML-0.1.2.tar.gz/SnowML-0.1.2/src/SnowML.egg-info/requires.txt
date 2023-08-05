@@ -1,0 +1,6 @@
+pandas
+scikit-learn
+numpy
+slack-sdk
+mlflow
+scipy
