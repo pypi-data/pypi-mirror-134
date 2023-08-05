@@ -1,0 +1,20 @@
+pushd "$(git rev-parse --show-toplevel)" > /dev/null
+
+export DEV_ENV_DOCKER_IMAGE=simonsdave/cloudfeaster-dev-env:build
+
+if [ -d ./env ]; then
+    source ./env/bin/activate
+else
+    python3 -m venv env
+    source ./env/bin/activate
+
+    pip install --upgrade pip
+
+    curl -s -L https://raw.githubusercontent.com/simonsdave/dev-env/master/bin/install-dev-env.sh | bash -s --
+
+    ./dev_env/build-docker-image.sh "${DEV_ENV_DOCKER_IMAGE}"
+fi
+
+export PATH="${PWD}/bin":${PATH}
+
+popd > /dev/null

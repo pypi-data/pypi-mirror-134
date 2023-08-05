@@ -1,0 +1,13 @@
+*~
+*pyc
+*.swp
+.Python
+env
+.vagrant
+.DS_Store
+.coverage
+coverage_report
+build
+dist
+cloudfeaster.egg-info
+*.rst
