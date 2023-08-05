@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+bin/starmart
+starmart/__init__.py
+starmart/__main__.py
+starmart/helper.py
+starmart/input.py
+starmart/result.py
+starmart.egg-info/PKG-INFO
+starmart.egg-info/SOURCES.txt
+starmart.egg-info/dependency_links.txt
+starmart.egg-info/requires.txt
+starmart.egg-info/top_level.txt
+starmart/config/__init__.py
+starmart/config/config.py
+starmart/config/production_config.py
