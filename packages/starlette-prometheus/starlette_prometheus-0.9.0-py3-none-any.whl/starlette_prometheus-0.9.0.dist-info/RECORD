@@ -1,0 +1,8 @@
+starlette_prometheus/__init__.py,sha256=1gEFvtnqY997LrsMzztl116GgaX8muT0Ur142bJg8V0,158
+starlette_prometheus/middleware.py,sha256=dQfB0D_LVWSSfdqk9BkW3JBd6W2rkEzJ_yL8qRU9AqQ,3178
+starlette_prometheus/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+starlette_prometheus/view.py,sha256=rVQSvD2KnXGsbUVCtuIUY12B5TQIWh9k-r-Ec9xlFwI,557
+starlette_prometheus-0.9.0.dist-info/LICENSE,sha256=oH4jlV3_Sjnh3TUPq6fEq2TdF6ryVmJhFZLhq1sQ99w,35171
+starlette_prometheus-0.9.0.dist-info/WHEEL,sha256=xSvaL1DM8LOHfdyo0cCcwjZu1tC6CnCsRGWUgazvlbM,83
+starlette_prometheus-0.9.0.dist-info/METADATA,sha256=Xf-xBFyUCidgkDMe9oBLDS9ERM8E1tUe3Ik5LfhSx9s,2622
+starlette_prometheus-0.9.0.dist-info/RECORD,,
