@@ -1,0 +1,24 @@
+[build-system]
+requires = [ "poetry-core>=1.0.0",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "python_demo"
+version = "0.1.1.dev1"
+description = ""
+authors = [ "Samon Liang <samon.liang@morningstar.com>",]
+
+[tool.poetry.dependencies]
+python = ">=3.7.1,<3.11"
+numpy = "^1.21.4"
+Flask = "^2.0.2"
+pandas = "^1.3.4"
+toml = "^0.10.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
+pytest-html = "^3.1.1"
+allure-pytest = "^2.9.45"
+pylint = "^2.12.2"
+pyenchant = "^3.2.2"

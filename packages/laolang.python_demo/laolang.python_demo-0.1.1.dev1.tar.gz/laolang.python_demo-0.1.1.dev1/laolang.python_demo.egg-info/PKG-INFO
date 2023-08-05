@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: laolang.python-demo
+Version: 0.1.1.dev1
+Summary: Learn to use the python 3 and popular open source
+Home-page: https://github.com/liangshenwen/python_demo.git
+Author: Laolang
+Author-email: laolanglife@163.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7, <=3.10
