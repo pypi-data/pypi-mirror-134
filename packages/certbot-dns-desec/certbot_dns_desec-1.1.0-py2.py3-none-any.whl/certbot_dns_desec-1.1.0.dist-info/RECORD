@@ -1,0 +1,9 @@
+certbot_dns_desec/__init__.py,sha256=CSIsbBd9lrjwNeQjAjS3qics7bT-G_VIyXNyCH9UmQQ,3132
+certbot_dns_desec/dns_desec.py,sha256=re6_pqawDYAsOFu3FhbTZdXnpbyOtiF-kTUIWhBYLz4,6561
+certbot_dns_desec/dns_desec_test.py,sha256=yn24HlHids_WKRf4jjhJ8tSyfAB-03pCpbvryEymZc8,8224
+certbot_dns_desec-1.1.0.dist-info/LICENSE.txt,sha256=LMXecVrlqXbwhvukkwiAyeQhkUFz_IURG_9RTUdXEj8,10786
+certbot_dns_desec-1.1.0.dist-info/METADATA,sha256=LpTV5typKRbO0n-PY24-AzHwEYBcbtpID6WnjYOVlXQ,5443
+certbot_dns_desec-1.1.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+certbot_dns_desec-1.1.0.dist-info/entry_points.txt,sha256=ud1frPVEIookk44moBTvmykYWLY-ezG0eq3EGiDp9Fk,73
+certbot_dns_desec-1.1.0.dist-info/top_level.txt,sha256=nZ6jjxWR4hJ3Qcsuyhc1LdVuHs8GQq_wdpAvkdhGU64,18
+certbot_dns_desec-1.1.0.dist-info/RECORD,,
