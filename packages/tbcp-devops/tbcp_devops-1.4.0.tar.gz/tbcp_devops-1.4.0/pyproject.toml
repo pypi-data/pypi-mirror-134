@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "tbcp_devops"
+description = "DevOps stuff for working with files, folders, project structures, sementic versioning, Git management and so on"
+version = "1.4.0"
+license = "MIT"
+readme = "README.md"
+authors = ["Bootcamp contributors <contributors@bootcamp-project.com>"]
+maintainers = [
+    "Bootcamp contributors <contributors@bootcamp-project.com>",
+    "John Ollhorn <john@ollhorn.de> (https://ollhorn.de)"
+]
+homepage = "https://gitlab.com/the-bootcamp-project/packages/workdirpy"
+repository = "https://gitlab.com/the-bootcamp-project/packages/workdirpy.git"
+documentation = "https://gitlab.com/the-bootcamp-project/packages/workdirpy"
+keywords = ["Git", "Python"]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+exclude = ["tests"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://gitlab.com/the-bootcamp-project/packages/workdirpy/-/issues"
+"Repository" = "https://gitlab.com/the-bootcamp-project/packages/workdirpy.git"
+"Homepage" = "https://gitlab.com/the-bootcamp-project/packages/workdirpy"
+"Bootcamp" = "https://bootcamp-project.com"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+GitPython = "^3.1.24"
+semver = "^2.13.0"
+toml = "^0.10.2"
+Jinja2 = "^3.0.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+bandit = "^1.7.1"
+mypy = "^0.930"
+black = "^21.12b0"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
