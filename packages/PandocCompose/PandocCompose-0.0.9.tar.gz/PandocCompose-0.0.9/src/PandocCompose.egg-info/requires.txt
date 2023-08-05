@@ -1,0 +1,4 @@
+deepmerge==0.1.0
+panflute==1.12.5
+pypandoc==1.5
+PyYAML==5.3.1
