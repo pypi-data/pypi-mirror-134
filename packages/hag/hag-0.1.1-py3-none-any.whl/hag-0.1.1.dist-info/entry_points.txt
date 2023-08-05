@@ -1,0 +1,3 @@
+[console_scripts]
+hag=hag.__main__:main
+
