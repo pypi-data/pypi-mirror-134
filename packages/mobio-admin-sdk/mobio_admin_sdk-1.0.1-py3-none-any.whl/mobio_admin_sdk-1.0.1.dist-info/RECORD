@@ -1,0 +1,16 @@
+mobio_admin_sdk-1.0.1-py3.8-nspkg.pth,sha256=digZj_vKBO5BD5o7-vMSBQjpHYuxWIGNVCORAYbmwCY,534
+mobio/sdks/admin/__init__.py,sha256=dmf7rF9j1_SO_2SJV_TkV_0XI2U_pf2gOfkbRdQyg4U,385
+mobio/sdks/admin/aes_cipher.py,sha256=AqFqIl0EppS5nQEGH17FUmpCp16a-8bMImbqH9k6sbE,1093
+mobio/sdks/admin/config.py,sha256=RAcMnQKNOKkQdQWuSL4QjG4kG9UT2xj-UTCq3Ej4h2M,1805
+mobio/sdks/admin/date_utils.py,sha256=UJRoUhb7bJU7w9jkQwBROO6EanxG-wkj-nhYDRjlHxI,664
+mobio/sdks/admin/http_jwt_auth.py,sha256=h0NJoHNHY9l8kjHGRtq2rqWdgMO9R2iPmy8zfR-6PHQ,6448
+mobio/sdks/admin/mobio_admin_sdk.py,sha256=AF1M0d_kCi12_JktTgIEBVx8yWPOyA--5e85iN4aPrg,10021
+mobio/sdks/admin/mobio_authorization.py,sha256=Q75wf7tGREZ87ebE50fU9J5xOJscSm6YlTT8BCcqRf0,6340
+mobio/sdks/admin/mongo_base_model.py,sha256=tLwYwSrQVeQvDm_NFVZVRYvrLGQuLn9I93JvYp7NQCA,3100
+mobio/sdks/admin/mysql_base_model.py,sha256=PqncYbytlgDz1k6hNOwh2nD6CojJdRof1DnHN8IqpcU,2569
+mobio/sdks/admin/utils.py,sha256=IeHLChKw_JSoxhVIC7d9Z3_lpcsabLx60cyARCW31IQ,18930
+mobio_admin_sdk-1.0.1.dist-info/METADATA,sha256=9Xf9JQoOtpqEKvmidJMHmm9zcGliR01IaSoBtUo7e2A,6305
+mobio_admin_sdk-1.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mobio_admin_sdk-1.0.1.dist-info/namespace_packages.txt,sha256=aDRCg1NQKxwVo4upz2Jiwm_Qm1Yw57mFFYdDaGu4b8c,6
+mobio_admin_sdk-1.0.1.dist-info/top_level.txt,sha256=aDRCg1NQKxwVo4upz2Jiwm_Qm1Yw57mFFYdDaGu4b8c,6
+mobio_admin_sdk-1.0.1.dist-info/RECORD,,
