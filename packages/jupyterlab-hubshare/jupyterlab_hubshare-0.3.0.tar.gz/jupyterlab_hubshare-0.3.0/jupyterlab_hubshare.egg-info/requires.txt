@@ -1,0 +1,6 @@
+jupyterlab~=3.0
+nbconvert
+nbformat
+tornado
+jupyter_server
+IPython
