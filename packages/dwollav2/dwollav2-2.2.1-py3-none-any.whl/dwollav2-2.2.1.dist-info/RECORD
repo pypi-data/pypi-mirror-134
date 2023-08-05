@@ -1,0 +1,12 @@
+dwollav2/__init__.py,sha256=sjbmfX8L4IkZTv6F80xAAaPMk7hu25I0rMJuKGzLqQU,103
+dwollav2/auth.py,sha256=ZYe98yQCmtQCxAJnhi9ABRJTyISov7x8P-ZUkd9Eqmo,2665
+dwollav2/client.py,sha256=RdNUnqVPVMMjJmhnSLeYTTmPe_IRe3N0DF3chBEAdqs,1889
+dwollav2/error.py,sha256=AbRW6kVFgdiFC-H0y6xPFWedhggReTtPQzWYO_PoEe4,3541
+dwollav2/response.py,sha256=KeLu7YPT7SkNSPJY26mq6WrZ0dYxtD4pdPZTZdomMnA,382
+dwollav2/token.py,sha256=JZYK_XEWxEmwFzmLBscXMU0ihZ-PFSbViR8V70w6nFs,3931
+dwollav2/version.py,sha256=BkBeOFDGrzFQp8nnSjcqRTP7sc3L1K8sOCuCetB147s,18
+dwollav2-2.2.1.dist-info/LICENSE.txt,sha256=tsM3U0wVuakbhtxHeA_6vCzcDz9Cd1MpHpUAflx2RdE,1079
+dwollav2-2.2.1.dist-info/METADATA,sha256=URZNHXY71FYAfLO2sFrsBfugE171JAslhV2KolMwUUg,9683
+dwollav2-2.2.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dwollav2-2.2.1.dist-info/top_level.txt,sha256=KpBg2O2QdeicPRSAj5yqdL4NnahiieI1v_7kg83t-5g,9
+dwollav2-2.2.1.dist-info/RECORD,,
