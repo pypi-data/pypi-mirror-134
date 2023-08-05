@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.py
+devopstool/__init__.py
+devopstool/cli.py
+devopstool/dockerhub_list_tags.py
+devopstoolscli.egg-info/PKG-INFO
+devopstoolscli.egg-info/SOURCES.txt
+devopstoolscli.egg-info/dependency_links.txt
+devopstoolscli.egg-info/entry_points.txt
+devopstoolscli.egg-info/requires.txt
+devopstoolscli.egg-info/top_level.txt
+resources/dockerhub_api.sh
+resources/dockerhub_build_status.sh
+resources/dockerhub_list_tags.sh
+resources/dockerhub_list_tags_by_last_updated.sh
+resources/dockerhub_search.sh
