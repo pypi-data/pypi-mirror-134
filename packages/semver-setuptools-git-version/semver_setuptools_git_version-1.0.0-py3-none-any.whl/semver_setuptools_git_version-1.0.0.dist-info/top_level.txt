@@ -1,0 +1,1 @@
+semver_setuptools_git_version
