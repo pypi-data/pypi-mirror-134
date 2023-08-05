@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+spilite/__init__.py
+spilite/spi.py
+spilite.egg-info/PKG-INFO
+spilite.egg-info/SOURCES.txt
+spilite.egg-info/dependency_links.txt
+spilite.egg-info/requires.txt
+spilite.egg-info/top_level.txt
+spilite/cs/__init__.py
+spilite/cs/decoders.py
+spilite/cs/pins.py
