@@ -1,0 +1,11 @@
+nameko_zipkin/__init__.py,sha256=cskfPsJLJQfsxTgnv3rpnqArQJ05cXBdrA4yJrLX5oU,107
+nameko_zipkin/constants.py,sha256=2WhYZS1_VW6RUHmVJG5ZOEyvkHqdQGbmed1m1mpFI7I,264
+nameko_zipkin/method_proxy.py,sha256=Ggg6dhT1FndvzJNPW-yn-r2tVQkwuv6clRU4vl80ZZ4,1117
+nameko_zipkin/provider.py,sha256=xWxnfOmHaWNJ0n95OXuavwt2-yxaxRRbMZKMCG0yUdE,2663
+nameko_zipkin/transport.py,sha256=7uVTqB2d6eYlqIJKYKMgg_ooP32uF76O9DbVzLdMo4k,1298
+nameko_zipkin/utils.py,sha256=2qTx3O_rRadyVuZEwM4FDe38-6OptkbfxCFj4upMxHI,1067
+emplo_nameko_zipkin-0.1.8.dist-info/LICENSE,sha256=tAkwu8-AdEyGxGoSvJ2gVmQdcicWw3j1ZZueVV74M-E,11357
+emplo_nameko_zipkin-0.1.8.dist-info/METADATA,sha256=TNwmrJedv1ffo0Iqw_2PdSGYV9FOqHnQVI4FLbEdMSA,2929
+emplo_nameko_zipkin-0.1.8.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+emplo_nameko_zipkin-0.1.8.dist-info/top_level.txt,sha256=LGVHDzbAoctA7c59mVvRMlqKDyP-k_LakPHq47RI6-w,14
+emplo_nameko_zipkin-0.1.8.dist-info/RECORD,,
