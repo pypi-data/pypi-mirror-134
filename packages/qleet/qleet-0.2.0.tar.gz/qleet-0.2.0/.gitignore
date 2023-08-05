@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+
+__pycache__/
+.mypy_cache
+.pytest_cache
+.coverage
+
+docs/_build/
+build/
+dist/
+*.egg-info/
+*.egg
+
+htmlcov/
