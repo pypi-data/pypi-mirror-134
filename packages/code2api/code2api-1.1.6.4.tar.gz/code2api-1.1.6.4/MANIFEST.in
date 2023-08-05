@@ -1,0 +1,2 @@
+recursive-include code2api/scripts/algorithm_scripts *.template
+recursive-include code2api/scripts/enroll_service *.template
