@@ -1,0 +1,10 @@
+aws_cdk/aws_guardduty/__init__.py,sha256=OnOkUU7gc9R71DehvQB0kSEBbrhWUN51ssU6BWeR63w,96926
+aws_cdk/aws_guardduty/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/aws_guardduty/_jsii/__init__.py,sha256=kvGKVAsVTBI2ZMIBKIsORp7942Gl3TlroCKNGewAbXk,390
+aws_cdk/aws_guardduty/_jsii/aws-guardduty@1.138.2.jsii.tgz,sha256=lT6n1pK6AnxINvQw-sJdOGWmKc9EQQS73k7VuJVssQc,47317
+aws_cdk.aws_guardduty-1.138.2.dist-info/LICENSE,sha256=wX3LqRrxZ97zcDpw0dQ58Zb9AQalEDmXs6nP39muv7o,11391
+aws_cdk.aws_guardduty-1.138.2.dist-info/METADATA,sha256=O5C_JD6ph4495V44mwjmyMWyRWiIZk2Dn-uHDrwkZYU,2497
+aws_cdk.aws_guardduty-1.138.2.dist-info/NOTICE,sha256=piksgoXop22-zO1J9i3rVrv57wUN9siPK1pqGzZ7-AE,113
+aws_cdk.aws_guardduty-1.138.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+aws_cdk.aws_guardduty-1.138.2.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.aws_guardduty-1.138.2.dist-info/RECORD,,
