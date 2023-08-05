@@ -1,0 +1,2 @@
+# dependencies of the kivy_relief_canvas portion
+kivy
