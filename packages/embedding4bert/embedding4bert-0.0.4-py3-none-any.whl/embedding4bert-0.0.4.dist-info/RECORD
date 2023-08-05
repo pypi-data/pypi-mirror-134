@@ -1,0 +1,8 @@
+embedding4bert/__init__.py,sha256=iqi3d4IGBAe96znd8RL-SHy236GCiIiLagY0p_4Z6UY,770
+embedding4bert/embedding4bert.py,sha256=zqr5C77hh8nuaxaeonW5x93YuXywqdmJBOxViJI-_0s,5600
+embedding4bert/embeddings4bert.py,sha256=7KkdSrgeOdo4DY0z-qUt6-ECiamPaBCyghMy9fG4Xxk,5151
+embedding4bert/test_xlnet_embedding.py,sha256=2AlxE6N1wcon47ZDNmR_53OrJrl-JGaALV8ZnMgr9BI,3690
+embedding4bert-0.0.4.dist-info/METADATA,sha256=SuPv3jnpMfg1VkRlv4NcLMZ8hyEFPGfAMItNOk_qA1s,3780
+embedding4bert-0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+embedding4bert-0.0.4.dist-info/top_level.txt,sha256=bwZRvP-42YDgwTIo23dc71BBUEQIct6Ijsfn4bzqwpg,15
+embedding4bert-0.0.4.dist-info/RECORD,,
