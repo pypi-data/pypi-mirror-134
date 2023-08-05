@@ -1,0 +1,7 @@
+cli
+tools
+vizexdf/files
+vizexdu/battery
+vizexdu/charts
+vizexdu/cpu
+vizexdu/disks
