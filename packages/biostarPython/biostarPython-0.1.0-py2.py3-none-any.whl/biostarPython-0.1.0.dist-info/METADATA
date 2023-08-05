@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: biostarPython
+Version: 0.1.0
+Summary: Python client for Suprema GSDK with included callable classes.
+Home-page: https://github.com/biostar-dev/g-sdk/
+Author: SupremaUK
+Author-email: gcartlidge@supremainc.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >3.5.2
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: grpcio
+Requires-Dist: protobuf
+
+#Python Client for Suprema GSDK
+
+This is the pip distributable version of the Suprema GSDK Python client, which makes it easier to interact with the GSDK.
+
+The examples from the [Suprema GSDK wiki][gsdkwiki] can be used, but with this package, all dependencies are handled via PIP.
+The EventCode .json file and device list are also initialized automatically when importing package.
+
+On some clients (Particularly android) the  EventCode json can sometimes not be loaded. If this happens, an error will display.
+You can then call supremaPython.initCodeMap(JsonFileLocation)
+
+To check Event codes, call supremaPython.getEventString(eventCode,subCode)
+To check device type, call supremaPython.deviceType\[deviceCode\]
+
+##How to use the rest of the classes.
+
+All classes that can be used are imported under the biostarPython package.
+The ones currently written are:
+GatewayClient, 
+ConnectSvc, 
+DeviceSvc, 
+FaceSvc, 
+FingerSvc, 
+StatusSvc, 
+UserSvc,
+DisplaySvc,
+AdminSvc,
+WiegandSvc,
+TimeSvc,
+CardSvc,
+EventSvc,
+NetworkSvc,
+ServerSvc,
+SystemSvc,
+DoorSvc,
+RS485Svc,
+
+With the remaining being added in a future release.
+
+With all of these services, they are a callable class underneath the biostarPython package. An example of initial setup with the GatewayClient and ConnectSvc is below:
+For all of the functions below these services, they are formated with the first letter in lowercase, so to search a device would be searchDevice(), to get info would be getInfo().
+The guides on how to use these are present at the the [Suprema GSDK wiki][gsdkwiki] 
+
+import biostarPython as g
+gateway = g.GatewayClient('127.0.0.1',4000,'ca.crt')
+channel = gateway.getChannel()
+connect = g.ConnectSvc(channel)
+connect.searchDevice(300)
+
+[gsdkwiki]: https://biostar-dev.github.io/g-sdk/
+
