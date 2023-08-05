@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+beritaterkini/__init__.py
+latestnews_kemendikbud.egg-info/PKG-INFO
+latestnews_kemendikbud.egg-info/SOURCES.txt
+latestnews_kemendikbud.egg-info/dependency_links.txt
+latestnews_kemendikbud.egg-info/top_level.txt
