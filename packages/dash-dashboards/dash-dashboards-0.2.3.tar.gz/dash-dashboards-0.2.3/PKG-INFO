@@ -1,0 +1,176 @@
+Metadata-Version: 2.1
+Name: dash-dashboards
+Version: 0.2.3
+Summary: Packakge to build Dash applications
+Home-page: UNKNOWN
+Author: Filip Beć
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+License-File: LICENSE
+
+# Dash Dasboards
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+## Installation
+
+```bash
+pip install dash_dashboards
+```
+
+## Usage
+
+This package includes command line tool `dash-admin` which helps you create project with multiple Dash dashboards. Some usefull commands are:
+* `startproject`
+    * create a new project template
+* `startdash`
+    * create a new dashboard template
+
+Here is an example of usage. First create a new project called `my_dash_app`:
+
+```bash
+dash-admin startproject -n my_dash_app
+```
+
+This command will generate project directory and inside:
+
+* `settings.py`
+    * contains configuration for your application
+* `runserver.py`
+    * contains CLI command for running the app with parameters passed from a command line
+* `dashboards`
+    * directory where you can put implementation of dashboards
+
+Now enter directory `my_dash_app` and run command:
+
+```bash
+dash-admin startdash -n page1
+```
+
+This command will create a new dashboard template which should contain:
+
+* dashboard layout
+* dashboard callbacks in case when you have interactive elements
+
+When you have multiple dashboards, it is wise to use a unique prefix for HTML `id` attributes in each page. This way, you will ensure that only appropriate callbacks are triggered when you interact with the app.
+
+You can organize your dashboards however you want. You can put layout in one file and callbacks into another. The only important thing is configuration in the `settings.py`. You need to configure two things:
+
+* include layout into application `menu`
+* register callbacks
+
+For example, after running `startdash` command, your `settings.py` code should be modified to something like this:
+
+```python
+from dash_dashboards.app import DashboardApp, MenuItem
+
+from dashboards.page1 import app as page1_app
+
+app = DashboardApp(
+    title="My Dash App",
+    menu=[MenuItem("Page1", page1_app.layout, "/page-1/")],
+)
+
+app.add_callbacks(page1_app.callbacks)
+```
+
+Run the following command to start the app in debug mode:
+
+```bash
+python runserver.py --debug
+```
+
+### Upgrade to a newer version
+
+After each upgrade of the `dash_dashboards` package, it is recommended to run command:
+
+```bash
+dash-admin generate-assets
+```
+
+**Important:** this command will overwrite generated assets. If you want to add your own assets or custom css styles, do not modify generated files (for example - `style.css`).
+### Custom app
+
+If you want to use custom navigation or custom layout for content, you can subclass `DashboardApp`.
+
+### Custom css
+
+Create your css file(s) in `assets` directory, for example `assets/custom-style.css`. Then modify `settings.py` and add `external_stylesheets` parameter to the DashboardApp initializer. For example:
+
+```python
+app = DashboardApp(
+    title="My Dash App",
+    menu=[MenuItem("Page1", page1_app.layout, "/page-1/")],
+    external_stylesheets=["assets/custom-style.css"],
+)
+```
+
+#### Custom colors
+
+In your custom css file overwrite values for:
+
+```css
+:root {
+    --app-primary: #A4161A;
+    --app-primary-light: #B1A7A6;
+    --app-primary-dark: #660708;
+    --app-input-item-bg: #FDF6F7;
+    --app-text-color: var(--bs-body-color);
+    --app-box-shadow: rgba(211, 211, 211, 0.3);
+}
+```
+
+#### Not-scrollable content 
+
+To disable main content scroll, set in your custom css file:
+
+```css
+#content {
+    overflow-x: hidden;
+    height: 100vh;
+}
+```
+
+## Tagging 
+
+Install bump2version tool:
+
+```bash
+pip install bump2version
+```
+
+Create new tag:
+
+```bash
+# add --dry-run to test
+bump2version --verbose patch
+```
+
+Push new commit and tag:
+
+```
+git push && git push --tags
+```
+
+Changes should be added to the [CHANGELOG.md](CHANGELOG.md) under `***unrealeased***` beforehand!
+
+
+## Development
+
+To install everything including test dependencies run:
+
+```bash
+pip install -e ".[tests]"
+```
+
+Run all checks and tests with:
+
+```bash
+tox
+```
+
+

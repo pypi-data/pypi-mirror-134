@@ -1,0 +1,3 @@
+[console_scripts]
+dash-admin = dash_dashboards.__main__:cli
+

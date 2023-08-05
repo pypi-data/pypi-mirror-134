@@ -1,0 +1,2 @@
+include *.md
+graft src/dash_dashboards/assets

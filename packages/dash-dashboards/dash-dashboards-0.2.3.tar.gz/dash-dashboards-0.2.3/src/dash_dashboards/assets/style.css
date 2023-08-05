@@ -1,0 +1,251 @@
+:root {
+    --app-primary: #A4161A;
+    --app-primary-light: #B1A7A6;
+    --app-primary-dark: #660708;
+    --app-input-item-bg: #FDF6F7;
+    --app-text-color: var(--bs-body-color);
+    --app-box-shadow: rgba(211, 211, 211, 0.3);
+}
+
+body {
+    background-color: #F5F3F4;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+
+/* --- Navigation --- */
+
+.app-title {
+    color: var(--app-primary);
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    min-height: 100vh;
+}
+
+.sidebar-menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--app-text-color);
+    padding-right: 0rem;
+}
+
+.sidebar .nav-link:hover {
+    color: var(--app-primary);
+}
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+.bi {
+    margin-right: 5px;
+}
+
+
+/* ---------- */
+
+
+/* --- Main container --- */
+
+.main-container {
+    padding: 14px 16px;
+    padding-left: 196px;
+}
+
+.content-container,
+.filter-container {
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 6px 0px var(--app-box-shadow);
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+
+/* ---------- */
+
+
+/* ---  Page container --- */
+
+.page-header {
+    min-height: 100px;
+    font-size: 22px;
+    font-weight: 400;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.page-content {
+    padding-top: 24px;
+    padding-right: 14px;
+}
+
+.page-title {
+    position: relative;
+}
+
+.page-title span {
+    position: absolute;
+    top: 24px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+
+/* ---------- */
+
+
+/* --- KPI container --- */
+
+.kpi-title {
+    color: var(--app-primary-light);
+    font-size: 12px;
+    font-weight: 300;
+    padding: 8px;
+}
+
+.kpi-body {
+    color: var(--app-primary);
+    font-size: 32px;
+    font-weight: 800;
+    padding-top: 8px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.secondary-kpi {
+    padding-top: 18px;
+}
+
+.secondary-kpi-body {
+    color: var(--app-primary-dark);
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: -12px;
+}
+
+.secondary-kpi-title {
+    font-size: 10px;
+    color: var(--app-primary-light);
+    font-style: italic;
+}
+
+.vertical-kpi {
+    padding-bottom: 16px;
+}
+
+
+/* ---------- */
+
+
+/* --- Dropdown menu --- */
+
+.custom-dropdown-style {
+    font-size: 14px;
+    font-weight: 200;
+    padding-bottom: 14px;
+}
+
+.custom-dropdown-style div {
+    box-shadow: 0px 0px 6px 0px var(--app-box-shadow);
+}
+
+.custom-dropdown-style div div div {
+    border: none;
+}
+
+
+/* ------ override multi select ------*/
+
+.Select--multi .Select-value {
+    border-color: var(--app-primary);
+    background-color: var(--app-input-item-bg);
+    color: var(--app-primary-dark);
+}
+
+.Select--multi .Select-value-icon {
+    border-right: var(--app-primary);
+}
+
+.Select--multi .Select-value-icon:hover {
+    background-color: var(--app-input-item-bg);
+    color: var(--app-primary-dark);
+    opacity: 0.5;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: var(--app-input-item-bg);
+}
+
+.is-focused:not(.is-open)>.Select-control {
+    border-color: var(--app-primary);
+    box-shadow: 0px 0px 6px 0px var(--app-box-shadow);
+}
+
+
+/* ---------- */
+
+
+/* --- Graphs --- */
+
+.graph-title {
+    padding-bottom: 6px;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+
+/* ---------- */
+
+
+/* --- Not found page --- */
+
+.not-found-content {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.not-found-img {
+    padding: 16px;
+}
+
+.not-found-link:hover {
+    color: var(--app-primary);
+}
+
+
+/* ---------- */
+
+
+/* --- Modal --- */
+
+.modal-close-button {
+    background-color: var(--app-primary-dark);
+    border: none;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.modal-close-button:hover {
+    background-color: var(--app-primary);
+    border: none;
+    text-transform: none;
+    font-size: 14px;
+}
+
+
+/* ----------- */

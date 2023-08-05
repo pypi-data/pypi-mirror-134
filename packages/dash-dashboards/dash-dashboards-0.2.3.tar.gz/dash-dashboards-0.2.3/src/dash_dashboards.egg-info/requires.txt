@@ -1,0 +1,11 @@
+click
+dash-bootstrap-components
+
+[tests]
+isort[colors]
+pytest
+pytest-cov
+pytest-env
+flake8
+black
+tox
