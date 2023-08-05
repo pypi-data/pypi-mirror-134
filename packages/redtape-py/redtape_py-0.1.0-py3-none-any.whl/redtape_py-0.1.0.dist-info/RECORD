@@ -1,0 +1,12 @@
+redtape/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+redtape/__main__.py,sha256=9NzW8k4VinA1HkBxZmHMWNJJur_SpiBDJ5_6c0tY15o,70
+redtape/__version__.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+redtape/admin.py,sha256=wfzk-jjdP9yEFtPrHF6jp49N2yabpFkD4j3_9I4OJcE,21784
+redtape/cli.py,sha256=EMkOhNPK9ugqNsJ37vK_hLeJqTB5yZXPasQWi1P79Xo,10606
+redtape/connectors.py,sha256=77IKIr9ZvpIe2PoIJd-iyiEezmrjMMUYqdQx0spn5Ws,5720
+redtape/specification.py,sha256=MTMt6l7U4zM4oZY0jt3PFG5OtACVqabyUmcE-sH6gHg,18528
+redtape_py-0.1.0.dist-info/entry_points.txt,sha256=AUU0hCxBBDGEy0orJtJvmod9D7rooTpChJZjt5-q0Ms,44
+redtape_py-0.1.0.dist-info/LICENSE,sha256=8yx5JCe-4cW52JiqVrMlA990r7tuac2foiUryhV9dfY,1073
+redtape_py-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+redtape_py-0.1.0.dist-info/METADATA,sha256=fJMPA3c2B4fezG8bkp_2oj7M8it-QQ3wRmHAtSP61zo,6634
+redtape_py-0.1.0.dist-info/RECORD,,
