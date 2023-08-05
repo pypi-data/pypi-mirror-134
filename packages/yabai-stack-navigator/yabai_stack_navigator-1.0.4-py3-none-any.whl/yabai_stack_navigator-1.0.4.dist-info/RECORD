@@ -1,0 +1,16 @@
+main.py,sha256=H0OWa_d93zlHCzJ-UABGDW3zEGQNClamN9QABux_4i4,1956
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_yabai_layout_details.py,sha256=ka4wXSxvGpmTBd5zEeYuKwKxt_K0PuKae09SO3pWWo0,2482
+tests/test_yabai_navigator.py,sha256=M7KLxhcs5V4BECYBXMcAi8l-H44BGSalkSR15TfAPdU,866
+tests/test_yabai_stacked_window_provider.py,sha256=RooTr4KBC6br3egbNu5fVZfy1HmtK_XQcY3fYA1kEy4,2883
+yabai_stack_navigator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+yabai_stack_navigator/yabai_layout_details.py,sha256=cN094F9olAzmRJsNOFcbbQzTcN_xB1At_MROl2UtdBo,1535
+yabai_stack_navigator/yabai_navigator.py,sha256=orIecSFLlqM1aRlMAhW5jpFchRbzEbQmd9hQoOKrQxw,899
+yabai_stack_navigator/yabai_provider.py,sha256=tweLsFczk1fKd4QBAPcs5tKFswrS91zvyVp2sC6Cnmc,652
+yabai_stack_navigator/yabai_stacked_window_provider.py,sha256=V4pOHwnjv8tpgccS3vOf1TVG4_g6-VyUQmg9P4z6l-0,1752
+yabai_stack_navigator-1.0.4.dist-info/LICENSE,sha256=1sKg17beidBBR86myi4NK9V4E8yUCKEfEDYBOMmedjI,1077
+yabai_stack_navigator-1.0.4.dist-info/METADATA,sha256=PBeRE4V6PMeIYb2SSRWnILWu4OSEZL5_C9oBuOlFOzQ,483
+yabai_stack_navigator-1.0.4.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+yabai_stack_navigator-1.0.4.dist-info/entry_points.txt,sha256=cJUGlAVfzJc17sisa151Ahz4w-mN-2rvhbgUAswWDhE,71
+yabai_stack_navigator-1.0.4.dist-info/top_level.txt,sha256=tjoEcxhhHqXhTWbv-S7DSYqWzHsonQRJrRKyvE9hDYw,33
+yabai_stack_navigator-1.0.4.dist-info/RECORD,,
