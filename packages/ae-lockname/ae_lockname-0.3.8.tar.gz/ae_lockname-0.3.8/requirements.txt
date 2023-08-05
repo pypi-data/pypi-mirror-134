@@ -1,0 +1,2 @@
+# dependencies of the lockname portion
+ae_core
