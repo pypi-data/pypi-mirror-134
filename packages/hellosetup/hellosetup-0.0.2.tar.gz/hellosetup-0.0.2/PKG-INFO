@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: hellosetup
+Version: 0.0.2
+Summary: A package created with a setuptools tutorial.  See article link for more details.
+Home-page: https://codesolid.com/python-package-example-setuptools
+License: BSD 3-Clause License
+Project-URL: Source, https://github.com/CodeSolid/python-package-example-setuptools
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
+License-File: LICENSE.rst
+
+===========================================
+hellosetup: A Python Package Tools Tutorial
+===========================================
+
+This package is not especially useful *in itself*, but is the output of a tutorial that *is* useful, and details how to create a modern project using setuptools and pyproject.toml.  Please see the links at left for the article and the source code repository on GitHub.
+
+See the `tutorial article <https://codesolid.com/python-package-example-setuptools>`_ for more information about how this package was built and uploaded.
+
