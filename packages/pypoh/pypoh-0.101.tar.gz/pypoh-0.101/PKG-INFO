@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: pypoh
+Version: 0.101
+Summary: A Python Wrapper for the Proof of Humanity Rest API
+Home-page: https://github.com/jamesluc007
+Author: Luciano Bruna
+Author-email: lucianobruna007@gmail.com
+License: MIT
+Download-URL: https://github.com/jamesluc007/pypoh/archive/refs/tags/v_0101.tar.gz
+Description: UNKNOWN
+Keywords: PROOF,HUMANITY,ETHEREUM,BLOCKCHAIN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
