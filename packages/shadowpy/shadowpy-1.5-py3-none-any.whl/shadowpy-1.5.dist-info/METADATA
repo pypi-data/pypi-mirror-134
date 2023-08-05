@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: shadowpy
+Version: 1.5
+Summary: Awesome library to work with. shadowpy is the right choice for your project. Extra new features added.
+Home-page: https://joinusttt.com
+Author: Abul Aiman Shaa
+Author-email: shaaimanaalik@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/Aiman-Shaa/missionx
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+
+* sys_xmath * sys_xmatrics * sys_xdate * sys_xrefer. All this methods helps you to achive you task. 'x' is the main name of the program. All classes starts with 'sys_x<name>'. Inner methods starts with the syntax 'x_<name>'. The sys_xmath helps you to apply mathematical operations from basic to advance. In other side sys_xmetrics helps you to get the screen resolution and height and width of your screen. The sys_xdate allows you to access  date, year, day respectively. In case of any confusion of methods sys_xrefer will help you to access the properties and methods of particular class. In case of any abjection mail us on 'shaaimanaalik@gmail.com'.
+
+
