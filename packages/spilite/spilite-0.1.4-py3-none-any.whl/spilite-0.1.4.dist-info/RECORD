@@ -1,0 +1,10 @@
+spilite/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spilite/spi.py,sha256=zd3lLMcNL6kXGA3dQyHz6F25q_Y7c1y40RQCx_Bbixk,1214
+spilite/cs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spilite/cs/decoders.py,sha256=QbTK6vT11U58TRXV1JqMplH-gK24TOiMeoA6KLf4GVo,1267
+spilite/cs/pins.py,sha256=6gov4AuzzE75uEkRznpSsP6MNeP3wf_nxh3tfICwmno,640
+spilite-0.1.4.dist-info/LICENSE,sha256=tbOglVWErkwoyY--SXWXr4G_LaM_i-wB_2VA68LwqYw,1064
+spilite-0.1.4.dist-info/METADATA,sha256=gGGSTtFf81N6OKzs61w0MT9Qr-OX9B3gEn1swPI63Bs,1522
+spilite-0.1.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+spilite-0.1.4.dist-info/top_level.txt,sha256=3u1cLG5caaf5PVYExx5eSjDPHbwRxSt1d_6Sgpd3BDQ,8
+spilite-0.1.4.dist-info/RECORD,,
