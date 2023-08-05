@@ -1,0 +1,13 @@
+CHANGELOG.md
+LICENSE
+README.md
+VERSION
+pyproject.toml
+setup.cfg
+setup.py
+src/hera_workflows.egg-info/PKG-INFO
+src/hera_workflows.egg-info/SOURCES.txt
+src/hera_workflows.egg-info/dependency_links.txt
+src/hera_workflows.egg-info/not-zip-safe
+src/hera_workflows.egg-info/requires.txt
+src/hera_workflows.egg-info/top_level.txt
