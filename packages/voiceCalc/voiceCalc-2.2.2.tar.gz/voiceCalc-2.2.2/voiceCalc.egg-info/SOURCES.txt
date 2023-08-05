@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+voiceCalc/__init__.py
+voiceCalc/add.py
+voiceCalc/divide.py
+voiceCalc/multiply.py
+voiceCalc/subtract.py
+voiceCalc/voiceCalc.py
+voiceCalc.egg-info/PKG-INFO
+voiceCalc.egg-info/SOURCES.txt
+voiceCalc.egg-info/dependency_links.txt
+voiceCalc.egg-info/requires.txt
+voiceCalc.egg-info/top_level.txt
