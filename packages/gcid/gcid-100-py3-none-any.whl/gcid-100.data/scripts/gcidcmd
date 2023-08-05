@@ -1,0 +1,47 @@
+#!python
+# This file is placed in the Public Domain.
+
+
+"OTP-CR-117/19"
+
+
+import sys
+
+
+from gcid.spc import Cfg, Client, Event, Handler, boot, kcmd, scan
+
+
+import gcid.all
+import gcid.mod.all
+
+
+Cfg.wd = "/var/lib/gcid/"
+
+
+class Console(Client, Handler):
+
+    "console"
+
+    def __init__(self):
+        Client.__init__(self)
+        Handler.__init__(self)
+
+    def poll(self):
+        evt = Event()
+        evt.orig = repr(self)
+        evt.txt = input("> ")
+        return evt
+
+    def raw(self, txt):
+        print(txt)
+
+
+def main():
+    "main"
+    boot(" ".join(sys.argv[1:]))
+    scan()
+    csl = Console()
+    return kcmd(csl, Cfg.otxt)
+
+
+main()

@@ -1,0 +1,77 @@
+#!python
+# This file is placed in the Public Domain.
+
+
+"OTP-CR-117/19"
+
+
+import os
+import readline
+import sys
+import time
+
+
+sys.path.insert(0, os.getcwd())
+sys.path.insert(0, "lib")
+
+
+from gcid.spc import Bus, Cfg, Client, Event, Handler, boot, kcmd, root, scan, launch
+
+
+from gcid.mod.irc import IRC
+from gcid.mod.irc import Cfg as ICfg
+from gcid.mod.rss import Fetcher
+
+
+from gcidrun import daemon, watcher, wrap
+
+
+import gcid.all
+import gcid.mod.all
+
+
+Cfg.wd = os.path.expanduser("~/.gcid")
+
+
+class Console(Client, Handler):
+
+
+    def __init__(self):
+        Client.__init__(self)
+        Handler.__init__(self)
+        Bus.add(self)
+
+    def handle(self, e):
+        launch(Handler.handle, self, e)
+        e.wait()
+
+    def poll(self):
+        e = Event()
+        e.orig = repr(self)
+        e.txt = input("> ")
+        return e
+
+    def raw(self, txt):
+        print(txt)
+
+ 
+def main():
+    boot(" ".join(sys.argv[1:]))
+    scan()
+    c = Console()
+    if Cfg.txt:
+        return kcmd(c, Cfg.otxt)
+    print("GCID bot start at %s channel=%s daemon=%s sasl=%s" % (time.ctime(time.time()).replace("  ", " "), ICfg.channel, Cfg.daemon, ICfg.sasl))
+    print("using %s!%s@%s:%s" % (ICfg.nick, ICfg.username, ICfg.server, ICfg.port))
+    if Cfg.daemon:
+        daemon()
+    i = IRC()
+    i.start()
+    launch(watcher, i)
+    f = Fetcher()
+    f.start()
+    c.start()
+    while 1:
+        time.sleep(1.0)
+
+wrap(main)
