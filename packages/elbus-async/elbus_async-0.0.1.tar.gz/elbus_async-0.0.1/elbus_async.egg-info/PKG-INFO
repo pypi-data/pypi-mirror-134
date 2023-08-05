@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: elbus-async
+Version: 0.0.1
+Summary: python client for elbus (sync)
+Home-page: https://github.com/alttch/elbus
+Author: Bohemia Automation / Altertech
+Author-email: div@altertech.com
+License: MIT
+Description: # Python async client for elbus
+        
+        <https://elbus.bma.ai/>
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Communications
+Description-Content-Type: text/markdown
