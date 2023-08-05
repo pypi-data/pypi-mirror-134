@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "esovalue"
+version = "0.1.2"
+description = "Valuation of employee stock options"
+readme = 'README.md'
+authors = ["Stéphane Thibaud <snthibaud@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
