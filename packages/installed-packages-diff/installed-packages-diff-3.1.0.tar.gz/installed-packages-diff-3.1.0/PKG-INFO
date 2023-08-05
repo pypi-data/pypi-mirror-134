@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: installed-packages-diff
+Version: 3.1.0
+Summary: Compare packages and versions on servers
+Home-page: https://github.com/cbuschka/installed-packages-diff
+Author: Cornelius Buschka
+Author-email: cbuschka@gmail.com
+License: MIT License
+Platform: Posix; MacOS X
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: System :: Software Distribution
+Requires-Python: >= 3.6
+Description-Content-Type: text/markdown
+
+[![Build](https://img.shields.io/github/workflow/status/cbuschka/installed-packages-diff/build)](https://github.io/cbuschka/installed-packages-diff) [![PyPI](https://img.shields.io/pypi/v/installed-packages-diff)](https://pypi.org/project/installed-packages-diff/) [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/cbuschka/installed-packages-diff/blob/main/license.txt)
+# installed-packages-diff - Compare packages and versions on servers
+
+## Features
+
+* collects packages and version via ssh
+* calculated and prints the differences
+* supports rpm and dpkg
+
+## Prerequisites
+
+* GNU make
+* python >= 3.6
+* virtualenv
+
+## Usage
+
+Create a config as described below.
+
+```bash
+pip install --user installed-packages-diff
+
+python3 -m installed_packages_diff ./config.yaml
+```
+
+## Development
+
+### Setup
+
+```bash
+make install_deps
+```
+
+### Run tests
+
+```bash
+make tests
+```
+
+### Create a config config.yml
+
+```yaml
+version: 'installed-packages-diff/3'
+groups:
+  web:
+    type: rpm # or dpkg
+    servers:
+      - url: ssh://root@web-dev
+        excludes:
+          - "missing"
+      - url: ssh://root@web-live
+```
+
+### Run installed-packages-diff
+
+```bash
+make run
+```
+
+## License
+
+Copyright (c) 2021 by [Cornelius Buschka](https://github.com/cbuschka).
+
+[MIT](https://github.com/cbuschka/installed-packages-diff/blob/v3.1.0/license.txt)
+
+
