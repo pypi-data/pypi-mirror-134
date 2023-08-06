@@ -1,0 +1,11 @@
+mpremote/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+mpremote/console.py,sha256=7ZxUxRwiRZGUmxZkPgVG7SWN65WAd-50cfPRZhnCc58,5125
+mpremote/main.py,sha256=ij6H3GXqa2UGC0icmeg0DE9IlYICd7simvjXqbHbees,17535
+mpremote/pyboard.py,sha256=nQMcoC0O8iv9XkbxKY2WCuj4o1mL8sxboCNuyqGtev4,26157
+mpremote/pyboardextended.py,sha256=wUi5YkbxLbr4xG-kRRPBU-Ln4LFklOq37XQV-GlJB7Q,17641
+mpremote-0.1.0.dist-info/LICENSE,sha256=NSLQC7phR3CgGcdpYQgZ8J3smRxLDNXsqwSGlhjRo9k,1083
+mpremote-0.1.0.dist-info/METADATA,sha256=39WI83NJbIZxefPU5wPhfTXDFAJOjgTSs9BGyeQQiXg,3561
+mpremote-0.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mpremote-0.1.0.dist-info/entry_points.txt,sha256=ICt03hWY7e6HvMzCAkkurxsIWMi3w7GdEU5Y7qCxwZQ,49
+mpremote-0.1.0.dist-info/top_level.txt,sha256=3mlAyGSYdy7vqr3at2pcL_EmF0SnBSoOFl8RMdhNdUA,9
+mpremote-0.1.0.dist-info/RECORD,,
