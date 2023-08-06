@@ -1,0 +1,6 @@
+tox
+pytest
+coverage
+Cython==3.0.0a10
+codecov
+wheel
