@@ -1,0 +1,8 @@
+# exclude flopyarcade/examples/*.gif
+# exclude flopyarcade/examples/*.png
+# exclude flopyarcade/examples/environments
+# include flopyarcade/simulators
+include flopyarcade/simulators/simulators_linux.zip
+include flopyarcade/simulators/simulators_mac.zip
+include flopyarcade/simulators/simulators_win32.zip
+include flopyarcade/simulators/simulators_win64.zip
