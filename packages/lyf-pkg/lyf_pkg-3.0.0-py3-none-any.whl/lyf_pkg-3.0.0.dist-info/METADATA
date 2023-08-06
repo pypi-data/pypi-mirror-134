@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: lyf-pkg
+Version: 3.0.0
+Summary: A small example package
+Home-page: https://github.com/lyf
+Author: lyf
+Author-email: 694153922@qq.com
+License: MIT Licenese
+Platform: all
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE.txt
+
+**制作第一个pythohn包**
+
+- 实现笛卡尔算法
+
