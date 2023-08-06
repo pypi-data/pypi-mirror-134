@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "py-buzz"
+version = "3.0.0"
+description = "\"That's not flying, it's falling with style\": Exceptions with extras"
+authors = ["Tucker Beck <tucker.beck@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+packages = [
+    { include = 'buzz' }
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+sphinx = "^2.0"
+black = "^20.8b1"
+isort = "^5.6.1"
+pytest-cov = "^3.0.0"
+pyproject-flake8 = "^0.0.1-alpha.2"
+pytest-random-order = "^1.0.4"
+mypy = "^0.930"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+lines_after_imports = "2"
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "--random-order",
+    "--failed-first",
+    "--maxfail=1"
+]
+testpaths = "tests"
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 40
+
+# [[tool.mypy.overrides]]
+# module = [
+#     "boto3",
+#     "botocore.*",
+#     "jinja2",
+#     "asyncpg.*",
+# ]
+# ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
