@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: md4mathjax
+Version: 0.1.0
+Summary: python-markdown extension for support mathjax
+Home-page: https://github.com/a358003542/md4mathjax
+Author: wanze
+Author-email: a358003542@outlook.com
+Maintainer: wanze
+Maintainer-email: a358003542@outlook.com
+License: MIT
+Keywords: markdown,python,mathjax
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# md4mathjax
+this is a python-markdown extension. basicly learning from the pelican plugin render-math. and i think inside its code, the mathjax extension split would be better.
+
+
