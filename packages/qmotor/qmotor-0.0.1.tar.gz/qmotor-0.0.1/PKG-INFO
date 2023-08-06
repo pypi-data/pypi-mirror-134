@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: qmotor
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/yulinfeng000/qmotor
+Author: cam
+Author-email: yulinfeng000@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# 一个对接Mirai-http-api的简单qq机器人框架
+
