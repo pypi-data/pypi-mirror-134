@@ -1,0 +1,12 @@
+bencode/BTL.py,sha256=LULsufhrXu3uKcMzqgHPWSd3mk6RrnDi37j6vTJjDHI,37
+bencode/__init__.py,sha256=8imX_BuY7agGoKYdN1ANGmiIdsGxFk31EKv6wF1r1KM,100
+bencode/_bencode.c,sha256=lUxicTG4qVW83knrxQ3tpQlh801mPi2ioRaBCGBGRTk,402658
+bencode/_bencode.cp310-win_amd64.pyd,sha256=Ei06PgAfMYEi4APIUnv231F9VLGUpq3mSVEOVV1iDfg,86016
+bencode/_bencode.pyx,sha256=-ntpqnHXx4pOYuc4RuyV_E3USz0vC0-W36zxK8svm5s,4409
+bencode/bencode.py,sha256=8a7mW5pGymUQQKLf5_-mH7jAmRq0gXlCaDggUnnPi2U,4381
+bencode/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fast_bencode-1.1.0.dist-info/METADATA,sha256=FlbdVVJtrYekgQ910ubn40SGGobR6UOCqy3WvbLWx0E,1577
+fast_bencode-1.1.0.dist-info/WHEEL,sha256=W26pYN7HLsBT1jrDSL9udgf_mdNKJmYmL23sIP-FcgM,102
+fast_bencode-1.1.0.dist-info/top_level.txt,sha256=8zgQOxcH1jTWWz5GkFrerik9YUm6K7GwOGJ3C4SgSC8,8
+fast_bencode-1.1.0.dist-info/zip-safe,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+fast_bencode-1.1.0.dist-info/RECORD,,
