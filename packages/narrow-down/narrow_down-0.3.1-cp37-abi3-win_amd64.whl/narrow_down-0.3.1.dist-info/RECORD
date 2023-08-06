@@ -1,0 +1,13 @@
+narrow_down-0.3.1.dist-info/METADATA,sha256=-0DRIPi47UQ0ygjggS2MduOV7ke661ztEbKGKSLYrRE,5438
+narrow_down-0.3.1.dist-info/WHEEL,sha256=7dFZl_p0p8SUevpuV1IZEFocSIv0PUThmp2CGlV4pCY,95
+narrow_down/data_types.py,sha256=Hz4G9khsp1CH5VvZOjJoNYJwLHQJCfuBHOVZSZnziMA,3086
+narrow_down/hash.py,sha256=2cF-mmBpl9tESRhmV3dk8HAA1grvOW8S34NraIMaVw4,647
+narrow_down/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+narrow_down/similarity_store.py,sha256=Oh1tNeLpT4InIHldYVp0NlaB7NAFDnLHDmaQc2zhGmo,4704
+narrow_down/storage.py,sha256=rzsrXN30TdjOA70GmX7I_pwtjsMGePBubA2jIWx90W0,4006
+narrow_down/_minhash.py,sha256=hVNd2Z1pjurPEUG-Ta8irzrVo83p5zCFO3kKold_TOM,8429
+narrow_down/_rust.pyi,sha256=xSu0U7WhwQ28PrpVU_g-B4sBNjWWHRBNFnCZwSoOd9U,457
+narrow_down/_tokenize.py,sha256=Yyu8rZWixgd8Gda_Oq3nFoVvZO7-0KZYGmxKLumfGsI,2349
+narrow_down/__init__.py,sha256=hqpvgZo_LV40OcIzGQRo6BgP2VaYtfKcwe7lQsTOwZU,220
+narrow_down/_rust.pyd,sha256=voeMcMxsbL2k7ydJrti9ubLcqhZ51ZehK-ufneOKfnM,254976
+narrow_down-0.3.1.dist-info/RECORD,,
