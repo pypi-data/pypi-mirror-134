@@ -1,0 +1,17 @@
+dataclass-wizard
+GitPython
+more_itertools
+python-doctr
+torch
+tqdm
+
+[dev]
+coverage[toml]>=5.5
+pytest
+pre-commit
+
+[docs]
+
+[tests]
+coverage[toml]>=5.5
+pytest
