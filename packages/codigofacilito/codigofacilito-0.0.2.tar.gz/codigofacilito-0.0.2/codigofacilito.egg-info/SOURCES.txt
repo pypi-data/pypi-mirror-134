@@ -1,0 +1,12 @@
+README.md
+setup.py
+codigofacilito/__init__.py
+codigofacilito/__main__.py
+codigofacilito/config.py
+codigofacilito/workshops.py
+codigofacilito.egg-info/PKG-INFO
+codigofacilito.egg-info/SOURCES.txt
+codigofacilito.egg-info/dependency_links.txt
+codigofacilito.egg-info/entry_points.txt
+codigofacilito.egg-info/requires.txt
+codigofacilito.egg-info/top_level.txt
