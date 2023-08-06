@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: openseafloor
+Version: 1.1
+Summary: Scrape floor prices from OpenSea
+Home-page: UNKNOWN
+Author: Sem Moolenschot
+Author-email: sem@moolenschot.nl
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: cloudscraper
+Requires-Dist: json
+
+# semhue
+Python package for Phillips Hue lights
+
+<img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img src = "https://img.shields.io/github/license/Devansh3712/PySQL?style=for-the-badge">
+
+## Installation
+
+> Windows
+
+```console
+pip install osfloor
+```
+
+> Linux/MacOS
+
+```console
+pip3 install osfloor
+```
+
+## Usage
+
+```python
+import osfloor
+```
+
+## Available commands
+
+- `osfloor(collection_url)`: get the floor price of opensea collection
+
+## License
+MIT LICENSE
+
