@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: otmcm-backend
+Version: 0.0.25
+Summary: Backend package for otmcm algotrading environment
+Home-page: https://github.com/huankimtran/OTMCM
+Author: Huan Tran
+Author-email: huankimtran@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/huankimtran/OTMCM
+Description: # Example Package
+        
+        This is a simple example package. You can use
+        [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+        to write your content.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
