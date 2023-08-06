@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+from __future__ import absolute_import
+import click
+import pkg_resources
+
+from newspp.NewsHelper import NewsHelper
+VERSION = pkg_resources.require("newsp")[0].version
+
+@click.group()
+@click.version_option(version=VERSION, prog_name='newsp')
+def newsp():  # pragma: no cover
+    pass
+
+@click.command()
+@click.option('--url', help='url')
+def post_wp(url):
+    if url != None :
+        newsH = NewsHelper()
+        res = newsH.parse_auto(url)
+    else:
+        print("{}")
+
+newsp.add_command(post_wp)
+if __name__ == '__main__':  # pragma: no cover
+    newsp()
