@@ -1,0 +1,2 @@
+eyja-internal>==0.3.16
+rethinkdb>=2.4.8
