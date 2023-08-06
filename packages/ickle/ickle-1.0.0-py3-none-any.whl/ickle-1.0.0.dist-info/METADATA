@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ickle
+Version: 1.0.0
+Summary: Tiny Data Analysis Library
+Home-page: https://github.com/karishmashuklaa/ickle
+Author: Karishma Shukla
+Author-email: karishmashuklaa@gmail.com
+License: MIT
+Keywords: data-analysis,numpy,data,python,library,pandas,ickle
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python
+Requires-Dist: pytest
+
+## ðŸ“ˆ Ickle - Data Analysis Library 
+**A tiny data analysis library for common day-to-day analytical tasks. Written in Python, for Python.**
+
+## Installation
+
+Ickle can be installed via pip
+
+```
+pip install ickle
+```
+
+## Documentation
+
+Read the documentation <a href="https://nbviewer.org/github/karishmashuklaa/ickle/blob/master/Ickle%20Documentation.ipynb">here</a>
+
+<hr />
+Copyright 2022 <a href='https://github.com/karishmashuklaa/'>Karishma Shukla</a>
+
+
+
