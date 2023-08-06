@@ -1,0 +1,56 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+novelai_api/BanList.py
+novelai_api/BiasGroup.py
+novelai_api/FakeClientSession.py
+novelai_api/GlobalSettings.py
+novelai_api/Idstore.py
+novelai_api/Keystore.py
+novelai_api/NovelAIError.py
+novelai_api/NovelAI_API.py
+novelai_api/Preset.py
+novelai_api/SchemaValidator.py
+novelai_api/Tokenizer.py
+novelai_api/__init__.py
+novelai_api/_high_level.py
+novelai_api/_low_level.py
+novelai_api/story.py
+novelai_api/utils.py
+novelai_api.egg-info/PKG-INFO
+novelai_api.egg-info/SOURCES.txt
+novelai_api.egg-info/dependency_links.txt
+novelai_api.egg-info/requires.txt
+novelai_api.egg-info/top_level.txt
+novelai_api/presets/presets_2.7B/Storywriter.preset
+novelai_api/presets/presets_2.7B/default.txt
+novelai_api/presets/presets_6B_v4/Best Guess.preset
+novelai_api/presets/presets_6B_v4/Coherent Creativity.preset
+novelai_api/presets/presets_6B_v4/Emperor Moth.preset
+novelai_api/presets/presets_6B_v4/Luna Moth.preset
+novelai_api/presets/presets_6B_v4/Pleasing Results.preset
+novelai_api/presets/presets_6B_v4/Sphinx Moth.preset
+novelai_api/presets/presets_6B_v4/Storywriter.preset
+novelai_api/presets/presets_6B_v4/default.txt
+novelai_api/presets/presets_euterpe_v0/Co-Writer.preset
+novelai_api/presets/presets_euterpe_v0/Full House.preset
+novelai_api/presets/presets_euterpe_v0/Low Rider.preset
+novelai_api/presets/presets_euterpe_v0/Morpho.preset
+novelai_api/presets/presets_euterpe_v0/Mothra.preset
+novelai_api/presets/presets_euterpe_v0/Weaver.preset
+novelai_api/presets/presets_euterpe_v0/default.txt
+novelai_api/presets/presets_genji_jp_6b/Storywriter.preset
+novelai_api/presets/presets_genji_jp_6b/default.txt
+novelai_api/presets/presets_genji_python_6b/Storywriter.preset
+novelai_api/presets/presets_genji_python_6b/default.txt
+novelai_api/schemas/schema_encrypted_stories.json
+novelai_api/schemas/schema_keystore_b64.json
+novelai_api/schemas/schema_keystore_decrypted.json
+novelai_api/schemas/schema_keystore_encrypted.json
+novelai_api/schemas/schema_keystore_setter.json
+novelai_api/schemas/schema_login.json
+novelai_api/templates/template_empty_story.txt
+novelai_api/templates/template_empty_story_extended.txt
+novelai_api/templates/template_empty_storycontent.txt
+novelai_api/templates/template_empty_storycontent_extended.txt
