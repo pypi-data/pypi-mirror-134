@@ -1,0 +1,7 @@
+palindrome_tree/__init__.py,sha256=uI1O0CbLxXcSlfqyipqIFdAX3a60lpNTaWZbmX_UnN4,88
+palindrome_tree/model/palindrome-xgboost-tree.json,sha256=-xallwQ2W6lhveQhGukkm80J6ehx5tIVahsha36fb7Q,25905647
+palindrome_tree/models.py,sha256=OWjNMyzKedWBrIxIMn0ymYW_Vx8HWl2CdhD0IUXHW2c,420
+palindrome_tree/palindrome_tree.py,sha256=NMsFrRAwpgX7uD3aHcWt6vcWktlWMB4Jni_NEjDGn9Q,5576
+palindrome_tree-0.0.14.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+palindrome_tree-0.0.14.dist-info/METADATA,sha256=xrIdnMA4YbTXOkC0dRYZI10J9lP7DsQufOCu-M97etI,600
+palindrome_tree-0.0.14.dist-info/RECORD,,
