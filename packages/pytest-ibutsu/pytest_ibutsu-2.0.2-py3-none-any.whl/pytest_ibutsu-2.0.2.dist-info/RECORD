@@ -1,0 +1,9 @@
+pytest_ibutsu/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_ibutsu/newhooks.py,sha256=fO_9iomxi492UFwpedTRv1BmKwED9rQFkqhfFw3PRTk,99
+pytest_ibutsu/pytest_ibutsu.py,sha256=k2ROuK7o7CWA7pynnN2YSpfBMzzBh8Z03tJEaSREI9A,28628
+pytest_ibutsu-2.0.2.dist-info/LICENSE,sha256=kecaJ8j-ZxjcqF-nCahu5sP98iIa9q7vBc3EcPPQKVY,1080
+pytest_ibutsu-2.0.2.dist-info/METADATA,sha256=4MNowFhucXi0RNYNTk1Yu_ogQoUC_ch1q4pCLR6w1bw,3487
+pytest_ibutsu-2.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pytest_ibutsu-2.0.2.dist-info/entry_points.txt,sha256=ZCcgrZ6_VE9YaLT61_iIPVbObXihJqm2J5VNjotwmz0,48
+pytest_ibutsu-2.0.2.dist-info/top_level.txt,sha256=2-sXC-J5a30fXtay6g-8_t2yN5Nv1HKhDnWorOi0lac,14
+pytest_ibutsu-2.0.2.dist-info/RECORD,,
