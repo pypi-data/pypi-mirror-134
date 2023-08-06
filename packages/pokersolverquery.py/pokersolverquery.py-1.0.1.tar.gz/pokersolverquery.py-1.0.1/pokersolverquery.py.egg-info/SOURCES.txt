@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+pokersolverquery/__init__.py
+pokersolverquery/building_blocks.py
+pokersolverquery/solver.py
+pokersolverquery/utils.py
+pokersolverquery.py.egg-info/PKG-INFO
+pokersolverquery.py.egg-info/SOURCES.txt
+pokersolverquery.py.egg-info/dependency_links.txt
+pokersolverquery.py.egg-info/requires.txt
+pokersolverquery.py.egg-info/top_level.txt
