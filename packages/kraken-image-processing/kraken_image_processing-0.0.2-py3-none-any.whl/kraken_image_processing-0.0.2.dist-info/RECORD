@@ -1,0 +1,13 @@
+kraken_image_processing/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kraken_image_processing/class_imageObject.py,sha256=6abWezbx7idv9otIhpPmO5gA9iOaQJlPVEnaIX_TqW0,1325
+kraken_image_processing/class_person.py,sha256=bUYxlC6tjY-b_mLkrnt3rXePwXAXALclAEjUHg2BEBw,1317
+kraken_image_processing/flask_routes.py,sha256=nj2P1J1gGOfItsFuQW7GxvxW0UCa_JzTRfuxCTV2tcM,1701
+kraken_image_processing/kraken_engine.py,sha256=UBjC9FZsDquRT_tX-0KDIhzXmCxay70hlF_CVJWZ-Uw,2564
+kraken_image_processing/kraken_image_io.py,sha256=HG7P884pghxtaps4vk_Y2j7O5_tnSU1tf9yqRvrM0A8,2098
+kraken_image_processing/kraken_image_processing.py,sha256=fNz7h7yeEO8cp10qEpMfjF-OeKFIRVlOStUY6fRO40U,2852
+kraken_image_processing/post_to_image_share.py,sha256=BPNXtG99ipXZ90oxz865ZEtX9WSbKH8PvYYHuo-uzPE,2330
+kraken_image_processing-0.0.2.dist-info/LICENSE.txt,sha256=S1pJL407BwTTXzZK0BQPNM7ZZs57uj1pTSfVZ8Whx30,1061
+kraken_image_processing-0.0.2.dist-info/METADATA,sha256=lxooQxQVx9vJ7HFaw0QJH-nCjt2mxi1fnEul_Lrweyk,1074
+kraken_image_processing-0.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+kraken_image_processing-0.0.2.dist-info/top_level.txt,sha256=l_f1bNuqBUDNtR61NeYw5s0VFNWvcB8Vmaf1cNxjs4c,24
+kraken_image_processing-0.0.2.dist-info/RECORD,,
