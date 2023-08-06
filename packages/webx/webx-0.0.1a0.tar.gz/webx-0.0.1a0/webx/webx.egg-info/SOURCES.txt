@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+webx/webx.egg-info/PKG-INFO
+webx/webx.egg-info/SOURCES.txt
+webx/webx.egg-info/dependency_links.txt
+webx/webx.egg-info/entry_points.txt
+webx/webx.egg-info/not-zip-safe
+webx/webx.egg-info/requires.txt
+webx/webx.egg-info/top_level.txt
