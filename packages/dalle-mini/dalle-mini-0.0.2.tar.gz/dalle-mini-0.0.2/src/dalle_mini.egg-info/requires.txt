@@ -1,0 +1,14 @@
+transformers
+unidecode
+ftfy
+pillow
+jax
+flax
+
+[dev]
+tqdm
+wandb
+optax
+braceexpand
+black[jupyter]
+isort
