@@ -1,0 +1,7 @@
+from webx.views.routes import route
+
+from . import views
+
+routes = [
+    route("/", views.home, name="home")
+] # define your routes here.

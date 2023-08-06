@@ -1,0 +1,4 @@
+[console_scripts]
+webx-admin = webx.cli.admin:admin
+webx-monitor = webx.cli.monitor:monitor
+
