@@ -1,0 +1,12 @@
+pyobs_sbig/__init__.py,sha256=x0UkbeNBP3dWX1NtS5v6sNS5LZdJQcTSBiyLd37w0ns,180
+pyobs_sbig/sbig6303e.py,sha256=yv9qxrAnrT8jg7jbxbtR9L5KpA21WSJH3aWduItBYS4,1592
+pyobs_sbig/sbigcamera.py,sha256=lXnRtWeJpekNJf8mwD8jIIENXRtQm1bhj0McMtI2AyE,9490
+pyobs_sbig/sbigfiltercamera.py,sha256=r7EVWJMNPJmbfyc-m04-Yv5aWACXjBwvpVa7BIu6kXA,6840
+pyobs_sbig/sbigudrv.cpp,sha256=W9E6QKYcHEVTApzZymaRLkkyB2_DFWlPzoLGlQuiIP8,843146
+pyobs_sbig/sbigudrv.cpython-38-x86_64-linux-gnu.so,sha256=SS8u5Sz_85Bj1dQKrjBFe3DtGOlk3QM9xJFsrIY6N3M,3189776
+pyobs_sbig/sbigudrv.cpython-39-x86_64-linux-gnu.so,sha256=oAV6lSDTSomK5uY-L7nB2nk1G3y6jXi7t12N0qHTN0Y,2306688
+pyobs_sbig/sbigudrv.pxd,sha256=qE9ZyCLvoE07MsUEIu4A5VJvwJ4U-armSzm-sB09DwQ,9399
+pyobs_sbig/sbigudrv.pyx,sha256=MMePIbmlY9O-RvQW4hH6wIGo7B84fvyeFA5jyyBNt68,11086
+pyobs_sbig-0.16.0a1.dist-info/WHEEL,sha256=zwHwUUtOmFVE1ozaa23NP-uIxLKxoQvYqSTuL4cCBTU,103
+pyobs_sbig-0.16.0a1.dist-info/METADATA,sha256=YjqjpNGWpL0Pd_eeXCENwLMRK5zYbR0-4Fr9GRDv5fE,474
+pyobs_sbig-0.16.0a1.dist-info/RECORD,,
