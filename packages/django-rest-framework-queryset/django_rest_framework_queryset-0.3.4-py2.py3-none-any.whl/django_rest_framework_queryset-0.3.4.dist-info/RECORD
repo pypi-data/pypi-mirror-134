@@ -1,0 +1,9 @@
+rest_framework_queryset/__init__.py,sha256=yvAkD4GGu5iwy8F1xDk6UQsp8JWfGy-TW8omkqaY67k,171
+rest_framework_queryset/pagination.py,sha256=Da6y_KGSK2oqy0uWfT0oq-cg8wPVolxJuCkPYQXtXM4,1297
+rest_framework_queryset/queryset.py,sha256=tHM-KC2nUurlrmVNEEGlg2n-Kj1vwcoQ9Rr4wNWnjTU,3524
+rest_framework_queryset/views.py,sha256=dLIYaXR9ra015BDMPgaihYw5wo2QbOyOHzX4ICUTyEU,1090
+django_rest_framework_queryset-0.3.4.dist-info/LICENSE,sha256=ZmErQMkR7ADUEl3XNFZwlhsV8VHI-Iz1ulM5-tfk83c,1076
+django_rest_framework_queryset-0.3.4.dist-info/METADATA,sha256=tUgEQp046Dlot_XwX8mA75q61aeUj98wtg_UiJCqd4o,574
+django_rest_framework_queryset-0.3.4.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+django_rest_framework_queryset-0.3.4.dist-info/top_level.txt,sha256=QOXGLIoTfFboQkfA5Z7kxOThUQ3wTzJ76UxCkorzIEA,24
+django_rest_framework_queryset-0.3.4.dist-info/RECORD,,
