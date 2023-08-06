@@ -1,0 +1,5 @@
+{
+  "tests/test_basic.py::test_pyemr_notebook": true,
+  "tests/test_end2end.py::test_end2end": true,
+  "tests/test_tools.py::test_stdout": true
+}
