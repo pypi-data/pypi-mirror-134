@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+snowfake/__init__.py
+snowfake/snowfake.py
+snowfake.egg-info/PKG-INFO
+snowfake.egg-info/SOURCES.txt
+snowfake.egg-info/dependency_links.txt
+snowfake.egg-info/requires.txt
+snowfake.egg-info/top_level.txt
