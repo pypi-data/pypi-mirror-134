@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: resizer
+Version: 0.0.1
+Summary: My Resizer Python package
+Home-page: UNKNOWN
+Author: Azeez Idris
+Author-email: abdulazeezidris28@gmail.com
+License: UNKNOWN
+Keywords: python,My Resizer package
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: glob
+Requires-Dist: keras
+
+Resizes all the files in a given directory
+
+
