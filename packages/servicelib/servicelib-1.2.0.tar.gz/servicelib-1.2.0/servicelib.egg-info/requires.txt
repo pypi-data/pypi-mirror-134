@@ -1,0 +1,5 @@
+grpcio
+paho-mqtt
+protobuf
+pyyaml
+systemd-python>=234

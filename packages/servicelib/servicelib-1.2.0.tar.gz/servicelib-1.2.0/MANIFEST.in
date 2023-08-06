@@ -1,0 +1,2 @@
+include test/testdata/ESconfig.json
+include test/testdata/ESconfig1.yml

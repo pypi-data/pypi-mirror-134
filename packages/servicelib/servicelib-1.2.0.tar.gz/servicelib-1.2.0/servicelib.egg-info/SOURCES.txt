@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+servicelib/__init__.py
+servicelib/_version.py
+servicelib/confighelpers.py
+servicelib/configurator.py
+servicelib/mqtt.py
+servicelib.egg-info/PKG-INFO
+servicelib.egg-info/SOURCES.txt
+servicelib.egg-info/dependency_links.txt
+servicelib.egg-info/requires.txt
+servicelib.egg-info/top_level.txt

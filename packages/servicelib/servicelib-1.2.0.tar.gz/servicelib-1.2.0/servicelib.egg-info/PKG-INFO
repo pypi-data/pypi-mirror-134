@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: servicelib
+Version: 1.2.0
+Summary: Helpers used by the service-layer
+Home-page: https://gitlab.com/freemelt/machine-software/servicelib
+Author: Freemelt AB
+Author-email: opensource@freemelt.com
+License: UNKNOWN
+Description: <!--
+        SPDX-FileCopyrightText: 2019-2021 Freemelt AB <opensource@freemelt.com>
+        
+        SPDX-License-Identifier: LGPL-3.0-only
+        -->
+        
+        # Servicelib
+        
+        Python package containing common helpers used by the service-layer of the freemelt machine software. 
+        
+        # License
+        Copyright © 2019-2021 Freemelt AB <opensource@freemelt.com>
+        The Servicelib is under [GNU Lesser General Public License, Version 3](https://www.gnu.org/licenses/lgpl-3.0.en.html)
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
