@@ -1,0 +1,15 @@
+.gitignore
+LICENSE
+Pipfile
+Pipfile.lock
+README.md
+requirements.txt
+setup.py
+proj_init/__init__.py
+proj_init/create.py
+proj_init.egg-info/PKG-INFO
+proj_init.egg-info/SOURCES.txt
+proj_init.egg-info/dependency_links.txt
+proj_init.egg-info/entry_points.txt
+proj_init.egg-info/requires.txt
+proj_init.egg-info/top_level.txt
