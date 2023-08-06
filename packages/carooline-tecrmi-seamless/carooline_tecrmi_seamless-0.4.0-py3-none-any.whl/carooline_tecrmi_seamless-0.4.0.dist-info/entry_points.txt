@@ -1,0 +1,3 @@
+[console_scripts]
+carooline-tecrmi-seamless=carooline_tecrmi_seamless.main:app
+
