@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+youpi/__init__.py
+youpi/cache.py
+youpi/stream.py
+youpi/streamlist.py
+youpi/youtube.py
+youpi.egg-info/PKG-INFO
+youpi.egg-info/SOURCES.txt
+youpi.egg-info/dependency_links.txt
+youpi.egg-info/top_level.txt
