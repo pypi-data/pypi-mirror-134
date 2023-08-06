@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+src/blackjack21/__init__.py
+src/blackjack21/deck.py
+src/blackjack21/players.py
+src/blackjack21/table.py
+src/blackjack21.egg-info/PKG-INFO
+src/blackjack21.egg-info/SOURCES.txt
+src/blackjack21.egg-info/dependency_links.txt
+src/blackjack21.egg-info/top_level.txt
