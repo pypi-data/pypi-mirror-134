@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+ml_project_template/__init__.py
+ml_project_template/create_lib.py
+ml_project_template.egg-info/PKG-INFO
+ml_project_template.egg-info/SOURCES.txt
+ml_project_template.egg-info/dependency_links.txt
+ml_project_template.egg-info/entry_points.txt
+ml_project_template.egg-info/top_level.txt
