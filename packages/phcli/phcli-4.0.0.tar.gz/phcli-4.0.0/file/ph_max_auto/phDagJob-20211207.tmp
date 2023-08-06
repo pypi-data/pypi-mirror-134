@@ -1,0 +1,41 @@
+############## == $alfred_name == ###################
+def $alfred_name_cmd(**context):
+
+    id = generate()
+    dag_name = "$alfred_jobs_dir"
+    job_full_name = "$alfred_name"
+    job_show_name = "$alfred_jobShowName"
+    execution_date = context['ts']
+    owner = default_args['owner']
+    run_id = dag_name + "_" + execution_date
+    job_id = job_full_name
+    airflow_run_id = context["dag_run"].run_id
+    args = context["dag_run"].conf
+    logType = "emr"
+    localLog = "S3://ph-platform/logs/airflow/$alfred_projectName/" + dag_name + "/" + job_full_name + "/" + execution_date + "/"
+
+    sync_notification(id, default_status.get("start"), job_full_name, run_id, job_show_name)
+
+    try:
+        arg_list = create_step_args(run_id, dag_name, job_full_name, owner, args)
+
+        step_message = run_emr_step(dag_name, job_full_name, arg_list)
+
+        res = put_item(run_id, job_id, airflow_run_id, logType, localLog, step_message, lmdLog=None, sfnLog=None)
+
+        status = default_status.get("end")
+    except Exception as e:
+        status = default_status.get("error")
+        raise e
+    finally:
+        sync_notification(id, status, job_full_name, run_id, job_show_name)
+
+
+$alfred_name = PythonOperator(
+    task_id='$alfred_name',
+    provide_context=True,
+    python_callable=$alfred_name_cmd,
+    dag=dag
+)
+############## == $alfred_name == ###################
+

@@ -1,0 +1,43 @@
+############## == $alfred_name == ###################
+def $alfred_name_cmd(**context):
+
+
+    dag_name = "$alfred_jobs_dir"
+    job_full_name = "$alfred_name"
+
+    execution_date = context['ts']
+    owner = default_args['owner']
+    run_id = dag_name + "_" + execution_date.replace(':', '_')
+    job_id = job_full_name + "_" + execution_date.replace(':', '_')
+    airflow_run_id = context["dag_run"].run_id.replace(':', '_')
+    args = context["dag_run"].conf
+    logType = "emr"
+    localLog = "S3://ph-platform/logs/airflow/max/" + dag_name + "/" + job_full_name + "/" + execution_date + "/"
+
+    arg_list = create_step_args(run_id, dag_name, job_full_name, owner, args)
+
+    step_message = run_emr_step(dag_name, job_full_name, arg_list)
+
+    res = put_item(run_id, job_id, airflow_run_id, logType, localLog, step_message, lmdLog=None, sfnLog=None)
+
+    # params = var_key_lst.get("common", {})
+    # params.update(var_key_lst.get("$alfred_name", {}))
+
+    # install_phcli = 'pip3 install phcli==3.0.42'
+    # process_cmd(install_phcli)
+
+    # exec_phcli_submit = 'phcli maxauto online_run --dag_name $alfred_jobs_dir --job_full_name $alfred_name ' \
+                       # '--owner "{}" --run_id "{}" --job_id "{}" --context "{}" "{}"'.format(str(owner), str(run_id), str(job_id), str(params), str(args))
+    # process_cmd(exec_phcli_submit)
+
+    # key = ti.xcom_pull(task_ids='test', key='key').decode("UTF-8")
+    # ti.xcom_push(key="key", value=key)
+
+$alfred_name = PythonOperator(
+    task_id='$alfred_name',
+    provide_context=True,
+    python_callable=$alfred_name_cmd,
+    dag=dag
+)
+############## == $alfred_name == ###################
+
