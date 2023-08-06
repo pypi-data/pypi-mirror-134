@@ -1,0 +1,3 @@
+[console_scripts]
+cgir = cgir:cli
+
