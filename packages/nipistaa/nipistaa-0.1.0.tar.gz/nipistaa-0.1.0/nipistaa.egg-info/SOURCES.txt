@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+nipistaa/__init__.py
+nipistaa/hook.py
+nipistaa.egg-info/PKG-INFO
+nipistaa.egg-info/SOURCES.txt
+nipistaa.egg-info/dependency_links.txt
+nipistaa.egg-info/requires.txt
+nipistaa.egg-info/top_level.txt
+nipistaa/templates/__init__.py
+nipistaa/templates/_commands.py
+nipistaa/utils/__init__.py
+nipistaa/utils/guild_command.py
+nipistaa/utils/types.py
+test/test_hook.py
