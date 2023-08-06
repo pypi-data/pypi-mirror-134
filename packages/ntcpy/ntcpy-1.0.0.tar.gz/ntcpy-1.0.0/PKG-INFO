@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ntcpy
+Version: 1.0.0
+Summary: A Python port of ntcjs
+Home-page: https://github.com/vrumger/ntcpy
+Author: Avrumy
+Author-email: contact@lungers.com
+License: MIT
+Description: # ntcpy
+        
+        A Python port of ntcjs
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
