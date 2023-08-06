@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+fluentdctl/__init__.py
+fluentdctl/fluentdctl.py
+fluentdctl.egg-info/PKG-INFO
+fluentdctl.egg-info/SOURCES.txt
+fluentdctl.egg-info/dependency_links.txt
+fluentdctl.egg-info/entry_points.txt
+fluentdctl.egg-info/requires.txt
+fluentdctl.egg-info/top_level.txt
