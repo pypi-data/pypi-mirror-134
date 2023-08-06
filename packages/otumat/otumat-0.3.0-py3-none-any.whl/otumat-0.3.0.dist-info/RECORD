@@ -1,0 +1,13 @@
+otumat/__init__.py,sha256=X5w9F15K5m3qa07F-sxnJH2EjEBrCq45zWhhX3MKcCY,4378
+otumat/command_line.py,sha256=t_zlo2kQhWYfsBQ09BH2nohkXezogXX0hxn9XtrE96c,3833
+otumat/usage.py,sha256=JWbnZQ6ZVgfPBuucLwnmjUWCt_6KeFlBqJB3I1Vsk00,27672
+otumat/version.py,sha256=VrXpHDu3erkzwl_WXrqINBm9xWkcyUy53IQOj042dOs,22
+otumat/watch.py,sha256=eau-xxS1r-wJHxudgH5MNGzkIJyTJrA9Vr_lafbIh4k,1885
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_general.py,sha256=4fVNomxX7QY0Bdmif5LsEAhmQR0gk6yB88lfIo0sVpA,192
+otumat-0.3.0.dist-info/LICENSE,sha256=k3-MQ9rTcMmL6nEO8ska2MRxlOo2Rol9NngF5HVGv7o,1079
+otumat-0.3.0.dist-info/METADATA,sha256=i3azrzAt3AYXgDPgBiKpZvhGaFiYU55CWPU0XIpmWEY,7423
+otumat-0.3.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+otumat-0.3.0.dist-info/entry_points.txt,sha256=DVMRDuYbwN3z0gg68FGokayROh_t4z56pwSzEA0-1V8,222
+otumat-0.3.0.dist-info/top_level.txt,sha256=_Jmr7hMpHJVZXOG5kx3En1xIArVQe_MUJkO7Hy_Y88s,13
+otumat-0.3.0.dist-info/RECORD,,
