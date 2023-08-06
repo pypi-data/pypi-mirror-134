@@ -1,0 +1,11 @@
+numpy
+open-spiel
+pydot
+xdot
+pycairo
+PyGObject
+dill
+
+[dev]
+pytest
+typing
