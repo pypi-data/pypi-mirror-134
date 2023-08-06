@@ -1,0 +1,13 @@
+[package]
+name = "squall-router"
+version = "0.2.1"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "squall_router"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.15.1", features = ["extension-module"] }
+squall-router = "0.2.2"
