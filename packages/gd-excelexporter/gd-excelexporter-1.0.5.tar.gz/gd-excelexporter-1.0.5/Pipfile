@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+toml = "*"
+xlwings = "*"
+click = "*"
+jinja2 = "*"
+
+[dev-packages]
+setuptools-pipfile = "*"
+build = "*"
+twine = "*"
+pyinstaller = "*"
+
+[requires]
+python_version = "3.8"
