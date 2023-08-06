@@ -1,0 +1,17 @@
+likeasrt/__init__.py,sha256=QqMXHVJs6Mh0abjyoct_OcIt77Rz1dSmEAy-kWDxGc8,18
+likeasrt/errors.py,sha256=4CN-AsjDqLk7gwBrYAEzniJj8xGKakXN8yzIvYMITxQ,998
+likeasrt/logs.py,sha256=4MUMz83u_Knh_938mWM7DjK-psemgYlPNhEZQ7RqI_I,698
+likeasrt/main.py,sha256=WrcKgsulsgOM1jOCJsQ5DmGaZtHEMDEpXoXlhCP46jM,680
+likeasrt/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+likeasrt/commands/__init__.py,sha256=8C3SP-wsoNlb3pTcn5fv7p77ijyUFMhbi2AUV879Hmg,622
+likeasrt/commands/srt.py,sha256=Lj-nDu9X1ou5-DF_0Hp-U9vvf4OpspRrlzDSBbARBUI,1255
+likeasrt/domain/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+likeasrt/domain/azurespeech.py,sha256=tAwaRzb9vzyjSK26dN0Pdh9yGsPPDFX2_ydRYnRzFg8,6602
+likeasrt/domain/core.py,sha256=CUezN4c9BPIJA_TKBRlEc9tmOHjlQgOzpYnfUwP7SN0,1584
+likeasrt/domain/srt.py,sha256=ozC6rYBzYuLUVSShUAjso7H049d2_q26MOfi6NafktU,1344
+like_a_srt-0.0.3.dist-info/LICENSE,sha256=Ik4vxAnzOp6wDWnI8o-kr53MzFPTQpijdkv3gTCpBks,1072
+like_a_srt-0.0.3.dist-info/METADATA,sha256=SZSebdJYPCIrL0iamuU7_NwzPpKeyRlzotrXwQU57U4,2536
+like_a_srt-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+like_a_srt-0.0.3.dist-info/entry_points.txt,sha256=8wTsvuhatnyaOCMdf1Jm0Py-t2UivgsgrIZi2eJTZF4,76
+like_a_srt-0.0.3.dist-info/top_level.txt,sha256=-tzlNYTroUwfMLOp2efgs1sYth6Nzy9mNOYV4vuxRAA,9
+like_a_srt-0.0.3.dist-info/RECORD,,
