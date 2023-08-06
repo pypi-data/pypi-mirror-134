@@ -1,0 +1,3 @@
+aws-cdk.cloud-assembly-schema==2.7.0
+jsii<2.0.0,>=1.50.0
+publication>=0.0.3
