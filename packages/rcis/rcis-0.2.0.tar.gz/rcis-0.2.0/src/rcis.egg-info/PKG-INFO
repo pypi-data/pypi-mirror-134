@@ -1,0 +1,105 @@
+Metadata-Version: 1.2
+Name: rcis
+Version: 0.2.0
+Summary: Framework for iterative solver via reverse communication
+Home-page: https://github.com/enricofacca/rcis
+Author: Enrico Facca
+Author-email: enrico.facca@gmail.com
+License: LGPL-3.0-or-later
+Project-URL: Documentation, https://rcis.readthedocs.io/
+Project-URL: Changelog, https://rcis.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/enricofacca/rcis/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        Framework for iterative solver via reverse communication
+        
+        * Free software: GNU Lesser General Public License v3 or later (LGPLv3+)
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install rcis
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/enricofacca/rcis/archive/main.zip
+        
+        
+        Documentation
+        =============
+        
+        
+        https://rcis.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run all the tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        
+        Changelog
+        =========
+        
+        0.2.0 (2022-01-16)
+        ------------------
+        
+        * Reverse communication with just one flag for user-solver communication
+        
+        
+        
+        0.1.0 (2022-01-10)
+        ------------------
+        
+        * First release with Reverse communication code
+        
+        
+        0.0.0 (2022-01-05)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
