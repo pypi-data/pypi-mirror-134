@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: hexlet-graphs
+Version: 0.1.3
+Summary: 
+Home-page: https://github.com/hexlet-components/python-graphs
+License: ISC
+Author: Hexlet Team
+Author-email: info@hexlet.io
+Requires-Python: >=3.6,<4.0
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Education
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Typing :: Typed
+Project-URL: Repository, https://github.com/hexlet-components/python-graphs
+Description-Content-Type: text/markdown
+
+# python-graphs
+
+[![github action status](https://github.com/hexlet-components/python-graphs/workflows/Python%20CI/badge.svg)](../../actions)
+
+## Install
+
+```bash
+pip install hexlet-graphs
+```
+
+## Usage example
+
+```python
+from hexlet.fs import (
+  build_tree_from_leaf
+  make_joints,
+  sortTree
+)
+
+tree = ['B', [
+    ['D'],
+    ['A', [
+        ['C', [
+            ['F'],
+            ['E'],
+        ]],
+    ]],
+]]
+
+joints = make_joints(tree)
+transformed = build_tree_from_leaf(joints)
+# ['C', [
+#     ['F'],
+#     ['E'],
+#     ['A', [
+#         ['B', [
+#             ['D'],
+#         ]],
+#     ]],
+# ]]
+
+sort_tree(transformed)
+# ['C', [
+#     ['A', [
+#         ['B', [
+#             ['D'],
+#         ]],
+#     ]],
+#     ['E'],
+#     ['F'],
+# ]]
+```
+
+For more information, see the [Full Documentation](docs)
+
+[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=python-graphs)
+
+This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=python-graphs).
+
+See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
+
