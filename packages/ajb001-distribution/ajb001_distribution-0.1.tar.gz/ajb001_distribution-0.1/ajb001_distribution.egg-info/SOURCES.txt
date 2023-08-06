@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+ajb001_distribution/Binomialdistribution.py
+ajb001_distribution/Gaussiandistribution.py
+ajb001_distribution/Generaldistribution.py
+ajb001_distribution/__init__.py
+ajb001_distribution.egg-info/PKG-INFO
+ajb001_distribution.egg-info/SOURCES.txt
+ajb001_distribution.egg-info/dependency_links.txt
+ajb001_distribution.egg-info/not-zip-safe
+ajb001_distribution.egg-info/top_level.txt
