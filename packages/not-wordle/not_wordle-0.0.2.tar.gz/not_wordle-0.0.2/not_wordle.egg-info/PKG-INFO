@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: not-wordle
+Version: 0.0.2
+Summary: Definitely Not Wordle
+Home-page: https://github.com/mark-shbt/definitely-not-wordle
+Author: Mark
+Author-email: mark@sharebite.com
+License: OSI Approved :: MIT License
+Download-URL: https://github.com/mark-shbt/definitely-not-wordle
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Definitely Not Wordle
+
+Definitely not a python implementation of Wordle :)
+

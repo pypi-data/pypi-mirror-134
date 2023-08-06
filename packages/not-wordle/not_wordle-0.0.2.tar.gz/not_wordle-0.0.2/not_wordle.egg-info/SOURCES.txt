@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+not_wordle.egg-info/PKG-INFO
+not_wordle.egg-info/SOURCES.txt
+not_wordle.egg-info/dependency_links.txt
+not_wordle.egg-info/requires.txt
+not_wordle.egg-info/top_level.txt
