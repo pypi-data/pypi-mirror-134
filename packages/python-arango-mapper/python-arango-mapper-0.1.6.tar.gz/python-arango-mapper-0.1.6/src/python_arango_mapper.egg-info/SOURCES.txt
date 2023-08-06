@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+src/pam/__init__.py
+src/pam/aql.py
+src/pam/client.py
+src/pam/collection.py
+src/pam/converter.py
+src/pam/database.py
+src/pam/utils.py
+src/python_arango_mapper.egg-info/PKG-INFO
+src/python_arango_mapper.egg-info/SOURCES.txt
+src/python_arango_mapper.egg-info/dependency_links.txt
+src/python_arango_mapper.egg-info/requires.txt
+src/python_arango_mapper.egg-info/top_level.txt
