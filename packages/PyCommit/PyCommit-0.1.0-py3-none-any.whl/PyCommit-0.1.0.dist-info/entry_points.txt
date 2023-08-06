@@ -1,0 +1,3 @@
+[console_scripts]
+pycommit = pycommit.__main__:main
+
