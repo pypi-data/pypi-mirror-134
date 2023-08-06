@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+src/photokml.py
+src/photokml.egg-info/PKG-INFO
+src/photokml.egg-info/SOURCES.txt
+src/photokml.egg-info/dependency_links.txt
+src/photokml.egg-info/entry_points.txt
+src/photokml.egg-info/requires.txt
+src/photokml.egg-info/top_level.txt
