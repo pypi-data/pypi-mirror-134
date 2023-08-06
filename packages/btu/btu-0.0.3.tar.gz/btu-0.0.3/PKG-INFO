@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: btu
+Version: 0.0.3
+Summary: A small example package
+Home-page: https://github.com/tsotnesharvadze/btu
+Author: Tsotne Sharvadze
+Author-email: tsotne.sharvadze@btu.edu.ge
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+ეს არის BTU ს სატესტო ფექიჯი
+
+
