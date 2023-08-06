@@ -1,0 +1,184 @@
+[tool.poetry]
+name = "connord"
+version = "0.7.0"
+description = "Connect to NordVPN servers"
+readme = "README.md"
+authors = ["Mael Stor <maelstor@posteo.de>"]
+license = "GPL-3.0-or-later"
+homepage = "https://github.com/MaelStor/connord"
+documentation = "https://github.com/MaelStor/connord"
+packages = [{ include = "connord" }]
+include = [
+  "README.md",
+  "LICENSE",
+  "connord/scripts/*",
+  "connord/config/*",
+  "connord/db/*",
+]
+keywords = [
+  "console",
+  "dynamic",
+  "fast",
+  "firewall",
+  "iptables",
+  "linux",
+  "network",
+  "nordvpn",
+  "openvpn",
+  "privacy",
+  "security",
+  "shell",
+  "system",
+  "terminal",
+  "tool",
+  "utility",
+  "vpn"
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: Telecommunications Industry",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Natural Language :: English",
+  "Operating System :: POSIX :: Linux",
+  "Topic :: Security",
+  "Topic :: System :: Networking",
+  "Topic :: System :: Networking :: Firewalls",
+  "Topic :: System :: Systems Administration",
+  "Topic :: Utilities"
+]
+
+[tool.poetry.urls]
+Issues = "https://github.com/MaelStor/connord/issues"
+
+[tool.poetry.scripts]
+connord = 'connord.connord:main'
+
+[tool.poetry.dependencies]
+cachetools = "^4.2.4"
+jinja2 = "^3"
+netaddr = "^0.8"
+netifaces = "^0.11.0"
+progress = "^1.6"
+python = "^3.6"
+python-iptables = "^1.0.0"
+pyyaml = "^6.0"
+requests = "^2.26.0"
+setuptools = "^57.4.2"
+
+[tool.poetry.dev-dependencies]
+black = { version = "*", allow-prereleases = true }
+bump2version = "*"
+flake8 = "*"
+mypy = "*"
+pydeps = "*"
+pylint = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+requests-mock = "*"
+tox = "*"
+types-cachetools = "*"
+types-pyyaml = "*"
+types-requests = "*"
+types-setuptools = "*"
+vermin = "*"
+vulture = "*"
+wheel = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.pylint.master]
+ignore-patterns = [
+  "test_.*"
+]
+ignore-paths = [
+  "^tests/.*$",
+  "^examples/.*$",
+  "^.mypy_cache/.*$",
+  "^.pytest_cache/.*$",
+  "^.vagrant/.*$",
+  "^.build/.*$",
+  "^connord.egg-info/.*$"
+]
+py-version = 3.6
+extension-pkg-allow-list = "netifaces"
+
+[tool.pylint.messages_control]
+disable = [
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "raw-checker-failed",
+  "bad-inline-option",
+  "locally-disabled",
+  "file-ignored",
+  "suppressed-message",
+  "useless-suppression",
+  "deprecated-pragma",
+  "use-symbolic-message-instead",
+  "too-few-public-methods",
+  "raise-missing-from",
+  "too-many-arguments"
+]
+
+[tool.pylint.basic]
+good-names = ["n", "i", "j", "k", "f", "g", "id"]
+bad-names = ["foo", "baz", "toto", "tutu", "tata"]
+variable-rgx = "[a-z_]+"
+argument-rgx = "[a-z_]+"
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.spelling]
+spelling_dict = "en_US"
+spelling_private_dict_file = ".pylint/pylint_dict"
+
+[tool.pytest.ini_options]
+testpaths = [
+  "tests"
+]
+addopts = "--cov=connord --cov-report term-missing:skip-covered"
+required_plugins = [
+  #  "requests-mock==1.9.3",
+  "requests-mock",
+  "pytest-mock",
+  "pytest-cov"
+]
+
+[tool.mypy]
+exclude = [
+  '^__main__.py$'  # This is only a symlink
+]
+
+
+#[tool.tox]
+#legacy_tox_ini = """
+#envlist = py36, py37
+#
+#[testenv]
+#deps =
+#pytest = = 4.5.0
+#pytest-cov = = 2.7.1
+#pytest-mock = = 1.10.4
+#coverage = = 4.5.3
+#requests-mock = = 1.6.0
+#whitelist_externals = make
+#
+#[testenv:py36]
+#commands =
+#python --version
+#pytest --cov { envsitepackagesdir }/connord --cov-report term-missing:skip-covered
+#
+#[testenv:py37]
+#commands =
+#python --version
+#pytest --cov { envsitepackagesdir }/connord --cov-report term-missing:skip-covered
+#"""
