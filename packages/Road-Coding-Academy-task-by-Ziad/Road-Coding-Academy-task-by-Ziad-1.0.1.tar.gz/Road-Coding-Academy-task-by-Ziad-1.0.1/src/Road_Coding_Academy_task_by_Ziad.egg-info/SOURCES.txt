@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/Road_Coding_Academy_task_by_Ziad.egg-info/PKG-INFO
+src/Road_Coding_Academy_task_by_Ziad.egg-info/SOURCES.txt
+src/Road_Coding_Academy_task_by_Ziad.egg-info/dependency_links.txt
+src/Road_Coding_Academy_task_by_Ziad.egg-info/top_level.txt
+src/example_package/__init__.py
+src/example_package/example.py
