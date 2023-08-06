@@ -1,0 +1,3 @@
+[console_scripts]
+avogadr-py = avogadr_py.__main__:cli
+
