@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: python-ccb
+Version: 1.0.1
+Summary: Python wrapper for clearcheckbook
+Home-page: https://sr.ht/~ocurero/python-ccb/
+License: Apache 2.0
+Keywords: clearcheckbook,api,rest,wrapper
+Author: Oscar Curero
+Author-email: oscar@curero.es
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: attrs
+Requires-Dist: pendulum
+Requires-Dist: requests
+Project-URL: Documentation, https://python-ccb.readthedocs.io/
+Project-URL: Repository, https://hg.sr.ht/~ocurero/python-ccb
+Description-Content-Type: text/markdown
+
+Python wrapper for ClearCheckBook
+=================================
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/python-ccb/.build.yml.svg)](https://builds.sr.ht/~ocurero/python-ccb/.build.yml?) [![readthedocs](https://readthedocs.org/projects/python-ccb/badge/?version=latest&style=flat)](https://python-ccb.readthedocs.io/)
+
+This package provides a simple python interface for interacting with
+ClearCheckBook
+
+* Open Source: Apache 2.0 license.
+* Website: <https://sr.ht/~ocurero/python-ccb/>
+* Documentation: <https://python-ccb.readthedocs.io/>
+
+Quickstart
+----------
+
+Using **python-ccb** is very simple:
+
+```python
+
+    import python_ccb
+
+    session = python_ccb.ClearCheckBook('user', 'passwd')
+    account = session.get_account('My Account')
+    new_tran = python_ccb.Transaction('Something', 50, python_ccb.WITHDRAW, account=account)
+    session.insert_transaction(new_tran)
+
+```
+
+## What's implemented?
+
+| Feature        | Implemented? |
+| -------------- | ------------ |
+| Accounts       | YES          |
+| Account groups | NO           |
+| Bills          | NO           |
+| Budgets        | NO           |
+| Categories     | YES          |
+| Currencies     | YES          |
+| Object count   | NO           |
+| Premium        | NO           |
+| Transactions   | YES          |
+| Reminders      | NO           |
+| Reports        | NO           |
+
+
+
