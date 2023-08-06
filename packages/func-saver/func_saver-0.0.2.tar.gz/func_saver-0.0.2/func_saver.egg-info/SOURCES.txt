@@ -1,0 +1,10 @@
+README.rst
+setup.py
+func_saver/__init__.py
+func_saver/func_saver.py
+func_saver/func_saver_helpers.py
+func_saver.egg-info/PKG-INFO
+func_saver.egg-info/SOURCES.txt
+func_saver.egg-info/dependency_links.txt
+func_saver.egg-info/requires.txt
+func_saver.egg-info/top_level.txt
