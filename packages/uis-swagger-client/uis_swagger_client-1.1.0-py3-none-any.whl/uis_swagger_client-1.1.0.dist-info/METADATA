@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: uis-swagger-client
+Version: 1.1.0
+Summary: User Information Service
+Home-page: UNKNOWN
+Author-email: ibaldin@renci.org
+License: UNKNOWN
+Keywords: Swagger,User Information Service
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+    FABRIC User Information Service swagger client    
+
