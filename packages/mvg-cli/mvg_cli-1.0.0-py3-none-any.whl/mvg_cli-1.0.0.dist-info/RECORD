@@ -1,0 +1,14 @@
+mvgcli/__init__.py,sha256=dHuoY6voK7np1A7oRzw1xyBy7CK9_KBAc4FCKW29uRQ,21
+mvgcli/cli.py,sha256=LcDYA2NbeQyFi-QDnI2M7Bcie97HRzlBeiBOgZ23v8k,3704
+mvgcli/command_line.py,sha256=YOs9TBzyG9RUpFl-5XuiRfoKQNb50BjujT7SL-FP9SE,278
+mvgcli/config.py,sha256=lMViozh7A5-0PLIIv064K8a8W4Rm8_IPmLbC1Ruozy4,183
+mvgcli/defaults.py,sha256=QbFpPlQZGvRg1GQ0rMa5kZ0nwk5rNkDAHaipCKNm9js,1156
+mvgcli/departures_request.py,sha256=18RZYrq1R313ofiNhzu2yT5fQzXGAHcbEwGODmVYRKc,2536
+mvgcli/favorites.py,sha256=ErjoRAtuvLkl-by7Ysg7tYWgY1bwUjLTnNVpOc0Kf3k,2534
+mvgcli/next_departures.py,sha256=TZtEb5p7VIbgEb85YNGKpGtquMIEXzSxZcbdhh7WmKs,2010
+mvg_cli-1.0.0.dist-info/LICENSE,sha256=yZliWEmlIX_o3YH2TjpQpfMe2n7lePozeMX45rVLs8A,1074
+mvg_cli-1.0.0.dist-info/METADATA,sha256=2Poy99FiKY0vviBWdyjZs030_6l0IMmXOX5VV-2rKYc,4690
+mvg_cli-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mvg_cli-1.0.0.dist-info/entry_points.txt,sha256=_s8MfPm1JgtLWNXiqAmV_gDdmpQSKJpExfzwaZEylWM,41
+mvg_cli-1.0.0.dist-info/top_level.txt,sha256=5ZP_VIfEI8XiAZfwysV7fylQbhg_9bZrlpftITZZFpg,7
+mvg_cli-1.0.0.dist-info/RECORD,,
