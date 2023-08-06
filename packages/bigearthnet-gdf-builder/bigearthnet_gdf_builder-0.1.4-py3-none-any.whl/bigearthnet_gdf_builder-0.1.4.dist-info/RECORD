@@ -1,0 +1,9 @@
+LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+bigearthnet_gdf_builder/__init__.py,sha256=Wzf5T3NBDfhQoTnhnRNHSlAsE0XMqbclXG-M81Vas70,22
+bigearthnet_gdf_builder/_nbdev.py,sha256=dlRX4hkxqlqF9gg0lHzArExG0XyUBgrY3E4NAY3006A,1751
+bigearthnet_gdf_builder/builder.py,sha256=UeX25MYuVmzsgWp7Wq-mvYzBWgIp1b6leGFc3ZMwklQ,28043
+bigearthnet_gdf_builder-0.1.4.dist-info/entry_points.txt,sha256=nwFQld0-URlb_0suo3TFJuBYsJ5fpVbRnqcoXy23iqk,80
+bigearthnet_gdf_builder-0.1.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+bigearthnet_gdf_builder-0.1.4.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+bigearthnet_gdf_builder-0.1.4.dist-info/METADATA,sha256=Xgu5owjv3wmIKcAT5EY81IoKc2U3BgO6gPifTjxcTB0,6213
+bigearthnet_gdf_builder-0.1.4.dist-info/RECORD,,
