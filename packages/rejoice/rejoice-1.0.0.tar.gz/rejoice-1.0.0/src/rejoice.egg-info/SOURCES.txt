@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/example_package/__init__.py
+src/example_package/example.py
+src/rejoice.egg-info/PKG-INFO
+src/rejoice.egg-info/SOURCES.txt
+src/rejoice.egg-info/dependency_links.txt
+src/rejoice.egg-info/top_level.txt
