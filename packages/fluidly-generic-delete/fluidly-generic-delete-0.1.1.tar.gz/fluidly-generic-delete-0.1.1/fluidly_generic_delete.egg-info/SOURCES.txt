@@ -1,0 +1,14 @@
+MANIFEST.in
+pyproject.toml
+setup.py
+fluidly/__init__.py
+fluidly/generic_delete/__init__.py
+fluidly/generic_delete/connection_delete.py
+fluidly/generic_delete/py.typed
+fluidly_generic_delete.egg-info/PKG-INFO
+fluidly_generic_delete.egg-info/SOURCES.txt
+fluidly_generic_delete.egg-info/dependency_links.txt
+fluidly_generic_delete.egg-info/namespace_packages.txt
+fluidly_generic_delete.egg-info/requires.txt
+fluidly_generic_delete.egg-info/top_level.txt
+test/test_connection_delete.py
