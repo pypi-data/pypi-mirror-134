@@ -1,0 +1,11 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+botonVariocolor/componente.py
+botonVariocolor/componente_demo.py
+botonVariocolor.egg-info/PKG-INFO
+botonVariocolor.egg-info/SOURCES.txt
+botonVariocolor.egg-info/dependency_links.txt
+botonVariocolor.egg-info/top_level.txt
