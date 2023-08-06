@@ -1,0 +1,6 @@
+h5py
+numpy
+pydicom
+pynrrd
+SimpleITK
+tqdm
