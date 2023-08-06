@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+./image_tagger/__init__.py
+./image_tagger/image_predictions.py
+./image_tagger/main.py
+./image_tagger/response_models.py
+image_tagger/__init__.py
+image_tagger/image_predictions.py
+image_tagger/main.py
+image_tagger/response_models.py
+image_tagger.egg-info/PKG-INFO
+image_tagger.egg-info/SOURCES.txt
+image_tagger.egg-info/dependency_links.txt
+image_tagger.egg-info/requires.txt
+image_tagger.egg-info/top_level.txt
