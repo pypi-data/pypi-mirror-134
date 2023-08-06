@@ -1,0 +1,9 @@
+auth_logger/__init__.py,sha256=LvrVmYEBKCWKlfkfRCAp5evZ1aqe1UZqSJ680xfy5RE,57
+auth_logger/apps.py,sha256=SLnHuDhSA3YUJfBHHt-gGztHnxHAF15hqY03xGzQMoQ,164
+auth_logger/tests.py,sha256=TCUzzqPU1VzIAuxqpET_1ORm16VABDiyUuNoUmle8ts,2861
+auth_logger/signals/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+auth_logger/signals/handlers.py,sha256=mbsUWvrHi8AgAtd3wPmFOlGrDVcvPqPCYnOh5R8P4ms,1386
+django_auth_logger-2.2.0.dist-info/METADATA,sha256=yGDtKsXe1BJMBoO-M0x3G6kdOI628uwdBtM24f3Xyk0,3088
+django_auth_logger-2.2.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+django_auth_logger-2.2.0.dist-info/top_level.txt,sha256=Nuvm7pXoeu1GQEpedpWZISSMwDAYv_l6KNS0uzPxbJA,12
+django_auth_logger-2.2.0.dist-info/RECORD,,
