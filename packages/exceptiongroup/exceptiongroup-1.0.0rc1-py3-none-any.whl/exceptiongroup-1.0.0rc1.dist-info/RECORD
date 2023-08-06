@@ -1,0 +1,10 @@
+exceptiongroup/__init__.py,sha256=xykZT7YBz3vr7EO7tigtJNW6RHO7ogL6mNROpO_DOkM,538
+exceptiongroup/_catch.py,sha256=REnsogZqBjgWJRVfzkLcUo5Xn7_ogX9oMMnIcWGF-LM,3591
+exceptiongroup/_exceptions.py,sha256=GguQwL8idRU00hmZazmFqDzNfebCvO26DnnU4sYLysc,6077
+exceptiongroup/_formatting.py,sha256=r5x6g1FAR7wHb8TQ832zQ-Lch4ZMISYnSi4W2GS2zJE,7033
+exceptiongroup/_version.py,sha256=0AliUu_YgXSJPIMCi2YRISFCuFXlTFGNgwxlrO-mXtM,145
+exceptiongroup/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+exceptiongroup-1.0.0rc1.dist-info/LICENSE,sha256=blBw12UDHgrUA6HL-Qrm0ZoCKPgC4yC3rP9GCqcu1Hw,3704
+exceptiongroup-1.0.0rc1.dist-info/WHEEL,sha256=jPMR_Dzkc4X4icQtmz81lnNY_kAsfog7ry7qoRvYLXw,81
+exceptiongroup-1.0.0rc1.dist-info/METADATA,sha256=SVY5xeM02EuCQfpfdGnimRJmHtRbDDKp2hlqlmtoVM8,4642
+exceptiongroup-1.0.0rc1.dist-info/RECORD,,
