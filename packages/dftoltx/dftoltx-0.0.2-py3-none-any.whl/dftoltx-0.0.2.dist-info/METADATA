@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: dftoltx
+Version: 0.0.2
+Summary: A small plugin package to translate python pandas dataframes to latex code
+Home-page: https://github.com/aakamishra/dftoltx
+Author: Aakash Mishra
+Author-email: aakamishra1@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/aakamishra/dftoltx
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# dftoltex or Dataframe to LaTex
+
+This is a simple package to translate pandas dataframes into LaTex code. Credit of this idea goes to my fellow developer Frank D'Agostino.
+
+
