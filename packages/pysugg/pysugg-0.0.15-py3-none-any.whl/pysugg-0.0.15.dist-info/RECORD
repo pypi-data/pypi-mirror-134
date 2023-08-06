@@ -1,0 +1,13 @@
+pysugg/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pysugg/exception_catcher.py,sha256=l4uLrTwfydHopJhzgyCwJotsBwMX5jm1VEogkXBNhhQ,2984
+pysugg/exception_executors/__init__.py,sha256=9_2ZVQixF5TWmRkatlUifp-PwoP-G6G1N-Sopy2Bjto,109
+pysugg/exception_executors/exception_executor.py,sha256=ufPMmEerx2wqtZBvBubmZ5PmgrzxIid5mIAVq_mQxCI,236
+pysugg/exception_executors/module_suggest_executor.py,sha256=vh1uREP-gR90_9gYAMgjYV89-oQ6-B6gKJTfDvfZdsU,1568
+pysugg/exception_executors/pypi_search_executor.py,sha256=kfAvtsF8Okn-A-tFBAgcO5exIXd7yL-yI7KwmW65SMM,1628
+pysugg/modules_manager/__init__.py,sha256=e6YIStzQ15FmXID-FrqWhiOwhebw17ItSBzd3b4jW4M,31
+pysugg/modules_manager/modules_manager.py,sha256=G3eGkFD6JmWxQ_bHLHNlDUYjbMhwpsO8HXM-GHviL2Y,3916
+pysugg-0.0.15.dist-info/LICENSE,sha256=PxOXvYcXSRaicM5kjkN6Uz7Ui9uGXjh79zvK_yAUELg,1079
+pysugg-0.0.15.dist-info/METADATA,sha256=Om477O4X73hCCgJup4qFzlEECGTh69r1lis2_RXRaEQ,2014
+pysugg-0.0.15.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pysugg-0.0.15.dist-info/top_level.txt,sha256=V9sojR8JjRhJ0_APGwjt9Sbd-OTHoesRk7CoGqxp9Gg,7
+pysugg-0.0.15.dist-info/RECORD,,
