@@ -1,0 +1,3 @@
+# jobtools
+
+This package contains a convenient implementation to work with `Python` from a command line to execute jobs of any kind. Jobs are indicated using a callable function that the `TaskRunner` can executed. Arguments for the callable are automatically parsed from the command line and enforced depending on if they are required of not. Type conversion is automatically handled. Special type conversion is supported for aruments of type `SimpleNamespace` which can be passed as arguments using `YML` or `JSON` files.
