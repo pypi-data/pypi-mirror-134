@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+tallpdf/__init__.py
+tallpdf/pdf2image.py
+tallpdf/pdf2text.py
+tallpdf.egg-info/PKG-INFO
+tallpdf.egg-info/SOURCES.txt
+tallpdf.egg-info/dependency_links.txt
+tallpdf.egg-info/top_level.txt
