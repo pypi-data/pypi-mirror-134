@@ -1,0 +1,8 @@
+README.md
+setup.py
+past_date2word/__init__.py
+past_date2word/past_date2word.py
+past_date2word.egg-info/PKG-INFO
+past_date2word.egg-info/SOURCES.txt
+past_date2word.egg-info/dependency_links.txt
+past_date2word.egg-info/top_level.txt
