@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+doculog/__init__.py
+doculog/changelog.py
+doculog/config.py
+doculog/git.py
+doculog/main.py
+doculog/requests.py
+doculog.egg-info/PKG-INFO
+doculog.egg-info/SOURCES.txt
+doculog.egg-info/dependency_links.txt
+doculog.egg-info/entry_points.txt
+doculog.egg-info/requires.txt
+doculog.egg-info/top_level.txt
