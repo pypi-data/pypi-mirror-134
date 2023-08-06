@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: jobtools
+Version: 0.0.1
+Summary: Facilitates the use of Python from the command line
+Home-page: UNKNOWN
+Author: Facundo Santiago
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# jobtools
+
+This package contains a convenient implementation to work with `Python` from a command line to execute jobs of any kind. Jobs are indicated using a callable function that the `TaskRunner` can executed. Arguments for the callable are automatically parsed from the command line and enforced depending on if they are required of not. Type conversion is automatically handled. Special type conversion is supported for aruments of type `SimpleNamespace` which can be passed as arguments using `YML` or `JSON` files.
+
