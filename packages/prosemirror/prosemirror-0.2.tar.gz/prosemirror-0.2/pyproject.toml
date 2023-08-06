@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "prosemirror"
+version = "0.2"
+description = "Python implementation of core ProseMirror modules for collaborative editing"
+readme = "README.md"
+authors = ["Shen Li <shen@fellow.co>"]
+license = "BSD-3-Clause"
+packages = [{ include = "prosemirror" }]
+homepage = "https://github.com/fellowinsights/prosemirror-py"
+repository = "https://github.com/fellowinsights/prosemirror-py"
+keywords = ["prosemirror", "collaborative", "editing"]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4"
+typing-extensions = "^3.7"
+
+[tool.poetry.dev-dependencies]
+black = { version = "19.10b0", allow-prereleases = true, python = ">=3.6" }
+mypy = "^0.780"
+pytest = "^6.2"
+flake8 = "^3.8"
+pydash = "^4.7"
+pytest-cov = "^2.10"
+pandoc = "^1.0"
+isort = "^4.3"
+codecov = "^2.1"
+coverage = "^5.1"
+
+[tool.black]
+max-line-length=88
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
