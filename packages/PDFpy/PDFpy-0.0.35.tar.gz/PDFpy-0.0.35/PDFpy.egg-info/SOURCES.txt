@@ -1,0 +1,9 @@
+README.md
+setup.py
+PDFpy/PDFpy_main.py
+PDFpy/__init__.py
+PDFpy.egg-info/PKG-INFO
+PDFpy.egg-info/SOURCES.txt
+PDFpy.egg-info/dependency_links.txt
+PDFpy.egg-info/requires.txt
+PDFpy.egg-info/top_level.txt
