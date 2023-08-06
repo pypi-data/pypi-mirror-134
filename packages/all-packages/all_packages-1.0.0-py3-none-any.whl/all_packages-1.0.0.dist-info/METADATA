@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: all-packages
+Version: 1.0.0
+Summary: Install every package on PyPI
+Home-page: https://github.com/adang1345/pypi_all_packages
+Author: Aohan Dang
+Author-email: adang1345@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# all_packages
+
+The Python Package Index (PyPI) contains over 300,000 Python packages. Need a
+Python library but don't want to search through all the options? Search no
+further! `all_packages` is a Python script that attempts to install every
+package on PyPI - all 349,451 of them as of 11 Jan 2022.
+
+## Install
+```
+pip install all_packages
+```
+
+## Run
+From the command line, execute the following.
+```
+all_packages install
+```
+For each package on PyPI, this creates a virtual environment in the
+`all_packages` subdirectory of your home directory and attempts to install the
+package into that virtual environment.
+
+To customize where the virtual environments are created, use the `-d` option.
+```
+all_packages install -d MYDIRECTORY
+```
+
+
