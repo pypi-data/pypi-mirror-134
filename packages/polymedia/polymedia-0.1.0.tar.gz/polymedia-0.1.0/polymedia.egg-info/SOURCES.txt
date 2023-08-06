@@ -1,0 +1,7 @@
+README.md
+setup.py
+polymedia.egg-info/PKG-INFO
+polymedia.egg-info/SOURCES.txt
+polymedia.egg-info/dependency_links.txt
+polymedia.egg-info/requires.txt
+polymedia.egg-info/top_level.txt
