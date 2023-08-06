@@ -1,0 +1,10 @@
+tsetmc/__init__.py,sha256=HBKZ7tuEG3ViXw2IrtPEw3y8yDFRTntzKHwEDjOVx9c,3076
+tsetmc/instruments.py,sha256=HlSCysUySv9Ka3kmSYMlV7_DMsdT3Xipl5f9h6mEW24,20305
+tsetmc/market_watch.py,sha256=MpVeb_CdjunO7DRd5KyKqTUjGtIEAsbJJNf5gfKJn98,8779
+tsetmc/database/__init__.py,sha256=p0vgeRtLrjemE2OPv9kZ6VImSNvl8l-Oq5Z6r5oYbfo,1360
+tsetmc/database/ids.json,sha256=CQUSkpSLe6gH4fqjpnPmGfsLVOv3ksNQ559e4cEDvGI,298719
+tsetmc-0.35.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+tsetmc-0.35.0.dist-info/METADATA,sha256=UGXi1Jl0D2pwa2_iI7lGOIQ5Y0LRCrq8ruP4bjzUCXY,15583
+tsetmc-0.35.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+tsetmc-0.35.0.dist-info/top_level.txt,sha256=eGvJyDlzkONKexTNAdwZykW0lxyaaNw-FiBpt8yHww4,7
+tsetmc-0.35.0.dist-info/RECORD,,
