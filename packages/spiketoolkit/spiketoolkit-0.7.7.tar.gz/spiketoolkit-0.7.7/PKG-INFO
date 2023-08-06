@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: spiketoolkit
+Version: 0.7.7
+Summary: Python toolkit for analysis, visualization, and comparison of spike sorting output
+Home-page: https://github.com/alejoe91/spiketoolkit
+Author: Alessio Buccino, Cole Hurwitz, Samuel Garcia, Jeremy Magland, Matthias Hennig
+Author-email: alessiop.buccino@gmail.com
+License: UNKNOWN
+Description: # spiketoolkit (LEGACY)
+        
+        The `spiketoolkit` package has now been integrated into [spikeinterface](https://github.com/SpikeInterface/spikeinterface).
+        
+        This package will be maintained for a while for bug fixes only, then it will be deprecated.
+        
+        New features and improvements will only be implemented for the `spikeinterface` package.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
