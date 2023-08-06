@@ -1,0 +1,12 @@
+
+[all]
+pytest>=6
+pytest-cov>=2.8.0
+
+[dev]
+pytest>=6
+pytest-cov>=2.8.0
+
+[test]
+pytest>=6
+pytest-cov>=2.8.0
