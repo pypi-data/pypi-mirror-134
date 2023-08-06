@@ -1,0 +1,5 @@
+setup.py
+vegafusion_streamlit.egg-info/PKG-INFO
+vegafusion_streamlit.egg-info/SOURCES.txt
+vegafusion_streamlit.egg-info/dependency_links.txt
+vegafusion_streamlit.egg-info/top_level.txt
