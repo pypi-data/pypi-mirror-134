@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: saba_board
+Version: 0.1
+Summary: TYPE YOUR DESCRIPTION HERE
+Home-page: https://github.com/SabaFadhl/saba_board_package_python
+Author: Saba Fadhl
+Author-email: sabafadl.rowad@gmail.com
+License: MIT
+Download-URL: https://github.com/SabaFadhl/saba_board_package_python/archive/refs/tags/v1.0.tar.gz
+Description: UNKNOWN
+Keywords: board,terminal board ,python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
