@@ -1,0 +1,6 @@
+[console_scripts]
+bambu-download-from-pubchem = bambu.download_from_pubchem:main
+bambu-predict = bambu.predict:main
+bambu-preprocess = bambu.preprocess:main
+bambu-train = bambu.train:main
+
