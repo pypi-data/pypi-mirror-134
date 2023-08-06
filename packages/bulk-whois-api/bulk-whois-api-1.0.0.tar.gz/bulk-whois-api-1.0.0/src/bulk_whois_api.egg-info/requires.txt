@@ -1,0 +1,6 @@
+requests
+whois-api
+
+[dev]
+tox
+flake8
