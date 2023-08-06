@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+scrape_google_scholar/__init__.py
+scrape_google_scholar.egg-info/PKG-INFO
+scrape_google_scholar.egg-info/SOURCES.txt
+scrape_google_scholar.egg-info/dependency_links.txt
+scrape_google_scholar.egg-info/requires.txt
+scrape_google_scholar.egg-info/top_level.txt

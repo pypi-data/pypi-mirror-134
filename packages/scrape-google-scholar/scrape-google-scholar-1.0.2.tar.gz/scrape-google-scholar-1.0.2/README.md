@@ -1,0 +1,49 @@
+Google scholar scraper is a python library to scrape for a google scholar result using browser automation. 
+It currently runs only on windows.
+
+### Scrape Google Scholar
+In this, we first import library, then we provide the keyword to be scraped instead of "science".
+```sh
+from scrape_google_scholar import *
+response = google.scholar_scraper(search="science")
+```
+
+### Response Data
+```json
+     "Description": "This article assesses how the tension between centripetal forces (such as forward and backward linkages in production and increasing …",
+     "Link": "https://journals.sagepub.com/doi/abs/10.1177/016001799761012307",
+     "Title": "The role of geography in development"
+```
+
+#### BotStudio
+[Bot_Studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which will open Google Scholars and scrapes data from the search results for the given keyword.
+
+
+### Installation
+
+```sh
+pip install scrape-google-scholar
+```
+
+### Import
+```sh
+from scrape_google_scholar import *
+```
+###  Get Google Scholar Data
+```sh
+response=Google.scholar_scraper(search="science")
+data=response['body']
+```
+
+### Run bot on cloud
+You can run bot on [Cloud](https://datakund.com/products/google-scholar-search-results-scraper?_pos=1&_sid=4613753f2&_ss=r).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
