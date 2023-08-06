@@ -1,0 +1,12 @@
+setup.py
+jija/__init__.py
+jija/app.py
+jija/apps.py
+jija/command.py
+jija/middleware.py
+jija.egg-info/PKG-INFO
+jija.egg-info/SOURCES.txt
+jija.egg-info/dependency_links.txt
+jija.egg-info/not-zip-safe
+jija.egg-info/requires.txt
+jija.egg-info/top_level.txt
