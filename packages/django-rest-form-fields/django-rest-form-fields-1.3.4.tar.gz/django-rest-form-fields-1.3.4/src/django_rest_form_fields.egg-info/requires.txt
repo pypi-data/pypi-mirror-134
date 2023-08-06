@@ -1,0 +1,7 @@
+django>=1.7
+jsonschema
+psycopg2-binary
+pytz
+
+[:python_version < "3.5"]
+typing
