@@ -1,0 +1,12 @@
+Pillow
+decord
+ffmpeg-python
+imageio
+imageio-ffmpeg
+librosa
+lycon
+natsort
+opencv-python
+pims
+scikit-image
+tqdm
