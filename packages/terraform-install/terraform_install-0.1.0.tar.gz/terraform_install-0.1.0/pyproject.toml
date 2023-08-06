@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "terraform_install"
+version = "0.1.0"
+description = "Installs Terraform to virtualenv bin"
+authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+terraform_version = "*"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
