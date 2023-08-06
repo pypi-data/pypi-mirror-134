@@ -1,0 +1,7 @@
+echoloader/__init__.py,sha256=H1mR80ZdrBpghZx7t2XDxYEYVyICn_3XTPetP716o3s,23
+echoloader/__main__.py,sha256=szREBsjMnylhCPmsGeiOgB8AV03J5vPUVdRLDkQFd-A,79
+echoloader/watcher.py,sha256=OxH400I1e-BnF6fScU3QzVCuS3NOoILniDrp-wsVVQM,13280
+echoloader-0.1.5.dist-info/entry_points.txt,sha256=7ZYsLGFUnRIOLLxhllvx545TFgiYZ2T0nx7MlLeHmDg,54
+echoloader-0.1.5.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+echoloader-0.1.5.dist-info/METADATA,sha256=wIePJciQiD1Qny2lCGyIKERLwPnx96IO_nzhOR1FQuI,721
+echoloader-0.1.5.dist-info/RECORD,,
