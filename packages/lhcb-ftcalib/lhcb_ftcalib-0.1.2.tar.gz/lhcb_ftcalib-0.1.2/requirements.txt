@@ -1,0 +1,9 @@
+numpy
+pandas
+scipy
+iminuit>2.6.0
+pytest
+matplotlib
+flake8
+uncertainties
+numba<=0.53.1
