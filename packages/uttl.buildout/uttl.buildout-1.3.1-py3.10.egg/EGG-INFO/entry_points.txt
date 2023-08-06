@@ -1,0 +1,24 @@
+[zc.buildout]
+cmake = uttl.buildout.cmake.cmake_recipe:CmakeRecipe
+command = uttl.buildout.command_recipe:CommandRecipe
+copyfile = uttl.buildout.copyfile.copyfile_recipe:CopyFileRecipe
+devenv = uttl.buildout.devenv.devenv_recipe:DevenvRecipe
+dotnet-restore = uttl.buildout.dotnet.restore.dotnet_restore_recipe:DotnetRestoreRecipe
+inklecate = uttl.buildout.inklecate.inklecate_recipe:InklecateRecipe
+qmake = uttl.buildout.qmake.qmake_recipe:QmakeRecipe
+qtdeploy = uttl.buildout.qtdeploy.qtdeploy_recipe:QtDeployRecipe
+versioncheck = uttl.buildout.versioncheck.versioncheck_recipe:VersionCheckRecipe
+vswhere = uttl.buildout.vswhere.vswhere_recipe:VsWhereRecipe
+
+[zc.buildout.uninstall]
+cmake = uttl.buildout.cmake.cmake_recipe:uninstall
+command = uttl.buildout.command_recipe:uninstall
+copyfile = uttl.buildout.copyfile.copyfile_recipe:uninstall
+devenv = uttl.buildout.devenv.devenv_recipe:uninstall
+dotnet-restore = uttl.buildout.dotnet.restore.dotnet_restore_recipe:uninstall
+inklecate = uttl.buildout.inklecate.inklecate_recipe:uninstall
+qmake = uttl.buildout.qmake.qmake_recipe:uninstall
+qtdeploy = uttl.buildout.qtdeploy.qtdeploy_recipe:uninstall
+versioncheck = uttl.buildout.versioncheck.versioncheck_recipe:uninstall
+vswhere = uttl.buildout.vswhere.vswhere_recipe:uninstall
+
