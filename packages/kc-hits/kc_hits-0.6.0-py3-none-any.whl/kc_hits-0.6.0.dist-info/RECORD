@@ -1,0 +1,13 @@
+kc_hits-0.6.0.data/data/data/keychar_toxcast_mapping_20211119.csv,sha256=RgnMeaIZ5_FyQ3__OT6rnCUdoTXBBeZ2vZ4WmmMgpSk,33568
+kc_hits-0.6.0.data/data/db/assay_info_20211119.pkl,sha256=c56g88XLCnzMjKc64OEezXZk_5dmwRvLvIkK1O2Tt8I,257814
+kc_hits-0.6.0.data/data/db/toxcast_data_20211119.pkl,sha256=GCHFZicSSWogZYc-XkCbAyPNUYJiL1qRiTVT107OVws,151990077
+kc_hits-0.6.0.data/data/docs/instructions.txt,sha256=c6g1R_BYd7drDtucYJOg7wh_eais6C9LpwdewCKdIn0,759
+kc_hits-0.6.0.data/data/resources/aflatoxin.png,sha256=bKGzLQcJgn79LbIOTZAH7BXKxnJzsY7pOtkRMwXBAFI,50960
+kc_hits-0.6.0.data/data/resources/kcs.png,sha256=qbY52L1Im84TY7YR4GLNKHnstxoaXlN8HIxCDTuN8TA,11900
+kc_hits-0.6.0.data/data/templates/toxcast_data_template_20211119.xlsx,sha256=ByxtYs1F45IkLDGv9MoNa8Lq6ooU8Q2DzgVCy2NrnHc,19461
+kc_hits-0.6.0.dist-info/LICENSE,sha256=w18_1GvEEdGMnxj--f_MiHanZxCO9MJxr0UHNnhMffo,1086
+kc_hits-0.6.0.dist-info/METADATA,sha256=mN4IcJrbvd8ggjWtqPP4Pq42JZpaNNfq_HLbEOkUZZo,5741
+kc_hits-0.6.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+kc_hits-0.6.0.dist-info/entry_points.txt,sha256=1qLs3RJPticU1nHfVe-Tj1S7SnAOVu3gY-_CNQ9itPM,42
+kc_hits-0.6.0.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+kc_hits-0.6.0.dist-info/RECORD,,

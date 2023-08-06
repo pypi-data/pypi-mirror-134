@@ -1,0 +1,3 @@
+[console_scripts]
+kc_hits = kc_hits:main
+

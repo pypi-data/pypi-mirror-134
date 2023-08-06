@@ -1,0 +1,296 @@
+﻿ASSAY_ID,ASSAY_NAME,KEYCHAR_NUMBER,DESCRIPTION,NOTES
+319,NVS_ADME_hCYP19A1,1,Is electrophilic or can be metabolically activated,From Annex of IARC Monograph Volume 123
+767,TOX21_Aromatase_Inhibition,1,Is electrophilic or can be metabolically activated,From Annex of IARC Monograph Volume 123
+40,APR_HepG2_p53Act_24h_up,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+60,APR_HepG2_p53Act_72h_up,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+99,ATG_p53_CIS_up,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+2130,TOX21_DT40_100,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+2131,TOX21_DT40_657,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+781,TOX21_ELG1_LUC_Agonist,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1843,TOX21_H2AX_HTRF_CHO_Agonist_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1116,TOX21_p53_BLA_p1_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1317,TOX21_p53_BLA_p2_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1321,TOX21_p53_BLA_p3_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1325,TOX21_p53_BLA_p4_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+1329,TOX21_p53_BLA_p5_ratio,2,Is genotoxic,From Annex of IARC Monograph Volume 123
+80,ATG_GLI_CIS_up,4,Induces epigenetic alterations,From Annex of IARC Monograph Volume 123
+100,ATG_Pax6_CIS_up,4,Induces epigenetic alterations,From Annex of IARC Monograph Volume 123
+105,ATG_Sox_CIS_up,4,Induces epigenetic alterations,From Annex of IARC Monograph Volume 123
+106,ATG_Sp1_CIS_up,4,Induces epigenetic alterations,From Annex of IARC Monograph Volume 123
+2061,TOX21_HDAC_Inhibition,4,Induces epigenetic alterations,From Annex of IARC Monograph Volume 123
+42,APR_HepG2_StressKinase_24h_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+62,APR_HepG2_StressKinase_72h_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+82,ATG_HIF1a_CIS_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+91,ATG_MRE_CIS_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+96,ATG_NRF1_CIS_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+97,ATG_NRF2_ARE_CIS_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+194,BSK_BE3C_MMP1_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+248,BSK_hDFCGF_MMP1_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+256,BSK_hDFCGF_TIMP1_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+268,BSK_KF3CT_MMP9_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+274,BSK_KF3CT_TIMP2_up,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+1110,TOX21_ARE_BLA_agonist_ratio,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+1342,TOX21_ESRE_BLA_ratio,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+2065,TOX21_HRE_BLA_Agonist_ratio,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+1113,TOX21_HSE_BLA_agonist_ratio,5,Induces oxidative stress,From Annex of IARC Monograph Volume 123
+583,NVS_ENZ_oCOX1,5,Induces oxidative stress,Added on 20211012 for IARC Monograph Vol 130
+94,ATG_NF_kB_CIS_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+146,BSK_3C_Eselectin_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+148,BSK_3C_HLADR_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+150,BSK_3C_ICAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+152,BSK_3C_IL8_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+154,BSK_3C_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+156,BSK_3C_MIG_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+168,BSK_3C_VCAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+172,BSK_4H_Eotaxin3_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+174,BSK_4H_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+176,BSK_4H_Pselectin_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+182,BSK_4H_VCAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+186,BSK_BE3C_HLADR_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+188,BSK_BE3C_IL1a_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+190,BSK_BE3C_IP10_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+192,BSK_BE3C_MIG_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+208,BSK_CASM3C_HLADR_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+210,BSK_CASM3C_IL6_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+212,BSK_CASM3C_IL8_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+216,BSK_CASM3C_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+220,BSK_CASM3C_MIG_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+224,BSK_CASM3C_SAA_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+234,BSK_CASM3C_VCAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+240,BSK_hDFCGF_IL8_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+242,BSK_hDFCGF_IP10_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+246,BSK_hDFCGF_MIG_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+258,BSK_hDFCGF_VCAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+260,BSK_KF3CT_ICAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+262,BSK_KF3CT_IL1a_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+264,BSK_KF3CT_IP10_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+266,BSK_KF3CT_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+278,BSK_LPS_CD40_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+280,BSK_LPS_Eselectin_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+282,BSK_LPS_IL1a_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+284,BSK_LPS_IL8_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+286,BSK_LPS_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+290,BSK_LPS_PGE2_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+296,BSK_LPS_TNFa_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+298,BSK_LPS_VCAM1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+300,BSK_SAg_CD38_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+302,BSK_SAg_CD40_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+304,BSK_SAg_CD69_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+306,BSK_SAg_Eselectin_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+308,BSK_SAg_IL8_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+310,BSK_SAg_MCP1_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+312,BSK_SAg_MIG_up,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+1346,TOX21_NFkB_BLA_agonist_ratio,6,Induces chronic inflammation,From Annex of IARC Monograph Volume 123
+1855,ACEA_AR_agonist_80hr,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1856,ACEA_AR_antagonist_80hr,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2,ACEA_ER_80hr,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+63,ATG_Ahr_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+115,ATG_AR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+116,ATG_CAR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+70,ATG_DR4_LXR_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+71,ATG_DR5_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1417,ATG_ERa_TRANS_dn,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+117,ATG_ERa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+75,ATG_ERE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+118,ATG_ERRa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+119,ATG_ERRg_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+120,ATG_FXR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+122,ATG_GR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+81,ATG_GRE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+123,ATG_HNF4a_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+85,ATG_IR1_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+125,ATG_LXRa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+126,ATG_LXRb_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+131,ATG_NURR1_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+101,ATG_PBREM_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+132,ATG_PPARa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+133,ATG_PPARd_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+134,ATG_PPARg_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+102,ATG_PPRE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+135,ATG_PXR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+103,ATG_PXRE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+136,ATG_RARa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+137,ATG_RARb_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+138,ATG_RARg_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+139,ATG_RORb_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+104,ATG_RORE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+140,ATG_RORg_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+141,ATG_RXRa_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+142,ATG_RXRb_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+143,ATG_THRa1_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+144,ATG_VDR_TRANS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+113,ATG_VDRE_CIS_up,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+716,NVS_NR_hFXR_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+719,NVS_NR_hPPARg,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+721,NVS_NR_hPXR,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+739,OT_AR_ARELUC_AG_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+740,OT_AR_ARSRC1_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+741,OT_AR_ARSRC1_0960,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+742,OT_ER_ERaERa_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+743,OT_ER_ERaERa_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+744,OT_ER_ERaERb_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+745,OT_ER_ERaERb_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+746,OT_ER_ERbERb_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+747,OT_ER_ERbERb_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+750,OT_ERa_EREGFP_0120,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+751,OT_ERa_EREGFP_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+753,OT_FXR_FXRSRC1_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+754,OT_FXR_FXRSRC1_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+755,OT_NURR1_NURR1RXRa_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+756,OT_NURR1_NURR1RXRa_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+757,OT_PPARg_PPARgSRC1_0480,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+758,OT_PPARg_PPARgSRC1_1440,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+806,TOX21_AhR_LUC_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+761,TOX21_AR_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+762,TOX21_AR_BLA_Antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1822,TOX21_AR_LUC_MDAKB2_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+764,TOX21_AR_LUC_MDAKB2_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+765,TOX21_AR_LUC_MDAKB2_Antagonist_10nM_R1881,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1816,TOX21_AR_LUC_MDAKB2_Antagonist_0.5nM_R1881,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2047,TOX21_CAR_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2049,TOX21_CAR_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+785,TOX21_ERa_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+786,TOX21_ERa_BLA_Antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2115,TOX21_ERb_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2119,TOX21_ERb_BLA_Antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2055,TOX21_ERR_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2057,TOX21_ERR_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1119,TOX21_FXR_BLA_agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1120,TOX21_FXR_BLA_antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+793,TOX21_GR_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+794,TOX21_GR_BLA_Antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2068,TOX21_PGC_ERR_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2070,TOX21_PGC_ERR_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1124,TOX21_PPARd_BLA_agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1125,TOX21_PPARd_BLA_antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+802,TOX21_PPARg_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1127,TOX21_PPARg_BLA_antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2123,TOX21_PR_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+2127,TOX21_PR_BLA_Antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1659,TOX21_RAR_LUC_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1839,TOX21_RAR_LUC_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1661,TOX21_RORg_LUC_CHO_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1820,TOX21_RXR_BLA_Agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+803,TOX21_TR_LUC_GH3_Agonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+804,TOX21_TR_LUC_GH3_Antagonist,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1131,TOX21_VDR_BLA_agonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+1132,TOX21_VDR_BLA_antagonist_ratio,8,Modulates receptor-mediated effects,From Annex of IARC Monograph Volume 123
+788,TOX21_ERa_LUC_VM7_Agonist,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+909,CEETOX_H295R_ESTRONE_up,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+1443,ATG_LXRa_TRANS_dn,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+144,ATG_LXRb_TRANS_dn,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+1486,ATG_RXRb_TRANS_dn,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+656,NVS_GPCR_hV1A,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+969,LTEA_HepaRG_CYP2B6_up,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+963,LTEA_HepaRG_CYP1A1_up,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+965,LTEA_HepaRG_CYP1A2_up,8,Modulates receptor-mediated effects,Added on 20211012 for IARC Monograph Vol 130
+1850,ACEA_AR_agonist_AUC_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1857,ACEA_AR_antagonist_AUC_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1852,ACEA_ER_AUC_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+44,APR_HepG2_CellCycleArrest_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+45,APR_HepG2_CellLoss_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+27,APR_HepG2_MicrotubuleCSK_24h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+28,APR_HepG2_MicrotubuleCSK_24h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+47,APR_HepG2_MicrotubuleCSK_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+48,APR_HepG2_MicrotubuleCSK_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+29,APR_HepG2_MitoMass_24h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+49,APR_HepG2_MitoMass_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+50,APR_HepG2_MitoMass_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+31,APR_HepG2_MitoMembPot_24h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+51,APR_HepG2_MitoMembPot_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+52,APR_HepG2_MitoMembPot_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+54,APR_HepG2_MitoticArrest_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+35,APR_HepG2_NuclearSize_24h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+55,APR_HepG2_NuclearSize_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+56,APR_HepG2_NuclearSize_72h_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+64,ATG_AP_1_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+73,ATG_E2F_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+92,ATG_Myb_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+93,ATG_Myc_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+111,ATG_TCF_b_cat_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+112,ATG_TGFb_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+114,ATG_Xbp1_CIS_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1204,ATG_XTT_Cytotoxicity_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+157,BSK_3C_Proliferation_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+158,BSK_3C_Proliferation_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+159,BSK_3C_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+177,BSK_4H_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+184,BSK_4H_VEGFRII_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+197,BSK_BE3C_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+218,BSK_CASM3C_MCSF_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+221,BSK_CASM3C_Proliferation_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+222,BSK_CASM3C_Proliferation_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+225,BSK_CASM3C_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+238,BSK_hDFCGF_EGFR_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+244,BSK_hDFCGF_MCSF_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+251,BSK_hDFCGF_Proliferation_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+252,BSK_hDFCGF_Proliferation_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+253,BSK_hDFCGF_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+269,BSK_KF3CT_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+288,BSK_LPS_MCSF_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+291,BSK_LPS_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+314,BSK_SAg_PBMCCytotoxicity_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+315,BSK_SAg_Proliferation_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+316,BSK_SAg_Proliferation_up,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+317,BSK_SAg_SRB_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+807,TOX21_AhR_LUC_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1846,TOX21_AP1_BLA_Agonist_ratio,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1847,TOX21_AP1_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+763,TOX21_AR_BLA_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+766,TOX21_AR_LUC_MDAKB2_Antagonist_10nM_R1881_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1817,TOX21_AR_LUC_MDAKB2_Antagonist_0.5nM_R1881_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1185,TOX21_ARE_BLA_agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+768,TOX21_Aromatase_Inhibition_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2048,TOX21_CAR_Agonist_viabillity,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2050,TOX21_CAR_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1134,TOX21_DT40,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+782,TOX21_ELG1_LUC_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+787,TOX21_ERa_BLA_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2116,TOX21_ERb_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2120,TOX21_ERb_BLA_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2059,TOX21_ERR_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1343,TOX21_ESRE_BLA_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1188,TOX21_FXR_BLA_agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1121,TOX21_FXR_BLA_antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+795,TOX21_GR_BLA_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2060,TOX21_H2AX_HTRF_CHO_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2062,TOX21_HDAC_Inhibition_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2066,TOX21_HRE_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1186,TOX21_HSE_BLA_agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+797,TOX21_MMP_ratio_down,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+799,TOX21_MMP_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1347,TOX21_NFkB_BLA_agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1187,TOX21_p53_BLA_p1_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1318,TOX21_p53_BLA_p2_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1322,TOX21_p53_BLA_p3_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1326,TOX21_p53_BLA_p4_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1330,TOX21_p53_BLA_p5_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2072,TOX21_PGC_ERR_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1195,TOX21_PPARd_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1126,TOX21_PPARd_BLA_antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1128,TOX21_PPARg_BLA_antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2124,TOX21_PR_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2128,TOX21_PR_BLA_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1660,TOX21_RAR_LUC_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1840,TOX21_RAR_LUC_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1662,TOX21_RORg_LUC_CHO_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2074,TOX21_RT_HEK293_FLO_00hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2075,TOX21_RT_HEK293_FLO_08hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2077,TOX21_RT_HEK293_FLO_16hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2078,TOX21_RT_HEK293_FLO_24hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2080,TOX21_RT_HEK293_FLO_32hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2082,TOX21_RT_HEK293_FLO_40hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2084,TOX21_RT_HEK293_GLO_00hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2086,TOX21_RT_HEK293_GLO_08hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2088,TOX21_RT_HEK293_GLO_16hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2089,TOX21_RT_HEK293_GLO_24hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2091,TOX21_RT_HEK293_GLO_32hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2093,TOX21_RT_HEK293_GLO_40hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2095,TOX21_RT_HEPG2_FLO_08hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2097,TOX21_RT_HEPG2_FLO_24hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+2105,TOX21_RT_HEPG2_GLO_40hr_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1821,TOX21_RXR_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+805,TOX21_TR_LUC_GH3_Antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1331,TOX21_VDR_BLA_Agonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+1133,TOX21_VDR_BLA_antagonist_viability,10,"Alters cell proliferation, cell death, or nutrient supply",From Annex of IARC Monograph Volume 123
+43,APR_HepG2_CellCycleArrest_72h_dn,10,"Alters cell proliferation, cell death, or nutrient supply",Added on 20211012 for IARC Monograph Vol 130
