@@ -1,0 +1,4 @@
+Clien-karjakak>=0.1.7
+DecAn-karjakak>=0.2.5
+envarclear-karjakak>=0.1.0
+py7zr>=0.16.2
