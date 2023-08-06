@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: graph-wrapper
+Version: 1.0.0
+Summary: Wrapped of popular network libraries with type annotations
+Home-page: https://github.com/binh-vu/graph
+License: MIT
+Author: Binh Vu
+Author-email: binh@toan2.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: retworkx (>=0.10.2,<0.11.0)
