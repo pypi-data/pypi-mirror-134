@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import argparse
+from time_monitor import add_message
+
+
+parser = argparse.ArgumentParser(description='Specify tasks given an on-going activiity')
+parser.add_argument("message", action='append', nargs='+',
+                    help="message(s) specifying on-going task(s)")
+args = parser.parse_args()
+
+for ms in args.message:
+    for m in ms:
+        add_message(m)
