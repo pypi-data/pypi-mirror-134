@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: rawan_homework
+Version: 0.0.1
+Summary: Homework class Rawan
+Home-page: UNKNOWN
+Author: Rawan Al-Ghamdi
+Author-email: <rawan111188@gmail.com>
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: python,list,numbers,math
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown

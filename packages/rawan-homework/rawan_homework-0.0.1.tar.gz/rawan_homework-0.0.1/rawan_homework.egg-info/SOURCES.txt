@@ -1,0 +1,8 @@
+setup.py
+rawan_homework.egg-info/PKG-INFO
+rawan_homework.egg-info/SOURCES.txt
+rawan_homework.egg-info/dependency_links.txt
+rawan_homework.egg-info/requires.txt
+rawan_homework.egg-info/top_level.txt
+rawan_package/MyClass.py
+rawan_package/__init__.py
