@@ -1,0 +1,3 @@
+[console_scripts]
+move-files = upyog.os.cli:move_files
+
