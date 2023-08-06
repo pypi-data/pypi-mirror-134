@@ -1,0 +1,11 @@
+prodigyhelmsman/__init__.py,sha256=tX068WPCHIwVcyOdR8DXS-Mvgxl46jo_r8nrpy53X3o,88
+prodigyhelmsman/enquire_country.py,sha256=vOw-FR5rN4wrMvnKg0sjRm8dc2KzcpKoMjKOufnT6Bc,1184
+prodigyhelmsman/prodigyhelmsman.py,sha256=QX7N2vDb9K8Zqqau7hRZjqd48C2IpJfSu6FItIRDPYc,8433
+prodigyhelmsman/prodigyhelmsmanwsgi.py,sha256=jIaHc8-IHEUyAItKm_3yzSO11rShfH_4LyVzv1rWhXY,164
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_prodigyhelmsman.py,sha256=I59mAF16h5Zo0VHTA2weegJnC9WeXfcR3qfvKc9EYVQ,8320
+ProdigyHelmsman-0.0.1.dist-info/LICENSE,sha256=GSAKapQH5ZIGWlpQTA7v5YrfECyaxaohUb1vJX-qepw,1090
+ProdigyHelmsman-0.0.1.dist-info/METADATA,sha256=s9htE0_spMKSa-6ow9FyztddtobjK1rhkeeciGvA0lg,3534
+ProdigyHelmsman-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ProdigyHelmsman-0.0.1.dist-info/top_level.txt,sha256=L8nDwv1XuZ9Aceuvn1ZFXDj_3QT1O0hF7Iubaouqhho,22
+ProdigyHelmsman-0.0.1.dist-info/RECORD,,
