@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ppdl
+Version: 0.1.1
+Summary: Utils on the course Probabilistic Programming for Deep Learning
+Home-page: https://github.com/rramosp/ppdl/
+Author: raul ramos
+Author-email: raul.ramos@udea.edu.co
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+
+# Probabilistic Programming for Deep Learning
+
+for course material access http://rramosp.github.io/ppdl
+
+for libraries: `pip install ppdl`
+
+
