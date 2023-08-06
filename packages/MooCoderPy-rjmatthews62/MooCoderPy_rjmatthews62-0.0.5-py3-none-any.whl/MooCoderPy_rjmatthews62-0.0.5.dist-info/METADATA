@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: MooCoderPy-rjmatthews62
+Version: 0.0.5
+Summary: Coding IDE/Client for LambdaMOO style servers
+Home-page: https://github.com/rjmatthews62/MooCoderPy
+Author: Robbie Matthews
+Author-email: robbie@mithril.com.au
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/rjmatthews62/MooCoderPy/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# MooCoderPy
+Python/Tkinter version of Moocoder
+
+Very much a work in progress, but it currently works as a simple Moo client ( server details will need to be modified in code.
+Currently test1.py contains the startup code, but that will change over time.
+
+
