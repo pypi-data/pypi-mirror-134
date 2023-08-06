@@ -1,0 +1,7 @@
+setup.py
+maixhub/__init__.py
+maixhub.egg-info/PKG-INFO
+maixhub.egg-info/SOURCES.txt
+maixhub.egg-info/dependency_links.txt
+maixhub.egg-info/entry_points.txt
+maixhub.egg-info/top_level.txt
