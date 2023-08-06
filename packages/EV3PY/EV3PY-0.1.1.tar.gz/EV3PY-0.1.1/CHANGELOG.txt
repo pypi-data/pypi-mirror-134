@@ -1,0 +1,30 @@
+Change Log
+
+==========
+
+0.0.1 (22/10/2021)
+----------------------
+- First Release
+- From Actions Implemented:
+    - Medium Motor
+
+0.0.3 (30/11/2021)
+----------------------
+- Upgraded Medium Motor with classes for easier uses
+
+0.0.4 (14/01/2022)
+----------------------
+- From Actions Implemented:
+    - Grand Motor
+    - Standard Control
+    - Lever Control
+- More readable code
+
+0.1.1 ()
+-----------------------
+-From Controls Implemented:
+    - Start Block
+    - Loop
+        - Unlimited
+        - Iterations
+        - Time 
