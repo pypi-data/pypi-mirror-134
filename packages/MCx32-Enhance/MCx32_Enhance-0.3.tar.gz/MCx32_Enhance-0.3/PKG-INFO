@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: MCx32_Enhance
+Version: 0.3
+Summary: A solution to resize minecraft textures from x16 to x32. Assists with the conversion of assets between modpacks/resourcepacks.
+Home-page: https://github.com/jamesmskelsey/MCx32_Enhance
+Author: James Kelsey
+Author-email: jamesmskelsey@gmail.com
+License: MIT
+Download-URL: https://github.com/jamesmskelsey/MCx32_Enhance/archive/refs/tags/v_03.tar.gz
+Description: UNKNOWN
+Keywords: MINECRAFT,TEXTURES,CONVERT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Games/Entertainment :: Role-Playing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
