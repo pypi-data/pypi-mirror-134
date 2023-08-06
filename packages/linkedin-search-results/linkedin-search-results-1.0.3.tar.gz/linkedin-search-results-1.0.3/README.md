@@ -1,0 +1,73 @@
+LinkedIn search results is a python library to scrape LinkedIn search results, using browser automation. 
+It currently runs only on windows.
+
+### LinkedIn login with Credentials
+We first import library. Replace **"email"** and **"password"** with your credentials to login.
+```sh
+from linkedin_search_results import *
+linkedin.login(email="email",password="password")
+```
+
+### LinkedIn login with Cookies 
+We first import library. Replace **"cookies"** with login cookies.
+```sh
+from linkedin_search_results import *
+linkedin.login_cookies(cookies="cookies")
+```
+
+### LinkedIn search results scraper
+We first import library, then we provide the keyword to be scraped instead of **"keyword"**. to scrape LinkedIn search results.
+```sh
+from linkedin_search_results import *
+response=linkedin.search_results(keyword="keyword")
+```
+### Response Data
+```json
+       "title": "Adwords IndiaView Adwords India\u2019s profile",
+       "position": "Adwords Coupon at Google Ads",
+       "link": "https://www.linkedin.com/in/adwordsindia?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACvkQm8BiUuA9BgIlufcCW1I678EGwE77yg",
+       "location": "Delhi, India"
+```
+
+
+#### BotStudio
+[Bot_Studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up, logs in and then scrapes the search results based on the keyword given.
+
+
+### Installation
+
+```sh
+pip install linkedin-search-results
+```
+
+### Import
+```sh
+from linkedin_search_results import *
+```
+
+### Get LinkedIn Data by logging in with Credentials 
+```sh
+linkedin.login(email="email",password="password")
+response =linkedin.search_results(keyword="keyword")
+```
+
+### Get LinkedIn Data by logging in with Cookies
+```sh
+linkedin.login_cookies(cookies="cookies")
+response =linkedin.search_results(keyword="keyword")
+```
+### Cookies
+To login with cookies [Edit this Cookie Extension](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) can be added to browser. Please check [this](https://abhishek-chaudhary.medium.com/how-to-get-cookies-of-any-website-from-browser-22b3d6348ed2) link how to get cookies to login to your amazon.
+
+### Run bot on Cloud
+You can run bot on [Cloud](https://datakund.com/products/linkedin-profile-results-scraper).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
