@@ -1,0 +1,11 @@
+jamdist/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jamdist/distribution/__init__.py,sha256=eVVmbGwaqfjAF-x6cJFj9Hx5lr4ZguOCAEO05yYDeYM,36
+jamdist/distribution/img_flower.py,sha256=ssAe-k4JPoKjFHAnCHigbLqT9r9b1MKaLOkTAeRXJTI,5630
+jamdist/sampling/__init__.py,sha256=M8BlipepUl9LSkQLvqImPXfF3o960bP-jKscuIsXra8,99
+jamdist/sampling/esh.py,sha256=B_uLYZOhE84lU8lVbnF_yQR5dM16tqR-W1BU1L_9TlI,7721
+jamdist/sampling/hmc.py,sha256=txm0JmOgZlyzM6fXjlOYNmWKUxQQQK6TcrYy_0tJlhY,1831
+jamdist/sampling/langevin.py,sha256=ur-3jFme46w0Am2iq-pkzJvC1SMKmFBWrUziats0-PA,374
+jam_dist-0.0.1.dist-info/METADATA,sha256=0j3WY21cab4SFzJUb8gntIBKRnRSYpjNyPZyPSjWzY4,582
+jam_dist-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+jam_dist-0.0.1.dist-info/top_level.txt,sha256=Oy7VRkS90Iqs6q696aXuOVpgw12w-uH0NvOOviQZwvc,8
+jam_dist-0.0.1.dist-info/RECORD,,
