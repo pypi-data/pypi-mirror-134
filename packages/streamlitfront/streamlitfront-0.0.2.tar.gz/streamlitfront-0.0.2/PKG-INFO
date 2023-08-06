@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: streamlitfront
+Version: 0.0.2
+Summary: Generate streamlit frontends from python functions
+Home-page: https://github.com/i2mint/streamlitfront
+Author: OtoSense
+License: apache-2.0
+Platform: any
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# streamlitfront
+Generate streamlit frontends from python functions
+
+
+To install:	```pip install streamlitfront```
+
+
