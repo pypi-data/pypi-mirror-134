@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+invalid/__init__.py
+invalid/prompt.py
+invalid.egg-info/PKG-INFO
+invalid.egg-info/SOURCES.txt
+invalid.egg-info/dependency_links.txt
+invalid.egg-info/requires.txt
+invalid.egg-info/top_level.txt
