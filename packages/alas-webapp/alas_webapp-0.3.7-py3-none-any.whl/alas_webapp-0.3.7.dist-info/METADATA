@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: alas-webapp
+Version: 0.3.7
+Summary: A dependency of AzurLaneAutoScript webapp
+Home-page: https://github.com/LmeSzinc/alas-webapp
+Author: LmeSzinc
+Author-email: lmeszincsales@gamil.com
+License: UNKNOWN
+Platform: python3
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# alas-webapp
+
+A dependency of [AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript) webapp.
+
+
+
