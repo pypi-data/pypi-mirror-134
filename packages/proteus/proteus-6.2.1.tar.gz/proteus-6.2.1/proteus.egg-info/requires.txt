@@ -1,0 +1,4 @@
+python-dateutil
+
+[trytond]
+trytond<6.3,>=6.2
