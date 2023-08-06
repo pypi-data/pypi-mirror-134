@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/guhs_server/__init__.py
+src/guhs_server/boot_script.py
+src/guhs_server/server.py
+src/guhs_server/shell.py
+src/guhs_server/storage.py
+src/guhs_server.egg-info/PKG-INFO
+src/guhs_server.egg-info/SOURCES.txt
+src/guhs_server.egg-info/dependency_links.txt
+src/guhs_server.egg-info/entry_points.txt
+src/guhs_server.egg-info/requires.txt
+src/guhs_server.egg-info/top_level.txt
+test/test_it_works.py
