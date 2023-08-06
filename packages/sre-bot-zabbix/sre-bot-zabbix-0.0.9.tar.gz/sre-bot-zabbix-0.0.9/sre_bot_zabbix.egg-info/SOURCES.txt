@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+sre_bot_zabbix/__init__.py
+sre_bot_zabbix/replace_chars.txt
+sre_bot_zabbix/zabbix-adapter.py
+sre_bot_zabbix/zabbix-sender.py
+sre_bot_zabbix.egg-info/PKG-INFO
+sre_bot_zabbix.egg-info/SOURCES.txt
+sre_bot_zabbix.egg-info/dependency_links.txt
+sre_bot_zabbix.egg-info/requires.txt
+sre_bot_zabbix.egg-info/top_level.txt
