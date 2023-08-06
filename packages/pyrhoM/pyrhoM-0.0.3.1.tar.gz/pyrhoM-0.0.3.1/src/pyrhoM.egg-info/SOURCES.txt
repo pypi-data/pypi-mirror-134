@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/pyrho/UI.py
+src/pyrho/__init__.py
+src/pyrho/runPyRho.py
+src/pyrhoM.egg-info/PKG-INFO
+src/pyrhoM.egg-info/SOURCES.txt
+src/pyrhoM.egg-info/dependency_links.txt
+src/pyrhoM.egg-info/top_level.txt
