@@ -1,0 +1,3 @@
+[console_scripts]
+snap-sync-cleanup=snap_sync_cleanup.snap_sync_cleanup:main
+
