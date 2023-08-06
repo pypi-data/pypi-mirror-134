@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: avogadr-py
+Version: 0.0.1
+Summary: Simple avogadr.io batch downloader python script.
+Home-page: https://github.com/czechbol/avogadr-py
+Author: Adam Ludes
+Author-email: adam@ludes.cz
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/czechbol/avogadr-py/issues
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiofiles (<1,>=0.8)
+Requires-Dist: aiohttp (<4,>=3.8)
+
+# avogadr-py
+
+Simple avogadr.io batch downloader python script
+
+## Acknowledgement
+
+- I would like to thank [Saul Johnson](https://github.com/lambdacasserole)
+  for the amazing [avogadr.io](https://avogadr.io) website that is used as basis for this script.
+
+
