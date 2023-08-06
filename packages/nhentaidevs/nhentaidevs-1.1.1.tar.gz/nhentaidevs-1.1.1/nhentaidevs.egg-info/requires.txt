@@ -1,0 +1,6 @@
+beautifulsoup4
+coloredevs
+requests
+click
+tqdm
+toml
