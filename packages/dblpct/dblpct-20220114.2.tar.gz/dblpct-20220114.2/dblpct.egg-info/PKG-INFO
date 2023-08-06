@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: dblpct
+Version: 20220114.2
+Summary: double the % to two.
+Home-page: https://github.com/mollinaca/dblpct
+Author: mollinaca
+Author-email: mail@mollinaca.dev
+License: CC0
+Description: # dblpct
+        
+        The % in the string given as the first argument is doubled and output to stdout.  
+        It's my hobby CLI tool.  
+        
+        ## install
+        
+        ```
+        # pip install dblpct
+        ```
+        
+        
+        ## how to use
+        
+        ex1)
+        ```
+        # dblpct http://example.com/%E3%83%86%E3%82%B9%E3%83%88URL
+        http://example.com/%%E3%%83%%86%%E3%%82%%B9%%E3%%83%%88URL
+        ```
+        
+        ex2)
+        ```
+        # dblpct -r http://example.com/%%E3%%83%%86%%E3%%82%%B9%%E3%%83%%88URL
+        http://example.com/%E3%83%86%E3%82%B9%E3%83%88URL
+        ```
+        
+        `-r`  means `Reverse operation` of this tool.
+        
+        ex3)
+        ```
+         # dblpct -r $(dblpct %%)
+        %%
+        
+         # dblpct $(dblpct -r %%)
+        %%
+        
+         # dblpct $(dblpct %%)
+        %%%%%%%%
+        ```
+        
+        ## Caution
+        
+        Special characters in bash, etc. are not escaped.  
+        They will be interpreted as a command line string when entered.  
+        
+        ex1)
+        ```
+         # dblpct FJWRF%)faw
+        -bash: syntax error near unexpected token `)'
+        ```
+        
+        If you want to enter special characters,  
+        enclose them in quotes or escape them appropriately.  
+        
+        ex2)
+        ```
+         # dblpct 'fahj4(jfawe&%%fawle$kf'
+        fahj4(jfawe&%%%%fawle$kf
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
