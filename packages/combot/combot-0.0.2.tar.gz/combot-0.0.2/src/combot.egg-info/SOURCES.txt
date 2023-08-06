@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/combot/__init__.py
+src/combot/placeholder.py
+src/combot.egg-info/PKG-INFO
+src/combot.egg-info/SOURCES.txt
+src/combot.egg-info/dependency_links.txt
+src/combot.egg-info/top_level.txt
