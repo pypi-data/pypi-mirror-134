@@ -1,0 +1,12 @@
+COPYING
+MANIFEST.in
+README.rst
+html2text.py
+setup.cfg
+setup.py
+djangoplicity_html2text.egg-info/PKG-INFO
+djangoplicity_html2text.egg-info/SOURCES.txt
+djangoplicity_html2text.egg-info/dependency_links.txt
+djangoplicity_html2text.egg-info/entry_points.txt
+djangoplicity_html2text.egg-info/not-zip-safe
+djangoplicity_html2text.egg-info/top_level.txt
