@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: proj_init
+Version: 1.0.1
+Summary: Automate your workflow with proj_init command.
+Home-page: https://github.com/thalesnunes/proj_init
+Author: Thales Nunes
+Author-email: thalesaknunes22@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Project Initializer
+
+Everytime you want to start a project you do the basics. go to your projects folder, create a new folder for the project, do your git commands, sync the repo, add a README file and push your initial commit.
+
+That is what this simple project is for, making your life easier, and doing all that automatically for you.
+
+Setting up:
+
+1. Create two Environment Variables:
+
+    - First named `GIT_AUTOMATION` with the value being a Github Personal Access Token
+    - Second named `PROJECTS` with the value being the path to where you want your automatic projects to be created
+
+2. Install the requirements.
+
+3. Usability: `python3 create [-h] [-l] [-p] <repo_name>`.
+
+Happy Coding!
+
+
