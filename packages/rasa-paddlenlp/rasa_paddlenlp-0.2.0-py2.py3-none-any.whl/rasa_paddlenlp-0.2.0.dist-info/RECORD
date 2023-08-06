@@ -1,0 +1,11 @@
+rasa_paddlenlp/__init__.py,sha256=vCIQzG4-bfcUwJyGkowPpQG9im1002t6r99LLRDbozM,128
+rasa_paddlenlp/nlu/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rasa_paddlenlp/nlu/paddlenlp_featurizer.py,sha256=zLDDxJ2wBOcILrZ_chLrLT7dTqWBqAkBCJonL6AWHQc,31930
+rasa_paddlenlp/nlu/paddlenlp_registry.py,sha256=_M5nxi_55QMYJiTOzdbpONxgjEDL37vz9cLqHP0Hgao,1741
+rasa_paddlenlp/nlu/paddlenlp_tokenizer.py,sha256=ylfxNo5mvLxvtmVx-xc8WhdrRvwvsf2itCNhe_ORudg,3005
+rasa_paddlenlp-0.2.0.dist-info/AUTHORS.rst,sha256=VDG89Y5YsGjkuDSbuR05EVmZcW-yDYI72IZcx9QLNbI,152
+rasa_paddlenlp-0.2.0.dist-info/LICENSE,sha256=F8a4uA8PgfleHOqWSK-IHf27ZDfHNn_Nro4QLt5wFzA,1070
+rasa_paddlenlp-0.2.0.dist-info/METADATA,sha256=b026pBIL01Yn6XyOOOctjdT-qiZZ43bgYtxxi-t3mzY,1842
+rasa_paddlenlp-0.2.0.dist-info/WHEEL,sha256=8zNYZbwQSXoB9IfXOjPfeNwvAsALAjffgk27FqvCWbo,110
+rasa_paddlenlp-0.2.0.dist-info/top_level.txt,sha256=-uv4vOk4HOdrMwuLCmiVN3jmmAFNO8e-XFYI59Vfwjs,15
+rasa_paddlenlp-0.2.0.dist-info/RECORD,,
