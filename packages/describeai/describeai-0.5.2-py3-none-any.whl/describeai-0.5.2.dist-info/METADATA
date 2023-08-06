@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: describeai
+Version: 0.5.2
+Summary: Official Python SDK for Describe.ai
+Home-page: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: requests (>=2.26)
+
+Please visit https://beta.clevr-ai.com/docs for API examples and documentation.
+
