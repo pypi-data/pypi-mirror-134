@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: test-automata
+Version: 2022.1.12.post2
+Summary: Exabyte Automated Publishing Sandbox
+Home-page: https://github.com/Exabyte-io/automata
+Author: Exabyte Inc.
+Author-email: info@exabyte.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# automata
+
+Automata is a shell package used for debugging workflow automation.
+It contains minimal python and javascript packages with just
+enough code to programmatically provide the versions of said
+packages. It is not intended to be used for any other purposes.
+
+
+
