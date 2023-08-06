@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+string2datetime/__init__.py
+string2datetime/string2datetime.py
+string2datetime.egg-info/PKG-INFO
+string2datetime.egg-info/SOURCES.txt
+string2datetime.egg-info/dependency_links.txt
+string2datetime.egg-info/top_level.txt
