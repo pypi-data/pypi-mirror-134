@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+libnadagclient/__init__.py
+libnadagclient/cmd.py
+libnadagclient.egg-info/PKG-INFO
+libnadagclient.egg-info/SOURCES.txt
+libnadagclient.egg-info/dependency_links.txt
+libnadagclient.egg-info/entry_points.txt
+libnadagclient.egg-info/requires.txt
+libnadagclient.egg-info/top_level.txt

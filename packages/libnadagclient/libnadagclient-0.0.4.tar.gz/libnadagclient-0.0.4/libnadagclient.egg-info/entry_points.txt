@@ -1,0 +1,4 @@
+[libsgfdata.parsers]
+nadag_bbox = libnadagclient.cmd:parse_bbox
+nadag_project = libnadagclient.cmd:parse_project
+
