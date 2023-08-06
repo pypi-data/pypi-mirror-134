@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: balsamish
+Version: 0.8.0
+Summary: A framework for composable task descriptions
+Home-page: https://gitlab.com/ai/libraries/balsam/
+Author: Bart Frenk
+Author-email: bart.frenk@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
