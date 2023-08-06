@@ -1,0 +1,4 @@
+#!/bin/bash
+module_location=$(python3 -c "import os; import pkgutil; print(os.path.dirname(pkgutil.get_loader('locust_plugins').get_filename()))")
+set -x
+docker-compose -f $module_location/timescale/docker-compose.yml "$@"
