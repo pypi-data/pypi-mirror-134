@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/py_streamkompressor.egg-info/PKG-INFO
+src/py_streamkompressor.egg-info/SOURCES.txt
+src/py_streamkompressor.egg-info/dependency_links.txt
+src/py_streamkompressor.egg-info/requires.txt
+src/py_streamkompressor.egg-info/top_level.txt
+src/streamkompressor/__init__.py
+src/streamkompressor/streamkompressor.py
