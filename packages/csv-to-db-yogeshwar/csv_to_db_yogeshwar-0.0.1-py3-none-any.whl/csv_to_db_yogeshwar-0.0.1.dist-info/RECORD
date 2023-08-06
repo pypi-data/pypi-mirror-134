@@ -1,0 +1,8 @@
+csv_to_db_package/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+csv_to_db_package/crud_operations_db.py,sha256=hmVnFjOOavmEPSN-QaeSIIyL4vrTbLqvqr7lKcgynzE,8848
+csv_to_db_package/csv_to_db.py,sha256=ma_e2LmksmnyfaqxS2jHO51CqCmKxNrs_aaAoTL6pO0,5199
+csv_to_db_yogeshwar-0.0.1.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+csv_to_db_yogeshwar-0.0.1.dist-info/METADATA,sha256=15tRI5PHAQOd0Rxqx5GAzD8EDSCUSrOpQfT41sUAM4M,694
+csv_to_db_yogeshwar-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+csv_to_db_yogeshwar-0.0.1.dist-info/top_level.txt,sha256=f-zyM790_BumgI295e8RzRqpT6sD9MCw5Ac0ki7GY4g,18
+csv_to_db_yogeshwar-0.0.1.dist-info/RECORD,,
