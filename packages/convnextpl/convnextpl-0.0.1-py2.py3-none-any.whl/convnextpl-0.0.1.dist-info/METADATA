@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: convnextpl
+Version: 0.0.1
+Summary: An implementation of the ConvNeXt architecture built on the PyTorch-Lightning API
+Home-page: https://github.com/jlehrer1/ConvNeXt-lightning
+Author: Julian Lehrer
+Author-email: jmlehrer@ucsc.edu
+License: MIT license
+Keywords: convnextpl
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: torch
+Requires-Dist: pytorch-lightning
+Requires-Dist: lightning-bolts
+Requires-Dist: Pillow
+Requires-Dist: timm
+
+# ConvNeXt-Lightning
+An implementation of the ConvNeXt architecture built on the PyTorch-Lightning API. The base model code (forward passes and architecture) are from the FAIR repo [here](https://github.com/facebookresearch/ConvNeXt).
+
+This library allows easy loading of an untrained ConvNeXt model from the PyTorch Lightning API. Additionally, it provides an `ImageDataset(nn.Dataset)` module for image classification tasks. 
+
+
+
+

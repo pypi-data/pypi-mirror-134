@@ -1,0 +1,12 @@
+convnextpl/__init__.py,sha256=yICEotg0GohvDvmmgVjVyo3xntsnAiykrkwt-QOOgBE,135
+convnextpl/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convnextpl/data/imagedataset.py,sha256=wkNjRF3iA9cgEX0Yi77ho6KjkyKCWp3wg4qU6cMKLZU,768
+convnextpl/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convnextpl/models/blocks.py,sha256=-BzewAl67nX-h7hPaluK9-PCfH_3L86-tK5Unz1oSBs,3138
+convnextpl/models/convnext.py,sha256=uMx-OzdAnzFnl-u1E-Fu3eYgBNsk_9AusI0TBvw-V40,4360
+convnextpl/models/convnext_isotropic.py,sha256=C_nx4USHEvvjeP7L3D10794efraGRMH_kb_6EgXE9qE,136
+convnextpl-0.0.1.dist-info/LICENSE,sha256=AxteWM5HiAFSnnp-TGNlgb8JOBTJMemTOAzyHBaRCPs,1070
+convnextpl-0.0.1.dist-info/METADATA,sha256=wB_0IGGSSQTWIEBEud_vo4bVrgL3SNQNC5-4K3xJ7Fs,1408
+convnextpl-0.0.1.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+convnextpl-0.0.1.dist-info/top_level.txt,sha256=yXRFqsAObQujVUg3BnORZUqi6bj6jh-uzak_UZvvXoo,11
+convnextpl-0.0.1.dist-info/RECORD,,
