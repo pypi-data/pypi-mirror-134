@@ -1,0 +1,7 @@
+numpy
+scipy
+xarray
+paramiko
+einops
+matplotlib
+rich
