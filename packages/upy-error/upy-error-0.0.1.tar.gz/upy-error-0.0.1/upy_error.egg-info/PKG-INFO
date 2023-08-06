@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: upy-error
+Version: 0.0.1
+Summary: Python Trace Error
+Home-page: https://github.com/UpyExplorer/upy-error
+Author: Fernando Celmer
+Author-email: email@fernandocelmer.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# upy-error
+
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/upy-error)
+![PyPI - License](https://img.shields.io/pypi/l/upy-error)
+![PyPI](https://img.shields.io/pypi/v/upy-error)
+![GitHub last commit](https://img.shields.io/github/last-commit/UpyExplorer/upy-error)
+![GitHub followers](https://img.shields.io/github/followers/UpyExplorer?label=UpyExplorer&style=social)
+<br>
+
+## How to install?
+```python
+
+pip install upy-error
+
+```
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+## Contact
+
+Fernando Celmer- email@fernandocelmer.com
+
+Project Link: [https://github.com/UpyExplorer/upy-error](https://github.com/UpyExplorer/upy-error)
+
+
