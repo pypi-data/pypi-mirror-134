@@ -1,0 +1,12 @@
+minio
+redis
+paho-mqtt
+gnsq
+aonsq
+qiniu
+boto
+diskcache
+httpx
+aiofile
+aiohttp
+aiohttp_retry
