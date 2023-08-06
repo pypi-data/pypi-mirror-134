@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+solsys/__init__.py
+solsys/core.py
+solsys/horizons.py
+solsys/plots.py
+solsys/transform.py
+solsys.egg-info/PKG-INFO
+solsys.egg-info/SOURCES.txt
+solsys.egg-info/dependency_links.txt
+solsys.egg-info/requires.txt
+solsys.egg-info/top_level.txt
+solsys/data/constellations.txt
+solsys/data/hipparcos.csv
