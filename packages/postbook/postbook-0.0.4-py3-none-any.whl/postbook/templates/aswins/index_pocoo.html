@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+  
+    <title>Blog | {{author_name}}'s Thoughts and Writings</title>
+    <link rel="stylesheet" href="./static/style_pocoo.css" type="text/css">
+    <link href="/feed.atom" rel="alternate" title="{{site_title}}" type="application/atom+xml">
+    <meta property="title" content="Blog">
+    <meta property="og:title" content="Blog">
+    <meta name="twitter:site" content="@{{twitter_url}}">
+    <meta name="twitter:title" content="Blog" />
+  
+  </head>
+  <body>
+    <div class=container>
+      <div class=header>
+        <a href="/about/">{{author_name}}</a>'s Thoughts and Writings
+      </div>
+      <div class=navigation>
+        <ul>
+          <li><a href="/">blog</a>
+          <li><a href="/projects/">projects</a>
+          <li><a href="/about/">about</a>
+        </ul>
+      </div>
+      <div class=body>
+        
+
+  <div class=entry-wrapper>
+    <div class=entry-overview>
+      <!-- <div class=date>{{Jan 6, 2022}}</div> -->
+      <div class=date>{{post_date}}</div>
+      <div class=detail>
+        <h1><a href="{{post_url}}">{{post_title}}</a></h1>
+        
+        <div class=summary><p>{{post_summary}}</p>
+</div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+    <div class=pagination>
+  <span class=disabled>&laquo; Previous</span> — <strong>1</strong> — <a href="/page/2/">Next &raquo;</a>
+</div>
+   
+
+      </div>
+      <div class=footer>
+        <p>&copy; Copyright 2022 by {{author_name}}.
+        <p>
+          Content licensed under the Creative Commons
+          attribution-noncommercial-sharealike License.
+        <p>
+          Contact me via <a href="{{blog_mail}}">mail</a>,
+          <a href="{{blog_twitter}}">twitter</a>,
+          <a href="{{blog_github}}">github</a> or
+          <a href="{{blog_linkedin}}">Linkedin</a>.
+        <p>
+          More info: <a href="/about#imprint">imprint</a>.
+          Subscribe <a href="/feed.atom" rel="alternate" title="{{site_title}}">to Atom feed</a>
+          (or <a href="http://www.devtacular.com/utilities/atomtorss/?url=http%3a%2f%2flucumr.pocoo.org%2ffeed.atom">RSS</a>)
+      </div>
+    </div>
+    
+  </body>
+</html>
