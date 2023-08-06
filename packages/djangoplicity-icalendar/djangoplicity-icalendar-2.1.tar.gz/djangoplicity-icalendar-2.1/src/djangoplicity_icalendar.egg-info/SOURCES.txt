@@ -1,0 +1,16 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+src/djangoplicity_icalendar.egg-info/PKG-INFO
+src/djangoplicity_icalendar.egg-info/SOURCES.txt
+src/djangoplicity_icalendar.egg-info/dependency_links.txt
+src/djangoplicity_icalendar.egg-info/top_level.txt
+src/icalendar/__init__.py
+src/icalendar/cal.py
+src/icalendar/caselessdict.py
+src/icalendar/interfaces.py
+src/icalendar/parser.py
+src/icalendar/prop.py
+src/icalendar/tools.py
+src/icalendar/util.py
