@@ -1,0 +1,20 @@
+:kbd:`c-_`	(And: Condition, Condition, Condition)	Incremental undo
+:kbd:`c-a`	(And: Condition, Condition, Condition)	Move to the start of the current line
+:kbd:`c-b`	(And: Condition, Condition, Condition)	Move back a character
+:kbd:`c-k`	(And: Condition, Condition, Condition)	Kill the text from the cursor to the end of the line
+:kbd:`c-m`	(And: Condition, (Not: Condition), (Or: Condition, Condition))	When the user presses return, insert a newline or execute the code
+:kbd:`c-n`	(And: Condition, Condition)	Control-N in vi edit mode on readline is history previous, unlike default prompt toolkit
+:kbd:`c-o`	(And: Condition, Condition)	insert a newline after the cursor indented appropriately
+:kbd:`c-p`	(And: Condition, Condition)	Control-P in vi edit mode on readline is history next, unlike default prompt toolkit
+:kbd:`c-w`	(And: Condition, Condition, Condition)	Kills the word before point, using "not a letter nor a digit" as a word boundary
+:kbd:`c-x c-e`	(And: Condition, Condition, Condition)	Invoke an editor on the current command line, and accept the result
+:kbd:`c-x e`	(And: Condition, Condition, Condition)	Invoke an editor on the current command line, and accept the result
+:kbd:`c-y`	(And: Condition, Condition, Condition)	Paste before cursor
+:kbd:`escape .`	(And: Condition, Condition, Condition)	Like `yank_nth_arg`, but if no argument has been given, yank the last word of each line
+:kbd:`escape b`	(And: Condition, Condition, Condition)	Move back to the start of the current or previous word
+:kbd:`escape c`	(And: Condition, Condition, Condition)	Capitalize the current (or following) word
+:kbd:`escape d`	(And: Condition, Condition, Condition)	Kill from point to the end of the current word, or if between words, to the end of the next word
+:kbd:`escape h`	(And: Condition, Condition, Condition)	Kills the word before point, using "not a letter nor a digit" as a word boundary
+:kbd:`escape l`	(And: Condition, Condition, Condition)	Lowercase the current (or following) word
+:kbd:`escape u`	(And: Condition, Condition, Condition)	Uppercase the current (or following) word
+:kbd:`escape y`	(And: Condition, Condition, Condition)	Rotate the kill ring, and yank the new top
