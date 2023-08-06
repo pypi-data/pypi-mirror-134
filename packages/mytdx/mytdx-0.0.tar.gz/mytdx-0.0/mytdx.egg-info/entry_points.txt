@@ -1,0 +1,6 @@
+[console_scripts]
+get_tts = mytdx.bin.get_tdx_trader_server:main
+hqbenchmark = mytdx.bin.hqbenchmark:main
+hqget = mytdx.bin.hqget:main
+hqreader = mytdx.bin.hqreader:main
+
