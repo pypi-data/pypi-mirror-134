@@ -1,0 +1,6 @@
+[console_scripts]
+itint_console = itint.main:main
+
+[gui_scripts]
+itint = itint.main:main
+
