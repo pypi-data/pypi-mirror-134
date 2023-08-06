@@ -1,0 +1,4 @@
+fxcmpy==1.2.10
+python-socketio==4.4
+python-engineio==3.9
+websocket-client

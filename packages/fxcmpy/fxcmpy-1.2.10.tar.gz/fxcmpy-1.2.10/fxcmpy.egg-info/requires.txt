@@ -1,0 +1,6 @@
+pandas
+python-socketio==4.4
+configparser
+requests[socks]
+python-engineio==3.9
+websocket-client
