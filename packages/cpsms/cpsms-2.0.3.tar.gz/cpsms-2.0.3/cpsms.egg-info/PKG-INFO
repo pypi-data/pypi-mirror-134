@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cpsms
+Version: 2.0.3
+Summary: A Python wrapper around the SMS gateway from CPSMS <https://www.cpsms.dk/>.
+Home-page: https://github.com/decibyte/cpsms
+Author: Mikkel Munch Mortensen
+Author-email: 3xm@detfalskested.dk
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: COPYING.txt
+
+UNKNOWN
+

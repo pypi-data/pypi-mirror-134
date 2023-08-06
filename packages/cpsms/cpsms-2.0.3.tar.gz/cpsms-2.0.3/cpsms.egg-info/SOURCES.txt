@@ -1,0 +1,11 @@
+COPYING.txt
+MANIFEST.in
+README.txt
+examples.py
+setup.py
+cpsms/__init__.py
+cpsms/cpsms.py
+cpsms.egg-info/PKG-INFO
+cpsms.egg-info/SOURCES.txt
+cpsms.egg-info/dependency_links.txt
+cpsms.egg-info/top_level.txt
