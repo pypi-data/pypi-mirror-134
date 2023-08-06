@@ -1,0 +1,9 @@
+numpy==1.19.1
+treeswift==1.1.19
+torch<=1.7.1,>=1.3
+pandas==1.3.0
+pytorch-lightning==1.0.5
+biopython==1.79
+omegaconf==2.1.0
+apples
+dendropy==4.5.2
