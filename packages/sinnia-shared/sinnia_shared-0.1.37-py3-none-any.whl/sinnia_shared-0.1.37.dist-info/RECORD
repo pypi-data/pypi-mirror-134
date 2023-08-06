@@ -1,0 +1,8 @@
+shared/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shared/amqp.py,sha256=t7rajYoHIJxIBdcTV1NwZc88A2yOoN80Xu77KZFVrDU,7746
+shared/timezones.py,sha256=fC7-5FAqoKeSK4hI3jxZeZExI6xMpb4WH0-e8U90Pdg,2975
+shared/utils.py,sha256=oUPqXpKemH6UjjEU1n8ge5K7eMcmt2hF_JN8QjR0uAk,5978
+sinnia_shared-0.1.37.dist-info/METADATA,sha256=v9yiQgBUBzxQ_WN2ULJOXqnIhwtt_0Q3OotpH4yETCs,442
+sinnia_shared-0.1.37.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+sinnia_shared-0.1.37.dist-info/top_level.txt,sha256=z5mXWqeZX62G-ufzsJBRQ_MKUlAZRN_yYAKvyZw7hBk,7
+sinnia_shared-0.1.37.dist-info/RECORD,,
