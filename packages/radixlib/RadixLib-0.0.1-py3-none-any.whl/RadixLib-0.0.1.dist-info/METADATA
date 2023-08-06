@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: RadixLib
+Version: 0.0.1
+Summary: A Python package written to make the interaction with the Radix blockchain easier
+Home-page: https://github.com/0xOmarA/RadixLib
+Author: Omar Abdulla
+Author-email: OmarAbdulla7@hotmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/0xOmarA/RadixLib/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Natural Language :: English
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: wheel
+Requires-Dist: requests
+Requires-Dist: dateparser
+Requires-Dist: pycryptodome
+Requires-Dist: mnemonic
+Requires-Dist: hdwallet
+Requires-Dist: bech32
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+
+# RadixLib
+
+Hi! You're early! I'm still writing this library and the documentation. 
+You can find me on Twitter if you need me: @0xOmarA
+
