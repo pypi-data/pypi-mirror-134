@@ -1,0 +1,9 @@
+click
+img2pdf
+openpyxl
+requests
+sqlalchemy
+prettytable
+human-readable
+webrequests
+simple-loggers
