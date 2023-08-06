@@ -1,0 +1,9 @@
+README.md
+setup.py
+json_trek/__init__.py
+json_trek/main.py
+json_trek/test_json_trek.py
+json_trek.egg-info/PKG-INFO
+json_trek.egg-info/SOURCES.txt
+json_trek.egg-info/dependency_links.txt
+json_trek.egg-info/top_level.txt
