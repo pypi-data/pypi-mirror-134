@@ -1,0 +1,9 @@
+LICENCE.txt
+README.md
+setup.py
+src/tsectc/__init__.py
+src/tsectc/tsectc.py
+src/tsectc.egg-info/PKG-INFO
+src/tsectc.egg-info/SOURCES.txt
+src/tsectc.egg-info/dependency_links.txt
+src/tsectc.egg-info/top_level.txt
