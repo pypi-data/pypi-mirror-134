@@ -1,0 +1,5 @@
+terraform_version/__init__.py,sha256=Jzb_RfgvXCrm_SQ4AfeGVi1N36YybxnM5mpyxrnihgI,33
+terraform_version/version.py,sha256=y38zXIRLlgEVydpeJLcQRTDYqNV96V8T59eZVbspBfU,23
+terraform_version-0.12.5.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+terraform_version-0.12.5.dist-info/METADATA,sha256=0g5Na7FGe9qMr0j9vHdetgiui-ZLNBG5sNZqmIiyslU,934
+terraform_version-0.12.5.dist-info/RECORD,,
