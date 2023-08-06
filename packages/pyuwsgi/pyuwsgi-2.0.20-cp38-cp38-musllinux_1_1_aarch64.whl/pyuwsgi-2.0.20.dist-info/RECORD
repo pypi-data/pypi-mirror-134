@@ -1,0 +1,12 @@
+pyuwsgi.cpython-38-aarch64-linux-gnu.so,sha256=lY-Kw5EQEJMy4-DN6KtdbLw6OD3dA-0gsZ4M_ypisl0,1740448
+uwsgidecorators.py,sha256=_h8_gbFYC6qOy7x5zp6iJrtyxns9Rm_h1oHEOLX6eVI,10392
+pyuwsgi.libs/libpcre-529706bc.so.1.2.6,sha256=B3IM28o8FHYKqT-syVafSOJjkq7ooy0XMNUdxZKyDVY,590976
+pyuwsgi.libs/libexpat-9d7c3165.so.1.6.11,sha256=4RgMJd_eA7oxpEoPLjvDiiZQtgGj6YATVeQTm54N1xM,133640
+pyuwsgi.libs/libuuid-de51504c.so.1.3.0,sha256=SgrcC4EAjy80KvfWe5cUtlGnm98iuXrm-CksKe3Ullk,66560
+pyuwsgi.libs/libjansson-6f033870.so.4.11.0,sha256=wwekLP6Nx2D_7NGkrSKbsy3lQXcKZ5kfV0kIm58EcS4,329976
+pyuwsgi-2.0.20.dist-info/METADATA,sha256=9DPCY9DrkNCIBqc-wNgRgbiDQgdB-j5A0ZiW4hsy9nI,3318
+pyuwsgi-2.0.20.dist-info/WHEEL,sha256=0xtzNd7cuWG9wNNRuTR9kUm4pGHcezhj9XRDC_vN30Q,112
+pyuwsgi-2.0.20.dist-info/RECORD,,
+pyuwsgi-2.0.20.dist-info/LICENSE,sha256=yklTmfXaPOJyRkm0frEY91STRLpYwM81DZTDOQ5DWJc,18628
+pyuwsgi-2.0.20.dist-info/top_level.txt,sha256=2hUbP7rqnIuGkFflVcnATIpi9ZVtMjLRsX3VG4ApvlE,24
+pyuwsgi-2.0.20.dist-info/entry_points.txt,sha256=Y5sa_aLm2nEHKDg115cLGWKbml-8_tUvNFse-Pq24nQ,61
