@@ -1,0 +1,6 @@
+README.rst
+setup.py
+package_itmorn_talk.egg-info/PKG-INFO
+package_itmorn_talk.egg-info/SOURCES.txt
+package_itmorn_talk.egg-info/dependency_links.txt
+package_itmorn_talk.egg-info/top_level.txt
