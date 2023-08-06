@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+backpack_backup.egg-info/PKG-INFO
+backpack_backup.egg-info/SOURCES.txt
+backpack_backup.egg-info/dependency_links.txt
+backpack_backup.egg-info/entry_points.txt
+backpack_backup.egg-info/requires.txt
+backpack_backup.egg-info/top_level.txt
