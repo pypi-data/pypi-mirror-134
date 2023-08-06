@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "impler"
+version = "0.1.0"
+description = ""
+authors = ["Roman <roman-right@protonmail.com>"]
+license = "Apache-2.0"
+homepage = "https://github.com/roman-right/impler"
+repository = "https://github.com/roman-right/impler"
+keywords = ["impl", "impler", "implementation", "pattern", "sync", "async", "python"]
+include = [
+    "LICENSE",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+asyncio = "^3.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+pytest-asyncio = "^0.17.0"
+pytest-cov = "^3.0.0"
+pydoc-markdown = "^4.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov-report term-missing --cov=impler --cov-branch --cov-fail-under=85"
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
