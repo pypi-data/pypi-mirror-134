@@ -1,0 +1,3 @@
+[console_scripts]
+md_wash = md_wash:entry_point
+
