@@ -1,0 +1,13 @@
+altair
+click
+emoji
+nltk
+pandas
+psycopg2-binary==2.8.6
+send2trash
+sql-query-tools
+sqlalchemy
+streamlit
+humanize
+plotly
+stylecloud
