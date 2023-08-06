@@ -1,0 +1,28 @@
+[project]
+name = "kyops"
+version = "0.1.0-b"
+description = "kyops Python library for performing operations on data structures in python"
+readme = "README.md"
+dependencies = []
+requires-python = ">=3.8"
+[[project.authors]]
+name = "KOUASSI Yves"
+email = "kouassives@gmail.com"
+
+[build-system]
+requires = [ "pdm-pep517",]
+build-backend = "pdm.pep517.api"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+homepage = "https://github.com/kouassives/kyops/tree/main/Python"
+
+[project.optional-dependencies]
+
+[tool.pdm.dev-dependencies]
+test = [ "pytest~=6.2",]
+
+[tool.pdm.scripts.test]
+cmd = "pytest tests"
