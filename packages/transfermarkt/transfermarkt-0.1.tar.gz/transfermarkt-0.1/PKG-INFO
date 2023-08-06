@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: transfermarkt
+Version: 0.1
+Summary: A package to query transfermarkt, mainly aimed at statistics
+Home-page: https://github.com/omerbd21/transfermarkt
+Author: Omer Ben David
+Author-email: omerbendavid21@gmail.com
+License: MIT
+Download-URL: https://github.com/omerbd21/transfermarkt/archive/refs/tags/test.tar.gz
+Description: UNKNOWN
+Keywords: transfermarkt,ML,Statistics,BeautifulSoup,AI,Football,Soccer
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
