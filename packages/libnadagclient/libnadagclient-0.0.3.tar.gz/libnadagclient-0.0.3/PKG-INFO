@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: libnadagclient
+Version: 0.0.3
+Summary: Client library for the geotechnical database
+Home-page: https://github.com/emerald-geomodelling/libnadagclient
+Author: Egil Moeller
+Author-email: em@emeraldgeo.no
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Client library for the geotechnical database at https://geo.ngu.no/kart/nadag/
+
