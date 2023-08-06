@@ -1,0 +1,435 @@
+Metadata-Version: 2.1
+Name: openautomatumdronedata
+Version: 0.2.0
+Summary: A utility package for the open automatum drone dataset
+Home-page: https://www.automatum-data.com
+Author: Peter Zechel
+Author-email: peter@automatum-data.com
+License: CC-BY-SA
+Project-URL: Bug Reports, https://bitbucket.org/automatum/open.automatum.dronedata/issues?status=new&status=open
+Project-URL: Documentation, https://openautomatumdronedata.readthedocs.io/en/latest/
+Project-URL: Source, https://bitbucket.org/automatum/open.automatum.dronedata/src/master/
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: bokeh (>2.0.0)
+
+
+![](https://www.automatum-data.com/-_-/res/364f0a3b-b8c0-4436-b97c-efad6e87a10b/images/files/364f0a3b-b8c0-4436-b97c-efad6e87a10b/83a25a57-6446-4c1e-9106-005ac5fd2d72/640-135/828451cade2c8f19c5be794314a323bbac5f0b82)
+
+# Motivation
+
+This package provides an object-oriented structure for loading and analyzing the AUTOMATUM DATA dataset. It is intended to enable the rapid use of the dataset in research and development and to extend the contained data by additional values calculated on demand. In addition, a web server-based visualization is provided to give an instant overview of the dataset.
+
+
+**Download the the dataset from [https://www.automatum-data.com](https://www.automatum-data.com)**
+
+Documentation of this package is available under: [https://openautomatumdronedata.rtfd.io](https://openautomatumdronedata.rtfd.io)
+
+A video with annotated objects can be found **[here.](https://www.youtube.com/watch?v=FTHRNN-XNdY)**
+
+![](https://www.automatum-data.com/-_-/res/364f0a3b-b8c0-4436-b97c-efad6e87a10b/images/files/364f0a3b-b8c0-4436-b97c-efad6e87a10b/9fbc7c7c-1347-45ea-93f2-9b826b1c3e89/384-464/2cdf0d1b33e51842927cdc507a9f491c0e136db9?o=width:384/height:464/
+)
+
+# Installation
+```
+pip install openautomatumdronedata
+```
+or depending on your machine
+```
+pip3 install openautomatumdronedata
+```
+
+In addition, the package can also be installed manually, e.g. by placing the sources in your project folder.
+
+
+
+# Data Structure
+
+The Automatum dataset consists of over 100 independent records, with each video corresponding to about 15 minutes of recorded highway data. As an example, a dataset excerpt is included in the Git repository. 
+
+Each dataset itself consists of two files: 
+- **dynamicWorld.json** behavior of objects such as cars, trucks, etc. 
+- **staticWorld.xodr** road geometry and lanes of the highway. 
+
+So this Python package has two goals: 
+- Easy access to the information contained in **dynamicWorld.json** and **staticWorld.xodr**.  
+- Extend the contained data by providing methods to compute additional information.
+
+In addition to the following introduction, take a look at the generated [documentation] (https://openautomatumdronedata.rtfd.io). There you will find detailed information about each implemented function. 
+
+The entry point for accessing a dataset is to load a dataset using the ``DroneDataset`` class:
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+
+path_to_dataset_folder = os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248")
+dataset = droneDataset(path_to_dataset_folder)
+```
+
+this command reads the **dynamicWorld.json** and **staticWorld.xodr** and presents the complete data in an object-oriented structure. This allows all further data accesses to be made with the instance of the ``drone dataset`` class.
+
+
+# Dynamic World
+The dynamic world holds all information about dynamic objects (cars, trucks, vans) in the dataset and handles the access to objects over the recording time. Additionally its provided access to on demand calculate values which are not part of the dataset. 
+
+You can access the dynamic world by
+```python
+dynWorld = dataset.dynWorld
+```
+
+The dynamic world provides you the following variables:
+| **Variable** | **Description** |
+|--------------|-----------------|
+|**UUID** | Unique UUID of the dataset |
+|**frame_count** | Number of images/frames |
+| **fps** | Frame Rate |
+| **delta_t** |  Time between two frames (1/fps) \[s\] |
+| **environmental** | Additional environmental info, see dataset documentation for further information. |
+| **utm_referene_point** | Reference point in the world coordinate system in UTM-Format. This reference point is the center of the coordinate system for the given position. The points is given as a tuple of (x \[m\], y \[m\], letter, number) |
+| **dynamicObjects** | List of dynamic object. Its recommended to use the included functions to access the dynamic objects. |
+| **maxTime** | Maximum time of the dataset \[s\] |
+
+## Example
+```python
+dynWorld = dataset.dynWorld
+print(dynWorld.UUID)
+print(dynWorld.frame_count)
+print(dynWorld.fps)
+print(dynWorld.delta_t)
+print(dynWorld.utm_referene_point)
+print(dynWorld.dynamicObjects) # Possible but not recommended. Use further discussed functions.
+print(dynWorld.maxTime)
+```
+
+## Objects
+
+Objects are represented by a set of type specific class:
+- ``carObject``
+- ``truckObject``
+- ``carWithTrailerObject``
+- ``motorcycleObject``
+
+
+All these classes inherited from the base class ```dynamicObject```, which implements the following features. This means you can use all the functions independently form the object type.  
+
+Per Object the following information are available as scalar:
+| **Variable** | **Description** |
+|--------------|-----------------|
+| **length** | Length of the object \[m\] |
+|**width** | Width of the object \[m\] |
+| **UUID** | Unique UUID of the object |
+|**delta_t** | Time difference between two data points (equal at all objects and with the ```dynamicObject```) |
+
+Per object the following information are available as vector over time: 
+| **Variable** | **Description** |
+|--------------|-----------------|
+| **x_vec** | x-Position of the assumed center of gravity of the object in the local coordinate system |
+| **y_vec**  | y-Position of the assumed center of gravity of the object in the local coordinate system |
+| **vx_vec** | Velocity in x-direction of the local coordinate system  |
+| **vy_vec** | Velocity in y-direction of the local coordinate system |
+| **ax_vec**  | Acceleration of the object in x-direction **in the vehicle coordinate system** |
+ **ay_vec** | Acceleration of the object in y-direction **in the vehicle coordinate system** |
+| **time** | Vector of the timestamp in the dataset recording for the mention values |
+
+
+## Example
+```python
+
+dynWorld = dataset.dynWorld
+dynObjectList = dynWorld.get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject = dynObjectList[0]
+
+print(dynObject.x_vec)
+print(dynObject.y_vec)
+print(dynObject.vx_vec)
+print(dynObject.vy_vec)
+print(dynObject.psi_vec)
+print(dynObject.ax_vec)
+print(dynObject.ay_vec)
+print(dynObject.length)
+print(dynObject.width)
+print(dynObject.time)
+print(dynObject.UUID)
+print(dynObject.delta_t) 
+
+```
+
+The driving dynamic values are additionally summarized in the following image:
+
+![](VehicleDynamics.png)
+
+
+
+To keep the size of the dataset files as small as possible the data of the objects is only provided for the time intervale where the object is visitable in the video recording. Therefore, the first element in the time vector is the entry time and the last element the time of exit. 
+
+To allow an easy access to objects, the following methods are implemented. 
+
+**Within the dynamic world:**
+
+```python
+dynWorld = dataset.dynWorld
+len(dynWorld) # Returns the number of included object
+dynWorld.get_list_of_dynamic_objects_for_specific_time(1.0) # Gives you a list of all objects which are included in the first second of the recording
+```
+
+
+```python
+dynWorld = dataset.dynWorld
+dynObjectList = dynWorld.get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject = dynObjectList[0]
+
+print(dynObject.get_first_time()) # Returns the time the object occurs the first time
+print(dynObject.get_last_time()) # Returns the time the object occurs the last time
+print(dynObject.is_visible_at(10)) # Checks if the object is visible at the given time
+```
+
+To access the object vector based on a defined time step. You can use the function ```next_index_of_specific_time``` to convert a given time into the index of the data vectors at that given time, like
+
+```python
+dynWorld = dataset.dynWorld
+dynObjectList = dynWorld.get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject = dynObjectList[0]
+time_vec = np.arrange(dynObject.get_first_time(),
+                      dynObject.get_last_time(),
+                      dynObject.delta_t)
+# Print positions
+x_vec = dynObject.x_vec
+y_vec = dynObject.y_vec
+for time in time_vec:
+    idx = dynObject.get_object_relation_for_defined_time(time)
+    print("At time %0.2f the vehicle is at position %0.2f, %0.2f" % (time, x_vec[idx], y_vec[idx]))
+```
+
+## On Demand values for object
+Beside the already discussed values in the object section this python package is able to calculate additional values for objects. Since it is more efficient to calculated the information for all objects at the same time, the dataset class has a main function to trigger the calculation. After this function has been executed. The following discussed values are available for all objects.  
+
+To trigger the calculation call the ```calculate_on_demand_values_for_all_objects``` method of the dataset class, like: 
+
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+
+path_to_dataset_folder = os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248")
+dataset = droneDataset(path_to_dataset_folder)
+dataset.calculate_on_demand_values_for_all_objects()
+```
+
+**Notice that the calculation take a view seconds.** 
+
+After this calculation the following data is available: 
+- Object to lane assignment (OTLA)
+- Object Relations 
+
+### Object to lane assignment (OTLA)
+The object-lane mapping is calculated for each object in each time step with corresbonding lane ID.
+
+The x and y position of the object is used as a reference. Thus, the time stamp at which the lane ID changes is when that position passes over the lane marker. 
+
+The lane ID is defined by the static world of *xodr*, for more details see the static world chapter. Where all lane IDs with the same sign (e.g. positive) belong to one driving direction. Absolutely low IDs belong to a lane closer to the center of the road (between driving directions). Note that a lane ID does not have to start at 0, as there may also be an unnavigable lane near the center of the road. 
+
+
+**To access the Lane ID use:** 
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+
+path_to_dataset_folder = os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248")
+dataset = droneDataset(path_to_dataset_folder)
+dataset.calculate_on_demand_values_for_all_objects()
+get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject = dynObjectList[0]
+print(dynObject.lane_id)  # Print lane id of the objects
+```
+### Object Relations 
+
+The object relation describing the relative position between object based on a view of one defined vehicle:
+
+![](ObjectRelation.png)
+
+The object relation are defined as dict of \<relation name\>:\<UUID of other object\>. If an object has no relation to an other then the element is still in the dict, however, the value is ``` None```. Therefore, the access is as followed
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+
+path_to_dataset_folder = os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248")
+dataset = droneDataset(path_to_dataset_folder)
+dataset.calculate_on_demand_values_for_all_objects()
+dynObjectList = dataset.get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject = dynObjectList[0]
+object_relation_dict = dynObject.object_relation_dict_list  # Get object relation dict 
+print(object_relation_dict["front_ego"])
+print(object_relation_dict["behind_ego"])
+print(object_relation_dict["front_left"])
+print(object_relation_dict["behind_left"])
+print(object_relation_dict["front_right"])
+print(object_relation_dict["behind_right"])
+```
+
+### Lateral and Longitudinal Position between Objects
+
+Since the datasets consists also roads with a curvature, objects are not aligned to the coordinate system. Since the lateral and longitudinal distance are imported the function ``get_lat_and_long`` is introduced. 
+
+
+![](Lat_Long_Distance.png)
+
+**The function can be called like:**
+
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+
+path_to_dataset_folder = os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248")
+dataset = droneDataset(path_to_dataset_folder)
+dataset.calculate_on_demand_values_for_all_objects()
+dynObjectList = dataset.get_list_of_dynamic_objects_for_specific_time(1.0)
+dynObject1 = dynObjectList[0]
+dynObject2 = dynObjectList[1]
+
+long_distance, lat_distance = dynObject1.get_lat_and_long(1.0, dynObject2)
+print(long_distance, lat_distance)
+
+```
+
+
+
+# Static World 
+We implemented a basic parser for *xodr* with some additional functionality. This parser stores the relevant information in the so called Static World. As the Dynamic World the Static World can be accessed by the dataset class:
+
+```python
+statWorld = dataset.statWorld
+```
+
+The Static World consist of a hierarchically structure of different classed to represents the *xodr*. Further information of *xodr* can be found **[here.](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4422&token=e590561f3c39aa2260e5442e29e93f6693d1cccd#top-792f18a2-f184-4906-8ba0-717c09b36673)**
+
+We highly recommend to get a basic understanding of *xodr* if lane related information are used. 
+
+# Examples 
+For the introduction to working with the *Open-Automatum-Drone-Data* package some basic examples will be useful.
+### Average over all objects  
+This example calculates the mean velocity of all objects. 
+```python
+from openautomatumdronedata.dataset import droneDataset
+import os
+import numpy as np
+
+dataset = droneDataset(os.path.abspath("datasets/highwayautumn-945ee2ff-4e82-407c-a15b-7161876b4248"))
+
+for dynObj in dataset.dynWorld.get_list_of_dynamic_objects():
+    vx_vec = np.asarray(dynObj.vx_vec)
+    vy_vec = np.asarray(dynObj.vy_vec)
+    mean_v = 3.6*np.mean(np.sqrt(vx_vec*vx_vec + vy_vec*vy_vec)) # Calculate the velocity in km/h
+    print("%s %s drives with %.2f km/h"%(dynObj.__class__.__name__, dynObj.UUID, mean_v))
+
+```
+
+### Analyzing lane changing objects 
+This examples makes intensive use of the on demand calculates values. 
+Thereby, all lane changing objects are identified, and the min-distance of a lane changing object to the vehicle in front calculated. 
+```python
+from openautomatumdronedata.dataset import * 
+
+
+dataset = droneDataset(os.path.abspath("datasets/hw-a9-stammhamm-015-39f0066a-28f0-4a68-b4e8-5d5024720c4e"))
+dataset.calculate_on_demand_values_for_all_objects() # Calculates the values which are not included in the dataset
+
+list_of_objects_which_performs_a_lane_change = list()
+for dynObj in dataset.dynWorld.get_list_of_dynamic_objects():
+    if(min(dynObj.lane_id) != max(dynObj.lane_id)):
+        print("Object found with UUID %s to type %s"%(dynObj.UUID, str(type(dynObj))))
+        list_of_objects_which_performs_a_lane_change.append(dynObj)
+
+
+time_vec = np.arange(0, dataset.dynWorld.maxTime, dataset.dynWorld.delta_t)
+distance_vec = []
+for time in time_vec:
+    print("Analyzing lane change object for time %f" % time)
+    obj_in_timestamp = dataset.dynWorld.get_list_of_dynamic_objects_for_specific_time(time)
+    for dyn_obj in obj_in_timestamp:
+        if(dyn_obj in list_of_objects_which_performs_a_lane_change):
+            object_relation = dyn_obj.get_object_relation_for_defined_time(time)
+            obj_uuid_front_ego_line = object_relation["front_ego"]
+            if(obj_uuid_front_ego_line is not None):
+                obj_front_ego_line = dataset.dynWorld.get_dynObj_by_UUID(obj_uuid_front_ego_line)
+                x_front, y_front = obj_front_ego_line.get_object_position_for_defined_time(time)
+                x_ego, y_ego = dyn_obj.get_object_position_for_defined_time(time)
+                dx = x_ego - x_front
+                dy = y_ego - y_front
+                distance = math.sqrt(dx*dx + dy*dy)
+                distance_vec.append(distance)
+
+
+print("Min distance to front object of all object performing a lane change is %f" % min(distance_vec))
+```
+
+### Analyzing Passing Distance
+
+
+This example calculated the minimum passing distance between two objects. 
+
+
+```python
+from openautomatumdronedata.dataset import * 
+
+dataset = droneDataset(os.path.abspath("datasets/hw-a9-stammhamm-015-39f0066a-28f0-4a68-b4e8-5d5024720c4e"))
+
+time_vec = np.arange(0, dataset.dynWorld.maxTime, dataset.dynWorld.delta_t)
+distance_vec = []
+for time in time_vec:
+    print("Analyzing objects for time %f" % time)
+    obj_in_timestamp = dataset.dynWorld.get_list_of_dynamic_objects_for_specific_time(time)
+    for dyn_obj in obj_in_timestamp:
+        for other_dyn_obj in obj_in_timestamp:
+            if(dyn_obj.UUID != other_dyn_obj.UUID):
+                long, lat = dyn_obj.get_lat_and_long(time, other_dyn_obj)
+                if(abs(long) < dyn_obj.length/2):
+                    
+                    passing_distance = lat - np.sign(lat) * dyn_obj.width/2 - np.sign(lat) * other_dyn_obj.width/2
+                    distance_vec.append(abs(passing_distance))
+
+print("Min lateral passing distance between two objects is  %f" % min(distance_vec))
+```
+## Visualization
+
+This package also provides a basic visualization of the dataset via a web server realized by bokeh.
+
+
+In addition, the package can also be installed manually, e.g. by placing the source in the appropriate project folder.
+
+
+If you installed the package via pip simply starte the visualization by typing:
+```
+automatum_vis
+```
+To start the visualization manually execute the ```automatumBokehSever.py``` script. 
+
+To open a dataset simple copy the path of the dataset folder into the text filed on the top of the webpage. 
+By clicking load the dataset will be loaded and visualized. 
+
+![](https://www.automatum-data.com/-_-/res/364f0a3b-b8c0-4436-b97c-efad6e87a10b/images/files/364f0a3b-b8c0-4436-b97c-efad6e87a10b/650b86fa-0811-48f9-be39-edc07e552107/240-43/568f0d4c3c716632137e10b91718c8316df39e66)
+
+
+After loading a dataset you should get a comparable view:
+
+![](https://www.automatum-data.com/-_-/res/364f0a3b-b8c0-4436-b97c-efad6e87a10b/images/files/364f0a3b-b8c0-4436-b97c-efad6e87a10b/80ddc0e3-f350-42e6-af88-721688ab8fdd/240-401/c48ba2dae76049521920e458e0dedfb171c59e0a)
+
+
+## Note
+We are currently in an early alpha phase of our development. 
+
+The implementation of *xodr* via the bokeh server currently supports only straight or single lane roads. Other road elements are not displayed or are displayed incorrectly. The *xodr* itself is generated using IPG's *CarMaker* tool and is fully represented. 
+
+## Requeired python packages: 
+```
+pip install bokeh
+```
+
+
+
+
