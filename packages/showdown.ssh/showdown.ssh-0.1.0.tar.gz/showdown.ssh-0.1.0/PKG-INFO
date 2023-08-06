@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: showdown.ssh
+Version: 0.1.0
+Summary: A tool to automate local network health checks
+Home-page: https://github.com/boshimoto/showdown
+Author: Boshimoto
+Author-email: author@example.com
+License: MIT License
+Project-URL: Bug Tracker, https://github.com/boshimoto/showdown/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# showdown
+A tool to automate local network health checks on Cisco iOS devices.
++ You will be prompted to enter a username/password
++ A folder will be generated on your local desktop
++ You will then enter the FQDN
++ showdown will ssh to the device
++ Execute each show command *(NOT in enable)*
++ Defaults are; 'show ssh' + 'show ver'
++ The command output is then saved to the folder on your local desktop
++ You will then be prompted to enter additional FQDN, to repeat the above using the original username/password entered at the start of session
++ When finished, enter 'y'
+
+##Requires
+>Python 3.8
+
+>Windows 10
+
+##Install:
+
+>pip install showdown.ssh
+
+##Run:
+**View install directory:**
+
+>pip show showdown.ssh
+
+**Launch the app:**
+
+1. navigate to directory 
+2. navigate to /showdown.ssh/showdown
+>python showdown.py
+
+##Uninstall:
+
+>pip uninstall -y showdown.ssh
+___
+
+`https://pypi.org/project/showdown.ssh/`
+
