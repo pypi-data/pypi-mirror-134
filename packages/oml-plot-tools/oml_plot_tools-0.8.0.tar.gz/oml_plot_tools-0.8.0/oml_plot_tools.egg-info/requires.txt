@@ -1,0 +1,5 @@
+argparse
+numpy
+matplotlib
+Pillow
+iotlabcli>=2.0.0

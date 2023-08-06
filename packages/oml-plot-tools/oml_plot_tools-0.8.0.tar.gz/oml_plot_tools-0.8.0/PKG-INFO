@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: oml_plot_tools
+Version: 0.8.0
+Summary: IoT-LAB OML plot tools
+Home-page: http://www.iot-lab.info
+Author: IoT-LAB Team
+Author-email: admin@iot-lab.info
+License: CeCILL v2.1
+Download-URL: http://github.com/iot-lab/oml-plot-tools/
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Description-Content-Type: text/x-rst
+License-File: COPYING
+License-File: AUTHORS
+
+OML Plot Tools
+==============
+
+|CI| |Codecov|
+
+.. |CI| image:: https://github.com/iot-lab/oml-plot-tools/workflows/CI/badge.svg
+    :target: https://github.com/iot-lab/oml-plot-tools/actions?query=workflow%3ACI+branch%3Amaster
+    :alt: CI status
+
+.. |Codecov| image:: https://codecov.io/gh/iot-lab/oml-plot-tools/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/iot-lab/oml-plot-tools/branch/master
+   :alt: Codecov coverage status
+
+
