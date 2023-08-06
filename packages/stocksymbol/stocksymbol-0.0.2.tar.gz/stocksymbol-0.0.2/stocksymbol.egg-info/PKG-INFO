@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: stocksymbol
+Version: 0.0.2
+Summary: Provides a list stock symbols for all major stock exchanges
+Home-page: https://github.com/yongghongg/
+Author: Yonghong Tan
+Author-email: yongghongg@hotmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Introduction
+This package connects to the stocksymbolsapi that I created and allows you to get list of stock symbols from all major stock exchanges over the world.
+
+# How to use
+You need to have an API key
+
+# Useful links
+- https://help.yahoo.com/kb/SLN2310.html
+
+
+# Sponsor this project
+
