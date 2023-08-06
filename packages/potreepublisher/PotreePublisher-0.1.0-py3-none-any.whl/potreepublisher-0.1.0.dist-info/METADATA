@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: potreepublisher
+Version: 0.1.0
+Summary: Small CLI to quickly publish a single LAS file or a whole folder to a Potree server.
+License: MIT
+Author: Elie-Alban LESCOUT
+Author-email: elie-alban.lescout@ensg.eu
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: typer[all] (>=0.4.0,<0.5.0)
+Description-Content-Type: text/markdown
+
+# PotreePublisher
+Small CLI to quickly publish a single LAS file or a whole folder to a Potree server.
+```
+Usage: PotreePublisher [OPTIONS] INPUT_PATH
+
+Arguments:
+  INPUT_PATH  Path to the point cloud or a folder of point clouds to process.
+              Any type supported by PotreeConverter is possible.  [required]
+
+Options:
+  --potree-server-root TEXT  Root path of the potree server.  [default:
+                             /var/www/potree]
+  --point-cloud-folder TEXT  Folder where the point cloud will be stored after
+                             conversion to Potree Format.  [default:
+                             pointclouds]
+  --viewer-folder TEXT       Folder where the viewer html page will be stored.
+                             [default: results]
+  --help                     Show this message and exit.
+```
+## Installation
+Installation instructions coming soon!
+
+
