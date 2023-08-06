@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: project-version
+Version: 0.3.0
+Summary: Explicitly and strictly control project version with semantic versioning.
+Home-page: https://github.com/dmytrostriletskyi/project-version
+Author: Dmytro Striletskyi
+Author-email: dmytro.striletskyi@gmail.com
+License: UNKNOWN
+Description: # project-version
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
