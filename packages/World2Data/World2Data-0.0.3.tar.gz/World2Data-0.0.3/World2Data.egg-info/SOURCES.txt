@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tox.ini
+.github/workflows/test_and_deploy.yml
+World2Data.egg-info/PKG-INFO
+World2Data.egg-info/SOURCES.txt
+World2Data.egg-info/dependency_links.txt
+World2Data.egg-info/entry_points.txt
+World2Data.egg-info/requires.txt
+World2Data.egg-info/top_level.txt
+World_2_Data/World_to_data_script.py
+World_2_Data/__init__.py
+World_2_Data/_version.py
