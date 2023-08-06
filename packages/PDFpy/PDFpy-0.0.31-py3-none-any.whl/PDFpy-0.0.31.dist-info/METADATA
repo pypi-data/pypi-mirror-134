@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: PDFpy
+Version: 0.0.31
+Summary: Simple PDF editing made fast
+Home-page: UNKNOWN
+Author: Jonas Ha
+Author-email: <jonasharriehausen@gmail.com>
+License: UNKNOWN
+Requires-Dist: PyPDF2
+
+
+A simple PDF editor that handles PDFs like lists of pages
+
