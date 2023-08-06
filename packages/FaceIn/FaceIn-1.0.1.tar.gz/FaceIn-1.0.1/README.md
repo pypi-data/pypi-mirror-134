@@ -1,0 +1,49 @@
+# Face In
+Sign in system with face recognition
+Based on code from https://github.com/serengil/deepface
+
+Urs Utzinger, 2022
+
+## Requisits
+```
+pip3 install deepface
+pip3 install camera-util
+```
+
+Create folder database and place images of known faces into them. Supports .jpg files.  
+
+Supports multiple images for same person, in database/First_Last/First_Last001.jpg
+
+## Configuration
+
+```
+detector_backend        = "retinaface"  # opencv*, ssd, mtcnn, dlib, retinaface
+freeze_time             = 5             # how will the results be displayed
+frame_threshold         = 5             # how many frames required to focus on a face, 5*
+minimum_face_width      = 180           # filter out small faces, depends on camera
+```
+
+```
+model_name              = "ArcFace"     # VGG-Face*, Facenet, OpenFace, DeepFace, DeepID, Dlib, ArcFace or Ensemble
+distance_metric         = "cosine"      # cosine*, euclidean, euclidean_l2
+datafile                = "./database/bme210_2022Spring.dat"
+db_path                 = "./database"  # Folder for .jpg files of known faces
+```
+
+## Performance
+
+| Detector   | Example exection time in ms | Works w glasses | Works w obstruction | Works w facemask |
+|------------|-----------------------------|-----------------|---------------------|------------------|
+| Retinaface | 172-233                     | yes             | yes                 | yes              |
+| OpenCV     | 40-56                       | no              | no                  | no               |
+| SSD        | 19-30                       | yes             | yes                 | no               |
+| MTCNN      | 873-1029                    | yes             | yes                 | no               |
+| DLIB       | 346-352                     | yes             | no                  | no               |
+
+| Model      | Example exection time in ms | Works w glasses | Works w obstruction | Works w facemask |
+|------------|-----------------------------|-----------------|---------------------|------------------|
+| ArcFace    |                             |                 |                     |                  |
+| VGG-Face   |                             |                 |                     |                  |
+| FaceNet    |                             |                 |                     |                  |
+| OpenFace   |                             |                 |                     |                  |
+| DeepID     |                             |                 |                     |                  |
