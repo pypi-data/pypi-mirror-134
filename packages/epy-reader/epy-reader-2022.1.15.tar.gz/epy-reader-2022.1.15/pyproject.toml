@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "epy-reader"
+version = "2022.1.15"
+description = "CLI Ebook Reader"
+authors = ["Benawi Adha <benawiadha@gmail.com>"]
+license = "GPL-3.0"
+packages = [
+    { include = "epy.py" },
+    { include = "epy_extras" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pynvim = "^0.4.3"
+mypy = "^0.930"
+black = "^21.12b0"
+pytest = "^6.2.5"
+twine = "^3.7.1"
+wheel = "^0.37.1"
+ipdb = "^0.13.9"
+coverage = "^6.2"
+
+[tool.mypy]
+strict_optional = true
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
