@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+Naukri_Jobs_Scraper/__init__.py
+Naukri_Jobs_Scraper.egg-info/PKG-INFO
+Naukri_Jobs_Scraper.egg-info/SOURCES.txt
+Naukri_Jobs_Scraper.egg-info/dependency_links.txt
+Naukri_Jobs_Scraper.egg-info/requires.txt
+Naukri_Jobs_Scraper.egg-info/top_level.txt
