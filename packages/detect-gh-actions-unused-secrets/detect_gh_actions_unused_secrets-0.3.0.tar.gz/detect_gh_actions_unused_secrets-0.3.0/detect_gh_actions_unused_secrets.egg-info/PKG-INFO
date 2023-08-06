@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: detect-gh-actions-unused-secrets
+Version: 0.3.0
+Summary: Detects secrets that are defined in the repository and are not used in Github Actions
+Home-page: https://github.com/artemrys/detect-gh-actions-unused-secrets
+Author: Artem Rys
+Author-email: rysartem@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+detect-gh-actions-unused-secrets
+================================
+
+Detects secrets that are defined in the repository and are not used in Github Actions.
+
+What it does:
+
+* Get repository secrets using Github Actions API
+* Clone the repository
+* Search through the Github Actions related files (`.github/workflows/*.yaml` and `.github/workflows/*.yml`) and try to find usages of each secret
+* Report those secrets which are not found
+
+## Prerequisites
+
+* Github token with `repo` scope ([Github docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+
+## Example
+
+```console
+pip install detect-gh-actions-unused-secrets
+detect-gh-actions-unused-secrets <token> <owner>/<repo1> <owner/repo2>
+```
+
+
