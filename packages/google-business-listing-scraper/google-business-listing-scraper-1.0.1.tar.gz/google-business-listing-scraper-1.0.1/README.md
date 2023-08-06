@@ -1,0 +1,54 @@
+Google business listing scraper is a python library to scrape for a google business listing results, using browser automation. 
+It currently runs only on windows.
+
+### Scraping Google Business Listing 
+* In this example we first import library, then we fetched data using simple function. 
+* Then we will replace **"business_url"** with url which you want to scrape.
+```sh
+from google_business_listing_scraper import *
+response = google.business_listing_scraper(business_url="business_url")
+```
+
+### Response Data
+```json
+{
+      "business_name": "\ue5d4",
+      "average_rating": "\ue5d4",
+      "address": "Report review",
+      "website_address": "Report review",
+      "phone_number": "099999951"
+}
+```
+
+#### BotStudio
+[Bot_Studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which input URL(google business listing) given is loaded and then scrapes business listings details. 
+
+
+### Installation
+
+```sh
+pip install google-business-listing-scraper
+```
+
+### Import
+```sh
+from google_business_listing_scraper import *
+```
+### Get Business Listing Details
+```sh
+response=google.business_listing_scraper(business_url="business_url")
+data=response['body']
+```
+
+### Run bot on cloud
+You can run bot on [cloud](https://datakund.com/products/google-maps-business-listing-scraper-bot?_pos=1&_sid=95d79a870&_ss=r).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
