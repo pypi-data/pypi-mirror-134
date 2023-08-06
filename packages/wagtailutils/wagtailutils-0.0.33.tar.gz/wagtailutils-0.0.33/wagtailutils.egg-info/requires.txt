@@ -1,0 +1,3 @@
+wagtailmenus
+djangorestframework
+django-json-widget

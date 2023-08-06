@@ -1,0 +1,1 @@
+recursive-include wagtailutils *.html *.txt *.xml *.po *.mo *.js *.css
