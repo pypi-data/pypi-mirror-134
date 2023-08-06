@@ -1,0 +1,9 @@
+altility/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+altility/adl_model.py,sha256=0Qfkj2Xio3WokPRt1R6_yCUFLCeQeZzhOLCs861zOt0,43572
+altility/datasets/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+altility/datasets/load_forecasting.py,sha256=dO-3pwW8Y-ocOEFumO359F0F-Lcn_3rljiYhNvYlNTo,32135
+altility/datasets/travel_forecasting.py,sha256=UOuZOzMJh7L9iZueZ-UavX5A7lAE65SzLKXSQ_FNZJE,16139
+altility-0.0.3.dist-info/METADATA,sha256=aop42T2-BnDgGOr3aEBcobDcQQVFcljGDWXBPx7jy5E,28624
+altility-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+altility-0.0.3.dist-info/top_level.txt,sha256=XZUyuOtoN__NLmfCNnnK8a-Q5AKlivFR1ZtO9CeHSP4,9
+altility-0.0.3.dist-info/RECORD,,
