@@ -1,0 +1,1 @@
+__path__ = __import__('reloadly').extend_path(__path__, __name__)
