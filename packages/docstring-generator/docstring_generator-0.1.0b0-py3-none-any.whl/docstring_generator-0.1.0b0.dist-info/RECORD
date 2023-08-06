@@ -1,0 +1,10 @@
+docstring_generator/__init__.py,sha256=b5dvFC0GYw2pfMTYFpXleTqzp7LOyviaKTzoBi5znCg,89
+docstring_generator/__main__.py,sha256=vXqhgS3H0j3FxuN09IzMB-uBAlHXS1arEnhmKvNgFrU,143
+docstring_generator/docstring_utils.py,sha256=-VeZN2uKRuEnA-uHHUhKwlhfeGhojscSqrMUCclTwhA,6048
+docstring_generator/gen_docs.py,sha256=vMSocQ-gHiDAbW8fgVAVmAqWnEna3OG4wKoxn76Zu6I,7495
+docstring_generator-0.1.0b0.dist-info/LICENSE,sha256=4IS5EdYMBLhiwwztN9VV3309wry5Tppoo14aUg8ozZQ,1066
+docstring_generator-0.1.0b0.dist-info/METADATA,sha256=8R682o1wq5I144yuYI-GvioJH-fWl184r-2BMk-bOJc,3851
+docstring_generator-0.1.0b0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+docstring_generator-0.1.0b0.dist-info/entry_points.txt,sha256=iSaIl2UcwsipZrBOe41sD936pG-mE8TK8bKj3RNyQt8,63
+docstring_generator-0.1.0b0.dist-info/top_level.txt,sha256=lbWGtPCtaT4NhNvqCqXsVaEmlzBQy_dpLJ7UnYRMDcA,20
+docstring_generator-0.1.0b0.dist-info/RECORD,,
