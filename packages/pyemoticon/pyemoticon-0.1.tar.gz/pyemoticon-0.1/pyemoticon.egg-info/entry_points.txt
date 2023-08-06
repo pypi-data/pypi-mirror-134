@@ -1,0 +1,3 @@
+[console_scripts]
+pyemoticon = pyemoticon.main:main
+

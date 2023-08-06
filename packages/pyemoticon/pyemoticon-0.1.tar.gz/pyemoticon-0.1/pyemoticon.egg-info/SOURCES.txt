@@ -1,0 +1,10 @@
+setup.py
+pyemoticon/__init__.py
+pyemoticon/char.json
+pyemoticon/main.py
+pyemoticon.egg-info/PKG-INFO
+pyemoticon.egg-info/SOURCES.txt
+pyemoticon.egg-info/dependency_links.txt
+pyemoticon.egg-info/entry_points.txt
+pyemoticon.egg-info/requires.txt
+pyemoticon.egg-info/top_level.txt
