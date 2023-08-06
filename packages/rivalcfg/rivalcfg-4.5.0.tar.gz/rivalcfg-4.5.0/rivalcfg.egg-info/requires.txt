@@ -1,0 +1,10 @@
+hidapi>=0.7.99.post20
+setuptools
+
+[dev]
+flake8
+pytest
+Sphinx
+sphinx-rtd-theme
+nox
+black
