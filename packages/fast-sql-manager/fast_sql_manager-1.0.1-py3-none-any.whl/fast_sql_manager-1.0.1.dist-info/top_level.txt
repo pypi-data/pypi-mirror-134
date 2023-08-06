@@ -1,0 +1,2 @@
+fast_sql_manager
+tests
