@@ -1,0 +1,5 @@
+shamir-mnemonic
+eth-account
+hdwallet
+fpdf2
+qrcode
