@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: excelop
+Version: 0.1.1
+Summary: simple Excel Operation
+Home-page: https://github.com/VCBE123/excelop.git
+Author: vcbe
+Author-email: 945193029@qq.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+
+UNKNOWN
+

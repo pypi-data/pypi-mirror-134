@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+excelop/__init__.py
+excelop/__main__.py
+excelop/excelop.py
+excelop.egg-info/PKG-INFO
+excelop.egg-info/SOURCES.txt
+excelop.egg-info/dependency_links.txt
+excelop.egg-info/requires.txt
+excelop.egg-info/top_level.txt
+excelop.egg-info/zip-safe
