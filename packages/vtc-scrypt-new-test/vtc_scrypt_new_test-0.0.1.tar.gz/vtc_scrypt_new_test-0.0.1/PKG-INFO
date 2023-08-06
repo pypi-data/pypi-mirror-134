@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: vtc_scrypt_new_test
+Version: 0.0.1
+Summary: Bindings for scrypt-n proof of work used by Vertcoin
+Home-page: https://github.com/vertiond/vtc-scrypt
+Author: vertion
+Author-email: vertion@protonmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
