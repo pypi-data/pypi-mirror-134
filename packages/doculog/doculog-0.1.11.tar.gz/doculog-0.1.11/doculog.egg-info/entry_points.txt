@@ -1,0 +1,3 @@
+[console_scripts]
+doculog = doculog.main:generate_changelog
+
