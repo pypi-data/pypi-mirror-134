@@ -1,0 +1,9 @@
+web3auth/__init__.py,sha256=7o0pVUcJFmiYsMW5TI96092OjPKFZAeLJUygscvdBt4,131
+web3auth/exceptions.py,sha256=_pCRXjc-CgxXX24-9kDIdHiyQUaDKQlhJSDun0cWdPQ,36
+web3auth/main.py,sha256=Vo5LWyUisTAFGSKby-d79lsEaSV5l4vsWBniPkqv_zg,1897
+web3auth/types.py,sha256=-YGxdijTn_p17Krba0lVSx8jRnevJHHN8fK3OZr5_iQ,654
+web3auth/utils.py,sha256=yw6DHDDhssocsFjmESqXq_h6Jk-O4mBJa9TW7duB_3g,267
+web3auth-1.0.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+web3auth-1.0.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+web3auth-1.0.0.dist-info/METADATA,sha256=p3-9Y-noqX-1Xn6X3QLN0juIv_otDU-7jWG5nWCaD0k,554
+web3auth-1.0.0.dist-info/RECORD,,
