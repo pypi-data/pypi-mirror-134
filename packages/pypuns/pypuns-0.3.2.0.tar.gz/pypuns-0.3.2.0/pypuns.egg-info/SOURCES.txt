@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+pypuns/__init__.py
+pypuns/pypuns.py
+pypuns.egg-info/PKG-INFO
+pypuns.egg-info/SOURCES.txt
+pypuns.egg-info/dependency_links.txt
+pypuns.egg-info/top_level.txt
+pypuns/puns/__init__.py
+pypuns/puns/en.py
+pypuns/puns/it.py
+pypuns/puns/lang_template.py
+pypuns/puns/languages.py
