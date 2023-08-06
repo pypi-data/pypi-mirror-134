@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: ibis-framework
+Version: 2.1.0
+Summary: Productivity-centric Python Big Data Framework
+Home-page: https://ibis-project.org
+License: Apache-2.0
+Author: Ibis Contributors
+Maintainer: Ibis Contributors
+Requires-Python: >=3.7.1,<3.11
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering
+Provides-Extra: all
+Provides-Extra: clickhouse
+Provides-Extra: csv
+Provides-Extra: dask
+Provides-Extra: datafusion
+Provides-Extra: geospatial
+Provides-Extra: hdf5
+Provides-Extra: impala
+Provides-Extra: mysql
+Provides-Extra: pandas
+Provides-Extra: parquet
+Provides-Extra: postgres
+Provides-Extra: pyspark
+Provides-Extra: sqlite
+Provides-Extra: visualization
+Requires-Dist: atpublic (>=2.3,<3)
+Requires-Dist: cached_property (>=1,<2)
+Requires-Dist: clickhouse-driver (>=0.1,<0.3); extra == "all" or extra == "clickhouse"
+Requires-Dist: clickhouse-sqlalchemy (>=0.1.4,<0.2); extra == "all" or extra == "clickhouse"
+Requires-Dist: dask[array,dataframe] (>=2021.10.0,<2022.0.0); extra == "all" or extra == "dask"
+Requires-Dist: datafusion (>=0.4,<0.5); extra == "all" or extra == "datafusion"
+Requires-Dist: geoalchemy2 (>=0.6,<0.11); extra == "all" or extra == "geospatial"
+Requires-Dist: geopandas (>=0.6,<0.11); extra == "all" or extra == "geospatial"
+Requires-Dist: graphviz (>=0.16,<0.20); extra == "all" or extra == "visualization"
+Requires-Dist: hdfs[kerberos] (>=2,<3); extra == "all" or extra == "impala"
+Requires-Dist: importlib-metadata (>=4,<5); python_version < "3.8"
+Requires-Dist: impyla[kerberos] (>=0.17,<0.19); extra == "all" or extra == "impala"
+Requires-Dist: multipledispatch (>=0.6,<0.7)
+Requires-Dist: numpy (>=1,<2)
+Requires-Dist: pandas (>=1.2.5,<2)
+Requires-Dist: parsy (>=1.3.0,<2)
+Requires-Dist: psycopg2 (>=2.7,<3); extra == "all" or extra == "postgres"
+Requires-Dist: pyarrow (>=1,<7); extra == "all" or extra == "dask" or extra == "parquet" or extra == "pyspark"
+Requires-Dist: pymysql (>=1,<2); extra == "all" or extra == "mysql"
+Requires-Dist: pyspark (>=2.4.3,<4); extra == "all" or extra == "pyspark"
+Requires-Dist: regex (>=2021.7.6,<2022.0.0)
+Requires-Dist: requests (>=2,<3); extra == "all" or extra == "impala"
+Requires-Dist: shapely (>=1.6,<2); extra == "all" or extra == "geospatial"
+Requires-Dist: sqlalchemy (>=1.3,<1.4); extra == "all" or extra == "clickhouse" or extra == "impala" or extra == "mysql" or extra == "postgres" or extra == "sqlite"
+Requires-Dist: tables (>=3,<4); extra == "all" or extra == "hdf5"
+Requires-Dist: toolz (>=0.11,<0.12)
+Project-URL: Documentation, https://ibis-project.org/docs
+Project-URL: Repository, https://github.com/ibis-project/ibis
+Description-Content-Type: text/markdown
+
+# Ibis: Python data analysis framework for Hadoop and SQL engines
+
+|Service|Status|
+| -------------: | :---- |
+| Documentation  | [![Documentation Status](https://img.shields.io/badge/docs-docs.ibis--project.org-blue.svg)](http://ibis-project.org) |
+| Conda packages | [![Anaconda-Server Badge](https://anaconda.org/conda-forge/ibis-framework/badges/version.svg)](https://anaconda.org/conda-forge/ibis-framework) |
+| PyPI           | [![PyPI](https://img.shields.io/pypi/v/ibis-framework.svg)](https://pypi.org/project/ibis-framework) |
+| Ibis CI        | [![Build status](https://github.com/ibis-project/ibis/actions/workflows/ibis-main.yml/badge.svg)](https://github.com/ibis-project/ibis/actions/workflows/ibis-main.yml?query=branch%3Amaster) |
+| Backend CI     | [![Build status](https://github.com/ibis-project/ibis/actions/workflows/ibis-backends.yml/badge.svg)](https://github.com/ibis-project/ibis/actions/workflows/ibis-backends.yml?query=branch%3Amaster) |
+| Coverage       | [![Codecov branch](https://img.shields.io/codecov/c/github/ibis-project/ibis/master.svg)](https://codecov.io/gh/ibis-project/ibis) |
+
+
+Ibis is a toolbox to bridge the gap between local Python environments, remote
+storage, execution systems like Hadoop components (HDFS, Impala, Hive, Spark)
+and SQL databases. Its goal is to simplify analytical workflows and make you
+more productive.
+
+Install Ibis from PyPI with:
+
+```sh
+pip install ibis-framework
+```
+
+or from conda-forge with
+
+```sh
+conda install ibis-framework -c conda-forge
+```
+
+Ibis currently provides tools for interacting with the following systems:
+
+- [Apache Impala](https://impala.apache.org/)
+- [Apache Kudu](https://kudu.apache.org/)
+- [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [MySQL](https://www.mysql.com/)
+- [SQLite](https://www.sqlite.org/)
+- [Pandas](https://pandas.pydata.org/) [DataFrames](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe)
+- [Clickhouse](https://clickhouse.yandex)
+- [BigQuery](https://cloud.google.com/bigquery)
+- [OmniSciDB](https://www.omnisci.com)
+- [PySpark](https://spark.apache.org)
+- [Dask](https://dask.org/) (Experimental)
+
+Learn more about using the library at http://ibis-project.org.
+
