@@ -1,0 +1,9 @@
+spotifymoods/__init__.py,sha256=xBIePjcDjB01wKmyCxBaMuPGW-K7Y6wH7PZ_kG6hFPM,54
+spotifymoods/constants.py,sha256=e-o2CM1SZE_6yQhiHEQKI_Lxlw182DVRIFMmBhtXeHg,153
+spotifymoods/predict.py,sha256=L8ApEEG1y6iyyvQfgcxliqEqe1nmKD3iwcmwmdLEZKw,485
+spotifymoods/train.py,sha256=0lX4F2NNaVDh5gFxzQZM1pbFZmGx-JX3h4FDmHxerck,963
+spotifymoods-0.0.5.dist-info/LICENCE,sha256=aRQYrI79zDtVjV0QgVCKW2JubYdpbCdqHgDRupUVuf0,1067
+spotifymoods-0.0.5.dist-info/METADATA,sha256=jzA5Oxr3if5Kbxl97AaH8qX1ojhOHkTM9_Jui1iB9IU,2337
+spotifymoods-0.0.5.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+spotifymoods-0.0.5.dist-info/top_level.txt,sha256=NNzNAINNkQ47QEGdHHWfyItT2KSBDsqgVMQlQUKa0Gw,13
+spotifymoods-0.0.5.dist-info/RECORD,,
