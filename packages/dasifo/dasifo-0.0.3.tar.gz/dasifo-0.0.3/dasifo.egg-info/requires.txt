@@ -1,0 +1,7 @@
+numpy
+scrapeasy
+mysql-connector-python
+psycopg2
+postgis
+requests
+beautifulsoup4

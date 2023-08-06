@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+dasifo/__init__.py
+dasifo.egg-info/PKG-INFO
+dasifo.egg-info/SOURCES.txt
+dasifo.egg-info/dependency_links.txt
+dasifo.egg-info/requires.txt
+dasifo.egg-info/top_level.txt
+dasifo/data_storages/__init__.py
+dasifo/data_storages/cloud_db.py
+dasifo/data_storages/cloud_storages.py
+dasifo/data_storages/db_connectors.py
+dasifo/data_storages/nosql_db.py
+dasifo/data_storages/sql_db.py
+dasifo/scrapme/__init__.py
+dasifo/scrapme/runner.py
