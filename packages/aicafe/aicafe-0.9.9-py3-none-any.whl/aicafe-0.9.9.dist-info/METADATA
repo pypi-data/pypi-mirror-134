@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aicafe
+Version: 0.9.9
+Summary: (still being developed) A tool box for intracranial vascular image analysis.
+Home-page: https://github.com/wxdrizzle/AICafe
+Author: Xin Wang
+Author-email: xinwang.git@outlook.com
+License: UNKNOWN
+Project-URL: Documentation, https://wxdrizzle.github.io/AICafe_documents
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich (>=11.0.0)
+Requires-Dist: numpy (>=1.22)
+
+# AICafe
+
+This is a Python package for intracranial vascular image analysis.
+See more in the documentation.
+
+This package is currently not ready to be used. Current version is only used as a placeholder.
+
+
