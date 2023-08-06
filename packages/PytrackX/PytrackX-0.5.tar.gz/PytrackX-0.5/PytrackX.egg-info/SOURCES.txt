@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+PytrackX/__init__.py
+PytrackX/config.py
+PytrackX/detection.py
+PytrackX/module.py
+PytrackX/track.py
+PytrackX.egg-info/PKG-INFO
+PytrackX.egg-info/SOURCES.txt
+PytrackX.egg-info/dependency_links.txt
+PytrackX.egg-info/requires.txt
+PytrackX.egg-info/top_level.txt
