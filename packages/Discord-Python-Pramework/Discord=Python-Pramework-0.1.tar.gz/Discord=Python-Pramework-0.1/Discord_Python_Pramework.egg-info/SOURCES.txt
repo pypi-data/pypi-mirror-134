@@ -1,0 +1,7 @@
+LICENSE.txt
+README.md
+setup.py
+Discord_Python_Pramework.egg-info/PKG-INFO
+Discord_Python_Pramework.egg-info/SOURCES.txt
+Discord_Python_Pramework.egg-info/dependency_links.txt
+Discord_Python_Pramework.egg-info/top_level.txt
