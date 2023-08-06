@@ -1,0 +1,11 @@
+chainmock/__init__.py,sha256=cUwG7fIlqSmzx8hZno6P0V26jxMTna7kxSp0GIM_spE,216
+chainmock/_api.py,sha256=1B-OZ3QbisAKrbLXMt6Ywdfh5fR8O99HTBqUzjT3x24,67471
+chainmock/_doctest.py,sha256=6nEFFmx6apk36TxUgPsDzq302k2lzl14vD7HwneWPnc,476
+chainmock/_pytest_plugin.py,sha256=HzUGaKftO8wsnnt93SgoEYqZmzLQsiASqOhRCbszcKM,917
+chainmock/mock.py,sha256=EmMfD1wRirbqrxi2ERyldMWo3xZR5GWSyBQoX-FriSQ,1474
+chainmock/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chainmock-0.7.1.dist-info/entry_points.txt,sha256=rX5Ph93qmAXUv_5O4zV1Dlt_gyZrjuOFnC0e2vy_cjc,47
+chainmock-0.7.1.dist-info/LICENSE,sha256=tqJS6JB4ZbDdgDZI-dXlrAJO2cayb5JMeRwG2broMjM,1084
+chainmock-0.7.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+chainmock-0.7.1.dist-info/METADATA,sha256=P5-RtpcZsHBe1NHiD_pgNZkaksTYMHk5Nk9G0ikhy7g,1922
+chainmock-0.7.1.dist-info/RECORD,,
