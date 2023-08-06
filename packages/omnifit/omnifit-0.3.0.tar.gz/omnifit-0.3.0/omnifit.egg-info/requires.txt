@@ -1,0 +1,11 @@
+astropy>=4.0
+numpy>=1.13
+scipy
+matplotlib
+lmfit
+
+[docs]
+sphinx-astropy
+
+[test]
+pytest-astropy
