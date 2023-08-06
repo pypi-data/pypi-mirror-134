@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: Cricket-Squad-Scraper
+Version: 0.1
+Summary: Get squad details of cricketseries
+Home-page: UNKNOWN
+Author: Bhaskar Chauhan
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: bs4
+
+UNKNOWN
+
+
