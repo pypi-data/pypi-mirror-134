@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: qa-annotator
+Version: 1.2.0.dev1
+Summary: Data Annotation Tool for NLP-based Question-Answering systems.
+Home-page: https://github.com/impyadav/QA-Annotator
+Author: Praveen Singh, Shubham Modi, Prateek Yadav
+Author-email: impyadav.tech@gmail.com
+License: MIT
+Download-URL: https://github.com/impyadav/QA-Annotator/archive/refs/tags/v_1.1.0.tar.gz
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+
+![PyPI - License](https://img.shields.io/pypi/l/QA-Annotator) ![PyPI](https://img.shields.io/pypi/v/QA-Annotator)
+
+# QA-Annotator: Annotation Is All You Need
+
+
+## About The Project
+
+Making the mammoth task of data annotation for an NLP-based Question-Answering system hassle-free. Just jump right in and start annotating!
+
+## Getting Started
+ 
+### Installation
+
+Install with pip (python 3 required)
+   ```sh
+   $ pip install qa-annotator 
+   ```
+### Start the server
+   ```sh
+   $ annotator run 
+   ```
+## Contributing
+
+Contributions, suggestions are welcomed! :)
+
+If you like the project, Don't forget to give a star! Thanks!
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
+## Contact
+
+Prateek Yadav - [@impyadav_](https://twitter.com/impyadav_)
+
+## Links
+
+Project Link: [https://pypi.org/project/QA-Annotator/](https://pypi.org/project/QA-Annotator/)
+
+
+
