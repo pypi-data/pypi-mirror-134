@@ -1,0 +1,3 @@
+[console_scripts]
+httprobe = httprobe.main:run
+
