@@ -1,0 +1,13 @@
+{
+    "short_run": "",
+    "context": {},
+    "base_url": "https://www.baidu.com/",
+    "pos": [5, 5, 1024, 720],
+    "argv": {
+        "-h": {
+            "require": ":",
+            "desc": "字段名转小驼峰",
+            "full": "xtf"
+        }
+    }
+}
