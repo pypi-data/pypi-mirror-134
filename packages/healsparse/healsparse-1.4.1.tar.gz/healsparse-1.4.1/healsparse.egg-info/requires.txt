@@ -1,0 +1,6 @@
+numpy
+healpy
+astropy
+
+[parquet]
+pyarrow>=5.0.0
