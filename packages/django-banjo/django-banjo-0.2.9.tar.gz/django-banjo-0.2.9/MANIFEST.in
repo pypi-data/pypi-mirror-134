@@ -1,0 +1,4 @@
+include src/banjo/templates/banjo/*.html
+
+# added by check-manifest
+include *.png
