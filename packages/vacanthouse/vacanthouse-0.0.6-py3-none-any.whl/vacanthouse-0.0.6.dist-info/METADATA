@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: vacanthouse
+Version: 0.0.6
+Summary: A package for analysing vacant house rates and population in the United States and Japan.
+Home-page: https://github.com/Lifengtong1/vacancy_rate_and_population_in_JP_and_USA
+Author: FengtongLi
+Author-email: s1922077@stu.musashino-u.ac.jp
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Lifengtong1/vacancy_rate_and_population_in_JP_and_USA
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+UNKNOWN
+
+
