@@ -1,0 +1,21 @@
+import os
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Secrets
+SECRET_KEY = "{{ secret_key }}"
+
+# Routing
+ROUTING_FILE = "{{ project_name }}.routes"
+
+# Templates and static files
+TEMPLATING = {
+    "engine_module": "webx.templating.engine",
+    "engine_spec": "StandardEngine",
+    "templates_locations": [
+        "{{ project_name }}.templates"
+    ],
+    "enabled": False
+}
