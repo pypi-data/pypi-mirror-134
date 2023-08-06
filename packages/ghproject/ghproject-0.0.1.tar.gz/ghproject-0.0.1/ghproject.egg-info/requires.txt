@@ -1,0 +1,12 @@
+python-frontmatter
+requests>=2.24.0
+
+[dev]
+black
+bump2version
+isort
+pre_commit
+pytest
+pytest-cov
+sphinx
+sphinx-rtd-theme
