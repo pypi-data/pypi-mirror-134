@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+ToxAssign.egg-info/PKG-INFO
+ToxAssign.egg-info/SOURCES.txt
+ToxAssign.egg-info/dependency_links.txt
+ToxAssign.egg-info/top_level.txt
