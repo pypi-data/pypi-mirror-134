@@ -1,0 +1,8 @@
+pyobs_alpaca/__init__.py,sha256=85WrqwLJjCRsXUAh9rKw17GbghyUsfAs9Jf5yfcriTs,163
+pyobs_alpaca/device.py,sha256=0aC1R5j1lg-OIkeUFmeyddsLJJuL4gy9zQrcXgP4Bsw,6256
+pyobs_alpaca/dome.py,sha256=jxOazz80e-6PkYkwT4e2ouLrTm6SsuAWjlHjKDSdC3w,9976
+pyobs_alpaca/focuser.py,sha256=ONnQJgaLk6w5vHtXY5QkktwnsXz8g_NOUmC_LsrbNYU,6500
+pyobs_alpaca/telescope.py,sha256=6Jle4be0z4I_OAlgB5Et8UGEa17eIVAuumwOGhsq2PI,13464
+pyobs_alpaca-0.16.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+pyobs_alpaca-0.16.0.dist-info/METADATA,sha256=xlB87yqO3tNshObYKy0EjLLcpdkiyVAmlZUDqrJZRI4,542
+pyobs_alpaca-0.16.0.dist-info/RECORD,,
