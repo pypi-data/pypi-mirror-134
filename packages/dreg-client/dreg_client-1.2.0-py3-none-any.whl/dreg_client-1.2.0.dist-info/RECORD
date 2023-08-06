@@ -1,0 +1,16 @@
+dreg_client/__init__.py,sha256=1PMjNDLkQ68uwRfSQqubFLtc_f5LUH7ySwbh0AkOUDU,1260
+dreg_client/_synth.py,sha256=_dptUHsmoiVg4FtxmgMGIh2BcoRLj0qnHAORn4cBGug,1737
+dreg_client/_types.py,sha256=p2IGjEaQ3EvyBZj1iTqge2OPxlecvUsGIm9BWH9C1xg,208
+dreg_client/auth_service.py,sha256=LqIFPMM74nicWkLcffkkHkNhntjUf3B-VjrykqRapy0,2585
+dreg_client/client.py,sha256=w80tmfBqE2tTsOydscls2H2y0H532z1RIfUnO-W5GHk,5088
+dreg_client/image.py,sha256=nLw9B8GeJmcdmtk3sUoI6Vs_YT7GpB3-ZUrGYRq3cYg,4455
+dreg_client/manifest.py,sha256=hVI-iyczAKCqFgRWakH5pQv9JSXO-37ByfIyDTCQN1I,11702
+dreg_client/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dreg_client/registry.py,sha256=XLfVdcGAZid6lf_jpADvyPirmjx-Ugdj2LHFVSjlCZE,2756
+dreg_client/repository.py,sha256=eyoUYfJjIXp3-wJp_VXIGqE2qXmXSMpgNLE5PEPqDWI,2869
+dreg_client/schemas.py,sha256=HL2JqvEpx1Jga5NKg9NqLq5FWx8Yr8GhjrCC2Y2whcI,624
+dreg_client-1.2.0.dist-info/LICENSE.txt,sha256=HUtJp0CfwxBm2NbMrNwkHXaLy6_ajq4QaY0NbhLQngA,11341
+dreg_client-1.2.0.dist-info/METADATA,sha256=dCt6V6DJMGCSrbVr5KH96XTxM6jrLXOc_LiyJGQ_SkQ,7712
+dreg_client-1.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dreg_client-1.2.0.dist-info/top_level.txt,sha256=DGGjf0uoEHeonesXAKdChYV95WeB6oz-Okm3a-K359s,12
+dreg_client-1.2.0.dist-info/RECORD,,
