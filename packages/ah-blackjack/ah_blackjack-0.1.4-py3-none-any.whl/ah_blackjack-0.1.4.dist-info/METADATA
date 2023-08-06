@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: ah-blackjack
+Version: 0.1.4
+Summary: Black jack in terminal
+Home-page: https://github.com/karma-git/belhard_base_python
+License: MIT
+Keywords: python3,ASCII,game
+Author: Andrew Horbach
+Author-email: andrewhorbach@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: colorama (>=0.4.4,<0.5.0)
+Requires-Dist: names (>=0.3.0,<0.4.0)
+Project-URL: Repository, https://github.com/karma-git/belhard_base_python
+Description-Content-Type: text/markdown
+
+# Belhard Projects
+
+## BlackJack
+Simple **black jack** game in terminal.
+
+[![asciicast](https://asciinema.org/a/u5pClKzpWHrvZFRQqVqYnwfMc.svg)](https://asciinema.org/a/u5pClKzpWHrvZFRQqVqYnwfMc)
+
+Install:
+```shell
+pip3 install ah-blackjack
+```
+Execute:
+```shell
+bj
+```
+
+<details>
+
+<summary>others</summary>
+- WallPapper Calculator
+- Backet Of Water
+</details>
+

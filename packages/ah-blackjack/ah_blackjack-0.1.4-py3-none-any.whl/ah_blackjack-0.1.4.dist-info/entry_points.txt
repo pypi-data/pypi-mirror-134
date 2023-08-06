@@ -1,0 +1,3 @@
+[console_scripts]
+bj=ah_blackjack.main:main
+
