@@ -1,0 +1,12 @@
+numba>=0.54.1
+numpy==1.19.2
+autograd
+tqdm
+opt_einsum
+nnv
+matplotlib
+numexpr
+tomli
+Pillow
+opencv-python
+seaborn

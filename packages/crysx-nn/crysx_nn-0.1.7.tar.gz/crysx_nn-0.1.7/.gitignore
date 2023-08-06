@@ -1,0 +1,15 @@
+crysx_nn/__pycache__/
+crysx_nn.egg-info/
+.ipynb_checkpoints
+benchmarks_tests/.ipynb_checkpoints/
+benchmarks_tests/MNIST/
+examples/.ipynb_checkpoints/
+dist/
+examples/EMNIST_torch/
+mnist_experiments/EMNIST_torch/
+mnist_experiments/MNIST_torch/
+examples/EMNIST_torch/
+examples/MNIST_torch
+examples/MNIST-PLUS-PNG/
+mnist_experiments/MNIST-PLUS-PNG
+build/
