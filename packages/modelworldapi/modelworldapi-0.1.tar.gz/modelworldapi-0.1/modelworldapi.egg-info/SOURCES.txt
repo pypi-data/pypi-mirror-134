@@ -1,0 +1,10 @@
+license.txt
+setup.cfg
+setup.py
+modelworldapi/__init__.py
+modelworldapi/api.py
+modelworldapi.egg-info/PKG-INFO
+modelworldapi.egg-info/SOURCES.txt
+modelworldapi.egg-info/dependency_links.txt
+modelworldapi.egg-info/requires.txt
+modelworldapi.egg-info/top_level.txt

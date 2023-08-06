@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: modelworldapi
+Version: 0.1
+Summary: Used exclusively for ModelWorld
+Home-page: https://github.com/Ojas1024/modelworldapi
+Author: Ojas Gupta
+Author-email: gupta.ojas.27@gmail.com
+License: GNU GPLv3
+Download-URL: https://github.com/user/reponame/archive/v_01.tar.gz
+Keywords: ModelWorld,Object Detection,Online Object Detection,PyTorch,Computer Vision,Free
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: license.txt
+
+UNKNOWN
+
