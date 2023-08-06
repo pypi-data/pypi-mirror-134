@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ufy-ivystar
+Version: 0.1.0
+Summary: ivystar packages
+Home-page: UNKNOWN
+Author: ufy
+Author-email: antarm@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires: ufy
+Requires: numpy
+Requires: matplotlib
+
+UNKNOWN
+
