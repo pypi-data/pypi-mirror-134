@@ -1,0 +1,3 @@
+[console_scripts]
+beoremote-halo = beoremote.cli.cli:cli
+
