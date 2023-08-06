@@ -1,0 +1,14 @@
+babyplots/__init__.py,sha256=k1Trz5RZ7KVACF8JGrxWoeP5XfhIPDc2bwe-HM9yhYA,40
+babyplots/babyplots.py,sha256=ihdnZjl7cpzW_vEiIJCw2XXtWtDZmm6fN9RpWRdh-mM,23047
+babyplots/js/CCapture.all.min.js,sha256=KO930x9pnWJ0jk26UMYaFh5JTFP0SWV-9o-Xekdzy1w,36324
+babyplots/js/babyplots.js,sha256=IqTTmU6cPC66uVWXquH0nE-Jx3VFu25esOd90OieFFs,1984259
+babyplots/js/babyplots.js.LICENSE.txt,sha256=BQwRar5NUg5y5psHDttL7tJCqLwk2jwOwqK9r77BfwQ,7935
+babyplots/js/babyplots.js.map,sha256=EV0X-shgBdnO5Z5ROGjdSXCD8nFen4vxV46EeGOUggM,7405794
+babyplots/js/gif.worker.js,sha256=EtTnhk5xLXtFyBQJ0LqBH53QnIkkyVGYTXzP6nWUbzI,16639
+babyplots/templates/plot.html,sha256=3cp09mIag77B9EeiACi79tS8urGUpWYDqC7e-E1_U7M,2542
+babyplots/templates/save_plot.html,sha256=B_ealmGeqC9xEP-VtdMfdmovDgtx0LWLj0kF5Y8k1e0,3752
+babyplots-1.4.0.dist-info/LICENSE,sha256=AWAkVdEOI6Pq4CCVBroxjJMM6Wk2aIgZexRYEeHw9I0,655
+babyplots-1.4.0.dist-info/METADATA,sha256=RM5q5JrI1sI4PHnrSS22XtPPouVeot4ITOP8mU2XRnE,3216
+babyplots-1.4.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+babyplots-1.4.0.dist-info/top_level.txt,sha256=V4-1UrKcIjWnpQFX9UmWZJv0wSthTwxL7Lvu3ncq3Nk,10
+babyplots-1.4.0.dist-info/RECORD,,
