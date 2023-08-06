@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: PytrackX
+Version: 0.3
+Summary: A general python framework for visual object tracking.
+Home-page: https://github.com/swetha4444/PyTrackX
+Author: Sriram Kannan, Swetha Saseendran
+Author-email: swethasaseendran4@gmail.com
+License: MIT
+Download-URL: https://github.com/swetha4444/PyTrackX/archive/refs/tags/0.3.tar.gz
+Project-URL: Bug Tracker, https://github.com/swetha4444/PyTrackX/issues
+Keywords: yolo,mediapipe,object detection,object tracking
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h1 align="center">PyTrackX</h1>
+A general python framework for visual object tracking.
+PyTrackX is a  Python package that serves as an automated tool which tracks different objects and body movements as per user requirement and returns the real-time coordinates with very less steps and a simple video input.
+
+## Functions
+### **track_object(yolo_path,video_path,object,min_conf)**
+```
+* yolo_path: folder path for the download yolo model files (STRING)
+* video_path: file path of video input feed
+* object: any object name from list of objects YOLO can detect. 
+* min_conf (default parameter): confidence level for an object detected (default value is 0.5)
+```
+
+Returns a text file with coordinates of each object detected per frame as tracked frame to frame.
+![image](https://user-images.githubusercontent.com/68152189/148946767-65116ab0-70dd-457e-bfb0-bbb1d20aeb01.png)
+
+
+### **track_posture(width,height,video_path,min_dconf,min_tconf)**
+```
+* width (default parameter): frame width
+* height (default parameter): frame height
+* video_path (default parameter): file path of video input feed (default value (0)- Live webcam video feed as input)
+* min_dconf: confidence level for an object detected
+* min_tconf: confidence level for an object tracking
+```
+
+Returns a text file with corrdinates of all landmarks detected by <a href="https://mediapipe.dev/"> Mediapipe </a> per frame as tracked frame to frame with respect to the frame width and height.<br>
+![image](https://user-images.githubusercontent.com/68152189/148946827-6f51a4e1-69d2-47c2-8b54-3e81b63f3a85.png)
+
+<img src="https://user-images.githubusercontent.com/68152189/148942731-301e8b0e-99d0-40b2-9e44-1f1ca33d5a95.png" width="500" height="400" />                                                                                                                                      
+
+## User Installation
+### Install Package
+```
+pip install PyTrackX
+```
+Download yolo-coco folder from <a href="https://drive.google.com/drive/folders/1PGgWb-8yNSJNiHQF_Av6EHqBSEdiRhFp?usp=sharing">here</a> into your **current working directory**. Rename the folder **yolo-coco** if otherwise. The folder contains the following files:
+```
+* coco.name
+* yolo3.cfg
+* yolo3.weights
+```
+
+Another option  is to download via git:
+### Git Install
+
+```
+pip install git+https://github.com/swetha4444/PyTrackX.git
+```
+
+You can also clone the repository:
+### Clone Repository
+```
+git clone https://github.com/swetha4444/PyTrackX.git
+pip install -r requirements.txt
+python setup.py install
+```
+
+### Dependencies:
+```
+* 'numpy>=1.11'
+* 'matplotlib>=1.5'
+* 'pandas'
+* cv2'
+* 'scipy'
+* 'mediapipe'
+* 'time'
+```
+
+## Usage
+### YOLO Object Tracking
+```
+from PyTrackX import *
+yolo_path = "./yolo-coco"
+video_path = "input.mp4"
+object = "person"
+track_object(yolo_path,video_path,object)
+```
+
+### Mediapipe Posture Tracking
+```
+from PyTrackX import *
+track_posture()
+```
+
+## Author
+<a href="https://github.com/Marirs27">**Sriram Kannan**</a> <br>
+<a href="https://github.com/swetha4444">**Swetha Saseendran**</a>
+
+
