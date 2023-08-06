@@ -1,0 +1,15 @@
+datagokr/DataGoKr.py,sha256=fZylpBlSTLFodO4Q695WUQLzQnMZNpslRLh_iAfP8eY,5436
+datagokr/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datagokr/scripts.py,sha256=r7n5vEkqTUUBbBtECMR2d8u9j_oliWu24ks0gNgZEHM,2279
+datagokr/airkorea/ArpltnInforInqireSvc.py,sha256=8QkMlBSc1_0PfGe9UlS02d-BcBH22CDw52XzCSQrVwc,8309
+datagokr/airkorea/__init__.py,sha256=qVfFKPRiqVPVW2irqa0wNUnBe2lkThNaQpLpbOraEfY,36
+datagokr/kma/AsosHourlyInfoService.py,sha256=cJOQaIfUuEkqxcd2WAXoZQsfChTmSUxzUfilcDAn5C0,3424
+datagokr/kma/VilageFcstInfoService_2_0.py,sha256=eCoFhYI1DMFZZybB5-MN6IlUpNHqa7qA31VEZqZGKzY,4752
+datagokr/kma/__init__.py,sha256=Rncavj177fVVEF5ETymN-V-CQGemF7o_7_wwXYTywQE,98
+datagokr/kma/info.py,sha256=CB6MtLw1TWdEpeRgkdsO5ZIiZ3RAPWQmNTtMrGy0Wc0,59587
+datagokr-2022.1.6.dist-info/LICENSE,sha256=ud6g8yklznGAPL358uSsALPuPqX4MEvYL6BvZzWkesM,1063
+datagokr-2022.1.6.dist-info/METADATA,sha256=lDB2YPsWkDATfsp3Tsc2yiemoo-TKkuz1Go2KxRQ48M,345
+datagokr-2022.1.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+datagokr-2022.1.6.dist-info/entry_points.txt,sha256=MHg3UHm_pXktKTAdudzqLBz6JwNy3Y8B-ZDnKJNyI4g,56
+datagokr-2022.1.6.dist-info/top_level.txt,sha256=8ecD9JZaz8L5FKJowDzkm8zloVJ1Fl9053B9ZpvO1xA,9
+datagokr-2022.1.6.dist-info/RECORD,,
