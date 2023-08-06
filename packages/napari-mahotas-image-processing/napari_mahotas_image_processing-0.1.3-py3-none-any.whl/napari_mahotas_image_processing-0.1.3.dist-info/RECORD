@@ -1,0 +1,11 @@
+napari_mahotas_image_processing/__init__.py,sha256=zRLd1-0G4qWg0FlOg6WZxW4kfhcX0F-u8qClBMg0gEk,266
+napari_mahotas_image_processing/_function.py,sha256=gHJc6rQM9ZmkljwUUbWgm2F0t8woqB0H2Q3F89Lmess,5668
+napari_mahotas_image_processing/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_mahotas_image_processing/_tests/test_function.py,sha256=HLv3XTyKjH_nFO4udkp1l15OFiQ0wr6vuWm1ODNUVaQ,140
+napari_mahotas_image_processing-0.1.3.dist-info/LICENSE,sha256=-xhcFGZF299-Ub8Hzof4QjLyQ5Gu89ZkJuy-VY-4DYg,1596
+napari_mahotas_image_processing-0.1.3.dist-info/METADATA,sha256=df7elMw8ZMeuRml5qvlnTCynKcFAIjviJScUmUWIQUE,7154
+napari_mahotas_image_processing-0.1.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+napari_mahotas_image_processing-0.1.3.dist-info/entry_points.txt,sha256=fl-98s-kQExLFyb_Ttv1ilb3uUNvUDg-aFPVHiZIBJs,83
+napari_mahotas_image_processing-0.1.3.dist-info/licenses_thirdparty.txt,sha256=17tTOTiGdXbf8GzSRSFdxyIYpL2xcBRE9y2WVFBSP8w,2777
+napari_mahotas_image_processing-0.1.3.dist-info/top_level.txt,sha256=OQvTd7Nrx9FaTVACwVWWN9wgfENMVxAEfG9ouPtlceQ,32
+napari_mahotas_image_processing-0.1.3.dist-info/RECORD,,
