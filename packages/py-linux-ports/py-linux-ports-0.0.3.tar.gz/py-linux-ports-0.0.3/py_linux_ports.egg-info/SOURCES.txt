@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+PyLinuxPorts/PyLinuxPorts.py
+py_linux_ports.egg-info/PKG-INFO
+py_linux_ports.egg-info/SOURCES.txt
+py_linux_ports.egg-info/dependency_links.txt
+py_linux_ports.egg-info/top_level.txt
