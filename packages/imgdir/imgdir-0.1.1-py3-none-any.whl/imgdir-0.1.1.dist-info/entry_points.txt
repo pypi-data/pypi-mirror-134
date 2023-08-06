@@ -1,0 +1,3 @@
+[console_scripts]
+imgdir=imgdir.console:run
+
