@@ -1,0 +1,7 @@
+setup.py
+resizer/__init__.py
+resizer/resize.py
+resizer.egg-info/PKG-INFO
+resizer.egg-info/SOURCES.txt
+resizer.egg-info/dependency_links.txt
+resizer.egg-info/top_level.txt
