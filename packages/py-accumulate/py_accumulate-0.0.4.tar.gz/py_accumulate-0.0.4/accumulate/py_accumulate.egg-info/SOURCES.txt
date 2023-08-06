@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+accumulate/py_accumulate.egg-info/PKG-INFO
+accumulate/py_accumulate.egg-info/SOURCES.txt
+accumulate/py_accumulate.egg-info/dependency_links.txt
+accumulate/py_accumulate.egg-info/top_level.txt
