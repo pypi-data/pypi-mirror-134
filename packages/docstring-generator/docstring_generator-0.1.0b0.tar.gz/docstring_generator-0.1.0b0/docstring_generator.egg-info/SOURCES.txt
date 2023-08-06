@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+docstring_generator/__init__.py
+docstring_generator/__main__.py
+docstring_generator/docstring_utils.py
+docstring_generator/gen_docs.py
+docstring_generator.egg-info/PKG-INFO
+docstring_generator.egg-info/SOURCES.txt
+docstring_generator.egg-info/dependency_links.txt
+docstring_generator.egg-info/entry_points.txt
+docstring_generator.egg-info/requires.txt
+docstring_generator.egg-info/top_level.txt
