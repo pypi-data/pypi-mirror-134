@@ -1,0 +1,4 @@
+requests
+pyjokes
+wikipedia
+textblob
