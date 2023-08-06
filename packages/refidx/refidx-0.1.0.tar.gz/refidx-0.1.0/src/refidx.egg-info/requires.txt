@@ -1,0 +1,6 @@
+numpy>=1.9
+parse
+pyyaml
+
+[:python_version < "3.8"]
+importlib_metadata
