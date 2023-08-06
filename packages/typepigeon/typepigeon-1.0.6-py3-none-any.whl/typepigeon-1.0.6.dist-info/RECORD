@@ -1,0 +1,9 @@
+tests/__init__.py,sha256=JD3x63EjNQPjzbiOFp9OHI9Ft4oxcfdX9V5lNqVbWOg,234
+tests/test_convert.py,sha256=Epu5iMRoMRAQ6qvomze5Vem-j9wdrnFaqzfLuRh1L3w,8712
+typepigeon/__init__.py,sha256=cDEhdXrdHOPiXz2Fke9_aCeBkUfHCjkelDcAwP6kNF8,83
+typepigeon/convert.py,sha256=RChGRkdnIJGVI7lKcv6lxZ0KU_4GviuYX5lzTuOZS0w,11590
+typepigeon-1.0.6.dist-info/LICENSE,sha256=dmi8x5CGaJxLDp03HH12SKrGUmf0vwcyHT3ZoCyFOaQ,1061
+typepigeon-1.0.6.dist-info/METADATA,sha256=taY2KkoEwxi0AGojoQGcKNTLh6_hMN5COK4czk0C2Lg,5087
+typepigeon-1.0.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+typepigeon-1.0.6.dist-info/top_level.txt,sha256=W3tYXbPPfAML87U6O-UtHyOsPO9vCZYkVhvHFIiUisY,17
+typepigeon-1.0.6.dist-info/RECORD,,
