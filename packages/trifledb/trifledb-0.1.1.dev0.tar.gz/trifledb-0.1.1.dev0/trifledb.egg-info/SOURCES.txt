@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+app/__init__.py
+app/trifledb.py
+app/trifledb_server.py
+tests/__init__.py
+tests/test_trifledb_server.py
+trifledb.egg-info/PKG-INFO
+trifledb.egg-info/SOURCES.txt
+trifledb.egg-info/dependency_links.txt
+trifledb.egg-info/requires.txt
+trifledb.egg-info/top_level.txt

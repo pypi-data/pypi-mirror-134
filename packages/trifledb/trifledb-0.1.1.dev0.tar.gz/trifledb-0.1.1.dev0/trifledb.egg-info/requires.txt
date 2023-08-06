@@ -1,0 +1,6 @@
+gunicorn
+uvicorn[standard]
+fastapi
+fastapi-versioning
+requests
+pytest
