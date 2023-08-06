@@ -1,0 +1,13 @@
+Flask_Plugin-0.0.1.data/data/LICENSE,sha256=qAURuJEYZH3g2-gKUgBfJGYYIS4qXjEsDS4hKdobrCk,1065
+Flask_Plugin-0.0.1.data/data/readme.md,sha256=P0LxAlgN-WQCIupVwdqV2queYcvcCLTwsjBdHvFihGc,3169
+flask_plugin/__init__.py,sha256=MedlGCZwvcySoDYwpKL-O6dOOL9oiWTsXMt7Nd9K5pw,275
+flask_plugin/manager.py,sha256=P0YCSP0YuPIYVFZmvjwyYY_ZVQemxsyVpQtXpC7Hqqo,9683
+flask_plugin/plugin.py,sha256=k9QtKQeiXQpKF7nue7Bf2dY6Ic9X4nh3rM5zWaZE0l0,16945
+flask_plugin/signals.py,sha256=AiqKkYJT-cu8bTFNCbppKg-mr0TvBcJAz8yTrS3O8WY,248
+flask_plugin/states.py,sha256=dbGyCGCAug4mporhxmJnZBZ_WOtsNKPYc6zzljUTCqw,3540
+flask_plugin/utils.py,sha256=V6wHDWQ2P8PPbfdA1v77eQYNo2X56O1xySIvo3664zc,4512
+Flask_Plugin-0.0.1.dist-info/LICENSE,sha256=qAURuJEYZH3g2-gKUgBfJGYYIS4qXjEsDS4hKdobrCk,1065
+Flask_Plugin-0.0.1.dist-info/METADATA,sha256=Kt5qwyYSKhVmTex4M-8EeWkYCPC879uKbhntauWyuLM,4139
+Flask_Plugin-0.0.1.dist-info/WHEEL,sha256=U88EhGIw8Sj2_phqajeu_EAi3RAo8-C6zV3REsWbWbs,92
+Flask_Plugin-0.0.1.dist-info/top_level.txt,sha256=Na1IQneAjhDvhLTVSjXuWooXCU43D-4E2XphGLDv6qs,13
+Flask_Plugin-0.0.1.dist-info/RECORD,,
