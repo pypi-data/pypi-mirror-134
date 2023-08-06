@@ -1,0 +1,19 @@
+-e .
+
+# docutils!=0.14rc1
+# behave
+coverage
+# decorator
+flake8
+# mako
+# matplotlib
+# numpy
+# paramiko
+# pexpect
+pytest-cov
+pytest
+radon
+# scp
+# setuptools
+# versio
+# wheel
