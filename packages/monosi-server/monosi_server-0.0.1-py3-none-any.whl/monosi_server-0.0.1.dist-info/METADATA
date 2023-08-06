@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: monosi-server
+Version: 0.0.1
+Summary: Monosi Server
+Home-page: https://github.com/monosidev/monosi-server
+Author: Vocable Inc.
+Author-email: support@monosi.dev
+License: No license currently provided.        
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: Flask (==2.0.2)
+Requires-Dist: Flask-Cors (==3.0.10)
+Requires-Dist: monosi (==0.0.1.post1)
+
+# Monosi Server
+
+This is the server that serves the Monosi library.
+
+
