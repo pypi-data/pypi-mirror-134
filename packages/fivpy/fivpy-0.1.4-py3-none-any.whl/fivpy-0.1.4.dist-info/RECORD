@@ -1,0 +1,12 @@
+fivpy/__init__.py,sha256=EDikQqbjexujZDg6OtFBB_IXgvN9D1gggIW3g3HH608,246
+fivpy/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fivpy/data/data_1.csv,sha256=rIKHcLkWBw0wssKzGJSiS1bdEbeFxW102FO-48KfXWs,135
+fivpy/data/data_2.csv,sha256=9_MrjbSp4yCt7c56rfN5eco-7AS9RW64F4HPbzoQhxw,1407
+fivpy/data/data_3.csv,sha256=7jntuSGVy4iTY-5q7yquB7kru0aZkPWXFrdeDuIuL_8,2129
+fivpy/datasets.py,sha256=4gFwtVegVa8I1M9NMNd-dEBbNLPjwcqh5cHWuGmsvy0,1638
+fivpy/fivpy.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fivpy/srs.py,sha256=sdGwP2RVNW6e8x_m_hMl54Wvx9h1J6s6Upk_MSAF-X0,6723
+fivpy-0.1.4.dist-info/LICENSE,sha256=i-rBE920dLygd1l_RW_74iXLM6mkJ-xI5h-cmS8_8KE,1073
+fivpy-0.1.4.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+fivpy-0.1.4.dist-info/METADATA,sha256=39sPMPAExxraZ5I7fm5mjJvSbBsGNdbfU2qsQyqn1os,2161
+fivpy-0.1.4.dist-info/RECORD,,
