@@ -1,0 +1,4 @@
+[console_scripts]
+fix_parse_log=fixations:fix_parse_log.py
+fix_tags=fixations:fix_tags.py
+
