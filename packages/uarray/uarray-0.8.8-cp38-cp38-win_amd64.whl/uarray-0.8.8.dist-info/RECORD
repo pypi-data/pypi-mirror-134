@@ -1,0 +1,13 @@
+uarray/__init__.py,sha256=lf0zuqFupa-Gm7p43Zz4HWCjMUwTwqX_FJrkCb2HUqY,4612
+uarray/_backend.py,sha256=gRnJT3vlWmxi5UPPyT1USqteHn8FHzCXZNMy_ChilEk,21201
+uarray/_uarray.cp38-win_amd64.pyd,sha256=0KGz4oDuSDyGu4_c3MSGfAIqonygOaZJ6uViXXtWOO4,77312
+uarray/_version.py,sha256=2Jkj6Ba_bT95PocpZetWIUD9lF4VBBLzok520xH1vqs,159
+uarray/conftest.py,sha256=6srO6FOQm9L6D8g2SGpALz-MYQPYFDI0_PFKx8wVdDU,481
+uarray/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uarray/tests/example_helpers.py,sha256=rzQU3dyXAdiZBDpAGkX2I_ksmPCeW2WeHGStzTgJTfQ,1080
+uarray/tests/test_uarray.py,sha256=HTYI5uVd2hxEH1gWPDHRbroZajrllyjbgh5p1v-6FGc,15753
+uarray-0.8.8.dist-info/LICENSE,sha256=5MSswx6ChwZtfJldJuPvkCyhl37hh7JgsRwng2ZQOBE,1543
+uarray-0.8.8.dist-info/METADATA,sha256=rLpH71mBR5N2qurWL7BWutlq7z4LSfkebhdOUUmzKEc,3329
+uarray-0.8.8.dist-info/WHEEL,sha256=M2GQ3lde8oJhlQPj2wbRvnqE3cuovPJasri5X5aCmck,100
+uarray-0.8.8.dist-info/top_level.txt,sha256=gWrAWzY0Mj5-QR13QhN3vWteA6-PCq6QGPQsHczIWO4,7
+uarray-0.8.8.dist-info/RECORD,,
