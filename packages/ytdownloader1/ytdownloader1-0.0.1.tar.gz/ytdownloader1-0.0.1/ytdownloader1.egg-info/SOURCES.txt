@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+ytdownloader1/__init__.py
+ytdownloader1.egg-info/PKG-INFO
+ytdownloader1.egg-info/SOURCES.txt
+ytdownloader1.egg-info/dependency_links.txt
+ytdownloader1.egg-info/top_level.txt

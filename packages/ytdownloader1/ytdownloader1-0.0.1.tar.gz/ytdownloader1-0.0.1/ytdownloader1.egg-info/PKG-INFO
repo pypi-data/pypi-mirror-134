@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: ytdownloader1
+Version: 0.0.1
+Summary: A ytdownloader1 library
+Home-page: UNKNOWN
+Author: sakl Ansari
+Author-email: sakilansari4@gmail.com
+License: MIT
+Description: This library helps in downloading video from youtube.The user needs to provide the link of the video to the function ytdownloader.
+        
+        
+        Change Log
+        ==========
+        
+        0.0.1 (14/01/2022)
+        -------------------
+        - First Release
+        
+Keywords: ytdownloader1
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
