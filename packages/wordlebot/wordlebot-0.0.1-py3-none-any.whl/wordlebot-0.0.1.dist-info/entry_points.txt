@@ -1,0 +1,3 @@
+[botfights.wordle.guesser]
+wordlebot = wordlebot.guessing:Guesser
+
