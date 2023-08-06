@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+jymac/__init__.py
+jymac/mac.txt
+jymac.egg-info/PKG-INFO
+jymac.egg-info/SOURCES.txt
+jymac.egg-info/dependency_links.txt
+jymac.egg-info/top_level.txt
