@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pybdei
+Version: 0.1.1
+Summary: Fast and accurate epidemiological parameter estimation from phylogenetic trees with the Birth-Death Exposed-Infectious (BDEI) model.
+Home-page: https://github.com/evolbioinfo/BDEI
+Author: Frédéric Heicht
+Maintainer: Anna Zhukova
+Maintainer-email: anna.zhukova@pasteur.fr
+License: UNKNOWN
+Download-URL: https://github.com/evolbioinfo/BDEI
+Keywords: BDEI,phylodynamics,epidemiological parameters
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+UNKNOWN
+
