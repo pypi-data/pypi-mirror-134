@@ -1,0 +1,17 @@
+macrokit/__init__.py,sha256=8sb6RsPdqxzdMJZGsi4K8Dr1QK-vfcKPaT-C8f_5X_g,1263
+macrokit/_validator.py,sha256=IC1XZiJLHDkuVPm2sPj2YeLdKUqm12XwbN1z0bPfPdQ,3110
+macrokit/ast.py,sha256=GpQdCBmyCZ1jW9UAfImjnSwkIR84D4R0rlU9nR58JcU,9461
+macrokit/expression.py,sha256=DPmeiJgvTqi5vjJtabxDUek5Xg_1SS15imIqA7N5Onk,16807
+macrokit/head.py,sha256=zdk3QjOUlTxt2vcllbm0O1RcZJIihtMbqDiTxYpHo3Q,672
+macrokit/macro.py,sha256=5qPGhlGiA2yJaiaplGqf6DyBuhkBfaMdJ4jR6Iihzrg,30585
+macrokit/mock.py,sha256=K-2ig5NODHf0MVob83muGrUoAp_BhDL9tWOU8elUEiQ,3901
+macrokit/symbol.py,sha256=1h7cMpaVc_2ew3XnaYA2X3bJukQDYUquo1o5pDxDwmU,5389
+macrokit/ipython/__init__.py,sha256=klURhF1qJP85kKsn-HGWCfgALPtiJ5gWHGdnLRk_Ihs,65
+macrokit/ipython/magic.py,sha256=gxz-AQ-wn5iuuvxtXggbsNV8CMVZTtqEo9Sq6xlCR1Q,1470
+macrokit/julia/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+macrokit/julia/translate.py,sha256=1P26nNyq52-49uNjuV2x9cV_0Eym6WP6yROMrtTsw6k,2457
+macro_kit-0.3.6.dist-info/LICENSE,sha256=rpxKafH9r42sxLLYYB5VbZBHOdtYeLuYJjVU1LBwrxk,1546
+macro_kit-0.3.6.dist-info/METADATA,sha256=dnxKGq-ZG3uXid0AA1QxPJCIH2QAPAB68Ff9WDPrqjg,3505
+macro_kit-0.3.6.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+macro_kit-0.3.6.dist-info/top_level.txt,sha256=naLSDS1dwAG_UUZxYfjCVsoWrX_c1bTtEOfppVL5T2w,9
+macro_kit-0.3.6.dist-info/RECORD,,
