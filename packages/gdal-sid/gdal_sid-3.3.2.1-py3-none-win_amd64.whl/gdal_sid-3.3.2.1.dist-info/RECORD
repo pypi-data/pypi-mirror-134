@@ -1,0 +1,10 @@
+osgeo/lti_dsdk_9.5.dll,sha256=7YIPhDzFyngJfQSFrHmyrcWqiLbpk-uMk_BGw3-OwMI,14093824
+osgeo/lti_lidar_dsdk_1.1.dll,sha256=MaI2eTaZCHscfYZ6Acg5Y2AiZYr34kYnbdnrU--hO7g,253952
+osgeo/tbb.dll,sha256=a4RTvdvxqV95eh1_AtWnG6h0stFUWexuDmxxEegr2Ao,172544
+osgeo/gdalplugins/gdal_MG4Lidar.dll,sha256=ZaXOvSPSh4YRoX7xIOcb_Gye-v5kK3AOA30QrFw6b9Q,148992
+osgeo/gdalplugins/gdal_MrSID.dll,sha256=WvdW9qpDGrkGlJoOiCjk5w2JfLvfcoDW5TiSnJZ8fLc,163840
+gdal_sid-3.3.2.1.dist-info/LICENSE.txt,sha256=Ir2abH7HU8hmONHvxc92xjOZiU6pbH7VNF-x3Bh4wQU,16937
+gdal_sid-3.3.2.1.dist-info/METADATA,sha256=_dSjKfIDsvWuEy-XlFSqh6RDXgc35HR2ifNn0hndSXg,780
+gdal_sid-3.3.2.1.dist-info/WHEEL,sha256=i9qQj8KaD8_YEW0Vc2oS56fKju23RkQ-FVz-QmzVakQ,98
+gdal_sid-3.3.2.1.dist-info/top_level.txt,sha256=wkS7qrBR9rnAmD9QHo0kGNgmf-uqradlXd2K8OnGfoY,6
+gdal_sid-3.3.2.1.dist-info/RECORD,,
