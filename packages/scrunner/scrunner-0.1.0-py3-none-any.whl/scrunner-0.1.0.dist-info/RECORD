@@ -1,0 +1,13 @@
+scrunner/__init__.py,sha256=SgdIlVWE0GDIVSci-wLu-FfZXMXoSRSflOVBftz8tng,310
+scrunner/arguments.py,sha256=efSN5I0cZqHOGhI6fBXLZ7c4p96YKgGB3_TX9WO5Kt4,3577
+scrunner/config.py,sha256=nkCQVmI6T9YSYegbXKdJUrmiP0IDA_dlkMrQ-6muh6o,164
+scrunner/html.py,sha256=pSAVmbo9DnOYERNLGo1469B2kv_a6ns5V47TAJa5g_M,5699
+scrunner/runner.py,sha256=0AFTRSCSD6jhpSk9ta6TGQVPuj1J6JADfjrJzPQZYZE,7291
+scrunner/scripts.py,sha256=MOL02i5GsONt4u6V8bsmT9yl2XdO_eXFMkYgoQ2BxJo,3847
+scrunner/version.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+scrunner-0.1.0.data/scripts/scrun,sha256=mwU1kJ1Jv4KuAM56Fo_DSzW6CDkHUjNBFmtbH1a8onE,2523
+scrunner-0.1.0.dist-info/LICENSE,sha256=XhRTBB2F61KGkSh-v3A2nPbQ-gyrt2-NIUUH93dKp_4,1079
+scrunner-0.1.0.dist-info/METADATA,sha256=sx_eUCV6R5ixGeaR78vmRCkw93r8r3VzCh1hgTIL_3U,6445
+scrunner-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+scrunner-0.1.0.dist-info/top_level.txt,sha256=HidIHluB3K2_yke1Fgb6PnOecdGEHX1MgjVx7sPxuYk,9
+scrunner-0.1.0.dist-info/RECORD,,
