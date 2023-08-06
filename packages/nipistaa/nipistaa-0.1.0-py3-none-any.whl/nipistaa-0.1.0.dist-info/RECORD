@@ -1,0 +1,13 @@
+nipistaa/__init__.py,sha256=eIqigQuoFHXXN4zH_4ESLRB4P7B1rGe8FMzYSwX4dgw,73
+nipistaa/hook.py,sha256=3yvC7KVAf2ieoSwOPScFLyJR-134ZDm_L1BR2TYHlc8,974
+nipistaa/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nipistaa/templates/__init__.py,sha256=ka7aXIfU4Gq2Y9rvBozETqjZ4ScehFiv7equIut2dCE,125
+nipistaa/templates/_commands.py,sha256=c-5qqX4KNYJdXmYHcC3tquLHYjdU_DZW7P0Tmqh3biw,71
+nipistaa/utils/__init__.py,sha256=gf-ezKpKVGGaPpCZBT-r58_nqXaK1agWGDWgT73ddFs,47
+nipistaa/utils/guild_command.py,sha256=L_eYrOsvpoHqwe6-X0zaHwF9hfhujqK6RXSmkNfaPjc,977
+nipistaa/utils/types.py,sha256=Zm_gjbTK83PrbbY2SSnopDEOla3EmsiFVAFEFbn6x6Q,69
+nipistaa-0.1.0.dist-info/LICENSE,sha256=F94MCqxeUZJWopwviNhXmUoxQ0Eg0lwxow5la42NFdY,1072
+nipistaa-0.1.0.dist-info/METADATA,sha256=GGKI-OnXYdL6HDvmeb32XMhKy9szeH-DjVvuJOcqabo,2871
+nipistaa-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+nipistaa-0.1.0.dist-info/top_level.txt,sha256=RAsqzpSqzPkrsh3x9oaaUCag5hgpuXeqg_c3R1eOjYc,9
+nipistaa-0.1.0.dist-info/RECORD,,
