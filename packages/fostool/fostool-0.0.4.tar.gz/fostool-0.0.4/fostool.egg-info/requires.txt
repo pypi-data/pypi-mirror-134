@@ -1,0 +1,6 @@
+scikit-learn
+matplotlib
+numpy
+pandas
+pyyaml>=5.1
+addict
