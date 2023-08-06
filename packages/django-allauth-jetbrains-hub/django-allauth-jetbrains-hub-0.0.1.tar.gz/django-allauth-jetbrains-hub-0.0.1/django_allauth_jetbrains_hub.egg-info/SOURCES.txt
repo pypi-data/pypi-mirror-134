@@ -1,0 +1,11 @@
+README.md
+setup.py
+allauth_jetbrains_hub/__init__.py
+allauth_jetbrains_hub/provider.py
+allauth_jetbrains_hub/urls.py
+allauth_jetbrains_hub/views.py
+django_allauth_jetbrains_hub.egg-info/PKG-INFO
+django_allauth_jetbrains_hub.egg-info/SOURCES.txt
+django_allauth_jetbrains_hub.egg-info/dependency_links.txt
+django_allauth_jetbrains_hub.egg-info/requires.txt
+django_allauth_jetbrains_hub.egg-info/top_level.txt
