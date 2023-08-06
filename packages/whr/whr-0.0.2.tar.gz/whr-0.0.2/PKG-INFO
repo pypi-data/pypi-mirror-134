@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: whr
+Version: 0.0.2
+Summary: A Python implementation of the Whole History Rating algorithm proposed by Rémi Coulom. The implementation is based on the Ruby code of GoShrine.
+Home-page: https://github.com/wind23/whole_history_rating
+Author: Tianyi Hao
+Author-email: haotianyi0@126.com
+License: MIT
+Download-URL: https://github.com/wind23/whole_history_rating/archive/0.0.2.tar.gz
+Description: # Whole History Rating
+        
+        A Python implementation of the [Whole History Rating](http://remi.coulom.free.fr/WHR/WHR.pdf) algorithm proposed by [R茅mi Coulom](http://remi.coulom.free.fr/).
+        
+        The implementation is based on the [Ruby code](https://github.com/goshrine/whole_history_rating) of [GoShrine](http://goshrine.com).
+        
+        # Installation    
+        
+            pip install whr
+        
+Keywords: WHR,whole history rating,Elo rating
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
