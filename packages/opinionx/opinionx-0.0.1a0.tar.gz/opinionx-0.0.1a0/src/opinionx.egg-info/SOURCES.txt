@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/opinionx/__init__.py
+src/opinionx/text.py
+src/opinionx.egg-info/PKG-INFO
+src/opinionx.egg-info/SOURCES.txt
+src/opinionx.egg-info/dependency_links.txt
+src/opinionx.egg-info/requires.txt
+src/opinionx.egg-info/top_level.txt
+src/opinionx/__pycache__/__init__.cpython-36.pyc
+src/opinionx/__pycache__/text.cpython-36.pyc

@@ -1,0 +1,8 @@
+stanza
+jieba
+
+[dev]
+check-manifest
+
+[test]
+coverage
