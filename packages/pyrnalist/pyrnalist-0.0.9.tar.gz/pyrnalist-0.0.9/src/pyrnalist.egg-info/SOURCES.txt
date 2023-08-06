@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/pyrnalist/__init__.py
+src/pyrnalist/pyrnalist.py
+src/pyrnalist.egg-info/PKG-INFO
+src/pyrnalist.egg-info/SOURCES.txt
+src/pyrnalist.egg-info/dependency_links.txt
+src/pyrnalist.egg-info/requires.txt
+src/pyrnalist.egg-info/top_level.txt
