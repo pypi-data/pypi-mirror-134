@@ -1,0 +1,9 @@
+README.md
+setup.py
+bookmark/__init__.py
+bookmark/__version__.py
+bookmark_cli.egg-info/PKG-INFO
+bookmark_cli.egg-info/SOURCES.txt
+bookmark_cli.egg-info/dependency_links.txt
+bookmark_cli.egg-info/entry_points.txt
+bookmark_cli.egg-info/top_level.txt
