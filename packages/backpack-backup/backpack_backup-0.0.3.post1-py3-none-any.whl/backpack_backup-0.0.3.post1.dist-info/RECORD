@@ -1,0 +1,11 @@
+backpack/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+backpack/backpack.py,sha256=lURQvHNF79AjmMMNHqCnP3RmvF2P20i9D6w0lA6fBFY,2512
+backpack/cli.py,sha256=jApm2fj6ACDWmqZ-77gNF2z_auID0LkciIDoc_Xi7KA,2018
+backpack/logger.py,sha256=DQXrjKF2ecx369kF8FvvJn7oxKM3e0Nd2cDlVRI1Vyo,1067
+backpack/utils.py,sha256=xevIfT_hBzTAy8gZdBOmvTNti3HNXWm3Bc_F25u4OTA,1119
+backpack_backup-0.0.3.post1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+backpack_backup-0.0.3.post1.dist-info/METADATA,sha256=MP3SyAs8lbeQAP01o0Nf4UsOHnYW4xRykXWyjOhOm7o,2537
+backpack_backup-0.0.3.post1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+backpack_backup-0.0.3.post1.dist-info/entry_points.txt,sha256=Y77CdF9mwyyKXxWmV_FjwomHNoWUpK4W45FDWP8XdN0,48
+backpack_backup-0.0.3.post1.dist-info/top_level.txt,sha256=olMVI1qpmcmgyVhwYWBF8f4vPZHJ63bkhXbqiDgFpzw,9
+backpack_backup-0.0.3.post1.dist-info/RECORD,,
