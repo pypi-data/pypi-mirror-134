@@ -1,0 +1,6 @@
+[org.molssi.seamm]
+RDKit = rdkit_step:RdkitStep
+
+[org.molssi.seamm.tk]
+RDKit = rdkit_step:RdkitStep
+

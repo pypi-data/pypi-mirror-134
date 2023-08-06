@@ -1,0 +1,299 @@
+This is an initial library of BibTex references for the rdkit_step plug-in for SEAMM,
+generated automatically by the cookiecutter. You may wish to edit the first entry to correct some
+of the information.
+
+Add other references to the end of the file and add code in the plug-in to cite the references as
+appropriate. This is done with code like this:
+
+        self.references.cite(
+            raw=self._bibliography['doi:10.1002/jcc.21224'],
+            alias='packmol',
+            module='packmol_step',
+            level=1,
+            note='The principle PACKMOL citation.'
+        )
+
+which is typically in the run() method of the plug-in.
+
+The base node class in SEAMM automatically reads this list of references into a dictionary in
+self._bibliography with the key being the key of the BibTex entry -- usually the name on the
+first line of the entry after the 'article' or 'misc' (for software) keyword.
+
+See the documentation for the Reference Handler for the other arguments to cite().
+
+# End of initial comments #
+
+# This is the citation for this plug-in, generated and used automatically.
+# You might need to edit the author, address, etc. The month, year and version fields
+# are automatically filled in with information about current version of the plug-in.
+# This is handled in seamm/nody.py, the run() method.
+@misc{rdkit_step,
+	author = {Mohammad Mostafanejad},
+	title = {Rdkit plug-in for SEAMM},
+	month = {$month},
+	year = {$year},
+	organization = {molssi-seamm},
+	url = {https://github.com/molssi-seamm/rdkit_step },
+	address = {Molecular Sciences Software Institute, Blacksburg, VA, USA},
+	version = {$version}
+}
+@misc{rdkit_website,
+	author = {Jacob Gora and Gareth Jones and Brian Kelley and Ricardo Rodriguez-Schmidt and Paolo Tosco and Kazuya Ujihara and Riccardo Vianello},
+	title = {RDKit: Open-source cheminformatics},
+	month = {September},
+	year = {2021},
+	organization = {RDKit},
+	url = {https://doi.org/10.5281/zenodo.5773460},
+	address = {Zenodo},
+	version = {2021.9.3}
+}
+
+####################
+## 3D Descriptors ##
+####################
+
+# Asphericity
+@article{doi:10.1063/1.464689,
+	author = {Baumgärtner, A.},
+	title = {Shapes of flexible vesicles at constant volume},
+	journal = {The Journal of Chemical Physics},
+	volume = {98},
+	number = {9},
+	pages = {7496-7501},
+	year = {1993},
+	doi = {10.1063/1.464689},
+	url = {https://doi.org/10.1063/1.464689},
+	eprint = {https://doi.org/10.1063/1.464689}
+}
+
+# Eccentricity & RadiusofGyration
+@inbook{doi:10.1002/9780470125861.ch5,
+	author = {Arteca, Gustavo A.},
+	publisher = {John Wiley & Sons, Ltd},
+	isbn = {9780470125861},
+	title = {Molecular Shape Descriptors},
+	booktitle = {Reviews in Computational Chemistry},
+	chapter = {},
+	pages = {191-253},
+	doi = {https://doi.org/10.1002/9780470125861.ch5},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470125861.ch5},
+	eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470125861.ch5},
+	year = {1996},
+	keywords = {molecular descriptors, heirarchy, nuclear geometry, molecular shape characterization, flexible molecules},
+	abstract = {Summary This chapter contains sections titled: Introduction Hierarchical Levels of Molecular Shape and Shape Characterizing the Nuclear Geometry Characterizing Molecular Shape by Geometry and Connectivity Characterizing the Three-Dimensional Molecular Body: Some Comments on Shape Dynamics of Flexible Molecules Some Comments on Descriptors of Relative Shape Summary Appendix: Moments of Inertia and Radius of Gyration}
+}
+
+# InertialShapeFactor
+@inbook{doi:10.1002/9783527618279.ch37,
+	author = {Todeschini, Roberto and Consonni, Viviana},
+	publisher = {John Wiley & Sons, Ltd},
+	isbn = {9783527618279},
+	title = {Descriptors from Molecular Geometry},
+	booktitle = {Handbook of Chemoinformatics},
+	chapter = {VIII.2},
+	pages = {1004-1033},
+	doi = {https://doi.org/10.1002/9783527618279.ch37},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527618279.ch37},
+	eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9783527618279.ch37},
+	year = {2003},
+	keywords = {isomorphism, mathematical, chemical compounds, cardinality},
+	abstract = {Summary This chapter contains sections titled: Introduction Geometrical Descriptors for Molecular Size and Shape WHIM Descriptors GETAWAY Descriptors 3D Autocorrelation Descriptors 3D-MORSE and RDF Descriptors EVA and EEVA Descriptors Conclusions}
+}
+
+# NPR1 and NPR2
+
+@article{doi:10.1021/ci025599w,
+	author = {Sauer, Wolfgang H. B. and Schwarz, Matthias K.},
+	title = {Molecular Shape Diversity of Combinatorial Libraries:  A Prerequisite for Broad Bioactivity},
+	journal = {Journal of Chemical Information and Computer Sciences},
+	volume = {43},
+	number = {3},
+	pages = {987-1003},
+	year = {2003},
+	doi = {10.1021/ci025599w},
+	note ={PMID: 12767158},
+	URL = {https://doi.org/10.1021/ci025599w},
+	eprint = {https://doi.org/10.1021/ci025599w}
+}
+
+####################
+## 2D Descriptors ##
+####################
+
+# Gasteiger charges (MaxPartialCharge, MinPartialCharge, MaxAbsPartialCharge and MinAbsPartialCharge)
+@article{GASTEIGER19803219,
+title = {Iterative partial equalization of orbital electronegativity—a rapid access to atomic charges},
+journal = {Tetrahedron},
+volume = {36},
+number = {22},
+pages = {3219-3228},
+year = {1980},
+issn = {0040-4020},
+doi = {https://doi.org/10.1016/0040-4020(80)80168-2},
+url = {https://www.sciencedirect.com/science/article/pii/0040402080801682},
+author = {Johann Gasteiger and Mario Marsili},
+abstract = {A method is presented for the rapid calculation of atomic charges in σ-bonded and nonconjugated π-systems. Atoms are characterized by their orbital electronegativities. In the calculation only the connectivities of the atoms are considered. Thus only the topology of a molecule is of importance. Through an iterative procedure partial equalization of orbital electronegativity is obtained. Excellent correlations of the atomic charges with core electron binding energies and with acidity constants are observed. This establishes their value in predicting experimental data.}
+}                  
+
+# Morgan Fingerprints
+@article{doi:10.1021/ci100050t,
+	author = {Rogers, David and Hahn, Mathew},
+	title = {Extended-Connectivity Fingerprints},
+	journal = {Journal of Chemical Information and Modeling},
+	volume = {50},
+	number = {5},
+	pages = {742-754},
+	year = {2010},
+	doi = {10.1021/ci100050t},
+	note ={PMID: 20426451},
+	URL = {https://doi.org/10.1021/ci100050t},
+	eprint = {https://doi.org/10.1021/ci100050t}
+}
+
+# BCUT2D_*
+@inbook{Pearlman_1997,
+	author = {Pearlman, R. S. and Smith, K. M.},
+	publisher = {Kluwer Academic Publishers},
+	title = {Novel Software Tools for Chemical Diversity},
+	booktitle = {3D-QSAR and Drug design: Recent Advances},
+	year = {1997},
+	address = {Dordrecht, Netherlands},
+}
+
+# BalabanJ
+@article{BALABAN1982399,
+	title = {Highly discriminating distance-based topological index},
+	journal = {Chemical Physics Letters},
+	volume = {89},
+	number = {5},
+	pages = {399-404},
+	year = {1982},
+	issn = {0009-2614},
+	doi = {https://doi.org/10.1016/0009-2614(82)80009-2},
+	url = {https://www.sciencedirect.com/science/article/pii/0009261482800092},
+	author = {Alexandru T. Balaban},
+	abstract = {A new topological indexJ (based on distance sumssi as graph invariants) is proposed. For unsaturated or aromatic compounds, fractional bond orders are used in calculatingsi. The degeneracy ofJ is lowest among all single topological indices described so far. The asymptotic behaviour ofJ is discussed, e.g. whenn → ∞ in CnH2n = 2,Jar π for linear alkanes, andJ → ∞ for highly branched ones.}
+}
+
+# BertzCT
+@article{doi:10.1021/ja00402a071,
+	author = {Bertz, Steven H.},
+	title = {The first general index of molecular complexity},
+	journal = {Journal of the American Chemical Society},
+	volume = {103},
+	number = {12},
+	pages = {3599-3601},
+	year = {1981},
+	doi = {10.1021/ja00402a071},
+	URL = {https://doi.org/10.1021/ja00402a071},
+	eprint = {https://doi.org/10.1021/ja00402a071},
+}
+
+# Chi0 and Chi1
+# Chi0n- Chi4n
+# Chi0v- Chi4v
+# HallKierAlpha
+# Kappa1- Kappa3
+@inbook{doi:https://doi.org/10.1002/9780470125793.ch9,
+	author = {Hall, Lowell H. and Kier, Lemont B.},
+	publisher = {John Wiley & Sons, Ltd},
+	isbn = {9780470125793},
+	title = {The Molecular Connectivity Chi Indexes and Kappa Shape Indexes in Structure-Property Modeling},
+	booktitle = {Reviews in Computational Chemistry},
+	chapter = {},
+	pages = {367-422},
+	doi = {https://doi.org/10.1002/9780470125793.ch9},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470125793.ch9},
+	eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470125793.ch9},
+	year = {1991},
+	abstract = {Summary This chapter contains sections titled: Introduction Background for Molecular Connectivity Development of Molecular Connectivity Molecular Connectivity Approach Molecular Connectivity Method QSAR Applications of Molecular Connectivity Chi Indexes Characterization of Molecular Shape Background: Steric or Shape Influence Methods for Steric Quantification Model of Molecular Shape Based on Chemical Graph Theory Shape Infromation in the Kappa Values Encoding Atom Identity Kappa Index Values for Small Molecules Molecular Shape Quantitation General Applications Specific Application of Kappa Indexes Characterization of Skeletal Atoms, the Topological State}
+}
+
+# Ipc
+@article{doi:10.1063/1.434593,
+	author = {Bonchev,D. and Trinajstić,N.},
+	title = {Information theory, distance matrix, and molecular branching},
+	journal = {The Journal of Chemical Physics},
+	volume = {67},
+	number = {10},
+	pages = {4517-4533},
+	year = {1977},
+	doi = {10.1063/1.434593},
+	URL = {https://doi.org/10.1063/1.434593},
+	eprint = {https://doi.org/10.1063/1.434593}
+}
+
+# LabuteASA
+@article{LABUTE2000464,
+	title = {A widely applicable set of descriptors},
+	journal = {Journal of Molecular Graphics and Modelling},
+	volume = {18},
+	number = {4},
+	pages = {464-477},
+	year = {2000},
+	issn = {1093-3263},
+	doi = {https://doi.org/10.1016/S1093-3263(00)00068-1},
+	url = {https://www.sciencedirect.com/science/article/pii/S1093326300000681},
+	author = {Paul Labute},
+	keywords = {molecular descriptors, QSAR, molecular diversity},
+	abstract = {Three sets of molecular descriptors computable from connection table information are defined. These descriptors are based on atomic contributions to van der Waals surface area, log P (octanol/water), molar refractivity, and partial charge. The descriptors are applied to the construction of QSAR/QSPR models for boiling point, vapor pressure, free energy of solvation in water, solubility in water, thrombin/trypsin/factor Xa activity, blood-brain barrier permeability, and compound classification. The wide applicability of these descriptors suggests uses in QSAR/QSPR, combinatorial library design, and molecular diversity work.}
+}
+
+# MOE ebsite
+# PEOE_VSA1- PEOE_VSA14
+# SMR_VSA1- SMR_VSA10
+# SlogP_VSA1- SlogP_VSA12
+# EState_VSA1- EState_VSA11
+# VSA_EState1 - VSA_EState10
+@misc{moe_website,
+	author = {MOE},
+	title = {Chemical Computing Group},
+	month = {December},
+	year = {2021},
+	organization = {MOE},
+	url = {https://www.chemcomp.com/index.htm},
+	address = {Montreal, Canada},
+}
+
+# TPSA
+@article{doi:10.1021/jm000942e,
+	author = {Ertl, Peter and Rohde, Bernhard and Selzer, Paul},
+	title = {Fast Calculation of Molecular Polar Surface Area as a Sum of Fragment-Based Contributions and Its Application to the Prediction of Drug Transport Properties},
+	journal = {Journal of Medicinal Chemistry},
+	volume = {43},
+	number = {20},
+	pages = {3714-3717},
+	year = {2000},
+	doi = {10.1021/jm000942e},
+	note ={PMID: 11020286},
+	url = {https://doi.org/10.1021/jm000942e},
+}
+
+# Molecular Quantum Numbers (MQNs)
+@article{https://doi.org/10.1002/cmdc.200900317,
+	author = {Nguyen, Kong T. and Blum, Lorenz C. and van Deursen, Ruud and Reymond, Jean-Louis},
+	title = {Classification of Organic Molecules by Molecular Quantum Numbers},
+	journal = {ChemMedChem},
+	volume = {4},
+	number = {11},
+	pages = {1803-1805},
+	keywords = {classification, databases, drugs, quantum numbers, the periodic table},
+	doi = {https://doi.org/10.1002/cmdc.200900317},
+	url = {https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cmdc.200900317},
+	eprint = {https://chemistry-europe.onlinelibrary.wiley.com/doi/pdf/10.1002/cmdc.200900317},
+	abstract = {Classifying organic molecules using counts for simple structural features, such as atom, bond and ring types, called molecular quantum numbers (MQNs), defines a universal chemical space for analyzing large molecular databases such as ZINC and GDB. The organization of MQN space is revealed by principal component analysis (PCA), as shown for the GDB-11 database (26.4 million structures, up to 11 atoms of C, N, O, F).},
+	year = {2009}
+}
+
+# MolLogP and MolMR
+@article{doi:10.1021/ci990307l,
+	author = {Wildman, Scott A. and Crippen, Gordon M.},
+	title = {Prediction of Physicochemical Parameters by Atomic Contributions},
+	journal = {Journal of Chemical Information and Computer Sciences},
+	volume = {39},
+	number = {5},
+	pages = {868-873},
+	year = {1999},
+	doi = {10.1021/ci990307l},
+	url = {https://doi.org/10.1021/ci990307l},
+}
