@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: s3synchrony
+Version: 0.1.0
+Summary: S3 Synchronization Service
+Home-page: https://github.com/SevanBrodjian/s3synchrony
+Author: Sevan Brodjian
+Author-email: sevanbro7@gmail.com
+License: LICENSE.md
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# s3synchrony
+Source code for the s3synchrony Python package.
+
+

@@ -1,0 +1,7 @@
+LICENSE.md
+README.md
+setup.py
+s3synchrony.egg-info/PKG-INFO
+s3synchrony.egg-info/SOURCES.txt
+s3synchrony.egg-info/dependency_links.txt
+s3synchrony.egg-info/top_level.txt
