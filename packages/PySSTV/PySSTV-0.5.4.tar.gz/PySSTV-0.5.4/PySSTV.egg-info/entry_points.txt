@@ -1,0 +1,3 @@
+[console_scripts]
+pysstv = pysstv.__main__:main
+
