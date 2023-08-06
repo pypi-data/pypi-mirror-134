@@ -1,0 +1,8 @@
+mkl/__init__.py,sha256=2YSACdj7E4hh4hSbMgHYbRcsjq9j3hK5SWi3hCnVX1k,2325
+mkl/_mklinit.cpython-38-x86_64-linux-gnu.so,sha256=WnWO0_NgxWBMOAilRpHCBdxn9nvgxxd-612wqLOpgps,17192
+mkl/_py_mkl_service.cpython-38-x86_64-linux-gnu.so,sha256=o3roZN2DBzv3po7el_6lHgFESsyl9d0DsNZkjKxYplw,165088
+mkl_service-2.4.0.dist-info/LICENSE.txt,sha256=yzK7QcUe-7HaauSWjlsChQG8Ad3_WSwKhXVb3Ag3-c8,1505
+mkl_service-2.4.0.dist-info/METADATA,sha256=lSJKGgltwitrXY9A_2-BGxuHpVvsPhISDDTmowyrlvk,2371
+mkl_service-2.4.0.dist-info/WHEEL,sha256=A20yIN0sAA3Frg2TCpVu_3lVh3KRKgDvCH69ub0AsNg,233
+mkl_service-2.4.0.dist-info/top_level.txt,sha256=sekqQ_0YET7LLHO6NsXQgKDPGGRhmKuANW9ovFuM2TE,4
+mkl_service-2.4.0.dist-info/RECORD,,
