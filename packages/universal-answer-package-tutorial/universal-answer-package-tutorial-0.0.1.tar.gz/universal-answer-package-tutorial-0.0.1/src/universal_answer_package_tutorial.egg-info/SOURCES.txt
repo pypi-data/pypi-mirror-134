@@ -1,0 +1,11 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+test_answer.py
+src/answer.py
+src/universal_answer_package_tutorial.egg-info/PKG-INFO
+src/universal_answer_package_tutorial.egg-info/SOURCES.txt
+src/universal_answer_package_tutorial.egg-info/dependency_links.txt
+src/universal_answer_package_tutorial.egg-info/requires.txt
+src/universal_answer_package_tutorial.egg-info/top_level.txt
