@@ -1,0 +1,4 @@
+[console_scripts]
+sheets2linkml=fairstructure.schemamaker:convert
+sheets2project=fairstructure.sheets_to_project:multigen
+
