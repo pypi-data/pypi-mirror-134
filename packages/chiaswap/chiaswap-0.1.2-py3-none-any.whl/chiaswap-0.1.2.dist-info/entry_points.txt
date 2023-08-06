@@ -1,0 +1,3 @@
+[console_scripts]
+xchswap = chiaswap.main:main
+pushtx = chiaswap.pushtx:main
