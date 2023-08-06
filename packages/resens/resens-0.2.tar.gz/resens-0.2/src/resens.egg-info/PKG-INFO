@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: resens
+Version: 0.2
+Summary: Raster Processing package for Remote Sensing and Earth Observation
+Home-page: https://www.nargyrop.com
+Author: Nikos Argyropoulos
+Author-email: n.argiropeo@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8
