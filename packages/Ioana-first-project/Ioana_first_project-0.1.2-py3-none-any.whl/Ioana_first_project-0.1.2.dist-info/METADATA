@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: Ioana-first-project
+Version: 0.1.2
+Summary: first project
+Home-page: UNKNOWN
+Author: Scheul-Ioana
+Author-email: ioana.scheul@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Ioana-first-project
+
+Ioana-first-project is my first Python library
+
+##Installation
+
+```bash
+pip install Ioana-first-project
+```
+##Usage
+```python
+from Ioana_project import ioana
+
+ioana.hello_from_ioana()
+# Prints Hello from Ioana
+
