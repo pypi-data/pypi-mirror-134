@@ -1,0 +1,14 @@
+label,fruit,response
+buy,0,"[""Silahkan hubungi nomor WA 081234567890 jika ingin membeli "", ""Maaf , tapi anda belum memberitahu kami buah apa yang akan anda beli""]"
+ask_product,0,"[""Kami menjual Apel, Anggur, Alpukat, Durian, Jeruk, dan Mangga"", ""Yaa, kami menjual ""]"
+ask_price,jeruk,Untuk Jeruk di harga Rp. - per kilo
+ask_price,apel,Untuk Apel di harga Rp. - per kilo
+ask_price,anggur,Untuk Anggur di harga Rp. - per kilo
+ask_price,alpukat,Untuk Alpukat di harga Rp. - per kilo
+ask_price,durian,Untuk Durian di harga Rp. - per kilo
+ask_price,mangga,Untuk Mangga di harga Rp. - per kilo
+ask_price,0,"Maaf kami hanya menjual buah Apel, Anggur, Alpukat, Durian, Jeruk, dan Mangga"
+ask_delivery,0,"Untuk biaya dan waktu pengiriman, semua tergantung dengan pemilihan kurir dan jarak pengiriman, mohon hubungi nomor WA 081234567890 untuk info lebih lanjut"
+ask_payment,0,"Pembayaran bisa via transfer ke nomor rekening BCA 0123456789 atas nama {nama}, atau lewat ovo, gopay, dan dana dengan nomor 08123456789 atas nama {nama}"
+greetings,0,"Halo dengan customer service, ada yang bisa saya bantu?"
+thank_you,0,"Sama-sama, senang bisa membantu! Mohon membalas 'stop' untuk mengakhiri sesi ini dan mengisi form survey chatbot dibawah ini. https://forms.gle/AiEuyDCLFbP3x8za8 Terima Kasih"

@@ -1,0 +1,6 @@
+fuzzywuzzy
+numpy
+pandas
+requests
+Sastrawi
+scikit-learn
