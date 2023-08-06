@@ -1,0 +1,13 @@
+AlgoAnalyzer/Analyzer.py,sha256=s472FO9SjMB0rtiuiM4l5xWdyV4OAjKTKpGlnN75zmE,1861
+AlgoAnalyzer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+AlgoAnalyzer/chart/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+AlgoAnalyzer/chart/chart.py,sha256=0AbkOav8aqRR5CQl9PfajznzdYDhL7fiBmIBu-XzdXA,3703
+AlgoAnalyzer/techicals/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+AlgoAnalyzer/techicals/ema_crossover.py,sha256=wyDkTfCPOHo30k-aocfgYFOLmO-eIg4qw9EebzEUwr8,5053
+AlgoAnalyzer/techicals/macd.py,sha256=nY87GT2xqbRqwRk6q3maYrK5YeH_jyDRPOPTVDJZBkk,4104
+AlgoAnalyzer/techicals/sma_crossover.py,sha256=8vBOEzCXkw0S4Lll2Uz7XT7QG3gimx1NKFPDbrZ6y7c,4094
+AlgoAnalyzer-0.0.0.dist-info/LICENSE,sha256=uYr7K0cU7PIhG_qvdxnViDCWHmjAjdYSfiD7nfr7VVw,1083
+AlgoAnalyzer-0.0.0.dist-info/METADATA,sha256=tMZKmYKlLW4P_Wg8GFxstGvxIBxKRfKN7pcXPoznTzU,16876
+AlgoAnalyzer-0.0.0.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+AlgoAnalyzer-0.0.0.dist-info/top_level.txt,sha256=gHXtWT1cvoTU1vKjkqbbLoVUWpG3zQ53k-CzCqUfyjc,13
+AlgoAnalyzer-0.0.0.dist-info/RECORD,,
