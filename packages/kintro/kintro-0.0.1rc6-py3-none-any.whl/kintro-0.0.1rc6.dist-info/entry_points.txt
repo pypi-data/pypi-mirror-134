@@ -1,0 +1,3 @@
+[console_scripts]
+kintro = kintro.kintro:cli
+
