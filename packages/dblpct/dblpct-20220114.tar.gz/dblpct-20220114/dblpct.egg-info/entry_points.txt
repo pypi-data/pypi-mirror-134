@@ -1,0 +1,4 @@
+
+      [console_scripts]
+      dblpct = dblpct.dblpct:main
+    
