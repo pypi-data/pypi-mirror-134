@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: waveshare-epd-driver
+Version: 1.0.0
+Summary: Waveshare e-Paper Display
+Home-page: UNKNOWN
+Author: Waveshare
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Pillow
+Requires-Dist: numpy
+Requires-Dist: Jetson.GPIO
+
+UNKNOWN
+
