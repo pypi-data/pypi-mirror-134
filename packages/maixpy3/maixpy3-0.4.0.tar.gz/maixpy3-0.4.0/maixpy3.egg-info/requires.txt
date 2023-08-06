@@ -1,0 +1,10 @@
+Pillow
+evdev
+gpiod
+numpy
+pyserial
+rpyc
+spidev
+
+[test]
+pytest
