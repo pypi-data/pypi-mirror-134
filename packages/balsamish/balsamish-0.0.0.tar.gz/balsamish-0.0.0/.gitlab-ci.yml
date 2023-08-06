@@ -1,0 +1,26 @@
+image: python:3.6.8-slim-stretch
+
+stages:
+  - test
+  - publish
+
+test:
+  tags: [aws]
+  stage: test
+  script:
+    - export PYTHONPATH=.:./src
+    - pip install -r requirements/test.txt
+    - python setup.py pytest
+
+pypi:
+  tags: [aws]
+  stage: publish
+  script:
+    - apt-get update && apt-get install -y make git
+    - make version
+    - cat VERSION
+    - pip install -r requirements/publish.txt
+    - make build
+    - make publish
+  only:
+    - /^v(\d)+\.(\d)+.(\d+)$/
