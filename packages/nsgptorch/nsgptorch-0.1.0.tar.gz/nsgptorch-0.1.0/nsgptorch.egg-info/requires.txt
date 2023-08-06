@@ -1,0 +1,4 @@
+numpy
+torch
+setuptools_scm[toml]
+setuptools_scm_git_archive
