@@ -1,0 +1,11 @@
+botd-72.data/data/share/botd/botd.service,sha256=WB5Taq4iYFmkZk9CkhbjJ9axWpe19Ixb02PUCurTxeo,252
+botd-72.data/data/share/doc/botd/README.rst,sha256=wjkJmxuOrkd-9oIVNz8yduE8TSKPrTpkh5kjXpUV4zo,1776
+botd-72.data/scripts/bot,sha256=r-kc7WscPjQZ1JbOuE23PVVdJZpnKDP8x9Nu7YwiTwQ,2377
+botd-72.data/scripts/botcmd,sha256=BwgTUV3CpzimkTXs1Gys5pZtJ4uecJ_TWNdS6fFSaYQ,770
+botd-72.data/scripts/botctl,sha256=b3ujgDDoADgGzg8UdYXPEB21KGn9ofpOKe1gaPpD1Ow,192
+botd-72.data/scripts/botd,sha256=3-RQNX8aEDYQALmIFWki4qW94EXwHgvqVZSxiDsHSxY,1544
+botd-72.dist-info/METADATA,sha256=zyYbneF_WyKwA0wic4RO25ILXkd3le8auq6G-JF7Qik,2196
+botd-72.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+botd-72.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+botd-72.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+botd-72.dist-info/RECORD,,
