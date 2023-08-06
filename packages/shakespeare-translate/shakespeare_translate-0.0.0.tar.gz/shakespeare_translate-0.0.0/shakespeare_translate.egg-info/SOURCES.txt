@@ -1,0 +1,8 @@
+LICENSE
+README.rst
+setup.py
+shakespeare_translate.py
+shakespeare_translate.egg-info/PKG-INFO
+shakespeare_translate.egg-info/SOURCES.txt
+shakespeare_translate.egg-info/dependency_links.txt
+shakespeare_translate.egg-info/top_level.txt

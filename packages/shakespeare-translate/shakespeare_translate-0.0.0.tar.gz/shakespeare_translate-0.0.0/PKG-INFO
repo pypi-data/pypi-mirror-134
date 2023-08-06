@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: shakespeare_translate
+Version: 0.0.0
+Summary: Translate modern English into Shakespearean English
+Home-page: https://github.com/Sammygarch/Shakespeare-translator
+Author: Sammy Garcia
+Author-email: s@mmygarcia.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires-Python: >=3
+License-File: LICENSE
+
+# shakespeare_translate
+#####Translates Modern English to Shakespearean English
+
+
