@@ -1,0 +1,92 @@
+[tool.poetry]
+name = "gurun"
+version = "v1.1.0"
+description = "Task automation framework"
+authors = ["Gabriel Guarisa <gabrielguarisa@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/gabrielguarisa/gurun"
+homepage = "https://github.com/gabrielguarisa/gurun"
+keywords = ["automation", "workflow", "pipeline", "task", "framework"]
+
+# Pypi classifiers: https://pypi.org/classifiers/
+classifiers = [  #! Update me
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">= 3.7.12, < 3.11"
+opencv-python = {version = "^4.5.4", optional = true}
+PyAutoGUI = {version = "^0.9.41", optional = true}
+mss = {version = "^6.1.0", optional = true}
+
+[tool.poetry.dev-dependencies]
+black = { version = "^21.7b0", allow-prereleases = true }
+isort = { extras = ["colors"], version = "^5.9.3" }
+pre-commit = "^2.13.0"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+
+[tool.poetry.extras]
+gui = ["opencv-python", "PyAutoGUI", "mss"]
+cv = ["opencv-python"]
+full = ["opencv-python", "PyAutoGUI", "mss"]
+
+[tool.black]
+# https://github.com/psf/black
+target-version = ["py38"]
+line-length = 88
+color = true
+
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.isort]
+# https://github.com/timothycrosley/isort/
+py_version = 38
+line_length = 88
+
+known_typing = [
+  "typing",
+  "types",
+  "typing_extensions",
+  "mypy",
+  "mypy_extensions",
+]
+sections = [
+  "FUTURE",
+  "TYPING",
+  "STDLIB",
+  "THIRDPARTY",
+  "FIRSTPARTY",
+  "LOCALFOLDER",
+]
+include_trailing_comma = true
+profile = "black"
+multi_line_output = 3
+indent = 4
+color_output = true
