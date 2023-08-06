@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: dssim
+Version: 0.8.0
+Summary: Discrete System Simulation framework
+Home-page: https://github.com/majvan/dssim
+Author: NXP Semiconductors
+Author-email: juraj.vanco@nxp.com
+License: apache-2.0
+Description: A simulation framework to simulate time-based discrete events. Useful to simulate behavior of a digital system in time.
+Keywords: simulation,simulator,discrete,system,event,Process,event-based,time
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
