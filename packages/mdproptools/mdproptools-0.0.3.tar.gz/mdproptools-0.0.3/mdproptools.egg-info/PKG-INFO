@@ -1,0 +1,38 @@
+Metadata-Version: 1.2
+Name: mdproptools
+Version: 0.0.3
+Summary: mdproptools contains MD analysis tools
+Home-page: https://github.com/molmd/mdproptools
+Author: Rasha Atwi, Matthew Bliss, Maxim Makeev
+Author-email: rasha.atwi@stonybrook.edu, matthew.bliss@stonybrook.edu, maxim.makeev@stonybrook.edu
+License: UNKNOWN
+Description: # <img alt="mispr" src="docs/logo.png" width="500">
+        
+        # MDPropTools: MD Property Tools 
+        
+        **Rasha Atwi, Matthew Bliss, Maxim Makeev, and Nav Nidhi Rajput**
+        
+        **Stony Brook University** 
+        
+        # Table of Contents 
+        
+        # Introduction 
+        MDPropTools is a Python package for computing structural and dynamical properties from 
+        LAMMPS trajectory and output files. 
+        
+        - **Source:** https://github.com/tufts-university-rajput-lab/mdproptools
+        
+        # Installation
+        
+        # Requirements
+        
+        # Usage 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6
