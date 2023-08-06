@@ -1,0 +1,14 @@
+dasifo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dasifo/data_storages/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dasifo/data_storages/cloud_db.py,sha256=wQHFToKdQLs37VxO-Wo4z038r72r0X49Y-TZa_eTvvY,71
+dasifo/data_storages/cloud_storages.py,sha256=DBuS_3D0CS7I62I9m_axPwoMGTxTGVMW7T7B6VhcNSE,90
+dasifo/data_storages/db_connectors.py,sha256=Pcn8xvaaTR-AGATH9-6Ri7lWNiKCCjXFKZ8QnLH1rsI,1687
+dasifo/data_storages/nosql_db.py,sha256=scUuRBl5QgSORDNbcueJVK70YCTySZTtgl8LotykjHM,377
+dasifo/data_storages/sql_db.py,sha256=fyiy20gZuGG4fTx5OrVXkmtxKgCOpzHiTJ02zHgn6oM,1914
+dasifo/scrapme/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dasifo/scrapme/runner.py,sha256=L2aWKjzVDdEmiBxhYK3zb5Ufaybuilj84kgJ3-FvKE8,4319
+dasifo-0.0.3.dist-info/LICENSE,sha256=8ChqmNnd3e_E0qd-wNMTTJDg2ivBak0Gb13hhhNBn_s,1073
+dasifo-0.0.3.dist-info/METADATA,sha256=BC28vKNIo0xNwlT0F-KpZN9Jwz3EyI_okszw7P_iNeI,1990
+dasifo-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dasifo-0.0.3.dist-info/top_level.txt,sha256=o02tSD5W9GmieKIYY3ZUXokWAiNk5Qij0u7wQE5VPqk,7
+dasifo-0.0.3.dist-info/RECORD,,
