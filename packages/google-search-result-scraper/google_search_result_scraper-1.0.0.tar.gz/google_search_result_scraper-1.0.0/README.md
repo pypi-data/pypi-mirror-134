@@ -1,0 +1,52 @@
+
+
+
+Google Search Result Scraper is a python library to scrape for a google search result using browser automation. 
+It currently runs only on windows.
+
+## Scrape Search Results
+In this example we first import library, then we provide the keyword to be scraped instead of "doctor".
+```sh
+from google_search_result_scraper import *
+response = google.search_result_scraper(Search="doctor")
+```
+
+### Response Data
+```json
+      "description": "Autism spectrum disorder (ASD) is a developmental disorder that affects communication and behavior. Although autism can be diagnosed at any age, ...",
+      "title": "NIMH » Autism Spectrum Disorder"
+```
+
+#### BotStudio
+[Bot_Studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which product will be bought. To buy first login will need to be done. Login can be done either with credentials or via cookies
+
+
+### Installation
+
+```sh
+pip install google-search-result-scraper
+```
+
+### Import
+```sh
+from google_search_result_scraper import *
+```
+
+### Get Google Results
+```sh
+response=google.search_result_scraper(Search="doctor")
+data=response['body']
+```
+
+### Run bot on cloud
+You can run bot on [cloud](https://datakund.com/products/google-search-result-scraper-1?_pos=6&_sid=4b9ec1b77&_ss=r).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
