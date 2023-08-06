@@ -1,0 +1,7 @@
+setuptools
+slapos.recipe.build>=0.49
+zc.buildout>=2
+
+[test]
+manuel
+zope.testing
