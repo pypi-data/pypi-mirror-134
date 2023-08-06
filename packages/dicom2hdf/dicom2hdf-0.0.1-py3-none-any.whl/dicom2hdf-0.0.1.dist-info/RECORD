@@ -1,0 +1,17 @@
+dicom2hdf/__init__.py,sha256=CFPgH1xbeG1QRmS0YJM1d1EbnXnFKm0n5-J-ww_ZIu4,386
+dicom2hdf/__main__.py,sha256=AFDfZQ-EgJrG7gzCfeT3caekXvMkdXE_qxMmPw4tgo4,1576
+dicom2hdf/data_model.py,sha256=cEsJ80mp2dz9kmw6twaiaa_-Qg6dhYFR5trAubTqMVU,2522
+dicom2hdf/logging_tools.py,sha256=IrSFOoWVNp1RP5oCyBns0KOMYuiQHJi9Y92BW-Rn60M,659
+dicom2hdf/root.py,sha256=QftBzdbitJ2LUKM1KnhIQvm07kk_q5bu6v5BpuUOs94,1020
+dicom2hdf/utils.py,sha256=iSsTlkiidBuyVzd72Go-SAokz4M4qSKFL9_M_k3D15U,1779
+dicom2hdf/data_generators/__init__.py,sha256=c6BQkK-DhOAwFj6idcp21dL_xssR0VrmkRgQTlFvD8Y,58
+dicom2hdf/data_generators/patient_data_generator.py,sha256=sPh9ItCAme9Q7rnQICEtO2_CesXAWCJ30aaYcxxhswA,13208
+dicom2hdf/datasets/__init__.py,sha256=REsI7VR4aJuwyEq1EHYlC5rNu9Y0u7Qkl6AP2CBZSuQ,39
+dicom2hdf/datasets/hdf5_dataset.py,sha256=uMY5JCnLlK9Fr4osPkqdaGG0e5wt1yQ1a2T5cAI4tso,11041
+dicom2hdf/datasets/tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dicom2hdf/datasets/tools/segmentation_filename_patterns_matcher.py,sha256=PEYTrZg7qLMR1eYVcZQs31RSMZGAnYfsfxV8KNuA9vk,5381
+dicom2hdf-0.0.1.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+dicom2hdf-0.0.1.dist-info/METADATA,sha256=Kp8IzFBhxlo9d-6meYzZxaCkWJ9O5l4NFts8b5FzBH8,5252
+dicom2hdf-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dicom2hdf-0.0.1.dist-info/top_level.txt,sha256=apa1uFc6Rdx6-ORtJh4T4S_BDVj0WOYG5QUuJKA4NCU,10
+dicom2hdf-0.0.1.dist-info/RECORD,,
