@@ -1,0 +1,9 @@
+LICENSE,sha256=nbFwgftH39g-x_bJUnyOh3R4NVlMlveF9xD8hqPL54M,1072
+begin/__init__.py,sha256=XQL7roT0tyzIGdIS48U5d3L0N0F8_xBKdQApIV2_-c4,44
+begin/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+begin/cli/cli.py,sha256=vcTc8wQlekJML-as2qNU10M81HzmlCJzxAwmSge43Yo,45
+begin_cli-0.0.1.dist-info/entry_points.txt,sha256=kykwCdQaqEeu5HC4RvdWkgC9rHA6EbFMIVv8PCtA4mQ,44
+begin_cli-0.0.1.dist-info/LICENSE,sha256=nbFwgftH39g-x_bJUnyOh3R4NVlMlveF9xD8hqPL54M,1072
+begin_cli-0.0.1.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+begin_cli-0.0.1.dist-info/METADATA,sha256=h2jia7vfDJRvjR5uarFAINgxd1UwZYNPO_90m2lNlPE,529
+begin_cli-0.0.1.dist-info/RECORD,,
