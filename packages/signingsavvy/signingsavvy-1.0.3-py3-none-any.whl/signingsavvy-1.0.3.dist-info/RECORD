@@ -1,0 +1,7 @@
+signingsavvy/__init__.py,sha256=JcHnVXd8U5U8gI_76I7FhfnvO4DTHHczCah_yrhoYgw,259
+signingsavvy/__version__.py,sha256=2plzdEEb24FLjE2I2XyBBcJEPYWHccNL4SgtLC_6erg,22
+signingsavvy/api.py,sha256=zhO_fwdTIIUsykDG3d0Xun7ZrQlA4rRkLaUT0oTs51o,14183
+signingsavvy-1.0.3.dist-info/LICENSE,sha256=SiZupJqccTqgh3qSGIQgD3ruNFF3bHIGnLabMF04vyM,1068
+signingsavvy-1.0.3.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+signingsavvy-1.0.3.dist-info/METADATA,sha256=tuQpstKF8HIj8thgZcK5uHJslhxhjP0p4lNfcBnZPOA,2711
+signingsavvy-1.0.3.dist-info/RECORD,,
