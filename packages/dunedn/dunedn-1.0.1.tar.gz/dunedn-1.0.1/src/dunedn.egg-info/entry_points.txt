@@ -1,0 +1,3 @@
+[console_scripts]
+dunedn = dunedn.scripts.dunedn:main
+
