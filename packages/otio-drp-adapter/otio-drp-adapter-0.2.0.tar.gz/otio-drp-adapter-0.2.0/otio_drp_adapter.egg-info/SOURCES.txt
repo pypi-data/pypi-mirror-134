@@ -1,0 +1,15 @@
+LICENSE-APACHE-20
+LICENSE.md
+README.md
+setup.cfg
+setup.py
+otio_drp_adapter/__init__.py
+otio_drp_adapter/plugin_manifest.json
+otio_drp_adapter.egg-info/PKG-INFO
+otio_drp_adapter.egg-info/SOURCES.txt
+otio_drp_adapter.egg-info/dependency_links.txt
+otio_drp_adapter.egg-info/entry_points.txt
+otio_drp_adapter.egg-info/requires.txt
+otio_drp_adapter.egg-info/top_level.txt
+otio_drp_adapter/adapters/__init__.py
+otio_drp_adapter/adapters/drp.py
