@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: droneblocks-python-utils
+Version: 0.1.6
+Summary: DroneBlocks Python Utilities
+Home-page: https://github.com/dbaldwin/DroneBlocks-Python-Utils
+Author: Patrick Ryan, Dennis Baldwin
+Author-email: db@droneblocks.io
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Set of Python utilities to support the DroneBlocks Python courses
+
