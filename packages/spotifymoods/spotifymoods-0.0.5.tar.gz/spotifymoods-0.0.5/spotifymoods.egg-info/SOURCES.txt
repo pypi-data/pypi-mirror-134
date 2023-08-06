@@ -1,0 +1,12 @@
+LICENCE
+README.md
+setup.py
+spotifymoods/__init__.py
+spotifymoods/constants.py
+spotifymoods/predict.py
+spotifymoods/train.py
+spotifymoods.egg-info/PKG-INFO
+spotifymoods.egg-info/SOURCES.txt
+spotifymoods.egg-info/dependency_links.txt
+spotifymoods.egg-info/requires.txt
+spotifymoods.egg-info/top_level.txt
