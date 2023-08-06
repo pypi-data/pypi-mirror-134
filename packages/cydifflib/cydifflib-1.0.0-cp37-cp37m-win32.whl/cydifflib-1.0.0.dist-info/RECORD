@@ -1,0 +1,15 @@
+cydifflib/__init__.py,sha256=yS-VSsX8-ObBZbIDG7Wuqf7ajPPn9PuPbOTw2wB2_Bc,1006
+cydifflib/_initialize.cp37-win32.pyd,sha256=32Gyh-TVLzPPd5f5SdSSuzofz9hDhCELPa2WYsYUbgA,349696
+cydifflib-1.0.0.data/data/CMakeLists.txt,sha256=hctkHAWpVXOdYDfbnL1fyLtGPhRCKMj246nDxHvrve4,513
+cydifflib-1.0.0.data/data/LICENSE,sha256=wbm4DEKzVDxogMhc6EkRGg7wZFQPvUNuRsHBJfZ-VaM,1098
+cydifflib-1.0.0.data/data/README.md,sha256=wWVDAR6pc7U137aCov4wU8LdIViPGZ1TZEKVj1dtIyk,3061
+cydifflib-1.0.0.data/data/pyproject.toml,sha256=ZRL8eRXbM57EBU3zZWGau1xFMMYU-r-pr-ytFHgW_Eo,178
+cydifflib-1.0.0.data/data/setup.py,sha256=6DSz4A8-acu0edQqW4MJnCm5rlgdYFVqiAEC9jXqLyo,971
+cydifflib-1.0.0.data/data/src/cython/CMakeLists.txt,sha256=hTKN37jc8sCR4yVU-Tdyn_mUm0fceh-k6er419llwX8,242
+cydifflib-1.0.0.data/data/src/cython/_initialize.pyx,sha256=gm80ZQY-td7IKqWmon4sz8B7c23umYV1FSZd4g59Wp8,87682
+cydifflib-1.0.0.dist-info/LICENSE,sha256=wbm4DEKzVDxogMhc6EkRGg7wZFQPvUNuRsHBJfZ-VaM,1098
+cydifflib-1.0.0.dist-info/METADATA,sha256=ZsFwyL_iVReYzMLKxEh83qHg6j58vPWEqmNWIid6Svs,3669
+cydifflib-1.0.0.dist-info/WHEEL,sha256=OqbcM-_PubUgEp9X0Jmud7NRAqWIKlUITbwpoJeNnak,91
+cydifflib-1.0.0.dist-info/top_level.txt,sha256=qq-p2p9cUJOmWdhOF9IYCi4gna9Zc3QBJMbWIm7VrJ0,10
+cydifflib-1.0.0.dist-info/zip-safe,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+cydifflib-1.0.0.dist-info/RECORD,,
