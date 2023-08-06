@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: trueupdate
+Version: 1.0.2
+Summary: An Automatic and Bulk update utility for TrueNAS SCALE Apps
+Home-page: https://github.com/truecharts/trueupdate
+Author-email: into@truecharts.org
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# trueupdate
+A TrueCharts automatic and bulk update utility
+
+
