@@ -1,0 +1,15 @@
+CHANGELOG.rst,sha256=XMxxaVxw6pca02Wm-LzQy2lcGTOblHRbfTE5sAnsqs4,1478
+README.rst,sha256=hOfMiO79qs4_FcytAjJZFgZMl97EqKlXoMuq6UWCK0M,3197
+slotscheck/__init__.py,sha256=dk4LArdgRs1xhR6QmZ8YkOxUWFP1h9XDC6k5ljPWXEM,325
+slotscheck/__main__.py,sha256=zsRVDP3AM-9sREHnglMJYyNpFpTwpskN6OcvtMUQaqU,61
+slotscheck/checks.py,sha256=dgprbT6cLNvarZFi8dpZj8B7ONLS6UCxRwYUngULkbY,1668
+slotscheck/cli.py,sha256=fvytqpMXiLb34mWr-P6mQy48NjyrJMzoZsWbhMp8Hcg,10887
+slotscheck/common.py,sha256=sn-r47sTC-8oU0Qqnj1aliPunOvEetDDAx7Pg1Cc7sY,2390
+slotscheck/config.py,sha256=UBB4DyeQA7zKQXSnLwbRAdW2Ogaxsc23CcBLkbgGZZ0,3775
+slotscheck/discovery.py,sha256=MfwBb8pJe56CGPAeVnfkQXOcY6se7ZZOpDDuq-W4e8I,5356
+slotscheck/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+slotscheck-0.5.3.dist-info/entry_points.txt,sha256=pW6ScWSA2g6_aoFAKEilH7mO3V3iJa0Jt0J8xJtYO8c,50
+slotscheck-0.5.3.dist-info/LICENSE,sha256=w-YiRO5IaS4NZAImTBwDk-9OnSnbmIqv7RaGXwcZvGs,1071
+slotscheck-0.5.3.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+slotscheck-0.5.3.dist-info/METADATA,sha256=0bG8ncufI0lJOKzsno-npBHij1vSlaj2GiDbPPIgzr0,4151
+slotscheck-0.5.3.dist-info/RECORD,,
