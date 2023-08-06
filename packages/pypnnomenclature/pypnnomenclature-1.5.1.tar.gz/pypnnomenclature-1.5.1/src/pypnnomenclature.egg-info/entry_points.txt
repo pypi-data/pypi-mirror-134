@@ -1,0 +1,3 @@
+[alembic]
+migrations = pypnnomenclature.migrations:versions
+
