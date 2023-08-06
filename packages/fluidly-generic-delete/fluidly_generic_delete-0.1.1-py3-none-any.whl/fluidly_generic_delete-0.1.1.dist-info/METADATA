@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fluidly-generic-delete
+Version: 0.1.1
+Summary: Generic subscription for deleting things
+Home-page: https://github.com/fluidly/generic-delete
+Author: Fluidly
+Author-email: tech@fluidly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy
+Requires-Dist: fluidly-structlog
+Requires-Dist: fluidly-pubsub
+
+Generic subscription for deleting things
+
