@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+django_json_choices_form_field/__init__.py
+django_json_choices_form_field/asgi.py
+django_json_choices_form_field/settings.py
+django_json_choices_form_field/urls.py
+django_json_choices_form_field/wsgi.py
+django_jsonfield_choicefield_form.egg-info/PKG-INFO
+django_jsonfield_choicefield_form.egg-info/SOURCES.txt
+django_jsonfield_choicefield_form.egg-info/dependency_links.txt
+django_jsonfield_choicefield_form.egg-info/top_level.txt
+forms/__init__.py
+forms/admin.py
+forms/forms.py
