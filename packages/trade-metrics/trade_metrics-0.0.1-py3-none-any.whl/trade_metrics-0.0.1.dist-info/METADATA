@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: trade-metrics
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: pandas (>=1.3.4scipy>=1.7.2)
+Requires-Dist: numpy (>=1.19.2)
+
+UNKNOWN
+
