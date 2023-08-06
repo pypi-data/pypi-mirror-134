@@ -1,0 +1,7 @@
+
+[test]
+mypy>=0.930
+pytest
+pytest-mypy-plugins
+coverage
+phantom-types
