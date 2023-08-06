@@ -1,0 +1,7 @@
+Metadata-Version: 1.1
+Name: byoc
+Version: 0.26.0
+Summary: An object-oriented framework for command-line apps.
+Home-page: https://github.com/kalekundert/byoc
+Author: Kale Kundert
+Author-email: kale@thekunderts.net
