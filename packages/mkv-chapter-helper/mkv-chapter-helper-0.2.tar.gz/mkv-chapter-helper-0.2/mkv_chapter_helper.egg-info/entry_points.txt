@@ -1,0 +1,3 @@
+[console_scripts]
+mkv-chapter-helper = scripts.main:cli
+
