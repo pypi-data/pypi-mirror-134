@@ -1,0 +1,175 @@
+Metadata-Version: 2.1
+Name: moto-ext
+Version: 2.2.8.2
+Summary: A library that allows your python tests to easily mock out the boto library
+Home-page: https://github.com/spulec/moto
+Author: Steve Pulec
+Author-email: spulec@gmail.com
+License: Apache
+Project-URL: Documentation, http://docs.getmoto.org/en/latest/
+Description: # Moto - Mock AWS Services
+        
+        Fork of [`moto`](https://github.com/spulec/moto) with changes and adaptations for [LocalStack](https://github.com/localstack/localstack).
+        
+        Please refer to the upstream repo for more details.
+        
+        ## Releasing
+        
+        This fork is maintained as a separate pypi package, [moto-ext](https://pypi.org/project/moto-ext). To release a new version, follow these steps:
+        ```
+        # make sure to have git remotes defined for both repos: 
+        $ git remote -v
+        localstack	git@github.com:localstack/moto.git (fetch)
+        localstack	git@github.com:localstack/moto.git (push)
+        upstream	git@github.com:spulec/moto.git (fetch)
+        upstream	git@github.com:spulec/moto.git (push)
+        
+        # fetch fresh upstream "master" branch
+        $ git fetch upstream master
+        
+        # branch "localstack" is the default branch of this repo
+        $ git checkout localstack
+        $ git rebase upstream/master  # resolve merge conflicts, if any...
+        # (force-)push latest changes to the remote repo
+        $ git push -f localstack localstack
+        
+        # update __version__, then publish to pypi
+        $ vi moto/__init__.py
+        ...
+        $ rm -rf dist/ build/
+        $ make publish
+        ...
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Testing
+Description-Content-Type: text/markdown
+Provides-Extra: ses_deprecated
+Provides-Extra: ec2instanceconnect
+Provides-Extra: datapipeline
+Provides-Extra: iam
+Provides-Extra: kinesis
+Provides-Extra: rds2_deprecated
+Provides-Extra: logs_deprecated
+Provides-Extra: autoscaling
+Provides-Extra: ssoadmin
+Provides-Extra: swf_deprecated
+Provides-Extra: route53resolver
+Provides-Extra: dms
+Provides-Extra: apigateway
+Provides-Extra: redshift
+Provides-Extra: timestreamwrite
+Provides-Extra: cloudfront
+Provides-Extra: cloudformation
+Provides-Extra: ecr
+Provides-Extra: dynamodb_deprecated
+Provides-Extra: ssm
+Provides-Extra: opsworks_deprecated
+Provides-Extra: elbv2
+Provides-Extra: iot
+Provides-Extra: cognitoidentity
+Provides-Extra: cloudformation_deprecated
+Provides-Extra: dynamodb2_deprecated
+Provides-Extra: sagemaker
+Provides-Extra: s3
+Provides-Extra: ds
+Provides-Extra: rds
+Provides-Extra: polly
+Provides-Extra: sqs_deprecated
+Provides-Extra: applicationautoscaling
+Provides-Extra: datapipeline_deprecated
+Provides-Extra: cloudwatch_deprecated
+Provides-Extra: elb_deprecated
+Provides-Extra: wafv2
+Provides-Extra: iam_deprecated
+Provides-Extra: batch
+Provides-Extra: acm
+Provides-Extra: dax
+Provides-Extra: ram
+Provides-Extra: ecs_deprecated
+Provides-Extra: route53
+Provides-Extra: emr_deprecated
+Provides-Extra: ec2_deprecated
+Provides-Extra: route53_deprecated
+Provides-Extra: cognitoidp
+Provides-Extra: redshift_deprecated
+Provides-Extra: sns_deprecated
+Provides-Extra: elastictranscoder
+Provides-Extra: kinesis_deprecated
+Provides-Extra: organizations
+Provides-Extra: guardduty
+Provides-Extra: cloudwatch
+Provides-Extra: medialive
+Provides-Extra: lambda_deprecated
+Provides-Extra: support
+Provides-Extra: codecommit
+Provides-Extra: efs
+Provides-Extra: events
+Provides-Extra: glacier_deprecated
+Provides-Extra: iotdata
+Provides-Extra: dynamodbstreams
+Provides-Extra: secretsmanager
+Provides-Extra: dynamodb
+Provides-Extra: logs
+Provides-Extra: rds_deprecated
+Provides-Extra: firehose
+Provides-Extra: autoscaling_deprecated
+Provides-Extra: eks
+Provides-Extra: kms_deprecated
+Provides-Extra: cognitoidp_deprecated
+Provides-Extra: apigateway_deprecated
+Provides-Extra: awslambda
+Provides-Extra: xray_client
+Provides-Extra: ses
+Provides-Extra: sdb
+Provides-Extra: swf
+Provides-Extra: ecs
+Provides-Extra: server
+Provides-Extra: emrcontainers
+Provides-Extra: elasticache
+Provides-Extra: forecast
+Provides-Extra: xray
+Provides-Extra: glue
+Provides-Extra: elb
+Provides-Extra: budgets
+Provides-Extra: dynamodb2
+Provides-Extra: resourcegroupstaggingapi
+Provides-Extra: kinesisvideo
+Provides-Extra: mediastoredata
+Provides-Extra: es
+Provides-Extra: datasync
+Provides-Extra: stepfunctions
+Provides-Extra: ec2
+Provides-Extra: resourcegroups
+Provides-Extra: elasticbeanstalk
+Provides-Extra: sns
+Provides-Extra: glacier
+Provides-Extra: mediastore
+Provides-Extra: transcribe
+Provides-Extra: kinesisvideoarchivedmedia
+Provides-Extra: cognitoidentity_deprecated
+Provides-Extra: managedblockchain
+Provides-Extra: config
+Provides-Extra: all
+Provides-Extra: kms
+Provides-Extra: ecr_deprecated
+Provides-Extra: emr
+Provides-Extra: codepipeline
+Provides-Extra: cloudtrail
+Provides-Extra: mediaconnect
+Provides-Extra: s3_deprecated
+Provides-Extra: opsworks
+Provides-Extra: rds2
+Provides-Extra: athena
+Provides-Extra: sts_deprecated
+Provides-Extra: sqs
+Provides-Extra: lambda
+Provides-Extra: sts
+Provides-Extra: mediapackage
