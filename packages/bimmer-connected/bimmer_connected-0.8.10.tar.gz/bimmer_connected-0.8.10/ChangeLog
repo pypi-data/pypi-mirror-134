@@ -1,0 +1,7 @@
+CHANGES
+=======
+
+0.8.10
+------
+
+* Always send user-agent header
