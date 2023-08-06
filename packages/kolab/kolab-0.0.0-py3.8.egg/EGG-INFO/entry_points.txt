@@ -1,0 +1,3 @@
+[console_scripts]
+kolab = kolab.cli.kolab:main
+

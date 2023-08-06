@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+kolab.egg-info/PKG-INFO
+kolab.egg-info/SOURCES.txt
+kolab.egg-info/dependency_links.txt
+kolab.egg-info/entry_points.txt
+kolab.egg-info/top_level.txt
