@@ -1,0 +1,15 @@
+setup.py
+files3/InfoPackage.py
+files3/PfBool.py
+files3/Singleton.py
+files3/__init__.py
+files3/a.py
+files3/basic_files.py
+files3/ex_files.py
+files3/files.py
+files3/pycrypt.py
+files3/pyfile_shell.py
+udsp.egg-info/PKG-INFO
+udsp.egg-info/SOURCES.txt
+udsp.egg-info/dependency_links.txt
+udsp.egg-info/top_level.txt
