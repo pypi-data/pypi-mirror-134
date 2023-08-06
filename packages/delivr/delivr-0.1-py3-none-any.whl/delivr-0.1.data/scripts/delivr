@@ -1,0 +1,16 @@
+import requests
+
+
+def delivr(apiKey, fro, to, subj, bod):
+    headers = {
+
+        'Accept': 'application/json',
+        'Content-type': 'application/json',
+        'key': apiKey
+    }
+
+    data = '{"from": "' + fro + '","to":"' + to + '","subject":"' + subj + '","body":"' + bod + '"}'
+
+    response = requests.post('https://mail.delivr.dev/email', headers=headers, data=data)
+
+    print(response.text)
