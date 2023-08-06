@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: vdldraw
+Version: 0.1.4
+Summary: Batch plot the log files exported from VisualDL using Matplotlib.
+Home-page: https://github.com/geoyee/VDLdraw
+Author: geoyee
+Author-email: geoyee@yeah.net
+License: UNKNOWN
+Description: # VDLdraw
+        
+        Batch plot the log files exported from VisualDL using Matplotlib. At present, only mIoU and Acc of Evaluate in PaddleSeg can be exported.
+        
+        ## Install
+        
+        ```shell
+        pip install vdldraw
+        ```
+        
+        ## Use
+        
+        ```python
+        from vdldraw import vdl_draw_folder
+        
+        vdl_draw_folder(logs_folder)
+        ```
+        
+        ## \*Test
+        
+        ```shell
+        # git clone https://github.com/geoyee/VDLdraw
+        # cd VDLdraw
+        # pip install -r requirements.txt
+        # python main.py --log_folder vdl_logs
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
