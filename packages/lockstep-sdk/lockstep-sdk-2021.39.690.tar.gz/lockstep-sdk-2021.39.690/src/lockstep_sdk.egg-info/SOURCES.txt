@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/lockstep_sdk.egg-info/PKG-INFO
+src/lockstep_sdk.egg-info/SOURCES.txt
+src/lockstep_sdk.egg-info/dependency_links.txt
+src/lockstep_sdk.egg-info/top_level.txt
