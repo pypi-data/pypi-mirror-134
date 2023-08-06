@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: alkh
+Version: 0.0.0
+Summary: algorithmic python debugging
+Home-page: https://github.com/erez-aharonov/alkh
+Author: Erez Aharonov
+Author-email: ahar.erez@gmail.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# alkh [al-khwarizmi]
+systemtic python debugging using algorithms
+
+## Installation
+pip install alkh
+
+## Usage
+
+1. Convert your stack to jupyter notebook
+
+import alkh
+
+alkh.take_it_offline('path-of-notebooks-directory')
+
+or
+
+bash:
+export ALKH_NOTEBOOKS_PATH='path-to-notebooks-directory'
+
+python:
+import alkh
+alkh.take_it_offline()
+
+## Example
+![](https://github.com/erez-aharonov/alkh/blob/main/readme_files/alkh.png?raw=true)
+
+
+
+
