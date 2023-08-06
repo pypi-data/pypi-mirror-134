@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: rin
+Version: 0.1.0
+Summary: A successor to the Lefi project
+License: MIT
+Author: an-dyy
+Author-email: andy.development@protonmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Requires-Dist: typing-extensions (>=4.0.1,<5.0.0)
