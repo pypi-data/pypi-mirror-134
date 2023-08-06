@@ -1,0 +1,11 @@
+g2w/__init__.py,sha256=rmBPzxsmc6dktRzvL1zI0VeBMatasCX_wiyecAh7hVM,154
+g2w/__main__.py,sha256=PlB4NlZiJ53Ivk-VjkIJ4QE7FOPDWTwZFpW1tTDvRxQ,1903
+g2w/api.py,sha256=F0a7tQuu-uwZgqayKmynK4kS3UhBSMGA4VN6FYXxJcE,1094
+g2w/gitlab.py,sha256=oWlyCDYVYZuBnRilsqeICNHksiF2NlFdJcJek97U-do,3118
+g2w/grafana.py,sha256=IXt0yiqDw26_t5nbNeIZVG1v63lAYTGSequSNyOpKUA,859
+g2w/ws.py,sha256=7d1uxJPW-sOilE3rfZxqAJONE6tc_jr0a6EmzYLU0ro,2629
+g2w-0.2.0.dist-info/METADATA,sha256=UxSV8xW5PISsx1SM2qKQ2r_GhXOngfgNj305oexVwYw,9319
+g2w-0.2.0.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+g2w-0.2.0.dist-info/entry_points.txt,sha256=TseA3rucv3WP1uMd9WpAHzaFM3N7uks5MuYa-UEHlos,43
+g2w-0.2.0.dist-info/top_level.txt,sha256=UM-uQybUi5tam1paltMnr7RnaZIOJfECBHFuqOf_1y4,4
+g2w-0.2.0.dist-info/RECORD,,
