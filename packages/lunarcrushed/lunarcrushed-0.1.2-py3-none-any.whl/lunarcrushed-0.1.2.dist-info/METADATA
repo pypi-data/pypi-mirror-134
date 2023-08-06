@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: lunarcrushed
+Version: 0.1.2
+Summary: Generate an API key for LunarCRUSH.
+Home-page: https://github.com/nouun/lunarcrushed
+Author: nouun
+Author-email: me@nouun.dev
+License: GNU 3.0 or later
+Keywords: api lunarcrush trading crypto bitcoin altcoin
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# LunarCRUSHed - Python
+
+## Usage
+
+```py
+from lunarcrushed import getKey
+
+print(getKey())
+```
+
+
+
