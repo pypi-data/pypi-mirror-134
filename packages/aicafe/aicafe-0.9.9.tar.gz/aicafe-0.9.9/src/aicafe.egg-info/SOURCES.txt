@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/aicafe.egg-info/PKG-INFO
+src/aicafe.egg-info/SOURCES.txt
+src/aicafe.egg-info/dependency_links.txt
+src/aicafe.egg-info/requires.txt
+src/aicafe.egg-info/top_level.txt
