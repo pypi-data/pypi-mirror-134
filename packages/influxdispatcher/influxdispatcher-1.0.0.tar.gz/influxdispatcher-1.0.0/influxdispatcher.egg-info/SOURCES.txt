@@ -1,0 +1,9 @@
+README.md
+setup.py
+dispatcher/__init__.py
+dispatcher/dispatcher.py
+influxdispatcher.egg-info/PKG-INFO
+influxdispatcher.egg-info/SOURCES.txt
+influxdispatcher.egg-info/dependency_links.txt
+influxdispatcher.egg-info/requires.txt
+influxdispatcher.egg-info/top_level.txt
