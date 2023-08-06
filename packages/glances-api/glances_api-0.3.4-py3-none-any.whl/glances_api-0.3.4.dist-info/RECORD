@@ -1,0 +1,6 @@
+glances_api/__init__.py,sha256=8MheIITAENVVxHWql2K-0eKrbw27Q7Qky0g1EOrpCPU,2692
+glances_api/exceptions.py,sha256=DbOIHpoZDa8-fOE_pWcg1He0A7Kqd_sMQf2wFUnoSlw,455
+glances_api-0.3.4.dist-info/LICENSE,sha256=3yO-ui53dr4DqVFm4hwZwO5JtqgtM-ZNaY85YnMHDBg,1110
+glances_api-0.3.4.dist-info/WHEEL,sha256=N0LZrBtofpkS5mJXgVHTCEy52Sam4D6PHQWC8HnMeTs,83
+glances_api-0.3.4.dist-info/METADATA,sha256=36VYK-bDK4MklYpPmdUnuYmw-ohNRM0bXn4ct98GGbs,1906
+glances_api-0.3.4.dist-info/RECORD,,
