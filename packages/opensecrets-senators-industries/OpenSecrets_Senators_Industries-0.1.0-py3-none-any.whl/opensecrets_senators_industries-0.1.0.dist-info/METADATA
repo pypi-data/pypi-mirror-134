@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: opensecrets-senators-industries
+Version: 0.1.0
+Summary: Python package using the OpenSecrets and ProPublica APIs to allow users to view information about their senators and the industries that fund them
+License: MIT
+Author: Jade Qiu
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: lxml (>=4.7.1,<5.0.0)
+Requires-Dist: pandas (>=1.3.5,<2.0.0)
+Requires-Dist: python-dotenv (>=0.19.2,<0.20.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
+Requires-Dist: unittest (>=0.0,<0.1)
+Description-Content-Type: text/markdown
+
+# OpenSecrets_Senators_Industries
+
+Python package that allows users to view information about their senators and the industries that fund them.
+
+## Installation
+
+```bash
+$ pip install OpenSecrets_Senators_Industries
+```
+
+## Usage
+
+```
+from OpenSecrets_Senators_Industries import OpenSecrets_Senators_Industries
+
+ProPublica = ProPublicaAPIKey('insert ProPublica API Key here')
+OpenSecrets = OpenSecretsAPIKey('insert OpenSecrets API Key here')
+
+top_20_industries_ids(year)
+ProPublica.senate_members(congress_sitting)
+OpenSecrets.top_senators_each_industry(propublica_api_key, industry_id, congress_sitting)
+
+```
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`OpenSecrets_Senators_Industries` was created by Jade Qiu. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`OpenSecrets_Senators_Industries` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
