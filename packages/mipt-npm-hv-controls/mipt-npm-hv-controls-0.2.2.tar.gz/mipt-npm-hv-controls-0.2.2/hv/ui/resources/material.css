@@ -1,0 +1,26 @@
+*{
+  /*color: {{secondaryTextColor}};*/
+  font-family: {{font_family}};
+  /*line-height: {{line_height}};*/
+  font-size: {{font_size}};
+  /*selection-background-color: {{primaryLightColor}};*/
+  /*selection-color: {{primaryTextColor}};*/
+}
+
+
+QPushButton[turn_on="true"]{
+  background-color: red;
+}
+
+QPushButton[turn_on="false"]{
+  background-color: green;
+}
+
+QPushButton {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+QLabel {
+  font-size: 12pt
+}

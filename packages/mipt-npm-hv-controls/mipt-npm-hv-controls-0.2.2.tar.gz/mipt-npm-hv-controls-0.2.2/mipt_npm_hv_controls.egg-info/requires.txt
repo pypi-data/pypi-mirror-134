@@ -1,0 +1,4 @@
+pyqt5
+pyftdi
+matplotlib
+Jinja2
