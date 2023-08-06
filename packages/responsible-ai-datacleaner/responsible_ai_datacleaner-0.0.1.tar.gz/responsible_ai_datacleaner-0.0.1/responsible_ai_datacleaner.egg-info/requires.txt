@@ -1,0 +1,5 @@
+nltk
+re
+preprocessor
+pandas
+emoji
