@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: SelfWrapper
+Version: 1.1
+Summary: Discord API Wrapper for Self Bots
+Home-page: https://github.com/iFanpSGTS/SelfBot-Wrapper
+Author: iFanpS
+License: MIT
+Project-URL: Issue tracker, https://github.com/iFanpSGTS/SelfBot-Wrapper/issues
+Description: # Discord Self bot wrapper by iFanpS
+        - Information
+            This discord self bot wrapper created because i want to learn how to make API wrapper
+        
+            This project is still on progress, so stay tune!
+        
+        - Creator
+            iFanpS
+            
+            NumeXx
+        
+        # Requirement
+        - How to install requirement.txt
+            pip install -r requirement.txt
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5.3
+Description-Content-Type: text/plain
