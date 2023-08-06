@@ -1,0 +1,11 @@
+perfmonitor/__init__.py,sha256=ucgAzxLOp5v7hItkQ6iKws76YNhem-lcqzaqaVzelmQ,47
+perfmonitor/gpu_stats.py,sha256=wyJbc6e1NE3pVtrYKApWp5weR-PnAEHGA69HRDFD9Lk,1753
+perfmonitor/gui.py,sha256=gUa9o_3YvZmMDsYfsFAsZy-x5aENcJeX7MGYIdFWKKw,9797
+perfmonitor/libstats.py,sha256=KEJod7KAPsHiULFf1YXGCUvhBBEpZdTz0Xg8lDWByVw,1215
+perfmonitor/main.py,sha256=rZNQakgtqCssmmgTdKy_A_1lz6p32VzlFaVngGtdfk0,1976
+perfmonitor-0.0.1.dist-info/LICENSE.txt,sha256=RDu6P3XN7unvinqnDTx_mI5kQ6NZ2-VlfjpeKhYXHrc,1078
+perfmonitor-0.0.1.dist-info/METADATA,sha256=wkBQdzYC3RnjRx-58_RvreY9YQpf_9TGbMe2s0n_oGc,1631
+perfmonitor-0.0.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+perfmonitor-0.0.1.dist-info/entry_points.txt,sha256=aM3XE1WdthxLdDklzM19z6RWvbRbk6JxfO0Twr1LLVU,72
+perfmonitor-0.0.1.dist-info/top_level.txt,sha256=ywFSSm5p8HxrWlgzumEQ7lRb0-tAW2h8gcXeqZswRoo,12
+perfmonitor-0.0.1.dist-info/RECORD,,
