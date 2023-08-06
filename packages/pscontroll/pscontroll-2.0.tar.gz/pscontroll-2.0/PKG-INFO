@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: pscontroll
+Version: 2.0
+Summary: GTPS Controller via Module
+Home-page: https://github.com/iFanpSGTS/PSController_Module
+Author: iFanpS
+License: MIT
+Project-URL: Issue tracker, https://github.com/iFanpSGTS/PSController_Module
+Description: # Growtopia Private Server Controler
+        > Module For Controle Your GTPS | Build in Python3
+        
+        ## Creator Information
+        - iFanPS DB:
+            - Name : `iRfan`
+            - Age : `17`
+            - Come From: `Mars`
+        
+        - NumeX DB:
+            - Name : `Christian`
+            - Age : `19`
+            - Come From : `Mars`
+        
+        ## Installing Module
+        ```bash
+        > pip install pscontroler
+        ```
+        
+        ## Basic Configuration
+        ```bash
+        > Make Sure You Already install a Python3
+        > Install The Module
+        ```
+        
+        ## list Worker
+        ```bash
+        > Status (See server status)
+        > Online (See online player)
+        > Player (See player account total)
+        > World (See total worlds created)
+        > Start (Start the Server)
+        > Stop (Stop the server)
+        > Givepgems (Give player gems)
+        > Giveplevel (Give player level)
+        > Giveproles (Give player roles)
+        > Countsize_Pwfolder (Count player and world folder size)
+        > Maintactive and Deactive (Maintenance activator and deactive)
+        > Pdelete (Delete player data)
+        > Wdelete (Delete world)
+        ```
+        
+        ## To Do list
+        - Command:
+            - Auto Backup
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.5.3
+Description-Content-Type: text/plain
