@@ -1,0 +1,14 @@
+CHANGELOG.md
+COPYING
+MANIFEST.in
+README.rst
+ffpb.py
+setup.cfg
+setup.py
+ffprb.egg-info/PKG-INFO
+ffprb.egg-info/SOURCES.txt
+ffprb.egg-info/dependency_links.txt
+ffprb.egg-info/entry_points.txt
+ffprb.egg-info/requires.txt
+ffprb.egg-info/top_level.txt
+ffprb.egg-info/zip-safe
