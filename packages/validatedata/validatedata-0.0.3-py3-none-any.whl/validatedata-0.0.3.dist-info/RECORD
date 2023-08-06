@@ -1,0 +1,9 @@
+validatedata/__init__.py,sha256=DnAWuXRgS2wmFSuWBvRbTr8TbUMtq92vu1_hyvk4Kd8,72
+validatedata/messages.py,sha256=25jq2OfwiSc3qE5R_V-7STuLBM4NDmKGzZ3Kh3vHLMo,1441
+validatedata/validatedata.py,sha256=D0xcdDU5BfMBXvUDTI1uHc2MjQQPl2y55RFh9TMRP9A,5194
+validatedata/validator.py,sha256=tuEO2kUru2-jiTJCQdOu2j8Sj_mac1fd-7gHxFI9rXw,17571
+validatedata-0.0.3.dist-info/LICENSE,sha256=7QcxW9Ro75rS0_4v2KkmE4jHuOtdwQzVVkQqw7Oy2y4,1070
+validatedata-0.0.3.dist-info/METADATA,sha256=oCTSbFkHFz7Hi9ebw3B8m-nfLjXz8lDgCCqjFbv2fYI,6058
+validatedata-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+validatedata-0.0.3.dist-info/top_level.txt,sha256=tNLfNh6n8I-VX0xUmDGyeTwSi8WPJ1HKJdKwouUgYtE,13
+validatedata-0.0.3.dist-info/RECORD,,
