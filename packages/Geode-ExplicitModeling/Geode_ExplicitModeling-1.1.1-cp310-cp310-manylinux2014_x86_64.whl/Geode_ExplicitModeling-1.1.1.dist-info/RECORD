@@ -1,0 +1,8 @@
+geode_explicitmodeling/__init__.py,sha256=EM1J9gtuohgFM1pxpgc7d_JSCf4pLY2sIAPjDS5ZPaU,106
+geode_explicitmodeling/explicit_modeling3d.py,sha256=s2wl6LCsjapf7uqunKRG07oxJjcrv8hILOlAvtNbwek,205
+geode_explicitmodeling/geode_explicitmodeling_py_explicit_modeling3d.cpython-310-x86_64-linux-gnu.so,sha256=fN5ZG3QJzyu0CToswFdsR9O5XhwiY5eZ2NRVfIf_mBw,134608
+geode_explicitmodeling/libGeode-ExplicitModeling_3d.so,sha256=a4OZNwpr81sasetcohnOhx1RvLcH58E-oVVKeK5xx0U,2713568
+Geode_ExplicitModeling-1.1.1.dist-info/METADATA,sha256=Yo80B1UeHmUl4mWv316uwpteku_WTfnd2irLyhUPVwE,2426
+Geode_ExplicitModeling-1.1.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+Geode_ExplicitModeling-1.1.1.dist-info/top_level.txt,sha256=52W-Y5_S5pweTWvcoRyNdxFQqxNQGl4k3IIMWaVYgqA,23
+Geode_ExplicitModeling-1.1.1.dist-info/RECORD,,
