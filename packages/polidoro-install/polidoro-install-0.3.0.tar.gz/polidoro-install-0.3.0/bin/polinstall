@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+# pragma: no cover
+
+import polidoro_install
+
+polidoro_install.main()

@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+bin/polinstall
+polidoro_install/__init__.py
+polidoro_install/installer.py
+polidoro_install/main.py
+polidoro_install.egg-info/PKG-INFO
+polidoro_install.egg-info/SOURCES.txt
+polidoro_install.egg-info/dependency_links.txt
+polidoro_install.egg-info/not-zip-safe
+polidoro_install.egg-info/requires.txt
+polidoro_install.egg-info/top_level.txt
