@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: PytrackX
+Version: 0.1
+Summary: A general python framework for visual object tracking.
+Home-page: https://github.com/swetha4444/PyTrackX
+Author: Sriram Kannan, Swetha Saseendran
+Author-email: swethasaseendran4@gmail.com
+License: MIT
+Download-URL: https://github.com/swetha4444/PyTrackX/archive/refs/tags/0.1.tar.gz
+Description: UNKNOWN
+Keywords: yolo,mediapipe,object detection,object tracking
+Platform: UNKNOWN
