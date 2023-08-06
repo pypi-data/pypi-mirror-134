@@ -1,0 +1,3 @@
+[console_scripts]
+trg-seq = training_rg.sequential:main
+
