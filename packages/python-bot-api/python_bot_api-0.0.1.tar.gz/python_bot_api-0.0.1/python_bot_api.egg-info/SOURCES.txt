@@ -1,0 +1,7 @@
+README.md
+setup.py
+python_bot_api.egg-info/PKG-INFO
+python_bot_api.egg-info/SOURCES.txt
+python_bot_api.egg-info/dependency_links.txt
+python_bot_api.egg-info/requires.txt
+python_bot_api.egg-info/top_level.txt

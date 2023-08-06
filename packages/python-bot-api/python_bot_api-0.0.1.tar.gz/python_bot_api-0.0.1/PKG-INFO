@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: python_bot_api
+Version: 0.0.1
+Summary: Chuck Norris BOT API
+Home-page: https://github.com/SonalPawar2509/pythonapi
+Author: Sonal Pawar
+Author-email: makhare.sonal@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://github.com/SonalPawar2509/pythonapi
+Project-URL: Bug Reports, https://github.com/SonalPawar2509/pythonapi/issues
+Project-URL: Source Code, https://github.com/SonalPawar2509/pythonapi
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+test test test
+
