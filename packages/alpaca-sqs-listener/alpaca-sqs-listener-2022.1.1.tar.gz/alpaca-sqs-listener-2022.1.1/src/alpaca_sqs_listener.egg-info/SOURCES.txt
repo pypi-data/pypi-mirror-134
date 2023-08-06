@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+src/alpaca_sqs_listener/__init__.py
+src/alpaca_sqs_listener/sqs_listener.py
+src/alpaca_sqs_listener.egg-info/PKG-INFO
+src/alpaca_sqs_listener.egg-info/SOURCES.txt
+src/alpaca_sqs_listener.egg-info/dependency_links.txt
+src/alpaca_sqs_listener.egg-info/entry_points.txt
+src/alpaca_sqs_listener.egg-info/requires.txt
+src/alpaca_sqs_listener.egg-info/top_level.txt
