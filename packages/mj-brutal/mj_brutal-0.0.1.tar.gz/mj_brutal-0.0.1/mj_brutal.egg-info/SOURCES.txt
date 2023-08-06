@@ -1,0 +1,7 @@
+setup.py
+mj_brutal/__init__.py
+mj_brutal/santa.py
+mj_brutal.egg-info/PKG-INFO
+mj_brutal.egg-info/SOURCES.txt
+mj_brutal.egg-info/dependency_links.txt
+mj_brutal.egg-info/top_level.txt
