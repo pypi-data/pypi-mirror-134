@@ -1,0 +1,16 @@
+mwx/__init__.py,sha256=k-nc1Xz7A2sJxdoyM4jO4MKvMZgc6IwqUtIKWY5YfDQ,1107
+mwx/controls.py,sha256=vHlQzDh1AJC8GBcaFwnLyp50F_MdmtbSVWsPZ0h1xys,44121
+mwx/framework.py,sha256=K0prLGkQEv5mbWCMqD4Tb8lvgGtHn5DypoCEtWpgCT8,165232
+mwx/graphman.py,sha256=JJlkKVaF734MRg9iUplqW0mWckhbuRXnj-sOrRiUUDo,69666
+mwx/images.py,sha256=AkVTHZcEUKzvlw4wGHAi5ErIGk-fRWikM6T7tCxa104,42269
+mwx/matplot2.py,sha256=TImq_lOeZ1b432N7Exda2ylDnJE1Ok3uLSh58qoOwzI,36025
+mwx/matplot2g.py,sha256=gFInSPUkJ5MEtVotvHgTJM8I6-dJhCq3bGEYMf5jdSM,67054
+mwx/matplot2lg.py,sha256=aAS5VDeRoQcbPshOLt3KtkQYI9h9DX6dolBMeZl1vaQ,28024
+mwx/mgplt3.py,sha256=aplILXTgskQCojttVuPFL_Uy4Wf8ByZ_VIptbR1sO8E,9616
+mwx/wxmon.py,sha256=XssuMHx2BDjtfk3U5632TrKogHoJg1iz-BDPhN4xRzw,10271
+mwx/wxpdb.py,sha256=pmGv7r6K09p1oO6YdYzXfDfk6-BMCl0jdKLwXS7kXa0,10678
+mwxlib-0.51.0.dist-info/LICENSE,sha256=PGtRKCaTkmUDlBQwpptJAxJtdqxIUtAmdBsaT9nUVkA,1091
+mwxlib-0.51.0.dist-info/METADATA,sha256=-wWQRFf-Lm3IcOYzgSVFFkjyeFvJ8_dQzf4vvHBEe6s,2079
+mwxlib-0.51.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mwxlib-0.51.0.dist-info/top_level.txt,sha256=SI1Mh118AstnUFGPNq5aMNKiAnVNmZk1S9Ij-OwAEpY,4
+mwxlib-0.51.0.dist-info/RECORD,,
