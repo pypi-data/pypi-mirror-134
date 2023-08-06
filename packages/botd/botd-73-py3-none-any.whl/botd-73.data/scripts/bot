@@ -1,0 +1,118 @@
+#!python
+# This file is placed in the Public Domain.
+
+
+import os
+import readline
+import termios
+import traceback
+import sys
+import time
+
+
+sys.path.insert(0, os.getcwd())
+
+
+from bot.bus import Bus
+from bot.clt import Client
+from bot.evt import Event
+from bot.hdl import Handler
+from bot.krn import Cfg, boot, kcmd, wait
+from bot.fnc import format
+from bot.tbl import Cmd
+from bot.thr import launch
+
+
+from bot.irc import IRC
+from bot.irc import Cfg as ICfg
+from bot.rss import Fetcher
+
+
+import bot.all
+
+
+Cfg.wd = os.path.expanduser("~/.bot")
+
+
+errors = []
+
+
+class Console(Client, Handler):
+
+
+    def __init__(self):
+        Client.__init__(self)
+        Handler.__init__(self)
+
+
+    def handle(self, e):
+        Handler.handle(self, e)
+        print(e)
+        e.wait()
+
+    def poll(self):
+        e = Event()
+        e.orig = repr(self)
+        e.txt = input("> ")
+        return e
+
+    def raw(self, txt):
+        print(txt)
+
+
+def daemon():
+    pid = os.fork()
+    if pid != 0:
+        os._exit(0)
+    os.setsid()
+    os.umask(0)
+    si = open("/dev/null", 'r')
+    so = open("/dev/null", 'a+')
+    se = open("/dev/null", 'a+')
+    os.dup2(si.fileno(), sys.stdin.fileno())
+    os.dup2(so.fileno(), sys.stdout.fileno())
+    os.dup2(se.fileno(), sys.stderr.fileno())
+
+
+def wrap(func):
+    fd = sys.stdin.fileno()
+    old = termios.tcgetattr(fd)
+    try:
+        func()
+    except (EOFError, KeyboardInterrupt):
+        print("")
+    finally:
+        for err in Cmd.errors:
+            traceback.print_exception(type(err), err, err.__traceback__)
+        termios.tcsetattr(fd, termios.TCSADRAIN, old)
+
+
+def main():
+    boot(" ".join(sys.argv[1:]))
+    if Cfg.txt:
+        c = Console()
+        return kcmd(c, Cfg.otxt)
+    dowait = False
+    if Cfg.daemon:
+        daemon()
+        dowait = True
+    if "c" in Cfg.opts:
+        print("BOT start at %s" % (time.ctime(time.time()).replace("  ", " ")))
+        print(format(ICfg, "server,port,channel,nick,cc,sasl"))
+        sys.stdout.flush()
+        c = Console()
+        c.start()
+        dowait = True
+    if "i" in Cfg.opts:
+        i = IRC()
+        i.start()
+        dowait = True
+    if "r" in Cfg.opts:
+        f = Fetcher()
+        f.start()
+        dowait = True
+    if dowait:
+        wait()
+
+
+wrap(main)
