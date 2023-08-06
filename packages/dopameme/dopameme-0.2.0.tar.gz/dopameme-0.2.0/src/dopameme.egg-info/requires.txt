@@ -1,0 +1,7 @@
+requests
+log_color
+lxml
+
+[dev]
+black
+setuptools_scm
