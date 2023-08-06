@@ -1,0 +1,17 @@
+.gitignore
+README.md
+codecov.yml
+mypy.ini
+pyproject.toml
+requirements.txt
+setup.py
+tox.ini
+src/dex/__init__.py
+src/dex/library.py
+src/dex/py.typed
+src/spindex.egg-info/PKG-INFO
+src/spindex.egg-info/SOURCES.txt
+src/spindex.egg-info/dependency_links.txt
+src/spindex.egg-info/not-zip-safe
+src/spindex.egg-info/requires.txt
+src/spindex.egg-info/top_level.txt
