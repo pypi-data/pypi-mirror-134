@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['aws_sqs_batchlib']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['boto3>=1.20.26,<2.0.0']
+
+setup_kwargs = {
+    'name': 'aws-sqs-batchlib',
+    'version': '2.0.0',
+    'description': 'Library for working with Amazon SQS',
+    'long_description': '# aws-sqs-batchlib for Python\n\nConsume and process Amazon SQS queues in large batches.\n\n## Features\n\n* Consume arbitrary number of messages from an Amazon SQS queue.\n\n  * Define maximum batch size and batching window in seconds to receive a batch\n    of messages from Amazon SQS queue similar to Lambda Event Source Mapping.\n\n* Send arbitrary number of messages to an Amazon SQS queue.\n\n* Delete arbitrary number of messages from an Amazon SQS queue.\n\n\n## Installation\n\nInstall from PyPI with pip\n\n```\npip install aws-sqs-batchlib\n```\n\nor with the package manager of choice.\n\n## Usage\n\n`aws-sqs-batchlib` provides the following methods:\n\n* `delete_message_batch()` - Delete arbitrary number of messages from an Amazon SQS queue.\n* `receive_message()` - Receive arbitrary number of messages from an Amazon SQS queue.\n* `send_message_batch()` - Send arbitrary number of messages to an Amazon SQS queue.\n\nThese methods invoke the corresponding boto3 [SQS.Client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#client)\nmethods multiple times to send, receive or delete an arbitrary number of messages from an Amazon SQS queue. They accept the same arguments and have\nthe same response structure as their boto3 counterparts. See boto3 documentation for more details:\n\n* [delete_message_batch()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.delete_message_batch)\n* [receive_message()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.receive_message)\n* [send_message_batch()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message_batch)\n\n### Receive\n\n```python\nimport aws_sqs_batchlib\n\n# Receive up-to 100 messages from the given queue, polling the queue for\n# up-to 15 seconds to fill the batch.\nres = aws_sqs_batchlib.receive_message(\n    QueueUrl = "https://sqs.eu-north-1.amazonaws.com/123456789012/MyQueue",\n    MaxNumberOfMessages=100,\n    WaitTimeSeconds=15,\n)\n\n# Returns messages in the same format as boto3 / botocore SQS Client\n# receive_message() method.\nassert res == {\n    \'Messages\': [\n        {\'MessageId\': \'[.]\', \'ReceiptHandle\': \'AQ[.]JA==\', \'MD5OfBody\': \'[.]\', \'Body\': \'[.]\'},\n        {\'MessageId\': \'[.]\', \'ReceiptHandle\': \'AQ[.]wA==\', \'MD5OfBody\': \'[.]\', \'Body\': \'[.]\'}\n        # ... up-to 100 messages\n    ]\n}\n```\n\n### Send\n\n```python\nimport aws_sqs_batchlib\n\n# Send an arbitrary number of messages to a queue\nres = aws_sqs_batchlib.send_message_batch(\n    QueueUrl="https://sqs.eu-north-1.amazonaws.com/123456789012/MyQueue",\n    Entries=[\n        {"Id": "1", "MessageBody": "<...>"},\n        {"Id": "2", "MessageBody": "<...>", "DelaySeconds": 1000000},\n        # ...\n        {"Id": "175", "MessageBody": "<...>"},\n        # ...\n    ],\n)\n\n# Returns result in the same format as boto3 / botocore SQS Client\n# send_message_batch() method.\nassert res == {\n    "Successful": [\n        {"Id": "1", "MessageId": "<...>", "MD5OfMessageBody": "<...>"},\n        # ...\n    ],\n    "Failed": [\n        {\n            "Id": "2",\n            "SenderFault": True,\n            "Code": "InvalidParameterValue",\n            "Message": "Value 1000000 for parameter DelaySeconds is invalid. Reason: DelaySeconds must be >= 0 and <= 900.",\n        }\n    ],\n}\n```\n\n### Delete\n\n```python\nimport aws_sqs_batchlib\n\n# Delete an arbitrary number of messages from a queue\nres = aws_sqs_batchlib.delete_message_batch(\n    QueueUrl="https://sqs.eu-north-1.amazonaws.com/123456789012/MyQueue",\n    Entries=[\n        {"Id": "1", "ReceiptHandle": "<...>"},\n        {"Id": "2", "ReceiptHandle": "<...>"},\n        # ...\n        {"Id": "175", "ReceiptHandle": "<...>"},\n        # ...\n    ],\n)\n\n# Returns result in the same format as boto3 / botocore SQS Client\n# delete_message_batch() method.\nassert res == {\n    "Successful": [\n        {"Id": "1"},\n        # ...\n    ],\n    "Failed": [\n        {\n            "Id": "2",\n            "SenderFault": True,\n            "Code": "ReceiptHandleIsInvalid",\n            "Message": "The input receipt handle is invalid.",\n        }\n    ],\n}\n```\n\n\n## Development\n\nRequires Python 3 and Poetry. Useful commands:\n\n```bash\n# Setup environment\npoetry install\n\n# Run tests (integration test requires rights to create, delete and use DynamoDB tables)\nmake test\n\n# Run linters\nmake -k lint\n\n# Format code\nmake format\n```\n\n## Benchmarks & Manual Testing\n\nUse `benchmark/end2end.py` to benchmark and test the library functionality and performance. Execute following commands in Poetry virtualenv (execute `poetry shell` to get there):\n\n```bash\n# Setup\nexport PYTHONPATH=$(pwd)\nexport AWS_DEFAULT_REGION=eu-north-1\n\n# Send, receive and delete 512 messages, run test 5 times\npython3 benchmark/end2end.py \\\n  --queue-url https://sqs.eu-north-1.amazonaws.com/123456789012/MyQueue --num-messages 512 --iterations 5\n```\n\nBenchmarks against an Amazon SQS queue on the same AWS region (eu-north-1, c5.large instance) show following\nthroughput:\n\n* Send - ~500 to ~800 messages / second\n* Receive - ~800 to ~1400 messages / second\n* Delete - ~900 to ~1600 messages / second\n\n## License\n\nMIT.',
+    'author': 'Sami Jaktholm',
+    'author_email': 'sjakthol@outlook.com',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': None,
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.7,<4.0',
+}
+
+
+setup(**setup_kwargs)
