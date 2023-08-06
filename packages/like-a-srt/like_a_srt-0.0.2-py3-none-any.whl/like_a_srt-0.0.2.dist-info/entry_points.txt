@@ -1,0 +1,4 @@
+[console_scripts]
+las = likeasrt.main:main
+like-a-srt = likeasrt.main:main
+
