@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: backpack-backup
+Version: 0.0.3
+Summary: A tool to sign, encrypt and, backup a file or directory using GPG.
+Home-page: http://gitlab.com/unkwn1/backpack-backup
+Author: unkwn1
+Author-email: unkwn1@tutanota.com
+License: GPLv3
+Project-URL: Issues, https://gitlab.com/unkwn1/backpack-backup/-/issues
+Project-URL: Source, https://gitlab.com/unkwn1/backpack-backup/-/tree/main
+Keywords: dorking,google dork,web parser,web scraping
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-gnupg (==0.4.8)
+Requires-Dist: termcolor (==1.1.0)
+
+# Backpack.py - Encrypted Backups Made Easy.
+
+![badges](https://img.shields.io/pypi/pyversions/3.svg?style=flat-square)
+
+> A easy way to backup local data in realtively secure manner
+
+Backpack is a python3 program that backsup local files / directories in a single GPG encrypted file. If the source data is a directory it will be zipped and then encrypted. The encryption is based on a reciepient email address associated with a public key.
+
+[TOC]
+
+## Usage Examples
+
+**My use**: after backing up my laptop to my desktop storage drives I'll run backpack. This compresses the directory whilst adding an extra layer of security. This is not production ready.
+
+### Console script
+
+```python
+$ backpack -p ~/Documents/test -d /Volumes/EXT -e jessefogarty@tuta.io
+# Output
+$ before-backup.zip: encryption ok
+$ SUCCESS! Backup File: /Volumes/EXT/before-backup.zip.gpg
+```
+
+### Imported backup python function
+
+```python
+from backpack.backpack import backup
+
+backup(p, d, e)
+```
+
+## Installation Methods
+
+> **Note**: It's important you have they GPG key you want to encrypt your data for already installed to `~/.gnupg`. Later versions will offer to generate if not found.
+
+### Pipx (recommended)
+
+```sh
+pipx install backpack-backup
+```
+
+### Pip
+
+```sh
+pip install Backpack-Backup
+```
+
+### Source
+
+```sh
+git clone https://gitlab.com/unkwn1/backpack-backup.git
+cd backpack-backup
+python3 -m pip install -e .
+```
+
+### Requirements
+
+* Python 3
+* GnuPG
+  * GPG key created without a passphrase[^nopw]. [(How To)](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key)
+
+## Version
+
+* 0.0.3
+
+## TODO
+
+- [ ] Accept passwords to unlock keyring.
+- [ ] Generate / Export keys.
+- [ ] Create a TUI.
+
+[^nopw]: will be fixed in next release for CLI.
+
+
