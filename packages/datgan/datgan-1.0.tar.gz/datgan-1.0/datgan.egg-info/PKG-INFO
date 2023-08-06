@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: datgan
+Version: 1.0
+Summary: Generative adversarial network with integrated expert knowledge for synthesizing tabular data
+Home-page: https://github.com/glederrey/DATGAN
+Author: Gael Lederrey - TRANSP-OR laboratory @ EPFL
+Author-email: gael.lederrey@epfl.ch
+License: GPLv3
+Keywords: datgan
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# DATGAN
+
+
+
+# History
+
+## 1.0
+
+* First release on PyPI.
+
