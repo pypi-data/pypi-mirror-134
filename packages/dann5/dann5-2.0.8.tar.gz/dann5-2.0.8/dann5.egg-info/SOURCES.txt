@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+dann5/__init__.py
+dann5/azure.py
+dann5/azureWS.py
+dann5/dwave.py
+dann5/qiskit.py
+dann5.egg-info/PKG-INFO
+dann5.egg-info/SOURCES.txt
+dann5.egg-info/dependency_links.txt
+dann5.egg-info/requires.txt
+dann5.egg-info/top_level.txt
+x64/Release/d5o2.cp39-win_amd64.pyd
