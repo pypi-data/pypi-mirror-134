@@ -1,0 +1,17 @@
+geodataset/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geodataset/custom_geodataset.py,sha256=o785DcyS1ZdRFO_hytvx8P4RSLUJxQn29vYpQnZmprk,3192
+geodataset/geodataset.py,sha256=UWpdnboh21yRF4wdwFQjmX5U58tMRhBz5pAJkXjO-5E,14038
+geodataset/interpolation.py,sha256=DrSW2zgUee0h9UB38tvsspnsmrZgogICmO-5z1RiTo8,628
+geodataset/tools.py,sha256=UcgUCbhTCZyir18heLWc4JE3rW52xB28IxrJHFEfqj0,1040
+geodataset/utils.py,sha256=YxQDanLuPQ881rInqe28JusAaUHmLuW7xt1n2Juk2KU,43
+geodataset/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geodataset/examples/selector.py,sha256=_Zrxsb2LeYaWr_5gquPPf3TF07_e6RpyMM3TonjED6s,1216
+geodataset/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geodataset/tests/base_for_tests.py,sha256=lRop28Ry3Ue_T-_NjS64t-8JFwnoY-BOqfPn79YWFpM,10332
+geodataset/tests/test_geodataset.py,sha256=VLU3qnmexzkBxNZHlKbPTjSm_OUVY3tvCf_o8mxJFDo,15930
+geodataset/tests/test_tools.py,sha256=3oWWKHuR6s9gpciqfg8iQ0YojZyo3zXr1fAcXhtH2RA,1448
+geodataset-0.1.0.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+geodataset-0.1.0.dist-info/METADATA,sha256=y1afln-3TgiDfx5IN63PE2d8e62keH-IG-NInRNxQsA,1383
+geodataset-0.1.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+geodataset-0.1.0.dist-info/top_level.txt,sha256=bszK08gZyrX-3BaDYCZCV1OoS_4wO2pHn4TyK_Fs2KM,11
+geodataset-0.1.0.dist-info/RECORD,,
