@@ -1,0 +1,508 @@
+mongo:
+	导入json数据:mongoimport -h 192.168.1.231 -u root -p twd@root$9921 --authenticationDatabase admin --db 数据库名 --collection 集合名 --file 文件完整路径
+	导出json数据:mongoexport -h 192.168.1.231 -u root -p twd@root$9921 --authenticationDatabase admin -d mydb1 -c c1 -o E:/wmx/mongoDump/c1.json
+	导出csv数据:mongoexport -h 192.168.1.231 -u root -p twd@root$9921 --authenticationDatabase admin -d abl-db -c org_all_fields --type csv -fields --out C:\Users\机6\Desktop\1111.csv --limit 50
+	导入csv数据:mongoimport -h 192.168.1.231 -u root -p twd@root$9921  --authenticationDatabase admin --db 数据库名 --collection 集合名 --type csv --headerline --ignoreBlanks --file 文件完整路径
+	导入csv指定字段类型:mongoimport --db 数据库名 --collection 集合名 --type csv --ignoreBlanks --columnsHaveTypes --fields "所有字段名.类型名()" --file 文件完整路径
+	创建简单索引:db.集合名.createIndex({"字段名":1},{"name":'idx_字段名',background:true})	background:后台创建
+	建立多个索引:db.集合名.createIndexes([{"First":1},{"Second":1},{"Third":1},{"Fourth":1},{"Fifth":1}]);
+	删除字段:db.collection.update({},{$unset:{"需要删除的字段":""}},false,true)
+	删除集合:db.集合名.drop()
+	清空集合中的数据:db.集合名.remove({})c
+	数据备份:mongodump -h 192.168.1.231 -u root  -p twd12345 --authenticationDatabase admin --db 数据库名 --collection 集合名 -o 备份数据存放地址
+	数据恢复:mongorestore -h 192.168.1.197 -u root  -p twd12345 --authenticationDatabase admin --db 数据库名需要恢复的文件夹存放路径
+	卸载mongodb: sudo apt-get purge mongodb-org*
+	启动mongo: mongod --auth --setParameter failIndexKeyTooLong=false -f /etc/mongodb.conf &
+
+Mongo集群:
+	1. 导入公钥(sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5)
+	2. 创建源列表(echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list)
+	3. 更新存储库(sudo apt-get update)
+	4. 安装指定版本(sudo apt-get install -y mongodb-org=3.6.3 mongodb-org-server=3.6.3 mongodb-org-shell=3.6.3 mongodb-org-mongos=3.6.3 mongodb-org-tools=3.6.3)
+	5. 安装mongodb(sudo apt install mongodb)
+	6. 创建配置文件路径(mkdir -p /etc/mongodb/conf.d)
+	7. 创建数据存储路径(mkdir -p /var/lib/mongodb/config/data)
+	8. 创建三个分片存储路径
+		mkdir -p /var/lib/mongodb/shard1/data
+		mkdir -p /var/lib/mongodb/shard2/data
+		mkdir -p /var/lib/mongodb/shard3/data
+	9. 创建配置文件(touch /etc/mongodb/conf.d/config.conf)
+		systemLog:
+			destination: file
+			logAppend: true
+			path: /var/log/mongodb/configsvr.log
+		 
+		storage:
+			dbPath: /var/lib/mongodb/config/data
+			journal:
+		    		enabled: true
+
+		processManagement:
+			fork: true
+			pidFilePath: /var/run/mongodb/configsvr.pid
+			timeZoneInfo: /usr/share/zoneinfo
+
+		net:
+			port: 21000
+			bindIp: 0.0.0.0
+			maxIncomingConnections: 20000
+
+		replication:
+			# 副本集名称
+			replSetName: configs
+
+		sharding:
+			# 集群名称
+			clusterRole: configsvr
+	10. 创建mongod-configserver.service(touch /lib/systemd/system/mongodb-configserver.service)
+		[Unit]
+		Description=Mongodb Config Server
+		After=network.target
+		Documentation=https://docs.mongodb.org/manual
+
+		[Service]
+		User=mongodb
+		Group=mongodb
+		Environment="OPTIONS=-f /etc/mongodb/conf.d/config.conf"
+		ExecStart=/usr/bin/mongod $OPTIONS
+		PermissionsStartOnly=true
+		PIDFile=/var/run/mongodb/configsvr.pid
+		Type=forking
+		# file size
+		LimitFSIZE=infinity
+		# cpu time
+		LimitCPU=infinity
+		# virtual memory size
+		LimitAS=infinity
+		# open files
+		LimitNOFILE=64000
+		# processes/threads
+		LimitNPROC=64000
+		# locked memory
+		LimitMEMLOCK=infinity
+		# total threads (user+kernel)
+		TasksMax=infinity
+		TasksAccounting=false
+		# Recommended limits for for mongod as specified in
+		# http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+
+		[Install]
+		WantedBy=multi-user.target
+	11. 创建pid文件路径(mkdir -p /var/run/mongodb), 更改权限(chmod 777 /var/run/mongodb)
+	12. 更改文件所有者为mongodb, 并更改权限(如果没有mongodb用户则创建mongodb用户)
+		chown -R mongodb:mongodb /etc/mongodb/
+		chown -R mongodb:mongodb /var/run/mongodb/
+		chown -R mongodb:mongodb /var/lib/mongodb/
+		chown -R mongodb:mongodb /var/log/mongodb/
+	13. 设为开机启动, 并启动
+		开机启动: systemctl enable mongodb-configserver.service
+		启动: systemctl start mongodb-configserver.service
+		关闭: systemctl stop mongodb-configserver.service
+	14. 初始化配置副本集, 登录任意一台服务器
+		mongo ip:21000
+		use admin
+		config = {
+		        _id : "配置中的副本集名称(configs)", 
+		        members : [
+		        	{_id : 0, host : "192.168.1.231:21000" },
+		        	{_id : 1, host : "192.168.1.229:21000" },
+		        	{_id : 2, host : "192.168.3.82:21000" }
+		        ]
+		}
+		初始化副本集: rs.initiate(config)
+	15. 配置第一个分片副本集(三台机器):
+		a. 添加shard配置: vim /etc/mongodb/conf.d/shard1.conf
+			systemLog:
+				destination: file
+				logAppend: true
+				path: /var/log/mongodb/shard1.log
+			storage:
+				dbPath: /var/lib/mongodb/shard1/data
+				journal:
+					enabled: true
+			processManagement:
+				fork: true
+				pidFilePath: /var/run/mongodb/shard1.pid
+				timeZoneInfo: /usr/share/zoneinfo
+			net:
+				port: 27001
+				bindIp: 0.0.0.0
+				maxIncomingConnections: 20000
+
+			replication:
+				replSetName: shard1
+
+			sharding:
+				clusterRole: shardsvr
+		b. 创建mongodb-shard1.service
+			[Unit]
+			Description=Mongodb Shard1 Server
+			After=network.target
+			Documentation=https://docs.mongodb.org/manual
+			[Service]
+			User=mongodb
+			Group=mongodb
+			Environment="OPTIONS=-f /etc/mongodb/conf.d/shard1.conf"
+			ExecStart=/usr/bin/mongod $OPTIONS
+			PermissionsStartOnly=true
+			PIDFile=/var/run/mongodb/shard1.pid
+			Type=forking
+			# file size
+			LimitFSIZE=infinity
+			# cpu time
+			LimitCPU=infinity
+			# virtual memory size
+			LimitAS=infinity
+			# open files
+			LimitNOFILE=64000
+			# processes/threads
+			LimitNPROC=64000
+			# locked memory
+			LimitMEMLOCK=infinity
+			# total threads (user+kernel)
+			TasksMax=infinity
+			TasksAccounting=false
+			# Recommended limits for for mongod as specified in
+			# http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+			[Install]
+			WantedBy=multi-user.target
+		c. 启动分片1
+			systemctl enable mongodb-shard1
+			systemctl start mongodb-shard1
+		d. 初始化配置副本集, 登录任意一台服务器
+		mongo ip:27001
+		use admin
+		config = {
+		        _id : "分片配置中的副本集名称(shard1)", 
+		        members : [
+		        	{_id : 0, host : "192.168.1.231:27001", priority: 2},
+		        	{_id : 1, host : "192.168.1.229:27001", priority: 1},
+		        	{_id : 2, host : "192.168.3.82:27001", arbiterOnly: true}
+		        ]
+		}
+		初始化副本集: rs.initiate(config)
+	16. 配置第二个分片副本集(三台机器):
+		a. 添加shard配置: vim /etc/mongodb/conf.d/shard2.conf
+			systemLog:
+				destination: file
+				logAppend: true
+				path: /var/log/mongodb/shard2.log
+			storage:
+				dbPath: /var/lib/mongodb/shard2/data
+				journal:
+					enabled: true
+			processManagement:
+				fork: true
+				pidFilePath: /var/run/mongodb/shard2.pid
+				timeZoneInfo: /usr/share/zoneinfo
+			net:
+				port: 27002
+				bindIp: 0.0.0.0
+				maxIncomingConnections: 20000
+
+			replication:
+				replSetName: shard2
+
+			sharding:
+				clusterRole: shardsvr
+		b. 创建mongodb-shard2.service
+			[Unit]
+			Description=Mongodb Shard2 Server
+			After=network.target
+			Documentation=https://docs.mongodb.org/manual
+			[Service]
+			User=mongodb
+			Group=mongodb
+			Environment="OPTIONS=-f /etc/mongodb/conf.d/shard2.conf"
+			ExecStart=/usr/bin/mongod $OPTIONS
+			PermissionsStartOnly=true
+			PIDFile=/var/run/mongodb/shard2.pid
+			Type=forking
+			# file size
+			LimitFSIZE=infinity
+			# cpu time
+			LimitCPU=infinity
+			# virtual memory size
+			LimitAS=infinity
+			# open files
+			LimitNOFILE=64000
+			# processes/threads
+			LimitNPROC=64000
+			# locked memory
+			LimitMEMLOCK=infinity
+			# total threads (user+kernel)
+			TasksMax=infinity
+			TasksAccounting=false
+			# Recommended limits for for mongod as specified in
+			# http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+			[Install]
+			WantedBy=multi-user.target
+		c. 启动分片2
+			systemctl enable mongodb-shard2
+			systemctl start mongodb-shard2
+		d. 初始化配置副本集, 登录任意一台服务器
+		mongo ip:27002
+		use admin
+		config = {
+		        _id : "分片配置中的副本集名称(shard2)", 
+		        members : [
+		        	{_id : 0, host : "192.168.1.231:27002", arbiterOnly: true},
+		        	{_id : 1, host : "192.168.1.229:27002", priority: 2},
+		        	{_id : 2, host : "192.168.3.82:27002", priority: 1}
+		        ]
+		}
+		初始化副本集: rs.initiate(config)
+	17. 配置第三个分片副本集(三台机器):
+		a. 添加shard配置: vim /etc/mongodb/conf.d/shard3.conf
+			systemLog:
+				destination: file
+				logAppend: true
+				path: /var/log/mongodb/shard3.log
+			storage:
+				dbPath: /var/lib/mongodb/shard3/data
+				journal:
+					enabled: true
+			processManagement:
+				fork: true
+				pidFilePath: /var/run/mongodb/shard3.pid
+				timeZoneInfo: /usr/share/zoneinfo
+			net:
+				port: 27003
+				bindIp: 0.0.0.0
+				maxIncomingConnections: 20000
+
+			replication:
+				replSetName: shard3
+
+			sharding:
+				clusterRole: shardsvr
+		b. 创建mongodb-shard3.service
+			[Unit]
+			Description=Mongodb Shard3 Server
+			After=network.target
+			Documentation=https://docs.mongodb.org/manual
+			[Service]
+			User=mongodb
+			Group=mongodb
+			Environment="OPTIONS=-f /etc/mongodb/conf.d/shard3.conf"
+			ExecStart=/usr/bin/mongod $OPTIONS
+			PermissionsStartOnly=true
+			PIDFile=/var/run/mongodb/shard3.pid
+			Type=forking
+			# file size
+			LimitFSIZE=infinity
+			# cpu time
+			LimitCPU=infinity
+			# virtual memory size
+			LimitAS=infinity
+			# open files
+			LimitNOFILE=64000
+			# processes/threads
+			LimitNPROC=64000
+			# locked memory
+			LimitMEMLOCK=infinity
+			# total threads (user+kernel)
+			TasksMax=infinity
+			TasksAccounting=false
+			# Recommended limits for for mongod as specified in
+			# http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+			[Install]
+			WantedBy=multi-user.target
+		c. 启动分片3
+			systemctl enable mongodb-shard3
+			systemctl start mongodb-shard3
+		d. 初始化配置副本集, 登录任意一台服务器
+		mongo ip:27003
+		use admin
+		config = {
+		        _id : "分片配置中的副本集名称(shard3)", 
+		        members : [
+		        	{_id : 0, host : "192.168.1.231:27003", priority: 1},
+		        	{_id : 1, host : "192.168.1.229:27003", arbiterOnly: true},
+		        	{_id : 2, host : "192.168.3.82:27003", priority: 2}
+		        ]
+		}
+		初始化副本集: rs.initiate(config)
+	18. 配置路由服务器mongos
+		a. 添加mongos配置(vim /etc/mongodb/conf.d/mongos.conf)
+			systemLog:
+				destination: file
+				logAppend: true
+				path: /var/log/mongodb/mongos.log
+			processManagement:
+				fork: true
+				pidFilePath: /var/run/mongodb/mongos.pid
+				timeZoneInfo: /usr/share/zoneinfo
+			net:
+				port: 20000
+				bindIp: 0.0.0.0
+				maxIncomingConnections: 20000
+			sharding:
+				configDB: csReplSet/192.168.1.231:21000, 192.168.1.229:21000, 192.168.3.82:21000
+		b. 创建mongodb-mongos.service
+			[Unit]
+			Description=Mongodb Mongos Server
+			After=network.target mongodb-shard1.service mongodb-shard2.service mongodb-shard3.service
+			Documentation=https://docs.mongodb.org/manual
+			[Service]
+			User=mongodb
+			Group=mongodb
+			Environment="OPTIONS=-f /etc/mongodb/conf.d/mongos.conf"
+			ExecStart=/usr/bin/mongos $OPTIONS
+			PermissionsStartOnly=true
+			PIDFile=/var/run/mongodb/mongos.pid
+			Type=forking
+			# file size
+			LimitFSIZE=infinity
+			# cpu time
+			LimitCPU=infinity
+			# virtual memory size
+			LimitAS=infinity
+			# open files
+			LimitNOFILE=64000
+			# processes/threads
+			LimitNPROC=64000
+			# locked memory
+			LimitMEMLOCK=infinity
+			# total threads (user+kernel)
+			TasksMax=infinity
+			TasksAccounting=false
+			# Recommended limits for for mongod as specified in
+			# http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+			[Install]
+			WantedBy=multi-user.target
+		c. 启动mongos
+			systemctl enable mongodb-mongos
+			systemctl start mongodb-mongos
+	19. 启动分片
+		a. 初始化mongos, 登录任意一台服务器
+			mongo ip:20000
+			use admin
+			#串联路由服务器与分配副本集
+			sh.addShard("shard1/192.168.1.231:27001,192.168.1.229:27001,192.168.3.82:27001")
+			sh.addShard("shard2/192.168.1.231:27002,192.168.1.229:27002,192.168.3.82:27002")
+			sh.addShard("shard3/192.168.1.231:27003,192.168.1.229:27003,192.168.3.82:27003")
+			#查看集群状态
+			sh.status()
+	20. 测试
+		
+elasticsearch:
+	启动cerebro: nohup /opt/cerebro/cerebro-0.8.3/bin/cerebro -Dhttp.port=9100 > /opt/cerebro.log 2>&1 &
+	导入数据: elasticdump --input=C:\Users\机6\Desktop\1.json --output=http://elastic:elastictwd001@@:192.168.1.229:9200/索引名 --type data/mapping --limit 10000(必须有_index, _type, _source)
+	查询数量:   http://192.168.1.230:9200/_cat/count/索引名
+	重启分片分配: curl -XPUT 'http://192.168.1.231:9200/_cluster/settings' -H 'content-Type:application/json' -d '{"transient": {"cluster.routing.allocation.enable": "all"}}'
+	强制分配分片: curl -XPOST 'http://192.168.1.231:9200/_cluster/reroute' -H 'content-Type:application/json' -d '{"commands": [{"allocate_empty_primary": {"index": "索引名", "shard": 分片编号, "node": "节点名称", "accept_data_loss": true}}]}'
+	创建template:
+		"template": "*",
+		"settings": {
+			"number_of_shards": 2,
+			"number_of_replicas": 1
+		}
+	创建快照仓库:  curl -XPUT http://192.168.1.231:9200/_snapshot/仓库名 -H 'Content-Type: application/json' -d '{"type": "fs", "settings": {"location": "仓库存放目录", "compress": true}}'
+	创建快照: curl -XPUT http://192.168.1.231:9200/_snapshot/仓库名/快照名 -H 'Content-Type: application/json'
+	快照状态: curl -XGET http://192.168.1.231:9200/_snapshot/仓库名/快照名/_status -H 'Content-Type: application/json'
+	恢复快照: curl -XPOST http://192.168.1.231:9200/_snapshot/仓库名/快照名/_restore -H 'Content-Type: application/json'
+
+elasticsearch:
+	1. 关闭集群, 在某一个主节点下面的elasticsearch.yml中加入xpack.security.enabled = true
+	2. /usr/share/elasticsearch/bin/elasticsearch-certutil ca	(第一个选项：CA授权证书的路径和名称(直接回车默认即可)、第二个选项：设置CA授权证书密码)
+	3. /usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12	(第一个选项：输入CA授权证书密码、第二个选项：elastic-certificates.p12证书位置、第三个选项：elastic-certificates.p12证书密码（默认为空，直接回车）)
+	4. 将elastic-stack-ca.p12和elastic-certificates.p12两个证书移动到/etc/elasticsearch/下面, 并将这两个证书复制到其他节点的/etc/elasticsearch/下面
+	5. 在集群中每个节点的elasticsearch.yml中加入以下内容:
+		xpack.security.enabled = true
+		xpack.security.transport.ssl.enabled: true
+		xpack.security.transport.ssl.verification_mode: certificate
+		xpack.security.transport.ssl.keystore.path: elastic-certificates.p12   
+		xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
+	6. 启动集群, 等待启动成功后, 输入/usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive命令为ES数据库以及其他软件添加密码
+
+unbantu(apt)安装elasticsearch指定版本:
+	wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-amd64.deb
+	wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-amd64.deb.sha512
+	shasum -a 512 -c elasticsearch-7.4.0-amd64.deb.sha512
+	sudo dpkg -i elasticsearch-7.4.0-amd64.deb
+
+服务器间文件夹共享:
+共享端:
+	1. 需要共享文件的服务器安装nfs(sudo apt-get install nfs-kernel-server), 如果没有安装成功, 则安装(sudo apt-get install nfs-common)
+	2. 创建共享目录(mkdir 目录名)
+	3. 设置共享目录拥有者(chown -R es:es 目录名)
+	4. 设置共享目录权限(chmod 777 目录名)
+	5. 设置需要共享的文件夹(sudo vim /etc/exports)=>/共享目录名 *(rw,no_root_squash)
+	6. 重启nfs server(systemctl restart nfs-kernel-server)
+
+客户端:
+	1. 安装nfs client(sudo apt-get install nfs-common)
+	2. 查看共享端上共享的目录(showmount -e 共享端IP地址)
+	3. 创建新的挂载目录(mkdir 需要挂载的目录名)
+	4. 创建共享挂载点(mount -t nfs 共享端IP地址:/共享端共享的目录 /需要挂载的目录名)
+	5. 设置挂载目录拥有者(chown -R es:es 挂载的目录名)
+
+文件共享完成后需要同步共享端和客户端的uid和gid:
+	1. 查看用户uid和gid: id 用户名称
+	2. 修改uid: usermod -u uid号 用户名称
+	3. 修改gid: groupmod -g gid号 用户名称
+	4. 更改/var/log、/etc/elasticsearch、数据和日志目录的用户权限
+
+mysql(导出数据到txt):
+	1. 创建一个表(表明和.frm文件名一致)
+	2. 关闭mysql(net stop mysql),用恢复的frm覆盖旧frm
+	3. 向my.ini中添加innodb_force_recovery = 6,启动mysql(net start mysql)
+	4. 查看表结构desc 表明;然后会报错,去数据库日志中查看要恢复的字段个数
+	5. 关闭mysql,屏蔽my.ini中innodb_force_recovery = 6
+	6. 启动mysql,删除创建的表(drop table 表名;)
+	7. 根据要恢复的字段个数随便创建一个表(表明需要和frm名一致)
+	8. 执行第二步和第三步
+	9. show create table 表名;获取表结构的sql语句,保存起来
+	10. 执行第5步,启动mysql,删除创建的表(drop table 表名;)
+	11. 使用刚保存的sql语句创建一个表(表名和frm名一致)
+	12. alter table 表名 discard tablespace;删除表空间
+	13. 将需要恢复的ibd复制进来,执行alter table 表名 import tablespace;
+	14. select * from 表名 into outfile '导出文件的位置(.txt)';
+
+linux命令:
+	su root 切换root
+	sudo su 临时切换
+	systemctl status cloudera-scm-agent  重启scm客户端
+	systemctl restart ntp 时间同步
+	wc -l +文件名  查看行数
+	free -h 查看内存
+	df  -h 查看磁盘
+	netstat -ant  查看tcp端口
+	netstat -ant |grep 端口号  查看指定tcp端口
+	lsof -i:8040  
+	ps -aux|grep 8080   查看进程
+	kill -9 pid杀死进程
+	sed -i 's/ss/22/g' tee.txt   替换文件内容
+	nohup  启动命令  +   &
+	sed -i '1s/^/#by Lflakf \n/' a.txt  行首添加数据
+	mv CANVA_FULL_CLEANED.{txt.bak,csv}   修改文件后缀
+	rm -rf 文件夹名称             删除文件夹
+	服务器间传文件: scp -r 原数据位置 root@192.168.1.196: 传入到哪里
+	rsync -ax -e 'ssh' tw/ root@192.168.1.231:/var/fb_tw_li/twitter/222
+
+linux数据清洗：
+	sed -i '1,29d' 3.txt
+	sed -i 's/INSERT INTO idemail VALUES (//g' 3.txt
+	sed -i 's/);//g' 3.txt
+	sed -i $'s/\'//g' 3.txt
+
+关键字查询： 
+	1. 先在数据库中查找关键字对应的字段
+	2. 根据字段导出数据（elasticdump   --input=http://192.168.1.230:9200/tele*,tg*   --output=/opt/文件名.json   --type=data --searchBody '{"query":{"multi_match":{"query": "关键字","fields" : [ "字段名1" , "字段名2","字段名2"]}}}'）
+	3. 查看300行左右，然后将300行左右出到本地
+	4. 在本地上进行导出csv
+
+es数据迁移:
+	1. 使用python脚本将所有索引读取到存为txt文件
+	2. 使用shell脚本将每个索引进行迁移 
+	#!/bin/bash
+	for line in `cat tw_facebook_new_02.txt`
+	do
+		echo $line
+		elasticdump --input=http://192.168.1.230:9200/$line  --output=http://192.168.9.247:9200/$line --type=mapping --limit=10000
+		elasticdump --input=http://192.168.1.230:9200/$line  --output=http://192.168.9.247:9200/$line --type=data --limit=10000
+		echo $line"完成"
+	done
+
+
