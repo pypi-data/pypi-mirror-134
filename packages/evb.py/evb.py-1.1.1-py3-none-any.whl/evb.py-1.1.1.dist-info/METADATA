@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: evb.py
+Version: 1.1.1
+Summary: Asynchronous wrapper for the EditVideoBot API
+Home-page: https://github.com/regulad/evb.py
+Author: regulad
+Author-email: regulad@outlook.com
+License: GPLv3
+Download-URL: https://codeload.github.com/regulad/evb.py/zip/refs/heads/main
+Keywords: async,api
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: <4,>=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp (<4,>=3.8.1)
+Requires-Dist: typing-extensions (<5,>=4.0.1)
+
+# evb.py
+
+Asynchronous wrapper for the EditVideoBot API https://pigeonburger.xyz/api/docs/
+
+### Example
+
+```python
+import asyncio
+from evb import AsyncEditVideoBotSession, EditResponse
+
+
+async def main():
+    with open("input.mp4", "rb") as input_file:
+        input_bytes = input_file.read()
+
+    async with AsyncEditVideoBotSession.from_api_key("your_api_key") as evb_session:
+        output_bytes: EditResponse = await evb_session.edit(input_bytes, "tt=smell")
+
+    with open("output.mp4", "xb") as output_media:
+        output_media.write(await output_bytes.download())
+
+
+asyncio.run(main())
+```
+
+
