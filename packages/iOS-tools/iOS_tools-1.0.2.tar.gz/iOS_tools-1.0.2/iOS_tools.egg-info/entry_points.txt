@@ -1,0 +1,3 @@
+[console_scripts]
+iosdevice = iOS_tools.main:cli
+
