@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "testudo"
+version = "0.1.7"
+description = "A wrapper for commands to be run as periodic tasks while reporting on their results/errors to legiond. Intended to be integrated with supervisord, should work well with systemd in theory."
+authors = ["Eugene Kovalev <eugene@kovalev.systems>"]
+classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+]
+documentation="https://gitlab.com/legion-robotnik/testudo"
+repository="https://gitlab.com/legion-robotnik/testudo"
+readme="README.md"
+license="GPL-3.0-only"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^8.0.3"
+funcy = "^1.16"
+legion-utils = "^0.2.7"
+pyyaml = "^6.0"
+pydantic = "^1.8.2"
+typeguard = "^2.13.2"
+types-pyyaml = "^6.0.1"
+logzero = "^1.7.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest_cov = "^3.0.0"
+pytest-mock = "^3.6.1"
+pylint = "^2.11.1"
+mypy = "^0.910"
+flake8 = "^4.0.1"
+
+[tool.poetry.scripts]
+testudo = 'testudo.cli:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
