@@ -1,0 +1,3 @@
+[console_scripts]
+RedWebhook = RedWebhook.__main__:main
+
