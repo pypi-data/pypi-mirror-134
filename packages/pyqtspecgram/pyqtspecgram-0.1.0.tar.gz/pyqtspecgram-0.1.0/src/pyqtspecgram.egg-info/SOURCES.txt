@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+src/pyqtspecgram/__init__.py
+src/pyqtspecgram/pyqtspecgram.py
+src/pyqtspecgram.egg-info/PKG-INFO
+src/pyqtspecgram.egg-info/SOURCES.txt
+src/pyqtspecgram.egg-info/dependency_links.txt
+src/pyqtspecgram.egg-info/requires.txt
+src/pyqtspecgram.egg-info/top_level.txt
+test/test_pyqtspecgram.py
