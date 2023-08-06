@@ -1,0 +1,6 @@
+pyspark
+xarray
+dask
+h5netcdf
+fsspec
+s3fs

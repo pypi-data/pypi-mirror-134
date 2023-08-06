@@ -1,0 +1,11 @@
+LICENSE
+NOTICE
+README.md
+setup.py
+meteo_spark/__init__.py
+meteo_spark/dataset.py
+meteo_spark.egg-info/PKG-INFO
+meteo_spark.egg-info/SOURCES.txt
+meteo_spark.egg-info/dependency_links.txt
+meteo_spark.egg-info/requires.txt
+meteo_spark.egg-info/top_level.txt
