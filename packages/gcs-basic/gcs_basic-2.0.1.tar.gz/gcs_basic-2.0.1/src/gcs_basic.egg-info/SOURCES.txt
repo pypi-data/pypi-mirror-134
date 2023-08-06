@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/gcs_basic/__init__.py
+src/gcs_basic/gcs.py
+src/gcs_basic.egg-info/PKG-INFO
+src/gcs_basic.egg-info/SOURCES.txt
+src/gcs_basic.egg-info/dependency_links.txt
+src/gcs_basic.egg-info/top_level.txt
