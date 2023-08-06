@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: sequencelearn
+Version: 0.0.1
+Summary: Scikit-Learn like Named Entity Recognition modules
+Home-page: https://github.com/onetask-ai/sequencelearn
+Author: Johannes Hötter
+Author-email: johannes.hoetter@onetask.ai
+License: UNKNOWN
+Keywords: onetask,machine learning,supervised learning,python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Requires-Dist: Keras-Preprocessing (==1.1.2)
+Requires-Dist: Markdown (==3.3.6)
+Requires-Dist: Werkzeug (==2.0.2)
+Requires-Dist: absl-py (==1.0.0)
+Requires-Dist: astunparse (==1.6.3)
+Requires-Dist: black (==21.12b0)
+Requires-Dist: cachetools (==4.2.4)
+Requires-Dist: certifi (==2021.10.8)
+Requires-Dist: charset-normalizer (==2.0.10)
+Requires-Dist: click (==8.0.3)
+Requires-Dist: flatbuffers (==2.0)
+Requires-Dist: gast (==0.4.0)
+Requires-Dist: google-auth-oauthlib (==0.4.6)
+Requires-Dist: google-auth (==2.3.3)
+Requires-Dist: google-pasta (==0.2.0)
+Requires-Dist: grpcio (==1.43.0)
+Requires-Dist: h5py (==3.6.0)
+Requires-Dist: idna (==3.3)
+Requires-Dist: importlib-metadata (==4.10.0)
+Requires-Dist: keras (==2.7.0)
+Requires-Dist: libclang (==12.0.0)
+Requires-Dist: mypy-extensions (==0.4.3)
+Requires-Dist: numpy (==1.21.5)
+Requires-Dist: oauthlib (==3.1.1)
+Requires-Dist: opt-einsum (==3.3.0)
+Requires-Dist: pathspec (==0.9.0)
+Requires-Dist: platformdirs (==2.4.1)
+Requires-Dist: protobuf (==3.19.3)
+Requires-Dist: pyasn1-modules (==0.2.8)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: requests (==2.27.1)
+Requires-Dist: rsa (==4.8)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: tensorboard-data-server (==0.6.1)
+Requires-Dist: tensorboard-plugin-wit (==1.8.1)
+Requires-Dist: tensorboard (==2.7.0)
+Requires-Dist: tensorflow-estimator (==2.7.0)
+Requires-Dist: tensorflow-gpu (==2.7.0)
+Requires-Dist: tensorflow-io-gcs-filesystem (==0.23.1)
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: tomli (==1.2.3)
+Requires-Dist: typing-extensions (==4.0.1)
+Requires-Dist: urllib3 (==1.26.8)
+Requires-Dist: wrapt (==1.13.3)
+Requires-Dist: zipp (==3.7.0)
+
+# sequence-learn
+Sklearn-like API for Sequence Learning tasks like Named Entity Recognition
+
+
