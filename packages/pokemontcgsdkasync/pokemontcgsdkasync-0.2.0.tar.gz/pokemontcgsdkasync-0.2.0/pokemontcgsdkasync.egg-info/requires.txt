@@ -1,0 +1,13 @@
+dacite<2.0.0,>=1.6.0
+aiohttp<4.0.0,>=3.8.1
+
+[tests]
+mock
+nose
+coverage
+yanc
+preggy
+tox
+ipdb
+coveralls
+sphinx
