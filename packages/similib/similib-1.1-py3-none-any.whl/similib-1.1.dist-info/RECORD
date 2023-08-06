@@ -1,0 +1,11 @@
+similib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+similib/cmd.py,sha256=wt1QrkqnMIBCkjViNbrr8PhfJYaS_z5xG9utUcnoY2g,465
+similib/date_and_time.py,sha256=RDze1jsdulxMTffYVhEU6yqBJEwAJf6qQr9pI7GzW7E,1447
+similib/exceptions.py,sha256=kstRJNHXPvhLzOpfJypT2m3-4CGl7XjyROteveBgjRc,126
+similib/mongodb.py,sha256=-UyGYNBBdeB2wKcK65yA1kxsevhqMwodYR_h138kDCA,1791
+similib/xpath.py,sha256=Q351khMshEdmtziAgIt5b1SP4ykrpofXK4OtIy8h0oo,1582
+similib-1.1.dist-info/LICENSE,sha256=s5mTPnkvpefU0dSccBAE3apxBkUq1Jlbejw4aRFUydY,1062
+similib-1.1.dist-info/METADATA,sha256=qDupRWMSRiLcPS7zSl0aWQUVTADjrVb_i8bbkW2VAVs,506
+similib-1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+similib-1.1.dist-info/top_level.txt,sha256=l4jDYpdArXChvgVnPtifY48UOMWrkxv-i92FlsxdGF8,8
+similib-1.1.dist-info/RECORD,,
