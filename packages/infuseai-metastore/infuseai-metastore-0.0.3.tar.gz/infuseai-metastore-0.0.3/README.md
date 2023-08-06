@@ -1,0 +1,53 @@
+## PoC for MetaStore
+
+You need to prepare two things to make ake it running
+
+1. a kaffka in the local and a created `dream-1` topic
+2. a s3 credential to access the storage
+
+* https://kafka.apache.org/quickstart
+
+## Setup MetaStore API server
+
+Run the docker-compose to setup meta-store API server
+
+```bash
+docker-compose up -d
+```
+
+Currently, the API server only contains Kafka, PostgreSQL, and Hasura.
+
+* Kafka: Serve for event subscription
+* PostgreSQL: Store all the relationship
+* Hasura: Dev tool for PostgreSQL and serve GraphQL endpoint
+
+## helloworld.py
+
+It is a sample to write the event handler
+
+```python
+@on('dataset', event='updated', filter={'name': 'demo-dataset-1'})
+def on_dataset_available():
+    print(f'on_dataset_available invoked')
+
+    dataset = project.get('dataset', 'demo-dataset-1')
+    model = project.create('model', 'model-1', {'dataset': dataset})
+    model.update()
+    return
+```
+
+* `on` wait for a **dataset** artifact in `created` event and filtering by `name=dataset-1`
+* after training, we create `Model` and send a message to notify other handlers
+
+## send.event.py
+
+```python
+# in PoC, we don't handle the kafka
+# the Project object is a facade to everything {event sender, event listener runner, access to object store}
+project = Project('dream-1', profile='local')
+
+dataset = project.get('dataset', 'demo-dataset-1')
+if not dataset:
+    dataset = project.create('dataset', 'demo-dataset-1')
+dataset.update()
+```
