@@ -1,0 +1,11 @@
+README.md
+setup.py
+pyrebase/__init__.py
+pyrebase/pyrebase.py
+sseclient/__init__.py
+sseclient/sseclient.py
+totally_not_the_official_pyrebase.egg-info/PKG-INFO
+totally_not_the_official_pyrebase.egg-info/SOURCES.txt
+totally_not_the_official_pyrebase.egg-info/dependency_links.txt
+totally_not_the_official_pyrebase.egg-info/requires.txt
+totally_not_the_official_pyrebase.egg-info/top_level.txt
