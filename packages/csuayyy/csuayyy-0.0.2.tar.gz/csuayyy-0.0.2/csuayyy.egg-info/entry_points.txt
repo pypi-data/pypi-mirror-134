@@ -1,0 +1,4 @@
+[console_scripts]
+csua = csuayyy.src.main:main
+csuayyy = csuayyy.src.main:main
+
