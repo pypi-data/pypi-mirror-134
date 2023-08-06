@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+qargs/__init__.py
+qargs/qargs.py
+quick_arguments.egg-info/PKG-INFO
+quick_arguments.egg-info/SOURCES.txt
+quick_arguments.egg-info/dependency_links.txt
+quick_arguments.egg-info/top_level.txt
