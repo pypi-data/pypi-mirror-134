@@ -1,0 +1,8 @@
+setup.py
+lordmatrixoid_module/__init__.py
+lordmatrixoid_module/fast_histogram.py
+lordmatrixoid_module.egg-info/PKG-INFO
+lordmatrixoid_module.egg-info/SOURCES.txt
+lordmatrixoid_module.egg-info/dependency_links.txt
+lordmatrixoid_module.egg-info/requires.txt
+lordmatrixoid_module.egg-info/top_level.txt
