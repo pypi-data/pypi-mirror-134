@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: quick-arguments
+Version: 0.0.4
+Summary: A simple argument parser
+Home-page: https://gitlab.com/thomasjlsn/qargs
+Author: Thomas Ellison
+Author-email: thomasjlsn@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Check out the README on [GitLab](https://gitlab.com/thomasjlsn/qargs)!
+
