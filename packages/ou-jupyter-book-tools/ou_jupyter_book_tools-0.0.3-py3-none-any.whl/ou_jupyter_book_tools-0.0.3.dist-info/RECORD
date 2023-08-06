@@ -1,0 +1,12 @@
+jb_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jb_utils/diffsidebyside.py,sha256=kwhCkfxuzrVVLaJsbc7j61xsKnOcXYqMMp92_jL1mvM,3973
+tags2myst/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tags2myst/cli.py,sha256=_ebrJymjM8nT-tjuK8t3JmcTyW_70bngF56vcto95Yk,1093
+tags2myst/empinken2myst.py,sha256=jfvZpXCOlk4eNNSFqeBKxnn3H13yav4MRTnewhB01To,2516
+tags2myst/tagstyler2myst.py,sha256=VA65vkLWZ5q8BKjmDJGBZioixfcC_gJTYnih00E7AZE,2755
+ou_jupyter_book_tools-0.0.3.dist-info/LICENSE,sha256=lUJ5qDi7P_IGU_EklKP8KYo2M1N38agH12tPAgP5QTY,1074
+ou_jupyter_book_tools-0.0.3.dist-info/METADATA,sha256=uH30lbM6lg3NDFcvyERqw96MeaNR8AAtZtQ5EEli7vo,1285
+ou_jupyter_book_tools-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ou_jupyter_book_tools-0.0.3.dist-info/entry_points.txt,sha256=w47_UD_aIdRy9cURINWL_Jqk2SwWeVHkMwG7oI4Hdnc,67
+ou_jupyter_book_tools-0.0.3.dist-info/top_level.txt,sha256=ImfmfKLK9y8_17aPeIMuMQpzr3jqNQP_tZjXfACEMyU,19
+ou_jupyter_book_tools-0.0.3.dist-info/RECORD,,
