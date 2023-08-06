@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ccinput
+Version: 1.0.0
+Summary: Computational Chemistry Input Generator
+Home-page: http://github.com/cyllab/ccinput
+Author: Raphaël Robidas
+Author-email: Raphael.Robidas@USherbrooke.ca
+License: BSD 3-Clause
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: periodictable
+Requires-Dist: basis-set-exchange
+Requires-Dist: numpy
+
+UNKNOWN
+
