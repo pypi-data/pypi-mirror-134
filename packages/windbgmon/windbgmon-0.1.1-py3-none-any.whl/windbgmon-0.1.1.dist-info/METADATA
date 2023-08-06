@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: windbgmon
+Version: 0.1.1
+Summary: Monitor Windows OutputDebugString messages
+Home-page: https://github.com/segevfiner/windbgmon
+Author: Segev Finer
+Author-email: segev208@gmail.com
+License: MIT
+Project-URL: Documentation, https://segevfiner.github.io/windbgmon/
+Project-URL: Issue Tracker, https://github.com/segevfiner/windbgmon/issues
+Keywords: windbg OutputDebugString OutputDebugStringA OutputDebugStringW
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Bug Tracking
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: pywin32
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: sphinx (==4.*) ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+windbgmon
+=========
+.. image:: https://img.shields.io/pypi/v/windbgmon.svg
+   :target: https://pypi.org/project/windbgmon/
+   :alt: PyPI
+
+.. image:: https://github.com/segevfiner/windbgmon/actions/workflows/docs.yml/badge.svg
+   :target: https://segevfiner.github.io/windbgmon/
+   :alt: Docs
+
+Monitor Windows OutputDebugString messages.
+
+Quick Start:
+
+.. code-block:: python
+
+    import windbgmon
+
+    with windbgmon.DbgMon() as dbgmon:
+        for pid, msg in dbgmon:
+            print(f"[{pid}] {msg}")
+
+Can also be run as a module: ``python -m windbgmon``.
+
+
