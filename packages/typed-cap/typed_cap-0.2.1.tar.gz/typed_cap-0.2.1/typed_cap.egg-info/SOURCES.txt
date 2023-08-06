@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.py
+tests/__init__.py
+tests/test_cap.py
+tests/test_parser.py
+typed_cap/__init__.py
+typed_cap/args_parser.py
+typed_cap/cap.py
+typed_cap/types.py
+typed_cap/typing.py
+typed_cap/utils.py
+typed_cap.egg-info/PKG-INFO
+typed_cap.egg-info/SOURCES.txt
+typed_cap.egg-info/dependency_links.txt
+typed_cap.egg-info/top_level.txt
