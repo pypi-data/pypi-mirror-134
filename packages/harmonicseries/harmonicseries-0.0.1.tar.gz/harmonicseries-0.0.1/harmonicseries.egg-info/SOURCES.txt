@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+harmonicseries/__init__.py
+harmonicseries/harmonic.py
+harmonicseries.egg-info/PKG-INFO
+harmonicseries.egg-info/SOURCES.txt
+harmonicseries.egg-info/dependency_links.txt
+harmonicseries.egg-info/top_level.txt
+test/testharmonic.py
