@@ -1,0 +1,16 @@
+fastq_downloader/__init__.py,sha256=U-XHgaaQVLDqUQ-K6ZYpMRRyB9J6XYWhwxFLw3t5Spw,42
+fastq_downloader/__main__.py,sha256=rTwhhU2bSdR-5HRLQylK-vi14qbrvnoumhF96e-3OWM,4075
+fastq_downloader/helper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastq_downloader/helper/accession_to_links.py,sha256=FUZKUg_lZpWmpt8PAtcf8MBEwp1vp_bSgBnJZLlqRIs,4418
+fastq_downloader/helper/construct_gsm_dict.py,sha256=STHNBTEtbp5k6jmoYkrdnfyiZ5mBgNuEVZRVGYje-k0,963
+fastq_downloader/helper/download_and_verify.py,sha256=SbUOCppUhz-MMksumnKhi1dxyUf55vpzGn1Bhtux6Cg,3216
+fastq_downloader/helper/merge_files.py,sha256=p2-KqmkD7RiGPyUq2Zp9NJutbbp8JaOVMLp3kLeSISg,1353
+fastq_downloader/helper/rename_files_by_run.py,sha256=3OWTuraclLq35rI4PKJ1Plh9tai44SvVNKjqeRTX38M,1740
+fastq_downloader/snakemake/Snakefile,sha256=9HseWJMTCDougCp2wbGuowzy60pUYytZvN7PnPRK8ck,10621
+fastq_downloader/snakemake/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastq_downloader/tests/test_ebi_api.py,sha256=mTeYCnwDhzIUMCbvKmKZVyGTU6pUrHjtOHJl8eM1K_c,453
+fastq_downloader-0.4.0.dist-info/entry_points.txt,sha256=G5Ipc0iwhQ9LvcWW_T8aVEAU1tm0CB3O_irkSrmUdWE,67
+fastq_downloader-0.4.0.dist-info/LICENSE,sha256=MJ2OX8rqpC23_SGLRHXNyznuXg3LJPzNa-qHV-4Evjs,1061
+fastq_downloader-0.4.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+fastq_downloader-0.4.0.dist-info/METADATA,sha256=1g3LlQYhKAMfGZP_t3B7riwNVGoktGPTdJIH-iehdbc,2819
+fastq_downloader-0.4.0.dist-info/RECORD,,
