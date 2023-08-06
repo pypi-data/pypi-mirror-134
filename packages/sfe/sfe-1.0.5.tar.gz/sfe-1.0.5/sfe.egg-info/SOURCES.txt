@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+setup.py
+sfe/Cal_Comb.py
+sfe/Element.py
+sfe/Element_Type.py
+sfe/Node.py
+sfe/__init__.py
+sfe/figure.py
+sfe/solve.py
+sfe.egg-info/PKG-INFO
+sfe.egg-info/SOURCES.txt
+sfe.egg-info/dependency_links.txt
+sfe.egg-info/requires.txt
+sfe.egg-info/top_level.txt
