@@ -1,0 +1,11 @@
+macropython/__init__.py,sha256=KM3yBHwfvYbfR6KVKPhjHCwHv_AUhrA5Mbjr0a5BBYM,56
+macropython/classes.py,sha256=OAdlW7TWuWS-erw5dp33eV1u5bxVK0OT1LPiY86z-sc,635
+macropython/keyboard_functions.py,sha256=hZYpOUiz4yNUwV_PDEP6ifGQcaIbqn9eKKhVJ3Nn3qg,728
+macropython/main.py,sha256=OqNCHjxfPod-8dT5ALjULlGsEXkjoXK_mlFCR4d64zY,11174
+macropython/misc_functions.py,sha256=9G8dsDayWKAnEAzlXd_zfOwMG9kc7DIy1aq3oGCrpgw,1244
+macropython/mouse_functions.py,sha256=AYtDRFrbLX6Nb2I3vjKTZXuYNbe_5BATyQfyx2CJ6zs,573
+macropython-0.0.0.4.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+macropython-0.0.0.4.dist-info/METADATA,sha256=j8T3gHfcCKhSkcTzVdgm9tv1-Q7sCDsJVi_qNhasbsc,611
+macropython-0.0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+macropython-0.0.0.4.dist-info/top_level.txt,sha256=WEwRr2mCL4vAdgUU5-wcvB6Bys7HCsYDQ19p3Yd0w58,12
+macropython-0.0.0.4.dist-info/RECORD,,
