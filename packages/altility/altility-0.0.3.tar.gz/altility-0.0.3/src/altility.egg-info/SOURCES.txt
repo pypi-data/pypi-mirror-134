@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/altility/__init__.py
+src/altility/adl_model.py
+src/altility.egg-info/PKG-INFO
+src/altility.egg-info/SOURCES.txt
+src/altility.egg-info/dependency_links.txt
+src/altility.egg-info/requires.txt
+src/altility.egg-info/top_level.txt
+src/altility/datasets/__init__.py
+src/altility/datasets/load_forecasting.py
+src/altility/datasets/travel_forecasting.py
