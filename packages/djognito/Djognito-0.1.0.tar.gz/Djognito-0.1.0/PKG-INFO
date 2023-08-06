@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: djognito
+Version: 0.1.0
+Summary: Auth module for using AWS Cognito with DRF
+Home-page: https://github.com/Prakash2403/Djognito
+License: MIT
+Keywords: AWS Cognito,Cognito,DRF,Authentication,Authorization
+Author: Prakash2403
+Author-email: rishurai24@gmail.com
+Requires-Python: >3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: Django (<=3)
+Requires-Dist: djangorestframework (>=3.13.1,<4.0.0)
+Requires-Dist: python-jose[cryptography] (>=3.3.0,<4.0.0)
+Project-URL: Repository, https://github.com/Prakash2403/Djognito
+Description-Content-Type: text/markdown
+
+
