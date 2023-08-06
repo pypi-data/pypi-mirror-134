@@ -1,0 +1,8 @@
+COPYING.txt
+LICENSE.md
+README.md
+setup.py
+synchrony.egg-info/PKG-INFO
+synchrony.egg-info/SOURCES.txt
+synchrony.egg-info/dependency_links.txt
+synchrony.egg-info/top_level.txt
