@@ -1,0 +1,9 @@
+README.md
+setup.py
+src/cosamp/__init__.py
+src/cosamp/cosamp.py
+src/cosamp.egg-info/PKG-INFO
+src/cosamp.egg-info/SOURCES.txt
+src/cosamp.egg-info/dependency_links.txt
+src/cosamp.egg-info/requires.txt
+src/cosamp.egg-info/top_level.txt
