@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: pynumbat
+Version: 0.1.8
+Summary: Python generator project
+Home-page: https://github.com/eduardogpg/pygenerate
+Author: Eduardo Ismael Garcia Perez
+Author-email: eduardo78d@gmail.com
+License: MIT
+Description: ### PyNumbat
+        
+        __PyNumbat__ is a Python project generator. Easy to install and easy to use.
+        
+        Files and folders to be created in the initial setup:
+        
+        ```
+        root/
+        │
+        ├── env/
+        ├── app/
+        │   ├── config.py
+        │   ├── __init__.py
+        │   ├── __main__.py
+        │
+        ├── tests/
+        │   ├── test.py
+        │
+        ├── README.md
+        ├── .gitignore
+        ├── requirements.txt
+        └── main.py
+        ```
+        
+        ### Commands
+        
+        With a couple flags you can create a basic and functional setup for your python projects. 
+        
+        The first flag, and the most important, is -p. With this flag is possible define where the project will be created.
+        
+        ```python
+        pynumbat -p <Path>
+        ```
+        
+        If the flag is not defined, the project will be created in te current path.
+        
+        ----
+        
+        If a previous python setup exists, you can overwrite it. This action will delete all files and folders previously existing.
+        
+        ```python
+        pynumbat -p <Path> -f true
+        ```
+        
+        Optional, you can ommit the virtual env folder.
+        
+        ```python
+        pynumbat -p <Path> -f true -v false
+        ```
+        
+        __Note__: by default __Pynumbat__ takes the current version of Python to create the virtual environment.
+        
+        In the next release you can select the version you want.
+Keywords: Python Generate,Generate,Project
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
