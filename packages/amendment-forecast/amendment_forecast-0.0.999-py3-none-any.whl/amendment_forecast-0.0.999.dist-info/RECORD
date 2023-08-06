@@ -1,0 +1,8 @@
+amendment_forecast/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+amendment_forecast/main.py,sha256=8eJaVHjTjdT3FummwmoEc8_CtBzAknfVt4ulTZebBKs,7383
+amendment_forecast/models.py,sha256=xBZ0dii0O6n6C-1q0MKlz0Ohvi5aNcED2lhy28sUA6k,26923
+amendment_forecast/utils.py,sha256=anJDs-mzKCScjc2YUennEykDd2M5AKy3sHKn_QXVsMc,2289
+amendment_forecast-0.0.999.dist-info/METADATA,sha256=vMrQdLr4FBbRhzZD6Fo8u1iW05g9dpHnzsE4GnAfR3Y,1048
+amendment_forecast-0.0.999.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+amendment_forecast-0.0.999.dist-info/top_level.txt,sha256=6i2tdTrqH3WmiXbU6mCqDN6JPHMq5HMWr9jaNf_k92E,19
+amendment_forecast-0.0.999.dist-info/RECORD,,
