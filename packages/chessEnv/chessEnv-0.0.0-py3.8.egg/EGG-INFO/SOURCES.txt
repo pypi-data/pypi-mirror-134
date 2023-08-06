@@ -1,0 +1,10 @@
+README.md
+setup.py
+chessEnv.egg-info/PKG-INFO
+chessEnv.egg-info/SOURCES.txt
+chessEnv.egg-info/dependency_links.txt
+chessEnv.egg-info/top_level.txt
+core/__init__.py
+core/board.py
+templateEnv/__init__.py
+templateEnv/aensteinEnv.py
