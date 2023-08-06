@@ -1,0 +1,13 @@
+animus/__init__.py,sha256=QL5sfo_mYdPklTUKClQH6S6a2L73MGRoDzW-KBqWgdk,273
+animus/callbacks.py,sha256=NSTkl73rUSJREYC4LqOqkYkGmrQUEBcZjKYncxvA-1g,5263
+animus/core.py,sha256=ay_H8l-fpLxoPzcgKxJWqYveOQPfFjGDUPngipGDq48,5619
+animus/keras/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+animus/keras/callbacks.py,sha256=mHH82LdftnSyudGDhesS4dj1RvQQYDBsWfgJLEJxSac,656
+animus/torch/__init__.py,sha256=I81dYQAGRUdMD18HKDmHY36-uHYI7AAqyQ1xIKZo68Q,424
+animus/torch/accelerate.py,sha256=ltB-uKsbucpLNEivqpFzv54ViW4b8kUyr-_mQM_0CGg,2953
+animus/torch/callbacks.py,sha256=WXcJNS68VyBGYQ62MlyRyGT6IAwQF5GqX21xB-wrA1s,1459
+animus-0.0.1.dist-info/LICENSE,sha256=K1edQBHbv7e4UFkrgXS8lR-zGr3h77TMjJmbhIIQczM,11391
+animus-0.0.1.dist-info/METADATA,sha256=-816Hk4BUhdg7Yr59G6GQWYBH5eWYjW8HeCmsQndLvA,1399
+animus-0.0.1.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+animus-0.0.1.dist-info/top_level.txt,sha256=ZBU9RNexa_2e2fpjC8gdKdvsdeImH6MgLUonkds71LA,7
+animus-0.0.1.dist-info/RECORD,,
