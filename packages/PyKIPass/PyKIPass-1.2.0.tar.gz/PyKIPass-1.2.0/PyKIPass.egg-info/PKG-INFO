@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: PyKIPass
+Version: 1.2.0
+Summary: Python wrapper for KIPass
+Home-page: https://github.com/alus20x/PyKIPass
+Author: alus20x
+Author-email: alus20x@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyKIPass
+
+## Install
+```
+pip install PyKIPass
+```
+
+## Using
+
+### Import
+```python
+> from PyKIPass import *
+```
+
+### Login
+```python
+> kipass = KIPass("USERNAME", "PASSWORD")
+```
+
+### 특정 날짜의 고객수 불러오기
+```python
+
+```
+
+### 특정 기간의 고객수 불러오기
+
+### QR코드 인증하기
+```python
+```
+
+
