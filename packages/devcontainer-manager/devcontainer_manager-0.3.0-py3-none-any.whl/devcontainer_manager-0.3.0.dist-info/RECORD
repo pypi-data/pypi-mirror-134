@@ -1,0 +1,16 @@
+devcontainer_manager/__init__.py,sha256=EqIccytbgmIh3EOfv7QIiksdjJSlB-o2LbyXxRtoMGs,18
+devcontainer_manager/__main__.py,sha256=ZElfyfW-hiKjONhyl2LKl7gKnj8GEBtLAlcYM57tSmg,84
+devcontainer_manager/cli.py,sha256=ydYxJsY2oRUe0qp_na66IBH3dTz9Op6dRAHShhfbSpE,2338
+devcontainer_manager/config.py,sha256=SpyvOkgui9wdzYkpK4_AX60vdfIUkk_ZDPkcmJWUSRA,7260
+devcontainer_manager/exceptions.py,sha256=WHEoahg4UlfHU8gqUvX_DXTM49FGID9rQ1zdjJtmVdg,279
+devcontainer_manager/global_config.py,sha256=g39guRi33cOq3Xx5VPXRMLfx0rTN_oMfe43FA9yWxEk,1424
+devcontainer_manager/util.py,sha256=Krx1ayK_memv5Thavh6uevNU4oALs3KPBIsdUgHTFaQ,677
+devcontainer_manager/templates/{{ cookiecutter.path }}/build.sh,sha256=s1oUI-ztYs2h6QILvw1-LcUsUki1hn9x5PW5C9tYeaU,233
+devcontainer_manager/templates/{{ cookiecutter.path }}/devcontainer.Dockerfile,sha256=Wv0cLokwfQj4fxY1toIN4FlP6f6GFTWSh4rSBaIcOII,241
+devcontainer_manager/templates/{{ cookiecutter.path }}/devcontainer.json,sha256=j7sVQ-XoUFZV1dZRI-mRWY5pBIPj01CPS8rUHOnWk-U,1663
+devcontainer_manager-0.3.0.dist-info/LICENSE,sha256=qoZkHa4mFbsqZCxpG4rg55a1t530UPksGBwiIbqEQGM,1061
+devcontainer_manager-0.3.0.dist-info/METADATA,sha256=bKAcqxtQ4L_yXriI0mdUeeuOlzAAL7Vouzg_ZQBfDMI,5507
+devcontainer_manager-0.3.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+devcontainer_manager-0.3.0.dist-info/entry_points.txt,sha256=76ZYC9j7OrRr6Jqqi45ms1s1KvLF-YFIv_F8ppL_CPA,77
+devcontainer_manager-0.3.0.dist-info/top_level.txt,sha256=2utRi2PW0gQqh7neHBZhtt041KLRnFg66tcNmukwVvY,21
+devcontainer_manager-0.3.0.dist-info/RECORD,,
