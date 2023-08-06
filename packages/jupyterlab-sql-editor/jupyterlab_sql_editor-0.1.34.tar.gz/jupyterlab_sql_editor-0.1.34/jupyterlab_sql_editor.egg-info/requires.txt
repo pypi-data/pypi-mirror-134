@@ -1,0 +1,4 @@
+trino
+ipydatagrid
+Jinja2
+ipytree
