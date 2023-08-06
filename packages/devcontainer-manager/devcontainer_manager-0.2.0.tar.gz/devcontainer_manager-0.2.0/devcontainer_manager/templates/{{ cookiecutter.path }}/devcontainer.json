@@ -1,0 +1,32 @@
+{
+    "name": "{{ cookiecutter.devcontainer.name }}",
+    "workspaceMount": "{{ cookiecutter.devcontainer.workspace_mount }}",
+    "workspaceFolder": "{{ cookiecutter.devcontainer.workspace_folder }}",
+    "mounts": [
+        {%- for mount in cookiecutter.devcontainer.mounts %}
+        {{ mount }}
+        {%- endfor %}
+    ],
+    "image": "{{ cookiecutter.devcontainer.image }}",
+    {%- if cookiecutter.devcontainer.user_env_probe is not none %}
+    "userEnvProbe": "{{ cookiecutter.devcontainer.user_env_probe }}",
+    {%- endif %}
+    "runArgs": [
+        "--name", "{{ cookiecutter.devcontainer.container_name }}",
+        "--hostname", "{{ cookiecutter.devcontainer.container_hostname }}",
+        {%- for arg in cookiecutter.devcontainer.run_args %}
+        "{{ arg }}",
+        {%- endfor %}
+    ],
+    "extensions": [
+        {%- for extension in cookiecutter.devcontainer.extensions %}
+        "{{ extension }}",
+        {%- endfor %}
+    ],
+    {%- if cookiecutter.devcontainer.shutdown_action is not none %}
+    "shutdownAction": "{{ cookiecutter.devcontainer.shutdown_action }}",
+    {%- endif %}
+    {%- for option in cookiecutter.devcontainer.additional_options_json %}
+    {{ option }},
+    {%- endfor %}
+}
