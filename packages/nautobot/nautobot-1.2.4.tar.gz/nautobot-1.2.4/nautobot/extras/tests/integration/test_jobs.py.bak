@@ -1,0 +1,143 @@
+from nautobot.utilities.testing.integration import SplinterTestCase
+
+
+class JobTestCase(SplinterTestCase):
+    """
+    Integration tests for the Job and JobResult models.
+    """
+
+    requires_celery = True
+
+    def setUp(self):
+        super().setUp()
+        self.user.is_superuser = True
+        self.user.save()
+        self.login(self.user.username, self.password)
+
+    @classmethod
+    def tearDownClass(cls):
+        self.logout()
+        super().tearDown()
+
+    def run_job(self):
+        self.browser.links.find_by_partial_text("Run Job Now").click()
+
+    # Test that a Singleton job without singleton_keys presents an error
+    def test_singleton_job_no_singleton_keys(self):
+        """Singleton Job execution WITHOUT `singleton_keys` results in an `AlreadyQueued` error in UI."""
+        # Navigate to Jobs list view
+        self.browser.visit(self.live_server_url)
+        self.browser.links.find_by_partial_text("Extensibility").click()
+        self.browser.links.find_text("Jobs").click()
+        # Navigate to the Singleton Job detail view
+        self.browser.links.find_text("Singleton Job").click()
+
+        # Run the job
+        self.browser.links.find_by_partial_text("Run Job Now").click()
+
+        # Go back and try to run the job again
+        self.browser.back()
+        self.browser.fill("interval", 2)  # Change the interval
+        self.browser.links.find_by_partial_text("Run Job Now").click()
+        self.assertTrue(
+            self.browser.is_text_present("Unable to run job: Singleton job already running for Singleton Job")
+        )
+
+    # Test that a Singleton job using singleton_keys presents an error
+    def test_singleton_job_with_singleton_keys(self):
+        """Singleton Job execution WITH `singleton_keys` results in an `AlreadyQueued` error in UI."""
+
+        self._create_custom_field(field_name="test-multi-select", field_type="multi-select")
+
+    def test_fail_create_invalid_type_with_choices(self):
+        """Test fail type!=select with choices."""
+        with self.assertRaises(AssertionError):
+            self._create_custom_field(field_name="test-text", field_type="text", choices=["bad1"])
+
+        # Assert error state
+        self.assertTrue(self.browser.is_text_present("Editing custom field"))
+        self.assertTrue(self.browser.is_text_present("Errors encountered when saving custom field choices"))
+        self.assertTrue(self.browser.is_text_present("Custom field choices can only be assigned to selection fields"))
+
+    def test_create_type_select_with_choices_adding_dynamic_row(self):
+        """Test pass create type=select adding w/ dynamic row."""
+        choices = ["choice1", "choice2"]
+
+        def call_before_create():
+            """Do this stuff before "Create" button is clicked."""
+            table = self.browser.find_by_id("custom-field-choices")
+
+            # Assert that there are 5 choice rows before
+            self.assertEquals(len(table.find_by_css(".formset_row-choices")), 5)
+
+            # And 6 after clicking "Add another..."
+            self.browser.find_by_css(".add-row").click()
+            rows = table.find_by_css(".formset_row-choices")
+            self.assertEquals(len(rows), 6)
+            self.browser.fill("choices-5-value", "choice3")
+
+            # Make sure it the new row has default values while we're at it.
+            self.assertEquals(rows.last.find_by_name("choices-5-weight").value, "100")
+
+        self._create_custom_field(
+            field_name="test-select", field_type="select", choices=choices, call_before_create=call_before_create
+        )
+
+    def test_update_type_select_with_choices_editing_existing_choice(self):
+        """Test edit of existing field and existing choices."""
+        choices = ["replace_me"]
+
+        # Create the field
+        self._create_custom_field(field_name="test-select", field_type="select", choices=choices)
+        detail_url = self.browser.url
+
+        #
+        # Fail editing dynamic row (nullify value of existing choice)
+        #
+
+        # Edit it
+        self.browser.find_by_id("edit-button").click()
+        self.assertIn("edit", self.browser.url)
+
+        # Null out the first choice, click "Update", expect it to fail.
+        self.browser.fill("choices-0-value", "")
+        self.assertEquals(self.browser.find_by_name("choices-0-value").value, "")
+        self.browser.find_by_text("Update").click()
+        self.assertTrue(self.browser.is_text_present("Errors encountered when saving custom field choices"))
+
+        #
+        # Pass updating existing choice (changing value of existing choice)
+        #
+
+        # Fix it, save it, assert correctness.
+        self.browser.fill("choices-0-value", "new_choice")
+        self.browser.find_by_text("Update").click()
+        self.assertEquals(self.browser.url, detail_url)
+        self.assertTrue(self.browser.is_text_present("Modified custom field"))
+        self.assertTrue(self.browser.is_text_present("new_choice"))
+
+    def test_update_type_select_create_delete_choices(self):
+        """
+        Test edit existing field, deleting first choice, adding a new row and
+        saving that as a new choice.
+        """
+        # pass edit type=select create/delete row @ same time
+        choices = ["delete_me"]
+
+        # Create the field and then click the "Edit" button
+        self._create_custom_field(field_name="test-select", field_type="select", choices=choices)
+        detail_url = self.browser.url
+        self.browser.find_by_id("edit-button").click()
+
+        # Gather the rows, delete the first one, add a new one.
+        table = self.browser.find_by_id("custom-field-choices")
+        self.browser.find_by_css(".add-row").click()  # Add a new row
+        rows = table.find_by_css(".formset_row-choices")
+        rows.first.find_by_css(".delete-row").click()  # Delete first row
+
+        # Fill the new row, save it, assert correctness.
+        self.browser.fill("choices-5-value", "new_choice")  # Fill the last row
+        self.browser.find_by_text("Update").click()
+        self.assertEquals(self.browser.url, detail_url)
+        self.assertTrue(self.browser.is_text_present("Modified custom field"))
+        self.assertTrue(self.browser.is_text_present("new_choice"))
