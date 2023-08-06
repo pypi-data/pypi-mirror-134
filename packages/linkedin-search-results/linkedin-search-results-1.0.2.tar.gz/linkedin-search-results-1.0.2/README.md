@@ -1,0 +1,75 @@
+LinkedIn search results is a python library to scrape LinkedIn search results, using browser automation. 
+It currently runs only on windows.
+
+### Example 1 : LinkedIn login 
+In this example we will login linkedin. Replace "email" and "password" with your credentials to login.
+```sh
+from linkedin_search_results import *
+response =linkedin.login(email="email",password="password")
+#response = {
+#  {"body":{},"success_score":100,"errors":[]}
+#    ,........}
+```
+
+### Example 2 : LinkedIn login with cookies 
+In this example we will login linkedin with cookies. Replace "cookies" with login cookies.
+```sh
+
+from linkedin_search_results import *
+response =linkedin.login_cookies(cookies="cookies")
+#response = {
+#    "errors": [],
+#    "body": {},
+#    "resume_variable": 0,
+#    "success_score": "100"
+#  },
+```
+
+### Example 3 : LinkedIn search results scraper
+In this example we will scrape linkedin search results. Replace the 'keyword' with your keyword you want to search. 
+```sh
+from linkedin_search_results import *
+response =linkedin.search_results(keyword="keyword")
+#response = {
+#   {
+#        "title": "Google IndiaView Google India\u2019s profile",
+#        "position": "We are hiring",
+#        "link": "https://www.linkedin.com/in/google-india-085a87214?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADZDr6UBLfKHNGD634B-PTZrItQpgL5M1bo",
+#        "location": "New Delhi"
+#      },
+#      {
+#        "title": "Adwords IndiaView Adwords India\u2019s profile",
+#        "position": "Adwords Coupon at Google Ads",
+#        "link": "https://www.linkedin.com/in/adwordsindia?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACvkQm8BiUuA9BgIlufcCW1I678EGwE77yg",
+#        "location": "Delhi, India"
+#      },........},
+```
+
+
+#### BotStudio
+[bot_studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which product will be bought. To buy first login will need to be done. Login can be done either with credentials or via cookies
+
+
+### Installation
+
+```sh
+pip install linkedin-search-results
+```
+
+### Import
+```sh
+from linkedin-search-results import *
+```
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Cookies
+To login with cookies [Edit this Cookie Extension](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) can be added to browser. Please check [this](https://abhishek-chaudhary.medium.com/how-to-get-cookies-of-any-website-from-browser-22b3d6348ed2) link how to get cookies to login to your amazon.
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
