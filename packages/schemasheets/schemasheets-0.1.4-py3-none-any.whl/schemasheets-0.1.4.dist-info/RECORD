@@ -1,0 +1,12 @@
+schemasheets/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+schemasheets/conf/configschema.py,sha256=umgMIVPECwfo0TkQDMdri1J2tbhznArDK8YWNzxNDww,11292
+schemasheets/conf/configschema.yaml,sha256=SWR7EFP8rh2ppT214QFArvds50wPnzdms4EsdJDxwBM,6885
+schemasheets/schemamaker.py,sha256=JwQkh7k2AoHgWLb6Vr1L-cl8cqiagKcqQ7rYsfCPjek,23711
+schemasheets/sheets_to_project.py,sha256=XTBodjFEavayrkay8zvB-dQ40OXFNnkBLsAPWyLie4w,2786
+schemasheets/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+schemasheets/utils/configschema.py,sha256=ARhn9x3CBZ2ImCMo1iT7RO3DiaHGMue3k51P7YtWH14,11198
+schemasheets/utils/prefixtool.py,sha256=VUJU4jhDt8otdrhc0LXm_B7khBqKWevlil1RSH6wYDI,194
+schemasheets-0.1.4.dist-info/entry_points.txt,sha256=gD6rboIETriW2WH6Gw98elkvyAY3AmppCUXDqLAyen8,123
+schemasheets-0.1.4.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+schemasheets-0.1.4.dist-info/METADATA,sha256=67s9PINz_EGAwqNKIz5HjMUhqd717atUyl6j8CSRRIk,13715
+schemasheets-0.1.4.dist-info/RECORD,,
