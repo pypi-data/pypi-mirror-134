@@ -1,0 +1,161 @@
+"""Custom Task class for use with Nautobot background services."""
+
+import logging
+
+from celery_once import QueueOnce
+from celery_singleton import Singleton
+
+
+logger = logging.getLogger(__name__)
+
+
+from hashlib import md5
+import logging
+
+from kombu import serialization
+
+
+def nautobot_generate_lock(task_name, task_args=None, task_kwargs=None, key_prefix="SINGLETONLOCK_"):
+    """
+    Overload of `celery_singleton.util.generate_lock()` to use `kombu` serialization vs. `json`.
+    This is required because the original function doesn't know how to serialize complex objects due
+    to using the vanilla `json` encoder vs. the specialized Kombu encoder.
+    """
+    *_, str_args = serialization.dumps(sorted(task_args) or [])
+    *_, str_kwargs = serialization.dumps({k: task_kwargs[k] for k in sorted(task_kwargs)} or {})
+    task_hash = md5((task_name + str_args + str_kwargs).encode()).hexdigest()
+    return key_prefix + task_hash
+
+
+# Monkey patch the `util` lib with our replacement.
+from celery_singleton import util  # noqa
+
+util.generate_lock = nautobot_generate_lock
+
+
+# Now we can import Singleton
+from celery_singleton import Singleton  # noqa
+
+
+logger = logging.getLogger(__name__)
+
+
+class NautobotTask(Singleton):
+    """Base task for Nautobot Celery tasks.
+    This is a subclass of `celery_singleton.Singleton` that's only singleton when we mean it by
+    passing `really_singleton=True` to `apply_async()`.
+    """
+
+    def generate_lock(self, task_name, task_args=None, task_kwargs=None):
+        nautobot_kwargs = task_kwargs["request"]["nautobot_kwargs"]
+        self.unique_on = nautobot_kwargs["unique_on"]
+        # breakpoint()
+
+        # We're ignoring incoming `task_name` here and replacing it with ours.
+        task_name = nautobot_kwargs["job_name"]
+
+        lock = super().generate_lock(task_name, task_args=task_args, task_kwargs=task_kwargs)
+        print(f"~~~ GENERATE LOCK ~~~")
+        print(f">>>    UNIQUE_ON = {self.unique_on}")
+        print(f">>>    TASK_NAME = {task_name}")
+        print(f">>>         DATA = {task_kwargs['data']}")
+        print(f">>>         LOCK = {lock}")
+        print(f"~~~ GENERATE LOCK ~~~")
+        return lock
+
+    def apply_async(
+        self,
+        args=None,
+        kwargs=None,
+        task_id=None,
+        producer=None,
+        link=None,
+        link_error=None,
+        shadow=None,
+        **options,
+    ):
+
+        # breakpoint()
+        is_singleton = options.pop("singleton", False)
+
+        print(f"~~~ APPLY ASYNC ~~~")
+        print(f">>> IS_SINGLETON = {is_singleton}")
+        print(f">>>      OPTIONS = {options}")
+        # lock_key = self.get_key(args, kwargs)
+        # print(f">>>     LOCK_KEY = {lock_key}")
+        print(f"~~~ APPLY ASYNC ~~~")
+
+        # Use the Singleton pattern
+        if is_singleton:
+            return super(NautobotTask, self).apply_async(
+                args=args,
+                kwargs=kwargs,
+                task_id=task_id,
+                producer=producer,
+                link=link,
+                link_error=link_error,
+                shadow=shadow,
+                **options,
+            )
+        # Call the base method (default behavior)
+        else:
+            return super(Singleton, self).apply_async(
+                args=args,
+                kwargs=kwargs,
+                task_id=task_id,
+                producer=producer,
+                link=link,
+                link_error=link_error,
+                shadow=shadow,
+                **options,
+            )
+
+
+from celery_once.helpers import queue_once_key
+class NautobotTask(QueueOnce):
+    """Base task for Nautobot Celery tasks.
+
+    This is a subclass of `celery_once.QueueOnce` that's only singleton when we mean it by
+    passing `singleton=True` to `apply_async()`.
+    """
+
+    def apply_async(self, args=None, kwargs=None, **options):
+
+        is_singleton = options.pop("singleton", False)
+        print(f"~~~ APPLY ASYNC ~~~")
+        lock_key = self.get_key(args, kwargs)
+        print(f">>>     LOCK_KEY = {lock_key}")
+        print(f"~~~ APPLY ASYNC ~~~")
+
+        if is_singleton:
+            return super(NautobotTask, self).apply_async(args=args, kwargs=kwargs, **options)
+        else:
+            return super(QueueOnce, self).apply_async(args=args, kwargs=kwargs, **options)
+
+    def get_key(self, args=None, kwargs=None):
+        """
+        Generate the key from the name of the task (e.g. 'tasks.example') and
+        args/kwargs.
+        """
+        restrict_to = self.once.get('keys', None)
+
+        nautobot_kwargs = kwargs["request"]["nautobot_kwargs"]
+        self.once.update(nautobot_kwargs["once"])
+
+        # We're ignoring incoming `task_name` here and replacing it with ours.
+        task_name = nautobot_kwargs["job_name"]
+        original_name = self.name
+        self.name = task_name
+
+        key = super().get_key(args, kwargs)
+        print(f"~~~ GET KEY ~~~")
+        print(f">>>    ONCE KEYS = {self.once['keys']}")
+        print(f">>>    TASK_NAME = {task_name}")
+        print(f">>>         DATA = {kwargs['data']}")
+        print(f">>>     LOCK_KEY = {key}")
+        print(f"~~~ GET KEY ~~~")
+
+        self.name = original_name
+        return key
+
+Task = NautobotTask  # noqa: So that the class path resolves.
