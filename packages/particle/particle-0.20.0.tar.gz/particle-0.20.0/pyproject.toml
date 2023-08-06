@@ -1,0 +1,31 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "setuptools_scm[toml]>=3.4"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "src/particle/version.py"
+
+[tool.check-manifest]
+ignore = [
+    "src/particle/version.py",
+    "noxfile.py",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+warn_unused_configs = true
+warn_unused_ignores = true
+python_version = "3.9"
+files = "src"
+strict = true
+
+# NumPy is used lightly, so ignored here for now
+[[tool.mypy.overrides]]
+module = [ "pandas.*", "numpy.*"]
+ignore_missing_imports = true
