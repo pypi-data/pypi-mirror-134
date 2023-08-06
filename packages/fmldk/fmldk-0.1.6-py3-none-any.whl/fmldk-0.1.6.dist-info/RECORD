@@ -1,0 +1,9 @@
+tfr/__init__.py,sha256=BAcx3oYWrRsla3zFnRfuuW0bmHMWj_vnMDUcC8wecFE,244
+tfr/tfr_data.py,sha256=jm-Zf2efdO0YexPR7oLm-Kz3nHKwyrp_kKPQj9qTtxk,22485
+tfr/tfr_losses.py,sha256=9snU2vaaTAFd7UVDZH9xz5j0ub-qAzjAvmeW_scHKXw,12423
+tfr/tfr_models.py,sha256=X8JrAy8iivszvCZ1NK0TiEgiKO7az7sPsr_MdgkDjZE,94625
+tfr/tfr_models_old.py,sha256=jaRACfhoZQlp6kp7a6MFCYbpaOQ_rSH3MfU9p227bNU,90503
+fmldk-0.1.6.dist-info/METADATA,sha256=hzUXcH27UgOoXfFawmX7vmMOW2r4hz4ZPHABrJv0tdI,9800
+fmldk-0.1.6.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+fmldk-0.1.6.dist-info/top_level.txt,sha256=_YlCiozbB5iCXfJuOMbDxOTuQwwOGzmptRUZwjVfNFE,4
+fmldk-0.1.6.dist-info/RECORD,,
