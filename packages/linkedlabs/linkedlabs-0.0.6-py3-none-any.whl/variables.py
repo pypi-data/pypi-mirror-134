@@ -1,0 +1,1 @@
+categorical_words = "code|city|country|category"
