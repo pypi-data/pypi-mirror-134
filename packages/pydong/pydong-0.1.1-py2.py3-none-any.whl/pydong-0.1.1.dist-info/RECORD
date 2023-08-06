@@ -1,0 +1,11 @@
+pydong/__init__.py,sha256=I9ulE-5BOCIynNdHy7en3rYkWpj8pZ7jeO1igZaONQE,139
+pydong/cli.py,sha256=LpBJkYNEe7YHd2OfsPPilnKj5P6MsNIqtxrHoHxH0Mw,433
+pydong/pydong.py,sha256=h0hwdogXGFqerm-5ZPeT-irPn91pCcQRjiHThXsRzEk,19
+pydong/utils.py,sha256=dkQmIc2FrwFyWTKBMthXjdOciQ-HyJOCi60shvg-i_k,2076
+pydong-0.1.1.dist-info/AUTHORS.rst,sha256=KqftCKqL_dScG14EjRSRcm57xvSBmwv3F8SbNPV-XNI,148
+pydong-0.1.1.dist-info/LICENSE,sha256=1WOGmgJ4NqqZGMZWDrlZ2rGcmLaY-lPRQROCzA1pvHk,1065
+pydong-0.1.1.dist-info/METADATA,sha256=xmhCgW5LE0E-yHANZh8aOaQc8T99SXUVwJmnWDH4xJg,1602
+pydong-0.1.1.dist-info/WHEEL,sha256=8zNYZbwQSXoB9IfXOjPfeNwvAsALAjffgk27FqvCWbo,110
+pydong-0.1.1.dist-info/entry_points.txt,sha256=8UwINogK9OiHc1LpRS-Va5dRQwtPme84L6WMK55fpws,44
+pydong-0.1.1.dist-info/top_level.txt,sha256=IFgJJL7Oef4rMnMaZ5NYRRARvsEolWItAooAePZJ40U,7
+pydong-0.1.1.dist-info/RECORD,,
