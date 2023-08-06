@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+imdb_scraper_in/__init__.py
+imdb_scraper_in.egg-info/PKG-INFO
+imdb_scraper_in.egg-info/SOURCES.txt
+imdb_scraper_in.egg-info/dependency_links.txt
+imdb_scraper_in.egg-info/requires.txt
+imdb_scraper_in.egg-info/top_level.txt
