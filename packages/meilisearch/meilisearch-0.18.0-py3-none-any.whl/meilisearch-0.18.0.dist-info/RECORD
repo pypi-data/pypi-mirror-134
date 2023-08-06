@@ -1,0 +1,13 @@
+meilisearch/__init__.py,sha256=6y5pMlGlNgTQ-spxz3k0Z2-30gV-CihC16gF5LZVBAw,88
+meilisearch/_httprequests.py,sha256=eEcWZS5LeixhPGaw5qXpU8dEWgDnM0Vht3FstkQkm6o,3291
+meilisearch/client.py,sha256=XIPQ6WfBY2WGG_354-GDla1PW-1MF0gElBbjcmAPliA,15735
+meilisearch/config.py,sha256=_GTLRtPe2HZTjLA7AR76b4rJr2cmK-jW-apMZyMCujY,1293
+meilisearch/errors.py,sha256=cO_52laRqXuIVPzjblRNtw1yDFGLUsr5A4MCA3qPsH4,1655
+meilisearch/index.py,sha256=5aN8SR3t7su-aakhHF3Rf767Z0ImzyHbbPXsdNaurR0,44009
+meilisearch/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+meilisearch/task.py,sha256=FRNC73K7YZdBbfXVDJxmPpbaHPetk9X3CyBL3ZJiVuU,3404
+meilisearch-0.18.0.dist-info/LICENSE,sha256=-cIXExG4Lgl5FinfoSGGJ5LDKPuzRTeb15oiekQHomE,1067
+meilisearch-0.18.0.dist-info/METADATA,sha256=TLGNvjQH6nP0qVCnKy3uzC1BankEm0OK4i7_WJMVLI0,8402
+meilisearch-0.18.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+meilisearch-0.18.0.dist-info/top_level.txt,sha256=tJiQZo57Pw3_N7Oiufd33uXxmD8MFJhpF_yL_f7h-G0,12
+meilisearch-0.18.0.dist-info/RECORD,,
