@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            pip install -U black flake8
+      - name: Lint with flake8
+        run: |
+            black --check .
+            flake8 .
+
+  test:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - name: Python36
+            os: ubuntu-latest
+            pyversion: '3.6'
+          - name: Python37
+            os: ubuntu-latest
+            pyversion: '3.7'
+          - name: Python38
+            os: ubuntu-latest
+            pyversion: '3.8'
+          - name: Python39
+            os: ubuntu-latest
+            pyversion: '3.9'
+          - name: Python310
+            os: ubuntu-latest
+            pyversion: '3.10'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.pyversion }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.pyversion }}
+      - name: Install dependencies
+        run: |
+            python -m pip install --upgrade pip
+            pip install -U pytest
+            pip install -U itemdb
+      - name: Test with pytest
+        run: |
+            pip install .[server]
+            cd tests
+            pytest -v .
