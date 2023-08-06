@@ -1,0 +1,14 @@
+debm/FitMultiGame.py,sha256=ouSycbhW67q6JE-cs1VRJU5-KWWP96-a43CGTAH4adI,1683
+debm/Model.py,sha256=cJuV4-kJAGmRmkT6ZjAEtTzFA4B7UpaOlaGZaxKHtIA,9477
+debm/Models.py,sha256=93cJwy9QSJlPbT7UH_zmcqq934Ul3YG4XAFdVItuRig,23195
+debm/Prospect.py,sha256=dF1rzYmYgri_ioW8FcV2HZIuhJk1Lo9c12Z-Reh_Ymg,5105
+debm/__init__.py,sha256=5OHoAFwraRZzXiJE-1lK6EYuvoPUqkSK0QH05pTx76Y,1646
+debm/classes.py,sha256=f1rxhMfHeLqtalWreYpWxdaceCLpanwCBeMmZ-_8vdg,34249
+debm/debm.py,sha256=1WadygCsezbwnMqHsHo0xtZn_-2guMCeJ0J5sPvk1Go,13072
+debm/makeGrid.py,sha256=zBVZzp192Woa29GVV56v28_OXydEPA3CiHxXdxwyshg,228
+debm/resPlot.py,sha256=BUdZg_vsM1aANSF_QvY3KUpkD3COjGGObYpMaOCHCF4,1797
+debm/saveEstimation.py,sha256=TnUCvC0KnFV24ZDl5GKpRgZhf7KNcvJJS0pVfQzHmnM,484
+DEBM-0.1.8.dist-info/METADATA,sha256=onQN3RMvPxzGYKD9JJ7olE3UQG5cUHt7y-uEchUTdM4,764
+DEBM-0.1.8.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+DEBM-0.1.8.dist-info/top_level.txt,sha256=hdT-R0IM1sUIffFu_ykQRMWrc2wtgNqU7M2w3wWAr7Y,5
+DEBM-0.1.8.dist-info/RECORD,,
