@@ -1,0 +1,7 @@
+jupyter
+jupyterlab
+traitlets
+jinja2
+ipywidgets
+pillow
+psutil

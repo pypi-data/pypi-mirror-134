@@ -1,0 +1,3 @@
+yuuno
+yuuno_ipython
+yuuno_jupyterlab
