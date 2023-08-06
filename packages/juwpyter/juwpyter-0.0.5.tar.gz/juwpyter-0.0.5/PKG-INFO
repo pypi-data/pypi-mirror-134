@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: juwpyter
+Version: 0.0.5
+Summary: Add a short description here!
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: Eric Busboom
+Author-email: eric@civicknowledge.com
+License: mit
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Provides-Extra: testing
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
+
+===========================================================
+juwpyter: Create and publish Jupyter notebooks to Wordpress
+===========================================================
+
+Juwpyter publishes Jupyter notebooks to a Wordpress website, using the Wordpress
+XMLRPC interface, with formatting controlled by data in the notebook.
+
+Description
+===========
+
+TBD
+
+
