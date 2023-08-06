@@ -1,0 +1,11 @@
+django_query_capture/__init__.py,sha256=4K6LMF4uG94NnImm9uVi4pcqK14NaziGShN4W5hn_VE,120
+django_query_capture/capture.py,sha256=FDrrDhVdHs_G9U-1ys7cqdP6DPY2DOydimJiHSZBH6s,1637
+django_query_capture/classify.py,sha256=L4H9WmZH4O0cPXDGF0Xqiplrg7z2YcD5_vQMaBtsJ0Y,2746
+django_query_capture/presenter.py,sha256=njt4iEb5xOJ-5YyeyFPLCo7n8OGynvV9jh2JkxAebP8,3376
+django_query_capture/settings.py,sha256=dU_8IySBW2iDmCJAmHPwj_96jkAtPk40f4Qgfkx2YiM,285
+django_query_capture/utils.py,sha256=S2Z-nboMzRPckCVPGKcYN9qrx9c57xckRCFlRJtY3HA,206
+django_query_capture-0.1.0.dist-info/entry_points.txt,sha256=GMTt0hc2HPhA2Kp4VJhaRRPRdu-bjjyFg5ptuyz85iU,74
+django_query_capture-0.1.0.dist-info/LICENSE,sha256=TMYnLkCfIGLvf_BK-TOQHnbF-B1SaoUXQBDawtMGp-c,1071
+django_query_capture-0.1.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+django_query_capture-0.1.0.dist-info/METADATA,sha256=U6Su7SVaAEivuPfedgoC2HLlEgeMru_jzDV2K9wM4qQ,6414
+django_query_capture-0.1.0.dist-info/RECORD,,
