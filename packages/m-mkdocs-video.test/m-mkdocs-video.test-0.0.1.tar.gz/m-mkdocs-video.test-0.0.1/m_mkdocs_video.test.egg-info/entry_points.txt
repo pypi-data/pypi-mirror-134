@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+mkdocs-video = mkdocs_video.plugin:Plugin
+
