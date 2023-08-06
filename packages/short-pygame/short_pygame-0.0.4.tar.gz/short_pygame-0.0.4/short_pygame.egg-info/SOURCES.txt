@@ -1,0 +1,9 @@
+setup.py
+short_pygame/__init__.py
+short_pygame/end.py
+short_pygame/start.py
+short_pygame.egg-info/PKG-INFO
+short_pygame.egg-info/SOURCES.txt
+short_pygame.egg-info/dependency_links.txt
+short_pygame.egg-info/requires.txt
+short_pygame.egg-info/top_level.txt
