@@ -1,0 +1,4 @@
+[console_scripts]
+r = rfilerunner:cli
+rfile = rfilerunner:cli
+
