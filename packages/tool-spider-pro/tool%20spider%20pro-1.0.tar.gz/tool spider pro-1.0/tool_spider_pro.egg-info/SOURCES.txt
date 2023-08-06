@@ -1,0 +1,10 @@
+README.md
+licence.txt
+setup.py
+ferramentas/__init__.py
+ferramentas/camera.py
+ferramentas/video.py
+tool_spider_pro.egg-info/PKG-INFO
+tool_spider_pro.egg-info/SOURCES.txt
+tool_spider_pro.egg-info/dependency_links.txt
+tool_spider_pro.egg-info/top_level.txt
