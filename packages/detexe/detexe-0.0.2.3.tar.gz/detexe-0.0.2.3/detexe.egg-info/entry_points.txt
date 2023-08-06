@@ -1,0 +1,3 @@
+[console_scripts]
+detexe = detexe.cli:parse_args
+
