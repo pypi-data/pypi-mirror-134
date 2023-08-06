@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: citus
+Version: 0.0.1
+Summary: A simple framework for building complex web applications.
+Home-page: https://pypi.org/project/citus
+Author: Gerrishon Sirere
+Author-email: secretum.inc@pm.me
+Maintainer: Secretum Inc.
+Maintainer-email: contact@palletsprojects.com
+License: MIT
+Project-URL: Donate, https://palletsprojects.com/donate
+Project-URL: Documentation, https://citus.rtfd.io/
+Project-URL: Changes, https://flask.palletsprojects.com/changes/
+Project-URL: Source Code, https://github.com/secretum-inc/citus
+Project-URL: Issue Tracker, https://github.com/secretum-inc/citus/issues/
+Project-URL: Twitter, https://twitter.com/gerrishon_s
+Project-URL: Chat, https://discord.gg/pallets
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: PyYAML (>=5.1)
+Requires-Dist: asgiref (>=3.4.0)
+Requires-Dist: h11 (>=0.8)
+Requires-Dist: httptools (<0.4.0,>=0.2.0)
+Requires-Dist: multiparse
+Requires-Dist: python-dotenv (>=0.13)
+Requires-Dist: quo
+Requires-Dist: typing-extensions
+Requires-Dist: uvloop (!='0.15.0',!='0.15.1',>='0.14.0')
+Requires-Dist: watchgod (>=0.6)
+Requires-Dist: websockets (>=10.0)
+Requires-Dist: websockets (>=9.1)
+
+UNKNOWN
+
