@@ -1,0 +1,2 @@
+class ScreenProgramStopped(Exception):
+    pass
