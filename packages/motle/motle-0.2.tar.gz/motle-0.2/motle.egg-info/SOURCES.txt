@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+motle/__init__.py
+motle/dictionary.py
+motle/motle.py
+motle/tools.py
+motle.egg-info/PKG-INFO
+motle.egg-info/SOURCES.txt
+motle.egg-info/dependency_links.txt
+motle.egg-info/top_level.txt
