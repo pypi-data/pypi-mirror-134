@@ -1,0 +1,12 @@
+prelims/__init__.py,sha256=Ws607CllUjZ54BMd1ebFWG4MjGlbT97mw2cigt9ZpKA,114
+prelims/handler.py,sha256=_63qUldF6Km8pvgTdaT24AH5VsXSKrGQnZ3hxEYZynw,1429
+prelims/post.py,sha256=9vzgT5ZVvPL_1uLibpFxU3ikB39RS2YKHhEsexr9l8Y,2523
+prelims/processor/__init__.py,sha256=8uoDeGU57jyUZpR5I-qSP39m6yvnzg1s-lwbevRggHE,251
+prelims/processor/base.py,sha256=UggjXVsmsvLYF88rr2X0j4oPpIgtyMLauQIf4A_CUB8,269
+prelims/processor/og_file_path_extractor.py,sha256=66h4CPONAqg22lrW-hIt6eYejOzztR6dS18txPveIXM,984
+prelims/processor/recommender.py,sha256=W0O6CXiZ1DDJe0o1hDajIELodgJy0l4QDeOwj6xOm6k,4341
+prelims-0.0.4.dist-info/LICENSE,sha256=wq9BxwLUPmjRvDkPKpQoICoY6TucvEKwSHgp9YRnhRg,1084
+prelims-0.0.4.dist-info/METADATA,sha256=1ZAdmzGq0EReWGz-f8BDWT_41T18nsfuyCIlvDqSsnk,4205
+prelims-0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+prelims-0.0.4.dist-info/top_level.txt,sha256=R0sfQvRknhq3coI0m7E0uMa6nbRly31x7HBNVl0O0BI,8
+prelims-0.0.4.dist-info/RECORD,,
