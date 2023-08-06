@@ -1,0 +1,17 @@
+pyTooling>=1.9.2
+
+[all]
+sphinxcontrib-mermaid>=0.7.1
+sphinx>=4.3.0
+pyTooling>=1.9.2
+autoapi>=2.0.1
+sphinx_autodoc_typehints>=1.14.1
+sphinx_fontawesome>=0.0.6
+
+[doc]
+sphinxcontrib-mermaid>=0.7.1
+sphinx>=4.3.0
+pyTooling>=1.9.2
+autoapi>=2.0.1
+sphinx_autodoc_typehints>=1.14.1
+sphinx_fontawesome>=0.0.6
