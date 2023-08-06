@@ -1,0 +1,9 @@
+bigwood-0.0.2.dist-info/DESCRIPTION.rst,sha256=4SNk1o7fXJw_iimOBZBhBlGRoPf2PQNZd24p2LmWwGU,47
+bigwood-0.0.2.dist-info/METADATA,sha256=FmZdlaBO9xNMMv8RVXdk_rWDOSwMF4RV2t6q9vndKzo,271
+bigwood-0.0.2.dist-info/RECORD,,
+bigwood-0.0.2.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+bigwood-0.0.2.dist-info/metadata.json,sha256=VvdOUeWQXkBjIUrIIc18lL1JL2A82jxjqu8jR_zjLNY,380
+bigwood-0.0.2.dist-info/top_level.txt,sha256=N3X6fT5nKpkhlw8jOLaQ0Ybiz2rXYZ4MHMjPpnm0i3Q,13
+data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+network/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+network/network.py,sha256=Ooi2Te_Q-cWZLsEhQzsKkCNlr8q1SiLiXVp0mFAeefo,233
