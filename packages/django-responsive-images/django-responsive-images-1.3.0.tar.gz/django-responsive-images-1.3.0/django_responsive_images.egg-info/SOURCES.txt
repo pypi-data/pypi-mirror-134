@@ -1,0 +1,14 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+django_responsive_images.egg-info/PKG-INFO
+django_responsive_images.egg-info/SOURCES.txt
+django_responsive_images.egg-info/dependency_links.txt
+django_responsive_images.egg-info/top_level.txt
+responsive_images/__init__.py
+responsive_images/models.py
+responsive_images/tests.py
+responsive_images/utils.py
+responsive_images/templatetags/__init__.py
+responsive_images/templatetags/responsive_images.py
