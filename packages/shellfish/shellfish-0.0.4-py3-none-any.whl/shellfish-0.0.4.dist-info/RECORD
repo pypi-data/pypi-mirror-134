@@ -1,0 +1,12 @@
+shellfish/__init__.py,sha256=afhGKtWsEhmr3pENEoqDI02VMNXzau3BA_jfaZ68AxE,263
+shellfish/_meta.py,sha256=KoMcvJnKJRN_psTK6eYa-tOW1tSjXgdcvbSuEVXqaEk,157
+shellfish/dev/__init__.py,sha256=eOnCd-4HfI1F38EhYiLK3yMrrnF1L06qx_lxhQ-3Q04,49
+shellfish/dev/popen_gen.py,sha256=rUUKebStnrZysfjV56F3lvvtE3H-QLlwPlI1Ie2KRGE,2113
+shellfish/dotenv.py,sha256=niEIeG5JBOVpKUUUcQvkDIL9n7m6_2M82Z2yczjS3mw,3461
+shellfish/fs.py,sha256=0Poe6xtos9A67s-efAubHpIR68Og_9DPiOaSZEUSKyI,29574
+shellfish/process.py,sha256=Z9v2NUWD2aI7I_BpxOBW4f-txKccEbHc0MP9WeWiQRs,4550
+shellfish/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shellfish/sh.py,sha256=JBl0kU6rJ6om2zoqDTVVWV-9U1DVU8k0_HX8dhC0GoU,17017
+shellfish-0.0.4.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+shellfish-0.0.4.dist-info/METADATA,sha256=z2kumRt-hQ20bknvM_uc-W5nMfIs7Jn9jDw-lI1vvos,950
+shellfish-0.0.4.dist-info/RECORD,,
