@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/yodalist/__init__.py
+src/yodalist/yodalist.py
+src/yodalist.egg-info/PKG-INFO
+src/yodalist.egg-info/SOURCES.txt
+src/yodalist.egg-info/dependency_links.txt
+src/yodalist.egg-info/top_level.txt
