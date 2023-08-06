@@ -1,0 +1,11 @@
+typetwo/__init__.py,sha256=zHhJhIo0ITBLYbRPyY2Rlusi7ufmAnwGiDDtVEmcdCw,225
+typetwo/dictcomparer.py,sha256=r8lT5my6udkqJ-xV8-pBETAb-GeVXWthSmH0eNCRNGc,624
+typetwo/isojson.py,sha256=yjYhMmyuFaCG8euM3MUKgWAcamU8Rss-TML76QavEIk,2625
+typetwo/rowkey.py,sha256=MtbYOMy6EpY5AAfvUL-WEFXAc_Vka4Jd0UY0gDN4NbA,1069
+typetwo/transformer.py,sha256=qUDxBjyTqFpMc6rAO73V0aLK2-D3dhpjP9G6ftusJCY,2652
+typetwo/typetwo.py,sha256=aUpvc9fqi8QDl9BhbbvlP_8OdIFLCtk5FVkSEF59mus,5537
+typetwo-1.0.3.dist-info/LICENSE,sha256=laWBO9fCBHpMe2bfKVOunuf5rxEy3PUrZzvMHRtbj48,1053
+typetwo-1.0.3.dist-info/METADATA,sha256=HEhdUCPIrvajTKqxKsyZGUb3NzlvzV7rLfHb_TplZn0,2302
+typetwo-1.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+typetwo-1.0.3.dist-info/top_level.txt,sha256=b7uNzZG4_4L4cCIhFXK6HOj0LmtWHYS2UJhhgf3LXy0,8
+typetwo-1.0.3.dist-info/RECORD,,
