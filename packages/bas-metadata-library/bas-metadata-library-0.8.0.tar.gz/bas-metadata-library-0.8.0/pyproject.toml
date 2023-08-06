@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "bas-metadata-library"
+version = "0.8.0"
+license = "MIT"
+description = "Python library for generating metadata records"
+authors = [
+    "Felix Fennell <felnne@bas.ac.uk>",
+    "Luke McDonald <ludona@bas.ac.uk>",
+    "Jason White <jasite@bas.ac.uk>"
+]
+readme = "README.md"
+homepage = "https://github.com/antarctica/metadata-library"
+repository = "https://github.com/antarctica/metadata-library"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Libraries"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+jsonschema = "3.2.0" # locked to maintain Python 3.6 compatibility
+lxml = "^4.7.1"
+rfc3987 = "^1.3.8"  # jsonschema indirect dependency
+strict-rfc3339 = "^0.7"  # jsonschema indirect dependency
+backports-datetime-fromisoformat = "^1.0.0"  # backport
+importlib-resources = "^5.4.0"  # backport
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+flake8-bandit = "^2.1.2"
+flake8-black = "^0.2.3"
+flake8-bugbear = "^22.1.11"
+flake8-builtins = "^1.5.3"
+flake8-import-order = "^0.18.1"
+flake8-use-fstring = "^1.3"
+Flask = "^2.0.2"
+jsonref = "^0.2"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+pytest-flask = "^1.2.0"
+pytest-random-order = "^1.0.4"
+requests = "^2.23.0"
+safety = "^1.10.3"
+tomlkit = "^0.8.0"
+
+[tool.black]
+line-length = 120
+target-version = ['py36']
+include = '\.pyi?$'
+exclude = ''
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
