@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+setup.cfg
+src/influxdispatcher.egg-info/PKG-INFO
+src/influxdispatcher.egg-info/SOURCES.txt
+src/influxdispatcher.egg-info/dependency_links.txt
+src/influxdispatcher.egg-info/top_level.txt
