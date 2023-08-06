@@ -1,0 +1,131 @@
+Metadata-Version: 2.1
+Name: f4ratk
+Version: 2022.1
+Summary: A Fama/French Finance Factor Regression Analysis Toolkit.
+Home-page: https://codeberg.org/toroettg/f4ratk
+License: AGPL-3.0-only
+Keywords: finance,fama,regression
+Author: Tobias Röttger
+Author-email: dev@roettger-it.de
+Requires-Python: >=3.8,<3.11
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Provides-Extra: server
+Provides-Extra: server-engine
+Requires-Dist: PyYAML (==6.0)
+Requires-Dist: appdirs (==1.4.4)
+Requires-Dist: click (==8.0.3)
+Requires-Dist: flask (==2.0.2); extra == "server"
+Requires-Dist: flask-caching (==1.10.1); extra == "server"
+Requires-Dist: gunicorn (==20.1.0); extra == "server-engine"
+Requires-Dist: importlib_metadata (==4.10.0)
+Requires-Dist: marshmallow (==3.14.1); extra == "server"
+Requires-Dist: pandas (==1.3.5)
+Requires-Dist: pandas-datareader (==0.10.0)
+Requires-Dist: requests-cache (==0.9.0)
+Requires-Dist: scipy (==1.7.3)
+Requires-Dist: statsmodels (==0.13.1)
+Requires-Dist: xlrd (==2.0.1)
+Project-URL: Donate, https://liberapay.com/f4ratk/donate
+Project-URL: Issue Tracker, https://codeberg.org/toroettg/f4ratk/issues
+Project-URL: Repository, https://codeberg.org/toroettg/f4ratk
+Project-URL: Source Code, https://codeberg.org/toroettg/f4ratk
+Description-Content-Type: text/markdown
+
+# f4ratk
+
+[![Version: PyPi](https://img.shields.io/pypi/v/f4ratk?cacheSeconds=2592000)](https://pypi.org/project/f4ratk/)
+[![Python Version: PyPi](https://img.shields.io/pypi/pyversions/f4ratk?cacheSeconds=2592000)](https://pypi.org/project/f4ratk/)
+[![License: AGPL](https://img.shields.io/badge/license-AGPL--3.0--only-informational.svg?cacheSeconds=31536000)](https://spdx.org/licenses/AGPL-3.0-only.html)
+[![Build Status: Azure](https://img.shields.io/azure-devops/build/toroettg/f4ratk/1?cacheSeconds=86400)](https://dev.azure.com/toroettg/f4ratk/_build/latest?definitionId=1&branchName=main)
+[![Coverage: Azure](https://img.shields.io/azure-devops/coverage/toroettg/f4ratk/1?cacheSeconds=86400)](https://dev.azure.com/toroettg/f4ratk/_build/latest?definitionId=1&branchName=main)
+[![Downloads: PyPi](https://img.shields.io/pypi/dm/f4ratk?cacheSeconds=86400)](https://pypistats.org/packages/f4ratk)
+[![Donate: Liberapay](https://img.shields.io/liberapay/patrons/f4ratk?logo=liberapay?cacheSeconds=2592000)](https://liberapay.com/f4ratk/donate)
+
+A Fama/French Finance Factor Regression Analysis Toolkit.
+
+The deployed project is provided at https://f4ratk.herokuapp.com.
+
+## Here be dragons
+
+This project is experimental: it does not provide any guarantees and its
+results are not rigorously tested. It should not be used by itself as a
+basis for decision‐making.
+
+If you would like to join, please see [CONTRIBUTING] for guidelines.
+
+## Features
+
+The following lists some main use cases, this software can assist you.
+
+- Analyze stock quotes of a ticker symbol.
+- Analyze arbitrary performance data from file.
+- Display historic factor returns.
+- Estimate excess returns based on regression results.
+
+## Quickstart
+
+### Installation
+
+Obtain the latest released version of f4ratk using pip:
+
+`pip install -U f4ratk`
+
+### Usage
+
+Run the program to see an interactive help. Note that each listed
+command also provides an individual help.
+
+`f4ratk --help`
+
+```lang-none
+Usage: f4ratk [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -v, --verbose  Increase output verbosity.
+  --about        Display program information and exit.
+  --help         Show this message and exit.
+
+Commands:
+  convert    Convert files to the 'file' command format.
+  file       Analyze a CSV file.
+  history    Display historic factor returns.
+  portfolio  Analyze a portfolio file.
+  ticker     Analyze a ticker symbol.
+
+```
+
+Adjust the program arguments according to your problem.
+Then run your regression analysis similar to the following.
+
+#### Examples
+
+```lang-sh
+f4ratk ticker USSC.L US USD
+f4ratk file ./input.csv DEVELOPED EUR PRICE --frequency=MONTHLY
+
+```
+
+## License
+
+This project is licensed under the GNU Affero General Public License
+version 3 (only). See [LICENSE] for more information and [COPYING]
+for the full license text.
+
+[CONTRIBUTING]: https://codeberg.org/toroettg/f4ratk/src/branch/main/CONTRIBUTING.md
+[LICENSE]: https://codeberg.org/toroettg/f4ratk/src/branch/main/LICENSE
+[COPYING]: https://codeberg.org/toroettg/f4ratk/src/branch/main/COPYING
+
