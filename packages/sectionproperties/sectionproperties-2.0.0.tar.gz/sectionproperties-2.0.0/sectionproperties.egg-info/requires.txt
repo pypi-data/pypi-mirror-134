@@ -1,0 +1,9 @@
+numpy
+scipy
+pytest_check
+more_itertools
+matplotlib
+shapely
+triangle
+rhino-shapley-interop
+cad_to_shapely
