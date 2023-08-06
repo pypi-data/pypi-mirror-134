@@ -1,0 +1,4 @@
+requests
+dta
+clipboard
+pillow
