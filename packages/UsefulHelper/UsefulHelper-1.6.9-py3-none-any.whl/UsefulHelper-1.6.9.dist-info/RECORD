@@ -1,0 +1,14 @@
+UsefulHelper/__init__.py,sha256=M8wslxgCz5Ne11YAUHNw0uA8DMP7A3r3QYT2KDmiqds,244
+UsefulHelper/cli.py,sha256=SsbnJtUp8LRal0WglZQcCUfX8ZUTP8m6up33qakklZc,1094
+UsefulHelper/manager.py,sha256=a199l8PjWz5_d9caOQzamicSrMqDHfpHW6UbArL-t5A,257
+UsefulHelper/test.py,sha256=Bt1bEAAZnG-vZXi8AdU4KdATZTsK4cWOSZlMUsteBGw,194
+UsefulHelper/Project/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+UsefulHelper/Project/SQL/SQLite.py,sha256=5S7R-efMaigx5TshKCNS4UhjgfHgJNbwBL_R3Cd1yls,15
+UsefulHelper/Project/SQL/UNKnownDB.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+UsefulHelper/Project/SQL/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+UsefulHelper/Tools/__init__.py,sha256=Gnb5TW4jyEl1wdHIUWov42_BlwaFX8KXZyRYeHKFKQk,1568
+UsefulHelper-1.6.9.data/scripts/start.py,sha256=cIydTIlZjE8ljs0_Pn7OjRkA4U9lCJbfl2uO8GbkN84,59
+UsefulHelper-1.6.9.dist-info/METADATA,sha256=s1xykNvidgMg3CkpXLGDy0mXsDhjhpZ_1ClyB0YBkrI,291
+UsefulHelper-1.6.9.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+UsefulHelper-1.6.9.dist-info/top_level.txt,sha256=rfJ1UXrJdgDTEc056hIGdX5x42M3SyA8quUzqSE9tII,13
+UsefulHelper-1.6.9.dist-info/RECORD,,
