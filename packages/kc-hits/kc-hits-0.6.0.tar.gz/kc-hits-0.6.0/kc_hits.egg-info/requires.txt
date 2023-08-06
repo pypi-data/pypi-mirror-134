@@ -1,0 +1,6 @@
+matplotlib
+numpy
+pandas
+openpyxl
+pyinstaller
+pysimplegui

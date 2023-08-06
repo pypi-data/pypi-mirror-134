@@ -1,0 +1,14 @@
+Basic operation:
+- Use the 'Filter' box to enter text to narrow the list of chemicals
+- To select a chemical, (i) double click on it in the chemicals list or (ii) scroll to it, select/highlight it using the Space key, and hit Enter
+- When you are ready to save the results, (i) hit Ctrl+S or (ii) select the 'File' menu > 'Save report...'
+- If you would like to exit the program, go to the 'File' menu and hit 'Exit'
+- The saved file (an Excel spreadsheet) has capabilities to view and filter the results in various ways
+
+Shortcut keys:
+- Go to filter box: F1 key
+- Go to chemical selection box: F2 key
+    Once you have results:
+    - Go to the Summary tab: F3 key
+    - Go to the Details tab: F4 key
+    - Save a report of the results: Ctrl+S

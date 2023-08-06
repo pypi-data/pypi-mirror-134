@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+kc_hits.egg-info/PKG-INFO
+kc_hits.egg-info/SOURCES.txt
+kc_hits.egg-info/dependency_links.txt
+kc_hits.egg-info/entry_points.txt
+kc_hits.egg-info/requires.txt
+kc_hits.egg-info/top_level.txt
+src/data/keychar_toxcast_mapping_20211119.csv
+src/db/assay_info_20211119.pkl
+src/db/toxcast_data_20211119.pkl
+src/docs/instructions.txt
+src/resources/aflatoxin.png
+src/resources/kcs.png
+src/templates/toxcast_data_template_20211119.xlsx
