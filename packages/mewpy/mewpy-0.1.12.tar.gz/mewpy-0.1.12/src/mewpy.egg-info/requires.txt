@@ -1,0 +1,7 @@
+cobra
+inspyred
+jmetalpy
+reframed
+networkx
+matplotlib<3.3
+python-libsbml==5.19.0
