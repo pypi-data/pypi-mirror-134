@@ -1,0 +1,7 @@
+Metadata-Version: 1.1
+Name: pyprocessors-bel_entities
+Version: 0.5.0
+Summary: Sherpa Consolidation processor
+Home-page: https://github.com/oterrier/pyprocessors_bel_entities/
+Author: Olivier Terrier
+Author-email: olivier.terrier@kairntech.com
