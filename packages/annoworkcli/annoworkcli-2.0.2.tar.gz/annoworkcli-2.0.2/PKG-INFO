@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: annoworkcli
+Version: 2.0.2
+Summary: 
+Author: yuji38kwmt
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: annofabapi (>=0.52.4)
+Requires-Dist: annofabcli (>=1.55.0)
+Requires-Dist: annoworkapi (>=2.0)
+Requires-Dist: isodate
+Requires-Dist: more-itertools
+Requires-Dist: pandas
+Requires-Dist: pyyaml
