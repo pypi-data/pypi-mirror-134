@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: commemorate
+Version: 0.0.0.1.1
+Summary: a package for test
+Home-page: https://github.com/AXEwiges/commemoratePy
+Author: Muhan Xiao
+Author-email: syrupcake@protonmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE
+
+UNKNOWN
+
