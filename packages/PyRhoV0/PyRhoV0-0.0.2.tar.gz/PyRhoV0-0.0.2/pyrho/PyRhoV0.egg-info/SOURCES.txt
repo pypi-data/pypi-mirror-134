@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+pyrho/PyRhoV0.egg-info/PKG-INFO
+pyrho/PyRhoV0.egg-info/SOURCES.txt
+pyrho/PyRhoV0.egg-info/dependency_links.txt
+pyrho/PyRhoV0.egg-info/top_level.txt
