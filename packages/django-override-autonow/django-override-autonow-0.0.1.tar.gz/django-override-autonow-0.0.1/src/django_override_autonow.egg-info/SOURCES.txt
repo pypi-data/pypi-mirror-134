@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+src/django_override_autonow.egg-info/PKG-INFO
+src/django_override_autonow.egg-info/SOURCES.txt
+src/django_override_autonow.egg-info/dependency_links.txt
+src/django_override_autonow.egg-info/requires.txt
+src/django_override_autonow.egg-info/top_level.txt
+src/override_autonow/__init__.py
+src/override_autonow/context_decorator.py
