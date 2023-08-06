@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: app-token-api
+Version: 1.0.2
+Summary: Hydrogen App Token API
+Home-page: https://www.hydrogenplatform.com
+Author: UNKNOWN
+Author-email: info@hydrogenplatform.com
+License: UNKNOWN
+Description:     The App Token API  # noqa: E501
+            
+Keywords: Swagger,Hydrogen Nucleus API
+Platform: UNKNOWN
