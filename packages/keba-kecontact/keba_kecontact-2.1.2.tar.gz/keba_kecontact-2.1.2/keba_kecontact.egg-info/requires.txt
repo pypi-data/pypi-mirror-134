@@ -1,0 +1,1 @@
+asyncio_dgram>=2.1.1
