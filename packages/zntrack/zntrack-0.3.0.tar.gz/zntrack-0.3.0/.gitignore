@@ -1,0 +1,12 @@
+tmp/
+/tests/basic/.git
+/docs/build
+.idea
+PyTrack.egg-info
+htmlcov
+.coverage
+venv
+/build/
+/dist/
+/py_track.egg-info/
+__pycache__/
