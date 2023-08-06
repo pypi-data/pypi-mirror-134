@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: MultiFunctionRunner
+Version: 1.0.6
+Summary: A simple library for Python to run multiple functions in a lambda function.
+Home-page: https://github.com/avibhardwaj233/MultiFunctionRunner
+Author: Tejas
+Author-email: help.a.helpcenter@gmail.com
+License: MIT
+Download-URL: https://github.com/avibhardwaj233/MultiFunctionRunner/archive/refs/tags/1.0.6.tar.gz
+Description: # Multi-Function-Runner
+        A simple library for Python to run multiple functions in a lambda function.
+        
+        Example:
+Keywords: Function,Multi Function runner,Multi function,Function runner
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
