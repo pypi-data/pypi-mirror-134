@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+setup.py
+stefansearch.egg-info/PKG-INFO
+stefansearch.egg-info/SOURCES.txt
+stefansearch.egg-info/dependency_links.txt
+stefansearch.egg-info/top_level.txt
+test/test_indexing.py
+test/test_plays.py
+test/test_serialization.py
+test/test_sonnets.py
+test/test_structure.py
