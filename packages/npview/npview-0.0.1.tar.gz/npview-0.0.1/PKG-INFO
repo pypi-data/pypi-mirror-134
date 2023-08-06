@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: npview
+Version: 0.0.1
+Summary: CLI utility for previewing .npy files
+Home-page: https://github.com/a-r-j/npview
+Author: Arian Jamasb
+Author-email: arian@jamasb.io
+License: MIT License
+Project-URL: Bug Reports, https://github.com/a-r-j/npview/issues
+Project-URL: Source, https://github.com/a-r-j/npview
+Keywords: numpy data .npy
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# NPView
+
+CLI tools for quickly viewing data in various formats (eventually). Currently only `.npy` files are supported.
+
+## Installation
+
+```bash
+pip install npview
+```
+
+## Usage
+
+```bash
+npv {PATH_TO_YOUR_FILE.npy} {THRESHOLD}
+```
+
+Where `{THRESHOLD}` is an integer specifying Total number of array elements which trigger summarization rather than full repr. Default is `sys.maxsize`.
+
+
