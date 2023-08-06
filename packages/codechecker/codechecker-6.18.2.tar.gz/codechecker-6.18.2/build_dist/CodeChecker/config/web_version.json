@@ -1,0 +1,13 @@
+{
+    "git_describe": {
+        "dirty": "6.18.1-tainted",
+        "tag": "6.18.1"
+    },
+    "git_hash": "fc3d5f15138e8509924151d3e0de80600a769751",
+    "package_build_date": "2022-01-14T11:13",
+    "version": {
+        "major": "6",
+        "minor": "18",
+        "revision": "1"
+    }
+}
