@@ -1,0 +1,3 @@
+[console_scripts]
+oc4idskit = oc4idskit.cli.__main__:main
+

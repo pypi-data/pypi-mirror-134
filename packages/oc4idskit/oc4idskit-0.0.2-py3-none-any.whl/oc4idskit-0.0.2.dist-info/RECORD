@@ -1,0 +1,17 @@
+oc4idskit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oc4idskit/combine.py,sha256=iRsRmbcH2_W9nFloMa34FxaKoJU5PDZGlPLao1RhJSE,1425
+oc4idskit/exceptions.py,sha256=627my5YIxSstzEbm9UHq-gqbpX5P6SaBQ-ex-r8cz1E,375
+oc4idskit/transforms.py,sha256=zTQoPKxb9jT_FQJ1_4Gaa0lLw1-t7-e_YhdErKsWs2k,36511
+oc4idskit/util.py,sha256=VjiNIKgkgUUO-7SPcMJizGPuD-BsKW8q_b32HU0t7G4,874
+oc4idskit/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oc4idskit/cli/__main__.py,sha256=9kXeaXr7e8Qsjv7N5RD5HEpfRPEIetqsPq-WozPfg_s,495
+oc4idskit/cli/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oc4idskit/cli/commands/combine_project_packages.py,sha256=TlhxZdCzzebyS3cLJTeVG55k0rdW-BIkz2suAyGC94Q,523
+oc4idskit/cli/commands/convert_from_ocds.py,sha256=Fodovo2R_hCCX3a0loLo8FceS101TRFCMHe3B4e7TbU,1579
+oc4idskit/cli/commands/split_project_packages.py,sha256=bp-WZRm3CWONqj0Ia-If1_HhJ6mDvojggREYIyNdCkY,726
+oc4idskit-0.0.2.dist-info/LICENSE,sha256=b7zZ1sga-QQqFbGom2wqzEnrs0PHjEfK6FlpSUL_qAM,1528
+oc4idskit-0.0.2.dist-info/METADATA,sha256=U4jpqlelMOfx3ZcP079sRO9oNOsUNirhEnlCvZHiszM,2251
+oc4idskit-0.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+oc4idskit-0.0.2.dist-info/entry_points.txt,sha256=K2Z3TZNvlxez26o6l46ABqxucIXq1IDHyc41tZswWMg,59
+oc4idskit-0.0.2.dist-info/top_level.txt,sha256=QStSTHuVfXazi_kjNQ8nheFJwnwjxzFXdQ14mM4O4hg,10
+oc4idskit-0.0.2.dist-info/RECORD,,
