@@ -1,0 +1,10 @@
+numpy
+zmq
+
+[gc]
+flask
+flask-cors
+opencv-contrib-python-headless
+opencv-python-headless
+pyserial
+waitress
