@@ -1,0 +1,5 @@
+[console_scripts]
+__init__ = npview.__init__:main
+npp = npview.npp:main
+npv = npview.npv:main
+
