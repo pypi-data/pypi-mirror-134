@@ -1,0 +1,13 @@
+greatday/__init__.py,sha256=YUv_cIgN0BRCf51u3krV7Is4Yyga9sAfMMw1K-AyMxE,193
+greatday/__main__.py,sha256=uIxY_J80ZC-TGr7AiFGCDievhRBJpBqsBopW1aMQzrw,316
+greatday/_config.py,sha256=7HjRVgOjXwo6Wls0E8vmcFwm1Sp1-x1d_ajqlhZ80Rg,1365
+greatday/_repo.py,sha256=vLHdqWt8b1dJJBH8XtKJchc8UKWiEB1oljU_70-i6kY,4848
+greatday/_runners.py,sha256=W3sU9F6Um0IaCShKxrNQODSE_nmq-4bok4xUG8HSgho,978
+greatday/_spells.py,sha256=xCXaxJivkIXh_2gEzLInKuqn7TjnpHA3DKLY8CkseU0,1615
+greatday/_todo.py,sha256=COU48HRyazx3vi5DEbFujYi3Sox3tTuv6_WkSWlhVJ0,380
+greatday/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+greatday-0.2.0.dist-info/METADATA,sha256=XXr3sRmbYRu5ifYoklKmKRuAsTTFsQ_7Im4vYE_TngE,6879
+greatday-0.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+greatday-0.2.0.dist-info/entry_points.txt,sha256=bGXiVbsPkzTnRMoC8tkvm0Y_mZgKkHvrNLCscto27HE,53
+greatday-0.2.0.dist-info/top_level.txt,sha256=SRhTxC9mL5GYidqkgorrfWw3RB4Je6shrWWlkt_KGgY,9
+greatday-0.2.0.dist-info/RECORD,,
