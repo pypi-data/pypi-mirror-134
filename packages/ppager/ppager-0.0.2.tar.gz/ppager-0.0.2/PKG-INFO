@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ppager
+Version: 0.0.2
+Summary: PAGER with Python that can be implemented to your projects.
+Home-page: https://github.com/berk-karaal/ppager
+Author: Berk Karaal
+Author-email: iletisim.berkkaraal@gmail.com
+License: MIT
+Project-URL: Documentation, https://berkkaraal.com/ppager-docs/
+Project-URL: Source, https://github.com/berk-karaal/ppager/
+Project-URL: Bug Tracker, https://github.com/berk-karaal/ppager/issues
+Keywords: pager less more most terminal
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ppager
+Docs: [berkkaraal.com/ppager-docs/](https://berkkaraal.com/ppager-docs/)
+
+
