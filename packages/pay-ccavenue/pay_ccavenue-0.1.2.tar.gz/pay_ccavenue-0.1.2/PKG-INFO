@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pay-ccavenue
+Version: 0.1.2
+Summary: A simple library to setup payment integration with CCAvenue
+Author: Kuldeep Pisda
+Author-email: 22424149+kdpisda@users.noreply.github.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pycryptodome (==3.12.0)
