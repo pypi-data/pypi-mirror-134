@@ -1,0 +1,12 @@
+twidi/__init__.py,sha256=i5Zw8n0iEudR__CluWR8Di9voh6U6-0EOGG8iTNGZhw,26
+twidi/__main__.py,sha256=RwG9ov4fFg6Fp4soAVeIWSKxLq-0IFknESsn4uB71eA,93
+twidi/bot.py,sha256=hjdyExTSuDGlpPDx4OdZw5QT2K9IkD3MkE9wWLO70g0,779
+twidi/command.py,sha256=UD0MzcCpmfa4B-XR09xL9Fn7LWm2mC5cisRqY6PuoxE,4527
+twidi/config.py,sha256=4RrvLwYXySUvACPcSkUW2kBcpXNUDXtP4IgHop2glO8,1345
+twidi/console.py,sha256=b483gmk0dN7IRab40JgIpiALgP2uzDYj9DYNSNwnvC8,556
+twidi/debug.py,sha256=4LEBamg5ohKNFQI59NI0yMQqNf2OYLuSu7fFQsej5bc,928
+twidi/logger.py,sha256=bVlVZm3oBFYR31PxxT2Oib43nkCgaY2vLnlprN_a6ZA,165
+twidi/message.py,sha256=qQuMON007oW3yrZmiyEFDMNqM5xrKDh7exRzAoqJfj8,2961
+twidi-0.0.1.dev0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+twidi-0.0.1.dev0.dist-info/METADATA,sha256=J9VlWvJW2CVDmmJ8CoJwCvGwPosrJ97sPpUjDLsNI2w,716
+twidi-0.0.1.dev0.dist-info/RECORD,,
