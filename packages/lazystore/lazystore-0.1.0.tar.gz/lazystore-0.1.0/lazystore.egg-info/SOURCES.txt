@@ -1,0 +1,12 @@
+LICENSE.txt
+README.rst
+pyproject.toml
+setup.py
+lazystore/__init__.py
+lazystore/_lazystore.py
+lazystore/py.typed
+lazystore.egg-info/PKG-INFO
+lazystore.egg-info/SOURCES.txt
+lazystore.egg-info/dependency_links.txt
+lazystore.egg-info/requires.txt
+lazystore.egg-info/top_level.txt
