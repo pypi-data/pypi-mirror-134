@@ -1,0 +1,15 @@
+netfoundry/__init__.py,sha256=V-Sv9zbTFU94Oq1NDBA9AzmExt59W56DYgnn6D20D5k,218
+netfoundry/_version.py,sha256=5nWKckHat1Ny1SaF3PCwgtfG7Cs-dFxDgIcab6hQ8y4,509
+netfoundry/ctl.py,sha256=BjScEGr4Y_LPjHliegWt4mpGA7NdH-XqULlhuEtpatU,1245
+netfoundry/demo.py,sha256=zvAoejK4ISlPJOwCb9u0HYeBJhKktu-ILlliOBDWecU,18824
+netfoundry/legacy.py,sha256=FHpj0LZQjl0tS-TXAIMKkXJmTDdUOtunDwmfqBnYNt0,18681
+netfoundry/network.py,sha256=JQ_c2kKiYSFXPQiNt2zZuEddcGf2W89jwznCB-DWNPA,113594
+netfoundry/network_group.py,sha256=ICcKZJFxZFjj8clfmp-SrvHc9ReNjIe-hHp1Yy_kEQ4,12419
+netfoundry/organization.py,sha256=dnap8ixbGGPuOv4M0Y7xkLhsnEN41NZhqAa1uPQARZQ,18465
+netfoundry/utility.py,sha256=MKZ66-WzqXss5vUASSjH99MERPe4Zxs7QOpl8lRccMg,5440
+netfoundry/version.py,sha256=w8sG5o_L6Kz_F5UMqQRbAAWrPcGDllQeFDvw7XtUqC8,227
+netfoundry-5.2.12.post0.dev3.dist-info/LICENSE.txt,sha256=5BJja11kiabyz0KovmmbSmTtgJPMLuoNXzzfxFGbUdc,1178
+netfoundry-5.2.12.post0.dev3.dist-info/METADATA,sha256=NwghYeZ4Co0-6WRvr2sfeA7czZ4YA8S9B-rv-FB6IWo,2728
+netfoundry-5.2.12.post0.dev3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+netfoundry-5.2.12.post0.dev3.dist-info/top_level.txt,sha256=pXuoLpD9ataHHRo2QOGmWMapWx2qDe42FvDWcVH9wGQ,11
+netfoundry-5.2.12.post0.dev3.dist-info/RECORD,,
