@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+coxbuild/__init__.py
+coxbuild/__main__.py
+coxbuild.egg-info/PKG-INFO
+coxbuild.egg-info/SOURCES.txt
+coxbuild.egg-info/dependency_links.txt
+coxbuild.egg-info/entry_points.txt
+coxbuild.egg-info/requires.txt
+coxbuild.egg-info/top_level.txt
