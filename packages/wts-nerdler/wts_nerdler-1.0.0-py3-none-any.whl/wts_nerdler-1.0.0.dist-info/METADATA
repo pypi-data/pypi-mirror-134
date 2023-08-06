@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: wts-nerdler
+Version: 1.0.0
+Summary: Windows Task Scheduler Framework by Nerdler.Tech
+Home-page: https://github.com/nerdlertech/wts-nerdler
+Author: Nerdler
+Author-email: pip@nerdler.tech
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/nerdlertech/wts-nerdler/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# wts-nerdler
+Windows Task Scheduler Framework by Nerdler.Tech
+Requires access to Powershell
+
