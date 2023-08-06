@@ -1,0 +1,4 @@
+snowflake-connector-python<2.6.0
+numpy
+dbnd==0.58.3
+certifi<2021.0.0
