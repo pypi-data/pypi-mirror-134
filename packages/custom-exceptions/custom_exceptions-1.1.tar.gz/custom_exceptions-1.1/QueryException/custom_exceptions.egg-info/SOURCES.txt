@@ -1,0 +1,5 @@
+setup.py
+QueryException/custom_exceptions.egg-info/PKG-INFO
+QueryException/custom_exceptions.egg-info/SOURCES.txt
+QueryException/custom_exceptions.egg-info/dependency_links.txt
+QueryException/custom_exceptions.egg-info/top_level.txt
