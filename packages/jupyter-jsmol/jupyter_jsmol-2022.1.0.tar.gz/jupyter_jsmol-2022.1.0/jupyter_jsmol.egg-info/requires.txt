@@ -1,0 +1,9 @@
+ipywidgets>=7.6.0
+
+[examples]
+ase
+pymatgen
+
+[test]
+pytest>=4.6
+pytest-cov
