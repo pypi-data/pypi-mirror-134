@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: financialtools
+Version: 1.0.2
+Summary: UNKNOWN
+Home-page: https://github.com/jugglingworm12/financetools
+Author: Ryan Gilmore
+Author-email: ryan.gilmore1088@icloud.com
+License: UNKNOWN
+Description: Python Package for financial analysis
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
