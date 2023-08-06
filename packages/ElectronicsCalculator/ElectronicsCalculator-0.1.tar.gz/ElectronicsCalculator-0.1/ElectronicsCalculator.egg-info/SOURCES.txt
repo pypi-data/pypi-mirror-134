@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+ElectronicsCalculator/__init__.py
+ElectronicsCalculator/electronics_calculator.py
+ElectronicsCalculator/scale_factors.py
+ElectronicsCalculator.egg-info/PKG-INFO
+ElectronicsCalculator.egg-info/SOURCES.txt
+ElectronicsCalculator.egg-info/dependency_links.txt
+ElectronicsCalculator.egg-info/top_level.txt

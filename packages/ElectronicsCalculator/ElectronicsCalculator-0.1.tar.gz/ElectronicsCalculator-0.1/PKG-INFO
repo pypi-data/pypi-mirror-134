@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: ElectronicsCalculator
+Version: 0.1
+Summary: Python module that provides methods to perform common electronics calculations.
+Home-page: https://github.com/mino827/ElectronicsCalculator
+Author: Mino Girimonti
+Author-email: mino827@protonmail.com
+License: GPL v3.0
+Description: UNKNOWN
+Keywords: electronics,electrical,engineering,formula,formulae,calculation
+Platform: UNKNOWN
