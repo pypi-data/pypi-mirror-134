@@ -1,0 +1,3 @@
+[console_scripts]
+cf-cli = codeforces_client.__main__:run
+
