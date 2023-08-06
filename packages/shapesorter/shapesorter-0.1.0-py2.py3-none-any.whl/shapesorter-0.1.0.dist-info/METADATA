@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: shapesorter
+Version: 0.1.0
+Summary: A lightweight templating language for any kind of text.
+Home-page: https://github.com/atraders/temp-later
+Author: @genziano
+License: UNKNOWN
+Keywords: devops,template
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml (~=6.0)
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: types-PyYAML (~=5.4.8) ; extra == 'dev'
+
+UNKNOWN
+
+
