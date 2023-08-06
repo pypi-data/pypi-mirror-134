@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "2.0"
+python_files = ["test_*.py"]
+python_classes = ["Test", "Acceptance"]
+python_functions = ["test"]
+testpaths = ["tests"]
+xfail_strict = true
