@@ -1,0 +1,6 @@
+numpy~=1.22
+pandas~=1.3
+scipy~=1.7
+meshio~=4.3.4
+h5py~=3.5
+xmltodict~=0.12.0
