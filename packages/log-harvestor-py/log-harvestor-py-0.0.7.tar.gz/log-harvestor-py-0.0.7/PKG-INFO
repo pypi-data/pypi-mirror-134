@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: log-harvestor-py
+Version: 0.0.7
+Summary: Python integration package for LogHarvestor
+Home-page: https://github.com/solomon-bush/log-harvestor-py
+Author: Solomon Bush
+Author-email: solomon@logharvestor.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/solomon-bush/log-harvestor-py/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# log-harvestor-py
+Python integration module for LogHarvestor
+
+
+# Contributing
+## Testing
+#### Run all  Tests: 
+>python -m pytest -rx
+
+
