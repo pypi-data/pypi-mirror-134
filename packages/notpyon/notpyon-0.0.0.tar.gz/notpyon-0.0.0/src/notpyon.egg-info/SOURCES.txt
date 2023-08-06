@@ -1,0 +1,9 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.cfg
+src/notpyon.egg-info/PKG-INFO
+src/notpyon.egg-info/SOURCES.txt
+src/notpyon.egg-info/dependency_links.txt
+src/notpyon.egg-info/requires.txt
+src/notpyon.egg-info/top_level.txt
