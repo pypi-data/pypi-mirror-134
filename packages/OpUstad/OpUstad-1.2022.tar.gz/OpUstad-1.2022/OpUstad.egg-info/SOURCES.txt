@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+OpUstad/__init__.py
+OpUstad/__main__.py
+OpUstad/utils.py
+OpUstad.egg-info/PKG-INFO
+OpUstad.egg-info/SOURCES.txt
+OpUstad.egg-info/dependency_links.txt
+OpUstad.egg-info/requires.txt
+OpUstad.egg-info/top_level.txt
