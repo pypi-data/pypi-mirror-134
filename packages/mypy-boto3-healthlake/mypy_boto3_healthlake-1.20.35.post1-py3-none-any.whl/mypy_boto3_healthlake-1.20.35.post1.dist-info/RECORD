@@ -1,0 +1,15 @@
+mypy_boto3_healthlake/__init__.py,sha256=O2QSApob1H2iImRkTPqFYxiNQMJ5Kayv4Cbzkal0MAs,449
+mypy_boto3_healthlake/__init__.pyi,sha256=bZInb0MxVNbExwB4OgqG5AnHx89Nd9n66Yo4dWs3P_w,448
+mypy_boto3_healthlake/__main__.py,sha256=tv9FWktp__DrKtYyRQiQpijNui7DkunP3Ch_sqyvnD0,921
+mypy_boto3_healthlake/client.py,sha256=rfKU2U-ynRMNJO-Qjg7bu8rjLih3SIFHDsoY5Mca_JU,11381
+mypy_boto3_healthlake/client.pyi,sha256=a4t6PVMgHniROonHuN0ftfREFL_-F8T5HoZeEh4vFoE,11360
+mypy_boto3_healthlake/literals.py,sha256=8J_TmfOeY6tKd2ZMvk3aPLmBQSIQMjsObXA6m3vqbBY,6549
+mypy_boto3_healthlake/literals.pyi,sha256=lCI6E2HoovI-zG2ZiNw-7TNNSwEYAONjQqOnzRRVD6w,6547
+mypy_boto3_healthlake/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_boto3_healthlake/type_defs.py,sha256=bxta07Moa7uzdEp-LkGJL3VAfMwecB7wcJHshOYGT4M,13473
+mypy_boto3_healthlake/type_defs.pyi,sha256=OGeMNWZ_MLt8Lr9SVA3XWfMPNMO7D3qfRyfgbnC8FjY,13454
+mypy_boto3_healthlake/version.py,sha256=4QoFNVP-c0fauOEF_iQCtNwvn7lVQhuORnOcL-UmJCo,67
+mypy_boto3_healthlake-1.20.35.post1.dist-info/METADATA,sha256=0A6SZbAlyqh2WPxnymN54XcL0q8rsMd7hqxia9dH4bY,9310
+mypy_boto3_healthlake-1.20.35.post1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mypy_boto3_healthlake-1.20.35.post1.dist-info/top_level.txt,sha256=mIm8vv88FWWLKKEzS-v0RKOXquOpUvAaS1Z4ImBXuP0,22
+mypy_boto3_healthlake-1.20.35.post1.dist-info/RECORD,,
