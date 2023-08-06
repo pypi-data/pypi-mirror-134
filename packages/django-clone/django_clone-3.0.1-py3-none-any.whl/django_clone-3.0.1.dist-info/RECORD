@@ -1,0 +1,16 @@
+model_clone/__init__.py,sha256=Mq5BP0MA6mdl9rC_yb608ZEpKeFn4ota_1oKxuE1CuA,405
+model_clone/admin.py,sha256=ugz4Nm1wkXj83uvK-ia4wqSEnUY_cGBrQpVZ3DocBGA,2884
+model_clone/apps.py,sha256=S_Sjzx60Ug33kwJQLObYKSJL5rm3eNTBDqKfowoK2Ok,96
+model_clone/mixin.py,sha256=mtfb7kLzj8t4m3uB1U1wDwkM6gboz9xvVcOsbryFhhg,24550
+model_clone/models.py,sha256=ySFGf4iyapmXHlIaoAaLnC5PDT3c3kiw5ZpI9zYsICw,157
+model_clone/utils.py,sha256=ULujVmW8k-ZN4UwmYEjFPAugttyd1deOQmQUvO7nH-I,9325
+model_clone/templates/admin/change_form_object_tools.html,sha256=OaGdWIt6xMuWHsA6jH1jMseq1EdEycqrzm8esOZFZpc,282
+model_clone/templates/clone/change_form.html,sha256=ApOSkGwkZOgi8yoet_YjtMEuZ_TqE1ZXTZ7cqvTEyBE,250
+model_clone/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+model_clone/tests/test_clone_mixin.py,sha256=1j6oDokABKMGWs5bSVWbdv-elh0Kl21vc6MfAmBDyd4,32773
+model_clone/tests/test_create_copy_of_instance.py,sha256=oKVMMeq0nMc13aPNhmNR8tESsOAIduI_sdwCwO5YWWM,2790
+django_clone-3.0.1.dist-info/LICENSE,sha256=SFHSPp0dtKlH4AzVhZCRnIhyDuAXYZcN9LYiSAOsL4U,1067
+django_clone-3.0.1.dist-info/METADATA,sha256=3L47ItW_Q3k-OfOmaLS3i8H9Vh4QSm3B328AF3zB7IE,18915
+django_clone-3.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+django_clone-3.0.1.dist-info/top_level.txt,sha256=e8gLUZCWnQp9KcPb10mXU7hsqljiFj21Yl-0RaHnMAA,12
+django_clone-3.0.1.dist-info/RECORD,,
