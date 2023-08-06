@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pressureclamp"
+version = "0.1.2"
+description = "A package for analyzing pressure clamp electrophysiology data acquired in HEKA patchmaster."
+authors = ["Michael Young <neuromyoung@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/neuro-myoung/pressureclamp"
+repository = "https://github.com/neuro-myoung/pressureclamp"
+
+[tool.poetry.dependencies]
+python = "^3.9, <3.11"
+numpy = "^1.22.1"
+pandas = "^1.3.5"
+cufflinks = "^0.17.3"
+plotly = "^5.5.0"
+scipy = "^1.7.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
