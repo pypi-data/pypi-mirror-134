@@ -1,0 +1,5 @@
+perseus-core-library
+pipfile
+setuptools
+wheel
+mercurius-core-library
