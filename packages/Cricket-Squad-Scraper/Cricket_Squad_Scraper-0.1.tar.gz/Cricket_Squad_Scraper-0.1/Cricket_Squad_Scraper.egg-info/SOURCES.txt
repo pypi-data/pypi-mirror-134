@@ -1,0 +1,8 @@
+setup.py
+Cricket_Squad_Scraper/__init__.py
+Cricket_Squad_Scraper/scraper.py
+Cricket_Squad_Scraper.egg-info/PKG-INFO
+Cricket_Squad_Scraper.egg-info/SOURCES.txt
+Cricket_Squad_Scraper.egg-info/dependency_links.txt
+Cricket_Squad_Scraper.egg-info/requires.txt
+Cricket_Squad_Scraper.egg-info/top_level.txt
