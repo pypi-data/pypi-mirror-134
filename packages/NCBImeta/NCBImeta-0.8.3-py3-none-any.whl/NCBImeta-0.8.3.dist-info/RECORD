@@ -1,0 +1,12 @@
+NCBImeta-0.8.3.data/scripts/NCBImeta,sha256=kaVwFY77BQnulYxji2WHn6zbVbMDh0fm2TvLzsyfA-k,23535
+NCBImeta-0.8.3.data/scripts/NCBImetaAnnotate,sha256=i1x1_9cT3bDmbRTkZFE70571ZOi3xTxbSO6_BqxiJ3k,8713
+NCBImeta-0.8.3.data/scripts/NCBImetaExport,sha256=YwwDmBRpF-ncanNiza0_1UBPoJ2zatYEr53FCmZ0PRA,3946
+NCBImeta-0.8.3.data/scripts/NCBImetaJoin,sha256=h_ldUhJuJvjbZFbvSe7qeYZQCjf93_1d_3MM4rx5kh0,14174
+ncbimeta/NCBImetaErrors.py,sha256=-XQCmbH_rk52o3R-FSXjOZmQcWE6nSP60AOYqvupceo,8437
+ncbimeta/NCBImetaUtilities.py,sha256=QMY9PJCpq1XhwBs2wP_0UAwpsxf8ehp0t5EiHuL9NI8,12305
+ncbimeta/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+NCBImeta-0.8.3.dist-info/LICENSE,sha256=KZPhtoeAYKCY1jctUvdBC3itHZFZOtWqfsv4AnpBCMI,1076
+NCBImeta-0.8.3.dist-info/METADATA,sha256=Jrqiyzq-u2K6JhqYeQKwFdnlKVg87SIeHGMWdjFudJI,10008
+NCBImeta-0.8.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+NCBImeta-0.8.3.dist-info/top_level.txt,sha256=6KC5jibEJjNJinCQFBar4xv3fnLtDKlMtNcKGGuFGiQ,9
+NCBImeta-0.8.3.dist-info/RECORD,,
