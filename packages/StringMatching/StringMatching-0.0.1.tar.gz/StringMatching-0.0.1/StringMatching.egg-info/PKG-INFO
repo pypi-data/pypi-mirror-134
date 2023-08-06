@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: StringMatching
+Version: 0.0.1
+Summary: A project for string matching algorithms.
+Home-page: https://github.com/pybitboo/StringMatching.git
+Author: yangdian
+Author-email: 2406616734@qq.com
+License: UNKNOWN
+Keywords: strmatch,stringmatching,sunday,horspool
+Platform: UNKNOWN
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# StringMatching
+
+

@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+StringMatching/__init__.py
+StringMatching/matcher.py
+StringMatching.egg-info/PKG-INFO
+StringMatching.egg-info/SOURCES.txt
+StringMatching.egg-info/dependency_links.txt
+StringMatching.egg-info/top_level.txt
