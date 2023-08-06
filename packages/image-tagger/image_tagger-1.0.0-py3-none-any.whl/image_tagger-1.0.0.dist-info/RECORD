@@ -1,0 +1,9 @@
+image_tagger/__init__.py,sha256=4c03E323G2FQCLZENXJRIzNe-soHvimZhjE42dNakvs,45
+image_tagger/image_predictions.py,sha256=l4icx8Mp0kMdxjfR0xDLWQueJHoWp9FlSmvDohcLTuc,2222
+image_tagger/main.py,sha256=1kATMlxuK-AMTacmTq99RXU_pqHJtlW_lZWC04dAvv8,10147
+image_tagger/response_models.py,sha256=HUhwrk3XMSkGVP0hVqpcSYXywk5VbF47hJ5t_McSmoM,1075
+image_tagger-1.0.0.dist-info/LICENSE,sha256=UKkJ1p5wP_IpBFoI3S9f7zsbW8HxsI_ZlIMOyY5ZSU8,10905
+image_tagger-1.0.0.dist-info/METADATA,sha256=IcrOOWeQ3tL6TUn0ApCdzBNu4xpFKRsnNBFLAq6vLh4,7123
+image_tagger-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+image_tagger-1.0.0.dist-info/top_level.txt,sha256=BZlrDhxx2MKS05jVbnCi_P-ifNIgMziQ53VruNAE4ek,13
+image_tagger-1.0.0.dist-info/RECORD,,
