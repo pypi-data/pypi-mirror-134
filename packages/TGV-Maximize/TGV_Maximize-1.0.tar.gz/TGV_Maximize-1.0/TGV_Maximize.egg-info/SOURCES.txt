@@ -1,0 +1,6 @@
+README.md
+setup.py
+TGV_Maximize.egg-info/PKG-INFO
+TGV_Maximize.egg-info/SOURCES.txt
+TGV_Maximize.egg-info/dependency_links.txt
+TGV_Maximize.egg-info/top_level.txt
