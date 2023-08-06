@@ -1,0 +1,3 @@
+[napari.plugin]
+Layer-Data-Replace = Layer_Data_Replace
+
