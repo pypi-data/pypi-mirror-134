@@ -1,0 +1,17 @@
+LICENSE.txt
+README.rst
+setup.py
+discord/ext/slash/__init__.py
+discord/ext/slash/bot.py
+discord/ext/slash/command.py
+discord/ext/slash/components.py
+discord/ext/slash/context.py
+discord/ext/slash/logger.py
+discord/ext/slash/message.py
+discord/ext/slash/option.py
+discord/ext/slash/simples.py
+discord_ext_slash.egg-info/PKG-INFO
+discord_ext_slash.egg-info/SOURCES.txt
+discord_ext_slash.egg-info/dependency_links.txt
+discord_ext_slash.egg-info/requires.txt
+discord_ext_slash.egg-info/top_level.txt
