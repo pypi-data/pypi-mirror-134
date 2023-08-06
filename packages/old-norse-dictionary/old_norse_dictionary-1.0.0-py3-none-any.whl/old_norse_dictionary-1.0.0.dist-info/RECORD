@@ -1,0 +1,11 @@
+old_norse_dictionary/__init__.py,sha256=v5j--chh8Mkd_uuA34I2bQknImjAtjXXF2u9Xlko-uU,305
+old_norse_dictionary/dictionary.py,sha256=Ap7-O2f22YUJCAazUXKOxYCqGgTRdcgJr9p6eviqPFc,508
+old_norse_dictionary/reader.py,sha256=5-CfRYPJDY9d1ie_I0NFxTh9nN7ada_pPTpTDM9xbEM,248
+old_norse_dictionary/resources/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+old_norse_dictionary/resources/default.json,sha256=IVEIOPD8XGg2Y06-UjzJJaDrZF0T7gAFF6hFWpfBklE,12187051
+old_norse_dictionary/resources/no-markup.json,sha256=WMsHwyncyFCnU91qtfVXOeQgLzGx_YKQmzwV5CRsrKM,11101334
+old_norse_dictionary-1.0.0.dist-info/LICENSE,sha256=4UgJr8pGrApGDm713A_T6dO6fCit_POBdh-oMxmHZLY,1075
+old_norse_dictionary-1.0.0.dist-info/METADATA,sha256=KwxD90tEPW92dJFg3e3_9DteYuYiIwRG6__Y5j0ywKc,1949
+old_norse_dictionary-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+old_norse_dictionary-1.0.0.dist-info/top_level.txt,sha256=ZMLTy9hliFeKw3droQkuu5oO_NsG2nLmKHgt0y3Zzjc,21
+old_norse_dictionary-1.0.0.dist-info/RECORD,,
