@@ -1,0 +1,24 @@
+# general things to ignore
+build/
+dist/
+.DS_Store
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+.*.swp
+
+# due to using tox and pytest
+.tox
+.cache
+
+# data/sqlite/bag files
+*.db3
+*.bag
+*.yml
+*.yaml
+
+# Except
+!.github/workflows/*
