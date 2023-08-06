@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/offtheface/__init__.py
+src/offtheface/offtheface.py
+src/offtheface.egg-info/PKG-INFO
+src/offtheface.egg-info/SOURCES.txt
+src/offtheface.egg-info/dependency_links.txt
+src/offtheface.egg-info/entry_points.txt
+src/offtheface.egg-info/top_level.txt
