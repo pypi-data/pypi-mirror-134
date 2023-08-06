@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: wordle-api
+Version: 1.1.0
+Summary: 
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: english-words (>=1.0.4,<2.0.0)
+Requires-Dist: fastapi (>=0.71.0,<0.72.0)
+Requires-Dist: fastapi-camelcase (>=1.0.5,<2.0.0)
+Requires-Dist: numpy (>=1.22.0,<2.0.0)
+Requires-Dist: uvicorn (>=0.16.0,<0.17.0)
