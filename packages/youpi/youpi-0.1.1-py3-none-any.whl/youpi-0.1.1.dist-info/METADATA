@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: youpi
+Version: 0.1.1
+Summary: Very light and incredibly simple python library for downloading youtube video. It was inspired by pytube.
+Home-page: https://github.com/Gabriel-Dropout/youpi
+Author: Gabriel-Dropout
+Author-email: winterday0210@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## youpi
+
