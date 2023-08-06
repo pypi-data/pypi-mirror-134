@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: cs20220112
+Version: 0.1
+Summary: 介绍
+Home-page: UNKNOWN
+Author: haoy_zhang
+Author-email: 1278017087@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: cs20220112
+Requires-Dist: python ; extra == 'cs20220112'
+
+# sfe
+
+#### 介绍
+sfe是一个基于有限元原理开发的python语言的软件。使用的是面向对象的编程，更容易让人们所理解。而有限元是一种强有力的数值计算方法。它支持静力学与动力学的计算，划分单元更清晰，并加入了多种梁理论。
+
+#### 软件架构
+此框架分为四个部分，节点、单元、单元类型和计算组集。
+
+#### 安装教程
+
+1.  Python安装，版本3或更新版本
+2.  需要numpy，scipy，matplotlib
+3.  
+
+#### 使用说明
+
+1.  导入sfe程序包
+2.  输入已有数据
+3.  通过Node类建立节点坐标
+4.  通过Element类连接节点建立单元
+5.  选取库中所有单元类型建立特有单元
+6.  利用求解器求解
+7.  在交互窗口或在变量管理器获取所需数据
+
+#### 应用场合
+
+1.  针对航空发动机叶片分析计算
+2.  针对使用梁理论进行分析的实际问题
+ 
+
+
