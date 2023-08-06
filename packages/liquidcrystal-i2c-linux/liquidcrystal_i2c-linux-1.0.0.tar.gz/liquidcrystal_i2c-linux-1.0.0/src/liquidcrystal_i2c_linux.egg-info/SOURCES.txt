@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/liquidcrystal_i2c/__init__.py
+src/liquidcrystal_i2c/liquidcrystal_i2c.py
+src/liquidcrystal_i2c_linux.egg-info/PKG-INFO
+src/liquidcrystal_i2c_linux.egg-info/SOURCES.txt
+src/liquidcrystal_i2c_linux.egg-info/dependency_links.txt
+src/liquidcrystal_i2c_linux.egg-info/requires.txt
+src/liquidcrystal_i2c_linux.egg-info/top_level.txt
