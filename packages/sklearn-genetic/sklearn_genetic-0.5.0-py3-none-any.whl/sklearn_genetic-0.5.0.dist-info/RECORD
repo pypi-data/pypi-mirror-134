@@ -1,0 +1,9 @@
+genetic_selection/__init__.py,sha256=51UYkMMY6tySBFFhyfxXVOLfHnZLOq51zSD52J72EHs,838
+genetic_selection/gscv.py,sha256=cUCnHAhdVPQaIkkdjrIqU-OP9cee0FwUA0JYbO5bXYU,16541
+genetic_selection/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+genetic_selection/tests/test_selection.py,sha256=OpnJMtgq4Sar9wfVgUw7Jg8oFyyxr7CAeqM-ynUp_cA,1741
+sklearn_genetic-0.5.0.dist-info/LICENSE.txt,sha256=fTqV5eBpeAZO0_jit8j4Ref9ikBSlHJ8xwj5TLg7gFk,7817
+sklearn_genetic-0.5.0.dist-info/METADATA,sha256=HXpM5sTWY70mo6fNw1ArGPh7BaHbpyX6vP3qopYx7T8,2509
+sklearn_genetic-0.5.0.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+sklearn_genetic-0.5.0.dist-info/top_level.txt,sha256=j5zQ1gHZu0d4XP8Eh2-59B2KvqXiTwiINlEN1i5Tyj0,18
+sklearn_genetic-0.5.0.dist-info/RECORD,,
