@@ -1,0 +1,15 @@
+mqdq/__init__.py,sha256=cpH-yo8CK8TEtSmOl3nFzlaPcGe_sUQvpDjTep-Foks,186
+mqdq/babble.py,sha256=_A4LQy-i6FqXEdTeH8EsDoNLkSVB1X50l_iWBmkylWw,38890
+mqdq/elegy.py,sha256=pWuYnqfl6LFzT_Pp3rvFe2rudUiCSnZgcif-09YdAbc,4784
+mqdq/hexameter_corpus.py,sha256=iiK9mUml-R3YJ3GdHHqI4rat_B3XBr1fIKOfwtGSGAs,2489
+mqdq/line_analyzer.py,sha256=yYwTN6tG1iBiT4ZV7FUbJXi5jRpuaUsnQOTXuywWHrw,19296
+mqdq/mahalanobis.py,sha256=qYe0lLFbKjCn8P_Q6kqBCb9MBPXmapAj1Zgjuiuud2M,8253
+mqdq/ngrams.py,sha256=AbgbwP4Do2u1DkeG_Sm9p0sjZELbbDR1_1UVGlf_-h4,7686
+mqdq/rhyme.py,sha256=s86zDF4WlBWlvinf8SkqqOiFpvGXS0ASmMOIOCw1jsM,31932
+mqdq/rhyme_classes.py,sha256=6KTSyOdDjCEHNvx9TgRkUURv3nzk5Hkj38RB_RFDob0,14281
+mqdq/utils.py,sha256=61MpE564HPYiBL-PaRCmN8jyOdPPgz1vxpCYHEXLp6A,11207
+MQDQParser-0.6.0.dist-info/LICENSE.txt,sha256=Kj_xbLNKMMOhwWkhyDGRkfh1TE1rtatpG_qeAPw8w0E,1454
+MQDQParser-0.6.0.dist-info/METADATA,sha256=SLfDL34AqCQscApaFhnqkl_Z7blcoNp0fX0kI6ND8g4,572
+MQDQParser-0.6.0.dist-info/WHEEL,sha256=p46_5Uhzqz6AzeSosiOnxK-zmFja1i22CrQCjmYe8ec,92
+MQDQParser-0.6.0.dist-info/top_level.txt,sha256=MbNdFBEtXlSkuFKpyzYG5c7t5jjAO1qFP6y5aVG6J4Q,5
+MQDQParser-0.6.0.dist-info/RECORD,,
