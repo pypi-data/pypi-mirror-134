@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: tictactoelogic
+Version: 0.1.3
+Summary: Onboarding project phase 1
+Author: Alexandre Meneses
+Author-email: alexandre.meneses@fabamaq.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
