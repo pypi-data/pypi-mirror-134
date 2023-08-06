@@ -1,0 +1,7 @@
+README.md
+setup.py
+pscontroll.egg-info/PKG-INFO
+pscontroll.egg-info/SOURCES.txt
+pscontroll.egg-info/dependency_links.txt
+pscontroll.egg-info/requires.txt
+pscontroll.egg-info/top_level.txt
