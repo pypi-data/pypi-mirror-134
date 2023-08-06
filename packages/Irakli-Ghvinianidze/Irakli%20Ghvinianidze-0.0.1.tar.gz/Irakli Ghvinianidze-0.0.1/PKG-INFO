@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: Irakli Ghvinianidze
+Version: 0.0.1
+Summary: calculator
+Home-page: UNKNOWN
+Author: Irakli Ghvinianidze
+Author-email: iraklikairakli@gmail.com
+License: MIT
+Description: 
+        
+        
+Keywords: calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

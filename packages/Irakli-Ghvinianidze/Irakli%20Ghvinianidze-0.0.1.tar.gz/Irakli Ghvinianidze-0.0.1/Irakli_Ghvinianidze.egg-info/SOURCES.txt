@@ -1,0 +1,7 @@
+README.txt
+setup.py
+Irakli_Ghvinianidze.egg-info/PKG-INFO
+Irakli_Ghvinianidze.egg-info/SOURCES.txt
+Irakli_Ghvinianidze.egg-info/dependency_links.txt
+Irakli_Ghvinianidze.egg-info/top_level.txt
+calculator/__init__.py
