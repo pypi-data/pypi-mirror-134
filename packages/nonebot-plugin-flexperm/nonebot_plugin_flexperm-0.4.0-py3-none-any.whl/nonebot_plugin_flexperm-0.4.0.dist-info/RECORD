@@ -1,0 +1,12 @@
+nonebot_plugin_flexperm/__init__.py,sha256=3hACs42n4vGrNW_TcmFpPEDaDakDGqJ-wZc0jZ3cjrY,258
+nonebot_plugin_flexperm/__init__.pyi,sha256=G6RtKYwxevwxKpCokTsJcSdU57HLFeCAyb5OlwjA3A8,6312
+nonebot_plugin_flexperm/check.py,sha256=Yt8rns5UD5MYNZNCeptR9iDqrSvQz0PwE6WTnU-R2-0,1960
+nonebot_plugin_flexperm/cmds.py,sha256=ys83AFKg6Ln8qizi9zVdBO869PeMv-3oPtiR0It0Sbg,4144
+nonebot_plugin_flexperm/config.py,sha256=Z5a6muZKOlhqV4ykatJAOnU-sd6HyvZM-VxLxfCHTDo,235
+nonebot_plugin_flexperm/core.py,sha256=ajZlkpRI665NgOf7D9565A1OsHypDedR9JGIFfJ4P7s,14673
+nonebot_plugin_flexperm/defaults.yml,sha256=BIu4iBclup_80bqyJDLEnAiaNARCqwqXeEIKNzEXekk,147
+nonebot_plugin_flexperm/plugin.py,sha256=2x7hhYwlEzkJMUtrNPzU_S0JctlGiqnq3v1Gv6sYvC4,11837
+nonebot_plugin_flexperm-0.4.0.dist-info/LICENSE,sha256=ZkaxpGF4j17xlivjIXCOgNWUwV2QBGazTmt3ror8bRM,1062
+nonebot_plugin_flexperm-0.4.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+nonebot_plugin_flexperm-0.4.0.dist-info/METADATA,sha256=-KmWkUqM8QHcxyd0kzGl2XbDBwBY__WydQGUJU3mGys,2974
+nonebot_plugin_flexperm-0.4.0.dist-info/RECORD,,
