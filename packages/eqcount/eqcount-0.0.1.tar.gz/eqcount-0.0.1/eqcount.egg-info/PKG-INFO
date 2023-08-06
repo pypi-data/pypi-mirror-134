@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: eqcount
+Version: 0.0.1
+Summary: このライブラリで地震の可視化が可能になります
+Home-page: https://github.com/Yuki-max/earthquake
+Author: Yuki-max
+Author-email: yuki65763933@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+This software is released under the MIT License, see LICENSE.
+
+1 ・This library is designed to visualize the frequency of recent earthquakes (seismic intensity 3 or higher).
+Enter the path of the Chrome driver as an argument to visualize a bar graph of the frequency.
+
