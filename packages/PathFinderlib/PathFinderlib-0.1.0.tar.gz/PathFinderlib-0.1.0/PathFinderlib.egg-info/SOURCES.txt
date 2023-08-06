@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+PathFinderlib/__init__.py
+PathFinderlib.egg-info/PKG-INFO
+PathFinderlib.egg-info/SOURCES.txt
+PathFinderlib.egg-info/dependency_links.txt
+PathFinderlib.egg-info/top_level.txt
+tests/__init__.py
