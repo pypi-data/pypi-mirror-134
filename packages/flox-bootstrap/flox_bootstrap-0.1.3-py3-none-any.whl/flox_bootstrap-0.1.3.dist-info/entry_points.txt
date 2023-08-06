@@ -1,0 +1,3 @@
+[flox.plugin]
+bootstrap=flox_bootstrap:plugin
+
