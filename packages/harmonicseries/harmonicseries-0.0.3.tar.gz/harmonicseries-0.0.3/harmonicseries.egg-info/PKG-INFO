@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: harmonicseries
+Version: 0.0.3
+Summary: Python Package to calculate harmonic numbers
+Home-page: UNKNOWN
+Author: Anjana Wijekoon
+Author-email: a.wijekoon1@rgu.ac.uk
+License: UNKNOWN
+Keywords: mathematic calculations
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# harmonicseries
+Python package to calculate harmonic numbers
+
+### Installing harmonicseries
+harmonicseries supports Python 3+. 
+The stable version of harmonicseries is available on [PyPI](https://pypi.org/project/harmonicseries/):
+
+    pip install harmonicseries
+
+
