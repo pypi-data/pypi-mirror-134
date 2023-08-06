@@ -1,0 +1,4 @@
+pygame>=1.9.6
+keyboard>=0.13.5
+numpy>=1.20.3
+scipy>=1.6.3
