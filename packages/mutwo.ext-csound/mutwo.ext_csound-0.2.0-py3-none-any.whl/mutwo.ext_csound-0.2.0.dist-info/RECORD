@@ -1,0 +1,11 @@
+mutwo/__init__.py,sha256=xWdnJ66SjGt961OGkdsrGO1ROra_vVsIcbjSYE57fOo,677
+mutwo/ext/__init__.py,sha256=r1vdCdreZ9GJCOXaa_K_BrAq9lMXiLJ3mwUyCIs4dWY,120
+mutwo/ext/converters/__init__.py,sha256=7kYGadnklmNRikT-qY2NaVP8syRWgFPaDWd3vRjT-u4,260
+mutwo/ext/converters/frontends/__init__.py,sha256=y9GDfv4i5dbq0_b0-6CHIjyAGDO-JXsl1VG5RO-hGEM,123
+mutwo/ext/converters/frontends/csound.py,sha256=RFv213EEeuL7khc0U1_MjGq6Zh0YmlISJPrgFBtJ4GQ,12475
+mutwo/ext/converters/frontends/csound_constants.py,sha256=pIOaf6KmpT02HT2Cye97PZED6r721vhBbIJGsGdyqv0,1312
+mutwo.ext_csound-0.2.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+mutwo.ext_csound-0.2.0.dist-info/METADATA,sha256=3DD6UQVDkou3TAdk0E3f0hT7IRfTlyFXN0t6mEo3b3w,1475
+mutwo.ext_csound-0.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mutwo.ext_csound-0.2.0.dist-info/top_level.txt,sha256=1UzApATBnnDoZgVDqupcM1hYH7l1uhSHZQCf_nUK5y8,6
+mutwo.ext_csound-0.2.0.dist-info/RECORD,,
