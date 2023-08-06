@@ -1,0 +1,9 @@
+migu_music_dl/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+migu_music_dl/cli.py,sha256=4M_p9qPyG8oeb4ymT1WqCMDTQMD3IUb8MPPKAaFwklA,2793
+migu_music_dl/core.py,sha256=js_yQrXVXkTXUD9f4GcIZlQIReb1ZWKeuIEfN1awjTw,772
+migu_music_dl/extenral_api.py,sha256=wluV_Kn-tkwbQO0fNWVJJLL5B78d3iI2SjZEv3WHUkY,2178
+migu_music_dl-0.1.1.dist-info/entry_points.txt,sha256=S72sBMTcf78kext-jqyWNcO6e9YSaxh5IIOunKAnHoY,60
+migu_music_dl-0.1.1.dist-info/LICENSE,sha256=jOtLnuWt7d5Hsx6XXB2QxzrSe2sWWh3NgMfFRetluQM,35147
+migu_music_dl-0.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+migu_music_dl-0.1.1.dist-info/METADATA,sha256=nZdwoEfZAHHA-Yx3Apc-QZjbkPYpzOKKI3ipYtbqTWg,3273
+migu_music_dl-0.1.1.dist-info/RECORD,,
