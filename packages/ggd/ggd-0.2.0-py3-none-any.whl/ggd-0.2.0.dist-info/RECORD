@@ -1,0 +1,12 @@
+ggd/__ggd.py,sha256=51CfxeMEXLu3dmy4n_Awnm64TMbf2D13OQUnsYoCNm4,9722
+ggd/__init__.py,sha256=RarFQPcaFck1P_995yxM0wJi_UmODOCbeQ0gt78r5Ng,49
+ggd/config/__config.py,sha256=22bxM0RCFX7m2TZy9TH7rT8sq31RB7z1WGgEs-BWWPk,599
+ggd/config/__init__.py,sha256=GJMlj-5pwXkYhzOLl9a_C59fMNk5jWVRbFeuvIZRQr0,28
+ggd/exceptions/__exception.py,sha256=LtPil8yF89q5HhTAR4nH8h2Vkl-cicPCRRWb8AJo9_o,469
+ggd/exceptions/__init__.py,sha256=1BkEIaAAD6wGpkM8vjpk7FKxL9KaabRJPXReQtD8FFk,35
+ggd/match/__init__.py,sha256=QApxS-tOCOHFH6rnJG3ed1S8osCcjtL65x1RHvukqaI,29
+ggd/match/__match.py,sha256=4f0CIhs1cH6lceefA5VchVvLjFkH6DzG5oFJhIv4Efg,342
+ggd-0.2.0.dist-info/METADATA,sha256=sw9ZVqsu4vAePkKPzlWWbreCibY0CW6ApijAr8nvmTQ,244
+ggd-0.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ggd-0.2.0.dist-info/top_level.txt,sha256=pGj8fZEkkI5BJgyNsn-JkVC3gPU02Qh4eNW0mOhzuHw,4
+ggd-0.2.0.dist-info/RECORD,,

@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ggd
+Version: 0.2.0
+Summary: Google Image Downloader
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: tqdm (==4.62.3)
+Requires-Dist: requests (==2.27.1)
+Requires-Dist: selenium (==4.1.0)
+
+UNKNOWN
+
