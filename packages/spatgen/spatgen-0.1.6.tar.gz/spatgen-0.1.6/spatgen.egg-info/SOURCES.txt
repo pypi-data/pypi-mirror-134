@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+spatgen/__init__.py
+spatgen/__main__.py
+spatgen/parser.py
+spatgen.egg-info/PKG-INFO
+spatgen.egg-info/SOURCES.txt
+spatgen.egg-info/dependency_links.txt
+spatgen.egg-info/requires.txt
+spatgen.egg-info/top_level.txt
