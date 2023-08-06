@@ -1,0 +1,11 @@
+volumio_webthing/__init__.py,sha256=W1mj7Ci1vVcEfXNNMVHHs0mqR36HcZPZirYpmwTnfJY,2716
+volumio_webthing/app.py,sha256=sK1HV7bJtbDxmlpOhHgBJgUfPFyshqo8HkDCpI4-XQM,5197
+volumio_webthing/volumio.py,sha256=35B-oyx4uyqpVGrMLSBFyTgdG-V3Pcks-nGSbYiqNe0,7227
+volumio_webthing/volumio_event_receiver.py,sha256=_4dNSHey-iSsFJGumJYgoPhHtP-vQCWH-f3vW1456JM,3006
+volumio_webthing/volumio_webthing.py,sha256=bid_LVkKPCQr31NpXXVEMdS71nCsSwNyeji9uGTfVs4,5647
+volumio_webthing-0.16.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+volumio_webthing-0.16.1.dist-info/METADATA,sha256=FWhfAa5PDufnu07MqkoPX2BjgHOfYx-5Gtk4dEnmJac,618
+volumio_webthing-0.16.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+volumio_webthing-0.16.1.dist-info/entry_points.txt,sha256=n2LS_0dhia2r5fzb9Tb7ZU2UHkFCu5LZhPN7OyoLBiQ,60
+volumio_webthing-0.16.1.dist-info/top_level.txt,sha256=zIL__r0ZV05rqqypdCtd35zHIjI9Dno8XgYYN0XCStQ,17
+volumio_webthing-0.16.1.dist-info/RECORD,,

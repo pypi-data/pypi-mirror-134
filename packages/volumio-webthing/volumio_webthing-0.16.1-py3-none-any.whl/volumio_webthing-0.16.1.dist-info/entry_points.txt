@@ -1,0 +1,3 @@
+[console_scripts]
+volumio_webthing = volumio_webthing:main
+
