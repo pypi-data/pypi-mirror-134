@@ -1,0 +1,11 @@
+otio_drp_adapter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+otio_drp_adapter/plugin_manifest.json,sha256=fEnUIglupqeMBz6iFiNVc99WGF80c6c1osnlIeBO6Jc,294
+otio_drp_adapter/adapters/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+otio_drp_adapter/adapters/drp.py,sha256=_DlSNjzkpWWJKkdMm1j311MK6mBjpHzAkpcnO76iAPo,5813
+otio_drp_adapter-0.2.1.dist-info/LICENSE-APACHE-20,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+otio_drp_adapter-0.2.1.dist-info/LICENSE.md,sha256=KGc8VrN_QwLBOIk6wVgMsSrXHmQujCBd-Rsaui8VnWs,196
+otio_drp_adapter-0.2.1.dist-info/METADATA,sha256=VW1m1Yy6bNX_SKDs57_8djf2oW6QMGV8pW8BifbhPr0,5722
+otio_drp_adapter-0.2.1.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+otio_drp_adapter-0.2.1.dist-info/entry_points.txt,sha256=5qGy0ur1AdttXPX4xnjEtJ1KcZwC-gPojbPwJhtt_-w,62
+otio_drp_adapter-0.2.1.dist-info/top_level.txt,sha256=BDHtlt5t1XCrqOmt5i_i_qL0XpzDghrwlBASpEMKKRI,17
+otio_drp_adapter-0.2.1.dist-info/RECORD,,
