@@ -1,0 +1,12 @@
+numba
+numpy
+opencv-python
+scikit-image
+scipy
+simpleitk
+stitchwell
+tifffile
+
+[gui]
+matplotlib
+pyside6
