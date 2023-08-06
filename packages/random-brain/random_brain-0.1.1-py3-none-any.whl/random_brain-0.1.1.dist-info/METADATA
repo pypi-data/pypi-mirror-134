@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: random-brain
+Version: 0.1.1
+Summary: Python Random Brain Module
+Home-page: https://github.com/einelson/Random-brain
+Author: Ethan Nelson
+Author-email: ethanisaacnelson@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy
+Requires-Dist: keras
+
+UNKNOWN
+
+
