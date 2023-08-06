@@ -1,0 +1,8 @@
+influx_logging_handler/__init__.py,sha256=VrXpHDu3erkzwl_WXrqINBm9xWkcyUy53IQOj042dOs,22
+influx_logging_handler/handlers.py,sha256=XPHCb9viBz80dIZPpBkZvG8U8Py5S4SUolF_wYLMZQ0,2353
+influx_logging_handler/utils.py,sha256=RPUz-B_-paLbwRO9B5ObbFQK8VdInIwLgK4TFQLRZnI,6941
+influx_logging_handler-0.3.0.dist-info/LICENSE,sha256=7FBxouxq-MZzWShJAMSGZdD7p_3CwXbEyiego2km4e0,1079
+influx_logging_handler-0.3.0.dist-info/METADATA,sha256=PpjA_ZKOmJ5bRSXQMvYsIv_cfp_fecm6wU3BCbEqpl0,417
+influx_logging_handler-0.3.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+influx_logging_handler-0.3.0.dist-info/top_level.txt,sha256=pxq_C8m6RyH8wL-OIY9K-gZRFwFiiLRsZQAz-MdOo2o,23
+influx_logging_handler-0.3.0.dist-info/RECORD,,
