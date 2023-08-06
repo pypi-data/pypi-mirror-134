@@ -1,0 +1,4 @@
+numpy>=1.16
+Cerberus>=1.2
+pandas>=0.23
+boto3>=1.9

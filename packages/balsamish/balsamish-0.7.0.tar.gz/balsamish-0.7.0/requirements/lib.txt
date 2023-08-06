@@ -1,0 +1,4 @@
+Cerberus==1.2
+pandas==0.24.1
+numpy==1.16.1
+boto3==1.9.93

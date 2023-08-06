@@ -1,0 +1,13 @@
+VERSION
+secrets.env
+.dir-locals.el
+.python-version
+__pycache__
+*.pyc
+.cache/
+/requirements/local.txt
+secrets
+.eggs/
+balsam.egg-info/
+balsamish.egg-info/
+dist/
