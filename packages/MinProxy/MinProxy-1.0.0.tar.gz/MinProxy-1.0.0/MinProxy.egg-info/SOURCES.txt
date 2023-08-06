@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+MinProxy/__init__.py
+MinProxy.egg-info/PKG-INFO
+MinProxy.egg-info/SOURCES.txt
+MinProxy.egg-info/dependency_links.txt
+MinProxy.egg-info/requires.txt
+MinProxy.egg-info/top_level.txt
