@@ -1,0 +1,10 @@
+argcomplete
+cryptography
+future
+requests
+threadlocal-aws>=0.10
+
+[:platform_system == "Windows"]
+pypiwin32
+win-unicode-console
+wmi
