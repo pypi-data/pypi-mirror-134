@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
+ng\:form {
+  display: block;
+}
+
+.events-registration-client-js-components-___RegistrationTagsEditableList-module__removable-tags-container___GOc9f { display: flex; flex-wrap: wrap; grid-gap: 4px; }
+
+.events-registration-client-js-components-___RegistrationTagsEditableList-module__selectable-tags-container___1xO_m { max-height: 260px; overflow-y: auto; }
+
+.events-registration-client-js-components-___RegistrationTagsEditableList-module__selectable-tags-container___1xO_m > div { padding: 0.35em 1em 0.35em 1em; cursor: pointer; }
+
+.events-registration-client-js-components-___RegistrationTagsEditableList-module__selectable-tags-container___1xO_m > div:hover { background: rgba(0, 0, 0, 0.05); }
+
+.ui.label.events-registration-client-js-components-___RegistrationTagsEditableList-module__registration-tag___1Wkeq { margin-right: 0; margin-left: 0; }
+
+.ui.label.events-registration-client-js-components-___RegistrationTagsEditableList-module__registration-tag___1Wkeq.events-registration-client-js-components-___RegistrationTagsEditableList-module__removable___Rx6hN i { opacity: 0.5; transition: all 0.1s; }
+
+.ui.label.events-registration-client-js-components-___RegistrationTagsEditableList-module__registration-tag___1Wkeq.events-registration-client-js-components-___RegistrationTagsEditableList-module__removable___Rx6hN i:hover { opacity: 1; }
+
+.ui.label.events-registration-client-js-components-___RegistrationTagsEditableList-module__registration-tag___1Wkeq.events-registration-client-js-components-___RegistrationTagsEditableList-module__selectable___A7YRB { transition: all 0.15s ease; width: -webkit-max-content; width: max-content; }
+
+
+/*# sourceMappingURL=module_events.registration.d0398030.css.map*/
