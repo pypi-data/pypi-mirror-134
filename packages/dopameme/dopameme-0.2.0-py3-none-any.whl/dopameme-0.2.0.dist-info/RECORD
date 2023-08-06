@@ -1,0 +1,15 @@
+dopameme/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dopameme/constants.py,sha256=bsGEhvHl43iwZww-vgTRwd9dlosOx726PgM9TKMgv4o,2323
+dopameme/cute.py,sha256=gFAUUcN3X-VnHzYMuq3b7iSARs2fGc7bbZ94V4P65w8,788
+dopameme/entry_point.py,sha256=ekiC7vbYOIjZVbPQ-Er_G5nnR6PbpOys_Sca0cs0C7M,4026
+dopameme/search.py,sha256=zr6J0EVPPfVysiROe-aLXeBd94a4_clh-7pl3FU1SRU,1712
+dopameme/testlib.py,sha256=oAImKm2D5fS7nBEV4XpXluJChAUG5DRJynF8adUd-00,1449
+dopameme/backends/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dopameme/backends/base.py,sha256=X79NieXO0m3xSjA1sPk-49uCKo172wJ3cOr1wmIzJsY,3000
+dopameme/backends/yandex.py,sha256=utMqJJI2ilTc1B9SIDdTpHg10OmktycKjVGEVgWQwrA,945
+dopameme-0.2.0.dist-info/LICENSE,sha256=JCz-XNyHmb8M1wLPDaqBuJAsQLuHjRtNGsD4BbfYkas,531
+dopameme-0.2.0.dist-info/METADATA,sha256=EpedzGIehWBI5cxaCyyCbaLAm9ZRi8D6oqdYAnpg790,1681
+dopameme-0.2.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+dopameme-0.2.0.dist-info/entry_points.txt,sha256=eHr_VagRNvpSJIlMJ38RWunroSv-NQ7Ec3fPP6-H9aQ,56
+dopameme-0.2.0.dist-info/top_level.txt,sha256=qW82YlTe2riDkZ2--upkmfCB8L7q8wKHccFxtNEmgTU,9
+dopameme-0.2.0.dist-info/RECORD,,

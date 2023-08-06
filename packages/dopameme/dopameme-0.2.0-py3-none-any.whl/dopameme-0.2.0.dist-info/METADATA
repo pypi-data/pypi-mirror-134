@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: dopameme
+Version: 0.2.0
+Summary: Get a quick dopamine hit of cuteness
+Home-page: UNKNOWN
+License: UNKNOWN
+Keywords: cute,adorable,dopamine
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: log-color
+Requires-Dist: lxml
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: setuptools-scm ; extra == 'dev'
+
+Description
+===========
+
+``dopameme`` provides you with that quick hit of cute dopamine that you know you crave! It's a simple command line tool
+for those dark days where you just need to see something adorable to get through the day. Usage is simple! Simply run
+the command from a terminal and a cute image will open in your default browser. For example::
+
+    $ dopameme
+    INFO: Welcome to Dopameme!
+      |\__/,|   (`\
+    _.|o o  |_   ) )
+    ---(((---(((---------
+    INFO: Search Terms: cute birdy
+
+An image of a cute birdy will appear in your web browser. Run it again for a totally different hit::
+
+    $ dopameme
+    INFO: Welcome to Dopameme!
+          |\__/,|   (`\
+        _.|o o  |_   ) )
+    ---(((---(((---------
+    INFO: Search Terms: smol butterfly
+
+
