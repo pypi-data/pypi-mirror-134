@@ -1,0 +1,12 @@
+flox_github/__init__.py,sha256=ENW0eE8hUpYjGfFL5aIMPSqadzrmbsIZeqBjgNHWp7s,1212
+flox_github/configure.py,sha256=kd9F6miJTjb1QcLkLm7SIeXQWmw6j3QejXZ4YBnOEj4,1576
+flox_github/docker.py,sha256=AHKfoYn5LN9Gez4sUpN5KThSk3s_mRX-7eeCd9pKbQQ,328
+flox_github/helper.py,sha256=FKFRsM5dKHPH3X8VDxcc0-IckEEANnpT0sifQH9S9g4,730
+flox_github/project.py,sha256=XM47AcnMrzVJ_yYxWaXlRfChF68rGs6THQVPgFrkt7A,3437
+flox_github/remote.py,sha256=9UJA1EqGskjBEhcnq1hY2bCy5wN5H4Q5_16LAS2Puwo,2675
+flox_github/workflow.py,sha256=ce8h53xmbbScAy9P7pq0nZprp7JxTHA1eVHRkR2hJ3A,1274
+flox_github-0.1.1.dist-info/entry_points.txt,sha256=_W8BDTeJ9JgtPugjknJ9KfWsawG3Cb96VCNNleIJP3Q,41
+flox_github-0.1.1.dist-info/LICENSE,sha256=YwxuehBqRJ5c4m8SEhLeVWOxq5nkKqSXvrRPPA2YqmE,1076
+flox_github-0.1.1.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+flox_github-0.1.1.dist-info/METADATA,sha256=CAvSxT_eNsr99HA9iLGDJQPXiE3Y8OxKrS4rcBdLgdU,573
+flox_github-0.1.1.dist-info/RECORD,,
