@@ -1,0 +1,14 @@
+volumetricspy/__init__.py,sha256=J-YWceBxpNvYBoyuxZhDIElTYZEtA2nB5lq9JLczxEk,121
+volumetricspy/montecarlo.py,sha256=R4tUROAkdHfuMbzUmAGg37HeFei5ZJo7LPlxYk6kuFw,2364
+volumetricspy/stats/__init__.py,sha256=e_IQndyZxu3nV1-Im2-H63Yb3xnxxYpYjNd34rWPrfM,171
+volumetricspy/stats/grid.py,sha256=ORujkOxP6lqT5wQpQhWgyo-fgrGdrr0a5OxyVOSHGpA,33775
+volumetricspy/stats/points.py,sha256=h69Qc2dZ9RIa7D-WHnDjggDSa-foe6KwAB5ykKHvex8,10288
+volumetricspy/stats/transforms.py,sha256=LJnDVgx_oquea4MzH-Q2B_8EZn-DS5CteYW7mwXMqGs,1192
+volumetricspy/stats/variograms.py,sha256=aJC3zyxshIhUhv2rtfgRdhm32SLFFe4Ej4EAV25oIFQ,5321
+volumetricspy/utils/__init__.py,sha256=iRTixdh95lTvfLSzDAJmIlqtTrjXJ3spI1v3MTqs_hk,61
+volumetricspy/utils/formulas.py,sha256=-QdP8uJhAW0xyobkwvj8_tNIODvgcCuLMYVTufyfQFI,1018
+volumetricspy/volumetrics.py,sha256=Qd6s-ooUmj4lP7rJkSj6ITfPbJLNU7kKCEWc-fASAH0,19071
+volumetricspy-0.1.2.dist-info/LICENSE,sha256=mhBk7eO5wnMlxK6UgaZxlWUyaYKeRpmo4gdNDXD2I20,1059
+volumetricspy-0.1.2.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+volumetricspy-0.1.2.dist-info/METADATA,sha256=_2f57c2Wb_2KcispEDB7b3mx-5kgqMiyWdURAegPnI4,967
+volumetricspy-0.1.2.dist-info/RECORD,,
