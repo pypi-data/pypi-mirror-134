@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: animalapi
+Version: 0.0.3
+Summary: This is the package for api scapper that provides animal images and their facts.
+Home-page: UNKNOWN
+Author: DARKPOISON
+Author-email: dashutosh06122004@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/DARKPOISON-yt/animalapi/archive/refs/tags/0.0.3.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+<h1 align="center"> Animalapi </h1>
+<p align="center">Animal-api wrapper || <a href="https://discord.gg/4cNJxWAGFA"> Official Discord Server </a></p>
+<p align="center">
+================================
+
+#### pip install animalapi
+
+## Randomized Animal data
+
+```Python
+import animalapi as a
+data = a.rand_animals()
+img = data["image"]
+fact = data["fact"]
+
+```
+
+## Specific animal data
+
+```Python
+import animalapi as a
+data = a.animal_data("dog")
+img = data["image"]
+fact = data["fact"]
+print(img)
+print(fact)
+
+```
+
+> Currently this package supports these animals:- ["dog","cat","panda","fox","kangaroo","raccoon","bird","red_panda","koala"]
+
+
