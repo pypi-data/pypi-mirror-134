@@ -1,0 +1,13 @@
+jupyterlab_widgets~=1.0
+voila<0.4.0,>=0.2.0
+
+[dev]
+click
+jupyter_releaser~=0.9
+tbump~=6.4
+
+[test]
+ipykernel
+pytest
+pytest-tornasync
+lxml
