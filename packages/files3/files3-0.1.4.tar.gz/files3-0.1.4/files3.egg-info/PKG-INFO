@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: files3
+Version: 0.1.4
+Summary: (pickle based) save Python objects in binary to the file system and manage them (more convenient?)
+Home-page: UNKNOWN
+Author-email: 2229066748@qq.com
+Maintainer: Eagle'sBaby
+Maintainer-email: 2229066748@qq.com
+License: Apache Licence 2.0
+Keywords: file,pickle,bin
+Platform: all
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+
+UNKNOWN
+
