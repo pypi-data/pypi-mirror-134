@@ -1,0 +1,12 @@
+rpa_logger/__init__.py,sha256=Z96otTQed46337wZJRN10ZVlM5WOdzKE_77dwAj0MMY,173
+rpa_logger/_version.py,sha256=ls1camlIoMxEZz9gSkZ1OJo-MXqHWwKPtdPbZJmwp7E,22
+rpa_logger/logger.py,sha256=BRV3OGDV-tFtV0xnShEbOndMjIsPm0VEpn08kPBDd_M,8272
+rpa_logger/task.py,sha256=KM2dxVFD00ThLZ-COKM65g3VUs8z-Am9D6N5F4lXV28,255
+rpa_logger/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rpa_logger/utils/args.py,sha256=gjkqjbREooFLKsiSUrAd5sVsELWbcZQYSUNMwilTRus,829
+rpa_logger/utils/terminal.py,sha256=HmyhE37QRrskv_XiW7Zri_kKxlKmzBXbTIfaLluZcbs,2350
+rpa_logger-0.1.1.dist-info/LICENSE,sha256=9CtnkM7VFsjWVssG-iu50wtYCIma5QIRdepVx8E3NlI,1068
+rpa_logger-0.1.1.dist-info/METADATA,sha256=koi84n62yS15yZa0VmhZRzUjaaTOjxbwKitrr7fNrhU,2570
+rpa_logger-0.1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+rpa_logger-0.1.1.dist-info/top_level.txt,sha256=LTZ7cneZqnPK4Kaw4mvUo1vdXavRq-Pp9-GECvpg4rc,11
+rpa_logger-0.1.1.dist-info/RECORD,,
