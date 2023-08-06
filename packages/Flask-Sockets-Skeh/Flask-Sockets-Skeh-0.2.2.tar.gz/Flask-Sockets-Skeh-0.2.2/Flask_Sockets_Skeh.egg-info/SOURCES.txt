@@ -1,0 +1,10 @@
+LICENSE
+README.md
+flask_sockets.py
+setup.py
+Flask_Sockets_Skeh.egg-info/PKG-INFO
+Flask_Sockets_Skeh.egg-info/SOURCES.txt
+Flask_Sockets_Skeh.egg-info/dependency_links.txt
+Flask_Sockets_Skeh.egg-info/not-zip-safe
+Flask_Sockets_Skeh.egg-info/requires.txt
+Flask_Sockets_Skeh.egg-info/top_level.txt
