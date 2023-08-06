@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pycounts-klsleung
+Version: 0.1.0
+Summary: Calculate word counts in a text file!
+License: MIT
+Author: Steven Leung
+Author-email: klsleung@student.ubc.ca
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0)
