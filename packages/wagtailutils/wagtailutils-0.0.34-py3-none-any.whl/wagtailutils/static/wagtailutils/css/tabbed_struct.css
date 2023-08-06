@@ -1,0 +1,18 @@
+.tabbed-struct {
+    border: none;
+}
+
+.tabbed-struct .ui-tabs-nav {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    text-transform: capitalize;
+}
+
+.tabbed-struct .ui-tabs-nav .ui-tabs-tab {
+    background-color: rgb(245, 245, 245);
+}
+
+.tabbed-struct .ui-tabs-nav .ui-state-active {
+    background-color: #007D7E;
+}
