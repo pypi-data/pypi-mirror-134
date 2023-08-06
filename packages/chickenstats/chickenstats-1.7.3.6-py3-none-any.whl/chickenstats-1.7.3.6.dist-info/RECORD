@@ -1,0 +1,9 @@
+chickenstats/chicken_nhl/__init__.py,sha256=r_UULyE_dMmDMnaCocbQC5nLHM5HLzIaw7n_OM-ATik,264
+chickenstats/chicken_nhl/player_names.py,sha256=PJ1pDR0ZVB_sv0DFVH8GjR6tHtTGSN0uFwmksRANgLg,16434
+chickenstats/chicken_nhl/plot_functions.py,sha256=D5CX5j52XGAXqGdIdOlWXf1zcpqkqLwZZ36j-kFmaX4,11160
+chickenstats/chicken_nhl/scrape_functions.py,sha256=LOu360F6UifQg6OZXxWuDOvXvuhTdUFCjB7XwlfDyBE,127923
+chickenstats-1.7.3.6.dist-info/LICENSE,sha256=CWUoiiWogYvbWbonLn1xEfZcAQkP6zXJuDLIsNEnmyA,1072
+chickenstats-1.7.3.6.dist-info/METADATA,sha256=EuRjN4Zc7qgrgcLbd_YRjkweuY2qQ3HzRhJFuz_xDbU,661
+chickenstats-1.7.3.6.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+chickenstats-1.7.3.6.dist-info/top_level.txt,sha256=xrv5331brYOIjCkUji_KfraWoyj8snx8p1hLVZxI85Y,13
+chickenstats-1.7.3.6.dist-info/RECORD,,
