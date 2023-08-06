@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: fixations
+Version: 0.1.0
+Summary: This is a set of tools to handle FIX protocol data
+License: GPL-3.0-or-later
+Keywords: fix,fix-protol
+Author: Jerome Provensal
+Author-email: jeromegit@provensal.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: dataclasses-json (==0.5.6)
+Requires-Dist: tabulate (==0.8.9)
+Requires-Dist: termcolor (>=1.1.0,<1.2.0)
+Requires-Dist: urwid (>=2.1,<3.0)
+Description-Content-Type: text/markdown
+
+# Fixations
+**This is a set of tools to handle FIX protocol data**
+
+## Data source
+The data is extracted from the FIX specs available here: 
+
+https://www.fixtrading.org/standards/fix-repository/fix_repository_2010_edition_20200402
