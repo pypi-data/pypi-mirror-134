@@ -1,0 +1,202 @@
+Metadata-Version: 2.1
+Name: html-section
+Version: 0.2.0.post1
+Summary: Sphinx extension to hide section headers with non-HTML builders.
+Author-email: Dominic Davis-Foster <dominic@davis-foster.co.uk>
+License: BSD-3-Clause
+Keywords: documentation,sphinx,sphinx-extension
+Home-page: https://github.com/sphinx-toolbox/html-section
+Project-URL: Issue Tracker, https://github.com/sphinx-toolbox/html-section/issues
+Project-URL: Source Code, https://github.com/sphinx-toolbox/html-section
+Platform: Windows
+Platform: macOS
+Platform: Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.6
+Requires-Dist: docutils>=0.16
+Requires-Dist: sphinx>=3.3.0
+Description-Content-Type: text/x-rst
+
+
+#############
+html-section
+#############
+
+.. start short_desc
+
+**Sphinx extension to hide section headers with non-HTML builders.**
+
+.. end short_desc
+
+
+.. start shields
+
+.. list-table::
+	:stub-columns: 1
+	:widths: 10 90
+
+	* - Tests
+	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
+	* - PyPI
+	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Activity
+	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
+	* - QA
+	  - |codefactor| |actions_flake8| |actions_mypy|
+	* - Other
+	  - |license| |language| |requires|
+
+.. |actions_linux| image:: https://github.com/sphinx-toolbox/html-section/workflows/Linux/badge.svg
+	:target: https://github.com/sphinx-toolbox/html-section/actions?query=workflow%3A%22Linux%22
+	:alt: Linux Test Status
+
+.. |actions_windows| image:: https://github.com/sphinx-toolbox/html-section/workflows/Windows/badge.svg
+	:target: https://github.com/sphinx-toolbox/html-section/actions?query=workflow%3A%22Windows%22
+	:alt: Windows Test Status
+
+.. |actions_macos| image:: https://github.com/sphinx-toolbox/html-section/workflows/macOS/badge.svg
+	:target: https://github.com/sphinx-toolbox/html-section/actions?query=workflow%3A%22macOS%22
+	:alt: macOS Test Status
+
+.. |actions_flake8| image:: https://github.com/sphinx-toolbox/html-section/workflows/Flake8/badge.svg
+	:target: https://github.com/sphinx-toolbox/html-section/actions?query=workflow%3A%22Flake8%22
+	:alt: Flake8 Status
+
+.. |actions_mypy| image:: https://github.com/sphinx-toolbox/html-section/workflows/mypy/badge.svg
+	:target: https://github.com/sphinx-toolbox/html-section/actions?query=workflow%3A%22mypy%22
+	:alt: mypy status
+
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/html-section/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/html-section/
+	:alt: Requirements Status
+
+.. |coveralls| image:: https://img.shields.io/coveralls/github/sphinx-toolbox/html-section/master?logo=coveralls
+	:target: https://coveralls.io/github/sphinx-toolbox/html-section?branch=master
+	:alt: Coverage
+
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/sphinx-toolbox/html-section?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/sphinx-toolbox/html-section
+	:alt: CodeFactor Grade
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/html-section
+	:target: https://pypi.org/project/html-section/
+	:alt: PyPI - Package Version
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/html-section?logo=python&logoColor=white
+	:target: https://pypi.org/project/html-section/
+	:alt: PyPI - Supported Python Versions
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/html-section
+	:target: https://pypi.org/project/html-section/
+	:alt: PyPI - Supported Implementations
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/html-section
+	:target: https://pypi.org/project/html-section/
+	:alt: PyPI - Wheel
+
+.. |license| image:: https://img.shields.io/github/license/sphinx-toolbox/html-section
+	:target: https://github.com/sphinx-toolbox/html-section/blob/master/LICENSE
+	:alt: License
+
+.. |language| image:: https://img.shields.io/github/languages/top/sphinx-toolbox/html-section
+	:alt: GitHub top language
+
+.. |commits-since| image:: https://img.shields.io/github/commits-since/sphinx-toolbox/html-section/v0.2.0.post1
+	:target: https://github.com/sphinx-toolbox/html-section/pulse
+	:alt: GitHub commits since tagged version
+
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/sphinx-toolbox/html-section
+	:target: https://github.com/sphinx-toolbox/html-section/commit/master
+	:alt: GitHub last commit
+
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
+	:alt: Maintenance
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/html-section
+	:target: https://pypi.org/project/html-section/
+	:alt: PyPI - Downloads
+
+.. end shields
+
+Installation
+--------------
+
+.. start installation
+
+``html-section`` can be installed from PyPI.
+
+To install with ``pip``:
+
+.. code-block:: bash
+
+	$ python -m pip install html-section
+
+.. end installation
+
+Then enable the extension by adding the following to your ``conf.py`` file:
+
+.. code-block:: python
+
+	extensions = [
+			...,  # Other extensions go here
+			"html_section",
+			]
+
+
+Usage
+---------
+
+.. code-block:: rest
+
+	Contents
+	-----------
+
+	.. html-section::
+
+The section label ``Contents`` will only be shown with the HTML builder.
+However, the section content will still be visible, and the heading will appear in the table of contents.
+Consider using Sphinx's ``.. only:: html`` directive for that.
+
+
+.. code-block:: rest
+
+	Contents
+	-----------
+
+	.. latex-section::
+
+The section label ``Contents`` will only be shown with the LaTeX builder.
+However, the section content will still be visible, and the heading will appear in the table of contents.
+Consider using Sphinx's ``.. only:: latex`` directive for that.
+
+*New in version 0.2.0.post1*
+
+
+.. code-block:: rest
+
+	Contents
+	-----------
+
+	.. phantom-section::
+
+The section label ``Contents`` will be hidden with all builders,
+but the section will still exist in the structure of the document
+(i.e. a new section will be started, without a label).
+The section content will still be visible, and the heading will appear in the table of contents.
