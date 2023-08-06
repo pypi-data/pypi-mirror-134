@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+setup.py
+windbgmon.py
+windbgmon.egg-info/PKG-INFO
+windbgmon.egg-info/SOURCES.txt
+windbgmon.egg-info/dependency_links.txt
+windbgmon.egg-info/not-zip-safe
+windbgmon.egg-info/requires.txt
+windbgmon.egg-info/top_level.txt
