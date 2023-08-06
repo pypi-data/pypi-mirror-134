@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "flox-bootstrap"
+version = "0.1.1"
+description = ""
+authors = ["Michal Przytulski <michal@przytulski.pl>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+jinja2 = "^2.11"
+click = "^7.0"
+flox-core = "^0.1"
+stringcase = "^1.2"
+
+[tool.poetry.dev-dependencies]
+bump2version = "^1.0.1"
+
+[tool.poetry.plugins."flox.plugin"]
+bootstrap = "flox_bootstrap:plugin"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
