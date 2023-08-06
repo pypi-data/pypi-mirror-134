@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/avogadr_py/__init__.py
+src/avogadr_py/__main__.py
+src/avogadr_py.egg-info/PKG-INFO
+src/avogadr_py.egg-info/SOURCES.txt
+src/avogadr_py.egg-info/dependency_links.txt
+src/avogadr_py.egg-info/entry_points.txt
+src/avogadr_py.egg-info/requires.txt
+src/avogadr_py.egg-info/top_level.txt
