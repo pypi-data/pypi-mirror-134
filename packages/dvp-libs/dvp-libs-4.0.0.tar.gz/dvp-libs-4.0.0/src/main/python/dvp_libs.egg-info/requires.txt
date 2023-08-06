@@ -1,0 +1,2 @@
+dvp-api==1.6.1
+dvp-common==4.0.0
