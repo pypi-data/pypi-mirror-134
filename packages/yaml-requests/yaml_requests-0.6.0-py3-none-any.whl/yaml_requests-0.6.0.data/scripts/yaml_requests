@@ -1,0 +1,4 @@
+#!python
+from yaml_requests import main
+
+main()
