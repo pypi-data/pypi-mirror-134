@@ -1,0 +1,4 @@
+#!python
+
+from cancat.scripts.candump2cancat import main
+main()

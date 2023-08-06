@@ -1,0 +1,4 @@
+#!python
+
+from cancat.scripts.canmap import main
+main()
