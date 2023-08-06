@@ -1,0 +1,6 @@
+README.md
+setup.py
+candl/candl.egg-info/PKG-INFO
+candl/candl.egg-info/SOURCES.txt
+candl/candl.egg-info/dependency_links.txt
+candl/candl.egg-info/top_level.txt
