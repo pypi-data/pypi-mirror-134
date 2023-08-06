@@ -1,0 +1,8 @@
+README.md
+setup.py
+MultiStageClustering/__init__.py
+MultiStageClustering/msc.py
+MultiStageClustering.egg-info/PKG-INFO
+MultiStageClustering.egg-info/SOURCES.txt
+MultiStageClustering.egg-info/dependency_links.txt
+MultiStageClustering.egg-info/top_level.txt
