@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+gae_credentials/__init__.py
+gae_credentials/get_credentials.py
+gae_impersonate_credentials.egg-info/PKG-INFO
+gae_impersonate_credentials.egg-info/SOURCES.txt
+gae_impersonate_credentials.egg-info/dependency_links.txt
+gae_impersonate_credentials.egg-info/requires.txt
+gae_impersonate_credentials.egg-info/top_level.txt
