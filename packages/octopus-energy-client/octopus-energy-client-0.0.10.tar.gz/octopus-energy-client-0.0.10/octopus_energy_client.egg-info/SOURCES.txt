@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+octopus_energy_client/__init__.py
+octopus_energy_client/client.py
+octopus_energy_client/enums.py
+octopus_energy_client/util.py
+octopus_energy_client.egg-info/PKG-INFO
+octopus_energy_client.egg-info/SOURCES.txt
+octopus_energy_client.egg-info/dependency_links.txt
+octopus_energy_client.egg-info/requires.txt
+octopus_energy_client.egg-info/top_level.txt
