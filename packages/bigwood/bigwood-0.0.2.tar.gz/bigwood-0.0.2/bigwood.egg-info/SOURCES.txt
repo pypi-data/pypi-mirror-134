@@ -1,0 +1,9 @@
+README.md
+setup.py
+bigwood.egg-info/PKG-INFO
+bigwood.egg-info/SOURCES.txt
+bigwood.egg-info/dependency_links.txt
+bigwood.egg-info/top_level.txt
+data/__init__.py
+network/__init__.py
+network/network.py
