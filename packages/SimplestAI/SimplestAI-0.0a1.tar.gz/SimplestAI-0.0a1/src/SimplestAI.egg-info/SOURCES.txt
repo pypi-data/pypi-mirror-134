@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+src/SimplestAI/__init__.py
+src/SimplestAI.egg-info/PKG-INFO
+src/SimplestAI.egg-info/SOURCES.txt
+src/SimplestAI.egg-info/dependency_links.txt
+src/SimplestAI.egg-info/top_level.txt
