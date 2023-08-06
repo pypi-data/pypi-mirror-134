@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mihaela-presentation
+Version: 0.1.1
+Summary: My first project in pypi
+Home-page: UNKNOWN
+Author: Mihaela M.
+Author-email: miha_baci@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# mihaela-presenatation
+
+mihaela-presentation is my first python library
+
+## Installation
+
+```bash
+pip install mihaela-presentation
+```
+
+## Usage
+
+```python
+from mihaela_presentation import mihaela
+
+mihaela.hello()
+# prints Hello from Mihaela!
+
+mihaela.good_bye()
+# prints Bye bye from Mihaela!
+```
+
