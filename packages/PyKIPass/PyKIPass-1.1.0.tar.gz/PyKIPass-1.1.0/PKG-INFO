@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: PyKIPass
+Version: 1.1.0
+Summary: Python wrapper for KIPass
+Home-page: https://github.com/alus20x/PyKIPass
+Author: alus20x
+Author-email: alus20x@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyKIPass
+

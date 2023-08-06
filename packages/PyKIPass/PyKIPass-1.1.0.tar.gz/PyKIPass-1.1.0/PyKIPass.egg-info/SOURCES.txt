@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+PyKIPass/PyKIPass.py
+PyKIPass/URLs.py
+PyKIPass/__init__.py
+PyKIPass/exceptions.py
+PyKIPass.egg-info/PKG-INFO
+PyKIPass.egg-info/SOURCES.txt
+PyKIPass.egg-info/dependency_links.txt
+PyKIPass.egg-info/top_level.txt
