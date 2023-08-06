@@ -1,0 +1,9 @@
+[aiida.schedulers]
+firecrest=aiida_firecrest.scheduler:FirecrestScheduler
+
+[aiida.transports]
+firecrest=aiida_firecrest.transport:FirecrestTransport
+
+[console_scripts]
+aiida-firecrest-cli=aiida_firecrest.cli:main
+

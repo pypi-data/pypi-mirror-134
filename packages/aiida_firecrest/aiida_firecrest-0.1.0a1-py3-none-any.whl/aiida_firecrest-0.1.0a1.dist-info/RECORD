@@ -1,0 +1,9 @@
+aiida_firecrest/__init__.py,sha256=UVxdkfor31hk6kR2M97Z3lmp_5FSZeIu0Oq1Vu-C2Fg,97
+aiida_firecrest/cli.py,sha256=qoEmzBiGNBG2IyVQakNsWXhMILdnVZiUY55s5qFk8gU,6182
+aiida_firecrest/scheduler.py,sha256=Ap1d1xqThY7e4l4gQzHRxc3WLwzbEkrNekndz0ocIRc,1485
+aiida_firecrest/transport.py,sha256=ehFq-zI0llB_RWlEXaVEceaisKwV8VuAPPYwfi_FlAk,13718
+aiida_firecrest-0.1.0a1.dist-info/entry_points.txt,sha256=pETJ7LAuB6ci_0UvbgxFY2vplnYTLpve81iWPA8qaso,214
+aiida_firecrest-0.1.0a1.dist-info/LICENSE,sha256=oNtt2G8O8o1lmNKVXpdU4cBxw3M3vTHUHHTB_jvSzvs,1067
+aiida_firecrest-0.1.0a1.dist-info/WHEEL,sha256=jPMR_Dzkc4X4icQtmz81lnNY_kAsfog7ry7qoRvYLXw,81
+aiida_firecrest-0.1.0a1.dist-info/METADATA,sha256=0ZRrOAEzkzGfvLfp1b1Ou-uTtebqJoe55lCwDqVhfEg,4238
+aiida_firecrest-0.1.0a1.dist-info/RECORD,,
