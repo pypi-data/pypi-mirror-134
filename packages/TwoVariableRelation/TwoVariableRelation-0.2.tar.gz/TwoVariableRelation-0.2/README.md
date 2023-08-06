@@ -1,0 +1,60 @@
+# TwoVariableRelation
+TwoVariableRelation Package is intended to establish the relationship between two features of the dataset.It starts with performing multivariate outlier detection on those two features of a dataset to remove outliers based on density and distance.Further,it divides the dataset into train-test(70:30), fits polynomial models on training data up to polynomial degree based on input given by the user.Capturing all inputs, it recommends the best model based on train RMSE and test accuracy.
+
+## Installation
+
+<h2>Dependencies</h2>
+
+TwoVariableRelation Package requires:
+<ul>
+<li>Numpy</li>
+<li>Pandas</li>
+<li>Scikit-learn</li>
+<li>Scipy</li>
+</ul>
+Install these libraries before proceeding further.
+
+<h2>User Installation</h2>
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install TwoVariableRelation.
+
+```bash
+pip install TwoVariableRelation
+```
+
+## Usage
+
+```python
+import TwoVariableRelation
+
+# Returns table with metrices(RMSE,Rsquare and Accuracy) for polynomial model from degree (0-N) and recommends the best model.
+
+TwoVariableRelation.polynomial_model(N,X,Y)
+```
+where:\
+N=Maximum degree to consider for training a polynomial model.\
+X=Pandas series of Independent Variable.\
+Y=Pandas series of Dependent Variable.
+
+## Result
+Following is the result generated when package is called with below mentioned argument on the dataset:
+
+```python
+TwoVariableRelation.polynomial_model(3,X=df.iloc[:,0],Y=df.iloc[:,1])
+```
+| Order | Train RMSE | Test RMSE | Train Rsquare | Test Rsquare | Test Accuracy |
+|-------|------------|-----------|---------------|--------------|---------------|
+|   0   |   9.829    |   10.534  |     0.000     |    -0.179    |    75.595%    |
+|   1   |   9.489    |   9.103   |     0.068     |     0.120    |    74.737%    |
+|   2   |   9.463    |   8.627   |     0.073     |     0.210    |    76.590%    |
+|   3   |   9.463    |   8.640   |     0.073     |     0.207    |    76.607%    |
+
+<h2>Model is best fitted at polynomial degree 3</h2>
+
+*Accuracy is calculated with following formula:
+
+Accuracy=[1-[abs[(sum of actual Y_test)-(sum of predicted Y_test)]/Sum of actual Y_test]]*100
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

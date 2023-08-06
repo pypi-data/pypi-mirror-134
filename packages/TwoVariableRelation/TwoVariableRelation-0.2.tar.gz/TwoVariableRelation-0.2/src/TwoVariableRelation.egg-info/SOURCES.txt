@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+setup.py
+src/TwoVariableRelation.py
+src/TwoVariableRelation.egg-info/PKG-INFO
+src/TwoVariableRelation.egg-info/SOURCES.txt
+src/TwoVariableRelation.egg-info/dependency_links.txt
+src/TwoVariableRelation.egg-info/top_level.txt
