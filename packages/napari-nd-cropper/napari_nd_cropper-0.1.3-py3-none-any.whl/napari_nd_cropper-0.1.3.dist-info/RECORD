@@ -1,0 +1,9 @@
+napari_nd_cropper/__init__.py,sha256=Ae8CfhWNEdq10P_H8ce_s2-o4WObPgMTgUN_ZuqJfk4,94
+napari_nd_cropper/_dock_widget.py,sha256=3NKiybRadl1bEc8egbkkeKRlJukqQtFgrOU1M6CCQ-s,19028
+napari_nd_cropper/utils.py,sha256=xiM0irOQ3wI18_1q7QXhiujYEWn3B7CZr1JVL-Tehyk,211
+napari_nd_cropper-0.1.3.dist-info/LICENSE,sha256=hU-0u6txcIlQvkIAdFQG3qw6IyFLpGWL6ut_88xjTYk,1510
+napari_nd_cropper-0.1.3.dist-info/METADATA,sha256=Agy1VWr0DqQUDFvpw4sQpiyMEByXTS9TcInuHA7AdT8,3251
+napari_nd_cropper-0.1.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+napari_nd_cropper-0.1.3.dist-info/entry_points.txt,sha256=aMt9m_ARVUsVBMrJybP1W-i3AJicyPywy5wmtDfOCM0,55
+napari_nd_cropper-0.1.3.dist-info/top_level.txt,sha256=TwzzDs49swrEQeRzoG3AV3JDDB7FW4kLuCihIt1LGT4,18
+napari_nd_cropper-0.1.3.dist-info/RECORD,,

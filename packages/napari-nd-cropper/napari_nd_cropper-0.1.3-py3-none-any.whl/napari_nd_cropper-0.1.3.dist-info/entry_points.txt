@@ -1,0 +1,3 @@
+[napari.plugin]
+napari-nd-cropper = napari_nd_cropper
+
