@@ -1,0 +1,6 @@
+matplotlib
+pandas
+numpy
+progressbar
+lxml
+tqdm
