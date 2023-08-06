@@ -1,0 +1,4 @@
+[console_scripts]
+seqwho.py = seqwho_lib.seqwho:main
+seqwho_buildindex.py = seqwho_lib.seqwho_buildindex:main
+

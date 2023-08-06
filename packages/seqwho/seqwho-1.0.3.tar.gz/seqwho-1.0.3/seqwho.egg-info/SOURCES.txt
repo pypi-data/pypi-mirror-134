@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+seqwho.egg-info/PKG-INFO
+seqwho.egg-info/SOURCES.txt
+seqwho.egg-info/dependency_links.txt
+seqwho.egg-info/entry_points.txt
+seqwho.egg-info/requires.txt
+seqwho.egg-info/top_level.txt
+seqwho_lib/__init__.py
+seqwho_lib/seqwho.py
+seqwho_lib/seqwho_buildindex.py
+seqwho_lib/seqwho_modules.py
