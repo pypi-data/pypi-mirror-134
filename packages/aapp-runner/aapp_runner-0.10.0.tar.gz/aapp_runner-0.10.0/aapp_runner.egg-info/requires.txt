@@ -1,0 +1,5 @@
+netifaces
+posttroll
+pytroll-schedule
+setuptools_scm
+trollsift
