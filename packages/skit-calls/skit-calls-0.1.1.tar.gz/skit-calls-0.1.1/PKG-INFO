@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: skit-calls
+Version: 0.1.1
+Summary: Library to fetch calls from a given environment.
+License: GPL-3
+Author: ltbringer
+Author-email: amresh.venugopal@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: aiofiles (>=0.8.0,<0.9.0)
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Requires-Dist: pandas (>=1.3.5,<2.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
