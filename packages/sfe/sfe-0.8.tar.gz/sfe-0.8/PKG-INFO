@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: sfe
+Version: 0.8
+Summary: Python and finite Elements
+Home-page: https://gitee.com/yonvone/sfe.git
+Author: haoy_zhang
+Author-email: haoy.zhang@foxmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: sfe
+License-File: LICENSE.txt
+
+# sfe
+
+#### Description
+Sfe is a Python software based on finite element theory. Using object-oriented programming makes it easier for people to understand. The finite element method is a powerful numerical method. It supports the calculation of statics and dyna- mics, the division of elements is clearer, and a variety of beam theory is added. Unique analysis of aeronautical blades with nonlinear friction.
+
+#### Software Architecture
+The framework is divided into six parts: nodes, cells, cell types, computational sets, solvers and graphing tools.
+
+#### Installation
+
+1.  Python installation, version 3 or later.
+2.  You need numpy, scipy, matplotlib.
+3.  pip install sfe.
+
+#### Directions for use
+
+1.  Import the SFE package.
+2.  Input existing data.
+3.  The node coordinates are established using the Node class.
+4.  The element is created by connecting nodes with the Element class.
+5.  Select all element types in the library to establish unique element.
+6.  Use the solver.
+7.  Get the required data in the interaction window or in the variable manager.
+
+#### Applications
+
+1.  Analysis and calculation for aero engine blade.
+2.  In view of the practical problems analyzed by beam theory.
+3.  Structural problems solved by finite element method.
+
+
