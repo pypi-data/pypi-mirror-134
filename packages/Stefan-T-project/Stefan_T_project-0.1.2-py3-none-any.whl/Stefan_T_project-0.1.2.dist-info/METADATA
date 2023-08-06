@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Stefan-T-project
+Version: 0.1.2
+Summary: First T
+Home-page: UNKNOWN
+Author: Stefan-Tohati
+Author-email: stef20_2007@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Stefan-T-project
+
+Stefan-T-project is my first python library 
+
+## Installation
+
+```bash
+pip install Stefan-T-project
+```
+## Usage
+
+```python
+from stefan_t_project import stefan
+stefan.hello_from_stefan()
+#Prints Hello from Stefan
+
+stefan.goodby_from_stefan()
+#Print Goodbye from Stefan
+```
+
