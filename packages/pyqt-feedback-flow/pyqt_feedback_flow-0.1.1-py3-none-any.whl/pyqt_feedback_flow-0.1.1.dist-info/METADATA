@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyqt-feedback-flow
+Version: 0.1.1
+Summary: Show feedbacks in toast-like notifications
+Author: firefly-cpp
+Author-email: iztok@iztok-jr-fister.eu
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PyQt5 (>=5.15.6,<6.0.0)
+Requires-Dist: emoji (>=1.6.1,<2.0.0)
