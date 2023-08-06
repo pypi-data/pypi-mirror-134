@@ -1,0 +1,11 @@
+<div>
+  {%if instance.author.name is not None %}{{instance.author.name}}{% else %}Quelqu'un{% endif %} a créé.e une offre de mission{% if fnk %} demandant un apport d'affaire{% endif %}:
+  <ul>
+    <li>Titre: {{ instance.title }}</li>
+    <li>Description: {{ instance.description }}</li>
+    <li>Durée: {{ instance.duration }}</li>
+    <li>Lieu: {{ instance.location }}</li>
+    <li>Budget: {{ instance.budget }}</li>
+    <li>Clôture: {{ instance.closingDate }}</li>
+  </ul>
+</div>
