@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+src/wts_nerdler/__init__.py
+src/wts_nerdler/windows_task_scheduler.py
+src/wts_nerdler.egg-info/PKG-INFO
+src/wts_nerdler.egg-info/SOURCES.txt
+src/wts_nerdler.egg-info/dependency_links.txt
+src/wts_nerdler.egg-info/top_level.txt
