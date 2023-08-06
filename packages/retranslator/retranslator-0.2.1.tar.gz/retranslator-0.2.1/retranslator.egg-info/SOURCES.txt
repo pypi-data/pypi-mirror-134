@@ -1,0 +1,13 @@
+README.md
+setup.py
+retranslator/__init__.py
+retranslator/file_translator.py
+retranslator/stepped_translator.py
+retranslator/sub_rule.py
+retranslator/translator.py
+retranslator/translator_cli.py
+retranslator.egg-info/PKG-INFO
+retranslator.egg-info/SOURCES.txt
+retranslator.egg-info/dependency_links.txt
+retranslator.egg-info/requires.txt
+retranslator.egg-info/top_level.txt
