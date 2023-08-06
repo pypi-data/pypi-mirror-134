@@ -1,0 +1,3 @@
+[console_scripts]
+realdata = realdata.__main__:main
+
