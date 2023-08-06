@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ckpt_manager/__init__.py
+src/ckpt_manager/ckpt_manager.py
+src/pytorch_ckpt_manager.egg-info/PKG-INFO
+src/pytorch_ckpt_manager.egg-info/SOURCES.txt
+src/pytorch_ckpt_manager.egg-info/dependency_links.txt
+src/pytorch_ckpt_manager.egg-info/requires.txt
+src/pytorch_ckpt_manager.egg-info/top_level.txt
