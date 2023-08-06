@@ -1,0 +1,5 @@
+pytz
+txwebsocket>=1.0.1
+filetype
+pem
+pytmpdir
