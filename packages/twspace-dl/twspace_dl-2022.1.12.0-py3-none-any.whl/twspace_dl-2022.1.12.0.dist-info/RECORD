@@ -1,0 +1,10 @@
+twspace_dl/__init__.py,sha256=2uu9YiFyLpR3dAZkHnzdMmOtHoSsZ9sgAvJhl-C6g28,109
+twspace_dl/__main__.py,sha256=zJ34zmHmdn2cWBkcT83er46bLZnoQSHfj_P5DgF1DdI,5314
+twspace_dl/format_info.py,sha256=UeMo35-r8LeKUJsqHecRt_vkdZ7ticiV4fimjk7fQ8I,3241
+twspace_dl/login.py,sha256=wWuVAiqKCLiOT7yTExkc3P3-meWh_SrNa8UZnvFooxo,6347
+twspace_dl/twspace_dl.py,sha256=kiXlkWnwH-Oj0A3qp30ZAVov2kEwnwWVNFRzhYEZGzg,12149
+twspace_dl-2022.1.12.0.dist-info/entry_points.txt,sha256=gDNLqQ7VSfZ0FveKXZjVUIAhJ2Ihq7VlB1j0GSJlcts,55
+twspace_dl-2022.1.12.0.dist-info/LICENSE,sha256=gXf5dRMhNSbfLPYYTY_5hsZ1r7UU1OaKQEAQUhuIBkM,18092
+twspace_dl-2022.1.12.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+twspace_dl-2022.1.12.0.dist-info/METADATA,sha256=226_zTZWFgkLlGtOkDP0fDfVRNxBPj8zjQXEYALm-ww,6421
+twspace_dl-2022.1.12.0.dist-info/RECORD,,
