@@ -1,0 +1,11 @@
+youpi/__init__.py,sha256=9xv0Yc3mW4WLqgU9dPT1WHtciHiQVtXT532L6_CrpYA,473
+youpi/cache.py,sha256=zc8f-doKIhDEkSUmQVN078vkEFO1LerAG8vG4dFPf3A,1793
+youpi/semi_singleton.py,sha256=YCSSZyBftZGrlH4oCf_mFjznb2AlEv8AtFrprnYDYz0,181
+youpi/stream.py,sha256=n_iUDE86GnVdmyHoFc5yhyj1Q0woc8shlBCiRurpu84,3628
+youpi/streamlist.py,sha256=JP0IvpPV6qwAS9B02vqYP3xYR_SfSoREx84gUKDeJqU,3412
+youpi/youtube.py,sha256=fiIW54qfoinKqQI6DbrmZQ3DxtjJdoff1orESaEjHpE,3691
+youpi-0.1.5.dist-info/LICENSE,sha256=u7TjdPtmzuHZouo18-o8ZM0FN2Y1iDjzFARTE9vhbnM,1093
+youpi-0.1.5.dist-info/METADATA,sha256=jE4mPqZqnDuGVUaWyqN035osdzPm2Mm4NLxggI6j2rs,553
+youpi-0.1.5.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+youpi-0.1.5.dist-info/top_level.txt,sha256=zTskRd-7gST_yI-eGTljwHsXmFJYAG573rbo8vGCa3Y,6
+youpi-0.1.5.dist-info/RECORD,,
