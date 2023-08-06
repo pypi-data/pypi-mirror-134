@@ -1,0 +1,10 @@
+LICENCE
+README.md
+setup.py
+custompdf/__init__.py
+custompdf/pdf2image.py
+custompdf/pdf2text.py
+custompdf.egg-info/PKG-INFO
+custompdf.egg-info/SOURCES.txt
+custompdf.egg-info/dependency_links.txt
+custompdf.egg-info/top_level.txt
