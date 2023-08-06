@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+liquer_gui/__init__.py
+liquer_gui/commands.py
+liquer_gui.egg-info/PKG-INFO
+liquer_gui.egg-info/SOURCES.txt
+liquer_gui.egg-info/dependency_links.txt
+liquer_gui.egg-info/not-zip-safe
+liquer_gui.egg-info/requires.txt
+liquer_gui.egg-info/top_level.txt
