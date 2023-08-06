@@ -1,0 +1,13 @@
+ghproject/GitHubAPI.py,sha256=QsnDzUkJsep-JD-M7Cc4vU44Xy_LZFnCU2XZNWgMufM,7082
+ghproject/__init__.py,sha256=HnQ55KISuG-g2bllSG6fifBvYlibiUwPRbrnbJK5CCs,184
+ghproject/__version__.py,sha256=sXLh7g3KC4QCFxcZGBTpG2scR7hmmBsMjq6LqRptkRg,22
+ghproject/api_calls.py,sha256=Cd0W1_IxE3c3ZyevF2DKnaXODXjv-VaMrdwu4wcdYf8,1988
+ghproject/arg_parser.py,sha256=Nok-EoRtYsCJLdOoj4TENdeHttZjdR4ttuMz-yQCTOA,1535
+ghproject/logging_functions.py,sha256=MAsBwOFZ__EAWotF_aamp2tL0W0rHUY9W_VuWpS64pA,4064
+ghproject/md_functions.py,sha256=MetXlxZcMSCIX-0dGXQe76V0zLgFvZvdm38x_LJBTVE,699
+ghproject/upload_project.py,sha256=mf_CFfecCURFFjd47yKuXdJCD81YTR6HA3B1c3xgXgk,886
+ghproject-0.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+ghproject-0.0.1.dist-info/METADATA,sha256=HrDkFDqcqyGs7cGOrfY0ZlKZVg7tf_v0QZ-XgBBWT3o,5566
+ghproject-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ghproject-0.0.1.dist-info/top_level.txt,sha256=4ntZRiUSwJSB7S7U6kAIxn2fkih9hdA_v4h3F5Wyem0,10
+ghproject-0.0.1.dist-info/RECORD,,
