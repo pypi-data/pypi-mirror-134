@@ -1,0 +1,3 @@
+[console_scripts]
+habitmove=habitmove.cli:main
+

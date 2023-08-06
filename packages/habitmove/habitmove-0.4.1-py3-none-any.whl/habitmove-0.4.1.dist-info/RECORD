@@ -1,0 +1,12 @@
+habitmove/__init__.py,sha256=-Nb5flJfZkVSlQuW5HIZvJw6V1vIazKsKM7IcunH65A,220
+habitmove/cli.py,sha256=_aUf7coy_9mVgSvfRJcP9_tsj1GAeQF2S7UV2HakiW4,776
+habitmove/habits.py,sha256=skMEQiglvW_VibLIAKyaLJGAg3zxpjpJMwE9KTLrqPM,2108
+habitmove/loopdata.py,sha256=m8UTkrKNd8OLNqwpnVXspHtZbDTi90jTiIkRJRAvOe4,850
+habitmove/nomie.py,sha256=Fv3G4NXm6P_ZVKHgAs7hSRNLR3BvUkgZzhyBtKIvfwg,3283
+habitmove/nomiedata.py,sha256=icpP7tQJ3AUlbJKhfjN_ArSWNWGKE9mOgBQw-Mw_I5A,1737
+habitmove/repetitions.py,sha256=wJ14LYuEy7ws_-JW0f1iJjIU5T3qTi4gW2lX_xJgpDg,4205
+habitmove/schema.py,sha256=eqlU4kNUI-K9gxrzQIakwhm5TUmIqpBsG_2aqfarUUY,2634
+habitmove-0.4.1.dist-info/entry_points.txt,sha256=VK-2Lfs8aBEnYsKt_QO54_lze41m2kuHPZ8FM2x2BuY,48
+habitmove-0.4.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+habitmove-0.4.1.dist-info/METADATA,sha256=6mC6-wmR8lBiAhbO5PidbNe8ucf40YhJuTZxvGAWqdY,3352
+habitmove-0.4.1.dist-info/RECORD,,
