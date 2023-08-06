@@ -1,0 +1,13 @@
+from webx.http.request import HttpRequest
+from webx.http.response import JsonResponse
+
+
+# Create your views here.
+# Views must be coroutines
+
+async def home(request: HttpRequest):
+    # The default view. You CAN delete this.
+    message = {
+        "message": "Hello, world! I'm WebX!"
+    }
+    return JsonResponse(message)

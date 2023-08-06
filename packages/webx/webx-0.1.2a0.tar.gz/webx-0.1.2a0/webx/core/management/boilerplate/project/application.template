@@ -1,0 +1,5 @@
+from webx.asgi.handler import WebxHandler
+
+
+handler = WebxHandler(settings_loc="{{ project_name }}.settings")
+asgi = handler.asgi_engine

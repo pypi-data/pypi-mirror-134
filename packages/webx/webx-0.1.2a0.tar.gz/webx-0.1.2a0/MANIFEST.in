@@ -1,0 +1,2 @@
+include webx/core/management/manage.template
+include webx/core/management/boilerplate/project/*.template
