@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: python-rabbitair
+Version: 0.0.1
+Summary: Python library for local control of RabbitAir devices
+Home-page: https://github.com/al-s/python-rabbitair
+Author: Alexander Somov
+Author-email: alexs@pushok.com
+License: Apache-2.0
+Project-URL: Bug Tracker, https://github.com/al-s/python-rabbitair/issues
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Home Automation
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cryptography (<36,>=3)
+
+# RabbitAir Python library
+
+This library can be used to control RabbitAir devices over a local network.
+
+
