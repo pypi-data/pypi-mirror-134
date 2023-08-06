@@ -1,0 +1,10 @@
+LICENSE
+README.md
+importtime_output_wrapper.py
+setup.cfg
+setup.py
+importtime_output_wrapper.egg-info/PKG-INFO
+importtime_output_wrapper.egg-info/SOURCES.txt
+importtime_output_wrapper.egg-info/dependency_links.txt
+importtime_output_wrapper.egg-info/entry_points.txt
+importtime_output_wrapper.egg-info/top_level.txt
