@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: udsp
+Version: 0.2.0
+Summary: Uart Data Stream Processor (Whether using Uart is not important at all. it can also support other commulication protocal.). It is used to format C data into strings and easily manage send and receive buffers in python and micropython.(We used it with uart in Electronic Design Competition.).It contain micropython C C++ C# version packages under the install path.
+Home-page: UNKNOWN
+Author-email: 2229066748@qq.com
+Maintainer: Eagle'sBaby
+Maintainer-email: 2229066748@qq.com
+License: Apache Licence 2.0
+Keywords: uart,communication
+Platform: all
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+
+UNKNOWN
+
