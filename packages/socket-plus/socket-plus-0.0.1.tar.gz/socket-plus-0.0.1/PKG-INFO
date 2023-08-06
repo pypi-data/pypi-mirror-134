@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: socket-plus
+Version: 0.0.1
+Summary: A librairie in python to comunicate more efficiently possible with structures.
+Home-page: https://github.com/coco875/socket-plus
+Author: coco875
+Author-email: pereira.jannin@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/coco875/socket-plus/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# socket-plus
+A librairie in python to comunicate more efficiently possible with structures.
+
+To use put socket_plus in the same directory of your project. you can have some bug and is not finish yet but works.
+
+
