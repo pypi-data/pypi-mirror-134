@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pycounts-am
+Version: 0.1.0
+Summary: Counting words in a text file.
+License: MIT
+Author: adammorphy
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0)
+Description-Content-Type: text/markdown
+
+# pycounts_am
+
+Counting words in a text file.
+
+## Installation
+
+```bash
+$ pip install pycounts_am
+```
+
+## Usage
+
+- TODO
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`pycounts_am` was created by adammorphy. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`pycounts_am` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
