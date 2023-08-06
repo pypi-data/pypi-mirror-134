@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/mousipy/__init__.py
+src/mousipy/mousipy.py
+src/mousipy.egg-info/PKG-INFO
+src/mousipy.egg-info/SOURCES.txt
+src/mousipy.egg-info/dependency_links.txt
+src/mousipy.egg-info/requires.txt
+src/mousipy.egg-info/top_level.txt
