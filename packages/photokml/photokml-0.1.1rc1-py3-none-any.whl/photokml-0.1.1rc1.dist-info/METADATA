@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: photokml
+Version: 0.1.1rc1
+Summary: Link your photos into a KML ("Google Earth") file based on their geolocation
+Home-page: https://github.com/blinkingtwelve/photokml
+Author: blinkingtwelve
+Author-email: blinkingtwelve@gavagai.eu
+License: GPL-3.0+
+Project-URL: Documentation, https://github.com/blinkingtwelve/photokml/README.md
+Project-URL: Source, https://github.com/blinkingtwelve/photokml
+Keywords: GIS kml
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: simplekml (<1.4.0,>=1.3.1)
+Requires-Dist: piexif (<1.2.0,>=1.1.3)
+
+# photokml
+Generates a .kml geoindex of photographs based on GPS information in EXIF tags.
+
+Run it on a bunch of photos, load up the .kml in Google Earth, and click the icons
+to view your pictures. Screenshot:
+
+![A photokml-generated KML file loaded up in Google Earth](https://raw.githubusercontent.com/blinkingtwelve/photokml/master/screenshot.png)
+
+```
+usage: photokml.py [-h] [-x MAXWIDTH] [-y MAXHEIGHT] [-b BUNCHUP]
+                   FILE [FILE ...]
+
+Generates a .kml geoindex (on stdout) of photographs based on GPS information
+in EXIF tags.
+
+positional arguments:
+  FILE
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -x MAXWIDTH, --maxwidth MAXWIDTH
+                        Limit picture display width to N pixels (1200 by
+                        default)
+  -y MAXHEIGHT, --maxheight MAXHEIGHT
+                        Limit picture display height to N pixels (700 by
+                        default)
+  -b BUNCHUP, --bunchup BUNCHUP
+                        Form clusters of pictures within N meters of eachother
+                        (10 by default)
+```
+
+
