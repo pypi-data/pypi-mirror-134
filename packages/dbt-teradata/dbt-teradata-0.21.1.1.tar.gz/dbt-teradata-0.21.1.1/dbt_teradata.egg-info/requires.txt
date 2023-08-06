@@ -1,0 +1,2 @@
+dbt-core==0.21.1
+teradatasql>=16.20.0.0
