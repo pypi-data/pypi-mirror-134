@@ -1,0 +1,3 @@
+[console_scripts]
+gnpp = gnpp.cli:cli
+

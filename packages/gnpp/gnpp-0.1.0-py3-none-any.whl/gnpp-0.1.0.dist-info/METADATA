@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: gnpp
+Version: 0.1.0
+Summary: Simple tool for generate new project python
+Home-page: https://gitlab.com/nesstero/gnpp
+Author: nestero
+Author-email: nestero@mail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Generate New Project Python (GNPP)
+Simple tool for generate :
+- name_project folder
+- name_project.py
+- LICENSE
+- README.md
+- setup.py
+
+# Install
+```
+$ pip install gnpp
+```
+
+# Usage
+## CLI
+```
+$ gnpp -h
+
+ ██████╗ ███╗   ██╗██████╗ ██████╗
+██╔════╝ ████╗  ██║██╔══██╗██╔══██╗
+██║  ███╗██╔██╗ ██║██████╔╝██████╔╝
+██║   ██║██║╚██╗██║██╔═══╝ ██╔═══╝
+╚██████╔╝██║ ╚████║██║     ██║
+ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝
+=== Generate New Project Python ===
+Simple tool for generate :
+name_project folder, name_project.py, LICENSE, README.md, setup.py
+
+
+Options:
+  -h, --help          Display this message
+  -p, --project-name  Project name
+  -l, --license       License project (apache ,gnu, mit, unlicense)
+  -a, --author        Author project
+  -d, --description   Description project
+  -e, --email         Email project
+  -u, --url           Url project
+```
+
+```
+default:
+-p, --project-name  = new_project
+-l, --license       = unlicense
+-a, --author        = author
+-d, --description   = new_project
+-e, --email         = new_project@email.com
+-u, --url           = https://pypi.org/project/new_project
+```
+
+## Combination with shell function
+### Example function:
+```
+new-project() {
+  if [ "$1" != "" ] && [ "$2" != "" ] && [ "$3" != "" ] && [ "$4" != "" ]
+    then
+      gnpp -p "$1" -l "$2" -a "nestero" -e "nes@email.com" -d "$3" -u "$4"
+    else
+      echo "new-project <project name> <license> <description> <url project>"
+  fi
+}
+```
+
+```
+$ new-project "tes projeck" "mit" "ini deskripsi" "www.www.com"
+Project tes_projeck has been created :
+* README.md
+* LICENSE
+* setup.py
+* tes_projeck
+```
+
+

@@ -1,0 +1,17 @@
+gnpp/__init__.py,sha256=a7w2pyHeJ5W0wJUInbVXIXaBAThcIfxbE9KW5TDazb8,23
+gnpp/arg.py,sha256=yFJ2mFGKQpqxAegqXaBvMebyH0yo0ltlsivOTVvzCCg,2886
+gnpp/cli.py,sha256=qGKeIHTKot7iOC2yRjUWHPHfuipHuRIBb3exDce5ZGs,129
+gnpp/gnpp.py,sha256=c4LqfflzUwN2Z0LiBKTyaNXJBZVeIxvcjFft7kXQSnE,4200
+gnpp/template.py,sha256=KgzZmsbXk6m-QQ_jaEKtEwmLAMqfEX5_mr69HH5wbwQ,881
+gnpp/assets/Apache License.txt,sha256=cUUviyaEbUGXEkU7wptd760x0eCKsCKg8K38DEOjC4E,11340
+gnpp/assets/GNU GENERAL PUBLIC LICENSE.txt,sha256=U3rTYarCsreVWlAlXtKOUcuPR-67sgduMojECTpkf34,35075
+gnpp/assets/MIT.txt,sha256=bW6V7Z0RHSao0-Mb4MoEqAmG_Qf6WiVXhJDgdSHeY0M,1069
+gnpp/assets/README.txt,sha256=qI5qebh14ZaNKAXtHcKAvTxIaIc_u__BXcE-0rs6OIE,88
+gnpp/assets/setup.txt,sha256=ZNRRn6eCMBJNFKXrMiCPmlao-OJqDNJG_Iv_stbEcmY,557
+gnpp/assets/unlicense.txt,sha256=awOCsWJ58m_2kBQwBUGWejVqZm6wuRtCL2hi9rfa0X4,1211
+gnpp-0.1.0.dist-info/LICENSE,sha256=ykSY7i_Zl1Tn-8Ba7a8rKqysPCIOGmeBKAapLCSPmfg,1064
+gnpp-0.1.0.dist-info/METADATA,sha256=aiYUd30R2w43paCZpsLfV-Q79HoJfBLBNwvUJ7Nn7gI,2215
+gnpp-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+gnpp-0.1.0.dist-info/entry_points.txt,sha256=p_qG5J6lshoL4bvSpmT8k5LUAb6tC2pprgppjX6MQjU,39
+gnpp-0.1.0.dist-info/top_level.txt,sha256=m3ofe47hzLE-mlqqlsDsAeAX-MJN_-obyVqZNMny-z0,5
+gnpp-0.1.0.dist-info/RECORD,,

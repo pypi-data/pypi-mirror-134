@@ -1,0 +1,21 @@
+#! /usr/bin/env python
+
+from setuptools import find_packages, setup
+
+with open('README.md', 'r') as des:
+    l_desc = des.read()
+
+setup(
+    name='<nama_package>',
+    packages=find_packages(),
+    version='0.1.0',
+    # package_data={'': ['<folder_assets>/*']},
+    # entry_points={'console_scripts': ['<script_name> = <module>:<function>']},
+    description='<description>',
+    url='<url_repo>',
+    license='<license>',
+    author='<author>',
+    author_email='<email>',
+    long_description=l_desc,
+    long_description_content_type='text/markdown',
+)
