@@ -1,0 +1,8 @@
+README.md
+setup.py
+kcent_hello_world.egg-info/PKG-INFO
+kcent_hello_world.egg-info/SOURCES.txt
+kcent_hello_world.egg-info/dependency_links.txt
+kcent_hello_world.egg-info/top_level.txt
+sample_package/__init__.py
+sample_package/sample.py
