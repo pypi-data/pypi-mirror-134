@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: begin-cli
+Version: 0.0.1
+Summary: A utility for running targets in a targets.py file
+Home-page: https://github.com/LachlanMarnham/begin
+License: MIT
+Author: Lachlan Marnham
+Maintainer: Lachlan Marnham
+Requires-Python: >=3.7,<3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Project-URL: Repository, https://github.com/LachlanMarnham/begin
+Description-Content-Type: text/markdown
+
+# `begin` v0.0.1
