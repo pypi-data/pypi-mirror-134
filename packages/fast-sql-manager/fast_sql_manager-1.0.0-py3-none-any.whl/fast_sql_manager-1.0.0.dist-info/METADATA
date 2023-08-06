@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: fast-sql-manager
+Version: 1.0.0
+Summary: Um pacote simples para realizar operações no banco
+License: MIT
+Author: OscarSilvaOfficial
+Author-email: oscarkaka222@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: mysql-connector-python (>=8.0.27,<9.0.0)
