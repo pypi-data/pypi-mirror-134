@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/git_analytics/__init__.py
+src/git_analytics/index.html
+src/git_analytics/main.py
+src/git_analytics.egg-info/PKG-INFO
+src/git_analytics.egg-info/SOURCES.txt
+src/git_analytics.egg-info/dependency_links.txt
+src/git_analytics.egg-info/entry_points.txt
+src/git_analytics.egg-info/requires.txt
+src/git_analytics.egg-info/top_level.txt
