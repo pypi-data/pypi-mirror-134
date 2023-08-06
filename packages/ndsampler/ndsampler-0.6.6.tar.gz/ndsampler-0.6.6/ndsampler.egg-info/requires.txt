@@ -1,0 +1,161 @@
+ubelt
+parse
+xarray
+sortedcontainers
+fasteners
+atomicwrites
+scikit-learn
+Pillow
+pyqtree
+kwimage
+kwarray
+kwcoco
+
+[:python_version < "3.10" and python_version >= "3.9"]
+scipy
+
+[:python_version < "3.6.0" and python_version >= "2.7.0"]
+numpy
+
+[:python_version < "3.7.0" and python_version >= "2.7.0"]
+scipy
+
+[:python_version < "3.7.0" and python_version >= "3.6.0"]
+networkx
+networkx
+
+[:python_version < "3.8" and python_version >= "3.7"]
+scipy
+
+[:python_version < "3.9" and python_version >= "3.8"]
+scipy
+
+[:python_version >= "3.10"]
+scipy
+
+[:python_version >= "3.6.0"]
+numpy
+
+[:python_version >= "3.7.0"]
+networkx
+
+[all]
+ubelt
+parse
+xarray
+sortedcontainers
+fasteners
+atomicwrites
+scikit-learn
+Pillow
+pyqtree
+kwimage
+kwarray
+kwcoco
+pytest
+coverage
+xdoctest
+
+[all:python_version < "3.10" and python_version >= "3.9"]
+scipy
+
+[all:python_version < "3.6.0"]
+pytest-cov
+
+[all:python_version < "3.6.0" and python_version >= "2.7.0"]
+numpy
+
+[all:python_version < "3.7.0" and python_version >= "2.7.0"]
+scipy
+
+[all:python_version < "3.7.0" and python_version >= "3.6.0"]
+networkx
+networkx
+
+[all:python_version < "3.8" and python_version >= "3.7"]
+scipy
+
+[all:python_version < "3.9" and python_version >= "3.8"]
+scipy
+
+[all:python_version >= "3.10"]
+scipy
+
+[all:python_version >= "3.6.0"]
+numpy
+pytest-cov
+
+[all:python_version >= "3.7.0"]
+networkx
+
+[build]
+
+[graphics]
+
+[graphics:python_version < "3.10" and python_version >= "3.9"]
+opencv-python
+
+[graphics:python_version < "3.4" and python_version >= "2.7"]
+opencv-python
+
+[graphics:python_version < "3.5" and python_version >= "3.4"]
+opencv-python
+
+[graphics:python_version < "3.6" and python_version >= "3.5"]
+opencv-python
+
+[graphics:python_version < "3.7" and python_version >= "3.6"]
+opencv-python
+
+[graphics:python_version < "3.8" and python_version >= "3.7"]
+opencv-python
+
+[graphics:python_version < "3.9" and python_version >= "3.8"]
+opencv-python
+
+[graphics:python_version >= "3.10"]
+opencv-python
+
+[headless]
+
+[headless:python_version < "3.10" and python_version >= "3.9"]
+opencv-python-headless
+
+[headless:python_version < "3.4" and python_version >= "2.7"]
+opencv-python-headless
+
+[headless:python_version < "3.5" and python_version >= "3.4"]
+opencv-python-headless
+
+[headless:python_version < "3.6" and python_version >= "3.5"]
+opencv-python-headless
+
+[headless:python_version < "3.7" and python_version >= "3.6"]
+opencv-python-headless
+
+[headless:python_version < "3.8" and python_version >= "3.7"]
+opencv-python-headless
+
+[headless:python_version < "3.9" and python_version >= "3.8"]
+opencv-python-headless
+
+[headless:python_version >= "3.10"]
+opencv-python-headless
+
+[optional]
+kwplot
+lru-dict
+
+[problematic]
+GDAL
+
+[tests]
+pytest
+coverage
+xdoctest
+
+[tests:python_version < "3.6.0"]
+pytest-cov
+
+[tests:python_version >= "3.6.0"]
+pytest-cov
