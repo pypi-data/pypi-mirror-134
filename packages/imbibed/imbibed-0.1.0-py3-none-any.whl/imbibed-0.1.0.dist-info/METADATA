@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: imbibed
+Version: 0.1.0
+Summary: IMpeccable BIBliographiEs with Dblp
+Home-page: https://github.com/cassiersg/imbibed
+Author: Gaëtan Cassiers
+Author-email: gaetan.cassiers@uclouvain.be
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bibtexparser (~=1.2)
+Requires-Dist: requests (~=2.27)
+Requires-Dist: requests-cache (~=0.9)
+Requires-Dist: tqdm (~=4.62)
+
+# IMBIBED: IMpeccable BIBliographiEs with Dblp
+
+A simple tool for generating and cleaning `.bib` (and related `.tex`) files for
+bibliographies mainly based on DBLP.
+
+## Install
+
+```
+pip install imbibed
+```
+
+## Usage
+
+
