@@ -1,0 +1,16 @@
+CHANGES.rst
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+AioMemcached.egg-info/PKG-INFO
+AioMemcached.egg-info/SOURCES.txt
+AioMemcached.egg-info/dependency_links.txt
+AioMemcached.egg-info/top_level.txt
+aiomemcached/__init__.py
+aiomemcached/client.py
+aiomemcached/constants.py
+aiomemcached/exceptions.py
+aiomemcached/pool.py
