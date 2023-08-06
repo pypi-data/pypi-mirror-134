@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.rst
+dj_database_url.py
+setup.py
+django_database_url.egg-info/PKG-INFO
+django_database_url.egg-info/SOURCES.txt
+django_database_url.egg-info/dependency_links.txt
+django_database_url.egg-info/not-zip-safe
+django_database_url.egg-info/requires.txt
+django_database_url.egg-info/top_level.txt
