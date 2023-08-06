@@ -1,0 +1,21 @@
+bson
+coverage<5
+demjson
+ecdsa
+enum34; python_version < '3.4'
+feedparser
+jsonlib; python_version < '3.0'
+numpy
+pandas
+pymongo
+pytest
+pytest-black-multipy
+pytest-cov
+pytest-flake8
+pytest-benchmark
+pytest-benchmark[histogram]
+scikit-learn
+simplejson
+sqlalchemy>=1.2.19
+ujson
+yajl; sys_platform != 'win32' and python_version < '3.0'
