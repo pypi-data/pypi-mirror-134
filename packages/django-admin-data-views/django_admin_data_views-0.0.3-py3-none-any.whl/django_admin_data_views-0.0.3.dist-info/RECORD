@@ -1,0 +1,16 @@
+admin_data_views/__init__.py,sha256=hz6nc7YXsBW-lxh4cZj_qb6ZAxmRduZu20VZdSLrPLA,219
+admin_data_views/admin.py,sha256=SqAST2wfbE5oBk_GFOZUJtH-3qeQb0q59lOu4tMxbyw,3380
+admin_data_views/apps.py,sha256=cQ9KvgDQ5y4znxc33N_O2BW33nLiRX4fngzCK0-wOFk,246
+admin_data_views/settings.py,sha256=cOt73Aoe5Gmx8d0I1xY_mnpFaVxBDCIDkXdKtJbACDg,2264
+admin_data_views/templates/admin_data_views/admin_data_item_page.html,sha256=mHL0nkjaJyCUq97NdNRFUuBjLwT-OqGjAQG3-Dai3yk,3290
+admin_data_views/templates/admin_data_views/admin_data_table_page.html,sha256=erM7y5Ll1xo-O6809ohfD6GvSNeeBTD8uMV8WC1lcis,1722
+admin_data_views/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+admin_data_views/templatetags/admin_data_utils.py,sha256=KQesI4gBoAVUj7c9cRgFpM8uWuVlvZdM1pZIsIk1SjU,148
+admin_data_views/typing.py,sha256=ob6di73HaRB-pjwJUXfrPaCzT-qt_khEwvSm9gFy5Kk,1137
+admin_data_views/utils.py,sha256=3QLI5r1QrpfT6izo5aNX46_vc37pSbyGa-oppIvwUEc,4661
+LICENSE,sha256=NoqA0BoF9uLIRUG6ryOmyHVsWRJcMhquFm4u7Bs9y5o,1069
+README.md,sha256=XBU0uYGAnfx5u8NRuv7qhnX56TwjTcyntfeeCL3ch4o,1829
+django_admin_data_views-0.0.3.dist-info/LICENSE,sha256=NoqA0BoF9uLIRUG6ryOmyHVsWRJcMhquFm4u7Bs9y5o,1069
+django_admin_data_views-0.0.3.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+django_admin_data_views-0.0.3.dist-info/METADATA,sha256=xgjQUc3fzKYCAZ4P71uso08EvRcCY89zRtg5lt23d14,3012
+django_admin_data_views-0.0.3.dist-info/RECORD,,
