@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: ProdigyHelmsman
+Version: 0.0.3
+Summary: Demo REST API to do enquiries of the details of a country
+Home-page: https://github.com/hendrikdutoit/ProdigyHelmsman
+Author: Hendrik du Toit
+Author-email: hendrik@brightedge.co.za
+Maintainer: Hendrik du Toit
+Maintainer-email: hendrik@brightedge.co.za
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Communications
+Classifier: Topic :: Database
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: reahl-web (>=5.1)
+Requires-Dist: reahl-component (>=5.1)
+Requires-Dist: reahl-sqlalchemysupport (>=5.1)
+Requires-Dist: reahl-web-declarative (>=5.1)
+Requires-Dist: reahl-domain (>=5.1)
+Requires-Dist: reahl-mysqlsupport (>=5.1)
+Requires-Dist: termcolor
+Requires-Dist: beetools
+
+The strange name comes from the name of an entity and  helmsman who is also a navigator hence looking for details of a country.  The strange name  also contribute to finding a unique name on yPI and at the same time not squatting useful names on the public domain.\n  See ReadMe on GitHub for installation instructions.
+
+
