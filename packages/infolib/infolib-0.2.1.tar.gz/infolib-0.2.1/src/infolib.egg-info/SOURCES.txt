@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+src/infolib.egg-info/PKG-INFO
+src/infolib.egg-info/SOURCES.txt
+src/infolib.egg-info/dependency_links.txt
+src/infolib.egg-info/entry_points.txt
+src/infolib.egg-info/requires.txt
+src/infolib.egg-info/top_level.txt
