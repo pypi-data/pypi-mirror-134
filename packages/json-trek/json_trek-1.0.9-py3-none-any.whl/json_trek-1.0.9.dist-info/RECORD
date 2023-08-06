@@ -1,0 +1,14 @@
+json_trek/__init__.py,sha256=4xoOba-v12fUruMc8yFpJRrqp3_gQOJ7es4MUnLSDbU,42
+json_trek/main.py,sha256=tGBtbOfHZVa42XP6XHvfWiWY7ueRn7pEH-7xQEWPwHQ,8208
+json_trek/test_json_trek.py,sha256=RsJqYFyS8sZeQwZYIZseXbKu2smefbbPRp_lAQ8ztts,4545
+json_trek/json/animals.json,sha256=GXs0IRKBiRzeM0mK3c2nGANNSYQv_9GRQl3a7TKjmTw,5342
+json_trek/json/astronomical_objects.json,sha256=7g1OBM-lGut-GYhkb51doPQKaEh4vDdVFR9CePVmdik,22371
+json_trek/json/klingon_words.json,sha256=fV1a6E8_D3TPwLIRcliipu533oqCkgMuA9KceOOJ658,4921
+json_trek/json/names.json,sha256=by7AvJcx9quDIuuOECUsk1W8-2w3F-AmPTL95lczG7I,61236
+json_trek/json/occupations.json,sha256=J63g_yzmsvfoQLBBWb8sKheHMPb6YOZfNAKibgh_X2I,9451
+json_trek/json/species.json,sha256=AGHY4wD8T7WjI92O_JtM-8PUSfUrLH_nRNyxX_K9PrA,9317
+json_trek/json/trek_nouns.json,sha256=m4SeWYV6ybMkUccUC37YioCy43OmDP8QbItpHZLfL8U,2054
+json_trek-1.0.9.dist-info/METADATA,sha256=wGvNkEgq28n7ydAI7wkAGO6DD2b3rVnnCi49LJYZyc4,4287
+json_trek-1.0.9.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+json_trek-1.0.9.dist-info/top_level.txt,sha256=H3gqPfqo8hXdKNuncsAGvTaA7jJwsKPma6W6ZpUElec,15
+json_trek-1.0.9.dist-info/RECORD,,
