@@ -1,0 +1,36 @@
+from pathlib import Path
+import typing as t
+import pickle
+import pandas as pd
+from sklearn.pipeline import Pipeline
+from prediction_model.core import config,DATASET_DIR,TRAINED_MODEL_DIR,PACKAGE_ROOT
+import sys
+sys.path.append(f'{PACKAGE_ROOT}/')
+from prediction_model import __version__ as _version #could change
+
+#_version = 2.0
+
+def load_dataset(*,file_name:str) -> pd.DataFrame:
+    dataset = pd.read_csv(Path(f'{DATASET_DIR}/{file_name}'))
+    dataset = dataset.rename(columns= config.variables_to_rename)
+    try:
+        dataset.drop(config.columns_to_drop,axis=1,inplace=True)
+    except:
+        pass
+    return dataset
+
+def remove_old_pipeline(*, files_to_keep: t.List[str]) -> None:
+    do_not_delete = files_to_keep + ['__init__.py']
+    for model_file in Path(TRAINED_MODEL_DIR).iterdir():
+        if model_file not in do_not_delete:
+            model_file.unlink()
+
+def save_pipeline(*,pipeline_to_persist: str) -> None:
+    save_file_name = f'{config.pipeline_save_file}{_version}.pkl'
+    save_path = Path(TRAINED_MODEL_DIR) / save_file_name
+    remove_old_pipeline(files_to_keep = [save_file_name])
+    pickle.dump(pipeline_to_persist,open(save_path,'wb'))
+
+def load_pipeline(*,file_name: str) -> Pipeline:
+    load_path = Path(TRAINED_MODEL_DIR) / file_name
+    return pickle.load(open(load_path,'rb'))
