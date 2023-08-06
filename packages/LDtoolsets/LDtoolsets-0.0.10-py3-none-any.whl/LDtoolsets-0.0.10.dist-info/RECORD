@@ -1,0 +1,13 @@
+LDtools/__init__.py,sha256=46Yjk3fz9o8aTN8E95McnzpJcjGzVJmHmQqUZ5mXzfc,22
+LDtools/_nbdev.py,sha256=AQ3hYBvBMHqin2JDoVvg3zmQYbG6KvL-Vhr5ketbf-U,1342
+LDtools/genodata.py,sha256=wW1ikwF7KcpGfsBeUMlJyRutmb8zcSw5o0uLSJd20lM,11723
+LDtools/ldmatrix.py,sha256=FxKd6NowQJ_-KFY11Owl70A8ZQU-pzSBf4fgGMv5AV8,3115
+LDtools/liftover.py,sha256=IVkzjG8aZiDiIQQzng0a9J0MG5lzlO8XaPhV8i_iJNY,3643
+LDtools/sumstat.py,sha256=hf0sM_Vl1otp1WQmLDEGqkKY0TUjH700RpwEkjdTefM,2179
+LDtools/utils.py,sha256=eHCkKMAfZ0XwzG1PoepPDMROjWq24fxMvxaRyNudcwA,4614
+LDtoolsets-0.0.10.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+LDtoolsets-0.0.10.dist-info/METADATA,sha256=cfgZxfZYNwoClhRgwSJoBUKu7n_iX2m-FyY5pw00n0g,1490
+LDtoolsets-0.0.10.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+LDtoolsets-0.0.10.dist-info/entry_points.txt,sha256=PD1yY8qU5fBEA9OdtYVzAIpJTAAOhF5zzRxx9H4c1Ew,63
+LDtoolsets-0.0.10.dist-info/top_level.txt,sha256=61ydjN5CA-qBiKKi2DrLSbLGfl6BnpB8Y6pOuonfEg0,8
+LDtoolsets-0.0.10.dist-info/RECORD,,
