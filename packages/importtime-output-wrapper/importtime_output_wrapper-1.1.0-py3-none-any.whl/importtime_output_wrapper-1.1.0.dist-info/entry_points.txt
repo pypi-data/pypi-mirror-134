@@ -1,0 +1,3 @@
+[console_scripts]
+importtime-output-wrapper = importtime_output_wrapper:main
+
