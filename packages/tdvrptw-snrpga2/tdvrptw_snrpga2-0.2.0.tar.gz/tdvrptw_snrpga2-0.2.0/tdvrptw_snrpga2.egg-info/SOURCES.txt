@@ -1,0 +1,13 @@
+README.md
+setup.py
+tdvrptw_snrpga2/__init__.py
+tdvrptw_snrpga2/compute_inputs.py
+tdvrptw_snrpga2/genetic_alg.py
+tdvrptw_snrpga2/genetic_op.py
+tdvrptw_snrpga2/tdvrptw_instance.py
+tdvrptw_snrpga2/utils.py
+tdvrptw_snrpga2.egg-info/PKG-INFO
+tdvrptw_snrpga2.egg-info/SOURCES.txt
+tdvrptw_snrpga2.egg-info/dependency_links.txt
+tdvrptw_snrpga2.egg-info/requires.txt
+tdvrptw_snrpga2.egg-info/top_level.txt

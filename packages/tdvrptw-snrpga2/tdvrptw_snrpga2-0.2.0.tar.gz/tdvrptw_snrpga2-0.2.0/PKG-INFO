@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: tdvrptw_snrpga2
+Version: 0.2.0
+Summary: SNRPGA2 algorithm to solve TDVRPTW
+Home-page: UNKNOWN
+Author: Yingchen Ma
+Author-email: ericma@comcast.net
+License: UNKNOWN
+Keywords: python,tdvrptw,vrp,tdvrp,vrptw
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+Implementation of the genetic algorithm SNRPGA2 for the Time-Dependent Vehicle Routing Problem with Time Windows (TDVRPTW), as proposed by: 
+
+Nanda Kumar, Suresh & Panneerselvam, Ramasamy. (2017). Development of an Efficient Genetic Algorithm forthe Time Dependent Vehicle Routing Problem with Time Windows. American Journal of Operations Research. 07. 1-25. 10.4236/ajor.2017.71001.
+
+Usage instructions can be found here: https://github.com/yma17/tdvrptw-snrpga2
+
