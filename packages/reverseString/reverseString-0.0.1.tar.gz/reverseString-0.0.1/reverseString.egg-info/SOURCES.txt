@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+reverseString.egg-info/PKG-INFO
+reverseString.egg-info/SOURCES.txt
+reverseString.egg-info/dependency_links.txt
+reverseString.egg-info/top_level.txt
+reversletter/__init__.py
+reversletter/main.py
