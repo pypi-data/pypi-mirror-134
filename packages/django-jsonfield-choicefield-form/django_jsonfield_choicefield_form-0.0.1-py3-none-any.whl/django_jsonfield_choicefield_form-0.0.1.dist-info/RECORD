@@ -1,0 +1,13 @@
+django_json_choices_form_field/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_json_choices_form_field/asgi.py,sha256=X8AGsWazt8zLCIl_uHw1vvsfx2srveXK1nM5f0lqyfs,437
+django_json_choices_form_field/settings.py,sha256=UpJ73zXS62Nu45F-jn2HtpL_AlMzYwWBYcEv08JFBQ4,3311
+django_json_choices_form_field/urls.py,sha256=fOScVaRBE_snmnuxsjTUOxi1h3l-NS8dqAPlMaOKRbU,772
+django_json_choices_form_field/wsgi.py,sha256=i6FKeU-Qg-MekYNHmeTSkom1-iDbXo8WzMWPP6_SDIo,437
+forms/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+forms/admin.py,sha256=suMo4x8I3JBxAFBVIdE-5qnqZ6JAZV0FESABHOSc-vg,63
+forms/forms.py,sha256=mHkT_1HCLzYE8-UFULbVfLCd7kvbTwMr3DGmpllziY8,1123
+django_jsonfield_choicefield_form-0.0.1.dist-info/LICENSE,sha256=XVdbF2M4raG9rgm8gn9rXeNsjbAPuab4PyySlbJlutg,1074
+django_jsonfield_choicefield_form-0.0.1.dist-info/METADATA,sha256=D-gApIDJ3-BJRe11NMXBI6aThDzDO4DtStU7hVUvMGg,513
+django_jsonfield_choicefield_form-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+django_jsonfield_choicefield_form-0.0.1.dist-info/top_level.txt,sha256=d9j0WBGPWnMLEyvOoV9gCorPsEsNxLEbQWZWnP9lsNk,37
+django_jsonfield_choicefield_form-0.0.1.dist-info/RECORD,,
