@@ -1,0 +1,17 @@
+noteread/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/legado/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/legado/shelf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/legado/shelf/base.py,sha256=HUKkpVGCaTynxVul2gvasHMZy0hSYvRP7nEMLNIIbXE,2570
+noteread/legado/shelf/libs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/legado/shelf/libs/core.py,sha256=hMt9jzuDF5kMdT8ugq0gPqCU4Zb8eMO_Myp9aYxQij4,479
+noteread/legado/shelf/libs/correct.py,sha256=3c69_BhcoLzUA87d0XaoVjJnaRV8e8kKIub1z-aDFm0,1854
+noteread/legado/shelf/libs/mumuceo.py,sha256=GEwFmq1vTp4MD0N4-9WonXhYb_LTKy9toAG_DMWO7s4,2654
+noteread/legado/shelf/script/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/legado/shelf/script/load.py,sha256=aIF2dfzS-WlHeJ0gWl9grZE5vA4iY9bjdUnL8Y3Szpw,5900
+noteread/rss/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+noteread/rss/element.py,sha256=KmKSYJK9w9KIeKzsax9gZyrzVeW1vVAgxAA79-jDlMw,7343
+noteread-0.1.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+noteread-0.1.4.dist-info/METADATA,sha256=YDWAiaHrQQ1WSYzFbfZmDEWPc1kg4lfF0JwD2CIq1MM,225
+noteread-0.1.4.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+noteread-0.1.4.dist-info/top_level.txt,sha256=ct-ok_JnGUwh0Hdx1uZkLPGe47_xHdpgyx3b3XezhrY,9
+noteread-0.1.4.dist-info/RECORD,,
