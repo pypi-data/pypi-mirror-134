@@ -1,0 +1,77 @@
+general:
+  log_level: INFO  # Logging level [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+
+templating:  # This section contains all configuration regarding PDF processing
+  fonts:  # List of additional TTF fonts to be used in PDF processing
+    - name:  # Font name that can be used in the string field's custom properties
+        oc_default: null
+        oc_schema:
+          type: string
+          nullable: true
+      path:  # Path to the (TTF) file
+        oc_default: null
+        oc_schema:
+          type: string
+          nullable: true
+  field_defaults:  # Lowest level details for field elements (better keep as-is)
+    string:
+      default: ""
+      coords:
+        x: null
+        y: null
+      custom:
+        - property: Font
+          values: [ "Helvetica", 12 ]
+
+    image:
+      default: null
+      coords:
+        x: null
+        y: null
+      height: null
+      width: null
+      mask: [ 0,0,0,0,0,0 ]
+      custom: []
+
+    page_break:
+      default: null
+      custom: [ ]
+
+  templates:  # List of defined templates
+    - id:  # Template ID (string)
+        oc_default: null
+        oc_schema:
+          type: string
+          nullable: false
+      template:  # Template source
+        path:  # PDF file or a directory (in case of path value substitution)
+          oc_default: null
+          oc_schema:
+            type: string
+            nullable: false
+        path_value_substitution:  #
+          value:
+            oc_default: null
+            oc_schema:
+              type: string
+          pattern:
+            oc_default: null
+            oc_schema:
+              type: string
+      field_defaults: {}  # Default settings for each form field element
+      fields: []  # PDF form field definitions
+
+email:  # Configuration for email (can be used for sending processed PDF forms)
+  smpt:  # SMTP settings as defined in YagMail: https://github.com/kootenpv/yagmail/blob/f24af871c670c29f30c34ef2a4ab5abc3b17d005/yagmail/sender.py#L22 , if you set the user, you will not be able to use the "from" field in the "result:email" part of the API request.
+    oc_default: null
+    oc_schema:
+      type: dict
+      nullable: true
+
+rest_api:  # Configuration of the REST API endpoint
+  addr: 0.0.0.0
+  port: 8080
+
+
+
+
