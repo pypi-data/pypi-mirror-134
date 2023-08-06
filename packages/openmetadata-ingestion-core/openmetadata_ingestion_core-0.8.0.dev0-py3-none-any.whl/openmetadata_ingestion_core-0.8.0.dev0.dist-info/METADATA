@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: openmetadata-ingestion-core
+Version: 0.8.0.dev0
+Summary: These are the generated Python classes from JSON Schema
+Home-page: https://open-metadata.org/
+Author: OpenMetadata Committers
+License: Apache License 2.0
+Project-URL: Documentation, https://docs.open-metadata.org/
+Project-URL: Source, https://github.com/open-metadata/OpenMetadata
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: incremental
+
+---
+This guide will help you setup the Ingestion framework and connectors
+---
+
+![Python version 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)
+
+OpenMetadata Ingesiton is a simple framework to build connectors and ingest metadata of various systems through OpenMetadata APIs. It could be used in an orchestration framework(e.g. Apache Airflow) to ingest metadata.
+**Prerequisites**
+
+- Python &gt;= 3.8.x
+
+### Docs
+
+Please refer to the documentation here https://docs.open-metadata.org/connectors
+
+
