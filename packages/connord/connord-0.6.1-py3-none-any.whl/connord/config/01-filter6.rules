@@ -1,0 +1,54 @@
+################################################################################
+# 01-filter6.rules
+#
+# Jinja2 template for iptables
+# The naming scheme is important. You can prefix the table name with a number
+# to specify the order in which the files are loaded. The name after '-'
+# is the table name the rules are applied upon. If the table is suffixed with a
+# '6' the rules are applied to ip6tables. Recognized file endings are rules
+# and fallback. Fallback files are applied before connecting to a nordvpn server
+# and after disconnecting. Rules files are applied after connecting to a nordvpn
+# server.
+#
+# Recognized variables which must not be present in the config file:
+# vpn_remote:   the remote ip address of the vpn server
+# vpn_protocol: the protocol in use: udp or tcp
+# vpn_port:     the port to communicate with the vpn server
+#
+# In addition to variables above which are exposed from connord there are a lot
+# of variables available from openvpn's environment. They can be seen
+# in the output of connord when not running in daemon mode and are well
+# documented in man 8 openvpn in the 'Environment Variables' section.
+#
+# This file is parsed from top to bottom so make sure chains and rules are in
+# right order. Chains are created if they are not present yet.
+#
+# An unindented line defines a chain.
+# policy: Policy like it is described in man iptables
+# action: Not used yet
+# rules:  List of rules in the format which is accepted by python-iptables. See
+#         documentation there.
+################################################################################
+
+INPUT:
+  policy: DROP
+  action: None
+  rules:
+  - in-interface: lo
+    target: ACCEPT
+OUTPUT:
+  policy: ACCEPT
+  action: None
+  rules:
+  - out-interface: lo
+    target: ACCEPT
+  - target:
+      LOG:
+        log-prefix: '[OUT6_D]: '
+  - target:
+      REJECT:
+        reject-with: icmp-port-unreachable
+FORWARD:
+  policy: DROP
+  action: None
+  rules: []
