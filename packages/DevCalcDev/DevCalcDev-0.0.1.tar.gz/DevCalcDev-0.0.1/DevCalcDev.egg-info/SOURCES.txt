@@ -1,0 +1,8 @@
+LICENCE.txt
+README.txt
+setup.py
+DevCalcDev.egg-info/PKG-INFO
+DevCalcDev.egg-info/SOURCES.txt
+DevCalcDev.egg-info/dependency_links.txt
+DevCalcDev.egg-info/top_level.txt
+calculator_dev/__init__.py

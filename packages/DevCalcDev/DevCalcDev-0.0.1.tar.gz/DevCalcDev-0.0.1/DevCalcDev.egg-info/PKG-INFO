@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: DevCalcDev
+Version: 0.0.1
+Summary: basic Calculator
+Home-page: UNKNOWN
+Author: irakli Ghvinianidze
+Author-email: iraklikairaklI@gmail.com
+License: MIT
+Keywords: calcilator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+This is very simple calculator
+
+Change log - desc
+-------------------
+
+0.0.1 (15/01/2021)
+- First version
+
