@@ -1,0 +1,3 @@
+[console_scripts]
+guhs-server = guhs_server.server:main
+
