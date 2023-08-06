@@ -1,0 +1,10 @@
+transkribus_to_prima/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+transkribus_to_prima/cli.py,sha256=KgXWqPuCsnkCDYGa3u5xXjl5TbZxXDerzL4Bd_jlQq8,2219
+transkribus_to_prima/cli_coordinate_fixer.py,sha256=PUyavU-N6_xW_cVQcCLZwNxnlYLkUAxVv2kkZ5F2Aow,1119
+transkribus_to_prima/convert.py,sha256=dEv6RIfT941T7rV_5-p_KQxL_MVm0ah6rodTC3UbA8A,7087
+transkribus_to_prima/set_dimensions_from_image.py,sha256=OKE6Wg3MuirbYzwLj6xC0yAAMG1rFhobXl13yNE62Tw,511
+transkribus_to_prima-0.0.1.dist-info/METADATA,sha256=05-YKUBBhpEoAb3JgDXia8VRZNcurmivme9mwXfvIaE,698
+transkribus_to_prima-0.0.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+transkribus_to_prima-0.0.1.dist-info/entry_points.txt,sha256=dlXIJLT1VWOCYkkv5F0RNWECD23D868M56v_MS0es9M,223
+transkribus_to_prima-0.0.1.dist-info/top_level.txt,sha256=PkqAiJv2lme4k0yLVkiukUWo2K7Vq-Lp-u-PArq9UqE,21
+transkribus_to_prima-0.0.1.dist-info/RECORD,,
