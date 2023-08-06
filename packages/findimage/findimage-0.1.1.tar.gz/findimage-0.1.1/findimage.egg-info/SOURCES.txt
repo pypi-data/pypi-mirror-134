@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+findimage/__init__.py
+findimage.egg-info/PKG-INFO
+findimage.egg-info/SOURCES.txt
+findimage.egg-info/dependency_links.txt
+findimage.egg-info/requires.txt
+findimage.egg-info/top_level.txt
