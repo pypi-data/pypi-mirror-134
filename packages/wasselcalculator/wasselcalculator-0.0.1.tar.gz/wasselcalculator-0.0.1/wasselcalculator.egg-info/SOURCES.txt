@@ -1,0 +1,8 @@
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+wasselcalculator.egg-info/PKG-INFO
+wasselcalculator.egg-info/SOURCES.txt
+wasselcalculator.egg-info/dependency_links.txt
+wasselcalculator.egg-info/top_level.txt
