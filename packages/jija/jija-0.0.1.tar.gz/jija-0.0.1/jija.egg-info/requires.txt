@@ -1,0 +1,6 @@
+aiohttp==3.8.1
+aerich
+tortoise-orm==0.17.8
+asyncpg==0.25.0
+cryptographywatchdog
+aiohttp_session[secure]
