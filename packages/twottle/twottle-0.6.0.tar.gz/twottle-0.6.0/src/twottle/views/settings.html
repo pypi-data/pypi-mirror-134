@@ -1,0 +1,22 @@
+% rebase('base.html', title="Settings")
+
+<form action="/settings" method="POST">
+    % for setting, value in sorted(list(user.items())):
+    <div class="settings">
+        <label for="{{setting}}">{{setting}}</label>
+        <input class="setting" value="{{value}}" name="{{setting}}" id="{{setting}}">
+    </div>
+    % end
+    <br>
+    <div>
+        <button class="settings">Apply Settings</button>
+    </div>
+</form>
+<br>
+<form action="/settings" method="POST">
+    <button name="reset" value="true" class="settings">Restore Defaults</button>
+</form>
+
+% for change in changes:
+<p>{{change}}</p>
+% end
