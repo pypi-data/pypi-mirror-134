@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/shapesorter/__init__.py
+src/shapesorter/shapesorter.py
+src/shapesorter.egg-info/PKG-INFO
+src/shapesorter.egg-info/SOURCES.txt
+src/shapesorter.egg-info/dependency_links.txt
+src/shapesorter.egg-info/entry_points.txt
+src/shapesorter.egg-info/requires.txt
+src/shapesorter.egg-info/top_level.txt

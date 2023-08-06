@@ -1,0 +1,8 @@
+pyyaml~=6.0
+
+[dev]
+flake8
+pytest
+mypy
+isort
+types-PyYAML~=5.4.8
