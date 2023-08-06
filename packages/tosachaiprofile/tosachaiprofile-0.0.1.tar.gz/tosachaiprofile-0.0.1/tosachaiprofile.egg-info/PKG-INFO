@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: tosachaiprofile
+Version: 0.0.1
+Summary: Tosachai Profile by TcLaguna
+Home-page: https://github.com/TcLaguna/TosachaiProfile
+Author: TcLaguna
+Author-email: tclaguna@gmail.com
+License: MIT
+Download-URL: https://github.com/TcLaguna/TosachaiProfile/archive/v0.0.1.zip
+Keywords: Profile,Tosachai,TcLaguna
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE.txt
+
+(Tosachai Profile) เป็นการทดลองอัพโหลดแพคเกจไปยัง pypi.org
+==========================================================
+
+PyPi: https://pypi.org/project/tosachaiprofile/
+
+สวัสดีคร้าบ แพคเกจนี้เป็นแพคเกจที่อธิบายโปรไฟล์ของนาย Tosachai
+และสามารถนำไปใช้กับผู้อื่นได้
+
+วิธีติดตั้ง
+~~~~~~~~~~~
+
+เปิด CMD / Terminal
+
+.. code:: python
+
+   pip install tosachaiprofile
+
+วิธีใช้งานแพ็คเพจนี้
+~~~~~~~~~~~~~~~~~~~~
+
+-  เปิด IDLE ขึ้นมาแล้วพิมพ์…
+
+.. code:: python
+
+   my = Profile('Boat')
+   my.company = ('Indeebrew')
+   my.hobby = ('Gaming','Programing','Traveling')
+   print(my.name)
+   my.show_email()
+   my.show_myart()
+   my.show_hobby() 
+
+พัฒนาโดย: ทศชัย อินดี FB: https://www.facebook.com/TcLaguna
+
+

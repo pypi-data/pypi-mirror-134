@@ -1,0 +1,10 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+tosachaiprofile/__init__.py
+tosachaiprofile/myprofile.py
+tosachaiprofile.egg-info/PKG-INFO
+tosachaiprofile.egg-info/SOURCES.txt
+tosachaiprofile.egg-info/dependency_links.txt
+tosachaiprofile.egg-info/top_level.txt
