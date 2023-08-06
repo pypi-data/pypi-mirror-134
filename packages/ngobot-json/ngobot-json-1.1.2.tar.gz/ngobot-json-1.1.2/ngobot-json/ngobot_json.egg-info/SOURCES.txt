@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ngobot-json/ngobot_json.egg-info/PKG-INFO
+ngobot-json/ngobot_json.egg-info/SOURCES.txt
+ngobot-json/ngobot_json.egg-info/dependency_links.txt
+ngobot-json/ngobot_json.egg-info/top_level.txt
+test/test.py
