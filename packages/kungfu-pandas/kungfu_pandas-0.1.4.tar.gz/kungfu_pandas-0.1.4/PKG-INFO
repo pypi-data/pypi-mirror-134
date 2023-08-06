@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: kungfu_pandas
+Version: 0.1.4
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires: pandas
+Provides-Extra: dev
+Provides-Extra: test
+Provides-Extra: docs
+License-File: LICENSE
+
+UNKNOWN
+
