@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: py-ravif
+Version: 0.0.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: Python bindings for avif image encoding library ravif.
+License: BSD-3-Clause
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# py_ravif
+
+Python bindings for [`ravif`](https://github.com/kornelski/cavif-rs/tree/main/ravif) using [pyO3/maturin](https://github.com/pyO3/maturin).
+
+## Install
+
+```
+pip install py-ravif
+```
+
+## Usage
+
+```python
+import py_ravif
+
+# convert png or jpeg file
+# give path to file
+avif_bytes = py_ravif.convert_to_avif_from_path(some_path, quality=60)
+# or give bytes of image
+avif_bytes = py_ravif.convert_to_avif_from_bytes(img_bytes, quality=60)
+
+```
