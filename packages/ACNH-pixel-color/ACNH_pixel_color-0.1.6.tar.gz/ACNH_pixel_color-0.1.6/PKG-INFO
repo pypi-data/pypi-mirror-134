@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ACNH_pixel_color
+Version: 0.1.6
+Summary: A program to associate IDs with h/v/b values for color matching in ACNH
+Home-page: https://github.com/burnish3d/ACNH_pixel_color
+Author: Zachary Chandler
+Author-email: zachary.c.me@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ACNH_pixel_color
+A program to ID values with h/v/b values for pixel art in ACNH.
+
