@@ -1,0 +1,17 @@
+AlteMatrix/__init__.py,sha256=BbV5vEjefbQgUFfk2uA8p1DvE_PP5Xplo3zI8nxIG44,1146
+AlteMatrix/converter/__init__.py,sha256=SGFZbY_-cg2D_dEHmsMFeAk-YCxf__pJ_BjTY3CI_hI,146
+AlteMatrix/converter/binary.py,sha256=Jxd48NEKlYa_tnxOkSWUg8jjDUKqpkymc78CqCusNXA,2794
+AlteMatrix/converter/decimal.py,sha256=qn1MzBkoGKy3jspMOI0YnKJzedxySCco2We4j3Amp04,1905
+AlteMatrix/converter/hexadecimal.py,sha256=Y62lhQrAsvqCeYJWHxS9AsOXLHze8L3fx-MvT1IfBHI,2149
+AlteMatrix/converter/octal.py,sha256=jgRMpgeRaqW74RWq_USWhTEiWtP-zZd5umOtvLPcACw,2718
+AlteMatrix/converter/user_defined.py,sha256=vHRVHvWlMF6AEK7mtc6KZowdTgMmwRzfjdFLHx62n7g,6345
+AlteMatrix/ipanalyzer/__init__.py,sha256=JNFqZmfcAV8b4qy_7L4WPrzwgQExtg-pdgyHvXJlMkU,148
+AlteMatrix/ipanalyzer/ipv4_address_analyzer.py,sha256=S0WdvkuSqwfU06DoWiE1cHIc2yId8jKTkjSvELSt75Q,6810
+AlteMatrix/ipanalyzer/ipv6_address_analyzer.py,sha256=PMLSp8FyVHQ8DF4WOZj0BdTQ0MuRoRw4XlKYuvBTsy0,8485
+AlteMatrix/twos_complement/__init__.py,sha256=TgblgG_6zjm7zCDVzE0dgGL_MHM3yPHFW9zQ8pQQ5ZQ,153
+AlteMatrix/twos_complement/twos_comp.py,sha256=BRqMWJW5Rde0F6ZpxeXnQhTSLmSVCNFjNJ6aJ9V3XhA,2801
+AlteMatrix-1.0.0.dist-info/LICENSE,sha256=OT6Ypolu5EU86SsaUQHBGZoVk4d5_q2qQYxEeTYbRQo,1100
+AlteMatrix-1.0.0.dist-info/METADATA,sha256=syQ6egOVCxk71I42c742KKqpxlIUZKvbBjtohUEItFE,3377
+AlteMatrix-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+AlteMatrix-1.0.0.dist-info/top_level.txt,sha256=RY_fGa2CB4Gw57SsnmnVa37G7dRWWAgec23bhl_bq8o,11
+AlteMatrix-1.0.0.dist-info/RECORD,,
