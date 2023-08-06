@@ -1,0 +1,3 @@
+[napari.plugin]
+Partial-Aligner = Partial_Aligner
+
