@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: boj-checker
+Version: 1.0.0b3
+Summary: Test BOJ solution using sample IOs.
+Home-page: https://github.com/sohnryang/boj-checker
+Author: Ryang Sohn
+Author-email: loop.infinitely@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/sohnryang/boj-checker
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: colorama
+Requires-Dist: beautifulsoup4
+Requires-Dist: pyxdg
+
+UNKNOWN
+
