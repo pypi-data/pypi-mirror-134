@@ -1,0 +1,3 @@
+[console_scripts]
+pynumbat = pynumbat.__main__:main
+
