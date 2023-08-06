@@ -1,0 +1,9 @@
+qfp/__init__.py,sha256=D2xnZTqVhJqPgK55XaSxLcV3-1FENrOGGLVBcH7qVAQ,94
+qfp/audio.py,sha256=0h_RxTAa87Iw6RvcN4KawcNV1JlfZQuOFYwArkXQo_U,1354
+qfp/db.py,sha256=nAbqWDuZvgLfN8qUMNJm-dRbOEU8cbTMndycF0kqZFI,12665
+qfp/fingerprint.py,sha256=0msSqVx805-w6mlVDJmM1Q_HYdHfqwy3vaS6kPS67so,2232
+qfp/quads.py,sha256=-pn7BvrJzQn3TKRfJCLJDSCFlF3TCimgq6iwZVQGLgI,1944
+qfp/utils.py,sha256=A0ewNxfaVeKKFvBsGH925TI_jR-IVO5_ipiBOerN9wA,3323
+qfp-0.2.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+qfp-0.2.0.dist-info/METADATA,sha256=6xj_b09u_elK6h3WkdTFDSoTDk5Gm1EmvNavgJT8yrw,3447
+qfp-0.2.0.dist-info/RECORD,,
