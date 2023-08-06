@@ -1,0 +1,11 @@
+README.md
+newsp
+setup.py
+newsp.egg-info/PKG-INFO
+newsp.egg-info/SOURCES.txt
+newsp.egg-info/dependency_links.txt
+newsp.egg-info/requires.txt
+newsp.egg-info/top_level.txt
+newspp/ImageHelper.py
+newspp/NewsHelper.py
+newspp/__init__.py
