@@ -1,0 +1,4 @@
+include starlette_utils/schemas/statics/*
+include starlette_utils/schemas/statics/css/*
+include starlette_utils/schemas/statics/js/*
+include starlette_utils/schemas/statics/swagger/*

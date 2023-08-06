@@ -1,0 +1,9 @@
+PyJWT
+marshmallow
+starlette>=0.17.1
+starlette-apispec>=1.0.4
+smart7-orm==1.0.4
+uvicorn
+httptools
+pyinstaller
+python-multipart
