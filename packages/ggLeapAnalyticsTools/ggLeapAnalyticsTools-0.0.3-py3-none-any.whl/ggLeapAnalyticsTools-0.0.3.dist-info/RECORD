@@ -1,0 +1,12 @@
+ggLeap/DataHandler.py,sha256=Ff9WEuQt_rpSCk2TDuL_9Kh3CjjxBTeZ8-uI2HtMuxw,607
+ggLeap/__init__.py,sha256=d6675XnHDzbwWm9M3vSoBaGh4SRU0txUz7KOGegSO0k,155
+ggLeap/data_aggregation.py,sha256=CozUhSTxXVoPaF2HYJZYWwfmPCket-f0vJAqdnBFQMk,1940
+ggLeap/data_collection.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ggLeap/helpers.py,sha256=ycksrN7Wh8lRRo9e5-ahk5x7CrV_92bSJr3VDVkNvUc,2010
+ggLeap/importing.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ggLeap/reports.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ggLeapAnalyticsTools-0.0.3.dist-info/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+ggLeapAnalyticsTools-0.0.3.dist-info/METADATA,sha256=NPDEGUrGG4_h5SoosfB-n-BI30ar7EtarPsMZmJtIyM,917
+ggLeapAnalyticsTools-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ggLeapAnalyticsTools-0.0.3.dist-info/top_level.txt,sha256=rBXd9TdrVJWHDmngn2CPJQl7F3t0iaokzwHMUND_LKo,7
+ggLeapAnalyticsTools-0.0.3.dist-info/RECORD,,
