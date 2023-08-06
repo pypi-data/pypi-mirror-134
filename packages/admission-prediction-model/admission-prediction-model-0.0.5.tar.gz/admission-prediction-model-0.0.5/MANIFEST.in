@@ -1,0 +1,16 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./prediction_model/*
+
+include prediction_model/datasets/Admission_Predict.csv
+include prediction_model/trained_models/*.pkl
+include prediction_model/VERSION
+include prediction_model/config.yml
+
+include ./requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
