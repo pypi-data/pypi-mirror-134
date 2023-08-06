@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: py-stylus-ui
+Version: 0.1.1
+Summary: A user interface wrapper for xsetwacom.
+Home-page: https://github.com/demestav/py-stylus-ui
+Author: Demetris Stavrou
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: X11 Applications
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# py-stylus-ui
+Map a Wacom stylus tablet to specific area on the screen.
+
+## Installation
+`python -m pip install py-stylus-ui`
+
+## Usage
+Resize the window to the area that you want to map and click the button. The stylus now will work only within those boundaries.
+
+## How it works
+It is wrapper around `xsetwacom` command that defines the `MapToOutput`.
+
+## Why
+In cases where the result on the screen has to closely match the physical movement of the hand, e.g taking notes, it may be desirable to adjust the effective area on the screen to achieve this.
+
+## Planned features
+- Save different areas (profiles)
+- Switch between profiles through a shortcut. This will allow to map the tablet buttons to iterate through profiles.
+- Different aspect ratios
+- Tablet rotation
+- 1:1 mapping
+- ...
+
+
