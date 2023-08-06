@@ -1,0 +1,157 @@
+{%- extends 'base.html.j2' -%}
+{% from 'mathjax.html.j2' import mathjax %}
+{% from 'jupyter_widgets.html.j2' import jupyter_widgets %}
+
+{%- block header -%}
+<!DOCTYPE html>
+<html>
+<head>
+{%- block html_head -%}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] %}
+<title>{{resources.blog_title}}</title>
+
+{%- block html_head_js -%}
+{%- block html_head_js_jquery -%}
+<script src="{{ resources.jquery_url }}"></script>
+{%- endblock html_head_js_jquery -%}
+{%- block html_head_js_requirejs -%}
+<script src="{{ resources.require_js_url }}"></script>
+{%- endblock html_head_js_requirejs -%}
+{%- endblock html_head_js -%}
+
+{% block jupyter_widgets %}
+  {%- if "widgets" in nb.metadata -%}
+    {{ jupyter_widgets(resources.jupyter_widgets_base_url, resources.html_manager_semver_range, resources.widget_renderer_url) }}
+  {%- endif -%}
+{% endblock jupyter_widgets %}
+
+{% for css in resources.inlining.css -%}
+  <style type="text/css">
+  {{ css }}
+  </style>
+{% endfor %}
+
+{% block notebook_css %}
+{{ resources.include_css("static/style.css") }}
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+body {
+  overflow: visible;
+  padding: 8px;
+}
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}
+
+{%- if resources.global_content_filter.no_prompt-%}
+div#notebook-container{
+  padding: 6ex 12ex 8ex 12ex;
+}
+{%- endif -%}
+
+@media print {
+  body {
+    margin: 0;
+  }
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  }
+  div.output_wrapper {
+    display: block;
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
+  }
+}
+</style>
+{% endblock notebook_css %}
+
+{%- block html_head_js_mathjax -%}
+{{ mathjax(resources.mathjax_url) }}
+{%- endblock html_head_js_mathjax -%}
+
+{%- block html_head_css -%}
+{%- endblock html_head_css -%}
+
+{%- endblock html_head -%}
+    <style>
+    body{
+margin:0;
+padding:0;
+}
+  .mynav{
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #222;
+    padding: 20px;
+    border-color: #080808;
+    box-sizing: border-box;
+    
+}
+
+.blog_name{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    float: left;
+    padding: 6px 0px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 18px;
+    height: 30px;
+}
+p{
+
+}
+    </style>
+</head>
+{%- endblock header -%}
+
+{% block body_header %}
+
+<body>
+
+
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+  
+    <div class="container" id="notebook-container" >
+     <div class="heading">
+    <a href="/about/">Aswin Rajasekharan's</a> Thoughts and Writings
+  </div>
+  <div class="navigation">
+        <ul>
+          <li><a href="/">blog</a>
+          </li><li><a href="/projects">projects</a>
+          </li><li><a href="/about">about</a>
+        </li></ul>
+      </div>
+     <div class="titleoftheblog">
+     
+    {{resources.blog_title}}
+ 
+    </div>
+    <p class="date">Written on {{resources.published_on}}</p>
+{% endblock body_header %}
+
+{% block body_footer %}
+    </div>
+  </div>
+</body>
+{% endblock body_footer %}
+
+{% block footer %}
+{% block footer_js %}
+{% endblock footer_js %}
+{{ super() }}
+</html>
+{% endblock footer %}
+
