@@ -1,0 +1,13 @@
+uarray/__init__.py,sha256=QrVv0s7dJ3KPSXG9lDZQxFlaacmQsCzMf-AfEt5NrwI,4496
+uarray/_backend.py,sha256=E1Hzup7YGgJVpb9OVo97zx72a6wgcngxsD12sjylcD4,20498
+uarray/_uarray.cpython-39-darwin.so,sha256=ESCByuXhfKU3pStshNItMlkEpa7dajPxaqhrn83aCVU,124392
+uarray/_version.py,sha256=x4iE9J1bg9kCE40NBT34NirDJT6qaw2r7SdOTb_n44g,153
+uarray/conftest.py,sha256=qkVVFwdDS74WC29fh47wyKnl3Wow7XxuqfmUW16D6Gs,460
+uarray/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uarray/tests/example_helpers.py,sha256=WBdUG5MWutOsmMaljTVoljRq63IiBrODAHuloPUwPlw,1034
+uarray/tests/test_uarray.py,sha256=PrZ5FneNvoS4KVHFFtEAHjAD2HPQj1wdmPaI6neHZys,15173
+uarray-0.8.8.dist-info/LICENSE,sha256=yAw5tfzga6SJfhTgsKiLVEWDNNlR6xNhQC_60s-4Y7Q,1514
+uarray-0.8.8.dist-info/METADATA,sha256=rLpH71mBR5N2qurWL7BWutlq7z4LSfkebhdOUUmzKEc,3329
+uarray-0.8.8.dist-info/WHEEL,sha256=pfjXB0CCNW4PSSqQc2t4Up6p3o0jxBnHy_2o38FQkyE,109
+uarray-0.8.8.dist-info/top_level.txt,sha256=gWrAWzY0Mj5-QR13QhN3vWteA6-PCq6QGPQsHczIWO4,7
+uarray-0.8.8.dist-info/RECORD,,
