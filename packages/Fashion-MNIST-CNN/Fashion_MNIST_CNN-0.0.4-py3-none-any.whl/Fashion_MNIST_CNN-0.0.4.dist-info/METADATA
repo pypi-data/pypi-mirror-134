@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: Fashion-MNIST-CNN
+Version: 0.0.4
+Summary: classification model of fashion mnist. It for testing
+Home-page: UNKNOWN
+Author: Harold Finch
+Author-email: haroldf0001@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow (==2.7.0)
+Requires-Dist: keras (==2.7.0)
+
+UNKNOWN
+

@@ -1,0 +1,11 @@
+main_common/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+main_common/apis/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+main_common/apis/test_model.py,sha256=njsQJk_JPKrRW8vLd12x9ccovV-wOQk1WzA_0_bnmGA,561
+main_common/model/__init__.py,sha256=dqzwgjr7YRyes5i-HxpVxPT05biRzRhVKxu4slXIxT0,50
+main_common/model/load_local_model.py,sha256=wC7qTkmtXaJEV9WV2hUitcmJMlp_N9ri_O6HI91HtnA,169
+main_common/model/ssd_model.py,sha256=EqditCAFGWcDgtwHNTTU5rWelOerJYWOwdUdML3UB1Y,2126
+main_common/model/saved_model/Fashion_Mnist_CNN.h5,sha256=sc3jXbGk6eVk3eJ6vb9cKpqY4GtbYqQI8RnDvV3vSJY,14446352
+Fashion_MNIST_CNN-0.0.4.dist-info/METADATA,sha256=0lca8ReoYbhfcFZ2BPHEntC28vW9GDgZzzooKxpaYNo,514
+Fashion_MNIST_CNN-0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+Fashion_MNIST_CNN-0.0.4.dist-info/top_level.txt,sha256=M3TkJt_BJ4qtZJFK64pZscrQJfGBurQ4Zux7RydxfCA,12
+Fashion_MNIST_CNN-0.0.4.dist-info/RECORD,,
