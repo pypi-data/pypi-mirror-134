@@ -1,0 +1,14 @@
+investops/__init__.py,sha256=-RVS3DDW1h1i-yiNRL4lf62n-yjCG0PSa1qQpSU390o,100
+investops/check.py,sha256=gYNVV4i2hHQC5wfyoyOXmXM63jv8sLMo7QtqcH1HCUk,4557
+investops/diversify.py,sha256=RamUGUp8j1sfaPZ9UcAlFAOVagkXU6xWrkqwzt_YSKU,23178
+investops/diversify_sparse.py,sha256=HHFOjEWPLpYwBcqMo_YJrP2oWwmMsP1ERiHt-GabZ0o,21036
+investops/maps.py,sha256=LqTbkWJBnn-jgttSCvKdiDvhDwBsjRz-Wyx2GdGUq_0,4923
+investops/normalize.py,sha256=MmntVOe4Ngn6VK6ImvnvilNNEVj_aCHjeIstiyVzrk0,14148
+investops/random.py,sha256=U2ezFeLpi5nbv79xDpUPU9xaSKFKZKXR_Kt56oYiTN0,4665
+investops/remove_weights.py,sha256=YWK5J10WBozVphmzfNYoTiUPSGU7OgQoZQ9CaKt0Ilc,4808
+investops/sparse.py,sha256=tdWnDPk99hoUUuWdan8qtQy7grJ-dO7dMAXa6SfSKbs,6124
+investops-0.2.0.dist-info/LICENSE,sha256=_kvSwGt99qfsAsdQVGt60qurH3YIrZieWwVua6EmE1U,1083
+investops-0.2.0.dist-info/METADATA,sha256=4AcJgkff3tByNIUzkmR5Gbdl_y14sOh0VHGz7EhiQdY,608
+investops-0.2.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+investops-0.2.0.dist-info/top_level.txt,sha256=jqYb0OaJocXD-NOw_N_9Ac-aV0ya0qcT29cx4N_JRF4,10
+investops-0.2.0.dist-info/RECORD,,
