@@ -1,0 +1,13 @@
+msalign/__init__.py,sha256=gdqiCX-gzGCIiG2R6msAk7sH-WRCL6KMNcQT3t0-7uA,1199
+msalign/_version.py,sha256=g0RU_Fiae76hPEUjU6lGnapa9IZoqGcB4oFcTnsoMbM,142
+msalign/align.py,sha256=LE1UR-59bzgZ44byoYThvXOZtFbpJnNbNaWkbthi-tw,17400
+msalign/utilities.py,sha256=zSssoDvfWmA5GSQFZ6IQO7ckc2rrpaRw6Aa9Oac-biM,4490
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_init.py,sha256=GzZoZ07_U-SiLl6rAmWFCK9ZVVOakuO1tGc6Cf5zRu4,190
+tests/test_msalign.py,sha256=RWACXN-9Skp35jCW6jnEc934YKC2xQtQwHKF5ZjVHrY,8357
+tests/test_utilities.py,sha256=VVeNiZ2ZopHpj-buSSE188OphroadW2PvJgrD_ra3LY,3537
+msalign-0.2.0.dist-info/LICENSE,sha256=UOZ1F5fFDe3XXvG4oNnkL1-Ecun7zpHzRxjp-XsMeAo,11324
+msalign-0.2.0.dist-info/METADATA,sha256=LbZOahRz1fvNJQT-6j-ehOT-I-wUa2auqH45qNfkno0,4514
+msalign-0.2.0.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+msalign-0.2.0.dist-info/top_level.txt,sha256=Ld75BYdm9taHGy8jCS3AZHkeADDYAaxPG3FfiztZ3hQ,14
+msalign-0.2.0.dist-info/RECORD,,
