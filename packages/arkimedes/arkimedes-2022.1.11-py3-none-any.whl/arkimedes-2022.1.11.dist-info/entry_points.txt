@@ -1,0 +1,3 @@
+[console_scripts]
+arkimedes = arkimedes.__main__:main
+

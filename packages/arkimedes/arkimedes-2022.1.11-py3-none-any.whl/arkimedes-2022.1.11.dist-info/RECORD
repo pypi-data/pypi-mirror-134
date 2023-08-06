@@ -1,0 +1,13 @@
+arkimedes/__init__.py,sha256=td4M_nESIqlIL6w7Ai0gdqiuXnFLGbDC1TPrX4DReNk,1094
+arkimedes/__main__.py,sha256=7uWM7vDq6JSVfaKMUAglr4s3ngEpPbfil8vcGPr9fDY,6959
+arkimedes/config.py,sha256=alGPFQQ13ZaOiFl67pjSIiDmpe3cCWLvaLa7UEGGn0c,92
+arkimedes/db.py,sha256=7StHDmJ1cU0sQSJsUdkbPu5VnYyBnQAgzqorrCaSbVo,15910
+arkimedes/ead.py,sha256=ZJbz4tSlX46l1-8BnJc8jYa5s1FrfDS5mccKWH4IWIw,1254
+arkimedes/ezid.py,sha256=OrDRFwDxUjasLGYRJIu4RPtBKYPK8vlsV53Qx8DZ85E,7419
+arkimedes/pdf.py,sha256=1r124q_JfvmhTaeFz6sZo67NR-HD6Yxr_0_D0e9E5gc,1700
+arkimedes/qa.py,sha256=OeeFG8YjbwnaQFqoTG-xaR-VauFdRgLrCwKzrkuzS44,1677
+arkimedes-2022.1.11.dist-info/METADATA,sha256=_HjE5ruByKxY8ecCKkPrRZKVCRr6EFQrAOgkEUDU0xo,234
+arkimedes-2022.1.11.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+arkimedes-2022.1.11.dist-info/entry_points.txt,sha256=DkW50hbbMcBUgK-KK9Y6ALD5shotBpVKIAPXXgHKHQA,55
+arkimedes-2022.1.11.dist-info/top_level.txt,sha256=L4DY2W-yfivH4RhL7Z_zVWUpEJxYe3radX5D0JD9r3A,10
+arkimedes-2022.1.11.dist-info/RECORD,,

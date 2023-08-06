@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: arkimedes
+Version: 2022.1.11
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: fuzzywuzzy
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: sqlalchemy
+
+UNKNOWN
+
