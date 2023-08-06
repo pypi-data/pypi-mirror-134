@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: brfinance
+Version: 0.0.3
+Summary: Biblioteca em Python com o objetivo de facilitar o acesso a dados financeiros periódicos de empresas brasileiras(B3/CVM).
+Home-page: https://github.com/eudesrodrigo/brFinance
+Author: Eudes Rodrigo Nunes de Oliveira
+Author-email: eudesrodrigo@outlook.com
+License: UNKNOWN
+Download-URL: https://github.com/eudesrodrigo/brFinance/archive/refs/tags/0.0.2.tar.gz
+Description: [![Contributors][contributors-shield]][contributors-url]
+        [![Forks][forks-shield]][forks-url]
+        [![Stargazers][stars-shield]][stars-url]
+        [![Issues][issues-shield]][issues-url]
+        [![MIT License][license-shield]][license-url]
+        [![LinkedIn][linkedin-shield]][linkedin-url]
+        
+        # brfinance - Acesse facilmente dados financeiros de empresas brasileiras na B3/CVM
+        Biblioteca em Python com o objetivo de facilitar o acesso a dados financeiros periÃ³dicos de empresas brasileiras(B3/CVM).
+        * Financial statements:
+        * * BalanÃ§o Patrimonial Ativo (Balance sheet - Assets)
+        * * BalanÃ§o Patrimonial Passivo (Balance sheet - Liabilities)
+        * * DemonstraÃ§Ã£o do Resultado  (Income statement)
+        * * DemonstraÃ§Ã£o do Resultado Abrangente
+        * * DemonstraÃ§Ã£o do Fluxo de Caixa (Cash flow statement)
+        * * DemonstraÃ§Ã£o das MutaÃ§Ãµes do PatrimÃ´nio LÃ­quido
+        * * DemonstraÃ§Ã£o de Valor Adicionado
+        
+        <!-- ![image](https://i.imgur.com/TBpVWm3.png) -->
+        
+        ## InstalaÃ§Ã£o
+        ```
+        $ pip install brfinance
+        ```
+        
+        ## Como utilizar
+        Veja como Ã© simples utilizar:
+        ```python
+        from brfinance import CVMAsyncBackend
+        
+        from datetime import datetime, date
+        
+        
+        cvm_httpclient = CVMAsyncBackend()
+        
+        # Realizando busca por Empresa
+        
+        start_date = date(2010, 1, 1)
+        end_dt = date(2022, 1, 1)
+        cvm_codes_string = "021610" # B3
+        report_type = "EST_4" # CÃ³digo de categoria para DFP
+        last_ref_date = False # Se "True" retorna apenas o Ãºltimo report no intervalo de datas
+        reports_list = None # Se None retorna todos os demonstrativos disponÃ­veis.
+        
+        # Busca
+        search_result = cvm_httpclient.get_consulta_externa_cvm_results(
+            cod_cvm=cvm_codes_string,
+            start_date=start_date,
+            end_date=end_dt,
+            last_ref_date=last_ref_date,
+            report_type=report_type
+            )
+        
+        # Filtrar dataframe de busca para DFP e ITR apenas
+        search_result = search_result[
+            (search_result['categoria']=="DFP - DemonstraÃ§Ãµes Financeiras Padronizadas") |
+            (search_result['categoria']=="ITR - InformaÃ§Ãµes Trimestrais")]
+        search_result = search_result[pd.to_numeric(search_result['numero_seq_documento'], errors='coerce').notnull()]
+        
+        # Obter demonstrativos
+        for index, row in search_result.iterrows():
+            empresa = f"{row['cod_cvm']} - {cvm_codes[row['cod_cvm']]}"
+            print("*" * 20, empresa, "*" * 20)
+            reports = cvm_httpclient.get_report(row["numero_seq_documento"], row["codigo_tipo_instituicao"], reports_list=reports_list)
+            
+            for report in reports:
+                reports[report]["cod_cvm"] = row["cod_cvm"]
+                print(reports[report].head())
+        ```
+        VocÃª pode acessar exemplos completos clicando [aqui](https://github.com/eudesrodrigo/brFinance/tree/master/examples).
+        
+        
+        ### FunÃ§Ãµes disponÃ­veis
+        
+        AtravÃ©s da classe de client `CVMAsyncBackend`, vocÃª terÃ¡ acesso as seguintes funÃ§Ãµes:
+        
+        | FunÃ§Ã£o        |  ParÃ¢metros          | DescriÃ§Ã£o  |
+        | ------------- |:-------------:| -----|
+        | get_cvm_codes      | - | ObtÃ©m os cÃ³digos cvm disponÃ­veis para todas as empresas. Retorna um dicionÃ¡rio com o cÃ³digo CVM de chave e o nome da empresa. |
+        | get_consulta_externa_cvm_categories      | - |   ObtÃ©m os cÃ³digos para as categorias de busca disponÃ­veis, dentre elas "DFP", "ITR", etc. Retorna um dicionÃ¡rio com o cÃ³digo da busca e a descriÃ§Ã£o. |
+        | get_consulta_externa_cvm_results | cod_cvm, start_date, end_date, last_ref_date, report_type | ObtÃ©m o resultado da busca para os dados informados. Retorna um dataframe com os resultados.|
+        | get_report | numero_seq_documento, codigo_tipo_instituicao | Utilizado para obter todos os demonstrativos de uma empresa na CVM. Retorna um dicionÃ¡rio com os nomes e os valores dos demonstrativos em um dataframe. |
+        
+        <!-- MARKDOWN LINKS & IMAGES -->
+        <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+        [contributors-shield]: https://img.shields.io/github/contributors/eudesrodrigo/brFinance.svg?style=for-the-badge
+        [contributors-url]: https://github.com/othneildrew/brFinance/graphs/contributors
+        [forks-shield]: https://img.shields.io/github/forks/eudesrodrigo/brFinance.svg?style=for-the-badge
+        [forks-url]: https://github.com/othneildrew/brFinance/network/members
+        [stars-shield]: https://img.shields.io/github/stars/eudesrodrigo/brFinance.svg?style=for-the-badge
+        [stars-url]: https://github.com/othneildrew/brFinance/stargazers
+        [issues-shield]: https://img.shields.io/github/issues/eudesrodrigo/brFinance.svg?style=for-the-badge
+        [issues-url]: https://github.com/othneildrew/brFinance/issues
+        [license-shield]: https://img.shields.io/github/license/eudesrodrigo/brFinance.svg?style=for-the-badge
+        [license-url]: https://github.com/eudesrodrigo/brFinance/blob/master/LICENSE
+        [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+        [linkedin-url]: https://linkedin.com/in/eudesrodrigo
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7.*
+Description-Content-Type: text/markdown
