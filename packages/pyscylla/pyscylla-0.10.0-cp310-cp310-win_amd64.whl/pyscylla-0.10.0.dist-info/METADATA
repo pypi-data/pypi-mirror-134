@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pyscylla
+Version: 0.10.0
+Summary: Python bindings for Scylla
+Home-page: UNKNOWN
+Author: Erwan Grelet
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Provides-Extra: test
+
+UNKNOWN
+
