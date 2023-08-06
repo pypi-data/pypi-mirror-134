@@ -1,0 +1,11 @@
+MANIFEST.in
+backend_shim.py
+setup.py
+aio.functional.egg-info/PKG-INFO
+aio.functional.egg-info/SOURCES.txt
+aio.functional.egg-info/dependency_links.txt
+aio.functional.egg-info/namespace_packages.txt
+aio.functional.egg-info/top_level.txt
+aio/functional/__init__.py
+aio/functional/decorators.py
+aio/functional/py.typed
