@@ -1,0 +1,2 @@
+aiohttp<4,>=3.8.1
+typing-extensions<5,>=4.0.1
