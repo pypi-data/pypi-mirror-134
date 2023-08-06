@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: dnastack-client-library
+Version: 2.0
+Summary: "DNAstack's GA4GH library and CLI"
+Home-page: UNKNOWN
+Author: devs@dnastack.com
+License: MIT
+Platform: UNKNOWN
+Provides-Extra: test
+License-File: LICENSE
+
+UNKNOWN
+
