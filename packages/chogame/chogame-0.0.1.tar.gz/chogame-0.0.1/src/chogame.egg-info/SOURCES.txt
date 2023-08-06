@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.cfg
+src/chogame/__init__.py
+src/chogame/techdemo.py
+src/chogame/techdemo2.py
+src/chogame.egg-info/PKG-INFO
+src/chogame.egg-info/SOURCES.txt
+src/chogame.egg-info/dependency_links.txt
+src/chogame.egg-info/top_level.txt
