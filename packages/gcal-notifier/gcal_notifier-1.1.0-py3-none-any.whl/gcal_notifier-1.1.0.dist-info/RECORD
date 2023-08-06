@@ -1,0 +1,17 @@
+gcal_notifier/__init__.py,sha256=acuR_XSJzp4OrQ5T8-Ac5gYe48mUwObuwjRmisFmZ7k,22
+gcal_notifier/cli.py,sha256=cPjuCuHkrAaj2Ek8KGJqDN2lKdCZNNxlXhtXTJrjx58,954
+gcal_notifier/config_reader.py,sha256=4UCUwCldMnquPE0bCAQ3cc127V_v7TNmMD7H1LDCkuU,2558
+gcal_notifier/event_getter.py,sha256=8X9Mh3XJnnGsdkAIQC4dwfeuBMj2i5Fw1X7YA99UX_4,3397
+gcal_notifier/event_loader.py,sha256=ePuGpe7VdXJHyslJDCe_uk7r70Bjh4FJ23hb9aVBKv8,1154
+gcal_notifier/event_printer.py,sha256=zJ7gcvbsElQCGZeYPWrFTU-VOBKtTERftW6swOCJMoc,3579
+gcal_notifier/event_reminder.py,sha256=yFSyltt6LR7kBwYWWbyuL3g0dXPyn4of685v7_DnbFY,2265
+gcal_notifier/event_saver.py,sha256=R0MpU8qb4Zg4FqJeyKFOffJcZeCTG9LbFOlvygNaBZc,2773
+gcal_notifier/main.py,sha256=ABaoxsHIfZp577rL8h2xEuVOGIDlk3UzwRSO9uo38qs,2139
+gcal_notifier/resources/pop.wav,sha256=VRyemjItKe-yRYK3Rl2MVgUzi9Jj1chOuTwUjPBkjUg,226002
+gcal_notifier/tabulate.py,sha256=jwxTXMnibL1OfEEduGIciXNYJiEcu63fwv8SYIXW2vs,73799
+gcal_notifier/utils.py,sha256=D948EK9GTC2W0kkpvm4yLiX4ufZcqhJ6psQe23P__90,2122
+gcal_notifier-1.1.0.dist-info/entry_points.txt,sha256=F30ZaMADm9-3Wp1Nb05drAGxldfrcjELR6BJx2MRyCI,66
+gcal_notifier-1.1.0.dist-info/LICENSE.md,sha256=V0YIoMmh4N9armxzlgsZ-30KTkTw8sz9tnW000LZoHY,1069
+gcal_notifier-1.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+gcal_notifier-1.1.0.dist-info/METADATA,sha256=8FcUAXcl1yvb5hHgBALqLNck60V76O1lag3u9qU5kEk,4895
+gcal_notifier-1.1.0.dist-info/RECORD,,
