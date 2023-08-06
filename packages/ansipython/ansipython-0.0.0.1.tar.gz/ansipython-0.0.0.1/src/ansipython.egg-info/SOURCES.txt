@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ansipython/ANSI.py
+src/ansipython/Back.py
+src/ansipython/Fore.py
+src/ansipython/__init__.py
+src/ansipython.egg-info/PKG-INFO
+src/ansipython.egg-info/SOURCES.txt
+src/ansipython.egg-info/dependency_links.txt
+src/ansipython.egg-info/top_level.txt
