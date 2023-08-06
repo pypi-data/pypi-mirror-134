@@ -1,0 +1,17 @@
+supersetapiclient/__init__.py,sha256=3X5NvFKRSuNZdgvWzG2R3TMUc2_8ojuDW2Cz4tyNnyk,197
+supersetapiclient/base.py,sha256=WO1dOJbsLZXbcb9AvBNBeJ133VHeTmLL8Hiaz2QbR0o,8138
+supersetapiclient/charts.py,sha256=0eh1up1GFuUBqQ-Gm9nGHPn7NEML3V8V6qLMZa0qo5A,535
+supersetapiclient/client.py,sha256=HYLcQbS4WzLDSZLF1k4hGaMrDchwFX8M6fMVjdp5g7g,3506
+supersetapiclient/dashboards.py,sha256=iyCXz9vYm9A3fLkwWxQDYze3LdFwRrq91CWZgdq1jgk,1711
+supersetapiclient/databases.py,sha256=4rwmzPv70SvEAmZH3vHL4xSDm75lIw24Av0GJJilkAs,774
+supersetapiclient/datasets.py,sha256=4JHGl0YeyYCDo3x6waXXpbocMMnh7D3RSYEiWVDBs5A,400
+supersetapiclient/exceptions.py,sha256=8LeBEPI5P1czr03pdBYSTEiC9eBFPb5lVfGrGG30zP8,62
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=-bhJ6sC9al3X0N0W8hlxnKTJoXmrR_QuAT7uT3QIpuk,1359
+tests/simple_test.py,sha256=ATdqLmwnX_2UzxFg485AcDd31y9AD7dxAc9RWFMEfgc,95
+tests/superset_test_config.py,sha256=bMKsfWn6bWt9L9G76BmHpO6zWQ45QNvY_JQYjRorsgo,286
+superset_api_client-0.1.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+superset_api_client-0.1.4.dist-info/METADATA,sha256=fhGnT2x_-iOVX1MxwL5tBbReWMmNLRH8K034J3IOyf0,1513
+superset_api_client-0.1.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+superset_api_client-0.1.4.dist-info/top_level.txt,sha256=wsZZyDoDSCqQrfbVkdUAaRkH_rgwc3TFh8YEWg7WZuU,24
+superset_api_client-0.1.4.dist-info/RECORD,,
