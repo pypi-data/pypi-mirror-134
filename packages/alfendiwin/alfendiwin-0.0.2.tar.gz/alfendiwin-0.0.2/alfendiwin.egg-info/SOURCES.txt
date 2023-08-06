@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+alfendiwin/__init__.py
+alfendiwin/sql.py
+alfendiwin/taifex.py
+alfendiwin/util.py
+alfendiwin.egg-info/PKG-INFO
+alfendiwin.egg-info/SOURCES.txt
+alfendiwin.egg-info/dependency_links.txt
+alfendiwin.egg-info/requires.txt
+alfendiwin.egg-info/top_level.txt
