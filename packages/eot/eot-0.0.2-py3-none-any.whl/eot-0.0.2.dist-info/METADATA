@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: eot
+Version: 0.0.2
+Summary: eons time
+Home-page: https://github.com/eons-dev/bin_eot
+Author: eons
+Author-email: support@eons.llc
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/eons-dev/bin_eot/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: eons
+
+# EOT
+
+![build](https://github.com/eons-dev/bin_eot/actions/workflows/ebbs-push.yml/badge.svg)
+
+eons (original?) time. Just a simple stardate implementation, the eons way :)
+
+...
+EOT
+
