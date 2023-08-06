@@ -1,0 +1,9 @@
+chessEnv.py,sha256=wggr4xAcxDgenNLvH64_X2KjFL90dcy_t4a1goKJ67M,938
+core/__init__.py,sha256=ec1wFS_ZbL1bqgw6DF9miVHZGcfDziMtAUUCY5YMO80,169
+core/board.py,sha256=rpMQmtDpjBHwvaBSIis_KOxdx-DT-DQQA7qHeaZCjRk,143
+templateEnv/__init__.py,sha256=cjrOaPreNfdyC-U4EZsRPISxpJdSeNsFot3x29tg5DU,119
+templateEnv/aensteinEnv.py,sha256=nWQ1uAKgWw7hEljAcLxW8isQC8Go2JLCRCHwBOOrPGY,247
+chessEnv-0.0.1.dist-info/METADATA,sha256=dubTs8cCoHTVnoXnMWVnodSIvoVtifWAGjHexU-WeaY,447
+chessEnv-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+chessEnv-0.0.1.dist-info/top_level.txt,sha256=l_Hw0cAJ0C6K97OaW0bcxvilnfQAt687cQm679RDmQc,17
+chessEnv-0.0.1.dist-info/RECORD,,
