@@ -1,0 +1,13 @@
+backstagetasks/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+backstagetasks/__main__.py,sha256=NGaFLldB4bPan0DDzdXk0GHrtKDtWuHYE4tm-p0s4V0,138
+backstagetasks/.pyrustic/backstage/config/build.tasks,sha256=5eD0moEe_7eUK4EkXVZbEe5nj2IqhZ8y6OxmCZh4-KU,83
+backstagetasks/.pyrustic/backstage/config/init.tasks,sha256=klgX7SdGM7SFWNaQBy0rqxfNtIOI3ZaYoEDjPtdXRq0,39
+backstagetasks/.pyrustic/backstage/config/release.tasks,sha256=HeOHqCBjRTkMapVX3xNTwiz_9L7wpu5_2Q74oPEPt8E,39
+backstagetasks/.pyrustic/backstage/data/build_report.json,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/__main__.py,sha256=43FfkHgIoANC0cJ5MlTYj0nexA4g6A6k48X7zuPvP84,360
+backstagetasks-0.0.1.dist-info/METADATA,sha256=OZ5LaJjCujJ9WBpSr8MKIyp9pa_ZqBlPIDpJXy2ILEo,728
+backstagetasks-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+backstagetasks-0.0.1.dist-info/entry_points.txt,sha256=o7WB958ywvPTWmQjX85sjLaMSVDBmxvrA9AnnAGmEfI,65
+backstagetasks-0.0.1.dist-info/top_level.txt,sha256=Pni9yuU-dFaSbGtqapXXVjFVu70XNv2Tq0j3jdkU5N4,21
+backstagetasks-0.0.1.dist-info/RECORD,,
