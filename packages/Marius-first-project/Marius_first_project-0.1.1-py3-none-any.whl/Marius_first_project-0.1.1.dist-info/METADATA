@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: Marius-first-project
+Version: 0.1.1
+Summary: First project
+Home-page: UNKNOWN
+Author: Manea-Marius-Gabriel
+Author-email: manea_marius.gabriel@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Marius-first-project
+
+Marius-first-project it's my first python library
+
+## Installation
+
+```bash
+pip install Marius-first-project
+```
+
+## Usage
+
+```python
+from marius_project import marius
+
+marius.hello_from_marius()
+# Prints Hello from Marius
+
+marius.goodbye_from_marius()
+# Prints Goodbye from Marius
+```
+
