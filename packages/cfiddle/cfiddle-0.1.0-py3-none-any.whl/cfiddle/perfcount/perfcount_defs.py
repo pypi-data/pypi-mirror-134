@@ -1,0 +1,37 @@
+from .PerformanceCounterSpec import PerformanceCounterSpec
+# Generated with export_perf_count_macros.  Don't edit
+PERF_TYPE_HARDWARE= 0
+PERF_TYPE_HW_CACHE= 3
+PERF_TYPE_SOFTWARE= 1
+CPU_CYCLES = PerformanceCounterSpec(0, 0)
+INSTRUCTIONS = PerformanceCounterSpec(0, 1)
+CACHE_REFERENCES = PerformanceCounterSpec(0, 2)
+CACHE_MISSES = PerformanceCounterSpec(0, 3)
+BRANCH_INSTRUCTIONS = PerformanceCounterSpec(0, 4)
+BRANCH_MISSES = PerformanceCounterSpec(0, 5)
+BUS_CYCLES = PerformanceCounterSpec(0, 6)
+STALLED_CYCLES_FRONTEND = PerformanceCounterSpec(0, 7)
+STALLED_CYCLES_BACKEND = PerformanceCounterSpec(0, 8)
+REF_CPU_CYCLES = PerformanceCounterSpec(0, 9)
+CPU_CLOCK = PerformanceCounterSpec(1, 0)
+TASK_CLOCK = PerformanceCounterSpec(1, 1)
+PAGE_FAULTS = PerformanceCounterSpec(1, 2)
+CONTEXT_SWITCHES = PerformanceCounterSpec(1, 3)
+CPU_MIGRATIONS = PerformanceCounterSpec(1, 4)
+PAGE_FAULTS_MIN = PerformanceCounterSpec(1, 5)
+PAGE_FAULTS_MAJ = PerformanceCounterSpec(1, 6)
+ALIGNMENT_FAULTS = PerformanceCounterSpec(1, 7)
+EMULATION_FAULTS = PerformanceCounterSpec(1, 8)
+DUMMY = PerformanceCounterSpec(1, 9)
+L1D = 0
+L1I = 1
+LL = 2
+DTLB = 3
+ITLB = 4
+BPU = 5
+NODE = 6
+READ = 0
+WRITE = 1
+PREFETCH = 2
+ACCESS = 0
+MISS = 1
