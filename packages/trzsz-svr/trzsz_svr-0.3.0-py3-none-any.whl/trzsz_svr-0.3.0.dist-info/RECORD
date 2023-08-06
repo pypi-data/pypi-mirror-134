@@ -1,0 +1,11 @@
+trzsz_svr-0.3.0-py3.9-nspkg.pth,sha256=-Ed0yv8stW26kAHNs8c3TekzHluk3W7JWUknA9xSdT8,534
+trzsz/svr/__init__.py,sha256=dnKmvhYtG5EFJe5mwjZkqc8_DiPGJfCkmjzXMS1Xaio,1105
+trzsz/svr/__version__.py,sha256=pWab4QQSzcs8YP_DRE2cpvyB68q2EXy4f_oUAJ1fEYU,1128
+trzsz/svr/recv.py,sha256=zoDnPcjBLGcSZydC3H6XGj-xi4vMtr64HMq0-SxjIWM,3864
+trzsz/svr/send.py,sha256=c-soZZ4LCYspxtefc-Y9hibyr-nw0tDoMp2YTb_MzS0,3713
+trzsz_svr-0.3.0.dist-info/METADATA,sha256=B0bpT6dr-cyrFxAryqdXUA6qM2cbgggtR5rmdXbZ-LM,8511
+trzsz_svr-0.3.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+trzsz_svr-0.3.0.dist-info/entry_points.txt,sha256=eibewjV94QiL8yLxG3P1cT0SmGYTwlm1QS6utfGP8Ys,71
+trzsz_svr-0.3.0.dist-info/namespace_packages.txt,sha256=eZyOH999egBiepc_0BcTbKJ0pDPrpEaNzB4Wr-pQnIY,6
+trzsz_svr-0.3.0.dist-info/top_level.txt,sha256=eZyOH999egBiepc_0BcTbKJ0pDPrpEaNzB4Wr-pQnIY,6
+trzsz_svr-0.3.0.dist-info/RECORD,,
