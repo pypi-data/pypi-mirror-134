@@ -1,0 +1,10 @@
+youpi/__init__.py,sha256=tugQunPK77Y8Jo30q3Jo0LAy2dFk8JSNHyn3UQstoD0,52
+youpi/cache.py,sha256=DlGyRpsrbIE98SINBPUaQ1ZT-A47Glc02UeUGbbYKtA,1791
+youpi/stream.py,sha256=gaKeJhaAXv_kK68C_Y4Shp3GIDwNm_Xw2nksZeAVPW0,2508
+youpi/streamlist.py,sha256=k5Bz04XO_laGdPajfnnYwbsmLtEF1lkCSb_6zy6IItM,2637
+youpi/youtube.py,sha256=CZ8213FGzFJ4aDN-9o7w5wEMGrCV0BqvOlK2Sxi-t4Q,2732
+youpi-0.1.dist-info/LICENSE,sha256=u7TjdPtmzuHZouo18-o8ZM0FN2Y1iDjzFARTE9vhbnM,1093
+youpi-0.1.dist-info/METADATA,sha256=IXICNxo5nXrxS2tsHAtq-3KwrrulWPqRWT5NZonZ1zE,551
+youpi-0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+youpi-0.1.dist-info/top_level.txt,sha256=zTskRd-7gST_yI-eGTljwHsXmFJYAG573rbo8vGCa3Y,6
+youpi-0.1.dist-info/RECORD,,
