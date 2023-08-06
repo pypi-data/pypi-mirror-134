@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: EnvBert
+Version: 0.0.2
+Summary: Predicts classes of environmental due diligence
+Home-page: https://github.com/dreji18/environmental-due-diligence
+Author: Afreen Aman, Deepak John Reji
+Author-email: afreenaman90@gmail.com
+License: MIT
+Description: NLP Package to classify paragraphs for various categories of environmental site assessment.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
