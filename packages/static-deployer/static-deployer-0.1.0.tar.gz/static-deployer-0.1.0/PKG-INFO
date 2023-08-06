@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: static-deployer
+Version: 0.1.0
+Summary: Deploy static websites using a single command
+Home-page: https://github.com/jweyrich/static-deployer
+Author: Jardel Weyrich
+Author-email: jweyrich@gmail.com
+License: BSD-3-Clause
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7, <4.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+UNKNOWN
+

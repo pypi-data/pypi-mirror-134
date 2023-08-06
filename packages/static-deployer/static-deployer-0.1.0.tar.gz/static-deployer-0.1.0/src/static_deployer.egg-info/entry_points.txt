@@ -1,0 +1,4 @@
+
+            [console_scripts]
+            static_deployer=cli:main
+        
