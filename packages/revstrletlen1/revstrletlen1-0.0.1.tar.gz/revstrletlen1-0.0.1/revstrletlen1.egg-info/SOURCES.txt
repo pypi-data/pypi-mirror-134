@@ -1,0 +1,8 @@
+README.md
+setup.py
+revstrletlen/__init__.py
+revstrletlen/main.py
+revstrletlen1.egg-info/PKG-INFO
+revstrletlen1.egg-info/SOURCES.txt
+revstrletlen1.egg-info/dependency_links.txt
+revstrletlen1.egg-info/top_level.txt
