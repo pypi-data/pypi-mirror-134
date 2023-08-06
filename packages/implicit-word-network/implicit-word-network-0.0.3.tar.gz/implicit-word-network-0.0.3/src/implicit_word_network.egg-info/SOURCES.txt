@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+.vscode/settings.json
+src/implicit_word_network/__init__.py
+src/implicit_word_network/build_graph.py
+src/implicit_word_network/lib.py
+src/implicit_word_network/parse_documents.py
+src/implicit_word_network.egg-info/PKG-INFO
+src/implicit_word_network.egg-info/SOURCES.txt
+src/implicit_word_network.egg-info/dependency_links.txt
+src/implicit_word_network.egg-info/requires.txt
+src/implicit_word_network.egg-info/top_level.txt
