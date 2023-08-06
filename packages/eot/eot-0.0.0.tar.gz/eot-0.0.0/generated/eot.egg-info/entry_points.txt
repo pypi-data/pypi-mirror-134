@@ -1,0 +1,3 @@
+[console_scripts]
+eot = eot:eot
+
