@@ -1,0 +1,8 @@
+tree_comments/__init__.py,sha256=C8fEST-_3aVANY796QabHeU5z735ca1oUTyJqqV4Fz4,645
+tree_comments/models.py,sha256=vJmedtE-v-irncUl5xAF6cJZcXHXP2IvYFPwONipfrU,1116
+tree_comments/serializers.py,sha256=p1bJ0SyuQrQa41eK6vvBSvTbbKWOLqOTnGV9nxoRzow,1464
+tree_comments/viewsets.py,sha256=buNXCO7vSe1aWyj6PwL6inNK7Om6Hw4Hv0NX8IAmivw,1670
+django_tree_comments-0.0.2.dist-info/LICENSE,sha256=lXZATd4hoYZobhb7UIo7Wg1HNlmIkFYdxHaz2SgD4Q0,1518
+django_tree_comments-0.0.2.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+django_tree_comments-0.0.2.dist-info/METADATA,sha256=I-rp6plR5NOEevkbS2vbDiMNm3RYTKfm4F8NJBds03E,1842
+django_tree_comments-0.0.2.dist-info/RECORD,,
