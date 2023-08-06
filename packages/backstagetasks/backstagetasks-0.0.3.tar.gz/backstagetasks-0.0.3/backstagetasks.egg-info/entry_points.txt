@@ -1,0 +1,3 @@
+[console_scripts]
+backstagetasks = backstagetasks.__main__:main
+
