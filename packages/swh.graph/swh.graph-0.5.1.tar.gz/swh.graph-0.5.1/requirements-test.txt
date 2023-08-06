@@ -1,0 +1,5 @@
+pytest
+
+types-click
+types-pyyaml
+types-requests
