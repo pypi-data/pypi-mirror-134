@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: service-repository
+Version: 0.1.0
+Summary: Simple service layer with repository to SQLAlchemy or MongoDB
+Home-page: https://github.com/fndmiranda/service-repository
+License: MIT
+Author: Fernando Miranda
+Author-email: fndmiranda@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Typing :: Typed
+Project-URL: Repository, https://github.com/fndmiranda/service-repository
+Description-Content-Type: text/markdown
+
+# Service layer and repository for SQLAlchemy or MongoDB (asynchronous)
+
+Simple service layer with repository to SQLAlchemy with SQLModel or MongoDB with Motor.
