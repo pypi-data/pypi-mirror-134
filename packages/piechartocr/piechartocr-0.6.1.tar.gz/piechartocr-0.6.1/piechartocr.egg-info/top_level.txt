@@ -1,0 +1,3 @@
+libcolorprocesser
+libpolygoncalc
+piechartocr
