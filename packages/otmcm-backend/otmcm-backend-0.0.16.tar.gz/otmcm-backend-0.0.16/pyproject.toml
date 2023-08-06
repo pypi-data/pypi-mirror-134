@@ -1,0 +1,8 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "pyzmq>=18",
+    "pyyaml>=5.3.1"
+]
+build-backend = "setuptools.build_meta"
