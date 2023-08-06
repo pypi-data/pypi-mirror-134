@@ -1,0 +1,13 @@
+docs/__init__.py,sha256=62YI0krgILt6DrSYVUsw_o6tVKlw5V3hSxrrgOCJm1U,772
+docs/_debug.py,sha256=UgXG8iZ3uGCoUWi3TyC4I5obYneXo8Z_8CyxILluMgo,155
+docs/communicative.py,sha256=qu6JCfxrziDvXRojdGZpqktkRI538reiVyJaA8vnS50,5811
+docs/ut_gridlayer.py,sha256=LFwAZnCGcR5bcRcRhIVYkZA0VACao3y3zuqzeFeFt38,5572
+docs/ut_inputtext.py,sha256=EXWOptGhTN7M9X34Ydutlt5DaJf0YDcThnMdcwILfW0,201
+docs/ut_origin.py,sha256=MZd_2EYWcarTpwASbA8p1GdCjLPcpeSohMD8eGAsRT4,5860
+docs/ut_text.py,sha256=awB2kjic-Lut3UDOvUxRPT-l1Q--1CwYUpPoeRmYgZk,4495
+docs/ut_widgets.py,sha256=gRc7Ut_LMVXQGgwPo5j5ZpNV6Qw3J5XmHXNAzJprVec,1882
+baopig-0.11.0.dist-info/LICENSE,sha256=leilmpih3xbxexZ88IXk8_ljpzOQj0HHPQcpVPorl0I,1067
+baopig-0.11.0.dist-info/METADATA,sha256=ypJpDA1m1V6uWzYrk0aZM_wP6vkWjSbFiWApb8l96Ck,809
+baopig-0.11.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+baopig-0.11.0.dist-info/top_level.txt,sha256=DasNALQuzzpDEPJb9O4UzE5CjrpnNxe1HOrTNOUH5hs,5
+baopig-0.11.0.dist-info/RECORD,,
