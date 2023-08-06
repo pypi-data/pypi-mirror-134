@@ -1,0 +1,1 @@
+investing_world_indices_scraper
