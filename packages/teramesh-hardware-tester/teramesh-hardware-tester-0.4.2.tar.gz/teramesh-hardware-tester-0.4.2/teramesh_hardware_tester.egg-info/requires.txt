@@ -1,0 +1,5 @@
+click~=8.0
+esptool~=3.2
+
+[rpi]
+RPi.GPIO~=0.7
