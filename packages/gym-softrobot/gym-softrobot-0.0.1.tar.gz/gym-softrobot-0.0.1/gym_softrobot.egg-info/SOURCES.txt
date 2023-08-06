@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+gym_softrobot.egg-info/PKG-INFO
+gym_softrobot.egg-info/SOURCES.txt
+gym_softrobot.egg-info/dependency_links.txt
+gym_softrobot.egg-info/requires.txt
+gym_softrobot.egg-info/top_level.txt
