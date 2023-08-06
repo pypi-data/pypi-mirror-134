@@ -1,0 +1,17 @@
+default_to_none = true
+id = "ratha-saptamI"
+tags = [ "SpecialPuja", "MahapurushaEvents", "CommonFestivals",]
+jsonClass = "HinduCalendarEvent"
+
+[timing]
+default_to_none = true
+month_type = "lunar_month"
+month_number = 11
+anga_type = "tithi"
+anga_number = 7
+priority = "paraviddha"
+kaala = "प्राक्तनारुणोदयः"
+jsonClass = "HinduCalendarEventTiming"
+
+[names]
+sa = [ "रथ-सप्तमी",]

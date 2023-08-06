@@ -1,0 +1,28 @@
+default_to_none = true
+id = "vAmana~jayantI"
+tags = [ "Dashavataram", "CommonFestivals",]
+jsonClass = "HinduCalendarEvent"
+shlokas = """
+मासि भाद्रपदे शुक्लद्वादश्यां वामनो विभुः।
+अदित्यां काश्यपाज्जज्ञे नियन्तुं बलिमोजसा॥
+अवतारदिने पुण्ये हरिमुद्दिश्य भक्तितः।
+उपवासादि यत् किञ्चित्तदानन्त्याय कल्पते॥
+"""
+references_primary = [ "Vaidyanatha Dikshitiyam (SVR) p.62",]
+
+
+[timing]
+default_to_none = true
+month_type = "lunar_month"
+priority = "puurvaviddha"
+month_number = 6
+anga_type = "tithi"
+anga_number = 12
+kaala = "मध्याह्नः"
+jsonClass = "HinduCalendarEventTiming"
+
+[description]
+en = "Wednesday Shravana ; Vamana Jayanti; Shravana Dvadashi; Vijaya Dvadashi; Shakra Dvadashi"
+
+[names]
+sa = [ "वामन-जयन्ती",]
