@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: gnu-mo-files
+Version: 0.0.1
+Summary: Read and write GNU MO files
+Home-page: https://github.com/stsav012/gnu_mo_files
+Author: StSav012
+Author-email: stsav012@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/stsav012/gnu_mo_files/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Typing :: Typed
+Classifier: License :: OSI Approved :: The Unlicense (Unlicense)
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Localization
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# GNU MO Files
+
+Read and write GNU MO files.
+
+Created using [The Format of GNU MO Files](https://www.gnu.org/software/gettext/manual/html_node/MO-Files.html) article.
+
+To the contrary of what's written there, **the file revision** is totally ignored.
+The reason is that the difference between the revisions is not clear.
+
+**The hash table** does not get written and ignored while reading, for Python dictionary uses its own hashing anyway.
+
+Requires `Python >= 3.6` and no additional packages.
+The code can be easily ported to older Python version, but I have no intention to.
+
+
