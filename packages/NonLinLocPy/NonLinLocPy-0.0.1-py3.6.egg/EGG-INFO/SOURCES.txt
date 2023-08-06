@@ -1,0 +1,8 @@
+README.md
+setup.py
+NonLinLocPy/__init__.py
+NonLinLocPy/read_nonlinloc.py
+NonLinLocPy.egg-info/PKG-INFO
+NonLinLocPy.egg-info/SOURCES.txt
+NonLinLocPy.egg-info/dependency_links.txt
+NonLinLocPy.egg-info/top_level.txt
