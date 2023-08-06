@@ -1,0 +1,13 @@
+plone.volto
+plone.api
+Products.GenericSetup
+setuptools
+plone.restapi
+collective.folderishtypes[dexterity]
+kitconcept.contentcreator
+
+[test]
+plone.app.testing
+plone.testing
+plone.app.contenttypes
+plone.app.robotframework[debug]
