@@ -1,0 +1,130 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_88e12/fast && /usr/bin/make  -f CMakeFiles/cmTC_88e12.dir/build.make CMakeFiles/cmTC_88e12.dir/build
+make[1]: Entering directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_88e12.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_88e12.dir/src.c.o -c /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_88e12
+/home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88e12.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  -rdynamic CMakeFiles/cmTC_88e12.dir/src.c.o -o cmTC_88e12 
+CMakeFiles/cmTC_88e12.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x56): undefined reference to `pthread_cancel'
+src.c:(.text+0x67): undefined reference to `pthread_join'
+src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_88e12.dir/build.make:105: recipe for target 'cmTC_88e12' failed
+make[1]: *** [cmTC_88e12] Error 1
+make[1]: Leaving directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_88e12/fast' failed
+make: *** [cmTC_88e12/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_59da5/fast && /usr/bin/make  -f CMakeFiles/cmTC_59da5.dir/build.make CMakeFiles/cmTC_59da5.dir/build
+make[1]: Entering directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59da5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_59da5.dir/CheckFunctionExists.c.o -c /home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/share/cmake-3.19/Modules/CheckFunctionExists.c
+Linking C executable cmTC_59da5
+/home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59da5.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_59da5.dir/CheckFunctionExists.c.o -o cmTC_59da5  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_59da5.dir/build.make:105: recipe for target 'cmTC_59da5' failed
+make[1]: *** [cmTC_59da5] Error 1
+make[1]: Leaving directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_59da5/fast' failed
+make: *** [cmTC_59da5/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bcd81/fast && /usr/bin/make  -f CMakeFiles/cmTC_bcd81.dir/build.make CMakeFiles/cmTC_bcd81.dir/build
+make[1]: Entering directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bcd81.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_bcd81.dir/src.c.o -c /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_bcd81
+/home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcd81.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  -rdynamic CMakeFiles/cmTC_bcd81.dir/src.c.o -o cmTC_bcd81 
+CMakeFiles/cmTC_bcd81.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x56): undefined reference to `pthread_cancel'
+src.c:(.text+0x67): undefined reference to `pthread_join'
+src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bcd81.dir/build.make:105: recipe for target 'cmTC_bcd81' failed
+make[1]: *** [cmTC_bcd81] Error 1
+make[1]: Leaving directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_bcd81/fast' failed
+make: *** [cmTC_bcd81/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d69bd/fast && /usr/bin/make  -f CMakeFiles/cmTC_d69bd.dir/build.make CMakeFiles/cmTC_d69bd.dir/build
+make[1]: Entering directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d69bd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_d69bd.dir/CheckFunctionExists.c.o -c /home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/share/cmake-3.19/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d69bd
+/home/michel/repos/cmake-3.19.0-rc2-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d69bd.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_d69bd.dir/CheckFunctionExists.c.o -o cmTC_d69bd  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_d69bd.dir/build.make:105: recipe for target 'cmTC_d69bd' failed
+make[1]: *** [cmTC_d69bd] Error 1
+make[1]: Leaving directory '/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_d69bd/fast' failed
+make: *** [cmTC_d69bd/fast] Error 2
+
+
+

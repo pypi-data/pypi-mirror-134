@@ -1,0 +1,7 @@
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/install/strip.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/install/local.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/damavand-gpu.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/edit_cache.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/rebuild_cache.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/install.dir
+/home/michel/prod/damavand/damavand-gpu/build/CMakeFiles/list_install_components.dir
