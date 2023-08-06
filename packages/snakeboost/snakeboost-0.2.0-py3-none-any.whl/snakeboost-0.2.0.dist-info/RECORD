@@ -1,0 +1,9 @@
+snakeboost/__init__.py,sha256=wISWzL6Y1BsV853u6gFYzPxhbZkKPwG8Kz-mp0Ytgjs,1231
+snakeboost/pipenv.py,sha256=0VpLZQfWwlXBFxmgIgUtQhEFPy_QOl85LTvWKn264d0,5879
+snakeboost/script.py,sha256=MB1FICHZaJ3sJuqriyqTca7nhtoHKfjDwwaxfHe3aMs,12615
+snakeboost/tar.py,sha256=NZHRMZ2jgEKroyyd2tiLPFKLsk0bw5FPfoqVc4cvrbM,7674
+snakeboost/utils.py,sha256=NZZFVmdNBr2oFdqP6bkJ2JkK2sypySnoEWlnkWhO3vY,1691
+snakeboost/xvfb.py,sha256=BXtDTXmc2oTNLIYaYFHFnYYLs4KnbvP0YSZ9Mr6JOyU,1018
+snakeboost-0.2.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+snakeboost-0.2.0.dist-info/METADATA,sha256=b7M0NS-p_8V9ggJGJMgvrTxRWfQdy5WBZSBR2RCvwpA,12595
+snakeboost-0.2.0.dist-info/RECORD,,
