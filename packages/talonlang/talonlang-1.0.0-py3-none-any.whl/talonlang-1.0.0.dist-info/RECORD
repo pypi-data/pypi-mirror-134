@@ -1,0 +1,14 @@
+talon/__init__.py,sha256=dHuoY6voK7np1A7oRzw1xyBy7CK9_KBAc4FCKW29uRQ,21
+talon/environment.py,sha256=gzb4cTumwgUCmEFU7CesxkeiGNSQuLsbFoOXeKH6vl8,2288
+talon/errors.py,sha256=hIWMqdiOpiW3mbmnZHA9a8pq0Qse3OM-53Q-vO7QXnY,352
+talon/nodes.py,sha256=VofxQOb1-uKHHx9eBbHfGXbQ_Lqhw4Os2j6caqv4q7E,11313
+talon/symbols.py,sha256=10LyFCLI9MwJSMOsE3TLe61jZzPumRcS07C_azmKftc,2501
+talon/syntax.lark,sha256=Hss1csC388daXWN4VFMivH9OUdKc4zbDkjDFONF9RCI,3072
+talon/talon.py,sha256=7nx8REgiUxQS2RRbnzdXLGwwgMDqdixckBVl-8kUInU,2160
+talon/transformer.py,sha256=rUt_XPu_Jvt0E94gSm-GQ78ZLB3EuC-wUOMa__NFNes,4080
+talonlang-1.0.0.dist-info/LICENSE,sha256=JetPt-nHbB2v6YTD_Teg2WcYDVc6y1z1pe6J6DqkIKE,1084
+talonlang-1.0.0.dist-info/METADATA,sha256=3Qm136CkHMn6GOgNjwuI9Q9V_VWj1wfGyyFd8q0VNeM,4302
+talonlang-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+talonlang-1.0.0.dist-info/entry_points.txt,sha256=Q0Ci46ZNeCfV9VfdbJ0AmZLIZBCTMAceq0q8otC_eKs,42
+talonlang-1.0.0.dist-info/top_level.txt,sha256=nVMeLF9fDxGrukATqEftmeJGFsK_aKL5iPDLw_ibZiQ,6
+talonlang-1.0.0.dist-info/RECORD,,
