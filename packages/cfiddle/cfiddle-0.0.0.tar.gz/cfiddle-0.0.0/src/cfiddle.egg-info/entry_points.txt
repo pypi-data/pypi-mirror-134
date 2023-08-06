@@ -1,0 +1,4 @@
+[console_scripts]
+cfiddle-lib-path = cfiddle:print_libcfiddle_dir
+set-cfiddle-ld-path = cfiddle:set_ld_path_in_shell
+
