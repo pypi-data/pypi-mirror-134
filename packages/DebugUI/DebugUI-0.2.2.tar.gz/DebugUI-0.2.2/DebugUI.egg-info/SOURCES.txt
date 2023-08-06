@@ -1,0 +1,8 @@
+README.md
+setup.py
+DebugUI/__init__.py
+DebugUI.egg-info/PKG-INFO
+DebugUI.egg-info/SOURCES.txt
+DebugUI.egg-info/dependency_links.txt
+DebugUI.egg-info/requires.txt
+DebugUI.egg-info/top_level.txt
