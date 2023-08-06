@@ -1,0 +1,5 @@
+setup.py
+vegafusion_panel.egg-info/PKG-INFO
+vegafusion_panel.egg-info/SOURCES.txt
+vegafusion_panel.egg-info/dependency_links.txt
+vegafusion_panel.egg-info/top_level.txt
