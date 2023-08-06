@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: log12
+Version: 0.0.7a0
+Summary: Logging for 12-factor apps.
+Home-page: https://github.com/nkratzke/log12
+Author: Nane Kratzke
+Author-email: nane.kratzke@th-luebeck.de
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7,<4.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# log12
+
+Log12 unifies observability through handling of quantitative metrics, distributed tracing and qualitative message logging in a single and self-contained structured logging library that follows the [12-factor logging recommendation](https://12factor.net/logs) to see logs as a stream of events written that shall be written simply to `stdout`.
+
