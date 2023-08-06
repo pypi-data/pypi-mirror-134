@@ -1,0 +1,3 @@
+[console_scripts]
+about_convnet_morpho = convnet_morpho.about_convnet_morpho:main
+
