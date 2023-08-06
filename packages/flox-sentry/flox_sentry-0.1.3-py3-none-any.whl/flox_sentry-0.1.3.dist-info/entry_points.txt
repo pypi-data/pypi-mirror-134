@@ -1,0 +1,3 @@
+[flox.plugin]
+sentry=flox_sentry:plugin
+
