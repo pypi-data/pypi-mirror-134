@@ -1,0 +1,10 @@
+snowcatcher/__init__.py,sha256=rIERenqJNGbLiOxxLMJJw6H3NFwPw2ZbmU4r74d_eIk,153
+snowcatcher/connect.py,sha256=xXfpsa128Cs4SERQiInHBhcUD3qXj_VJUKRk0KNZoXQ,5091
+snowcatcher/connect_and_query.py,sha256=BjwRqmeCuyf2hwkdqoJgCu00SeigctD68e31SYNXsWQ,813
+snowcatcher/execute_query.py,sha256=uUk5iuRsohV-Ls1ufl4J_HvTuhrg940muI24140T2QQ,842
+snowcatcher/read_query.py,sha256=gnU9j5NmadL1jRIYrGpWxU1L7a090MzsWISerux22tM,272
+snowcatcher-2022.1.15.dist-info/LICENSE,sha256=HBAULCzuzmJou-sYNT9AJlqJBs4BOdgb3WEtW73rGZ8,1094
+snowcatcher-2022.1.15.dist-info/METADATA,sha256=D0bTOwXtGZFxoakxDpu1BsiY_bgk0XGNxl7GC3pJDKw,4798
+snowcatcher-2022.1.15.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+snowcatcher-2022.1.15.dist-info/top_level.txt,sha256=WDaZsWRBFD79q3gVCoHDubJGN3Nw6tN4IU3V_bbNObU,12
+snowcatcher-2022.1.15.dist-info/RECORD,,
