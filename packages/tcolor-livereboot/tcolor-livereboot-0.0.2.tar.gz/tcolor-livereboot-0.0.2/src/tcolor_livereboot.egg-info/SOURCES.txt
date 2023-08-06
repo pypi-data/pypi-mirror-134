@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+setup.cfg
+src/tcolor/__init__.py
+src/tcolor_livereboot.egg-info/PKG-INFO
+src/tcolor_livereboot.egg-info/SOURCES.txt
+src/tcolor_livereboot.egg-info/dependency_links.txt
+src/tcolor_livereboot.egg-info/top_level.txt
