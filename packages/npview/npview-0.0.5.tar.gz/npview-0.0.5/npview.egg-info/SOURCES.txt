@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+npview/__init__.py
+npview/csv.py
+npview/npp.py
+npview/npv.py
+npview.egg-info/PKG-INFO
+npview.egg-info/SOURCES.txt
+npview.egg-info/dependency_links.txt
+npview.egg-info/entry_points.txt
+npview.egg-info/requires.txt
+npview.egg-info/top_level.txt
