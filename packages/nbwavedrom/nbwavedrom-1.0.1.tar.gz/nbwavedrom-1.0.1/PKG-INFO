@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: nbwavedrom
+Version: 1.0.1
+Summary: Wavedrom timing diagrams for Jupyter Notebook
+Home-page: https://github.com/witchard/nbwavedrom
+License: MIT
+Keywords: wavedrom,jupyter,notebook
+Author: witchard
+Author-email: witchard@hotmail.co.uk
+Requires-Python: >=3.5,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/witchard/nbwavedrom
+Description-Content-Type: text/markdown
+
+nbwavedrom
+==========
+
+A simple package to add wavedrom (http://wavedrom.com) timing diagrams into a jupyter notebook.
+
+Example: https://github.com/witchard/nbwavedrom/blob/master/examples/example.ipynb.
+
+To get started simply `pip install nbwavedrom` or `pip install git+git://github.com/witchard/nbwavedrom.git`
+for the development version. Then take a look at the example notebook within jupyter notebook.
+
+The waveforms are rendered using the wavedrom-cli. Installation instructions can be found here: https://github.com/wavedrom/cli/.
+
