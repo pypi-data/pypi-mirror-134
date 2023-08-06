@@ -1,0 +1,7 @@
+cachingutils/__init__.py,sha256=MqnSIZNcvVOUFnNSxWaQhNaVdb6js1AS1jgc1RrEHKc,142
+cachingutils/cache.py,sha256=1QH49y_SEDucQ8vAM-lbE23-hcZvcIQ9bqH0BZ79ilg,1718
+cachingutils/deco.py,sha256=eVtlQQabsMJSLnQk854qDwS7375w3w4UujomAIjb6RU,2737
+cachingutils-1.0.3.dist-info/LICENSE,sha256=yuCKmDKmBN3HCG8j1AAxNwc2Gl0hIjHwuDWy30sWVuM,1066
+cachingutils-1.0.3.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+cachingutils-1.0.3.dist-info/METADATA,sha256=NUV1hjrBThtOG48DMJzMtZkcjKeIF2xeTs7UQ55S7no,2347
+cachingutils-1.0.3.dist-info/RECORD,,
