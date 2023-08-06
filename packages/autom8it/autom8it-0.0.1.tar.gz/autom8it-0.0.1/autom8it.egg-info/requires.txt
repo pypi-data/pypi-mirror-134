@@ -1,0 +1,4 @@
+PyYAML
+cerberus
+quickbe
+boto3
