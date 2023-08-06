@@ -1,0 +1,12 @@
+pyDictH5/__init__.py,sha256=09qO8An6lBo8Ms7pbn-y7ME63ZUaUWEoVWH5p4tA49o,120
+pyDictH5/_version.py,sha256=OJNhJS-GnnR671x4TMJfg_dEtY0YJSXfZYb3dH1HBqU,47
+pyDictH5/base.py,sha256=7D_raRpRfuUiyK2F28ojQ5N29LhAbhyPYZI13KPzfrE,12268
+pyDictH5/dep.py,sha256=153PXyDJdBxwKB_qr8-2AL1Ba4k-y9FPHCF5v4AF4ts,4841
+pyDictH5/io.py,sha256=euBLp9zBFkOXsSnU-Dv99Ur6xlXxg3OjrBM0ulCxpOQ,7649
+pyDictH5/pkl.py,sha256=FdSsEqz2pir2e3AAhciTMNrDG8UvbulDtTiYo1K7nDw,894
+pyDictH5/tabular.py,sha256=vytdbCXxHeEfDXGimU3g8m1DU5ftXDVKe94SY_zHqV8,1551
+pyDictH5-0.2.3.dist-info/LICENSE.txt,sha256=iKaYRR1K5b4MievZsqnhAP7G04wjpAgZyY9YiUbe8cU,551
+pyDictH5-0.2.3.dist-info/METADATA,sha256=bzEISWRjM1UIImcWityCZqr1L-8JH7Wsz9DrKtr8scA,482
+pyDictH5-0.2.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyDictH5-0.2.3.dist-info/top_level.txt,sha256=kfYx5FsJi7LIwxb2KnlvUtqbi5noUuCBxaCyymFssnE,9
+pyDictH5-0.2.3.dist-info/RECORD,,
