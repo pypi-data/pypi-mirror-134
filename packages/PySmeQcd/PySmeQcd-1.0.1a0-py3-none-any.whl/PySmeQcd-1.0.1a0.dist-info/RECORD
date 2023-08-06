@@ -1,0 +1,12 @@
+PySmeQcd/__init__.py,sha256=-j1TiwLm0z1YlqngR2MCazR5be8dQiRi7urfejrivFg,1130
+PySmeQcd/settings.py,sha256=VgreFvCRWzKccLJeILwGwkaxMwaxBc-nYJedECXxKZ8,1349
+PySmeQcd/oneloop/__init__.py,sha256=esXgKogJhGo2EHSR2UtV0j6BiPlg-j04fz_z3wwdl10,1241
+PySmeQcd/oneloop/ghost.py,sha256=Ca8Yo1vseKtyYsnQQwAi2PH2kJKmMw6y18S7ccAOZRg,13324
+PySmeQcd/oneloop/gluon.py,sha256=qulPTNXvETDHqMDAgVGuQNinrqnO1JpN6S8NKfIvkWY,29883
+PySmeQcd/oneloop/oneloop_settings.py,sha256=4fGavNxD_6yo-Zj18wfmtKfXGkbj9KYyTFhTIAKbfKw,2202
+PySmeQcd/oneloop/quark.py,sha256=BqIJwIi2tvDHv6GMzpPZI5dLJD0zg8JrJ1S9pwr82Wg,59339
+PySmeQcd-1.0.1a0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+PySmeQcd-1.0.1a0.dist-info/METADATA,sha256=63llMIH1f18xJwktnc8zkP28O6H7WgHeMzVYL3Zq1vs,3035
+PySmeQcd-1.0.1a0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+PySmeQcd-1.0.1a0.dist-info/top_level.txt,sha256=BZO7ueyVadxLNXBgRHOGVrc7FpWQJW11IyGw00lGmWg,9
+PySmeQcd-1.0.1a0.dist-info/RECORD,,
