@@ -1,0 +1,5 @@
+#!python
+from yaml_requests import main
+
+code = main()
+exit(code)
