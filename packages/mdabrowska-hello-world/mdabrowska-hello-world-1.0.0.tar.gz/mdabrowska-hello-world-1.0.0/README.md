@@ -1,0 +1,1 @@
+To mój pierwszy projekt, uczę się pythona.
