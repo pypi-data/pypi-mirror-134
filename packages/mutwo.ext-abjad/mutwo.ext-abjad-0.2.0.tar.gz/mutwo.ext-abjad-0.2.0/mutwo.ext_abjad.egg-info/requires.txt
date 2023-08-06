@@ -1,0 +1,11 @@
+mutwo<1.0.0,>=0.43.2
+mutwo.ext-music<1.0.0,>=0.2.0
+abjad-ext-nauert<4,>=3.4.0
+abjad<4,>=3.4.0
+abjad-ext-rmakers<4,>=3.4.0
+
+[testing]
+nose
+coveralls
+pillow<9.0.0,>=8.2.0
+mutwo.ext-ekmelily<1.0.0,>=0.2.0
