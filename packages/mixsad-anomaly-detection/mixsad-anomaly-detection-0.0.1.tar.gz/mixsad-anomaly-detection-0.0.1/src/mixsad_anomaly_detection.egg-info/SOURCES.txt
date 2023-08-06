@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/mixsad_anomaly_detection.egg-info/PKG-INFO
+src/mixsad_anomaly_detection.egg-info/SOURCES.txt
+src/mixsad_anomaly_detection.egg-info/dependency_links.txt
+src/mixsad_anomaly_detection.egg-info/top_level.txt
