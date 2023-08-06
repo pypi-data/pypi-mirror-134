@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: gryds
+Version: 0.0.9
+Summary: Gryds: a Python package for geometric transformations of images
+Home-page: https://github.com/MBPhys/gryds
+Author: Marc Boucsein, Robin Koch
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scipy
+Requires-Dist: numpy
+
+
+Gryds enables you to make fast geometric transformations of images.
+The supported geometric transformations include translations, rigid transformations (translation + rotation),
+similarity transformations (translation + rotation + isotropic scaling),
+affine transformations (translation + rotation + arbitrary scaling + shearing),
+and deformable transformations (modeled as B-splines). It is also possible to apply the transformations to
+coordinates in the image domain, and to inspect the deformation vector field.
+
