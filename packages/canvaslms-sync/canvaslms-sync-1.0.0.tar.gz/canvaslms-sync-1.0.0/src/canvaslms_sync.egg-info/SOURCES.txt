@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/canvaslms_sync/__init__.py
+src/canvaslms_sync.egg-info/PKG-INFO
+src/canvaslms_sync.egg-info/SOURCES.txt
+src/canvaslms_sync.egg-info/dependency_links.txt
+src/canvaslms_sync.egg-info/entry_points.txt
+src/canvaslms_sync.egg-info/requires.txt
+src/canvaslms_sync.egg-info/top_level.txt

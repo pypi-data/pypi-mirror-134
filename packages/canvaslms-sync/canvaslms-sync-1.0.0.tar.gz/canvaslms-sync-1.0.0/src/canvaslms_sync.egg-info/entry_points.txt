@@ -1,0 +1,3 @@
+[console_scripts]
+canvas_sync = canvaslms_sync:cli
+
