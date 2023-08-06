@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: vtkpython_cbl
+Version: 2022.1.13
+Summary: A library of vtkpython tools for cardiac biomechanics.
+Home-page: https://gitlab.inria.fr/mgenet/vtkpython_cbl
+Author: Martin Genet
+Author-email: martin.genet@polytechnique.edu
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# vtkpython_cbl
+A library of vtkpython tools for cardiac biomechanics.
+## Installation
+```
+pip install vtkpython_cbl
+```
+
+
