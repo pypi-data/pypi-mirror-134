@@ -1,0 +1,3 @@
+[console_scripts]
+ted_talk_video_downloader = ted_talk_video_downloader.__main__:main
+
