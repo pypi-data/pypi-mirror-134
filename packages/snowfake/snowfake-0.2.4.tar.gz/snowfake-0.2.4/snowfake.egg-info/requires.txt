@@ -1,0 +1,12 @@
+numpy
+matplotlib
+scipy
+tqdm
+
+[skimage]
+scikit-image
+
+[test]
+pytest
+pytest-cov
+scikit-image
