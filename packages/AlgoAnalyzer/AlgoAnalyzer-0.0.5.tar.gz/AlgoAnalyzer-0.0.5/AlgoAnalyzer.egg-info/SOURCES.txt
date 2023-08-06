@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+Readme.md
+setup.py
+AlgoAnalyzer/Analyzer.py
+AlgoAnalyzer/__init__.py
+AlgoAnalyzer.egg-info/PKG-INFO
+AlgoAnalyzer.egg-info/SOURCES.txt
+AlgoAnalyzer.egg-info/dependency_links.txt
+AlgoAnalyzer.egg-info/requires.txt
+AlgoAnalyzer.egg-info/top_level.txt
+AlgoAnalyzer/chart/__init__.py
+AlgoAnalyzer/chart/chart.py
+AlgoAnalyzer/technicals/__init__.py
+AlgoAnalyzer/technicals/ema_crossover.py
+AlgoAnalyzer/technicals/macd.py
+AlgoAnalyzer/technicals/sma_crossover.py
