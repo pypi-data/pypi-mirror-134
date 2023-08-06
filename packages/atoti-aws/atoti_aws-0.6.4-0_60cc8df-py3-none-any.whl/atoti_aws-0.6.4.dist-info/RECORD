@@ -1,0 +1,12 @@
+atoti_aws/LICENSE,sha256=_p8BEjW-sJSgaxa93uG_bFgMx1V10jsb9jLT8YOlBz0,23068
+atoti_aws/__init__.py,sha256=MIWG4GixOHjwCyseAXU7LY7fEHyXyPs5Izaj0HlhCAs,630
+atoti_aws/_client_side_encryption.py,sha256=sSA5WGrpAKCSBJ4Bqz4YLdzaalFDyRnwuFG5Lksij9c,1803
+atoti_aws/_plugin.py,sha256=8EMepqZDEDvA_gJARSsxJsd1iabSS_GkJl9z5uRBM-w,1761
+atoti_aws/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+atoti_aws/data/atoti-aws.jar,sha256=RjMTVgtBHI4R4__hWv54c03C4z3u5ndMJxFUh0M-hS8,19221186
+atoti_aws-0.6.4.dist-info/LICENSE,sha256=_p8BEjW-sJSgaxa93uG_bFgMx1V10jsb9jLT8YOlBz0,23068
+atoti_aws-0.6.4.dist-info/METADATA,sha256=HqH05mdiQ0nNVt1oHKh5KNmtbhvddhAOeBPQ4NmOF44,834
+atoti_aws-0.6.4.dist-info/WHEEL,sha256=aIsoTl_aIhi7Gxree-wS0BrOMHNb5BmsdRSXPc0l6UU,109
+atoti_aws-0.6.4.dist-info/entry_points.txt,sha256=ZMt0yhEhsHvOl1YNkYqLppyBBVRrhkx_VEY_2wullSg,51
+atoti_aws-0.6.4.dist-info/top_level.txt,sha256=sbKrlq6s-0PmkMWhWdju9TQnK9i3zyIBSQZCoL1_6zY,10
+atoti_aws-0.6.4.dist-info/RECORD,,
