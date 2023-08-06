@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+SmileRating/resources_rc.py
+SmileRating/smilerating.py
+SmileRating/smilerating_demo.py
+SmileRating/test_smilerating.py
+SmileRating/test_smilerating_bot.py
+SmileRating.egg-info/PKG-INFO
+SmileRating.egg-info/SOURCES.txt
+SmileRating.egg-info/dependency_links.txt
+SmileRating.egg-info/top_level.txt
