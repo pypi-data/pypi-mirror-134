@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+pyneed/__init__.py
+pyneed/__main__.py
+pyneed.egg-info/PKG-INFO
+pyneed.egg-info/SOURCES.txt
+pyneed.egg-info/dependency_links.txt
+pyneed.egg-info/top_level.txt

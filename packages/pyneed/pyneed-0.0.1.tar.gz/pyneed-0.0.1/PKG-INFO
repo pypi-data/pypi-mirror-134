@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyneed
+Version: 0.0.1
+Summary: Use Python to create and manage your usual needs.
+Home-page: https://github.com/pytopia/pyneed
+Author: PyTopia
+Author-email: hejazizo@ualberta.ca
+License: MIT
+Description: # ds-helpers
+        Data Science Helpers
+        
+        Suggested names:
+        - pyneed
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
