@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+Addons_Tkinter.egg-info/PKG-INFO
+Addons_Tkinter.egg-info/SOURCES.txt
+Addons_Tkinter.egg-info/dependency_links.txt
+Addons_Tkinter.egg-info/top_level.txt
