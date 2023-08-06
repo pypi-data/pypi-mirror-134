@@ -1,0 +1,3 @@
+[console_scripts]
+py-stylus-ui = py_stylus_ui.py_stylus_ui:cli
+
