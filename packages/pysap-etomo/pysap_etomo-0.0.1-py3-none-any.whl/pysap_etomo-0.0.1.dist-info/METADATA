@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pysap-etomo
+Version: 0.0.1
+Summary: Python Sparse data Analysis Package external ETOMO plugin.
+Home-page: https://github.com/CEA-COSMIC/pysap-etomo
+Author: 
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: progressbar2 (>=3.34.3)
+Requires-Dist: joblib
+Requires-Dist: scipy (>=1.3.0)
+Requires-Dist: scikit-image
+
+Martin Jacob <martin.jacob@cea.fr>
+Guillaume Biagi <guillaume.biagi@cea.fr>
+Philippe Ciuciu <philippe.ciuciu@cea.fr>
+Zineb Saghi <zineb.saghi@cea.fr>
+Patrick Quemere <patrick.quemere@cea.fr>
+
+Author-email: XXX
+License: CeCILL-B
+Platform: OS Independent
+Classifier: C
+Classifier: L
+Classifier: A
+Classifier: S
+Classifier: S
+Classifier: I
+Classifier: F
+Classifier: I
+Classifier: E
+Classifier: R
+Classifier: S
+License-File: LICENSE
+
+Python Sparse data Analysis Package external ETOMO plugin.
+
