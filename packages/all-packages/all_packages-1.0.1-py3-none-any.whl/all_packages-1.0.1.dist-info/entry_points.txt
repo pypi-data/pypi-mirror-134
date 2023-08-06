@@ -1,0 +1,3 @@
+[console_scripts]
+all_packages = all_packages.__main__:main
+
