@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cells
+Version: 0.1.1a3
+Summary: 
+Author: Darren Burns
+Author-email: darren@textualize.io
+Requires-Python: >=3.6.2,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pytest-cov (>=3.0.0,<4.0.0)
