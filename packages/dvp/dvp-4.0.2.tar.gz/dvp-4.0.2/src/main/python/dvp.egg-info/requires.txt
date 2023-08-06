@@ -1,0 +1,4 @@
+dvp-common==4.0.2
+dvp-libs==4.0.2
+dvp-platform==4.0.2
+dvp-tools==4.0.2
