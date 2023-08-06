@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: kpds-api-test
+Version: 1.0
+Summary: data_feeding_api
+Home-page: UNKNOWN
+Author: IT_Service
+Author-email: rracllwh@koreapds.com
+License: UNKNOWN
+Keywords: kpds_package,kpds
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Requires-Dist: requests
+Requires-Dist: pandas
+
+UNKNOWN
+
+
