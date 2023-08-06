@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+./variables
+simigen/__init__.py
+simigen/__main__.py
+simigen.egg-info/PKG-INFO
+simigen.egg-info/SOURCES.txt
+simigen.egg-info/dependency_links.txt
+simigen.egg-info/top_level.txt
+simigen/main/myclass.py
+simigen/main/parser.py

@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: simigen
+Version: 0.0.1
+Summary: Generates similar but different DNA sequences.
+Home-page: https://github.com/retospect/simigen
+Author: Reto Stamm
+Author-email: simigen@retostamm.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown

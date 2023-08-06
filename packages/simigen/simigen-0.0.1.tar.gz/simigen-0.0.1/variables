@@ -1,0 +1,6 @@
+NAME=simigen
+VERSION=0.0.1
+AUTHOR="Reto Stamm"
+AUTHOR_EMAIL=simigen@retostamm.com
+DESCRIPTION="Generates similar but different DNA sequences."
+URL="https://github.com/retospect/simigen"
