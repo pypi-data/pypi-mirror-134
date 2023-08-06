@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: httprobe
+Version: 0.0.4
+Summary: Probes a list of targets and returns details about responses
+Home-page: https://github.com/midnight-repo/httprobe
+Author: midnight_repo
+Author-email: midnight_repo@protonmail.com
+License: GPL-3.0
+Platform: UNKNOWN
+License-File: LICENSE.md
+
+UNKNOWN
+
