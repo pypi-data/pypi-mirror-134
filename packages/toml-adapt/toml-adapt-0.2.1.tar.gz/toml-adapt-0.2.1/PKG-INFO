@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: toml-adapt
+Version: 0.2.1
+Summary: A very simple cli for manipulating toml files.
+Author: iztokf
+Author-email: iztokf@fedoraproject.org
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: click
+Requires-Dist: toml
