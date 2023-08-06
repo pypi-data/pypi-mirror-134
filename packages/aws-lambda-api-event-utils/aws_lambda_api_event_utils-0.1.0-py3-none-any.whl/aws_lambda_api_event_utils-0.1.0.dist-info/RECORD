@@ -1,0 +1,8 @@
+aws_lambda_api_event_utils/__init__.py,sha256=TQhin_OZ4tarHkieRMXme-YbBKe-81hhVUaD8AdLBug,1644
+aws_lambda_api_event_utils/aws_lambda_api_event_utils.py,sha256=33Z14YWJWBEh-c9N84r7vpsQ-qXz1d0U8p0LBFGPfGQ,44017
+aws_lambda_api_event_utils/aws_lambda_api_event_validators.py,sha256=YLhbaOI2tmPxTfyRguYbd1mm5vBTSgGtAQoHaC20hoI,34879
+aws_lambda_api_event_utils/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aws_lambda_api_event_utils-0.1.0.dist-info/LICENSE,sha256=9j8RqO8bPFqn4auDoWpegssMFBSlrw52EoRAO4PJyOA,11340
+aws_lambda_api_event_utils-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+aws_lambda_api_event_utils-0.1.0.dist-info/METADATA,sha256=3rg95cRX_fOquCwJJ5fPqJxkVqw3-uQsv2-V4jMpHQw,21977
+aws_lambda_api_event_utils-0.1.0.dist-info/RECORD,,
