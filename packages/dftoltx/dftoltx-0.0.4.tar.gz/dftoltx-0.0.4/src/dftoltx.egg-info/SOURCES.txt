@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/dftoltx/__init__.py
+src/dftoltx/generator.py
+src/dftoltx.egg-info/PKG-INFO
+src/dftoltx.egg-info/SOURCES.txt
+src/dftoltx.egg-info/dependency_links.txt
+src/dftoltx.egg-info/top_level.txt
