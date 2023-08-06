@@ -1,0 +1,17 @@
+rbql/DEV_README.md,sha256=6GRyHlQ71CswpwM8Xejtk_kAQwmR-L2oHnULXS8vUDU,2051
+rbql/__init__.py,sha256=uZkM1V4sBwRz2z4-5bYGyWdC5V09TXqlnJdaldKXKdg,303
+rbql/__main__.py,sha256=1_N6PFFU4DaG7cEjFvxvDya7TpZqZC8cOkJwANvWWqs,35
+rbql/_version.py,sha256=nJkTWib0Vj9kAOIKIA3HB3t7aLDtmCg9eyxODRc72Ik,105
+rbql/csv_utils.py,sha256=33AjraAJxQ6feBFkErwPjMze676-Ud17yqbp9lQ1nL4,3787
+rbql/rbql_csv.py,sha256=ig27seAkvon6P2XjpZpwe9ykljGNrOFblTkS7uXaUPk,22919
+rbql/rbql_engine.py,sha256=H4ZApqVEcI0vyWo2ovXEV8NZEQaq9xPAtz-qb5Cr7tM,66463
+rbql/rbql_ipython.py,sha256=HQS-keJ5SADtTkvD_r8vPY1WV1pXyTub2R0Spqq0V_U,2988
+rbql/rbql_main.py,sha256=kqBpELBrsi3FupRRYtLQ_AlHwxtfxdcqP6GzIc8TU_c,22097
+rbql/rbql_pandas.py,sha256=1OCJXubta_xwPfqEZii_HcToqcbKj6grC_uULUKUcVs,4080
+rbql/rbql_sqlite.py,sha256=Erwwxb37-in2apoApxMi2-f8tuzHjPFjZCasmSOi_Jo,4777
+rbql-0.24.0.dist-info/LICENSE,sha256=UTxoAyUUUSf4nFuOmUMl3ZI1lIQo-Vn3rTK-dllHPW0,1074
+rbql-0.24.0.dist-info/METADATA,sha256=YCBFyUqFxvh4WcEKwK-RMgjbEs3eP-n9qzup-PFcVCo,11519
+rbql-0.24.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+rbql-0.24.0.dist-info/entry_points.txt,sha256=sIetnzJyFScRPx83Qt1m16k_cSaiT7ei3Sbvygy5knk,76
+rbql-0.24.0.dist-info/top_level.txt,sha256=bTedRwsSqmTmw8JGns6YlrBJPLbuj6CYs_tkzmgMAGM,5
+rbql-0.24.0.dist-info/RECORD,,
