@@ -1,0 +1,11 @@
+LICENSE
+setup.py
+hocv/__init__.py
+hocv/img_operate.py
+hocv/main.py
+hocv.egg-info/PKG-INFO
+hocv.egg-info/SOURCES.txt
+hocv.egg-info/dependency_links.txt
+hocv.egg-info/entry_points.txt
+hocv.egg-info/requires.txt
+hocv.egg-info/top_level.txt
