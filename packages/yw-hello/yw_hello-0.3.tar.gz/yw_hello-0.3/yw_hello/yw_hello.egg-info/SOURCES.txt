@@ -1,0 +1,8 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+yw_hello/yw_hello.egg-info/PKG-INFO
+yw_hello/yw_hello.egg-info/SOURCES.txt
+yw_hello/yw_hello.egg-info/dependency_links.txt
+yw_hello/yw_hello.egg-info/top_level.txt
