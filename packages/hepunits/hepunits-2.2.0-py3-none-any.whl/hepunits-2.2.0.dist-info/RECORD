@@ -1,0 +1,14 @@
+hepunits/__init__.py,sha256=gdzfAGqE4kzbtxlU7TLv0MXdNa9cSGllGo2EKiHNQ4k,6412
+hepunits/_version.py,sha256=uQRa7aBgJ-XwalH6CCTdqDBWvvsxLns-lAGlsJX939E,142
+hepunits/_version.pyi,sha256=o7uNL6MhuJoiqpEnriU7rBT6TmkJZA-i2qMoNz9YcgQ,82
+hepunits/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hepunits/constants/__init__.py,sha256=qifB3Ux8D1vMH_PDutXKtRCYccf1U3DqalRpOclVGZk,766
+hepunits/constants/constants.py,sha256=ToUw2-H96y3ksAWUZnqIR-6s8q3C0BLa_WMaHbEUYj4,2461
+hepunits/units/__init__.py,sha256=TCThw5QdxF9X8nF21iZSo1Rfl_vJPmErBhS-n62JOgw,5728
+hepunits/units/prefixes.py,sha256=OTWOUSS7odynReqKioxq2M8tNCNbZ8XQYLjSofttafc,1834
+hepunits/units/units.py,sha256=hbCnuITGQSrbKyD0JqqIEwJbPw0tePM-uXw52Da1Dns,12169
+hepunits-2.2.0.dist-info/LICENSE,sha256=3_IFWxnne17osF2n1GrJo_9MZwVRcuB1zs4rUsp4cnw,1523
+hepunits-2.2.0.dist-info/METADATA,sha256=ja0CU1ntETJ7Cq0W7n0ETYG47YhPQbcWQi0SJt_FKC0,7281
+hepunits-2.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+hepunits-2.2.0.dist-info/top_level.txt,sha256=sIgHSmSYZO1j-R1VB6wnl3RcC1QDbxiqj1z1Xr8yiDw,9
+hepunits-2.2.0.dist-info/RECORD,,
