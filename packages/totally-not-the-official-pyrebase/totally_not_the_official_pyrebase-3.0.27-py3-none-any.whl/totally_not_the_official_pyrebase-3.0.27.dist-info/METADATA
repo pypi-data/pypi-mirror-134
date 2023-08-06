@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: totally-not-the-official-pyrebase
+Version: 3.0.27
+Summary: firebase api wrapper fork from thisbejim but remove module limitation
+Home-page: https://github.com/thisbejim/Pyrebase
+Author: James Childs-Maidment
+License: MIT
+Keywords: Firebase
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: requests
+Requires-Dist: gcloud
+Requires-Dist: oauth2client
+Requires-Dist: requests-toolbelt
+Requires-Dist: python-jwt
+Requires-Dist: pycryptodome
+
+UNKNOWN
+
