@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+opyratorfront/__init__.py
+opyratorfront/py2pydantic.py
+opyratorfront.egg-info/PKG-INFO
+opyratorfront.egg-info/SOURCES.txt
+opyratorfront.egg-info/dependency_links.txt
+opyratorfront.egg-info/not-zip-safe
+opyratorfront.egg-info/requires.txt
+opyratorfront.egg-info/top_level.txt
