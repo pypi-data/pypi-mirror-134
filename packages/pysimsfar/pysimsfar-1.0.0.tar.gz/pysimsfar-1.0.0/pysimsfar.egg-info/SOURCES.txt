@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+pysimsfar/__init__.py
+pysimsfar/far.py
+pysimsfar.egg-info/PKG-INFO
+pysimsfar.egg-info/SOURCES.txt
+pysimsfar.egg-info/dependency_links.txt
+pysimsfar.egg-info/top_level.txt
