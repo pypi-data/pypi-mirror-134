@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: imktk
+Version: 0.1.6a2
+Summary: Toolkit provided by IMK at KIT
+Home-page: https://github.com/imk-toolkit/imk-toolkit
+License: MIT
+Author: Uğur Çayoğlu
+Author-email: Ugur.Cayoglu@kit.edu
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Requires-Dist: netCDF4 (>=1.5.8,<2.0.0)
+Requires-Dist: xarray (>=0.20.1,<0.21.0)
+Project-URL: Documentation, https://github.com/imk-toolkit/imk-toolkit
+Project-URL: Repository, https://github.com/imk-toolkit/imk-toolkit
+Description-Content-Type: text/markdown
+
+# IMK Toolkit
+Collection of methods developed by IMK
+
+## Usage
+
+```python
+import imktk
+import xarray as xr
+
+t = xr.tutorial.open_dataset("rasm").load().Tair
+anomaly_free_t = t.imktk.anomalies()
+```
+
