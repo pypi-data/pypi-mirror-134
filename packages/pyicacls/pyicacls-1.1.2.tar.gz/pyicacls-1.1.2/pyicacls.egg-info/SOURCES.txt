@@ -1,0 +1,16 @@
+README.md
+setup.py
+pyicacls/__init__.py
+pyicacls/attributes.py
+pyicacls/getter.py
+pyicacls/manager.py
+pyicacls/permissions.py
+pyicacls/setter.py
+pyicacls/structs.py
+pyicacls.egg-info/PKG-INFO
+pyicacls.egg-info/SOURCES.txt
+pyicacls.egg-info/dependency_links.txt
+pyicacls.egg-info/requires.txt
+pyicacls.egg-info/top_level.txt
+pyicacls/examples/__init__.py
+pyicacls/examples/icacls.py
