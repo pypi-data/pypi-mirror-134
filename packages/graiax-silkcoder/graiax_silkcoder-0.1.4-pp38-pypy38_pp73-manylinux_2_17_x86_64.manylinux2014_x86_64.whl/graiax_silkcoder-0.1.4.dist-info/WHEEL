@@ -1,0 +1,6 @@
+Wheel-Version: 1.0
+Generator: pdm-pep517 0.10.0
+Root-Is-Purelib: False
+Tag: pp38-pypy38_pp73-manylinux_2_17_x86_64
+Tag: pp38-pypy38_pp73-manylinux2014_x86_64
+
