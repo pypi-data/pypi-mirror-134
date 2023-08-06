@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "vtrace"
+version = "1.0.0"
+description = "A command line application to trace the route to a host and provide the user with a visual map."
+authors = ["Richard Bieringa <richardbieringa@gmail.com>"]
+keywords = ["vtrace", "traceroute", "visual"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/RichardBieringa/vtrace"
+repository = "https://github.com/RichardBieringa/vtrace"
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scapy = "^2.4.5"
+click = "^8.0.3"
+ipinfo = "^4.2.1"
+folium = "^0.12.1"
+
+[tool.poetry.scripts]
+vtrace = "vtrace.app:main"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+pytest-cov = "^3.0.0"
+pytest-xdist = "^2.5.0"
+black = {version = "^21.12b0", allow-prereleases = true}
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+python-dotenv = "^0.19.2"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
