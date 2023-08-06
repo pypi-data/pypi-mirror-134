@@ -1,0 +1,12 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/rangierapparat.egg-info/PKG-INFO
+src/rangierapparat.egg-info/SOURCES.txt
+src/rangierapparat.egg-info/dependency_links.txt
+src/rangierapparat.egg-info/top_level.txt
+src/rangierlib/__init__.py
+src/rangierlib/ablauf.py
+src/rangierlib/ausparken.py
+src/rangierlib/circle_intersections.py
+src/rangierlib/fsolver.py
