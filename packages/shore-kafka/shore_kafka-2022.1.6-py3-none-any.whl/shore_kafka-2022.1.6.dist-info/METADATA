@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: shore-kafka
+Version: 2022.1.6
+Summary: Replacement for confluent-kafka
+Home-page: UNKNOWN
+Author: Woojin Cho
+Author-email: woojin.cho@gsenc.com
+License: MIT License
+Keywords: kafka
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Requires-Dist: confluent-kafka (>=1.8.2)
+Requires-Dist: pydantic
+Requires-Dist: pendulum
+Requires-Dist: jsonschema
+Requires-Dist: genson
+Requires-Dist: requests
+Requires-Dist: uuid
+
+# shore-kafka
+
+Replacement for confluent-kafka.
+

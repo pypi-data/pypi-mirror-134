@@ -1,0 +1,15 @@
+shore_kafka/__init__.py,sha256=CpjUUSIYkbJznYj3a1w77vjguRETHB_9UcfYY8Slz3c,160
+shore_kafka/confs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shore_kafka/confs/examples.py,sha256=Q_TjlbMkrEPnQS6YESWzWsvN130K6qNkM9kTlITCLNo,1329
+shore_kafka/consumers/__init__.py,sha256=6T68axstmsVhXK90gPekxwzlk2MzlAUTuRB_xaE4hB0,37
+shore_kafka/consumers/consumers.py,sha256=NTrvvD_WNvqi5F_ZaCpijeoWdwGqMPSCp464Oqt1UCY,3778
+shore_kafka/producers/__init__.py,sha256=Bcevro0tMi2uEQtlU73luqbgxxtE14gUZUKkrJa1-Ok,37
+shore_kafka/producers/producers.py,sha256=tdp6G2zT_ADTrR-0gUbVCfT09qeSNMpE_UDplVuOcc4,3769
+shore_kafka/schema_registry/__init__.py,sha256=moQ-j5BabL23iB5akB8rnJO4lQjQo3moArk0Egdv6SQ,212
+shore_kafka/schema_registry/builders.py,sha256=5UqFX5goNAmSomHVb34E1RuMjDyLi8epAAxapPY39uA,1897
+shore_kafka/schema_registry/schema_registry.py,sha256=IRMkK3QZE82Nfu5Fk0kLppJ556MXzBxwO4mrLVJbQ_8,8429
+shore_kafka-2022.1.6.dist-info/METADATA,sha256=H6oNVWTqJgEPNxYdldOL7gh4uN9JZxffw44S1zrYCYw,481
+shore_kafka-2022.1.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+shore_kafka-2022.1.6.dist-info/entry_points.txt,sha256=eqGnTHtEVMYwfXVk1Z9MhC8O2N8wuqAbr0lisLmrkxs,20
+shore_kafka-2022.1.6.dist-info/top_level.txt,sha256=lMeYsBs9vMpMknlk11W0cttYhEE02xPO9sNF35IPUTE,12
+shore_kafka-2022.1.6.dist-info/RECORD,,
