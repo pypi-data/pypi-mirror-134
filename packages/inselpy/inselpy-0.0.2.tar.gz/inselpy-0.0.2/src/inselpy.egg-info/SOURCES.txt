@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/insel/__init__.py
+src/insel/insel.py
+src/inselpy.egg-info/PKG-INFO
+src/inselpy.egg-info/SOURCES.txt
+src/inselpy.egg-info/dependency_links.txt
+src/inselpy.egg-info/top_level.txt
