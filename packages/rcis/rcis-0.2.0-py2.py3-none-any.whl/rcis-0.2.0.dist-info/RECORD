@@ -1,0 +1,11 @@
+rcis/__init__.py,sha256=PLb-dwMM-GLj3NCslOy8hLvxu14kCghCb4AMYBYGi64,96
+rcis/__main__.py,sha256=bkbUL2Cj_AVpfsFGUTfCv2HSr3qWB6tg4fi39MUuFsY,377
+rcis/cli.py,sha256=Z7Eo6gr-5IYC_syf39xQWWaX8vggxXGeKB--oG3p5R8,801
+rcis/rcis.py,sha256=ac0cEXSn4WObT7mw-_bGty4dTdC4Rji35pV2H3Jfgr4,8534
+rcis-0.2.0.dist-info/AUTHORS.rst,sha256=afrTIg2A-VZseCtWHMNTcCfQasfmiUpu6BWifeqBPYU,66
+rcis-0.2.0.dist-info/LICENSE,sha256=1hZVQdldlCH-tpnpcMKu50hVyWxDlLXG6zqf5quwJfI,43671
+rcis-0.2.0.dist-info/METADATA,sha256=8h6osvvwE4V2lMapYX-YHvObmWsa3HavVpYR_95Wp-k,2431
+rcis-0.2.0.dist-info/WHEEL,sha256=8zNYZbwQSXoB9IfXOjPfeNwvAsALAjffgk27FqvCWbo,110
+rcis-0.2.0.dist-info/entry_points.txt,sha256=xennhV-1fLNVQ5tP6h96D6-wFlsIBQp4b04p3n_iV8s,40
+rcis-0.2.0.dist-info/top_level.txt,sha256=-Y5eO-eaGOicOzCzfjg0UNXYypysjYNC15r5sTuvmMw,5
+rcis-0.2.0.dist-info/RECORD,,
