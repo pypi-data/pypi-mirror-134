@@ -1,0 +1,7 @@
+gdal>=3.0.0
+gdal-utils>=3.3.1
+numpy!=1.19.4
+pyproj>=3.1.0
+
+[qt]
+fidget[qt]
