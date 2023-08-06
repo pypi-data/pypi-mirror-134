@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+logharvestor/log_harvestor_py.egg-info/PKG-INFO
+logharvestor/log_harvestor_py.egg-info/SOURCES.txt
+logharvestor/log_harvestor_py.egg-info/dependency_links.txt
+logharvestor/log_harvestor_py.egg-info/top_level.txt
