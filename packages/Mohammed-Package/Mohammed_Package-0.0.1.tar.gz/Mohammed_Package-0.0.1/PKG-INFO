@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: Mohammed_Package
+Version: 0.0.1
+Summary: Iam MOHAMMED ABDULSALAM THIS MY PACKAGE
+Home-page: UNKNOWN
+Author: MOHAMMED ABDULSALAM 
+Author-email: moha2016it@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: mohammed,package,KEYWORDS
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
