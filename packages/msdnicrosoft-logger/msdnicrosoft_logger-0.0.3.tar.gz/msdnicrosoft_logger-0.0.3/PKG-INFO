@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: msdnicrosoft_logger
+Version: 0.0.3
+Summary: 自己手写的 logger
+Home-page: https://github.com/MSDNicrosoft/logger
+Author: MSDNicrosoft
+Author-email: wang3311835119@hotmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## 自己手写的 logger
+>不喜勿喷
+---
+Eg:
+```python
+import msdnicrosoft_logger
+logger = msdnicrosoft_logger.Log(Console=True,File=True)
+# Args:
+# Console :: Output messages to Console
+#
+# File :: Output messages to files
+# ... Enter your code there
+```
+
+
+
