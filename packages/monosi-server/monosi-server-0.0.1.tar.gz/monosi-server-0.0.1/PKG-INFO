@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: monosi-server
+Version: 0.0.1
+Summary: Monosi Server
+Home-page: https://github.com/monosidev/monosi-server
+Author: Vocable Inc.
+Author-email: support@monosi.dev
+License: No license currently provided.
+        
+Platform: UNKNOWN
+License-File: LICENSE
+
+# Monosi Server
+
+This is the server that serves the Monosi library.
+
+
