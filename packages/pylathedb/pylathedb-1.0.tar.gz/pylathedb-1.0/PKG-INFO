@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pylathedb
+Version: 1.0
+Summary: Keyword Search over Relational Databases
+Home-page: https://github.com/pr3martins/K2D
+Author: Paulo Martins
+Author-email: pr3martins@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pr3martins/K2D/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# K2D
+
