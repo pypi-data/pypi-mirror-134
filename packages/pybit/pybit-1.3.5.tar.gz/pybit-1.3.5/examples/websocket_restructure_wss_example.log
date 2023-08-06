@@ -1,0 +1,211 @@
+2022-01-05 11:01:28,350 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:01:28,350 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:01:30,362 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:01:30,362 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:01:30,629 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:01:30,629 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x1051fc700>: unhashable type: 'list'
+2022-01-05 11:01:32,367 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:01:32,368 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:01:32,636 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:01:34,633 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x1052208b0>: unhashable type: 'list'
+2022-01-05 11:02:00,200 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:02:00,201 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:02:01,205 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:02:01,205 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:02:01,493 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:02:01,494 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x105677700>: unhashable type: 'list'
+2022-01-05 11:03:52,085 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:03:52,085 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:03:54,096 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:03:54,096 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:03:54,386 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:03:54,387 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x107a74700>: unhashable type: 'list'
+2022-01-05 11:03:55,101 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:03:55,102 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:03:55,376 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:03:56,365 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x107a908b0>: unhashable type: 'list'
+2022-01-05 11:05:19,626 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:05:19,626 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:05:20,628 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:05:20,628 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:05:20,882 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:05:21,632 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:05:21,633 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:05:21,896 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:05:46,142 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:05:46,143 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:05:47,148 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:05:47,148 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:05:47,430 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:05:49,159 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:05:49,159 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:05:49,489 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:06:10,381 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:06:10,381 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:06:11,387 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:06:11,388 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:06:11,671 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:06:17,184 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:06:17,184 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:06:18,190 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:06:18,191 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:06:18,469 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:06:19,196 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:06:19,196 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:06:19,466 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:10:05,368 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:10:05,369 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:10:06,374 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:10:06,374 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:10:06,641 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:10:07,381 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:10:07,381 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:10:07,639 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:10:25,436 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:10:25,437 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:10:26,442 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:10:26,442 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:10:26,685 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:10:27,446 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:10:27,447 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:10:27,767 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:11:33,247 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:11:33,248 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:11:34,254 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:11:34,254 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:11:34,528 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:11:35,259 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:11:35,259 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:11:35,518 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:14:34,099 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:14:34,099 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:14:35,106 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:14:35,107 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:14:35,365 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:14:36,112 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:14:36,112 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:14:36,372 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 11:16:42,206 DEBUG WebSocket Inverse Perp closed.
+2022-01-05 11:16:42,206 DEBUG WebSocket Inverse Perp opened.
+2022-01-05 11:16:43,211 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:16:43,211 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:16:43,456 DEBUG Subscription to ['instrument_info.100ms.BTCUSD'] successful.
+2022-01-05 11:16:44,217 DEBUG WebSocket USDT Perp closed.
+2022-01-05 11:16:44,217 DEBUG WebSocket USDT Perp opened.
+2022-01-05 11:16:44,471 DEBUG Subscription to ['instrument_info.100ms.BTCUSDT'] successful.
+2022-01-05 15:43:46,899 DEBUG WebSocket Spot closed.
+2022-01-05 15:43:46,900 DEBUG WebSocket Spot opened.
+2022-01-05 15:44:48,083 DEBUG WebSocket Spot closed.
+2022-01-05 15:44:48,083 DEBUG WebSocket Spot opened.
+2022-01-05 15:45:33,339 DEBUG WebSocket Spot closed.
+2022-01-05 15:45:33,339 DEBUG WebSocket Spot opened.
+2022-01-05 15:45:55,624 DEBUG WebSocket Spot closed.
+2022-01-05 15:45:55,624 DEBUG WebSocket Spot opened.
+2022-01-05 15:45:56,819 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x108c81d30>: 'trade'
+2022-01-05 15:47:45,497 DEBUG WebSocket Spot closed.
+2022-01-05 15:47:45,498 DEBUG WebSocket Spot opened.
+2022-01-05 15:47:47,794 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x109c8ed30>: Expecting value: line 1 column 1 (char 0)
+2022-01-05 15:48:05,927 DEBUG WebSocket Spot closed.
+2022-01-05 15:48:05,928 DEBUG WebSocket Spot opened.
+2022-01-05 15:48:08,209 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10d9fad30>: Expecting value: line 1 column 1 (char 0)
+2022-01-05 15:48:39,461 DEBUG WebSocket Spot closed.
+2022-01-05 15:48:39,461 DEBUG WebSocket Spot opened.
+2022-01-05 15:48:41,745 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10892bd30>: Expecting value: line 1 column 1 (char 0)
+2022-01-05 15:48:55,341 DEBUG WebSocket Spot closed.
+2022-01-05 15:48:55,342 DEBUG WebSocket Spot opened.
+2022-01-05 15:48:56,614 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10bcbfd30>: Expecting value: line 1 column 1 (char 0)
+2022-01-05 15:51:45,143 DEBUG WebSocket Spot closed.
+2022-01-05 15:51:45,143 DEBUG WebSocket Spot opened.
+2022-01-05 15:51:46,347 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10104cd30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-05 15:53:28,027 DEBUG WebSocket Spot closed.
+2022-01-05 15:53:28,027 DEBUG WebSocket Spot opened.
+2022-01-05 15:53:29,218 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x1099a4d30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-05 15:53:41,403 DEBUG WebSocket Spot closed.
+2022-01-05 15:53:41,403 DEBUG WebSocket Spot opened.
+2022-01-05 15:53:44,674 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10b5edd30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-05 15:55:00,487 DEBUG WebSocket Spot closed.
+2022-01-05 15:55:00,487 DEBUG WebSocket Spot opened.
+2022-01-05 15:55:01,669 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10923bd30>: 'topic'
+2022-01-05 15:56:28,669 DEBUG WebSocket Spot closed.
+2022-01-05 15:56:28,669 DEBUG WebSocket Spot opened.
+2022-01-05 15:56:30,977 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x1029b3d30>: 'params'
+2022-01-05 15:56:52,475 DEBUG WebSocket Spot closed.
+2022-01-05 15:56:52,475 DEBUG WebSocket Spot opened.
+2022-01-05 15:56:54,742 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x109fbdd30>: 'params'
+2022-01-06 08:52:58,281 DEBUG WebSocket Spot closed.
+2022-01-06 08:52:58,281 DEBUG WebSocket Spot opened.
+2022-01-06 08:53:00,562 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x106b40a60>: 'params'
+2022-01-06 12:12:32,744 DEBUG WebSocket Spot closed.
+2022-01-06 12:12:32,745 DEBUG WebSocket Spot opened.
+2022-01-06 12:12:35,027 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10b667d30>: 'params'
+2022-01-06 12:12:44,565 DEBUG WebSocket Spot closed.
+2022-01-06 12:12:44,565 DEBUG WebSocket Spot opened.
+2022-01-06 12:12:46,902 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10c52dd30>: {'code': '-10002', 'desc': 'Invalid event!'}
+2022-01-06 12:22:35,466 DEBUG WebSocket Spot closed.
+2022-01-06 12:22:35,466 DEBUG WebSocket Spot opened.
+2022-01-06 12:22:36,737 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x105515d30>: 'ret_msg'
+2022-01-06 15:41:58,920 DEBUG WebSocket Spot closed.
+2022-01-06 15:41:58,920 DEBUG WebSocket Spot opened.
+2022-01-06 15:42:01,217 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x106efcd30>: {'code': '-10002', 'desc': 'Invalid event!'}
+2022-01-06 15:42:12,973 DEBUG WebSocket Spot closed.
+2022-01-06 15:42:12,973 DEBUG WebSocket Spot opened.
+2022-01-06 15:42:15,242 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x108a38d30>: {'code': '-10002', 'desc': 'Invalid event!'}
+2022-01-06 15:44:57,225 DEBUG WebSocket Spot closed.
+2022-01-06 15:44:57,226 DEBUG WebSocket Spot opened.
+2022-01-06 15:44:59,500 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x100f0fd30>: {'code': '-10002', 'desc': 'Invalid event!'}
+2022-01-06 15:45:49,608 DEBUG WebSocket Spot closed.
+2022-01-06 15:45:49,608 DEBUG WebSocket Spot opened.
+2022-01-06 15:45:50,879 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10983fd30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 15:50:37,805 DEBUG WebSocket Spot closed.
+2022-01-06 15:50:37,805 DEBUG WebSocket Spot opened.
+2022-01-06 15:50:39,013 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x108d82d30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 15:51:16,324 DEBUG WebSocket Spot closed.
+2022-01-06 15:51:16,324 DEBUG WebSocket Spot opened.
+2022-01-06 15:51:18,611 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10349ad30>: '{"params":{"binary":"false"},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 15:51:58,438 DEBUG WebSocket Spot closed.
+2022-01-06 15:51:58,438 DEBUG WebSocket Spot opened.
+2022-01-06 15:51:59,686 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10b4c0d30>: '{"params":{"binary":true},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 15:52:40,757 DEBUG WebSocket Spot closed.
+2022-01-06 15:52:40,757 DEBUG WebSocket Spot opened.
+2022-01-06 15:52:43,021 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10ce76d30>: '{"params":{"binary":true},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 16:06:24,371 DEBUG WebSocket Spot closed.
+2022-01-06 16:06:24,372 DEBUG WebSocket Spot opened.
+2022-01-06 16:06:25,638 ERROR error from callback <function WebSocketManager._connect.<locals>.<lambda> at 0x10f9bca60>: '{"params":{"binary":true},"symbol":"BTCUSDT","topic":"trade"}'
+2022-01-06 16:08:26,646 DEBUG WebSocket Spot closed.
+2022-01-06 16:08:26,647 DEBUG WebSocket Spot opened.
+2022-01-06 16:09:48,524 DEBUG WebSocket Spot closed.
+2022-01-06 16:09:48,525 DEBUG WebSocket Spot opened.
+2022-01-06 16:29:32,090 DEBUG WebSocket Spot closed.
+2022-01-06 16:29:32,090 DEBUG WebSocket Spot opened.
+2022-01-06 16:30:12,394 DEBUG WebSocket Spot closed.
+2022-01-06 16:30:12,394 DEBUG WebSocket Spot opened.
+2022-01-06 16:30:14,402 DEBUG WebSocket Spot closed.
+2022-01-06 16:30:14,402 DEBUG WebSocket Spot opened.
+2022-01-06 16:30:51,031 DEBUG WebSocket Spot closed.
+2022-01-06 16:30:51,031 DEBUG WebSocket Spot opened.
+2022-01-06 16:30:53,035 DEBUG WebSocket Spot closed.
+2022-01-06 16:30:53,035 DEBUG WebSocket Spot opened.
+2022-01-06 16:33:04,761 DEBUG WebSocket Spot closed.
+2022-01-06 16:33:04,761 DEBUG WebSocket Spot opened.
+2022-01-06 16:33:05,766 DEBUG WebSocket Spot closed.
+2022-01-06 16:33:05,766 DEBUG WebSocket Spot opened.
+2022-01-06 16:33:19,400 DEBUG WebSocket Spot closed.
+2022-01-06 16:33:19,400 DEBUG WebSocket Spot opened.
+2022-01-06 16:33:21,409 DEBUG WebSocket Spot closed.
+2022-01-06 16:33:21,409 DEBUG WebSocket Spot opened.
+2022-01-06 16:34:50,477 DEBUG WebSocket Spot closed.
+2022-01-06 16:34:50,477 DEBUG WebSocket Spot opened.
+2022-01-06 16:34:51,484 DEBUG WebSocket Spot closed.
+2022-01-06 16:34:51,485 DEBUG WebSocket Spot opened.
+2022-01-06 16:35:12,635 DEBUG WebSocket Spot closed.
+2022-01-06 16:35:12,635 DEBUG WebSocket Spot opened.
+2022-01-06 16:35:13,640 DEBUG WebSocket Spot closed.
+2022-01-06 16:35:13,641 DEBUG WebSocket Spot opened.
+2022-01-06 16:35:56,413 DEBUG WebSocket Spot closed.
+2022-01-06 16:35:56,413 DEBUG WebSocket Spot opened.
+2022-01-06 16:35:57,417 DEBUG WebSocket Spot closed.
+2022-01-06 16:35:57,417 DEBUG WebSocket Spot opened.
+2022-01-06 16:36:46,303 DEBUG WebSocket Spot closed.
+2022-01-06 16:36:46,303 DEBUG WebSocket Spot opened.
+2022-01-06 16:36:47,309 DEBUG WebSocket Spot closed.
+2022-01-06 16:36:47,310 DEBUG WebSocket Spot opened.
