@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pycounts_gf"
+version = "1.0"
+description = "Count the number of occurrences of a word in a text file"
+authors = ["Gabriel Fairbrother"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+matplotlib = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
