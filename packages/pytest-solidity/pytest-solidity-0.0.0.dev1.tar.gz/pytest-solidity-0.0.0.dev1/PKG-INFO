@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pytest-solidity
+Version: 0.0.0.dev1
+Summary: A PyTest library plugin for Solidity language.
+Home-page: https://github.com/meherett/pytest-solidity
+Author: Meheret Tesfaye
+Author-email: meherett@zoho.com
+License: GPL-3.0
+Keywords: pytest_solidity,tools
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6,<4
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+License-File: LICENSE
+
+### PyTest-Solidity
+
+[![PyPI Version](https://img.shields.io/pypi/v/pytest-solidity.svg?color=blue)](https://pypi.org/project/pytest-solidity)
+
+A PyTest library plugin for Solidity language.
+
+#### Installation
+
+```
+$ pip install pytest-solidity
+```
+
+#### License
+
+Distributed under the [GPL-3.0](https://github.com/meherett/pytest-solidity/blob/master/LICENSE) license. See ``LICENSE`` for more information.
+
+
