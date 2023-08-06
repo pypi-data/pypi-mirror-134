@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: lpaas-client
+Version: 0.5.0
+Summary: Python implementation of a client for LPaaS
+Home-page: https://gitlab.com/pika-lab/courses/ds/projects/ds-project-evangelisti-ay2021
+Author: Davide Evangelisti
+Author-email: davide.evangelisti2@studio.unibo.it
+License: Apache 2.0 License
+Project-URL: Bug Reports, https://gitlab.com/pika-lab/courses/ds/projects/ds-project-evangelisti-ay2021/-/issues
+Project-URL: Source, https://gitlab.com/pika-lab/courses/ds/projects/ds-project-evangelisti-ay2021
+Keywords: prolog,client,tuprolog,2p,python,lpaas
+Platform: Independent
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Prolog
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: 2ppy (==0.4.0)
+Requires-Dist: httpx (~=0.21.1)
+Requires-Dist: http-constants (~=0.5)
+Requires-Dist: dataclasses (~=0.6)
+Requires-Dist: isodate (~=0.6)
+
+# LPaaS-Python-client
+
+**LPaaS-Python-client** is a client to enable comunication with [LPaaS-ws](https://gitlab.com/pika-lab/lpaas/lpaas-ws/-/tree/develop).
+
+## How to install
+
+```bash
+pip install lpaas-client
+```
+
+## How to use
+
+You have just to create a LPClient and use it.
+
+```python
+# you can use `lpaas_client.asyn` for the async version
+# or `from lpaas_client import AsyncLPClient`
+from lpaas_client import LPClient
+from lpaas_client import AuthData
+url = 'url to LPaaS'
+client = LPClient(url)
+with client:
+    client.authenticate(AuthData('user', 'passw0rd'))
+    theories = client.get_theories()
+    ...
+```
+
+| Remember to call `client.authenticate` to authenticate yourself to the server.
+
