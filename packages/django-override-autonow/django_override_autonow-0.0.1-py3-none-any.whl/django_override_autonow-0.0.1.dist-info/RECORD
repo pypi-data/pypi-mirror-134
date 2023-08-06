@@ -1,0 +1,7 @@
+override_autonow/__init__.py,sha256=qrDosvLMPHySZVaq7zHf6q44HAmm3mUfLxK3VijS1_Q,129
+override_autonow/context_decorator.py,sha256=_cGkaCtaRi9QEk-ERLH--W7xSH0vzZjvlsVZXHjbXPA,6687
+django_override_autonow-0.0.1.dist-info/LICENSE,sha256=2V3PM1TZFJg_yw38ZGWb7XTKI0aI8hwJgPPnKNdbVYQ,1074
+django_override_autonow-0.0.1.dist-info/METADATA,sha256=HPPdv-XeoviCeZKHL5UfGXkVUw8dfFOj9C1-r1A7SeQ,11336
+django_override_autonow-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+django_override_autonow-0.0.1.dist-info/top_level.txt,sha256=xKu1VJyMx74rR6ATS64uSzGPzstsdQ9tBWIpW1x_cis,17
+django_override_autonow-0.0.1.dist-info/RECORD,,
