@@ -1,0 +1,10 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+src/my_cool_module/__init__.py
+src/my_cool_module/my_cool_module.py
+src/my_cool_module.egg-info/PKG-INFO
+src/my_cool_module.egg-info/SOURCES.txt
+src/my_cool_module.egg-info/dependency_links.txt
+src/my_cool_module.egg-info/top_level.txt
