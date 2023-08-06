@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+expo/__init__.py
+expo/py.typed
+expo/state.py
+expo/api/__init__.py
+expo/api/gateway.py
+expo/api/voice.py
+expo/internal/opus.py
+hikari_expo.egg-info/PKG-INFO
+hikari_expo.egg-info/SOURCES.txt
+hikari_expo.egg-info/dependency_links.txt
+hikari_expo.egg-info/top_level.txt
