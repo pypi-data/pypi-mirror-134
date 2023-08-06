@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ScrapyProxyCompat/ScrapyProxyCompat.py
+src/ScrapyProxyCompat/__init__.py
+src/ScrapyProxyCompat.egg-info/PKG-INFO
+src/ScrapyProxyCompat.egg-info/SOURCES.txt
+src/ScrapyProxyCompat.egg-info/dependency_links.txt
+src/ScrapyProxyCompat.egg-info/top_level.txt
