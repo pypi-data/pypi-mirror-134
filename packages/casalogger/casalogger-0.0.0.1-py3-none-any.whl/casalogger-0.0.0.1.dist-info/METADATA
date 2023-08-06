@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: casalogger
+Version: 0.0.0.1
+Summary: Casa Logger package
+Home-page: https://open-bitbucket.nrao.edu/projects/CASA/repos/casalogger/browse
+Author: CASA development team
+Author-email: aips2-request@nrao.edu
+Maintainer: Ville Suoranta
+Maintainer-email: vsuorant@nrao.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+
+## CasaLogger
+
+CasaLogger
+
+CasaLogger is a next generation Casa Logger package.
+
+
