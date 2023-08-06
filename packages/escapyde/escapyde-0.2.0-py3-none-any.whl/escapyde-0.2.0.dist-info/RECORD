@@ -1,0 +1,11 @@
+CHANGELOG.md,sha256=aarh-TQPhDAkJ1NfARdkx-MC5IrSZTOJtX42UA8XLuA,3672
+LICENSE,sha256=zRT-dQHOJ4-7jTUkvvA5o8c4vw_7q3Z7bLHhmd5VhCM,1069
+escapyde/__init__.py,sha256=5FHGQhgQRyWH9K6DN6bcKTfhfCR3YHh5-IuZrg6jGnc,108
+escapyde/ansi.py,sha256=3vRJ0rcCj5B_7_mFt-he0SHjYqyjfAfUqCn6q-FOgbE,2352
+escapyde/colours.py,sha256=ngZ9HYqnVRVMTGYj93tAz5VwBdwK2b4S6TEnmi_S0Kw,2423
+escapyde/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+escapyde/examples/text.py,sha256=LmtjQysN-_QqSHuiqDI3NicU2QpOBtImEhYjnu1mvV8,2441
+escapyde-0.2.0.dist-info/LICENSE,sha256=zRT-dQHOJ4-7jTUkvvA5o8c4vw_7q3Z7bLHhmd5VhCM,1069
+escapyde-0.2.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+escapyde-0.2.0.dist-info/METADATA,sha256=Elp-eDjIth6Q8araKQzeOkBBG8Hq6b4F2fR1wftfZu0,2803
+escapyde-0.2.0.dist-info/RECORD,,
