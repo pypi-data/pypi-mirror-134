@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: naukri-Jobs-Scraper
+Version: 1.0.3
+Summary: A python library to scrape naukri job details
+Home-page: UNKNOWN
+Author: DataKund
+Author-email: datakund@gmail.com
+License: Apache License 2.0
+Keywords: naukri,python,bot_studio,automation,search,scraper,scrape,job,location,experince,salary,role,industrytype
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+
+
+Naukri Jobs Scraper is a python library to scrape job link, experience, salary, location..., using browser automation. 
+It currently runs only on windows.
+
+### Naukri jobs scraper
+ * In this example we first import library, then we fetched data using simple function.
+ * Replace **"indore"** with **"your location"**, and **"SEO Executive"** with **"your keyword"**.
+
+```sh
+from naukri_Jobs_Scraper import *
+response =naukri.job_scraper(location="indore",skills="SEO Executive")
+```
+
+### Response Data
+```json
+{      
+        "Job Title": "SEO Executive / Digital Marketing Executive",
+        "Job Link": "https://www.naukri.com/job-listings-seo-executive-digital-marketing-executive-careerkey-solutions-indore-1-to-5-years-080122003104?src=jobsearchDesk&sid=16420613446883575&xp=1&px=1",
+        "Experience": "1 - 5 years",
+        "Salary": "\u20b9 2,50,000 - 6,00,000 P.A.",
+        "Job Location": "Indore",
+        "Role": "Digital Marketing - Other",
+        "Industry Type": "IT Services & Consulting",
+        "Employment Type": "Full Time, Permanent",
+        "Role Category": "Digital Marketing",
+        "About Company": "Our client company deals in IT Sector as a software & application development firm based in  Indore. Offering 5 Days a Week Work Culture. For more job related details feel free to reach us on +91- 95892 66333 or write  on mohit@careerkeysolutions.com",
+        "Company Website": "https://careerkeysolutions.com/",
+        "Company Address": "CareerKey Solutions,\nOffice No 401, 4th Floor, Mahasagar Corpoarte, Near Geeta Bhawan Mandir, 10/4 Manoramaganj, Indore (452001) M.P.\n+91-95892 66333 || mohit@careerkeysolutions.com"
+}
+```
+
+#### BotStudio
+For this project, we implemented an automated browser that scrapes search results from Naukri.com. [Bot Studio](https://pypi.org/project/botstudio/) is needed for browser automation. As soon as we import the library in code, an automated browser will open up and it will open Naukri.com and searches for location and skills which we gave as input, and scrapes Experience, Salary, Job Location, Role, Industry Typeâ€¦..
+
+### Installation
+
+```sh
+pip install naukri-Jobs-Scraper
+```
+
+### Import
+```sh
+from naukri_Jobs_Scraper import *
+```
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+### Scrape Naukri Jobs
+```sh
+response=naukri.job_scraper(location="indore",skills="SEO Executive")
+data=response['body']
+```
+
+### Run Bot on Cloud
+You can run bot on [Cloud](https://datakund.com/products/naukri-com-data-scraper-bot?_pos=1&_sid=b9ecc2d5c&_ss=r).
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
+
+
