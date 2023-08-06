@@ -1,0 +1,7 @@
+quantperf/__init__.py,sha256=7cMMSJuhntcrd4Luzc1jFGq22NHVegMH6oVfUdL8cMw,11380
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_quantperf.py,sha256=DxQt01naFTas4OOvYixDCVL8YerKet3DaSHcAqU6cMY,429
+quantperf-1.0.3.dist-info/METADATA,sha256=UP9J5QOdqRz6CA9IveC05mLOY9avL-JjYaM7nBXT8Wo,158
+quantperf-1.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+quantperf-1.0.3.dist-info/top_level.txt,sha256=ZXfUwDr03hhlEU8SbPHtog_RUsItiHzqsJny1-W4L5Q,16
+quantperf-1.0.3.dist-info/RECORD,,
