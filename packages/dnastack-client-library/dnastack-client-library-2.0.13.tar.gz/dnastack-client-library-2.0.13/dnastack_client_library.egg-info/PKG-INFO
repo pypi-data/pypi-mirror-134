@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: dnastack-client-library
+Version: 2.0.13
+Summary: "DNAstack's GA4GH library and CLI"
+Home-page: UNKNOWN
+Author: devs@dnastack.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
+
+"GA4GH API client and command line tool. Please check out [the documentation](https://docs.viral.ai/analysis) for more details."
+
