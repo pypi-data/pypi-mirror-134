@@ -1,0 +1,10 @@
+miflora/__init__.py,sha256=o33Ij1Mm-gEMjheZdx0IH2w7E7XBjprhLa3Vtyvrqds,574
+miflora/_static_version.py,sha256=Umj7Dwe52iCNEsgsPMKGTBTG2zSYptUtUFCR2MJ6ews,60
+miflora/_version.py,sha256=5fvt9J2o3BDpFXbafqPhfMknWr6kd21SXRULpB5vsrU,6442
+miflora/miflora_poller.py,sha256=AfwOJNf0629fTw1d52APt2uK4J7ItzZ_48L7QkGSLNc,14103
+miflora/miflora_scanner.py,sha256=Cs_NcRuhFfHA9OSHJRu6nhJEw7pY63-artTyeIR8SZg,535
+miflora-0.7.2.dist-info/LICENSE,sha256=c8nm6Dv1H3GgXUKP7aiqr7iwT8dGXoD9_e7DrozNn2E,1077
+miflora-0.7.2.dist-info/METADATA,sha256=fH4qjMVLJ3YNdWTmZzqAKjrLypofrW9P66yL0C3OCl0,7062
+miflora-0.7.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+miflora-0.7.2.dist-info/top_level.txt,sha256=-4UtuxROP7_iIwGoqzsHRwh6QjqTMYJPYrLqHe8ziiA,8
+miflora-0.7.2.dist-info/RECORD,,
