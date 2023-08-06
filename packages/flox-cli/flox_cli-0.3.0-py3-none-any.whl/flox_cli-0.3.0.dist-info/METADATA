@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: flox-cli
+Version: 0.3.0
+Summary: Highly opinionated workflow and orchestration toolkit for modern microservice development
+Home-page: https://github.com/getflox/flox
+License: MIT
+Author: Michal Przytulski
+Author-email: michal@przytulski.pl
+Requires-Python: >=3.6.2,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: anyconfig (>=0.10,<0.11)
+Requires-Dist: click (>=7.1,<8.0)
+Requires-Dist: click-plugins (>=1.1.1,<2.0.0)
+Requires-Dist: click-shell (>=2.0,<3.0)
+Requires-Dist: colorama (>=0.4,<0.5)
+Requires-Dist: deepmerge (>=1.0,<2.0)
+Requires-Dist: dictdiffer (>=0.9,<0.10)
+Requires-Dist: flox-core (>=0.1,<0.2)
+Requires-Dist: humanfriendly (>=10.0,<11.0)
+Requires-Dist: keyring (>=21,<22)
+Requires-Dist: plumbum (>=1.6,<2.0)
+Requires-Dist: pygments (>=2.5,<3.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: schema (>=0.7,<0.8)
+Requires-Dist: slugify (>=0.0.1,<0.0.2)
+Requires-Dist: terminaltables (>=3.1.0,<4.0.0)
