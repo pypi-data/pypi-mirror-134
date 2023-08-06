@@ -1,0 +1,4 @@
+pandas
+datalad
+pandas-plink
+numpy

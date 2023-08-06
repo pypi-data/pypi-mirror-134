@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/__init__.py
+src/module_bulk_data_handler.py
+src/module_genetic_data_handler.py
+src/module_scalar_data_handler.py
+ukbaccessrepo.egg-info/PKG-INFO
+ukbaccessrepo.egg-info/SOURCES.txt
+ukbaccessrepo.egg-info/dependency_links.txt
+ukbaccessrepo.egg-info/requires.txt
+ukbaccessrepo.egg-info/top_level.txt
