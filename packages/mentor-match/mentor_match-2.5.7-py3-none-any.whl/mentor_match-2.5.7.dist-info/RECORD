@@ -1,0 +1,12 @@
+matching/__init__.py,sha256=CpK8IH_dCUAwg9tqv7zm9FxbBFkxCnED1JUiRe7cftU,22
+matching/__main__.py,sha256=hsJU2r4VXni78Swo8N28GcR1zIGH9AvyrjB64YRLqiM,860
+matching/factory.py,sha256=B6UshNWnYQ0CpNOPZmZlHOhnpdCS_c57fHd73XhmFAA,1231
+matching/match.py,sha256=3gY4IDJCzHye79gLFGi1shS_WeA3cCCESG7ds79fTFY,2643
+matching/mentee.py,sha256=km1UWG4k_JoRd5Q3Oa5P2fubXQbbCKzp8wwv5iU1Aqc,441
+matching/mentor.py,sha256=hobAdkuUV9tf2FTg3n0kA4LsSe9aLuM-gJEeH25Pk8g,441
+matching/person.py,sha256=s99HIAjGijd8SljVHdrxjZ7SEhmNsDV9mihL7_ssLDA,2456
+matching/process.py,sha256=Nebir8U6xMDAMdOcV_og_EZorwgqEBBA2BYVVxw4IQQ,4591
+mentor_match-2.5.7.dist-info/METADATA,sha256=Gmzcn-Q7ge9gFIXe5ZTYOkYiaEH-hyDSlRcKQ6rk5W0,2495
+mentor_match-2.5.7.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mentor_match-2.5.7.dist-info/top_level.txt,sha256=6shTBiJXMq4wk6QpnRKPT4r_XRvq4E-gZXR0yPxpJpo,9
+mentor_match-2.5.7.dist-info/RECORD,,
