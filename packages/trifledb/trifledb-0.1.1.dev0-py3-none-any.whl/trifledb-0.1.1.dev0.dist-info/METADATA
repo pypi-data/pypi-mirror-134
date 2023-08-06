@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: trifledb
+Version: 0.1.1.dev0
+Summary: A stupid simple key value store with an API
+Home-page: https://github.com/shankararunachalam/trifledb
+Author: Shankar Arunachalam
+Author-email: shankar.arunachalam@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gunicorn
+Requires-Dist: uvicorn[standard]
+Requires-Dist: fastapi
+Requires-Dist: fastapi-versioning
+Requires-Dist: requests
+Requires-Dist: pytest
+
+# trifledb
+

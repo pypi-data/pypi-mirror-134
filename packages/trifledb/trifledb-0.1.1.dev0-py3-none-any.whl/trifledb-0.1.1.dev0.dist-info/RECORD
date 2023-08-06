@@ -1,0 +1,10 @@
+app/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+app/trifledb.py,sha256=ewLv2F6h0rq1FLe4IvPWLItXpPQ7_U7Z0x4w3K4mbZg,618
+app/trifledb_server.py,sha256=qvBivAklhY2MDA6JACl8eO6Qq-g0DGN2TQXJFblF3j0,633
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_trifledb_server.py,sha256=TkPbR9uZA2HpdNxwAq74B59ZyfV1JUfGxRnT0CMx4X8,264
+trifledb-0.1.1.dev0.dist-info/LICENSE,sha256=xoTox--jmzVOFvCxSM8qJSa8eHRcB9LAvujhXqz-jgM,1097
+trifledb-0.1.1.dev0.dist-info/METADATA,sha256=Av68YJkg-qGObSf38xeV9-qlljoIwVH79tasu9mtNfs,656
+trifledb-0.1.1.dev0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+trifledb-0.1.1.dev0.dist-info/top_level.txt,sha256=MJXn5pCZl0XSEeWNKzshxzMMANr3AymeoMYBO1JNPyU,10
+trifledb-0.1.1.dev0.dist-info/RECORD,,
