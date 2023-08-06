@@ -1,0 +1,9 @@
+README.md
+setup.py
+udiph/__init__.py
+udiph/udiph_.py
+udiph.egg-info/PKG-INFO
+udiph.egg-info/SOURCES.txt
+udiph.egg-info/dependency_links.txt
+udiph.egg-info/requires.txt
+udiph.egg-info/top_level.txt
