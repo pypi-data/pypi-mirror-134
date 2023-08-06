@@ -1,0 +1,10 @@
+perspective/__init__.py,sha256=2FBIhpefhAjckepOv_YBwCqB0msKMK9pzCGdSrveMr8,377
+perspective/attributes.py,sha256=3YhWPDI1kecIMgtqT1GMSjvlUrR5vg5DoIB98GMo1aU,20158
+perspective/errors.py,sha256=unCWZeUMR2FH1BGYJiYmDb-5HSaEJqCPBSxtUAlgP4E,1550
+perspective/main.py,sha256=qRFQeWflmijOKGNKJwzH0oxhCHi2dB6h_pK4i_HzO8s,18452
+perspective/utils.py,sha256=E0W3rEdydvj1-i8ghSkzqmbYqo3JkDXp1uzIgMGx-EQ,14729
+perspective.py-0.3.2.dist-info/LICENSE,sha256=TKhk62PhAkN_Nv86lzD2KjxkzhhX1dPyO6fpj9sDovI,1099
+perspective.py-0.3.2.dist-info/METADATA,sha256=RpZqYLa3_45ZcVuh4MlvJss2mtD30UQjyROitQPxlHE,4760
+perspective.py-0.3.2.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+perspective.py-0.3.2.dist-info/top_level.txt,sha256=-W1-t6tcSPy7mH-EhKzt_SJAICr8eZmyBwC3Eu5kqkU,12
+perspective.py-0.3.2.dist-info/RECORD,,
