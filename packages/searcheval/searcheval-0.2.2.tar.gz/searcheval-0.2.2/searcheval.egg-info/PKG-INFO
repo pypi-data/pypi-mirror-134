@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: searcheval
+Version: 0.2.2
+Summary: Library implementing metrics and tools for the evaluation of search results (rankings)
+Home-page: https://github.com/tobigue/searcheval
+Author: Tobias Guenther
+Author-email: searcheval@tobigue.de
+License: LICENSE.txt
+Platform: UNKNOWN
+License-File: LICENSE.txt
+
+==========
+searcheval
+==========
+
+Library implementing metrics and tools for the evaluation of search results (rankings) such as precison, recall and nDCG.
+
+
+Tests
+=====
+
+Testing requires having the nose library (`pip install nose`).
+After installation, the package can be tested by executing from
+outside the source directory::
+
+    nosetests --exe -v
+
+

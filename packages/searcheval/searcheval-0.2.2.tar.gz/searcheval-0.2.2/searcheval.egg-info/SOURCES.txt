@@ -1,0 +1,14 @@
+CHANGES.txt
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.py
+searcheval/__init__.py
+searcheval/helpers.py
+searcheval/metrics.py
+searcheval.egg-info/PKG-INFO
+searcheval.egg-info/SOURCES.txt
+searcheval.egg-info/dependency_links.txt
+searcheval.egg-info/top_level.txt
+searcheval/test/__init__.py
+searcheval/test/test_metrics.py
