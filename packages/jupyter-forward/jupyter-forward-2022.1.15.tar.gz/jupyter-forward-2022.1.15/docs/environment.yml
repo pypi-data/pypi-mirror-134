@@ -1,0 +1,16 @@
+name: jupyter-forward-dev
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - furo
+  - myst-nb
+  - pip
+  - python=3.9
+  - sphinx-copybutton
+  - sphinx-inline-tabs
+  - sqlalchemy
+  - pip:
+      - sphinxext-opengraph
+      - -r ../requirements.txt
+      - -e ..
