@@ -1,0 +1,3 @@
+[console_scripts]
+teyit = teyit:main
+
