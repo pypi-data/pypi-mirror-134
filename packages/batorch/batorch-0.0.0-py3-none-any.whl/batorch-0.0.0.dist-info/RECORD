@@ -1,0 +1,11 @@
+batorch/__init__.py,sha256=EacRbnT2xCOXeszld7V_ZVi_wbIxI97fiG4nNuQKU6g,636
+batorch/tensor.py,sha256=9bzNgmML0xnZAT6wfb0gVqS6stsXPC4OvCOR5HZeI3E,366
+batorch/tensor_tp.py,sha256=IUVIo89PoJA-T4l3FPDK2-_acW_LyvLTRaisZtMsYag,70102
+micomputing/__init__.py,sha256=YkaFW6pcUFsLvBNByPpHgDPj0I6X05aCDluA-X4ISr0,917
+micomputing/plot.py,sha256=Q8ogYxTCx0Y8bS4R1wnCGxxcf2Fj5JycS1CQU6TNhYI,12277
+micomputing/sim.py,sha256=n66X6BoVHMa4LMl6VkIoc_iZor9I8OF9eGbA41J0Q2E,14933
+micomputing/stdio.py,sha256=XAzart9_hBALvBvF-jPg0eI1sqMzgHo1wFK0tLV5Hl0,31479
+batorch-0.0.0.dist-info/METADATA,sha256=hVsXNDKieAWnOnUv6Yr_070-ceHOGDkm7M1-znhshSA,409
+batorch-0.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+batorch-0.0.0.dist-info/top_level.txt,sha256=Qg_ci30Xf3DI57IOuOh8ymCcDW0H6P-4uiPb-YzOgqg,20
+batorch-0.0.0.dist-info/RECORD,,
