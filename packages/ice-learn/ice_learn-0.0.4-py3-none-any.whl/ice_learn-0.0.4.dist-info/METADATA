@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ice-learn
+Version: 0.0.4
+Summary: A high-level Deep Learning framework that extends PyTorch and PyCUDA.
+License: MIT
+Author: Yuyao Huang
+Author-email: yycv.simon@protonmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: multiprocess (>=0.70.12,<0.71.0)
+Requires-Dist: pycuda (>=2021.1,<2022.0)
+Requires-Dist: torch
+Requires-Dist: torchvision (>=0.11.2,<0.12.0)
