@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sampledblib"
+version = "1.0.0"
+description = "Python library to interface with a sample tracking database"
+authors = ["Maxwell Murphy <murphy2122@berkeley.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+SQLAlchemy = "^1.4.29"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^21.12b0"
+isort = "^5.10.1"
+pyflakes = "^2.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: sampledblib
+Version: 1.0.0
+Summary: Python library to interface with a sample tracking database
+Author: Maxwell Murphy
+Author-email: murphy2122@berkeley.edu
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: SQLAlchemy (>=1.4.29,<2.0.0)
