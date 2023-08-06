@@ -1,0 +1,11 @@
+mysqlog/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mysqlog/cli.py,sha256=CepkSn8TJUgP5XZo8M0lrR2Cw4i4osi34GC-scYuYqg,2013
+mysqlog/consumer.py,sha256=vl_WVMJo3YHa5eNymGH4Z1q-6CagcOs-Az3maVOaYUk,1941
+mysqlog/parser.py,sha256=K_g326-om-Y4fa_P4bTZKGFGXLXFZF8WUL4yOTSTbTM,27279
+mysqlog/producer.py,sha256=t6TIIjXKgvF_sCRcZTg0K_SqygTc8j8EsbUXKvVBVT8,1585
+mysqlog-1.0.6.dist-info/LICENSE.txt,sha256=ClwzXHdzZeSLKzNJ4g1JwcMRd0YuiLoleUOzZtjepsU,1056
+mysqlog-1.0.6.dist-info/METADATA,sha256=nh1eSWb16McjO_qCaNZAYglSBugQ35k2R180e-W0Oxo,4682
+mysqlog-1.0.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+mysqlog-1.0.6.dist-info/entry_points.txt,sha256=Rtohyk52TpTiVxS10bEE1keSzPSxXJqvV5kjeEm07Yo,45
+mysqlog-1.0.6.dist-info/top_level.txt,sha256=v65Sjx9UDMp1l_-Y1-WDw0_O12RQEklCEIhibfF6jPo,8
+mysqlog-1.0.6.dist-info/RECORD,,
