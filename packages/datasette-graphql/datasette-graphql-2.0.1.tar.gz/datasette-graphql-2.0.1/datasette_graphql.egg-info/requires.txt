@@ -1,0 +1,7 @@
+datasette>=0.58.1
+graphene<4.0,>=3.0
+sqlite-utils
+
+[test]
+pytest
+pytest-asyncio
