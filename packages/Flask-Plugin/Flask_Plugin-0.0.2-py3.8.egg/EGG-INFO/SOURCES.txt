@@ -1,0 +1,16 @@
+LICENSE
+readme.md
+setup.py
+Flask_Plugin.egg-info/PKG-INFO
+Flask_Plugin.egg-info/SOURCES.txt
+Flask_Plugin.egg-info/dependency_links.txt
+Flask_Plugin.egg-info/not-zip-safe
+Flask_Plugin.egg-info/requires.txt
+Flask_Plugin.egg-info/top_level.txt
+src/__init__.py
+src/config.py
+src/manager.py
+src/plugin.py
+src/signals.py
+src/states.py
+src/utils.py
