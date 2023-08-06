@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: PoseAnalyzer
+Version: 0.0.2
+Summary: A python library for hands detection and features extraction based on mediapipe library
+Home-page: https://github.com/ParisNeo/PoseAnalyzer
+Author: Saifeddine ALOUI
+Author-email: aloui.saifeddine@gmail.com
+License: UNKNOWN
+Description: # PoseAnalyzer
+        A library based on mediapipe to analyze body posture and gesture.
+        # Examples
+        ## OpenCv
+        Examples using opencv window to output stuff.
+        ### hello_pose
+        A simple code to explain how to use the library. The example detects body landmarks and shows how to access different body part landmark position. It also shows how to detect when left arm or right arm are raised. A very simple code
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev
