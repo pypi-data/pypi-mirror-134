@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: codeforces-client
+Version: 0.0.8
+Summary: Codeforces Client is a Python library and tooling for working with Codeforces.
+Home-page: https://github.com/sofigern/codeforces
+Author: Mykola Mostovenko
+Author-email: sofigenr@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/sofigern/codeforces/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# codeforces-client
+
+Codeforces Client is a Python library and tooling for working with Codeforces.
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install codeforces-client.
+
+```bash
+pip install -i https://test.pypi.org/simple/ codeforces-client
+```
+
+## Usage
+
+```python
+import codeforces_client as cf
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[gpl-3.0](LICENSE)
+
