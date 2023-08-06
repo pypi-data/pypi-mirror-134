@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+artifact_normalization/__init__.py
+artifact_normalization/data_types.py
+artifact_normalization/normalization_manager.py
+artifact_normalization/normalization_module.py
+artifact_normalization/utils.py
+artifacts_proxy/__init__.py
+artifacts_proxy/proxy.py
+artifacts_service.egg-info/PKG-INFO
+artifacts_service.egg-info/SOURCES.txt
+artifacts_service.egg-info/dependency_links.txt
+artifacts_service.egg-info/not-zip-safe
+artifacts_service.egg-info/requires.txt
+artifacts_service.egg-info/top_level.txt
+requirements/client_requirements.txt
