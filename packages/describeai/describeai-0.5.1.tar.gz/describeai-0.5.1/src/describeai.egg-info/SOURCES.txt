@@ -1,0 +1,6 @@
+setup.py
+src/describeai.egg-info/PKG-INFO
+src/describeai.egg-info/SOURCES.txt
+src/describeai.egg-info/dependency_links.txt
+src/describeai.egg-info/requires.txt
+src/describeai.egg-info/top_level.txt

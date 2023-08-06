@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: describeai
+Version: 0.5.1
+Summary: Official Python SDK for Describe.ai
+Home-page: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+
+Please visit https://www.describe-ai.com/docs for API examples and documentation.
+
