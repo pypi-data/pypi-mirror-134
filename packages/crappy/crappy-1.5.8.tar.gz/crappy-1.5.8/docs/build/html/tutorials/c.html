@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>How to use C or C++ code in Crappy ? &mdash; Crappy 1.5.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Crappy for embedded hardware" href="../embedded.html" />
+    <link rel="prev" title="Using custom blocks and adding them to Crappy" href="custom_blocks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Crappy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatiscrappy.html">What is Crappy ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Getting started : writing test protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_blocks.html">Using custom blocks and adding them to Crappy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use C or C++ code in Crappy ?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-existing-library">1. Using an existing library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-your-own-library">2. Writing your own library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-example-a-simple-function">2.2. First example: a simple function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-example-a-simple-class">2.3. Second example: a simple class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded.html">Crappy for embedded hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Current functionalities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blocklist.html">The complete list of Crappy blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers.html">Developers information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Bug reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License information</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Crappy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials.html">Tutorials</a> &raquo;</li>
+        
+      <li>How to use C or C++ code in Crappy ?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorials/c.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-use-c-or-c-code-in-crappy">
+<h1>How to use C or C++ code in Crappy ?<a class="headerlink" href="#how-to-use-c-or-c-code-in-crappy" title="Permalink to this headline">¶</a></h1>
+<p>If you want to use hardware that’s only available on C or C++ platforms, or if
+you need to run computationally intensive code in an efficient way, it is quite
+easy to bind C/C++ code to Crappy.</p>
+<div class="section" id="using-an-existing-library">
+<h2>1. Using an existing library<a class="headerlink" href="#using-an-existing-library" title="Permalink to this headline">¶</a></h2>
+<p>If you want to integrate a library from an external source and you already have
+the corresponding file (<code class="docutils literal notranslate"><span class="pre">.so</span></code>, <code class="docutils literal notranslate"><span class="pre">.dll</span></code>, etc.), different solutions are
+available. We’re not going to detail them here, as we could not provide a
+cross-platform compatible example. You can however look into the <a class="reference external" href="https://github.com/LaboratoireMecaniqueLille/crappy/blob/master/crappy/tool/pyspcm.py">pyspcm</a> and <a class="reference external" href="https://github.com/LaboratoireMecaniqueLille/crappy/blob/master/crappy/tool/comedi_bind.py">comedi_bind</a> tools for an example using the
+<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#module-ctypes" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code></a> library and <code class="docutils literal notranslate"><span class="pre">.so</span></code> files. The pyspcm tool is a binding for using
+Spectrum high-speed acquisition boards, and comedi is a binding for using the
+comedi driver. Alternative solutions include Cython, <code class="xref py py-mod docutils literal notranslate"><span class="pre">cffi</span></code>, PyBind11, and
+many others.</p>
+</div>
+<div class="section" id="writing-your-own-library">
+<h2>2. Writing your own library<a class="headerlink" href="#writing-your-own-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Here is detailed a complete example on how to bind C and C++ language with
+Python and add it to the Crappy package. Linux and Windows are both used for
+building.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is not a C++ tutorial, a few programming notions are used here, please
+refer to the tutorials below if you are not a C or C++ developer.</p>
+<p>C++ tutorials :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c">openclassrooms C++</a> (fr)</p></li>
+<li><p><a class="reference external" href="https://www.cplusplus.com/doc/tutorial/">cplusplus</a> (en)</p></li>
+</ul>
+<p>C tutorials :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c">openclassrooms C</a> (fr)</p></li>
+<li><p><a class="reference external" href="https://www.cprogramming.com/tutorial/c-tutorial.html?inl=hp">cprogramming</a> (en)</p></li>
+</ul>
+</div>
+<p>In Linux, you must install the <code class="docutils literal notranslate"><span class="pre">python-dev</span></code> package to ensure that you can use
+the <code class="docutils literal notranslate"><span class="pre">Python.h</span></code> library in the C or C++ code :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt install python-dev
+</pre></div>
+</div>
+<p>In Windows, there is no <code class="docutils literal notranslate"><span class="pre">python-dev</span></code> package, but the Python installer for
+Windows will install a subdirectory in the Python directory which contains the
+<code class="docutils literal notranslate"><span class="pre">Python.h</span></code> (on our Windows machine, this folder is located in
+<code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\AppData\Local\Programs\Python\</span></code>).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In this tutorial we’ll assume that you’re using Crappy from a <code class="docutils literal notranslate"><span class="pre">setup</span></code>
+install (see the <a class="reference internal" href="../installation.html#installation"><span class="std std-ref">Installation</span></a> section for details). Using C++ modules
+is otherwise not possible using only a <code class="docutils literal notranslate"><span class="pre">pip</span></code> install, as we made the choice
+not to distribute compiled code.</p>
+</div>
+</div>
+<div class="section" id="first-example-a-simple-function">
+<h3>2.2. First example: a simple function<a class="headerlink" href="#first-example-a-simple-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="writing-the-c-code">
+<h4>2.2.1. Writing the C++ code<a class="headerlink" href="#writing-the-c-code" title="Permalink to this headline">¶</a></h4>
+<p>First we need to start with including the <code class="docutils literal notranslate"><span class="pre">Python.h</span></code> library, and of course
+any other library we want to use. Then we write our function, that must return a
+<code class="docutils literal notranslate"><span class="pre">PyObject</span></code> pointer. If the function takes arguments (that’s the case in the
+example), they should be passed to <code class="docutils literal notranslate"><span class="pre">args</span></code>. The arguments then have to be
+parsed using <code class="docutils literal notranslate"><span class="pre">PyArgs_ParseTuple</span></code>, and we can finally write the main part of
+the function. Do not forget to add <code class="docutils literal notranslate"><span class="pre">Py_RETURN_NONE</span></code> at the end if the function
+doesn’t return anything.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">hello</span><span class="p">(</span><span class="n">PyObject</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">){</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">PyArg_ParseTuple</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, to bind the <code class="docutils literal notranslate"><span class="pre">hello</span></code> function we need to create a <code class="docutils literal notranslate"><span class="pre">PyMethodDef</span></code> which
+contains the function definition. If several functions were to be defined, we
+would list them all here. The first element will be the name of the function in
+Python. The second element is the function to bind. The third element is
+<code class="docutils literal notranslate"><span class="pre">METH_VARARGS</span></code> if the function gets arguments, or <code class="docutils literal notranslate"><span class="pre">METH_NOARGS</span></code> otherwise.
+The last element corresponds to a description of the function, that will appear
+in the function help.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">hello</span><span class="p">(</span><span class="n">PyObject</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">){</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">PyArg_ParseTuple</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">HelloMethods</span><span class="p">[]</span> <span class="o">=</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="p">{</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span> <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span></pre></div>
+</div>
+<p>Once all the Python objects have been defined, we need to define the Python
+module itself. This is done using <code class="docutils literal notranslate"><span class="pre">PyModuleDef</span></code>. It has to be initialized
+with <code class="docutils literal notranslate"><span class="pre">PyModuleDef_HEAD_INIT</span></code>, then comes the module name, the docstring if
+any, the size to allocate to the module, the methods of the module, anf finally
+the slots.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">hello</span><span class="p">(</span><span class="n">PyObject</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">){</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">PyArg_ParseTuple</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">HelloMethods</span><span class="p">[]</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span> <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">static</span> <span class="k">struct</span> <span class="nc">PyModuleDef</span> <span class="n">helloModule</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">PyModuleDef_HEAD_INIT</span><span class="p">,</span>
+</span><span class="hll">    <span class="s">&quot;helloModule&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nb">NULL</span><span class="p">,</span>
+</span><span class="hll">    <span class="mi">-1</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">HelloMethods</span>
+</span><span class="hll"><span class="p">};</span>
+</span></pre></div>
+</div>
+<p>The last step is to initialize the module, which is done using
+<code class="docutils literal notranslate"><span class="pre">PyMODINIT_FUNC</span></code> and <code class="docutils literal notranslate"><span class="pre">PyModule_Create</span></code>. The C++ code is then ready to be
+compiled !</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">hello</span><span class="p">(</span><span class="n">PyObject</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">){</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">PyArg_ParseTuple</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">HelloMethods</span><span class="p">[]</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span> <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="k">struct</span> <span class="nc">PyModuleDef</span> <span class="n">helloModule</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">PyModuleDef_HEAD_INIT</span><span class="p">,</span>
+    <span class="s">&quot;helloModule&quot;</span><span class="p">,</span>
+    <span class="nb">NULL</span><span class="p">,</span>
+    <span class="mi">-1</span><span class="p">,</span>
+    <span class="n">HelloMethods</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="n">PyMODINIT_FUNC</span> <span class="nf">PyInit_helloModule</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">PyModule_Create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">helloModule</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="binding-the-code-to-crappy">
+<h4>2.2.2. Binding the code to Crappy<a class="headerlink" href="#binding-the-code-to-crappy" title="Permalink to this headline">¶</a></h4>
+<p>Once the C++ code is written, most of the work is done. We only need to modify
+the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and one of the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> files. So let’s start with the
+<code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. All we have to do is include our <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file as an extension,
+which is achieved by writing :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">helloModule</span> <span class="o">=</span> <span class="n">Extension</span><span class="p">(</span><span class="s1">&#39;tool.helloModule&#39;</span><span class="p">,</span>
+                        <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sources/hello/hello.cpp&#39;</span><span class="p">],</span>
+                        <span class="n">extra_compile_args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;python</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">v</span><span class="p">],</span>
+                        <span class="n">language</span><span class="o">=</span><span class="s1">&#39;c++&#39;</span><span class="p">)</span>
+
+<span class="n">extensions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">helloModule</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This should be put around line 30. The first argument indicates where to write
+the binary file that will be generated, the second points to the location(s) of
+the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> and/or <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> files to use for the extension, and the two last
+arguments should be left as is.</p>
+<p>Then the module should be imported in the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file of the folder
+where the compiled file will be written, so in our example in <code class="docutils literal notranslate"><span class="pre">crappy/tool/</span></code>.
+The import is similar to all the regular ones, i.e. in our example we should
+write :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.helloModule</span> <span class="kn">import</span> <span class="n">hello</span>
+</pre></div>
+</div>
+<p>The last step is to reinstall Crappy, and that’s it ! During install any error
+or warning related to the compilation of the C files will be displayed. After
+completing the install, there should be no notable change in the source folder.
+If you go to the install folder (see <a class="reference internal" href="custom_blocks.html#permanently-adding-custom-blocks-to-crappy"><span class="std std-ref">here</span></a>), there should be a binary file in the <code class="docutils literal notranslate"><span class="pre">tool</span></code> folder as
+well as a <code class="docutils literal notranslate"><span class="pre">helloModule.py</span></code> file. This file contains the following code :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__bootstrap__</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">__bootstrap__</span><span class="p">,</span> <span class="n">__loader__</span><span class="p">,</span> <span class="vm">__file__</span>
+    <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">pkg_resources</span><span class="o">,</span> <span class="nn">imp</span>
+    <span class="vm">__file__</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;&lt;binary_file.xxx&gt;&#39;</span><span class="p">)</span>
+    <span class="n">__loader__</span> <span class="o">=</span> <span class="kc">None</span><span class="p">;</span> <span class="k">del</span> <span class="n">__bootstrap__</span><span class="p">,</span> <span class="n">__loader__</span>
+    <span class="n">imp</span><span class="o">.</span><span class="n">load_dynamic</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">__bootstrap__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It’s this file that actually allows the import in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> to happen. So
+the <code class="docutils literal notranslate"><span class="pre">hello</span></code> method is now part of Crappy and lives in <code class="docutils literal notranslate"><span class="pre">crappy.tool.hello</span></code>.
+For using it in a script or in a command line, we can simply write :</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">crappy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crappy</span><span class="o">.</span><span class="n">tool</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<span class="go">Hello world</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="second-example-a-simple-class">
+<h3>2.3. Second example: a simple class<a class="headerlink" href="#second-example-a-simple-class" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>2.3.1 Writing the C++ code<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Now let’s try to build a more advanced Python object in C. We’ll define a class
+that is similar to this Python class :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Crappy&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s1">&#39;hello &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>After including the necessary packages, we first need to define the functions to
+construct our future class :</p>
+<ul class="simple">
+<li><p>a new method</p></li>
+<li><p>a constructor</p></li>
+<li><p>a destructor and a structure which will contain the class attributes.</p></li>
+</ul>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">struct</span></code> contains two elements. The first, <code class="docutils literal notranslate"><span class="pre">PyObject_HEAD</span></code> must
+always be defined, it represent the type of object. The second element
+represents our attribute <code class="docutils literal notranslate"><span class="pre">'name'</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The next method parses the arguments and keywords arguments, to initialize the
+structure defined before, which will be passed as first argument for each method
+(similar to the Python <code class="docutils literal notranslate"><span class="pre">self</span></code>).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="hll"><span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+</span><span class="hll">            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+</span><span class="hll">                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>The constructor parses the arguments and keywords arguments. The <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code>
+argument is optional. Here’s also the destructor.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="k">static</span> <span class="kt">int</span> <span class="n">Hello_init</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;Crappy&quot;</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+</span><span class="hll">            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">static</span> <span class="kt">void</span> <span class="n">Hello_dealloc</span><span class="p">(</span><span class="n">Hello</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_free</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>We then define our two methods like previously. To return a value, we need to
+use the <code class="docutils literal notranslate"><span class="pre">Py_BuildValue</span></code> function, to convert C++ type to python type: this
+way, we directly get an understandable Python object.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">Hello_init</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;Crappy&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">Hello_dealloc</span><span class="p">(</span><span class="n">Hello</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_free</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="n">PyObject</span><span class="o">*</span>
+</span><span class="hll"><span class="n">Hello_get</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="k">return</span> <span class="nf">Py_BuildValue</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">PyObject</span><span class="o">*</span>
+</span><span class="hll"><span class="n">Hello_print</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Now just like in the previous example we need to list the different methods of
+our module.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">Hello_init</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;Crappy&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">Hello_dealloc</span><span class="p">(</span><span class="n">Hello</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_free</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_get</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">Py_BuildValue</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_print</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">Hello_methods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">{</span><span class="s">&quot;say_hello&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_print</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span>
+</span><span class="hll">     <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span><span class="s">&quot;get_name&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_get</span><span class="p">,</span> <span class="n">METH_NOARGS</span><span class="p">,</span>
+</span><span class="hll">    <span class="s">&quot;Return the name attribute.&quot;</span><span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span><span class="nb">NULL</span><span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span></pre></div>
+</div>
+<p>To define a class which can be bound with Python, we need to define its
+structure, with a <code class="docutils literal notranslate"><span class="pre">PyTypeObject</span></code>. We have to define:</p>
+<ul class="simple">
+<li><p>the constructor</p></li>
+<li><p>the destructor</p></li>
+<li><p>the new method</p></li>
+<li><p>the name of the class</p></li>
+<li><p>its size</p></li>
+<li><p>its methods</p></li>
+<li><p>etc.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">Hello_init</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;Crappy&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">Hello_dealloc</span><span class="p">(</span><span class="n">Hello</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_free</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_get</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">Py_BuildValue</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_print</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">Hello_methods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;say_hello&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_print</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span>
+     <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;get_name&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_get</span><span class="p">,</span> <span class="n">METH_NOARGS</span><span class="p">,</span>
+    <span class="s">&quot;Return the name attribute.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">static</span> <span class="n">PyTypeObject</span> <span class="n">helloType</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">PyObject_HEAD_INIT</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_name</span> <span class="o">=</span> <span class="s">&quot;crappy.tool.Hello&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_basicsize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Hello</span><span class="p">),</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_itemsize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_dealloc</span> <span class="o">=</span> <span class="p">(</span><span class="n">destructor</span><span class="p">)</span> <span class="n">Hello_dealloc</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_flags</span> <span class="o">=</span> <span class="n">Py_TPFLAGS_DEFAULT</span> <span class="o">|</span> <span class="n">Py_TPFLAGS_BASETYPE</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_doc</span> <span class="o">=</span> <span class="s">&quot;Hello objects&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_methods</span> <span class="o">=</span> <span class="n">Hello_methods</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">initproc</span><span class="p">)</span> <span class="n">Hello_init</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">.</span><span class="n">tp_new</span> <span class="o">=</span> <span class="n">Hello_new</span><span class="p">,</span>
+</span><span class="hll"><span class="p">};</span>
+</span></pre></div>
+</div>
+<p>Finally just like in the first example we have to define the module and to
+initialize it. Here the syntax is a bit more complex but the idea remains the
+same.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Hello</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">Hello_new</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_alloc</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">Hello_init</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="n">kwlist</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
+
+    <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="s">&quot;Crappy&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">PyArg_ParseTupleAndKeywords</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="s">&quot;|s&quot;</span><span class="p">,</span> <span class="n">kwlist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">Hello_dealloc</span><span class="p">(</span><span class="n">Hello</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_free</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_get</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">Py_BuildValue</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">Hello_print</span><span class="p">(</span><span class="n">Hello</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">Py_RETURN_NONE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">Hello_methods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;say_hello&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_print</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span>
+     <span class="s">&quot;Say hello to somebody.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;get_name&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyCFunction</span><span class="p">)</span><span class="n">Hello_get</span><span class="p">,</span> <span class="n">METH_NOARGS</span><span class="p">,</span>
+    <span class="s">&quot;Return the name attribute.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="n">PyTypeObject</span> <span class="n">helloType</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD_INIT</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">tp_name</span> <span class="o">=</span> <span class="s">&quot;crappy.tool.Hello&quot;</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_basicsize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Hello</span><span class="p">),</span>
+    <span class="p">.</span><span class="n">tp_itemsize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_dealloc</span> <span class="o">=</span> <span class="p">(</span><span class="n">destructor</span><span class="p">)</span> <span class="n">Hello_dealloc</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_flags</span> <span class="o">=</span> <span class="n">Py_TPFLAGS_DEFAULT</span> <span class="o">|</span> <span class="n">Py_TPFLAGS_BASETYPE</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_doc</span> <span class="o">=</span> <span class="s">&quot;Hello objects&quot;</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_methods</span> <span class="o">=</span> <span class="n">Hello_methods</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_init</span> <span class="o">=</span> <span class="p">(</span><span class="n">initproc</span><span class="p">)</span> <span class="n">Hello_init</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">tp_new</span> <span class="o">=</span> <span class="n">Hello_new</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">static</span> <span class="k">struct</span> <span class="nc">PyModuleDef</span> <span class="n">helloClassModule</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">PyModuleDef_HEAD_INIT</span><span class="p">,</span>
+</span><span class="hll">    <span class="s">&quot;helloClassModule&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nb">NULL</span><span class="p">,</span>
+</span><span class="hll">    <span class="mi">-1</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">Hello_methods</span>
+</span><span class="hll"><span class="p">};</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">PyMODINIT_FUNC</span>
+</span><span class="hll"><span class="nf">PyInit_helloClassModule</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="n">PyObject</span><span class="o">*</span> <span class="n">m</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">PyType_Ready</span><span class="p">(</span><span class="o">&amp;</span><span class="n">helloType</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">m</span> <span class="o">=</span> <span class="n">PyModule_Create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">helloClassModule</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">Py_INCREF</span><span class="p">(</span><span class="o">&amp;</span><span class="n">helloType</span><span class="p">);</span>
+</span><span class="hll">    <span class="n">PyModule_AddObject</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">helloType</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">m</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>2.3.2 Binding the code to Crappy<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Now that the C++ code is ready, let’s add it to the extensions in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">helloClassModule</span> <span class="o">=</span> <span class="n">Extension</span><span class="p">(</span><span class="s1">&#39;tool.helloClassModule&#39;</span><span class="p">,</span>
+                             <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sources/hello/hello_class.cpp&#39;</span><span class="p">],</span>
+                             <span class="n">extra_compile_args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;python</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">v</span><span class="p">],</span>
+                             <span class="n">language</span><span class="o">=</span><span class="s1">&#39;c++&#39;</span><span class="p">)</span>
+
+<span class="n">extensions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">helloClassModule</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also need to import it from <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> in <code class="docutils literal notranslate"><span class="pre">crappy/tool/</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.helloClassModule</span> <span class="kn">import</span> <span class="n">Hello</span>
+</pre></div>
+</div>
+<p>After reinstalling Crappy, we can now use our class very simply :</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">crappy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default</span> <span class="o">=</span> <span class="n">crappy</span><span class="o">.</span><span class="n">tool</span><span class="o">.</span><span class="n">Hello</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+<span class="go">&#39;Crappy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+<span class="go">Hello Crappy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">with_arg</span> <span class="o">=</span> <span class="n">crappy</span><span class="o">.</span><span class="n">tool</span><span class="o">.</span><span class="n">Hello</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">with_arg</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+<span class="go">&#39;bob&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">with_arg</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+<span class="go">Hello bob</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../embedded.html" class="btn btn-neutral float-right" title="Crappy for embedded hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="custom_blocks.html" class="btn btn-neutral float-left" title="Using custom blocks and adding them to Crappy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

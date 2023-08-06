@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>crappy.inout.mprls &mdash; Crappy 1.5.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Crappy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatiscrappy.html">What is Crappy ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../embedded.html">Crappy for embedded hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Current functionalities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blocklist.html">The complete list of Crappy blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers.html">Developers information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Bug reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License information</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Crappy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>crappy.inout.mprls</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for crappy.inout.mprls</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">.inout</span> <span class="kn">import</span> <span class="n">InOut</span>
+<span class="kn">from</span> <span class="nn">.._global</span> <span class="kn">import</span> <span class="n">OptionalModule</span>
+<span class="kn">from</span> <span class="nn">..tool</span> <span class="kn">import</span> <span class="n">ft232h_server</span> <span class="k">as</span> <span class="n">ft232h</span><span class="p">,</span> <span class="n">Usb_server</span><span class="p">,</span> <span class="n">i2c_msg_ft232h</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">adafruit_mprls</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">adafruit_mprls</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;adafruit_mprls&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">board</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">board</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">,</span> <span class="s1">&#39;Blinka is necessary to use the I2C bus&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">digitalio</span> <span class="kn">import</span> <span class="n">DigitalInOut</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">DigitalInOut</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;digitalio&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;Blinka is necessary to access the GPIOs&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span><span class="p">,</span> <span class="n">i2c_msg</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">SMBus</span> <span class="o">=</span> <span class="n">i2c_msg</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;smbus2&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">RPi.GPIO</span> <span class="k">as</span> <span class="nn">GPIO</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">ImportError</span><span class="p">):</span>
+  <span class="n">GPIO</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s2">&quot;RPi.GPIO&quot;</span><span class="p">)</span>
+
+<span class="n">mprls_status_bits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;busy&#39;</span><span class="p">:</span> <span class="mh">0x20</span><span class="p">,</span>
+                     <span class="s1">&#39;memory error&#39;</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>
+                     <span class="s1">&#39;math saturation&#39;</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">}</span>
+<span class="n">mprls_backends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pi4&#39;</span><span class="p">,</span> <span class="s1">&#39;blinka&#39;</span><span class="p">,</span> <span class="s1">&#39;ft232h&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Mprls"><a class="viewcode-back" href="../../../crappydocs/inouts.html#crappy.inout.mprls.Mprls">[docs]</a><span class="k">class</span> <span class="nc">Mprls</span><span class="p">(</span><span class="n">Usb_server</span><span class="p">,</span> <span class="n">InOut</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;The Mprls inout is meant for reading pressure from Adafruit&#39;s Mprls</span>
+<span class="sd">    pressure sensor.</span>
+
+<span class="sd">    It communicates over I2C with the sensor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Mprls.__init__"><a class="viewcode-back" href="../../../crappydocs/inouts.html#crappy.inout.mprls.Mprls.__init__">[docs]</a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+               <span class="n">eoc_pin</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="n">device_address</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mh">0x18</span><span class="p">,</span>
+               <span class="n">i2c_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="n">ft232h_ser_num</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Initializes the parent class and opens the I2C bus.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      backend (:obj:`str`): Should be one of :</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          &#39;Pi4&#39;, &#39;blinka&#39;, &#39;ft232h&#39;</span>
+
+<span class="sd">        The `&#39;Pi4&#39;` backend is optimized but only works on boards supporting</span>
+<span class="sd">        the :mod:`smbus2` module, like the Raspberry Pis. The `&#39;blinka&#39;`</span>
+<span class="sd">        backend may be less performant and requires installing Adafruit&#39;s</span>
+<span class="sd">        modules, but these modules are compatible with and maintained on a wide</span>
+<span class="sd">        variety of boards. The `&#39;ft232h&#39;` backend allows controlling the</span>
+<span class="sd">        MPRLS from a PC using Adafruit&#39;s FT232H USB to I2C adapter. See</span>
+<span class="sd">        :ref:`Crappy for embedded hardware` for details.</span>
+<span class="sd">      eoc_pin (:obj:`int` or :obj:`str`, optional): Optionally, reads the end</span>
+<span class="sd">        of conversion signal from a GPIO rather than from an I2C message.</span>
+<span class="sd">        Speeds up the reading and decreases the traffic on the bus, but</span>
+<span class="sd">        requires one extra wire. With the backend `&#39;Pi4&#39;`, give the index of</span>
+<span class="sd">        the GPIO in BCM convention. With the `&#39;ft232h&#39;` backend, give the name</span>
+<span class="sd">        of the GPIO in the format `Dx` or `Cx`. With the backend `&#39;blinka&#39;`,</span>
+<span class="sd">        it should be a string but the syntax varies according to the board.</span>
+<span class="sd">        Refer to blinka&#39;s documentation for more information.</span>
+<span class="sd">      device_address (:obj:`int`, optional): The I2C address of the MPRLS.</span>
+<span class="sd">        The address of the devices sold by Adafruit is `0x18`, but other</span>
+<span class="sd">        suppliers may sell it with another address.</span>
+<span class="sd">      i2c_port (:obj:`int`, optional): The I2C port over which the MPRLS</span>
+<span class="sd">        should communicate. On most Raspberry Pi models the default I2C port is</span>
+<span class="sd">        `1`.</span>
+<span class="sd">      ft232h_ser_num (:obj:`str`, optional): If backend is `&#39;ft232h&#39;`, the</span>
+<span class="sd">        serial number of the FT232H to use for communication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">backend</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mprls_backends</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;backend should be in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mprls_backends</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">=</span> <span class="n">backend</span>
+
+    <span class="n">Usb_server</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                        <span class="n">serial_nr</span><span class="o">=</span><span class="n">ft232h_ser_num</span> <span class="k">if</span> <span class="n">ft232h_ser_num</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">)</span>
+    <span class="n">queue</span><span class="p">,</span> <span class="n">block_number</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">command_event</span><span class="p">,</span> \
+        <span class="n">answer_event</span><span class="p">,</span> <span class="n">next_event</span><span class="p">,</span> <span class="n">done_event</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">start_server</span><span class="p">()</span>
+
+    <span class="n">InOut</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s1">&#39;ft232h&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="n">ft232h</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;I2C&#39;</span><span class="p">,</span>
+                         <span class="n">queue</span><span class="o">=</span><span class="n">queue</span><span class="p">,</span>
+                         <span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">,</span>
+                         <span class="n">command_event</span><span class="o">=</span><span class="n">command_event</span><span class="p">,</span>
+                         <span class="n">answer_event</span><span class="o">=</span><span class="n">answer_event</span><span class="p">,</span>
+                         <span class="n">block_number</span><span class="o">=</span><span class="n">block_number</span><span class="p">,</span>
+                         <span class="n">next_block</span><span class="o">=</span><span class="n">next_event</span><span class="p">,</span>
+                         <span class="n">done_event</span><span class="o">=</span><span class="n">done_event</span><span class="p">,</span>
+                         <span class="n">serial_nr</span><span class="o">=</span><span class="n">ft232h_ser_num</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device_address</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;device_address should be an integer.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_address</span> <span class="o">=</span> <span class="n">device_address</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i2c_port</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;i2c_port should be an integer.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_i2c_port</span> <span class="o">=</span> <span class="n">i2c_port</span>
+
+    <span class="k">if</span> <span class="n">eoc_pin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s1">&#39;blinka&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">eoc_pin</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;eoc_pin should be a string when using the blinka &#39;</span>
+                        <span class="s1">&#39;backend !&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s1">&#39;ft232h&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">eoc_pin</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;eoc_pin should be a string when using the ft232h &#39;</span>
+                        <span class="s1">&#39;backend !&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s1">&#39;Pi4&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">eoc_pin</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;eoc_pin should be an int when using the Pi4 &#39;</span>
+                        <span class="s1">&#39;backend !&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span> <span class="o">=</span> <span class="n">eoc_pin</span></div>
+
+<div class="viewcode-block" id="Mprls.open"><a class="viewcode-back" href="../../../crappydocs/inouts.html#crappy.inout.mprls.Mprls.open">[docs]</a>  <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Opens the I2C bus.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;Pi4&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="n">SMBus</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_i2c_port</span><span class="p">)</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+        <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;blinka&#39;</span><span class="p">:</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">eoc</span> <span class="o">=</span> <span class="n">DigitalInOut</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span><span class="p">))</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">eoc</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_mpr</span> <span class="o">=</span> <span class="n">adafruit_mprls</span><span class="o">.</span><span class="n">MPRLS</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">I2C</span><span class="p">(),</span>
+                                       <span class="n">psi_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                       <span class="n">psi_max</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                       <span class="n">eoc_pin</span><span class="o">=</span><span class="n">eoc</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_i2c_msg</span> <span class="o">=</span> <span class="n">i2c_msg_ft232h</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;ft232h&#39;</span> <span class="k">else</span> <span class="n">i2c_msg</span></div>
+
+<div class="viewcode-block" id="Mprls.get_data"><a class="viewcode-back" href="../../../crappydocs/inouts.html#crappy.inout.mprls.Mprls.get_data">[docs]</a>  <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Reads the pressure value.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      The timestamp and the pressure value in hPa.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;blinka&#39;</span><span class="p">:</span>
+      <span class="n">pres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mpr</span><span class="o">.</span><span class="n">pressure</span>
+
+    <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># Starting conversion</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">i2c_rdwr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_i2c_msg</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_address</span><span class="p">,</span>
+                                             <span class="p">[</span><span class="mh">0xAA</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]))</span>
+      <span class="c1"># Waiting for conversion to complete</span>
+      <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+      <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_available</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+          <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="s1">&#39;Waited too long for data to be ready&#39;</span><span class="p">)</span>
+
+      <span class="c1"># Reading conversion result</span>
+      <span class="n">read</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i2c_msg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_address</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">i2c_rdwr</span><span class="p">(</span><span class="n">read</span><span class="p">)</span>
+      <span class="n">out</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">read</span><span class="p">)</span>
+      <span class="c1"># Checking if anu error occurred</span>
+      <span class="k">if</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">mprls_status_bits</span><span class="p">[</span><span class="s1">&#39;memory error&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;A memory error occurred on the MPRLS&quot;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">mprls_status_bits</span><span class="p">[</span><span class="s1">&#39;math saturation&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;A math saturation error occurred on the MPRLS&quot;</span><span class="p">)</span>
+      <span class="c1"># Extracting conversion result as an integer</span>
+      <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+      <span class="c1"># Converting to hPa</span>
+      <span class="n">pres</span> <span class="o">=</span> <span class="mf">68.947572932</span> <span class="o">*</span> <span class="p">(</span><span class="n">ret</span> <span class="o">-</span> <span class="mh">0x19999A</span><span class="p">)</span> <span class="o">*</span> <span class="mi">25</span> <span class="o">/</span> <span class="p">(</span><span class="mh">0xE66666</span> <span class="o">-</span> <span class="mh">0x19999A</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">time</span><span class="p">(),</span> <span class="n">pres</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Mprls.close"><a class="viewcode-back" href="../../../crappydocs/inouts.html#crappy.inout.mprls.Mprls.close">[docs]</a>  <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Closes the I2C bus.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">!=</span> <span class="s1">&#39;blinka&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;Pi4&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
+
+  <span class="k">def</span> <span class="nf">_data_available</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Returns :obj:`True` if data is available, :obj:`False` otherwise.&quot;&quot;&quot;</span>
+
+    <span class="c1"># EOC signal from the I2C communication</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="n">wait</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i2c_msg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_address</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">i2c_rdwr</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+      <span class="k">return</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">(</span><span class="n">wait</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">mprls_status_bits</span><span class="p">[</span><span class="s1">&#39;busy&#39;</span><span class="p">]</span>
+    <span class="c1"># EOC signal from a GPIO</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;ft232h&#39;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">get_gpio</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eoc_pin</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

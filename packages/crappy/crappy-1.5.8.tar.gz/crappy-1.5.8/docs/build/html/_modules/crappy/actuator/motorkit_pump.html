@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>crappy.actuator.motorkit_pump &mdash; Crappy 1.5.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Crappy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatiscrappy.html">What is Crappy ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../embedded.html">Crappy for embedded hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Current functionalities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blocklist.html">The complete list of Crappy blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers.html">Developers information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Bug reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License information</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Crappy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>crappy.actuator.motorkit_pump</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for crappy.actuator.motorkit_pump</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">pack_into</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">.actuator</span> <span class="kn">import</span> <span class="n">Actuator</span>
+<span class="kn">from</span> <span class="nn">.._global</span> <span class="kn">import</span> <span class="n">OptionalModule</span>
+<span class="kn">from</span> <span class="nn">..tool</span> <span class="kn">import</span> <span class="n">ft232h_server</span> <span class="k">as</span> <span class="n">ft232h</span><span class="p">,</span> <span class="n">Usb_server</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">adafruit_motorkit</span> <span class="kn">import</span> <span class="n">MotorKit</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">MotorKit</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;adafruit_motorkit&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Adafrfuit Motorkit module (adafruit_motorkit) is &#39;</span>
+                            <span class="s1">&#39;required to use this actuator&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">board</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">board</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">,</span> <span class="s1">&#39;Blinka is necessary to use the I2C bus&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+  <span class="n">SMBus</span> <span class="o">=</span> <span class="n">OptionalModule</span><span class="p">(</span><span class="s1">&#39;smbus2&#39;</span><span class="p">)</span>
+
+<span class="n">motor_hat_ctrl</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mh">0x26</span><span class="p">,</span>
+                  <span class="mi">2</span><span class="p">:</span> <span class="mh">0x3A</span><span class="p">,</span>
+                  <span class="mi">3</span><span class="p">:</span> <span class="mh">0x0E</span><span class="p">,</span>
+                  <span class="mi">4</span><span class="p">:</span> <span class="mh">0x22</span><span class="p">}</span>
+
+<span class="n">motor_hat_pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mh">0x2A</span><span class="p">,</span>
+                 <span class="mi">2</span><span class="p">:</span> <span class="mh">0x32</span><span class="p">,</span>
+                 <span class="mi">3</span><span class="p">:</span> <span class="mh">0x12</span><span class="p">,</span>
+                 <span class="mi">4</span><span class="p">:</span> <span class="mh">0x1A</span><span class="p">}</span>
+
+<span class="n">motor_hat_neg</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mh">0x2E</span><span class="p">,</span>
+                 <span class="mi">2</span><span class="p">:</span> <span class="mh">0x36</span><span class="p">,</span>
+                 <span class="mi">3</span><span class="p">:</span> <span class="mh">0x16</span><span class="p">,</span>
+                 <span class="mi">4</span><span class="p">:</span> <span class="mh">0x1E</span><span class="p">}</span>
+
+<span class="n">motor_hat_0xFF</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]</span>
+<span class="n">motor_hat_backends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pi4&#39;</span><span class="p">,</span> <span class="s1">&#39;blinka&#39;</span><span class="p">,</span> <span class="s1">&#39;ft232h&#39;</span><span class="p">]</span>
+<span class="n">motor_hat_max_volt</span> <span class="o">=</span> <span class="mi">12</span>
+
+
+<div class="viewcode-block" id="DC_motor_hat"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.DC_motor_hat">[docs]</a><span class="k">class</span> <span class="nc">DC_motor_hat</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Class for driving Adafruit&#39;s DC motor HAT.</span>
+
+<span class="sd">  This class serves as a basis for building Actuators in Crappy, but is not one</span>
+<span class="sd">  itself. It is used by the :class:`Motorkit_pump` Actuator.</span>
+
+<span class="sd">  Note:</span>
+<span class="sd">    This device can also drive stepper motors, but this feature isn&#39;t included</span>
+<span class="sd">    here.</span>
+
+<span class="sd">  It is intended for Raspberry Pis but can also be used from any other device</span>
+<span class="sd">  interfacing over I2C assuming a proper wiring.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DC_motor_hat.__init__"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.DC_motor_hat.__init__">[docs]</a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">motor_nrs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+               <span class="n">device_address</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mh">0x60</span><span class="p">,</span>
+               <span class="n">i2c_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="n">bus</span><span class="p">:</span> <span class="n">ft232h</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Resets the HAT and initializes it.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      motor_nrs (:obj:`list`): The list of the motors to drive. Its elements</span>
+<span class="sd">        should be integers between 1 and 4, corresponding to the number of the</span>
+<span class="sd">        motors.</span>
+<span class="sd">      device_address (:obj:`int`, optional): The I2C address of the HAT.</span>
+<span class="sd">        The default address is `0x60`, but it is possible to change this</span>
+<span class="sd">        setting by cutting traces on the board.</span>
+<span class="sd">      i2c_port (:obj:`int`, optional): The I2C port over which the ADS1115</span>
+<span class="sd">        should communicate. On most Raspberry Pi models the default I2C port is</span>
+<span class="sd">        `1`.</span>
+<span class="sd">      bus (:obj:`ft232h_server`, optional): If given, the I2C commands are sent</span>
+<span class="sd">        by the corresponding :class:`ft232h_server` instance, in the situation</span>
+<span class="sd">        when the hat is controlled from a PC through an FT232H rather than by a</span>
+<span class="sd">        board.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">motor_nrs</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The DC motor hat can only drive up to 4 DC motors at &quot;</span>
+                       <span class="s2">&quot;a time !&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device_address</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;device_address should be an integer between 0 and 127.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_address</span> <span class="o">=</span> <span class="n">device_address</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i2c_port</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;i2c_port should be an integer !&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bus</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="n">SMBus</span><span class="p">(</span><span class="n">i2c_port</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="n">bus</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Reset</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">])</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+    <span class="c1"># Sleep &amp; restart, also setting the frequency to 1526Hz</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="p">[</span><span class="mh">0x10</span><span class="p">])</span>
+    <span class="n">prescale</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">25E6</span> <span class="o">/</span> <span class="mf">4096.0</span> <span class="o">/</span> <span class="mf">1600.0</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="mh">0xFE</span><span class="p">,</span> <span class="p">[</span><span class="n">prescale</span><span class="p">])</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">])</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="p">[</span><span class="mh">0xA0</span><span class="p">])</span>
+
+    <span class="c1"># Initializing the motors</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">motor_nrs</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_ctrl</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">motor_hat_0xFF</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DC_motor_hat.set_motor"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.DC_motor_hat.set_motor">[docs]</a>  <span class="k">def</span> <span class="nf">set_motor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Sets the PWMs associated with a given motor.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      nr (:obj:`int`): The number of the motor to drive.</span>
+<span class="sd">      cmd (:obj:`float`): The command, that should be between -1 and 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Validity checks</span>
+    <span class="k">if</span> <span class="n">nr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;It is only possible to drive up to 4 motors.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">&lt;=</span> <span class="n">cmd</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The command for the motor should be between -1 and 1.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Special settings for the extreme values</span>
+    <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_pos</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="n">motor_hat_0xFF</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_neg</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="n">motor_hat_0xFF</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_pos</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="n">motor_hat_0xFF</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_neg</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="p">[</span><span class="mh">0x00</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_pos</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="p">[</span><span class="mh">0x00</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_neg</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="n">motor_hat_0xFF</span><span class="p">)</span>
+
+    <span class="c1"># The positive line is driven for positive commands, and reversely</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">duty_cycle</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mh">0xFFFF</span> <span class="o">*</span> <span class="n">cmd</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+      <span class="n">pack_into</span><span class="p">(</span><span class="s2">&quot;&lt;HH&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duty_cycle</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_pos</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buf</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_neg</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="p">[</span><span class="mh">0x00</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">duty_cycle</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mh">0xFFFF</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+      <span class="n">pack_into</span><span class="p">(</span><span class="s2">&quot;&lt;HH&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duty_cycle</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_pos</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="p">[</span><span class="mh">0x00</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_write_i2c</span><span class="p">(</span><span class="n">motor_hat_neg</span><span class="p">[</span><span class="n">nr</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buf</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DC_motor_hat.close"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.DC_motor_hat.close">[docs]</a>  <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Closes the I2C bus.&quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+  <span class="k">def</span> <span class="nf">_write_i2c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">register</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">buf</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">bytearray</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;Thin wrapper to reduce verbosity.&quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="o">.</span><span class="n">write_i2c_block_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_address</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Motorkit_pump"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump">[docs]</a><span class="k">class</span> <span class="nc">Motorkit_pump</span><span class="p">(</span><span class="n">Usb_server</span><span class="p">,</span> <span class="n">Actuator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Class for controlling two DC air pumps and a valve.</span>
+
+<span class="sd">  It uses Adafruit&#39;s DC motor HAT. The motor 1 controls the inflation pump,</span>
+<span class="sd">  the motor 2 controls a valve, and the motor 3 controls a deflation pump.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Motorkit_pump.__init__"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump.__init__">[docs]</a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+               <span class="n">device_address</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mh">0x60</span><span class="p">,</span>
+               <span class="n">i2c_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="n">ft232h_ser_num</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Checks the validity of the arguments.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      backend (:obj:`str`): Should be one of :</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          &#39;Pi4&#39;, &#39;blinka&#39;, &#39;ft232h&#39;</span>
+
+<span class="sd">        The `&#39;Pi4&#39;` backend is optimized but only works on boards supporting</span>
+<span class="sd">        the :mod:`smbus2` module, like the Raspberry Pis. The `&#39;blinka&#39;`</span>
+<span class="sd">        backend may be less performant and requires installing Adafruit&#39;s</span>
+<span class="sd">        modules, but these modules are compatible with and maintained on a wide</span>
+<span class="sd">        variety of boards. The `&#39;ft232h&#39;` backend allows controlling the hat</span>
+<span class="sd">        from a PC using Adafruit&#39;s FT232H USB to I2C adapter. See</span>
+<span class="sd">        :ref:`Crappy for embedded hardware` for details.</span>
+<span class="sd">      device_address (:obj:`int`, optional): The I2C address of the HAT.</span>
+<span class="sd">        The default address is `0x60`, but it is possible to change this</span>
+<span class="sd">        setting by cutting traces on the board.</span>
+<span class="sd">      i2c_port (:obj:`int`, optional): The I2C port over which the HAT should</span>
+<span class="sd">        communicate. On most Raspberry Pi models the default I2C port is</span>
+<span class="sd">        `1`.</span>
+<span class="sd">      ft232h_ser_num (:obj:`str`, optional): If backend is `&#39;ft232h&#39;`, the</span>
+<span class="sd">        serial number of the ft232h to use for communication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">backend</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">motor_hat_backends</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;backend should be in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor_hat_backends</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">=</span> <span class="n">backend</span>
+
+    <span class="n">Usb_server</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                        <span class="n">serial_nr</span><span class="o">=</span><span class="n">ft232h_ser_num</span> <span class="k">if</span> <span class="n">ft232h_ser_num</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">)</span>
+    <span class="n">Actuator</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">queue</span><span class="p">,</span> <span class="n">block_number</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">command_event</span><span class="p">,</span> \
+        <span class="n">answer_event</span><span class="p">,</span> <span class="n">next_event</span><span class="p">,</span> <span class="n">done_event</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">start_server</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;ft232h&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="n">ft232h</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;I2C&#39;</span><span class="p">,</span>
+                         <span class="n">queue</span><span class="o">=</span><span class="n">queue</span><span class="p">,</span>
+                         <span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">,</span>
+                         <span class="n">command_event</span><span class="o">=</span><span class="n">command_event</span><span class="p">,</span>
+                         <span class="n">answer_event</span><span class="o">=</span><span class="n">answer_event</span><span class="p">,</span>
+                         <span class="n">block_number</span><span class="o">=</span><span class="n">block_number</span><span class="p">,</span>
+                         <span class="n">next_block</span><span class="o">=</span><span class="n">next_event</span><span class="p">,</span>
+                         <span class="n">done_event</span><span class="o">=</span><span class="n">done_event</span><span class="p">,</span>
+                         <span class="n">serial_nr</span><span class="o">=</span><span class="n">ft232h_ser_num</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device_address</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;device_address should be an integer between 0 and 127.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_address</span> <span class="o">=</span> <span class="n">device_address</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i2c_port</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;i2c_port should be an integer !&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">i2c_port</span></div>
+
+<div class="viewcode-block" id="Motorkit_pump.open"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump.open">[docs]</a>  <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Initializes the generic HAT object.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">==</span> <span class="s1">&#39;blinka&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span> <span class="o">=</span> <span class="n">MotorKit</span><span class="p">(</span><span class="n">i2c</span><span class="o">=</span><span class="n">board</span><span class="o">.</span><span class="n">I2C</span><span class="p">())</span>
+
+      <span class="k">def</span> <span class="nf">set_motor</span><span class="p">(</span><span class="n">nr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="p">,</span> <span class="s1">&#39;motor</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nr</span><span class="p">)),</span> <span class="s1">&#39;throttle&#39;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span> <span class="o">=</span> <span class="n">set_motor</span>
+
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span> <span class="o">=</span> <span class="n">DC_motor_hat</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_address</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bus</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Motorkit_pump.set_speed"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump.set_speed">[docs]</a>  <span class="k">def</span> <span class="nf">set_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Inflates or deflates the setup according to the command.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      volt (:obj:`float`): The voltage to supply to the pumps. If positive,</span>
+<span class="sd">        will inflate, if negative will deflate, and if 0 won&#39;t do anything. The</span>
+<span class="sd">        voltage is clamped between -12 and 12 Volts, as it is the limit of the</span>
+<span class="sd">        HAT.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">volt_clamped</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">volt</span><span class="p">)</span> <span class="o">/</span> <span class="n">motor_hat_max_volt</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># Stops all the motors</span>
+    <span class="k">if</span> <span class="n">volt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># Drives the inflating pump</span>
+    <span class="k">elif</span> <span class="n">volt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">volt_clamped</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># Drives the deflating pump and opens the valve</span>
+    <span class="k">elif</span> <span class="n">volt</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">volt_clamped</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Motorkit_pump.stop"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump.stop">[docs]</a>  <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Simply sets the voltage to 0.&quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Motorkit_pump.close"><a class="viewcode-back" href="../../../crappydocs/actuators.html#crappy.actuator.motorkit_pump.Motorkit_pump.close">[docs]</a>  <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Stops the pumps and closes the HAT object.&quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">!=</span> <span class="s1">&#39;blinka&#39;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_hat</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installation &mdash; Crappy 1.5.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="What is Crappy ?" href="whatiscrappy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Crappy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whatiscrappy.html">What is Crappy ?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-for-linux-users">A. For Linux users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#b-for-windows-users">B. For Windows users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-for-macos-users">C. For macOS users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-troubleshooting">D. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded.html">Crappy for embedded hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Current functionalities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blocklist.html">The complete list of Crappy blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Developers information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Bug reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License information</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Crappy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>You can install Crappy on the three main OS : Windows, Mac and Linux. Note that
+Crappy is developed and tested on the latest OS versions, and no particular
+effort is made to ensure compatibility with previous ones. It is thus preferable
+to install it on a recent and up-to-date OS version.</p>
+<p>To install Crappy, you will need Python 3 (3.6 or higher) with the following
+modules :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a> (1.19.0 or higher)</p></li>
+</ul>
+<p>The following modules are not mandatory but will provide additional
+functionalities :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a> (1.5.3 or higher, for plotting graphs
+and displaying images)</p></li>
+<li><p><a class="reference external" href="https://opencv.org/">opencv</a> (3.0 or higher, to perform image acquisition
+and analysis)</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/pyserial/">pyserial</a> (To interface with serial
+sensors and actuators)</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/tkinter.html">Tk</a> (For the configuration
+interface of cameras)</p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/">scikit-image</a> (0.11 or higher)</p></li>
+<li><p><a class="reference external" href="https://www.ximea.com/support/wiki/apis/xiapi">xiApi</a> (for Ximea cameras)</p></li>
+<li><p><a class="reference external" href="https://labjack.com/support/software/examples/ljm/python">labjack</a> (for
+Labjack support)</p></li>
+<li><p><a class="reference external" href="https://simpleitk.org/">Simple-ITK</a> (for faster image saving)</p></li>
+<li><p><a class="reference external" href="https://documen.tician.de/pycuda/">PyCUDA</a> (for real-time correlation)</p></li>
+<li><p><a class="reference external" href="https://www.comedi.org/">Comedi</a> driver (for Comedi acquisition boards,
+Linux only)</p></li>
+<li><p><a class="reference external" href="https://pythonhosted.org/PyDAQmx/">PyDaqmx</a> (for National Instrument
+boards, Windows only)</p></li>
+<li><p><a class="reference external" href="https://www.ni.com/fr-fr/support/downloads/drivers/download.ni-fgen.html">niFgen</a> (package from National Instrument, Windows only)</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/opendaq/">openDAQ</a> (for opendaq boards)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Knowing which modules are needed for a given setup is easy. Just write the
+script and start it, if a module is missing Crappy will simply tell you !</p>
+</div>
+</div>
+<div class="section" id="a-for-linux-users">
+<h2>A. For Linux users<a class="headerlink" href="#a-for-linux-users" title="Permalink to this headline">¶</a></h2>
+<p>These steps have been tested for Ubuntu 18.04 and 20.04 but should work on other
+distributions as well, as long as Python 3.6 is installed.</p>
+<p><strong>1.</strong> The first step is to get the required dependencies.</p>
+<p>First make sure that you have <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt update</span>
+<span class="go">sudo apt upgrade</span>
+<span class="go">sudo apt install python3-pip</span>
+</pre></div>
+</div>
+<p><strong>1.a.</strong> Install the dependencies in a <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> (recommended) :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">workon myenv</span>
+<span class="go">pip3 install &lt;module&gt;</span>
+</pre></div>
+</div>
+<p>If you’re not familiar with virtual environments,
+<a class="reference external" href="https://virtualenv.pypa.io/en/latest/">here</a>’s more documentation.</p>
+<p><strong>1.b.</strong> Or install the required Python modules on the system :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install &lt;module&gt;</span>
+</pre></div>
+</div>
+<p><strong>2.</strong> You can now install Crappy. Again, two ways to go.</p>
+<p><strong>2.a.</strong> For <strong>regular users</strong>, install using <code class="docutils literal notranslate"><span class="pre">pip</span></code> (either in a virtualenv or
+on the system) :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install crappy</span>
+</pre></div>
+</div>
+<p><strong>2.b.</strong> For <strong>developers</strong>, get the sources using <code class="docutils literal notranslate"><span class="pre">git</span></code> and use <code class="docutils literal notranslate"><span class="pre">setup</span></code>
+script :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">LaboratoireMecaniqueLille</span><span class="o">/</span><span class="n">crappy</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">crappy</span>
+<span class="n">sudo</span> <span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>If you’re not familiar with <code class="docutils literal notranslate"><span class="pre">git</span></code>, documentation can be found
+<a class="reference external" href="https://git-scm.com/doc">there</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For adding C/C++ modules to Crappy you <strong>must</strong> run a <code class="docutils literal notranslate"><span class="pre">setup</span></code> install, which
+will be way more convenient if you get Crappy from <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> by the name of the module you want to install.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> by the path where you want Crappy to be located.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="b-for-windows-users">
+<h2>B. For Windows users<a class="headerlink" href="#b-for-windows-users" title="Permalink to this headline">¶</a></h2>
+<p>These steps have been tested for Windows 8.1 and 10 but should work with other
+versions as well. If you want to load C++ modules, make sure to use the x64
+version of Python.</p>
+<p><strong>1.</strong> Install the dependencies :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip install &lt;module&gt;</span>
+</pre></div>
+</div>
+<p>This will works for most modules, but some may fail and need a wheel file built
+for Windows. Once you’ve found a binary wheel, simply run :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip install &lt;wheel_file.whl&gt;</span>
+</pre></div>
+</div>
+<p><strong>2.</strong> Also, you will need Visual C++ for Python 3.x (your version of python) if
+you want to compile C++ modules.  If you want to use Ximea cameras, don’t
+forget to install XiAPI and add <code class="docutils literal notranslate"><span class="pre">c:\XIMEA\API\x64</span></code> to your path.</p>
+<p><strong>3.</strong> Then you can install Crappy.</p>
+<p>If you’re a <strong>regular user</strong> :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip install crappy</span>
+</pre></div>
+</div>
+<p>Or if you’re a <strong>developer</strong> :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">cd &lt;path&gt;</span>
+<span class="go">git clone https://github.com/LaboratoireMecaniqueLille/crappy.git</span>
+<span class="go">cd crappy</span>
+<span class="go">setup.py install</span>
+</pre></div>
+</div>
+<p>If you’re not familiar with <code class="docutils literal notranslate"><span class="pre">git</span></code>, documentation can be found
+<a class="reference external" href="https://git-scm.com/doc">there</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For adding C/C++ modules to Crappy you <strong>must</strong> run a <code class="docutils literal notranslate"><span class="pre">setup</span></code> install, which
+will be way more convenient if you get Crappy from <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> by the name of the module you want to install.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> by the path where you want Crappy to be located.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="c-for-macos-users">
+<h2>C. For macOS users<a class="headerlink" href="#c-for-macos-users" title="Permalink to this headline">¶</a></h2>
+<p>These steps have been tested on macOS Sierra (10.12.6), but should work with
+other versions as well.</p>
+<p><strong>1.</strong> Install the dependencies :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install &lt;module&gt;</span>
+</pre></div>
+</div>
+<p><strong>2.</strong> Then you can install Crappy.</p>
+<p>If you’re a <strong>regular user</strong> :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install crappy</span>
+</pre></div>
+</div>
+<p>Or if you’re a <strong>developer</strong> :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">cd &lt;path&gt;</span>
+<span class="go">git clone https://github.com/LaboratoireMecaniqueLille/crappy.git</span>
+<span class="go">cd crappy</span>
+<span class="go">setup.py install</span>
+</pre></div>
+</div>
+<p>If you’re not familiar with <code class="docutils literal notranslate"><span class="pre">git</span></code>, documentation can be found
+<a class="reference external" href="https://git-scm.com/doc">there</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> by the name of the module you want to install.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> by the path where you want Crappy to be located.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="d-troubleshooting">
+<h2>D. Troubleshooting<a class="headerlink" href="#d-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>The imaging module is not natively included in Tk. Some user may have to install
+it manually to use the camera configuration GUI.</p>
+<p>For Ubuntu, you can do :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install python3-pil.imagetk</span>
+</pre></div>
+</div>
+<p>Also, you may face some issues with matplotlib backends not managing to open
+multiple windows in some desktop environment. We set the default backend to
+<code class="docutils literal notranslate"><span class="pre">TkAgg</span></code>, which works fine in most situations. If you encounter backend issues,
+you can specify another backend for matplotlib in the grapher blocks :</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">graph = crappy.bocks.Grapher(&lt;args, kwargs&gt;, backend=&#39;TkAgg&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="whatiscrappy.html" class="btn btn-neutral float-left" title="What is Crappy ?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
