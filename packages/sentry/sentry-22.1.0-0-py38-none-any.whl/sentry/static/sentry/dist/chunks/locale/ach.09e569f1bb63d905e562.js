@@ -1,0 +1,2 @@
+(self.webpackChunk=self.webpackChunk||[]).push([["locale/ach"],{"../src/sentry/locale/ach/LC_MESSAGES/django.po":a=>{a.exports={"":{domain:"sentry",plural_forms:"nplurals=2; plural=(n > 1);",lang:"ach"}}}}]);
+//# sourceMappingURL=../../sourcemaps/locale/ach.72d0564553dae26382f36e8a56871587.js.map
