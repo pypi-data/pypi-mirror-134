@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: autoBOTLib
+Version: 1.17
+Summary: AutoBOT: Explainable AutoML for texts
+Home-page: https://github.com/skblaz/autobot
+Author: Blaž Škrlj
+Author-email: blaz.skrlj@ijs.si
+License: bsd-3-clause-clear
+Description: 
+        autoBOT is an AutoML system for text classification with an emphasis on explainability.
+        It implements the idea of *representation evolution*, learning to combine representations
+        for a given task, automatically.
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
