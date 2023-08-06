@@ -1,0 +1,11 @@
+dann5/__init__.py,sha256=QX6mKoxP6g3fK8oQDmKIiQv2hHL5gckCI7Zl7pR08tA,102
+dann5/azure.py,sha256=J2Uz1y_tCL9nQ-JfrNOfsqxkOielUqZ5fSkBPDeMENc,2584
+dann5/azureWS.py,sha256=RbPz1W2wEBz60u3ZqV30CDiqO0Sjlpw8AGH-3yiBNPs,499
+dann5/dwave.py,sha256=xlBh-pFF2Pf-okWmDe8k0DioxYgCz12Pk1c_QTzBq1I,1865
+dann5/qiskit.py,sha256=4zh5Bp1gJ4eJBT16o1ravWFhcAuUcCCZ7FzHeaEN8s4,2670
+dann5-2.0.8.data/data/Lib/site-packages/dann5/d5o2.cp39-win_amd64.pyd,sha256=zTaSPOZ1NBCZK1iI6aK3LOgremzK2HthYj2Gq0UiNSU,744448
+dann5-2.0.8.dist-info/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+dann5-2.0.8.dist-info/METADATA,sha256=v5g3fW42exqOH20unZdFgDzQkI-J8b5YJRb0hBG-r_0,10416
+dann5-2.0.8.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dann5-2.0.8.dist-info/top_level.txt,sha256=gGmKcvMmiK0UDVHRCl1iRiwiOSAug5MUEV2L-4UB-zg,6
+dann5-2.0.8.dist-info/RECORD,,
