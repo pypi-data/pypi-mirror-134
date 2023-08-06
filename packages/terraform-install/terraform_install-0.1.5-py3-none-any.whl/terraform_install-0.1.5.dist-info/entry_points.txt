@@ -1,0 +1,4 @@
+[console_scripts]
+terraform=terraform_install.terraform:terraform
+terraform-install=terraform_install.main:main
+
