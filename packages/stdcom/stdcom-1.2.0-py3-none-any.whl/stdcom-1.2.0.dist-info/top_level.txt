@@ -1,0 +1,6 @@
+frontend
+frontendOPCUA
+stdcom
+stdcomqt5
+stdcomqt5qtree
+stdcomqt5treeewidget
