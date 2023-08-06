@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: terraform-install
+Version: 0.1.1
+Summary: Installs Terraform to virtualenv bin
+License: MIT
+Author: Josh Wycuff
+Author-email: Joshua.Wycuff@turner.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: terraform_version
