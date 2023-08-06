@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: multibot
+Version: 1.2.2
+Summary: Platform agnostic high-level bot infrastructure.
+Home-page: https://github.com/AlberLC/multibot
+Author: AlberLC
+Author-email: alberlc@outlook.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/AlberLC/multibot/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+License-File: LICENSE
+
+MultiBot
+========
+
+|license| |project_version| |python_version|
+
+Platform agnostic high-level bot infrastructure.
+
+Installation
+------------
+
+Python 3.10 or higher is required.
+
+.. code-block:: python
+
+    pip install multibot
+
+
+.. |license| image:: https://img.shields.io/github/license/AlberLC/multibot?style=flat
+    :target: https://github.com/AlberLC/multibot/blob/main/LICENSE
+    :alt: License
+
+.. |project_version| image:: https://img.shields.io/pypi/v/multibot
+    :target: https://pypi.org/project/multibot/
+    :alt: PyPI
+
+.. |python_version| image:: https://img.shields.io/pypi/pyversions/multibot
+    :target: https://www.python.org/downloads/
+    :alt: PyPI - Python Version
+
