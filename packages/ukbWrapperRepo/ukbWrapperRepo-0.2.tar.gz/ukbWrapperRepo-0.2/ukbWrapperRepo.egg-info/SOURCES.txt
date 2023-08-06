@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+fetch_module/__init__.py
+fetch_module/module_bulk_data_handler.py
+fetch_module/module_genetic_data_handler.py
+fetch_module/module_scalar_data_handler.py
+ukbWrapperRepo.egg-info/PKG-INFO
+ukbWrapperRepo.egg-info/SOURCES.txt
+ukbWrapperRepo.egg-info/dependency_links.txt
+ukbWrapperRepo.egg-info/not-zip-safe
+ukbWrapperRepo.egg-info/requires.txt
+ukbWrapperRepo.egg-info/top_level.txt
