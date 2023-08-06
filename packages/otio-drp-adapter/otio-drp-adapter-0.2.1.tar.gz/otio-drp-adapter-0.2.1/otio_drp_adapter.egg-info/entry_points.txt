@@ -1,0 +1,3 @@
+[opentimelineio.plugins]
+otio_drp_adapter = otio_drp_adapter
+
