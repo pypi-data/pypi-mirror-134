@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+jpg-png/__init__.py
+jpg-png/main.py
+jpg_png.egg-info/PKG-INFO
+jpg_png.egg-info/SOURCES.txt
+jpg_png.egg-info/dependency_links.txt
+jpg_png.egg-info/requires.txt
+jpg_png.egg-info/top_level.txt
