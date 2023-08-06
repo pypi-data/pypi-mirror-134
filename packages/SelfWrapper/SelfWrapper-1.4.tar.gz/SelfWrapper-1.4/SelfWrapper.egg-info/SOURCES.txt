@@ -1,0 +1,11 @@
+README.md
+setup.py
+SelfWrapper.egg-info/PKG-INFO
+SelfWrapper.egg-info/SOURCES.txt
+SelfWrapper.egg-info/dependency_links.txt
+SelfWrapper.egg-info/requires.txt
+SelfWrapper.egg-info/top_level.txt
+selfwrapper/__init__.py
+selfwrapper/error.py
+selfwrapper/main.py
+selfwrapper/route.py
