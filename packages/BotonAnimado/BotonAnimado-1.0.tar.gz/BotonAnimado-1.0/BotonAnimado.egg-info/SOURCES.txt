@@ -1,0 +1,10 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+BotonAnimado/boton_animado.py
+BotonAnimado/demo_boton_animado.py
+BotonAnimado.egg-info/PKG-INFO
+BotonAnimado.egg-info/SOURCES.txt
+BotonAnimado.egg-info/dependency_links.txt
+BotonAnimado.egg-info/top_level.txt

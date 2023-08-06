@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: BotonAnimado
+Version: 1.0
+Summary: A random test lib
+Home-page: https://github.com/marceloomg13/BotonAnimado
+Author: RDCH106
+Author-email: contact@rdch106.hol.es
+License: LGPL v3
+Download-URL: https://github.com/RDCH106/parallel_foreach_submodule/archive/v0.1.tar.gz
+Keywords: test example develop
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+License-File: LICENSE.txt
+
+UNKNOWN
+
