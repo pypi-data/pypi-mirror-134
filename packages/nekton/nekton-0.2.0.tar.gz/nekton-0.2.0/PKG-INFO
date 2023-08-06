@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: nekton
+Version: 0.2.0
+Summary: A python package for DICOM to NifTi and NifTi to DICOM-SEG and GSPS conversion
+Home-page: https://github.com/deepc-health/nekton
+License: MIT
+Keywords: dicom,medical-imaging,nifti,dicom-seg,gsps
+Author: a-parida12
+Author-email: abhijeet@deepc.ai
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: jsonschema (>=3.2.0,<4.0.0)
+Requires-Dist: nibabel (>=3.2.1,<4.0.0)
+Requires-Dist: numpy (>=1.22.0,<2.0.0)
+Requires-Dist: pydicom (>=2.2.2,<3.0.0)
+Requires-Dist: pydicom-seg (>=0.4.0,<0.5.0)
+Project-URL: Repository, https://github.com/deepc-health/nekton
+Description-Content-Type: text/markdown
+
+# Nekton
+[![Python Application Testing](https://github.com/deepc-health/nekton/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/deepc-health/nekton/actions/workflows/tests.yml)[![Test and Release](https://github.com/deepc-health/nekton/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/deepc-health/nekton/actions/workflows/release.yml)
+
+> A python package for DICOM to NifTi and NifTi to DICOM-SEG and GSPS conversion
+
+## SETUP
+TBD
+## DICOM to NifTi
+
+The DICOM to NifTi conversion in the package is based on a wrapper around the [dcm2niix](https://github.com/rordenlab/dcm2niix) software.
+
+### Usage
+
+TBD
+
+### Notes
+
+- The renaming functionality retains the [suffixes](https://github.com/rordenlab/dcm2niix/blob/master/FILENAMING.md) from the original program.
+- The BIDS sidecar json is retained as well.
+
+## NifTi to DICOM-SEG
+
+### Usage
+
+TBD
+
+## NifTi to GSPS
+
+
+======
+
