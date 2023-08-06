@@ -1,0 +1,16 @@
+bin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nnk/__init__.py,sha256=tv9hwhywy8gKZkiY_JbPiE-7kW_FyHBCFcc7JaI7izE,13
+nnk/variant_counter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nnk/variant_counter/alignment.py,sha256=hGhJps_WFIbtQYYOoudTEzeruYlvt7vewF2AGLV3Koo,46
+nnk/variant_counter/config.py,sha256=YOb7wn67fXH4A_w8QBPmmmP8wajFpf8Os92OGqFDuD4,503
+nnk/variant_counter/count_variants.py,sha256=3ayNGVmNzn7hin4-GE1Wv_a_jGljT9JZ0KGl51OhUFg,52
+nnk/variant_counter/errors.py,sha256=UMVjQwJoVvOLpKulNMPag3quu7uoCcYMYFAJd0l9qzE,389
+nnk/variant_counter/library.py,sha256=q-eqOgy5BQIvRNkOy38O6PQrNAwjpNf-JQRLYMSUZQ0,44
+nnk/variant_counter/matrix.py,sha256=b62RUxCnj_fhBnOQ4dGvqHI2F3hLpPWeTBeeVwxcuLc,43
+nnk/variant_counter/variants.py,sha256=eMIyNbVw4SHG53TwzADoEr8YcAoL7eCs8QE9A2Kn2fo,3684
+nnk-0.0.1.dev0.data/scripts/nnk,sha256=G1OlWg4yQCVNI1hZbJEJCLl28IjLBUdTMEl4C0Gg0Kw,26
+nnk-0.0.1.dev0.dist-info/LICENCE,sha256=jsxI9WUOM3OdckmUlQ33HlAIh4JODB3y2yphHqd4Hg4,1052
+nnk-0.0.1.dev0.dist-info/METADATA,sha256=cDrXGAacoPTnkePMV5NXM5e1nlmpWZ8TNgniKLWE638,551
+nnk-0.0.1.dev0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+nnk-0.0.1.dev0.dist-info/top_level.txt,sha256=JKYNJV6qDCelc1KCeRThcyojoqGCSyDu_Lexp6drfJQ,8
+nnk-0.0.1.dev0.dist-info/RECORD,,
