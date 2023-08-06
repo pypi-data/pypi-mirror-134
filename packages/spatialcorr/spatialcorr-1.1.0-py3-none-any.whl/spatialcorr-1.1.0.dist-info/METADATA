@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: spatialcorr
+Version: 1.1.0
+Summary: SpatialCorr
+Home-page: https://github.com/mbernste/spatialcorr
+Author: Matthew N. Bernstein
+Author-email: mbernstein@morgridge.org
+License: MIT License
+Keywords: spatial-transcriptomics,gene-expression,computational-biology
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+License-File: LICENSE
+Requires-Dist: numpy (>=1.19.5)
+Requires-Dist: pandas (>=1.2.1)
+Requires-Dist: scipy (>=1.4.1)
+Requires-Dist: anndata (>=0.7.5scikit-learn>=0.24.2)
+Requires-Dist: matplotlib
+Requires-Dist: seaborn (>=0.11.1)
+Requires-Dist: statsmodels (>=0.12.2)
+
+======================================================================
+SpatialCorr: Identifying gene sets with spatially varying correlation
+======================================================================
+
+SpatialCorr is a set of statistical methods for identifying genes whose correlation structure changes across a spatial transcriptomics sample. Along with a set of statistical tests, SpatialCorr also offers a number of methods for visualizing spatially varying correlation.
+
+For instructions on installing and running SpatialCorr, see the GitHub repository: https://github.com/mbernste/spatialcorr
+
+
+
