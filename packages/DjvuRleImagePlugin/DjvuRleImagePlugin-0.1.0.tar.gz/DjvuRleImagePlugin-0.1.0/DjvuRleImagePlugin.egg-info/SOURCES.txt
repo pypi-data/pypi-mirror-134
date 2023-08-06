@@ -1,0 +1,12 @@
+DJVURLE_specification.md
+DjvuRleImagePlugin.py
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+DjvuRleImagePlugin.egg-info/PKG-INFO
+DjvuRleImagePlugin.egg-info/SOURCES.txt
+DjvuRleImagePlugin.egg-info/dependency_links.txt
+DjvuRleImagePlugin.egg-info/requires.txt
+DjvuRleImagePlugin.egg-info/top_level.txt
