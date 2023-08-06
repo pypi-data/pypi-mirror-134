@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: nbwavedrom
+Version: 0.3.0
+Summary: Wavedrom timing diagrams for Jupyter Notebook
+Home-page: https://github.com/witchard/nbwavedrom
+Author: witchard
+Author-email: witchard@hotmail.co.uk
+License: UNKNOWN
+Download-URL: https://github.com/witchard/nbwavedrom/tarball/0.3.0
+Keywords: wavedrom,jupyter,notebook
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+UNKNOWN
+
