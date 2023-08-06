@@ -1,0 +1,19 @@
+[package]
+name = "py-ravif"
+version = "0.0.1"
+edition = "2018"
+license = "BSD-3-Clause"
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "py_ravif"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.15.1", features = ["extension-module"] }
+ravif = { version = "0.8.8", default-features = false }
+imgref = "1.9.1"
+lodepng = "3.4.6"
+rgb = "0.8.29"
+jpeg-decoder = "0.1.22"
