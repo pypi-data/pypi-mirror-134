@@ -1,0 +1,9 @@
+README.md
+setup.py
+test_pypi_install_package.egg-info/PKG-INFO
+test_pypi_install_package.egg-info/SOURCES.txt
+test_pypi_install_package.egg-info/dependency_links.txt
+test_pypi_install_package.egg-info/requires.txt
+test_pypi_install_package.egg-info/top_level.txt
+test_pypi_package/__init__.py
+test_pypi_package/test_pypi_package_program.py
