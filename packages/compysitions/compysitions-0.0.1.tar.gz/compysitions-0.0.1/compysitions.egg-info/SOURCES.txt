@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.py
+compysitions.egg-info/PKG-INFO
+compysitions.egg-info/SOURCES.txt
+compysitions.egg-info/dependency_links.txt
+compysitions.egg-info/top_level.txt
+test/test_compysitions.py
