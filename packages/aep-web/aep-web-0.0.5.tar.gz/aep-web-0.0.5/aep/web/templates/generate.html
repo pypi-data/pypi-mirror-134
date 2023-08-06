@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="tile is-ancestor">
+
+    <div class="tile is-4 is-vertical is-parent has-max-width-narrow">
+        <div class="tile is-child box">
+            {% include 'form.html' %}
+        </div>
+    </div>
+
+    <div class="tile is-parent has-max-width-wide">
+        <div class="tile is-child box">
+
+             {% if not (bundle_file or technique_list) %}
+               <article class="message is-success">
+                 <div class="message-body">
+                     Choose predfined bundle, specify techniques manually or
+                         <a href="{{web_root}}/upload_navigator_form">
+                             upload navigator layer
+                         </a>.
+                 </div>
+               </article>
+             {% endif %}
+
+             {% if navigator_info %}
+               <article class="message is-info">
+                 <div class="message-body">
+                    Loaded navigator layer {{navigator_info}}
+                 </div>
+               </article>
+
+             {% endif %}
+
+
+             {% if sim %}
+               {% include 'simulation.html' %}
+             {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

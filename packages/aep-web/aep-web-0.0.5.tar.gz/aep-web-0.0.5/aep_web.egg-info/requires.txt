@@ -1,0 +1,7 @@
+python-multipart
+caep
+fastapi
+uvicorn
+aiofiles
+jinja2
+aep>=0.1.4

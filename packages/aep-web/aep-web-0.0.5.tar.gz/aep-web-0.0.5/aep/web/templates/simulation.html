@@ -1,0 +1,88 @@
+<h1>{{bundle}}</h1>
+
+{% if sim.objective %}
+    The following objectives where reached: {{sim.objectives.sorted()}}
+{% endif %}
+
+{% if end_condition in sim.provided %}
+    <article class="message is-success">
+      <div class="message-body">
+          SUCCESS: Attack chain exited with end condition <em>{{end_condition}}</em>
+      </div>
+    </article>
+{% else %}
+    <article class="message is-danger">
+      <div class="message-body">
+          FAIL: incomplete attack chain, could not achieve end condition: <em>{{end_condition}}</em>
+      </div>
+    </article>
+{% endif %}
+
+
+<table class="table is-striped">
+  <tr>
+    {% for header in table[0] %}
+       <th>{{header}}</th>
+    {% endfor %}
+  </th>
+
+  {% for row in table %}
+
+     <tr>
+      {% for _, value in row.items() %}
+        <td>
+          {% if islist(value) %}
+          <ul class="mt-0"> {# no margin top (mt-0) #}
+            {% for item in value %}
+          <li>{{item}}</li>
+
+          {% endfor %}
+
+          </ul>
+        {% else %}
+        <div class="mt-1">{{value}}</div>
+        {% endif  %}
+
+        </td>
+
+      {% endfor %}
+     </tr>
+
+  {% endfor %}
+
+</table>
+
+  <article class="message is-success">
+    <div class="message-body">
+    [*] Technique does not provide any new promises
+    </div>
+  </article>
+
+{% if removed %}
+
+    <article class="message is-success">
+      <div class="message-body">
+          Removed nop techniques: {{removed}}
+      </div>
+    </article>
+
+
+{% endif %}
+
+<h3>Selected techniques</h3>
+<ul>
+{% for tech in techniques %}
+   <li>{{technique_promises[tech]["name"]}} ({{tech}})</li>
+{% endfor %}
+</ul>
+
+
+<h3>Techniques in bundle that did not run</h3>
+<ul>
+{% for tech in techniques %}
+  {% if not tech in all_sim_techniques %}
+    <li>{{technique_promises[tech]["name"]}} ({{tech}})</li>
+  {% endif %}
+{% endfor %}
+</ul>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Adversary Emulation Planner</title>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <link rel="stylesheet" href="{{web_root}}/static/bulma.css">
+    </head>
+    <style>
+      .has-max-width-narrow {
+        max-width: 550px;
+      }
+      .has-max-width-wide {
+        max-width: 1450px;
+      }
+    </style>
+    <body>
+
+        <!-- navigation bar -->
+        <nav aria-label="main navigation" class="navbar is-dark" role="navigation">
+            <div class="navbar-brand">
+                <div class="navbar-item">
+                    <span class="icon">
+                        <i class="fas fa-search"/></i>
+                    </span>
+                </div>
+            </div>
+            <div class="navbar-menu" id="navbarBasicExample">
+                <div class="navbar-start" href="">
+                  <a class="navbar-item" href="{{web_root}}/">Adversary Emulation Planner</a>
+                  <a class="navbar-item is-small" href="{{web_root}}/upload_navigator_form">
+                      Upload Navigator Layer
+                  </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="box content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html

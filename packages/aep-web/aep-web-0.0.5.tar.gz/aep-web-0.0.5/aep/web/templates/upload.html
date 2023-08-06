@@ -1,0 +1,168 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="tile is-ancestor">
+
+    {# FORM #}
+    <div class="tile is-4 is-vertical is-parent has-max-width">
+        <div class="tile is-child box">
+            <form action="{{web_root}}/" method="GET">
+
+            <article class="message is-success">
+              <div class="message-body">
+                  Upload navigator layer, choose predfined bundle or specify techniques manually.
+              </div>
+            </article>
+
+            <div class="field">
+              <label class="label">Navigator layer</label>
+                <div class="file has-name">
+                  <label class="file-label">
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                      <span class="file-label">
+                        Upload
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+            <div class="field">
+              <label class="label">Predfined bundles</label>
+              <div class="select">
+                <select name="bundle">
+                  {% for b in bundles %}
+                      <option value="{{b}}" {% if b == bundle %} selected {% endif %}>{{b}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">End condition</label>
+              <div class="select">
+                <select name="end_condition">
+                  {% for promise in promises %}
+                      <option value="{{promise}}" {% if promise == end_condition %} selected {% endif %}>{{promise}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Seeds</label>
+              <div class="select is-multiple">
+                <select multiple size="4" name="seeds">
+                  {% for promise in promises %}
+                      <option value="{{promise}}" {% if promise in seeds %} selected {% endif %} >{{promise}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Include techniques</label>
+              <div class="select is-multiple">
+                <select multiple size="4" name="include_techniques">
+                  {% for tech in techniques %}
+                      <option value="{{tech}}" {% if tech in include_techniques %} selected {% endif %}>{{tech}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Exclude techniques</label>
+              <div class="select is-multiple">
+                <select multiple size="4" name="exclude_techniques">
+                  {% for tech in techniques %}
+                      <option value="{{tech}}" {% if tech in exclude_techniques %} selected {% endif %}>{{tech}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="show_promises" {% if show_promises %} checked {% endif %}>
+                  Show promises
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" name="show_tactics" {% if show_tactics %} checked {% endif %}>
+                  Show tactics
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" name="nop_empty_provides" {% if nop_empty_provides %} checked {% endif %}>
+                  Nop empty provides
+                </label>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+              </div>
+            </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="tile is-parent">
+        <div class="tile is-child box">
+
+{% if sim %}
+
+   <h1>{{bundle}}</h1>
+
+    {% if sim.objective %}
+        The following objectives where reached: {{sim.objectives.sorted()}}
+    {% endif %}
+
+    {% if end_condition in sim.provided %}
+
+        <article class="message is-danger">
+          <div class="message-body">
+              SUCCESS: Attack chain exited with end condition <em>{{end_condition}}</em>
+          </div>
+        </article>
+    {% else %}
+        <article class="message is-info">
+          <div class="message-body">
+              FAIL: incomplete attack chain, could not achieve end condition: <em>{{end_condition}}</em>
+          </div>
+        </article>
+    {% endif %}
+
+<pre>
+{{table}}
+</pre>
+
+    {% if removed %} Removed nop techniques: {{removed}} {% endif %}
+
+    <p>[*] Technique does not provide any new promises</p>
+
+{% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

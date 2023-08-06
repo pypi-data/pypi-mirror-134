@@ -1,0 +1,3 @@
+[console_scripts]
+aep-web = aep.web.server:main
+
