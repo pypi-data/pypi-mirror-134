@@ -1,0 +1,16 @@
+ocs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ocs/__main__.py,sha256=7No13PGyovng9W5doG1Zua_GosPcX5b5pD4QcoOp5T0,363
+ocs/about.py,sha256=uFnSBWEiFP_MWGkkvwZvLZKbEAKtOYDhRh_V-0gbL78,828
+ocs/args.py,sha256=lw74lLj5ikUoVo4lpfw6eQ4X0AfHQrG0Wsw8aFV-9PM,1059
+ocs/db.py,sha256=9MnZJCG1hfC-NxgpLBWOg4oryANuxEeJMfUwLkxihYc,1153
+ocs/languages.py,sha256=22ROtm7rydNwD67DOJK1hXTKOgdyZ4qrilFYkgsnVcg,1718
+ocs/problem.py,sha256=Kdwhlj9gIBzdM6-aSe84W-M0KgtkJd8IJMvJZNIezsw,3938
+ocs/request.py,sha256=uvN39eWjUeCN0ROb_qQb2wtG_vp2OeWwcH9BmtF4nm4,4599
+ocs/server.py,sha256=TlTj6LzLPvN752J8nuIOoZ1plmp7oJFSGMYsJbCeQ34,3641
+ocs/user.py,sha256=gU-nGHxY3LMTLSHnsIgD5_UOliG72typLWIXieaI1ts,472
+opencontest_server-2.4.0.dist-info/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+opencontest_server-2.4.0.dist-info/METADATA,sha256=nxO0E3azlT1rEbTbj7bgn5XLurqmArO1GHXqv9tilOE,1522
+opencontest_server-2.4.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+opencontest_server-2.4.0.dist-info/entry_points.txt,sha256=R2Zffi_OQ4iJviKTafTVYdKKbJ8Dq2akN0W5xThvcRQ,43
+opencontest_server-2.4.0.dist-info/top_level.txt,sha256=rAsTAg2KnWJcjMKq6qfCNocdxS9fBTZPCZtw_UsiskQ,4
+opencontest_server-2.4.0.dist-info/RECORD,,
