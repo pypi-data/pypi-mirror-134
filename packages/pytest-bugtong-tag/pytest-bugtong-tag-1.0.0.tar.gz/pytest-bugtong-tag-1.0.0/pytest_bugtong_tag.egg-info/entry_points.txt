@@ -1,0 +1,3 @@
+[pytest11]
+bugtong-tag = pytest_bugtong_tag
+

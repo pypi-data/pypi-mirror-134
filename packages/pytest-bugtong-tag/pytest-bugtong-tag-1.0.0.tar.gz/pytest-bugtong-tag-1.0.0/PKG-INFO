@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: pytest-bugtong-tag
+Version: 1.0.0
+Summary: pytest-bugtong-tag is a plugin for pytest
+Home-page: https://github.com/bugtong
+Author: bugtong
+Author-email: tj@111.com
+License: proprietary
+Description: ====================
+        pytest-bugtong-tag
+        ====================
+        
+        =============
+        Installation
+        =============
+        
+        
+        To install pytest-bugtong-tag:
+        
+            $pip install pytest-bugtong-tag
+        
+        
+        Usage
+        =====
+        
+            .. code-block:: bash
+        
+                $pytest --tags=smoke
+        
+                $pytest --tags=smoke,xxx
+        
+        
+        Demo
+        ====
+        
+            .. code-block:: bash
+        
+                @pytest.mark.tags(["smoke","abc"])
+                def test_one():
+                    assert True
+        
+            
+Keywords: pytest,py.test,pytest-bugtong-tag
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python :: 3.7
