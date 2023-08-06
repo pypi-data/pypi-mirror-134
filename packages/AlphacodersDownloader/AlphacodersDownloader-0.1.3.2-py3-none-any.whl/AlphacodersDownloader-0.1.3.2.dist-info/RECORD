@@ -1,0 +1,15 @@
+alphacoders_downloader/__init__.py,sha256=eJXHZYPjF4QZUEaeQjEbEJVTdkGOBR0HPJbd1tR0rpU,109
+alphacoders_downloader/__main__.py,sha256=x_uHgUr8lIa0AfM8YQ6KLTR-wrsGkEX35RQ2tcQ7YyY,73
+alphacoders_downloader/alphacoders_downloader.py,sha256=vEoGTjL2p_-M4q41NLWAqnXp33eOmpVEaEYArdjZmgE,8401
+alphacoders_downloader/exceptions.py,sha256=lgiv1l73d6JbbQaJivWOA3QxxyUgX2Gfkrxu7RGGmNE,153
+alphacoders_downloader/util/__init__.py,sha256=eJXHZYPjF4QZUEaeQjEbEJVTdkGOBR0HPJbd1tR0rpU,109
+alphacoders_downloader/util/arguments_builder.py,sha256=uwH3BdDfbFBpDcIlRqjGIbwOiNrGI7AxItT5WjKuSEQ,1836
+alphacoders_downloader/util/cursor.py,sha256=Q5YcOytx8cXE8X9sLPDdxdv-4OGTPC9WlmTQ_Pf9FQ4,1566
+alphacoders_downloader/util/progress_bar.py,sha256=EaJINpQiUWgZamhvrXeK44bwmCHL9Rha__1eC4-ba8w,2134
+alphacoders_downloader/util/utils.py,sha256=eUfM-fx1bqzmFpdRLQBP40Z5dPIuUt3WoFb8j-v36yw,411
+AlphacodersDownloader-0.1.3.2.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+AlphacodersDownloader-0.1.3.2.dist-info/METADATA,sha256=N9C0ZltrBjAI_eJwKG4isz3Zdqr_j_xAIGme1lYobqg,5212
+AlphacodersDownloader-0.1.3.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+AlphacodersDownloader-0.1.3.2.dist-info/entry_points.txt,sha256=ufyUp9TKFc-hCdf38d_Y77GJ8tj4x8HGftWninHcjdQ,96
+AlphacodersDownloader-0.1.3.2.dist-info/top_level.txt,sha256=jgXfuNdkBd-V9sfgUZ8Bkoj84JgUrV2eaiPoVUy1Af8,23
+AlphacodersDownloader-0.1.3.2.dist-info/RECORD,,
