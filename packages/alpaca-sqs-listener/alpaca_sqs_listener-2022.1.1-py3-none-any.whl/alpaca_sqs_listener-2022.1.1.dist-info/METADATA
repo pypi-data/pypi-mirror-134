@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: alpaca-sqs-listener
+Version: 2022.1.1
+Summary: AWS SQS listener
+Home-page: UNKNOWN
+Author: Woojin Cho
+Author-email: woojin.cho@gsenc.com
+License: MIT License
+Keywords: aws,sqs
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Requires-Dist: boto3
+
+# alpaca-sqs-listener
+
+AWS SQS Listener
+
