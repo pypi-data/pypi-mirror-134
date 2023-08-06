@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: DebugUI
+Version: 0.2.2
+Summary: DebugUI python sdk
+Home-page: https://github.com/alibaba/MNN
+Author: luyou
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: many
+Requires-Dist: Pillow
+Requires-Dist: streamlit (>=0.55.2)
+
+UNKNOWN
+
+
