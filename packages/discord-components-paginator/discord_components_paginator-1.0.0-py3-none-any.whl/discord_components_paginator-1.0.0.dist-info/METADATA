@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: discord-components-paginator
+Version: 1.0.0
+Summary: Button paginator for discord-components library.
+Home-page: https://github.com/Damego/discord_components_paginator
+Author: Damego
+Author-email: danyabatueff@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: discord.py (==1.7.3)
+Requires-Dist: discord-components (==2.1.2)
+
+# discord-components Button Paginator
+
+
+
+## Example
+
+
+
+```py
+
+from paginator import Paginator, PaginatorStyle
+
+
+
+...
+
+
+
+@bot.command()
+
+async def paginator_command(ctx):
+
+  embeds = [
+
+    discord.Embed(title=f"Page {page}") for page in range(1, 6)
+
+  ]
+
+  paginator = Paginator(bot, ctx, PaginatorStyle.FIVE_BUTTONS_WITH_COUNT, embeds)
+
+  await paginator.start()
+
+```
+
+
+
