@@ -1,0 +1,11 @@
+xsensing_client/__init__.py,sha256=pVDdnGCPheLowih7Pr-Y-0Gc4qeuyQI8-02ExW8fwMo,154
+xsensing_client/version.py,sha256=TGp6xesXcNPw9gj8qHI0I24qSVTqATX8xJCwjtB6Oo8,121
+xsensing_client/src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xsensing_client/src/uaic.py,sha256=kByDd3IrzUQKRsfativZYZjc-k3YfDQIcj-LhTIOEk4,1527
+xsensing_client/src/socket/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xsensing_client/src/socket/socket_example_client.py,sha256=usNiOMdEIN2Xu6hjszAByaTG9cUYcsKi8P40oek9740,825
+xsensing_client/src/socket/uaic_socket.py,sha256=l4d5Bb6zqdy7gOqJNda9V2TNMfZRP4VUhiKMF5DrGJE,1299
+xsensing_client-0.1.0.dist-info/METADATA,sha256=al5BKXQp0334sZQm3az2Qkf_bc5UkcyAcpnyb3vtets,2505
+xsensing_client-0.1.0.dist-info/WHEEL,sha256=ADKeyaGyKF5DwBNE0sRE5pvW-bSkFMJfBuhzZ3rceP4,110
+xsensing_client-0.1.0.dist-info/top_level.txt,sha256=h-5e0k1RJV7P2CcX4oHFqnUzghZWH_wtZAOVGVKrvWc,16
+xsensing_client-0.1.0.dist-info/RECORD,,
