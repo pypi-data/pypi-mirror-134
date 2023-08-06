@@ -1,0 +1,3 @@
+[console_scripts]
+sign-off=sign_off.sign_off:main
+
