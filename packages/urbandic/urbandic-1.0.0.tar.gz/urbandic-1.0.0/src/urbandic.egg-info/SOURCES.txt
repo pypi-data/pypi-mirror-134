@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/urbandic/__init__.py
+src/urbandic/urbandic.py
+src/urbandic.egg-info/PKG-INFO
+src/urbandic.egg-info/SOURCES.txt
+src/urbandic.egg-info/dependency_links.txt
+src/urbandic.egg-info/top_level.txt
