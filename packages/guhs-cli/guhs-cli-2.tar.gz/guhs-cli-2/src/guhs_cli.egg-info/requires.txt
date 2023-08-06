@@ -1,0 +1,7 @@
+requests
+typer
+
+[testing]
+flake8
+pytest
+mock
