@@ -1,0 +1,8 @@
+rikai>=0.0.20
+torch
+torchvision
+
+[dev]
+black
+isort
+pytest
