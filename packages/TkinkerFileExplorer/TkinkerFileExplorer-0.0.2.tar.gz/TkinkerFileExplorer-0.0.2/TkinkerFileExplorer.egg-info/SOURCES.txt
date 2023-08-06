@@ -1,0 +1,8 @@
+LICENCE_NOT_YET
+README.md
+setup.py
+TkinkerFileExplorer.egg-info/PKG-INFO
+TkinkerFileExplorer.egg-info/SOURCES.txt
+TkinkerFileExplorer.egg-info/dependency_links.txt
+TkinkerFileExplorer.egg-info/top_level.txt
+test/test.py
