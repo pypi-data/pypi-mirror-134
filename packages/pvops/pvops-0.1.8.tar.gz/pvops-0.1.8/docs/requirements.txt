@@ -1,0 +1,4 @@
+ipykernel
+nbsphinx
+nbsphinx-link
+sphinx-copybutton
