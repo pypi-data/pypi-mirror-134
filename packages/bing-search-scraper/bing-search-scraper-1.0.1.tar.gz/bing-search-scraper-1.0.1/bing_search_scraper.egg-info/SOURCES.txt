@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+bing_search_scraper/__init__.py
+bing_search_scraper.egg-info/PKG-INFO
+bing_search_scraper.egg-info/SOURCES.txt
+bing_search_scraper.egg-info/dependency_links.txt
+bing_search_scraper.egg-info/requires.txt
+bing_search_scraper.egg-info/top_level.txt
