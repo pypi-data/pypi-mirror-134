@@ -1,0 +1,16 @@
+AUTHORS
+LICENSE
+README.rst
+setup.py
+bcachefs/__init__.py
+bcachefs/bcachefs.c
+bcachefs/bcachefs.py
+bcachefs/bcachefs_iterator.c
+bcachefs/bcachefsmodule.c
+bcachefs/utils.c
+bcachefs.egg-info/PKG-INFO
+bcachefs.egg-info/SOURCES.txt
+bcachefs.egg-info/dependency_links.txt
+bcachefs.egg-info/top_level.txt
+libbenzina/bcachefs.c
+libbenzina/siphash.c
