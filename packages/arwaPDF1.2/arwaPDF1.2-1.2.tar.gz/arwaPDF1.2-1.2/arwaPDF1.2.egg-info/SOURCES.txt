@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+arwaPDF1.2.egg-info/PKG-INFO
+arwaPDF1.2.egg-info/SOURCES.txt
+arwaPDF1.2.egg-info/dependency_links.txt
+arwaPDF1.2.egg-info/top_level.txt
