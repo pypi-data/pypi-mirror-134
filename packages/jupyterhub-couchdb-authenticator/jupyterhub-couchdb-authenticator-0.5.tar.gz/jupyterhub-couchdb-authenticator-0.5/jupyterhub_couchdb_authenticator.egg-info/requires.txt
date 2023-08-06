@@ -1,0 +1,11 @@
+requests
+jupyterhub
+tornado
+traitlets
+
+[dev]
+flake8
+pylint
+
+[example]
+python-dotenv
