@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: CairoPLib
+Version: 0.0.5
+Summary: Recrate funtion in Processing3 in python
+Home-page: UNKNOWN
+Author: Audr1c
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pycairo
+
+UNKNOWN
+

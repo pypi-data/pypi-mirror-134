@@ -1,0 +1,8 @@
+pcairo/__init__.py,sha256=PjqiInACIGxxQhYnb351GmGyD3jgyXR0QpdBPSXr1hk,97
+pcairo/cairoP.py,sha256=6m6_xXB4SmGgvj2TJppsuqM5rWeFgM1tGPw2KtIIZTg,6912
+pcairo/hueToRgb.py,sha256=NONVTdxYM_HWCfNkOeWtdOPYA3XOhUkyuNDcaeWV70Y,2753
+pcairo/__pycache__/cairoP.cpython-39.pyc,sha256=P5V12iBKP7E3NB8pEfaWe0rbZj3FM1KMay_Nzwop44o,5961
+CairoPLib-0.0.5.dist-info/METADATA,sha256=y_JhL4mIxItmbdfQ7sjVhGMKOcJqhMZqYkOiDh88rbU,201
+CairoPLib-0.0.5.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+CairoPLib-0.0.5.dist-info/top_level.txt,sha256=gdUfiDi5N_ei483Rby4QZG5iN9_jvlrUWwxnGIjS_i8,7
+CairoPLib-0.0.5.dist-info/RECORD,,
