@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: wildcard-matcher
+Version: 0.0.2
+Summary: A simple wildcard string matcher
+Home-page: https://github.com/yaleman/wildcard_matcher
+License: MIT
+Author: James Hodgkinson
+Author-email: james@terminaloutcomes.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/yaleman/wildcard_matcher
+Description-Content-Type: text/markdown
+
+# wildcard_matcher
+
+A simple wildcard string matcher widget for python 3.x.
+
+# Installation
+
+```shell
+python -m pip install wildcard_matcher
+```
+
+# Usage
+
+```
+>>> import wildcard_matcher
+>>> wildcard_matcher.match("hello world", "hello*")
+True
+>>> wildcard_matcher.match("hello world", "he*lo*world")
+True
+>>> wildcard_matcher.match("hello world", "he*lo*rld")
+True
+```
+
+# Contributing
+
+Please feel free to [log an issue](issues/new) with examples of what you tried and didn't work. PRs are most welcome.
+
+
