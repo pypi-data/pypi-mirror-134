@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pyqt-feedback-flow"
+version = "0.1.1"
+description = "Show feedbacks in toast-like notifications"
+authors = ["firefly-cpp <iztok@iztok-jr-fister.eu>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+PyQt5 = "^5.15.6"
+emoji = "^1.6.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
