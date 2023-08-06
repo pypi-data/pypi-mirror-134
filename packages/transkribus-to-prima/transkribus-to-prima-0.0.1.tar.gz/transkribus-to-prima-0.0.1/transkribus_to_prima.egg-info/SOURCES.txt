@@ -1,0 +1,13 @@
+README.md
+setup.py
+transkribus_to_prima/__init__.py
+transkribus_to_prima/cli.py
+transkribus_to_prima/cli_coordinate_fixer.py
+transkribus_to_prima/convert.py
+transkribus_to_prima/set_dimensions_from_image.py
+transkribus_to_prima.egg-info/PKG-INFO
+transkribus_to_prima.egg-info/SOURCES.txt
+transkribus_to_prima.egg-info/dependency_links.txt
+transkribus_to_prima.egg-info/entry_points.txt
+transkribus_to_prima.egg-info/requires.txt
+transkribus_to_prima.egg-info/top_level.txt
