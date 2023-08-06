@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ngobot_json/__init__.py
+ngobot_json/pyresponse.py
+ngobot_json.egg-info/PKG-INFO
+ngobot_json.egg-info/SOURCES.txt
+ngobot_json.egg-info/dependency_links.txt
+ngobot_json.egg-info/top_level.txt
+test/test.py
