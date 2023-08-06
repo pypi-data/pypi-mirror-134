@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: swayblur
+Version: 1.1.1
+Summary: Basic sway wallpaper auto-blurring script
+Home-page: https://github.com/willpower3309/swayblur
+Author: William McKinnon
+Author-email: contact@willmckinnon.com
+License: MIT
+Project-URL: Code, https://github.com/willpower3309/swayblur
+Project-URL: Issues, https://github.com/willpower3309/swayblur/issues
+Keywords: sway,blur,wallpaper,desktop,ricing
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: importlib-metadata
+Requires-Dist: i3ipc
+
+# swayblur
+
+<div align="center">
+  <img src="https://github.com/WillPower3309/swayblur/blob/main/image.jpg?raw=true" />
+</div>
+
+> Basic i3ipc based script to blur an output's wallpaper when a client is present in it.
+> Available via [pypi](https://pypi.org/project/swayblur/) or the [NUR](https://nur.nix-community.org/repos/willpower3309/).
+
+## Installation
+
+### Stable Release
+
+Swayblur is available in the [NUR](https://nur.nix-community.org/repos/willpower3309/) or from [pypi](https://pypi.org/project/swayblur/):
+```sh
+pip install --user swayblur
+```
+
+### Building from Source
+
+```sh
+git clone https://github.com/willpower3309/swayblur
+cd swayblur
+pip install --user .
+```
+
+### Dependencies
++ `python-i3ipc`: build dependency for communicating with Sway
++ `ImageMagick`: used to generate the blurred wallpaper
++ `oguri`: used to set the wallpaper [without displaying a gray screen for a split second](https://github.com/swaywm/sway/issues/3693)
+
+## Usage
+**In order for the script to run as expected, your sway config should not set any wallpaper. Remove the `output * bg PATH` line.**
+
+**swayblur does not spawn oguri at launch. If spawning swayblur with a sway config via `exec`, ensure that `exec oguri` occurs before swayblur is executed!**
+
+`swayblur [-h] [-b BLUR] [-a ANIMATE] [-c CONFIG-PATH] [-v] [--verbose]`
+
+| Option | Description |
+| ------ | ----------- |
+| `-b`, `--blur`        | blur strength (default: 20, min: 5, max: 100)                |
+| `-a`, `--animate`     | animation duration (default: 1, min: 1, max: 20)             |
+| `-c`, `--config-path` | oguri config path (default: $XDG\_CONFIG\_HOME/oguri/config) |
+|       `--verbose`     | prints additional information                                |
+| `-v`, `--version`     | show program's version number and exit                       |
+| `-h`, `--help`        | show the help message and exit                               |
+
+## Configuration
+Since swayblur requires `oguri`, it reads its config file: `~/.config/oguri/config`. I personally use the below config, it's about as minimal as you can get:
+
+```
+[output *]
+image=PATH_TO_YOUR_WALLPAPER
+filter=nearest
+scaling-mode=fill
+anchor=center
+```
+
+
