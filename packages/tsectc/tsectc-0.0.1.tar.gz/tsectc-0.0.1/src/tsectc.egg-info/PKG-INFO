@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: tsectc
+Version: 0.0.1
+Summary: A small library to find code to code trades in tehran stock market
+Home-page: https://github.com/pypa/sampleproject
+Author: Abdolhamid Pahlozadeh
+Author-email: ahamidp@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+
+﻿A simple library to find code to code in tehran stock market.
+
+pip install tse_ctc
+
+from tsectc import tsectc
+
+my=tsectc()
+my.check() # print code to code list 
+
+my.check() # return  a list include all symbol code to code by detail in current day trades.
+
