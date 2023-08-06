@@ -1,0 +1,3 @@
+[console_scripts]
+exaparser = exaparser.cli:main
+
