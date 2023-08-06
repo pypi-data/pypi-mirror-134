@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+src/Fashion_MNIST_CNN.egg-info/PKG-INFO
+src/Fashion_MNIST_CNN.egg-info/SOURCES.txt
+src/Fashion_MNIST_CNN.egg-info/dependency_links.txt
+src/Fashion_MNIST_CNN.egg-info/not-zip-safe
+src/Fashion_MNIST_CNN.egg-info/requires.txt
+src/Fashion_MNIST_CNN.egg-info/top_level.txt
+src/main_common/__init__.py
+src/main_common/apis/__init__.py
+src/main_common/apis/test_model.py
+src/main_common/model/__init__.py
+src/main_common/model/load_local_model.py
+src/main_common/model/ssd_model.py
+src/main_common/model/saved_model/Fashion_Mnist_CNN.h5
