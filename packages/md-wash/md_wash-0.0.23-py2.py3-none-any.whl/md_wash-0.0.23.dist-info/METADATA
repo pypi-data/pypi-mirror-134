@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: md-wash
+Version: 0.0.23
+Summary: this is a description
+Home-page: https://github.com/zk4/md_wash
+Author: zk
+Author-email: liuzq7@gmail.com
+License: BSD
+Download-URL: https://github.com/zk4/md_wash/archive/master.zip
+Keywords: best practice for python project
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Requires-Python: >3.0.0
+Description-Content-Type: text/markdown
+Requires-Dist: pytest (==5.2.1)
+Requires-Dist: requests (==2.26.0)
+
+# 介绍
+一个小工具, 清理 markdown。
+
+清洗你的 markdown, 只抽取将当前文件夹 markdown 里的文件所关联的图片
+
+
+# 安装
+```
+pip install md_wash
+```
+
+# 使用方式
+```
+md_wash .
+```
+
+# help
+```
+usage: md_wash [-h] [-o OUTPUTDIR] [-r ASSET_REPO] input
+
+positional arguments:
+  input                 指定你 md 的目录, 或者 md 文件
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUTDIR, --outputDir OUTPUTDIR
+                        指定你 md output 的目录 (default: .)
+  -r ASSET_REPO, --asset_repo ASSET_REPO
+                        图片文件夹搜索地址，如果md 里图片路径找不到，则会通过名字在此地址查找, 可指定多个 -r(default: None)
+```
+
