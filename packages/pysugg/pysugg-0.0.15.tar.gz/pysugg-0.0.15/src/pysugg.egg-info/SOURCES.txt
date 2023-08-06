@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pysugg/__init__.py
+src/pysugg/exception_catcher.py
+src/pysugg.egg-info/PKG-INFO
+src/pysugg.egg-info/SOURCES.txt
+src/pysugg.egg-info/dependency_links.txt
+src/pysugg.egg-info/top_level.txt
+src/pysugg/exception_executors/__init__.py
+src/pysugg/exception_executors/exception_executor.py
+src/pysugg/exception_executors/module_suggest_executor.py
+src/pysugg/exception_executors/pypi_search_executor.py
+src/pysugg/modules_manager/__init__.py
+src/pysugg/modules_manager/modules_manager.py
