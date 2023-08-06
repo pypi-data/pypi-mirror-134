@@ -1,0 +1,4 @@
+numpy
+scipy>=1.6.3
+scikit_learn
+mmh3
