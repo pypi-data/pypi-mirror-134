@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: PDSUtilities
+Version: 0.0.2
+Summary: Utilities for data science in python
+Home-page: https://github.com/DrJohnWagner/PDSUtilities
+Author: Dr. John Wagner
+Author-email: Dr.John.Wagner@gmail.com
+License: Apache-2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: xgboost
+Requires-Dist: plotly
+
+# PDSUtilities
+Python Data Science Utilities
+
+
