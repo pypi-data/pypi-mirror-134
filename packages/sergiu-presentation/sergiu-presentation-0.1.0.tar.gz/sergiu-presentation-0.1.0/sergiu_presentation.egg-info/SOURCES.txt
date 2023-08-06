@@ -1,0 +1,7 @@
+MANIFEST.in
+README.md
+setup.py
+sergiu_presentation.egg-info/PKG-INFO
+sergiu_presentation.egg-info/SOURCES.txt
+sergiu_presentation.egg-info/dependency_links.txt
+sergiu_presentation.egg-info/top_level.txt
