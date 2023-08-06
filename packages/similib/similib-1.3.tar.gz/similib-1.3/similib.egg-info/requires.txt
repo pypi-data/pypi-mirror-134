@@ -1,0 +1,5 @@
+pymongo
+selenium
+pytz
+requests
+packaging
