@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "OpenSecrets_Senators_Industries"
+version = "0.1.0"
+description = "Python package using the OpenSecrets and ProPublica APIs to allow users to view information about their senators and the industries that fund them"
+authors = ["Jade Qiu"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.26.0"
+pandas = "^1.3.5"
+bs4 = "^0.0.1"
+python-dotenv = "^0.19.2"
+lxml = "^4.7.1"
+unittest = "^0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
