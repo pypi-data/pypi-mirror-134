@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+Mymacroprocessor/Mymacroprocessor.py
+Mymacroprocessor/__init__.py
+Mymacroprocessor.egg-info/PKG-INFO
+Mymacroprocessor.egg-info/SOURCES.txt
+Mymacroprocessor.egg-info/dependency_links.txt
+Mymacroprocessor.egg-info/top_level.txt
