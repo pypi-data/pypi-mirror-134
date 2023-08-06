@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: audioextractor
+Version: 0.0.2
+Summary: A Module that provides direct-stream url and other details about a video
+Home-page: https://github.com/Darkpoison04/Audio-Extractor-Py
+Author: DARKPOISON04
+License: MIT
+Download-URL: https://github.com/Darkpoison04/Audio-Extractor-Py/archive/v0.0.2.tar.gz
+Project-URL: Discord, https://discord.gg/TXSpYASF4Y
+Project-URL: Source, https://github.com/Darkpoison04/Audio-Extractor-Py
+Project-URL: Issue tracker, https://github.com/Darkpoison04/Audio-Extractor-Py/issues
+Keywords: audioextractor,discord,api,wrapper,youtube,discord.py
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# audio-extractor-py
+
+

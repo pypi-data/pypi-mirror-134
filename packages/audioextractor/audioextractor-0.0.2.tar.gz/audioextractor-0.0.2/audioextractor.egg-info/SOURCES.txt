@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+audioextractor/__init__.py
+audioextractor/extractor.py
+audioextractor.egg-info/PKG-INFO
+audioextractor.egg-info/SOURCES.txt
+audioextractor.egg-info/dependency_links.txt
+audioextractor.egg-info/requires.txt
+audioextractor.egg-info/top_level.txt
