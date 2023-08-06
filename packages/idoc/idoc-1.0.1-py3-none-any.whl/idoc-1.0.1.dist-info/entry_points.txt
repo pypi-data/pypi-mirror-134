@@ -1,0 +1,5 @@
+[console_scripts]
+idoc-cli = idoc.client.ui.cli:main
+idoc-config = idoc.configuration:main
+idoc-server = idoc.server.scripts.server:main
+
