@@ -1,0 +1,12 @@
+django_delayed_union/__init__.py,sha256=cY6dfzLBKFF8v3piUiBMZYCAojEukVzMgy4-OC2qI6c,297
+django_delayed_union/base.py,sha256=H8cMqQwSEAGHB5uRyuQt5u0QsOzubX1n6tSB_WDelkM,15655
+django_delayed_union/difference.py,sha256=-tP2Z5Bo5IabYumFbyWuQz7Z02cvWhcwU2V4m_JPUvw,595
+django_delayed_union/intersection.py,sha256=O5Dbn-rumtRGfv7CT8-CRBbdXmsj5melP0r-9Z-yOSo,975
+django_delayed_union/union.py,sha256=of3JjUdZbVsQUpkz9T5jyWGc4EiyrbPbFJ2zL7revn4,1881
+django_delayed_union/utils.py,sha256=J-32MKer03rAEVMZtXroGvILAUno_OGL3B0dkH5IRYc,183
+django_delayed_union-0.1.7.dist-info/AUTHORS.rst,sha256=8AGrH5ayJOG1GG6TTRDGxvaVj48ylyCS6zkjLsKD4NA,57
+django_delayed_union-0.1.7.dist-info/LICENSE,sha256=tdwTw_lrx0Q3MKzMiRBcm2lGK85E6ZZV5NnWFBuL7LE,1505
+django_delayed_union-0.1.7.dist-info/METADATA,sha256=pvsHwpxvajiP2A9QuWMb5U32dywOU_9kXT-e7jdlaSM,3617
+django_delayed_union-0.1.7.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+django_delayed_union-0.1.7.dist-info/top_level.txt,sha256=pimqRsRXWPqTMW-u50Gxa_-ZHKcRBPjVnOKeO5bYAmc,21
+django_delayed_union-0.1.7.dist-info/RECORD,,
