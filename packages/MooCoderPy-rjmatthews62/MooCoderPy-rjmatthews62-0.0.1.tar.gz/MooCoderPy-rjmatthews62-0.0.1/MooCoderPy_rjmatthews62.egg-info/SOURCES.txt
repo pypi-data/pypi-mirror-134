@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+MooCoderPy_rjmatthews62.egg-info/PKG-INFO
+MooCoderPy_rjmatthews62.egg-info/SOURCES.txt
+MooCoderPy_rjmatthews62.egg-info/dependency_links.txt
+MooCoderPy_rjmatthews62.egg-info/top_level.txt
