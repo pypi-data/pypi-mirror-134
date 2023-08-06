@@ -1,0 +1,99 @@
+import networkx as nx
+import tensorflow as tf
+import random
+import tqdm
+import pandas as pd
+import numpy as np
+from maintain_PlatoUtils1.maintain_PlatoUtils import wrapNebula2Df
+from gensim.models import Word2Vec
+
+import stellargraph as sg
+from stellargraph import datasets,IndexedArray
+from stellargraph.layer import GraphSAGE, link_classification, HinSAGE,DeepGraphInfomax
+from sklearn.model_selection import train_test_split
+from stellargraph.data import UnsupervisedSampler,BiasedRandomWalk
+from stellargraph.mapper import Node2VecNodeGenerator,Node2VecLinkGenerator
+from stellargraph.layer import Node2Vec
+
+from nebula.graph import ttypes,GraphService
+from nebula.ConnectionPool import ConnectionPool
+from nebula.Client import GraphClient
+
+def graphEmbedding(gClient,subGraph=[{"head":{"type":"Company","keyAttr":"CompanyName"},
+                                        "tail":{"type":"Field","keyAttr":"FieldName"},
+                                        "edgeType":["belongTo"]}],space="post_skill_school_ianxu",model="DeepWalk",
+                    batch_size=128,vecSize=128):
+    nodeInfoList=[]
+    myW2VModel=None
+    if len(subGraph)>0:
+        gClient.execute_query("USE {}".format(space))
+        totalHtDfList=[]
+        for triItem in subGraph:
+            headType=triItem["head"]["type"]
+            headKeyAttr=triItem["head"]["keyAttr"]
+            tailType=triItem["tail"]["type"]
+            tailKeyAttr=triItem["tail"]["keyAttr"]
+            if len(triItem["edgeType"])>0:
+                edgeTypeGroupStr=",".join(triItem["edgeType"])
+            else:
+                edgeTypeGroupStr="*"
+            htDfItem=wrapNebula2Df(gClient.execute_query("LOOKUP ON {headType} WHERE {headType}.{headKeyAttr}!='不可能的名字'|\
+                                    GO FROM $-.VertexID OVER {edgeTypeGroup} YIELD \
+                                        $^.{headType}.{headKeyAttr} AS srcName,\
+                                        $$.{tailType}.{tailKeyAttr} AS tgtName|LIMIT 150".format(
+                                            headType=headType,headKeyAttr=headKeyAttr,
+                                            tailType=tailType,tailKeyAttr=tailKeyAttr,
+                                            edgeTypeGroup=edgeTypeGroupStr
+                                        )))
+            if htDfItem.shape[0]>0:
+                htDfItem.dropna(inplace=True)
+                totalHtDfList.append(htDfItem)
+                
+            # hNodeInfoList=[{"nodeName":headItem,"nodeType":headType,"nodeVec":[]}  for headItem in htDfItem["srcName"].values.flatten().tolist()]
+            # tNodeInfoList=[{"nodeName":tailItem,"nodeType":tailType,"nodeVec":[]}  for tailItem in htDfItem["tgtName"].values.flatten().tolist()]
+            
+        totalHtDf=pd.concat(totalHtDfList)
+        totalHtList=totalHtDf.values.tolist()
+        
+        random.seed(15)
+        totalG=nx.from_edgelist(totalHtList)
+        for nodeItem in totalG.nodes:
+            totalG.nodes[nodeItem]["feature"]=np.random.random([vecSize,])
+        if model=="DeepWalk":
+            walk_number = 100
+            walk_length = 15
+            
+            totalSGG=sg.StellarGraph.from_networkx(totalG, node_features="feature")
+            walker = BiasedRandomWalk(
+                        totalSGG,
+                        n=walk_number,
+                        length=walk_length,
+                        p=1,q=1
+                    )
+            walks = walker.run(totalSGG.nodes())
+            
+            myW2VModel=Word2Vec(walks,size=vecSize,iter=5)
+            
+    return myW2VModel
+
+            
+if __name__=="__main__":
+
+    gHost="9.135.95.249"
+    gPort=13708
+    gUser="root"
+    gPassword="nebula"
+    gSpace="company_product_field_musklin"
+
+    srcConnection_pool = ConnectionPool(gHost, gPort,network_timeout=300000)
+    gClient = GraphClient(srcConnection_pool)
+    gClient.authenticate(gUser, gPassword)
+    gClient.execute_query("use {}".format(gSpace))
+
+    myEmbModel=graphEmbedding(gClient,subGraph=[{"head":{"type":"Post","keyAttr":"PostName"},
+                                                    "tail":{"type":"Skill","keyAttr":"SkillName"},
+                                                    "edgeType":["contain"]}],
+                                                space="post_skill_school_ianxu",model="DeepWalk",
+                                                batch_size=128)
+    
+    print(123)
