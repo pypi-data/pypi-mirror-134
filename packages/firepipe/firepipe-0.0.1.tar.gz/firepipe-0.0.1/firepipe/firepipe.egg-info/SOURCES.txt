@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+setup.cfg
+firepipe/firepipe.egg-info/PKG-INFO
+firepipe/firepipe.egg-info/SOURCES.txt
+firepipe/firepipe.egg-info/dependency_links.txt
+firepipe/firepipe.egg-info/top_level.txt
+test/test_orchestrator.py
