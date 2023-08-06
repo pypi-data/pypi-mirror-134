@@ -1,0 +1,14 @@
+MANIFEST.in
+pyproject.toml
+setup.py
+encoders/__init__.py
+encoders/cyfuncs.cpp
+encoders/cyfuncs.pyx
+encoders/encoder.py
+encoders/py.typed
+encoders/pyunicode.pxd
+encoders.egg-info/PKG-INFO
+encoders.egg-info/SOURCES.txt
+encoders.egg-info/dependency_links.txt
+encoders.egg-info/not-zip-safe
+encoders.egg-info/top_level.txt
