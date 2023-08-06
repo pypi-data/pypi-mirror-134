@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+monosi/__init__.py
+monosi/server/__init__.py
+monosi/server/config.py
+monosi/server/wsgi.py
+monosi/tasks/__init__.py
+monosi/tasks/server.py
+monosi_server.egg-info/PKG-INFO
+monosi_server.egg-info/SOURCES.txt
+monosi_server.egg-info/dependency_links.txt
+monosi_server.egg-info/entry_points.txt
+monosi_server.egg-info/requires.txt
+monosi_server.egg-info/top_level.txt
