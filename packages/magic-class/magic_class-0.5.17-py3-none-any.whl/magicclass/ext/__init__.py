@@ -1,0 +1,1 @@
+"""Extension of magic-class widgets."""
