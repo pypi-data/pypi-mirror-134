@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pyzhuyin/__init__.py
+src/pyzhuyin/_mapping.py
+src/pyzhuyin/convert.py
+src/pyzhuyin.egg-info/PKG-INFO
+src/pyzhuyin.egg-info/SOURCES.txt
+src/pyzhuyin.egg-info/dependency_links.txt
+src/pyzhuyin.egg-info/top_level.txt
