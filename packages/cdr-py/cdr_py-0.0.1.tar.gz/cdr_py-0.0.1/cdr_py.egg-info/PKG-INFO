@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: cdr-py
+Version: 0.0.1
+Summary: CDR algorithm for multi-condition single-cell data
+Home-page: https://github.com/wlchin/pycdr
+Author: WL Chin
+Author-email: melvin.chin@research.uwa.edu.au
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >3.5

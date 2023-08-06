@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+cdr_py.egg-info/PKG-INFO
+cdr_py.egg-info/SOURCES.txt
+cdr_py.egg-info/dependency_links.txt
+cdr_py.egg-info/requires.txt
+cdr_py.egg-info/top_level.txt
+pycdr/__init__.py
+pycdr/feature_selection.py
+pycdr/perm.py
+pycdr/pycdr.py
+pycdr/utils.py
+pycdr/test/test_pycdr.py
