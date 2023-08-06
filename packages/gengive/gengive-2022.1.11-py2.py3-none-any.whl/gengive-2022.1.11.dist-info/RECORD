@@ -1,0 +1,14 @@
+gengive/__init__.py,sha256=ue_ZeJ2DyTYJ3B8o0vVGtrJWWK6JiJCiXDkkdWnwp9w,69
+gengive/__main__.py,sha256=J8ecl1xx8y4HgrZt7Q_yiiQXrFTh-9Mu2a1LHIFMJhk,232
+gengive/cli.py,sha256=VfWEafyHAn5yX-bjjsUCfss3islTN1MDuE9LBv7j3ec,2014
+gengive/gengive.py,sha256=bAiMNKkgz6jxTvTOeuL8KYTEhv6tdgKuRXwIDWr1jPg,2039
+tests/__init__.py,sha256=cr5ndc-DX09ICrY-63xcVD11f5aX7I-Q7X40M8aflRc,130
+tests/conftest.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_cli.py,sha256=blm_gEZQO0XcJFmESenhAz_X3sW42XbfDVR7SOY1rUE,165
+tests/test_gengive.py,sha256=ziPfdZ6JAnhdlf_EeW_k2-U6BKlOxrr0jR8pgA2E9uM,883
+gengive-2022.1.11.dist-info/LICENSE,sha256=7xgn1qW4kKTaB163LiE9nqy5u7ddEv-GDesuxK-SW58,1069
+gengive-2022.1.11.dist-info/METADATA,sha256=t8HIsDRXHLqU8KSB8o5GWaWJxTVa448yjV4-jrf_STg,2152
+gengive-2022.1.11.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+gengive-2022.1.11.dist-info/entry_points.txt,sha256=FqO8IyMr5VEr2L1C0Wq1ptsBNuNW2xuZj6qomN6cn5Y,45
+gengive-2022.1.11.dist-info/top_level.txt,sha256=yX-4Y3GESNUhdYnbk0J2Tz9lq1vJ9TKAEhvao9fqXU0,14
+gengive-2022.1.11.dist-info/RECORD,,
