@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: gofile
+Version: 0.1.2
+Summary: A simple Python wrapper for the GoFile API
+Home-page: UNKNOWN
+Author: Coosta6915
+License: MIT
+Project-URL: Documentation, https://github.com/Coosta6915/gofile/wiki/
+Project-URL: GitHub, https://github.com/Coosta6915/gofile/
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (~=2.25.1)
+
+# gofile
+
+A simple Python wrapper for the Gofile API.
+
+## Info
+
+[Gofile API page](https://gofile.io/api)
+
+[gofile PyPI page](https://pypi.org/project/gofile/)
+
+**The Gofile API and the Python wrapper are currently in their beta versions and will evolve over time. Check regularly to see if changes have been made.**
+
+Current version works with the `2021-06-22` API.
+
+## Installation
+
+To install run
+
+    python3 -m pip install gofile
+
+or just
+
+    pip install gofile
+
+## Usage
+
+See [documentation](https://github.com/Coosta6915/gofile/wiki/) for detailed usage examples.
+
+```py
+import gofile
+
+server = gofile.getServer()
+
+print(server)
+
+gofile.uploadFile("/home/user/documents/images.zip")
+```
+
+
