@@ -1,0 +1,12 @@
+potreepublisher/Publisher.py,sha256=MpLzRbK4orpkElfPeYAYWdyWu0msXF7G64kMpXaa8g4,3905
+potreepublisher/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+potreepublisher/__main__.py,sha256=EBNcTGoA4lVVnF8bW7gZvO94fes7ACZeirC9F0eak40,55
+potreepublisher/main.py,sha256=0qfG45kQnM8699dtYKN-ugxT8FGBZPJfo1P_VtooXEo,1725
+potreepublisher/potree_server_config.yaml,sha256=RzeNWjZsovRPG81Zj9S5ygqeuPxGJ21S7YE_QtlFbcY,117
+potreepublisher/viewer_templates/template_folder.html,sha256=slba2h2pWbvsp6TYpzIl23X6dMWiTpNKnOvkBte6YhA,2964
+potreepublisher/viewer_templates/template_single_file.html,sha256=jvLIV2nOXfTKY1AKWP9Zf49Cnv9a3qJINF7ag93n9G0,2852
+potreepublisher-0.1.1.dist-info/entry_points.txt,sha256=l7iG7bCgeG7BInETWC6nN8JOSHhsLhOZ9rWk6jLLkVY,60
+potreepublisher-0.1.1.dist-info/LICENSE,sha256=-L6OjjCKU86dKQl-F6Xbq8vweyqsGoKzRNnNR3rq0uQ,1075
+potreepublisher-0.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+potreepublisher-0.1.1.dist-info/METADATA,sha256=U9PcJFKrkYp4Utc84vur-eGwBBwF5U6mVd_VSuqxF3s,1569
+potreepublisher-0.1.1.dist-info/RECORD,,
