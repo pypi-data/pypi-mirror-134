@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: randsik
+Version: 0.1.0
+Summary: library for generating random music in Python
+Author: Travis Hathaway
+Author-email: travis.j.hathaway@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: mido (>=1.2.10,<2.0.0)
