@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: colcon-ros-gradle
+Version: 0.1.0
+Summary: Extension for colcon to support Ament Gradle packages.
+Home-page: https://colcon.readthedocs.io
+Author: Esteve Fernandez
+Author-email: esteve@apache.org
+Maintainer: Esteve Fernandez, Jacob Perron
+Maintainer-email: esteve@apache.org,jacob@openrobotics.org
+License: Apache License, Version 2.0
+Project-URL: Changelog, https://github.com/colcon/colcon-ros-gradle/milestones?state=closed
+Project-URL: GitHub, https://github.com/colcon/colcon-ros-gradle/
+Keywords: colcon
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Build Tools
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colcon-core
+Requires-Dist: colcon-library-path
+Requires-Dist: colcon-gradle
+Requires-Dist: colcon-ros
+Provides-Extra: test
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: flake8-blind-except ; extra == 'test'
+Requires-Dist: flake8-builtins ; extra == 'test'
+Requires-Dist: flake8-class-newline ; extra == 'test'
+Requires-Dist: flake8-comprehensions ; extra == 'test'
+Requires-Dist: flake8-deprecated ; extra == 'test'
+Requires-Dist: flake8-docstrings ; extra == 'test'
+Requires-Dist: flake8-import-order ; extra == 'test'
+Requires-Dist: flake8-quotes ; extra == 'test'
+Requires-Dist: pep8-naming ; extra == 'test'
+Requires-Dist: pyenchant ; extra == 'test'
+Requires-Dist: pylint ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# colcon-ros-gradle
+
+[![Run tests](https://github.com/colcon/colcon-ros-gradle/actions/workflows/ci.yaml/badge.svg)](https://github.com/colcon/colcon-ros-gradle/actions/workflows/ci.yaml)
+
+An extension for [colcon-core](https://github.com/colcon/colcon-core) to support [ROS 2 Gradle](https://plugins.gradle.org/plugin/org.ros2.tools.gradle) projects.
+
+## Try it out
+
+### Using pip
+
+```
+pip install -U colcon-ros-gradle
+```
+
+### From source
+
+Follow the instructions at https://colcon.readthedocs.io/en/released/developer/bootstrap.html, except in "Fetch the sources" add the following to `colcon.repos`:
+
+```yaml
+  colcon-ros-gradle:
+    type: git
+    url: https://github.com/colcon/colcon-ros-gradle.git
+    version: main
+```
+
+After that, run the `local_setup` file, build any colcon workspace with Gradle projects in it, and report any issues!
+
+
