@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: vscode_sftp_alias
+Version: 0.1.0
+Summary: This is vscode extension alias for python
+Home-page: https://github.com/xaramillo/vscode_sftp_alias
+Author: Luis Xaramillo
+Author-email: luis.xaramillo@solariabiodata.com.mx
+License: GNU General Public License v3
+Description: UNKNOWN
+Keywords: vscode_sftp_alias
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
