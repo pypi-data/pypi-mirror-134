@@ -1,0 +1,7 @@
+bson
+dill
+msgpack-python
+phpserialize
+serpent
+simplejson
+pyyaml

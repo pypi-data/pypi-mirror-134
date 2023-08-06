@@ -1,0 +1,40 @@
+Serialize Changelog
+===================
+
+
+0.2.1 (2022-01-12)
+------------------
+
+- Fixed package installation.
+
+
+0.2 (2021-12-26)
+----------------
+
+- Added support for simplejson package https://pypi.org/project/simplejson/
+- Fixed bug in yaml support.
+- Added support for pathlib.Path.
+  (PR, #10, thanks @maurosilber)
+- Call register_class again when a new format is dynamically added.
+  (PR #8, thanks @jtbraun)
+- Change yaml support to support objects using __reduce__
+  (PR #8, thanks @jtbraun)
+- Renamed the existing 'yaml' format to 'yaml:legacy'
+  (PR #8, thanks @jtbraun)
+
+0.1 (2016-01-28)
+----------------
+- Initial Release. Implement a generic dump/dumps and load/loads.
+- Added support for registering new serializer/deserializer.
+- Added support for registering custom classes.
+- Format inference for file extension.
+- Added support for bson using https://pypi.python.org/pypi/bson
+- Added support for dill using https://pypi.python.org/pypi/dill
+- Added support for json using https://docs.python.org/3/library/json.html
+- Added support for msgpack using https://pypi.python.org/pypi/msgpack-python
+- Added support for phpserialize using https://pypi.python.org/pypi/phpserialize
+- Added support for pickle using https://docs.python.org/3/library/pickle.html
+- Added support for serpent using https://pypi.python.org/pypi/serpent
+- Added support for yaml using https://pypi.python.org/pypi/pyyaml
+
+
