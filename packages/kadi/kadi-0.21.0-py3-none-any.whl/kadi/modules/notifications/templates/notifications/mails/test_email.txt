@@ -1,0 +1,3 @@
+Hello {{ displayname }},
+
+this is a test email from Kadi4Mat sent via the graphical user interface.
