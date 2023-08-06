@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pinn-ics
+Version: 1.0.0
+Summary: Solving physics problems by using Deep Learning
+Home-page: UNKNOWN
+Author: threezinedine
+License: UNKNOWN
+Keywords: python,scientist,equation solver
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires: tensorflow
+Requires: numpy
+
+UNKNOWN
+
