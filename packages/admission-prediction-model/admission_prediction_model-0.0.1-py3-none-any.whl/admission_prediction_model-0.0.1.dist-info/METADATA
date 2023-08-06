@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: admission-prediction-model
+Version: 0.0.1
+Summary: A sample model to predict your chances of admission in graduate universities
+Home-page: UNKNOWN
+Author: Mihir Gupte
+License: BSD-3
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: sklearn
+Requires-Dist: feature-engine
+Requires-Dist: pydantic
+Requires-Dist: strictyaml
+
+A sample model to predict your chances of admission in graduate universities
+
