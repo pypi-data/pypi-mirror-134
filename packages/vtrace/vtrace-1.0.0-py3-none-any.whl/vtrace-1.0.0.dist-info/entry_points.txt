@@ -1,0 +1,3 @@
+[console_scripts]
+vtrace=vtrace.app:main
+
