@@ -1,0 +1,9 @@
+tidy_twitter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tidy_twitter/cli.py,sha256=TPHwpXKVctXh4OhWK9AVWZtNQC2pFwsw0WF04td-KwQ,1507
+tidy_twitter/twitter_cleanup.py,sha256=IB_uLT1LjfjxasBO9JgAHULty3s6RQnfkYp3eHoLNnI,3130
+tidy_twitter/version.py,sha256=d4QHYmS_30j0hPN8NmNPnQ_Z0TphDRbu4MtQj9cT9e8,22
+tidy_twitter-1.1.1.dist-info/entry_points.txt,sha256=1-1T_uvopfFytZT7ILLRkL221ZK1zWLuJH5ETabuPd4,53
+tidy_twitter-1.1.1.dist-info/LICENSE.txt,sha256=mdQwe27KbNQbYgap0N7f_3uWEqkNo1UUNnYPdSVS4PM,1078
+tidy_twitter-1.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+tidy_twitter-1.1.1.dist-info/METADATA,sha256=Hy3jB_2ZfkNTZItrQKcjSlIMvVXKu4CkVuHZcp4hhHI,3372
+tidy_twitter-1.1.1.dist-info/RECORD,,
