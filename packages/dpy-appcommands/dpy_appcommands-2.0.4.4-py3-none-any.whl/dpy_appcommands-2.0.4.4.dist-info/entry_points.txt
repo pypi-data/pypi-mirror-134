@@ -1,0 +1,3 @@
+[console_scripts]
+appcommands = appcommands.__main__:main
+
