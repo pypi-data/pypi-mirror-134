@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/canisterpy/__init__.py
+src/canisterpy/canister.py
+src/canisterpy/errors.py
+src/canisterpy/types.py
+src/cnstr.egg-info/PKG-INFO
+src/cnstr.egg-info/SOURCES.txt
+src/cnstr.egg-info/dependency_links.txt
+src/cnstr.egg-info/requires.txt
+src/cnstr.egg-info/top_level.txt
