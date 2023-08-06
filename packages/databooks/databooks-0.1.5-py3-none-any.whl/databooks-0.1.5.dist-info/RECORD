@@ -1,0 +1,16 @@
+LICENSE,sha256=3iQ67helBu1CWXoeat43IZK4ITWbbhq4vUDBEYpIDi8,1085
+databooks/__init__.py,sha256=6RJAdc1nTaaMTEsJuceFOTx8r5B7jyspq3ohxDm9Umw,59
+databooks/cli.py,sha256=ZYHHS9NU6WT7mPcnLr7jiHv_PUYybVi92wMvZll_BpI,6678
+databooks/common.py,sha256=4PECGIpk8PB7LLvzdargLrBzWCaKJy29ySa87kCsRgA,966
+databooks/conflicts.py,sha256=7QyyGz8EiECAgO-fGB7S8464CNaKGmmauEwtOXp5__8,4671
+databooks/data_models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+databooks/data_models/base.py,sha256=UeRJ26KBWpntNtlBFKzGeTGLoiTOGDLxQ13a1X7HoUY,5050
+databooks/data_models/notebook.py,sha256=U_UkRK-GX9PoVj5cwlbu8OzTsj_IAJBalhBQVZAhkiU,12135
+databooks/git_utils.py,sha256=7L6mBR12OVvxolTxtOC8VFunrHMPcBWotZYTVtVkmFY,2056
+databooks/logging.py,sha256=aXAjT7-w_SWP3a40lGXw3FhD1tudD8fRDBIR_MnsX2s,689
+databooks/metadata.py,sha256=BrtWs8Up--CHl_E-J-pTAWfmPFmHcgcZn3AtLgZUAqg,3591
+databooks-0.1.5.dist-info/entry_points.txt,sha256=Id_Rkt7WJ9bI-mnG8JimGtUdGYZZN8sPd2uEky-qhSo,47
+databooks-0.1.5.dist-info/LICENSE,sha256=3iQ67helBu1CWXoeat43IZK4ITWbbhq4vUDBEYpIDi8,1085
+databooks-0.1.5.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+databooks-0.1.5.dist-info/METADATA,sha256=AHHIBQo9xrdX2zNaSQ1A6rWsS_4aGKSW4HvZuEjxwhM,3228
+databooks-0.1.5.dist-info/RECORD,,
