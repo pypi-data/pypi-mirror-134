@@ -1,0 +1,15 @@
+lyra2re2_hash.cp37-win_amd64.pyd,sha256=oV-Wd_HQygOzqZH27hbTX0eqsnKO2lT8xS4WwvnKx5w,102400
+lyra2re2_hash.pypy37-pp73-win_amd64.pyd,sha256=qUi6oUn0L8raiEaT2iyF8bJ1U6uPm52pgzXMBEMFlyA,102912
+lyra2re3_hash.cp37-win_amd64.pyd,sha256=MhZ9IVjNV1odqTF8cJnzrcoo9rCb9xU8Ty7UGnBo7TI,80384
+lyra2re3_hash.pypy37-pp73-win_amd64.pyd,sha256=GiE-WjhDMmMx8SHfK86_IsZMHzJPBT6OCWMrvmoq5Lw,80896
+lyra2re_hash.cp37-win_amd64.pyd,sha256=Lr-eJoTn2n_DHn2mYRTMbBofhHPZVrWRc-oC2I6jpwM,87552
+lyra2re_hash.pypy37-pp73-win_amd64.pyd,sha256=tDmoh-k5cVfHpUbbhg9oSdPSJim4DRGJDyGLjTyKMFI,88064
+verthash.cp37-win_amd64.pyd,sha256=IfJkL2DQLAsE_Nmly9m5Rc3DLEWimchW21Ksv7J3c-k,33280
+verthash.pypy37-pp73-win_amd64.pyd,sha256=Lenm4_ZZy7Yz3OLg_bLkdbgd-9G0-IH1YSTzggcWhWo,33792
+vtc_scrypt_new.cp37-win_amd64.pyd,sha256=bc0dmYklK8cfulHH-o3hqH92NyYRRcnBxhbFEMD8Cw4,46080
+vtc_scrypt_new.pypy37-pp73-win_amd64.pyd,sha256=5Z0Bf3xv8e0EMDXoU4oL-V3FgbEt9A7KKo5ro8ftUww,46080
+vertcoinhash-1.0.0.dist-info/LICENSE,sha256=BaH_uqn5BEJ_V_fYMJWa2PwRBnEYutzYWsFXO9vdYaM,1148
+vertcoinhash-1.0.0.dist-info/METADATA,sha256=5CLkwx0vaBkRfn511enOsyl-43bQJ1bSAhu-jC4FR6k,296
+vertcoinhash-1.0.0.dist-info/WHEEL,sha256=nR0TcaMNmgCE_ksOasCKu-pqTGxyfESd_1IWrwK31vk,107
+vertcoinhash-1.0.0.dist-info/top_level.txt,sha256=iddWiHQcRmV40CbumC4uVOG7OawXeYcdN4cFhaElARY,65
+vertcoinhash-1.0.0.dist-info/RECORD,,
