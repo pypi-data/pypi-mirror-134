@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: tidfit
+Version: 0.3.1
+Summary: Small 1D fitter
+Home-page: https://github.com/aminnj/tidfit
+Author: Nick Amin
+Author-email: amin.nj@gmail.com
+License: BSD
+Download-URL: https://github.com/aminnj/tidfit/tarball/0.3.1
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+
+See github for fully rendered README
+
+
