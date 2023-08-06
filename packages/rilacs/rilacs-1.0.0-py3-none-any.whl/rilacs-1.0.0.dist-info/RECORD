@@ -1,0 +1,12 @@
+rilacs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rilacs/confseqs.py,sha256=tstugihzdtZjOQdEKvwskvhl2TL47wsyJzaKZ1uccq0,2266
+rilacs/incremental_audit.py,sha256=9btcDKxXZspVdLMkgZQA0hPUzWKVUIHt6oic3euTC9o,7361
+rilacs/martingales.py,sha256=FA4Je4DTGkl_fjFbOZLWCBI_l4PRXAkbUjmjphFALZw,4419
+rilacs/misc.py,sha256=X_AtiqnL5DlLURvuRu3Ju78cnZhptW0AAFMzKJblBMw,4620
+rilacs/plotting.py,sha256=11msAZ7csXP8mYeu1RElDs2Ar5DwM6J9wAl1y_32pLc,2415
+rilacs/strategies.py,sha256=51iidGvd6Uon8t0lPVuJyBTPFRNyZphiMva0sHWT4o4,877
+rilacs-1.0.0.dist-info/LICENSE,sha256=8jT9tCaO1O5EzKGTAK7dVYQToVTV0kGBrziqCMF35zc,1561
+rilacs-1.0.0.dist-info/METADATA,sha256=UZ2L8hkVDR8L8XconoR_s2Q0UKPKctNIV9v6ggEyn2M,344
+rilacs-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+rilacs-1.0.0.dist-info/top_level.txt,sha256=r14du61YTFj6zK_6yM23TeHpU3u1y4J_6wIeJLx4ZJc,7
+rilacs-1.0.0.dist-info/RECORD,,

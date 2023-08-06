@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rilacs
+Version: 1.0.0
+Summary: Risk limiting audits via confidence sequences
+Home-page: http://github.com/WannabeSmith/RiLACS
+Author: Ian Waudby-Smith
+Author-email: ianws@cmu.edu
+License: BSD 3-Clause
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: confseq
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+UNKNOWN
+
