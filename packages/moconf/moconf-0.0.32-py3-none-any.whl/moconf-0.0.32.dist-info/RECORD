@@ -1,0 +1,9 @@
+moconf/__init__.py,sha256=cP8ePpU-B1XsGMnBxYcbMPa5FqFuAiT4n0dGpXQtFaU,284
+moconf/appliance.py,sha256=Cr6giRQEQjFuKy87MLhrTw8OEQX7K851Pm9AEqIv9ao,3447
+moconf/groups.py,sha256=pNydpIBGhoIyakY-MST7hiTuTPjhk4y6H3-XEmMf-gE,1663
+moconf/infra.py,sha256=tjI7JAuK04RjGjSbk8nmSHE90vD3fCOVsYWBbsY37Xo,1841
+moconf-0.0.32.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+moconf-0.0.32.dist-info/METADATA,sha256=h8oXD1P_aMPwzsSM4p9KAHOqZ-b318mm0J-ru6LfKmg,446
+moconf-0.0.32.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+moconf-0.0.32.dist-info/top_level.txt,sha256=32LdV8wD6SZXp94ckqPDfxsZmo6vE6ZJNAv4DudB868,7
+moconf-0.0.32.dist-info/RECORD,,
