@@ -1,0 +1,8 @@
+README.md
+setup.py
+sample_package/__init__.py
+sample_package/sample.py
+wkabaj_hello_world.egg-info/PKG-INFO
+wkabaj_hello_world.egg-info/SOURCES.txt
+wkabaj_hello_world.egg-info/dependency_links.txt
+wkabaj_hello_world.egg-info/top_level.txt
