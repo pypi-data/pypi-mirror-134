@@ -1,0 +1,14 @@
+dice_lib/__init__.py,sha256=nL1dv6HEtb7DxiZSYqFIGZZ1BYWcp3N791HvTzxMuh8,50
+dice_lib/date.py,sha256=rUkzABvrM1B4vtBnG35kktntSdRQQiEkX3TAbgdesMY,267
+dice_lib/fs.py,sha256=UOWRE_CCkiQu9ByF1QIegHbWfry6ct-XJ0foefhkgM8,973
+dice_lib/hdfs.py,sha256=Fb6HQrZ-BKD8NSTD9lhy50X4w2N62xQumbQFRAOzwRc,2163
+dice_lib/host.py,sha256=5VnWfV2eNZBgguJ-qFL6Lt9_u5BU8_cyML4o0MYo7bE,146
+dice_lib/parameters.py,sha256=Z6scaf_FzpCoQ1J1HR3d56aw1mpQTMEGcP7rjtGrCC8,957
+dice_lib/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dice_lib/ranges.py,sha256=DEKEyONLDdlCMIO7hO_Hue0RClhUkNbj9jpC_XLRNNE,581
+dice_lib/units.py,sha256=rGFV0Ee7gMZQaTTipZRu_Xql7NWkVmS1yA57Cm_QIgA,743
+dice_lib/user.py,sha256=DvKi7qjtYHiYh7T7qUSGdtT20PVUoLIXDoC-4hn0GKQ,639
+dice_lib-0.3.1.dist-info/LICENSE,sha256=_PkyLhQewa0yvyUIFsNUt28kEOXsiSXOp6F5WAXTeNg,1523
+dice_lib-0.3.1.dist-info/WHEEL,sha256=jPMR_Dzkc4X4icQtmz81lnNY_kAsfog7ry7qoRvYLXw,81
+dice_lib-0.3.1.dist-info/METADATA,sha256=IUraL0iCOttuVuYSJKBzCvFr85wUK-kWVEWTTR89e3Q,2497
+dice_lib-0.3.1.dist-info/RECORD,,
