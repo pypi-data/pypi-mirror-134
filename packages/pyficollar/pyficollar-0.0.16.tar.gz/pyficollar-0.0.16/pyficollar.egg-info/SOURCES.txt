@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+pyficollar.egg-info/PKG-INFO
+pyficollar.egg-info/SOURCES.txt
+pyficollar.egg-info/dependency_links.txt
+pyficollar.egg-info/requires.txt
+pyficollar.egg-info/top_level.txt
+pytryfi/__init__.py
+pytryfi/const.py
+pytryfi/exceptions.py
+pytryfi/fiBase.py
+pytryfi/fiDevice.py
+pytryfi/fiPet.py
+pytryfi/fiUser.py
+pytryfi/ledColors.py
+pytryfi/common/query.py
