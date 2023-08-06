@@ -1,0 +1,2 @@
+texasholdem1598
+numpy
