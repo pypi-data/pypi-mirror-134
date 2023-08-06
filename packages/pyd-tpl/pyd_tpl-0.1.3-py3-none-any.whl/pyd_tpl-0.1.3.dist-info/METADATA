@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pyd-tpl
+Version: 0.1.3
+Summary: pyd generate tools
+Home-page: https://github.com/yafeile/pyd_tpl
+Author: Cat
+License: UNKNOWN
+Keywords: pyd generate,pyd templates
+Platform: any
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2 (>=2.11.2)
+
+# pyd_tpl
+Python的C接口模板,安装后使用如下的命令进行生成:
+
+<pre>
+pyd_tpl module_name=Animal --class-name=Cat
+</pre>
+
+将生成Animal模块Cat类
+
+## changelog
+
+- 2022-01-15 
+
+新增函数`get_c_string`(将Python*转换为char*)和`print`(打印PyObject*)
+
+调用方法如下:
+
+```python
+PyObject* a;
+if (!PyArg_ParseTuple(args,"U",&a))
+{
+    return NULL;
+}
+const char* s = get_c_string(a);
+printf("%s\n", s);
+print(a);
+```
+
