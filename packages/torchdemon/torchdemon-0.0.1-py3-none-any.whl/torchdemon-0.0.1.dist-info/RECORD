@@ -1,0 +1,10 @@
+torchdemon/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchdemon/inference_client.py,sha256=yQ3lcZKansvEkS2TTd_7bUsfYzNz9u7aTQVV58JLmeE,917
+torchdemon/inference_model.py,sha256=s3NZqXhcxsmgUPkoh_wMsqyaXhTDI89yBl7gQThPWQQ,685
+torchdemon/inference_queue.py,sha256=WlfmOLENscv4offdyJUkBE5KeeElfoJCspePPR-Gw8o,1222
+torchdemon/inference_scheduler.py,sha256=nA_4OO18S5huOCA-CO92utWIwnYIgllttutpiAtD_08,3640
+torchdemon/models.py,sha256=IiRVvZzJsdlwxCWEozAO4kPbNSCGLuwtY9-hdEaM4Lw,533
+torchdemon/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchdemon-0.0.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+torchdemon-0.0.1.dist-info/METADATA,sha256=aLWTZhk3ljmzXDmYazlzxwRnbKJATc91h2QLkBCTU5w,3958
+torchdemon-0.0.1.dist-info/RECORD,,
