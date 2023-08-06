@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: jsw-nx
+Version: 1.0.1
+Summary: Next toolkit for python.
+Author: feizheng
+Author-email: 1290657123@qq.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
