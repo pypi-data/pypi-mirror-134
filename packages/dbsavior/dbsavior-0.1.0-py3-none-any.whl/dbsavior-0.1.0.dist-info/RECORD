@@ -1,0 +1,17 @@
+LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+dbsavior/DbBackupRestoreBot.py,sha256=FOuEDecvSjZIw-0OCq3rHUI1LLqHmH5d_LNAx9G2sjg,8336
+dbsavior/__init__.py,sha256=OHs9hNqVpouVOkgFHEYX7F2SNOfG3c40Upf3Mh10iIw,180
+dbsavior/db/DbManagerInterface.py,sha256=_VT_bZhZ4QQY3VKP0yBumEmPXQ1go0Aw--7jaozlLLg,3357
+dbsavior/db/PostgresDbManager.py,sha256=o4fvqv47s79OdorxRYJjaW9A8LmFyyj3-l2CUzu1mNg,14886
+dbsavior/db/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dbsavior/main.py,sha256=jdbZ0I67AzrKi8vn0h7m-qsJVNzjDvP1v9AbDz-M-U0,7906
+dbsavior/storage/LocalStorageEngine.py,sha256=cr9j63fvSbet8v5xQ6TQ-6MDDeF8g2CzeGxuPLDsp_I,1509
+dbsavior/storage/ProgressPercentage.py,sha256=Y3NC5DvRxLdwDuEklEFDjI7e54NaqYJOWaG1IRkTwkM,715
+dbsavior/storage/S3StorageEngine.py,sha256=97YKkRLjyrubYUMfgEv1xq3kU42ecPT1vAQfU46HFHo,8494
+dbsavior/storage/StorageEngineInterface.py,sha256=4r9QGIUpmV77R5Jlq_00qeemhiorEvGPV6NM9SK83aQ,3014
+dbsavior/storage/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dbsavior/util.py,sha256=t9n3SOE6JBLyLf8gOnEDYBpUSptCYWBKV5dDdbDwo1g,668
+dbsavior-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+dbsavior-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+dbsavior-0.1.0.dist-info/METADATA,sha256=b-YLYwOG-Z1Cn4V1XrwEYBEwJohuiLswFZY55icYa9U,4904
+dbsavior-0.1.0.dist-info/RECORD,,
