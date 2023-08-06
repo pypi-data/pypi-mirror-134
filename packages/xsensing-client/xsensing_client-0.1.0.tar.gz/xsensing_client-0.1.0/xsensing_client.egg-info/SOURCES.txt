@@ -1,0 +1,13 @@
+README.md
+setup.py
+xsensing_client/__init__.py
+xsensing_client/version.py
+xsensing_client.egg-info/PKG-INFO
+xsensing_client.egg-info/SOURCES.txt
+xsensing_client.egg-info/dependency_links.txt
+xsensing_client.egg-info/top_level.txt
+xsensing_client/src/__init__.py
+xsensing_client/src/uaic.py
+xsensing_client/src/socket/__init__.py
+xsensing_client/src/socket/socket_example_client.py
+xsensing_client/src/socket/uaic_socket.py
