@@ -1,0 +1,3 @@
+[napari.plugin]
+Image-Part-Selecter = Image_Part_Selecter
+

@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tox.ini
+.github/workflows/test_and_deploy.yml
+Image_Part_Selecter/__init__.py
+Image_Part_Selecter/_version.py
+Image_Part_Selecter/image_select.py
+Image_Part_Selecter.egg-info/PKG-INFO
+Image_Part_Selecter.egg-info/SOURCES.txt
+Image_Part_Selecter.egg-info/dependency_links.txt
+Image_Part_Selecter.egg-info/entry_points.txt
+Image_Part_Selecter.egg-info/requires.txt
+Image_Part_Selecter.egg-info/top_level.txt
