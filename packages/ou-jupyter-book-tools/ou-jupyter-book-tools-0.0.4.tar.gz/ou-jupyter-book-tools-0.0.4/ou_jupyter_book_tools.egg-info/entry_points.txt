@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        tags2myst=tags2myst.cli:cli
+    
