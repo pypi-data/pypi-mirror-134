@@ -1,0 +1,9 @@
+metriql2superset/__init__.py,sha256=U4L6dY2B7dAFg-euvmStCT-0MtkNNe4vMOo2BAQVcPg,2016
+metriql2superset/metadata.py,sha256=8w60gc1rymlR7THO3gEEZWhOyATEoDCaiShwCBdhd2A,2605
+metriql2superset/superset.py,sha256=BO3Iev1cFYmXNvnHnZm6QBxHXeIrVDDU1gRyvzBJUwg,13520
+metriql_superset-0.6.data/scripts/metriql-superset,sha256=KDj--Lo28Z-_j8ho2B3UjDhzBWB8h9cCogTMAY5M1R8,111
+metriql_superset-0.6.dist-info/LICENSE,sha256=Ihq_pcyvuNV92PEim7xX-r1GxrbNQ-R9HhU2HObwm14,1064
+metriql_superset-0.6.dist-info/METADATA,sha256=Nsq-JqP5AQY5RrcVmAHG8pHz7enOxbatp4Y0NjcMrcU,4175
+metriql_superset-0.6.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+metriql_superset-0.6.dist-info/top_level.txt,sha256=q-PGaRBcQRMxWgkKpMTeSSUZWKWSca7aXMgEe7h0Dys,17
+metriql_superset-0.6.dist-info/RECORD,,
