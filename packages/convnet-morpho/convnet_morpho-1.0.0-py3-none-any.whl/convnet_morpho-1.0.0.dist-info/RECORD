@@ -1,0 +1,15 @@
+convnet_morpho/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convnet_morpho/about_convnet_morpho.py,sha256=6y9ubQJiVpE3D23Zd6M4OO9vRI97jm9HBd5lYx8hHPg,155
+convnet_morpho/cluster.py,sha256=kpG1C9acr1mP5PUc9R-O587zSAH5Mncab9_2jDEuEV0,2328
+convnet_morpho/convnet.py,sha256=RfkowWVvKgkLggCsGX7hGtCDST8VEV2C2srkrlDptDE,4025
+convnet_morpho/crop.py,sha256=UryRvAvMMrf_4tR_uYY4_mn0nYEnFKI_Ez2aTFgQCg0,6573
+convnet_morpho/finished,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convnet_morpho/load_brain1_new.py,sha256=tyHzHvzafsSpTuN9icq-n8D-erNOevVuUbi3odQd1RA,12540
+convnet_morpho/load_brain2_new.py,sha256=VbwKGyZFK_X1tV-USvJg1sZFJc2OeUe8GvRkfCGouGw,12044
+convnet_morpho/load_seqfishplus_new.py,sha256=bKZyJj204VFI_pcwgYCYPJntgCpMIGqlTh9_mHJYyno,17858
+convnet_morpho/reader.py,sha256=ZzHp0lFj5r6oqVJXYxW7QHu_hkYQkRG5MB3W_QYQC8k,5937
+convnet_morpho-1.0.0.dist-info/METADATA,sha256=6dXq0vt0a7GlzRf9RQ_Nh3FC8qNokH2-NtKL85fIsB4,1070
+convnet_morpho-1.0.0.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+convnet_morpho-1.0.0.dist-info/entry_points.txt,sha256=ebC2wVeHDG_pHhM353lju8iwaAy5kNASaaiJTLu2Rhw,83
+convnet_morpho-1.0.0.dist-info/top_level.txt,sha256=sy_IMQzp0lvIpXrhOdZqM9oxMAY1oOQ9NJgKxBxGmOk,15
+convnet_morpho-1.0.0.dist-info/RECORD,,
