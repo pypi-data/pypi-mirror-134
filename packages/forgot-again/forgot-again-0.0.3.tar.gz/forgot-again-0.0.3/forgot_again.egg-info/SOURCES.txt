@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+forgot_again/__init__.py
+forgot_again/file.py
+forgot_again/string.py
+forgot_again.egg-info/PKG-INFO
+forgot_again.egg-info/SOURCES.txt
+forgot_again.egg-info/dependency_links.txt
+forgot_again.egg-info/top_level.txt

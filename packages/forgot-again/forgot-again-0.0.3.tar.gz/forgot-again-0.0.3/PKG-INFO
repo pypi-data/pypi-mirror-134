@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: forgot-again
+Version: 0.0.3
+Summary: Simple helpers
+Home-page: UNKNOWN
+Author: igrekus
+Author-email: 
+License: UNKNOWN
+Keywords: python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE.txt
+
+Simple helper functions you always have to write from scratch.
+
