@@ -1,0 +1,13 @@
+maintain_PlatoUtils1/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+maintain_PlatoUtils1/maintain_PlatoUtils.py,sha256=1tUXK9oLRHopTQx1oEgl_dr_HI8gpN9IDysl1nBjDnY,22677
+maintain_PlatoUtils1/maintain_csv2platodb_A_uploadFile.py,sha256=pP4v_7Ba1Wh6Jf77xN2eynGxO34uAwqNU-jCgiTPevI,21991
+maintain_PlatoUtils1/maintain_csv2platodb_B_submitSchema.py,sha256=jmXjSJahMsoU3eLR_nRVOEFcPtLnZmwPnzvyIOweWxY,13959
+maintain_PlatoUtils1/maintain_csv2platodb_C_import.py,sha256=GxmBvE668T3QtHnrs4h3S2Z4kvZaM-lE3XuBSU06WpI,1432
+maintain_PlatoUtils1/uploadFiles2PlatoServer.py,sha256=Et4aV-ul2T73F9znlki-g_XIZ_b1EmRU2RIUkPQFZh8,681
+maintain_PlatoUtils1/algorithms/GraphEmbeding.py,sha256=RTbHYkgaHGHbjQkg_9pO3niD5pjTWMUpgQKltQACprQ,5268
+maintain_PlatoUtils1/algorithms/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+maintain_PlatoUtils-0.1.2.56.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+maintain_PlatoUtils-0.1.2.56.dist-info/METADATA,sha256=BEqbBSKaVzBGSSS5_Z628WSeZJjDT2AqjuM3FG-XvMo,953
+maintain_PlatoUtils-0.1.2.56.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+maintain_PlatoUtils-0.1.2.56.dist-info/top_level.txt,sha256=WnSVkZq-krbho2ulUlaYBTw6Mll3-MTkWKW9d-hMTUA,41
+maintain_PlatoUtils-0.1.2.56.dist-info/RECORD,,
