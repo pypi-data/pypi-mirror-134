@@ -1,0 +1,9 @@
+bcachefs/__init__.py,sha256=aTX5ps9iUqjaTLTbc-9mQZTjF2yfzbdnMtHxRbXMC5A,122
+bcachefs/bcachefs.py,sha256=5y9VlgHIMWcUIE_eGbt7CIGHNKxvC2EFEM9VWmQjFLI,28564
+bcachefs/c_bcachefs.cpython-37m-darwin.so,sha256=XwUpIU-vk1dkbHJQ_jM2NP8GWujbYvR6vlxujkrcf9I,39328
+bcachefs-0.0.0.dist-info/AUTHORS,sha256=4-B9JIrcI6JQNUFYTjunWYGnl4Thc57xDFT_Gtc3g5U,55
+bcachefs-0.0.0.dist-info/LICENSE,sha256=bXIu9bnbsWck--9fs7zQf0Le-kClX_no1i1gqqlDieM,1076
+bcachefs-0.0.0.dist-info/METADATA,sha256=n0rFQIu37DcRnwK2RVO420qiDDMpR-Lg7C2KUVdfb3g,2414
+bcachefs-0.0.0.dist-info/WHEEL,sha256=MTGYRPpheMM24WbmS90Rp7e0ky6cZJ8CkS_x1qgwoGk,110
+bcachefs-0.0.0.dist-info/top_level.txt,sha256=2l5PA1qgp7L9o1srnNRlHe6qi1yW392orJ2pTFDuZ2Q,9
+bcachefs-0.0.0.dist-info/RECORD,,
