@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/deephaven/plugin/json/__init__.py
+src/deephaven_plugin_json.egg-info/PKG-INFO
+src/deephaven_plugin_json.egg-info/SOURCES.txt
+src/deephaven_plugin_json.egg-info/dependency_links.txt
+src/deephaven_plugin_json.egg-info/entry_points.txt
+src/deephaven_plugin_json.egg-info/requires.txt
+src/deephaven_plugin_json.egg-info/top_level.txt
+test/test_json_plugin.py
