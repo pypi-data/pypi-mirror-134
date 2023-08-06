@@ -1,0 +1,10 @@
+c27cache/__init__.py,sha256=6Ly1jepc9MYhnq_xGUr29PyoKH9jY1xqZQMCl-s6xBU,24
+c27cache/backend.py,sha256=TK0tjxz-8CzjgwtGRq2IWpbgVGuRN7FzX3ZpudiKca8,2416
+c27cache/config.py,sha256=cFHPmYHxZJzlSvgxiR2n75Xzi5znrqD4dHCxJbl8Tgs,625
+c27cache/datetime_support.py,sha256=BgMwqqK5H50NdmuOBjctzF9VVfF4VyiQrWmzya5tt7s,6640
+c27cache/expiry.py,sha256=H_VC3y08AE3ZOWU0skiu6vGyDdIQmedF8utdt0AnDfg,1283
+c27cache/logger.py,sha256=OuNXUDrXkLI-K841rQVQeEkUTPXgCJu_N3rEs1lz_HM,1017
+c27cache/service.py,sha256=6xgO6ThQLRC73G2C8ohMsQbFkAEQRV3U8Km4HTI6etw,5044
+c27cache-0.1.2.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+c27cache-0.1.2.dist-info/METADATA,sha256=uvtJLsEKDno10oKm0lDtwpy4ZiVufrxbvv7UUAmuMTc,5461
+c27cache-0.1.2.dist-info/RECORD,,
