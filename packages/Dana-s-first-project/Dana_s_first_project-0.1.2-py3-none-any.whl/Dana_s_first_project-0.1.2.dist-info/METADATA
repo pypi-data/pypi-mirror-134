@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: Dana-s-first-project
+Version: 0.1.2
+Summary: Python Technology first project
+Home-page: UNKNOWN
+Author: Dana
+Author-email: ciobanu.dana.adriana@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Danas-first-project
+
+Danas-first-project is my first python library
+
+
+## Installation
+
+```bash
+pip install Danas-first-project
+```
+
+## Usage
+
+```python
+from danas_newProject import dana
+
+dana.hello_from_dana()
+# Prints Hello from Dana
+
+dana.goodbye_from_dana()
+
+# Prints Goodbye from Dana
+```
+
+
+
+
+
+
