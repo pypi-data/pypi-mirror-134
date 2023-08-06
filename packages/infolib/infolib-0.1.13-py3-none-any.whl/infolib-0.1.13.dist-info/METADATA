@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: infolib
+Version: 0.1.13
+Summary: A small, simple and sturdy library to overview our PandasDataframe
+Home-page: https://github.com/AntonelloManenti/infolib
+Author: Antonello Manenti
+Author-email: antonellomanenti@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: ipython
+Requires-Dist: more-itertools
+Requires-Dist: psutil
+Requires-Dist: regex
+
+# infolib for python
+A simple, robust and slim library proposal for Pandas Dataframe.
+ 
+Tired of .info .describe .shape .columns .dtype?
+ 
+All-in-one for overview!
+
+Work in progess.
+https://test.pypi.org/project/infolib/
+
+
