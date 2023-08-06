@@ -1,0 +1,10 @@
+README.md
+licence.txt
+setup.py
+Pro_Video_Ferramentas_tolls_show.egg-info/PKG-INFO
+Pro_Video_Ferramentas_tolls_show.egg-info/SOURCES.txt
+Pro_Video_Ferramentas_tolls_show.egg-info/dependency_links.txt
+Pro_Video_Ferramentas_tolls_show.egg-info/top_level.txt
+ferramentas/__init__.py
+ferramentas/camera.py
+ferramentas/video.py
