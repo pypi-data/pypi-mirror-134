@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: worldometer-scraper
+Version: 1.0.0
+Summary: A python library to scrape World-o-Meter
+Home-page: UNKNOWN
+Author: DataKund
+Author-email: datakund@gmail.com
+License: Apache License 2.0
+Keywords: scrape worldometer world-o-meter python bot_studio automation scraper country total cases deaths per million
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Scrape World-o-Meter is a python library to scrape Covid stats in World-o-Meter, using browser automation. 
+It currently runs only on windows.
+
+## Scrape World-o-Meter Data
+In this, we first import library to scrape covid details.
+```sh
+from worldometer_scraper import *
+response = worldometer.corona_countrywise()
+```
+### Response Data
+```json
+        "country": "USA",
+        "total_cases": "63,390,876",
+        "total_deaths": "863,896",
+        "active_case": "19,885,128",
+        "death_per_million": "2,587"
+```
+
+
+#### BotStudio
+[bot_studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which World-o-Meter webiste is loaded and data is scraped.
+
+
+### Installation
+
+```sh
+pip install worldometer-scraper
+```
+
+
+### Import
+```sh
+from worldometer_scraper import *
+```
+
+### Get World-o-Meter Data
+```sh
+response = worldometer.corona_countrywise()
+data=response['body']
+```
+
+### Run bot on cloud
+You can run bot on [cloud](https://datakund.com/products/worldometer-corona-countrywise)
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
+
+

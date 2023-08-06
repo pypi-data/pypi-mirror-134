@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+worldometer_scraper/__init__.py
+worldometer_scraper.egg-info/PKG-INFO
+worldometer_scraper.egg-info/SOURCES.txt
+worldometer_scraper.egg-info/dependency_links.txt
+worldometer_scraper.egg-info/requires.txt
+worldometer_scraper.egg-info/top_level.txt
