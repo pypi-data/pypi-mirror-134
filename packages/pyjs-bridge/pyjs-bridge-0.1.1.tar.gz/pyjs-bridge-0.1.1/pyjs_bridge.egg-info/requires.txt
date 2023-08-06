@@ -1,0 +1,7 @@
+fastapi
+aiofiles
+python-jose[cryptography]
+python-multipart
+jsmin
+uvicorn
+websockets

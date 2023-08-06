@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pyjs/__init__.py
+pyjs/decorator.py
+pyjs/jsbuilder.py
+pyjs/pillar.py
+pyjs/registry.py
+pyjs/transport/__init__.py
+pyjs/transport/proto.js
+pyjs/transport/websocket.py
+pyjs_bridge.egg-info/PKG-INFO
+pyjs_bridge.egg-info/SOURCES.txt
+pyjs_bridge.egg-info/dependency_links.txt
+pyjs_bridge.egg-info/requires.txt
+pyjs_bridge.egg-info/top_level.txt
