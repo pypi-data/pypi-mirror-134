@@ -1,0 +1,6 @@
+README.md
+nimbler.egg-info/PKG-INFO
+nimbler.egg-info/SOURCES.txt
+nimbler.egg-info/dependency_links.txt
+nimbler.egg-info/top_level.txt
+nimbler.egg-info/zip-safe
