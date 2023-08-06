@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+tstock/__init__.py
+tstock/core.py
+tstock.egg-info/PKG-INFO
+tstock.egg-info/SOURCES.txt
+tstock.egg-info/dependency_links.txt
+tstock.egg-info/entry_points.txt
+tstock.egg-info/requires.txt
+tstock.egg-info/top_level.txt
