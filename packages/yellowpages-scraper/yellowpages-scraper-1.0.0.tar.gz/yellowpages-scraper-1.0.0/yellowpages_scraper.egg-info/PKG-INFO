@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: yellowpages-scraper
+Version: 1.0.0
+Summary: A python library to Scrape YellowPages.
+Home-page: UNKNOWN
+Author: DataKund
+Author-email: datakund@gmail.com
+License: Apache License 2.0
+Keywords: yellow pages yellowpages python bot_studio automation product scraper city service
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+YellowPages Scraper is a python library to scrape for a yellow pages and scrape business name , service etc. using browser automation. 
+It currently runs only on windows.
+
+## Scraping from Yellow Pages 
+* In this, we first import library, then we provide the keywords.
+* Replace **"city "** and **"service"** to be scraped, instead of **"Hamilton"** and **"plumber"**.
+
+```sh
+from yellowpages_scraper import *
+response = yellowpages.scraper(city="Hamilton",service="plumber")
+```
+
+### Response Data
+```sh
+        "business_name": "Roto-Rooter Plumbing & Water Cleanup",
+        "service": "Plumbers",
+        "website": "/hamilton-oh/mip/roto-rooter-plumbing-water-cleanup-552443153?lid=1002082272744",
+        "phone": "(513) 245-8151",
+        "address": "6 S 2nd St",
+        "address2": "Hamilton, OH 45011"
+```
+ 
+### Bot Studio
+[Bot_Studio](https://pypi.org/project/bot_studio/) is needed for browser automation. When this library is imported in code, an automated browser will automatically open up in which it searches for the input keywords (*city and service*) given and then scraps the data from the search results.
+
+### Installation
+```sh
+pip install yellowpages-scraper
+```
+
+### Import
+```sh
+from yellowpages_scraper import *
+```
+
+### Get Yellow Pages Data
+```sh
+response=yellowpages.scraper(city="Hamilton",service="plumber")
+data=response['body']
+```
+
+### Run bot on cloud
+You can run bot on [Cloud](https://datakund.com/products/yellow-pages-business-details-scraper-bot?_pos=2&_sid=8f2b9bc9d&_ss=r).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
+
+

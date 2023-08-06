@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+yellowpages_scraper/__init__.py
+yellowpages_scraper.egg-info/PKG-INFO
+yellowpages_scraper.egg-info/SOURCES.txt
+yellowpages_scraper.egg-info/dependency_links.txt
+yellowpages_scraper.egg-info/requires.txt
+yellowpages_scraper.egg-info/top_level.txt
