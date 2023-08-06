@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: vitis-quantizer
+Version: 0.1.0
+Summary: A standalone package to do the vitis quantization step.
+Home-page: https://github.com/CruxML/vitis-quantizer
+Author: CruxML
+Author-email: stephen.tridgell@cruxml.com
+License: Apache 2.0
+Keywords: vitis quantize machine learning xilinx
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: tensorflow (>=2.7.0)
+Requires-Dist: numpy (>=1.22.1)
+Requires-Dist: tensorflow-model-optimization (>=0.7.0)
+
+UNKNOWN
+
