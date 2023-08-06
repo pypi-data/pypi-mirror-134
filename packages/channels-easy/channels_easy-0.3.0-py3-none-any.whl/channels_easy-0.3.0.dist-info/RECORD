@@ -1,0 +1,7 @@
+channels_easy/__init__.py,sha256=VrXpHDu3erkzwl_WXrqINBm9xWkcyUy53IQOj042dOs,22
+channels_easy/generic.py,sha256=MlC5gVO7FDsAuq-saDNUTaEw-0DzVgLRiYvOEEgEPHQ,4037
+channels_easy/json.py,sha256=IJIKPcuZJYDLTH8iLUNodihtUi3UEAirFbfg5iPYqOs,211
+channels_easy-0.3.0.dist-info/LICENSE,sha256=kOoJVLqMc4uyqcAxVVJoJabyjquGn2IIt-esZJkX65I,1071
+channels_easy-0.3.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+channels_easy-0.3.0.dist-info/METADATA,sha256=VQa9ZswtZjXQBrXmSPG0mP8ApW05aem7Ny20b_dP5gw,4933
+channels_easy-0.3.0.dist-info/RECORD,,
