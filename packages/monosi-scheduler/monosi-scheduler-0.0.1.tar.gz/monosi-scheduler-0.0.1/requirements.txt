@@ -1,0 +1,4 @@
+Flask-APScheduler==1.12.2
+Flask-RESTful==0.3.9
+Flask-SQLAlchemy==2.5.1
+uuid==1.30
