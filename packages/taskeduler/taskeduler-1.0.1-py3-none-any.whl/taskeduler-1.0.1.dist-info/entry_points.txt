@@ -1,0 +1,3 @@
+[console_scripts]
+tascheduler = taskeduler.__main__:main
+
