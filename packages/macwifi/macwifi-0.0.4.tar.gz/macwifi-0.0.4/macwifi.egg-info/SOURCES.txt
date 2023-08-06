@@ -1,0 +1,8 @@
+README.md
+setup.py
+macwifi/__init__.py
+macwifi/macwifi.py
+macwifi.egg-info/PKG-INFO
+macwifi.egg-info/SOURCES.txt
+macwifi.egg-info/dependency_links.txt
+macwifi.egg-info/top_level.txt
