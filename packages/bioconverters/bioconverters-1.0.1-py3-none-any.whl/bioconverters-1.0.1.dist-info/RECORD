@@ -1,0 +1,10 @@
+bioconverters/__init__.py,sha256=Y4rG05DvSxMtPoSKd1HgAbfR_E340U5U97BbNcOIWEI,96
+bioconverters/main.py,sha256=xAeTu6yTHW3uT22KcYdy0-E7hIowIdXQD5c1XBBhpVg,1837
+bioconverters/pmcxml.py,sha256=J10IE-tT5LUT-7zc5iedwOOIh8l6xO5Jlu1i1609aY4,16171
+bioconverters/pubmedxml.py,sha256=I0WkTXCFwzq3t3MIt17puk1AGz9EmBpZpJqDmm4x7BA,15897
+bioconverters/utils.py,sha256=W51xPYnb6fpBgEACF80IerK5CH6TVyQ4VngArV-IqHc,13476
+bioconverters-1.0.1.dist-info/LICENSE,sha256=lna6qcGRBq16oRjR8a6QPKxab8mSWZLILXB-4VKwyyg,1067
+bioconverters-1.0.1.dist-info/METADATA,sha256=Jqx7F4IUmq5LyEZNmo5BqkZbyrJrUWYJib7A-YyVACo,3309
+bioconverters-1.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+bioconverters-1.0.1.dist-info/top_level.txt,sha256=qhoxJkXWfa6H_SuHZZYtI2f-3Ew4UbeGuVwxnzZoVtk,14
+bioconverters-1.0.1.dist-info/RECORD,,
