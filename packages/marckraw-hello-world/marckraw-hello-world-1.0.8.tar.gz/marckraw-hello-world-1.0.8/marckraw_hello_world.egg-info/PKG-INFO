@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: marckraw-hello-world
+Version: 1.0.8
+Summary: Sample PYPI App
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Publishing
+
+```commandline
+python setup.py sdist
+```
+
+To build, and create `tar` file
+
+```commandline
+twine upload dist/name-of-the-project
+```
+
+To release to PyPI
+
