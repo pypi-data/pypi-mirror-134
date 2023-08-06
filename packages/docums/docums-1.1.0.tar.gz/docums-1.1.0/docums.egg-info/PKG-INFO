@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: docums
+Version: 1.1.0
+Summary: Open source documentation website
+Home-page: https://khanhduy1407.github.io/docums
+Author: NKDuy
+Author-email: kn145660@gmail.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Documentation
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.5
+License-File: LICENSE
+
+Docums is a project for building, deploying, and maintaining open source project websites easily.
+
