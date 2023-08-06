@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: executionbackup
+Version: 0.0.2
+Summary: An Ethereum execution client switcher
+Home-page: https://github.com/TennisBowling/executionbackup
+Author: TennisBowling
+Author-email: tennisbowling@tennisbowling.com
+License: LICENSE.md
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: asyncio
+Requires-Dist: sanic
+
+# executionbackup
+An Ethereum execution client switcher
+
+## Installing
+`python -m pip install git+https://github.com/TennisBowling/executionbackup.git`
+
+## Usage
+There is an example usage in `examplerunner.py` which explains what you need and don't need to run this  \
+
+
