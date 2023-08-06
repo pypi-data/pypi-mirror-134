@@ -1,0 +1,30 @@
+{% extends 'netbox_plugin_extensions/generic/object.html' %}
+{% load helpers %}
+
+{% block tab_items %}
+    <li role="presentation" class="nav-item">
+        <a href="{% url 'plugins:netbox_config_backup:backup' pk=object.pk %}" class="nav-link{% if active_tab == 'backup' %} active{% endif %}">
+            Backup Configuration
+        </a>
+    </li>
+
+    {% if index and file %}
+        <li role="presentation" class="nav-item">
+            <a class="nav-link {% if active_tab == 'config' %} active{% endif %}" href="{% url 'plugins:netbox_config_backup:backup_config' pk=object.pk index=index file=file %}">Config</a>
+        </li>
+    {% else %}
+        <li role="presentation" class="nav-item">
+            <a class="nav-link {% if active_tab == 'config' %} active{% endif %}" href="{% url 'plugins:netbox_config_backup:backup_config' pk=object.pk index='HEAD' file='running' %}">Config</a>
+        </li>
+    {% endif %}
+
+    {% if index and file and previous %}
+        <li role="presentation" class="nav-item">
+            <a class="nav-link {% if active_tab == 'diff' %} active{% endif %}" href="{% url 'plugins:netbox_config_backup:backup_diff' pk=object.pk index=index previous=previous file=file %}">Diff</a>
+        </li>
+    {% else %}
+        <li role="presentation" class="nav-item">
+            <span class="nav-link disabled">Diff</span>
+        </li>
+    {% endif %}
+{% endblock %}
