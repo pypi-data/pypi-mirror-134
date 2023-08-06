@@ -1,0 +1,179 @@
+Metadata-Version: 2.1
+Name: uttl.buildout
+Version: 1.3.1
+Summary: Utilities for Buildout developed for Up There They Love.
+Home-page: https://github.com/MrHands/uttl-buildout
+Author: Mr. Hands
+Author-email: mrhands31@gmail.com
+License: MIT-0
+Description: uttl.buildout
+        =============
+        
+        Utilities for [zc.buildout](buildout.org/) for different build systems on Windows, as used by [Up There They Love](https://uptheretheylove.com) for developing their titles.
+        
+        # Usage
+        
+        The `uttl.buildout` package will be automatically installed from [PyPi](https://pypi.org/project/uttl.buildout/) when you use it in your Buildout configuration.
+        
+        You can also clone the repository to disk and use the recipes directly without installing a package:
+        
+            [buildout]
+            develop = C:\Downloads\uttl-buildout
+        
+        The downside of this approach is that your configuration will be invalidated (and thus your dependencies rebuilt) when the recipes change.
+        
+        # Example
+        
+            [buildout]
+            parts =
+                visual-studio
+                game
+        
+            # find installation for visual studio 2017
+        
+            [visual-studio]
+            recipe = uttl.buildout:vswhere
+            version = 2017
+        
+            # build game executable
+        
+            [game]
+            recipe = uttl.buildout:devenv
+            executable = ${visual-studio:product-path}
+            solution = SSSG.sln
+            project = SSSG
+            build = Release
+        
+        # Recipes
+        
+        The following recipes (scripts) for `zc.buildout` are available in this package:
+        
+        * [uttl.buildout.cmake](uttl/buildout/cmake/README.md) - Run CMake commands
+        * [uttl.buildout.command](uttl/buildout/README.md) - Run an executable with arguments
+        * [uttl.buildout.copyfile](uttl/buildout/copyfile/README.md) - Copy files between directories
+        * [uttl.buildout.devenv](uttl/buildout/devenv/README.md) - Build projects with Visual Studio
+        * [uttl.buildout.dotnet-restore](uttl/buildout/dotnet/restore/README.md) - Restore .NET packages using NuGet
+        * [uttl.buildout.inklecate](uttl/buildout/inklecate/README.md) - Compile .ink files to JSON
+        * [uttl.buildout.qmake](uttl/buildout/qmake/README.md) - Run QMake commands
+        * [uttl.buildout.qtdeploy](uttl/buildout/qtdeploy/README.md) - Deploy Qt libraries
+        * [uttl.buildout.versioncheck](uttl/buildout/versioncheck/README.md) - Get versioned executables
+        * [uttl.buildout.vswhere](uttl/buildout/vswhere/README.md) - Get Visual Studio installation paths
+        
+        Check the source folders for detailed documentation about each recipe.
+        
+        # Testing the package locally
+        
+        Check that you're running at least Python 3.9:
+        
+            D:\Projects\uttl-buildout>python --version
+            Python 3.9.5
+        
+        Build and install egg on system:
+        
+            python setup.py install
+        
+        # Uploading new package
+        
+        Create egg in `dist/` folder:
+        
+            python setup.py bdist_egg
+        
+        Upload packaged egg to repository:
+        
+            python -m twine upload --repository pypi dist/*
+        # Changes
+        
+        ## 1.3.1 - 2022-01-15
+        
+        * VersionCheck: Fix bug where minor version was not checked correctly
+        
+        ## 1.3.0 - 2021-10-04
+        
+        * VsWhere: New recipe for retrieving Visual Studio installation paths
+        
+        ## 1.2.4 - 2021-09-30
+        
+        * CMake: Fix issue with `configure-dir` not working if the path does not exist yet
+        
+        ## 1.2.3 - 2021-09-30
+        
+        * Added missing package initialization for `uttl.buildout.dotnet.restore` folder
+        
+        ## 1.2.2 - 2021-09-30
+        
+        * Small fix to README in package
+        
+        ## 1.2.1 - 2021-09-30
+        
+        * Command: Added missing `always-install` option to documentation
+        * Command: Added `working-dir` option
+        * CopyFile: Renamed `source-path`, `destination-path` to `-dir` (old names treated as synonymous)
+        * CMake: Renamed `source-path`, `install-path`, `configure-path`, and `build-path` to `-dir` (old names treated as synonymous)
+        * CMake: Added `working-dir` option
+        * DotnetRestore: Fixed recipe being registered with the wrong name
+        * DotnetRestore: Renamed `config-file` to `config-path` (old name treated as synonymous)
+        * DotnetRestore: Renamed `packages-path` to `packages-dir` (old name treated as synonymous)
+        * DotnetRestore: Added `working-dir` option
+        * Devenv: Renamed `solution` to `solution-path` (old name treated as synonymous)
+        * Devenv: Added `working-dir` option
+        * Inklecate: Renamed `output-directory` to `output-dir` (old name treated as synonymous)
+        * Inklecate: Renamed `input` to `inputs` (old name treated as synonymous)
+        * Inklecate: Added `working-dir` option
+        * QMake: Added `working-dir` option
+        * QtDeploy: Added `dir`, `libraries-dir`, `plugins-dir`, `libraries`, `qml-dir`, `qml-import`, `plugins`, and `patch-qt` options
+        * QtDeploy: Added `lib-` option to explicity add or skip libaries
+        * QtDeploy: Added `working-dir` option
+        * VersionCheck: Made `body` option mandatory
+        
+        
+        ## 1.2.0 - 2021-09-28
+        
+        * All: Added optional artefacts and arguments options
+        * CMake: Made the path to source option mandatory to prevent user error
+        * Command: New recipe for calling executables
+        * CopyFile: Install files before copying them
+        
+        ## 1.1.0 - 2021-09-27
+        
+        * All: Changed all options from snake_case to kebab-case
+        * DotnetRestore: New recipe for invoking dotnet commands
+        * CMake: Fixed source path option
+        * CMake: Made target option a synonym for targets
+        * CopyFile: Copies files if they do not exist or if they were modified
+        * CopyFile: Added documentation
+        * Devenv: Cleaned up script
+        * Devenv: Added documentation
+        * QMake: Fixed files option throwing an error
+        * QMake: Expanded documentation
+        * QMake: Fixed typos in documentation
+        
+        ## 1.0.0 - 2021-09-26
+        
+        * Initial release
+        
+        # License
+        
+        MIT No Attribution
+        
+        Copyright 2021 Mr. Hands <mrhands31@gmail.com>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this
+        software and associated documentation files (the "Software"), to deal in the Software
+        without restriction, including without limitation the rights to use, copy, modify,
+        merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+        PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+        HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+        OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+        SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Keywords: buildout extension uttl cmake qmake qt copyfile version
+Platform: UNKNOWN
+Classifier: Framework :: Buildout
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT No Attribution License (MIT-0)
+Requires-Python: >=3
+Description-Content-Type: text/markdown
