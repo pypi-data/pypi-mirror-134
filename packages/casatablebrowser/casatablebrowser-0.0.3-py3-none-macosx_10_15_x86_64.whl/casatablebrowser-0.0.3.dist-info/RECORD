@@ -1,0 +1,12 @@
+casatablebrowser/LICENSE.txt,sha256=IEfzsTvSd8f8JBZn3LoATY_RkNKJnAyr2p020oPTVfQ,25454
+casatablebrowser/__init__.py,sha256=ePSr6RKIxAoD06vGkNQ7prs811nBXMzbgOxHoHeDh84,1383
+casatablebrowser/__main__.py,sha256=v5lYQoKPE_bs2R1vgvGIdMBZBzxZUIgXYo015Y4vNKQ,1366
+casatablebrowser/casatablebrowser.py,sha256=wllS1oEVM1QaRHZUbgIthJOmzYspNLc7UZIqXS2OHWc,2312
+casatablebrowser/__bin__/casatablebrowser.app/Contents/Info.plist,sha256=GmDpmPveN4AfY9qcmiZELK-wS8F1ZZzb9aab1BS7AZE,695
+casatablebrowser/__bin__/casatablebrowser.app/Contents/PkgInfo,sha256=flCjDvrVAgihcyA87WCBjWk7thJmt1qhCSfRoq3OgMs,9
+casatablebrowser/__bin__/casatablebrowser.app/Contents/Resources/casatablebrowser.icns,sha256=aW0TgfOc2x2nEhnfK6jcndwqGESC0tm6LijhS4IQlnk,357959
+casatablebrowser/__bin__/casatablebrowser.app/Contents/Resources/empty.lproj,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+casatablebrowser-0.0.3.dist-info/METADATA,sha256=irqt4BlwmWbCGlTkzLOLaKi0dB3nUUmBzohgV1lQL0E,498
+casatablebrowser-0.0.3.dist-info/WHEEL,sha256=Kpof3EOcIuf0bTj6DDBIQCxOyFxYGGmTsl7fGzUvkh8,109
+casatablebrowser-0.0.3.dist-info/top_level.txt,sha256=WZ3fGJGa_4C4kvDjGJZCOiLZzrYTJeAbz5ok5i45X7c,17
+casatablebrowser-0.0.3.dist-info/RECORD,,
