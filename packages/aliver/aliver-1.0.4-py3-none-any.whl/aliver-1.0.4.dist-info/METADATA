@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: aliver
+Version: 1.0.4
+Summary: A module made for repl.it users
+Home-page: https://github.com/alshahriah/aliver
+Author: Al-Shahriah
+Author-email: alshahriah2007@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
+

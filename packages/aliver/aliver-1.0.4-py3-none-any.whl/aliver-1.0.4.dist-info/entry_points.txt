@@ -1,0 +1,3 @@
+[console_scripts]
+aliver = aliver.__main__:main
+
