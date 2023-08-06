@@ -1,0 +1,1 @@
+from fluentdctl import main
