@@ -1,0 +1,10 @@
+audio_program_generator/__init__.py,sha256=3lub6G5NtbpJ0u44_2BL2ZWwcnJiAUmqj51azl3jBqM,349
+audio_program_generator/__main__.py,sha256=-Iecqya44NjHxZ4o_5jl3SB0ot-5baVSToBTo-47ZW8,3835
+audio_program_generator/apg.py,sha256=ABu_JWIGK1U8imEXPtmMdjKhS9VVnPRbcjNXUtaUWtQ,6655
+audio_program_generator/apg2.py,sha256=QOuooVaKHw_9cdXEwAdtXengjao57uoaf8IBQ9qM3w0,6448
+audio_program_generator/task_experiment.py,sha256=qPL_WXe0L7XeNZOpI1RJU_nxyJCtbE9imtoQQdOJTYU,1801
+audio_program_generator-1.11.0.dist-info/entry_points.txt,sha256=-DW95SrFG6k_C6Z1JsLQkWT2rvFrgfCLw2ebvh3h9fE,60
+audio_program_generator-1.11.0.dist-info/LICENSE,sha256=TfaJd2aXaOezT743SvyAXYg15ezXVm-Ovz8XIKIkaJ4,1068
+audio_program_generator-1.11.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+audio_program_generator-1.11.0.dist-info/METADATA,sha256=CZq3r36aunlx2A_lPl5kwGOCXLfztQi-867oYl2DUzU,9579
+audio_program_generator-1.11.0.dist-info/RECORD,,
