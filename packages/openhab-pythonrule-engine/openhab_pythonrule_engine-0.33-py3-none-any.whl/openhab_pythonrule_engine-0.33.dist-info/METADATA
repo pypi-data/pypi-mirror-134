@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: openhab-pythonrule-engine
+Version: 0.33
+Summary: Openhab python rule engine
+Home-page: https://github.com/grro/openhab_pythonrule_engine
+Author: Gregor Roth
+Author-email: gregor.roth@web.de
+License: MIT
+Keywords: webthings,home automation,openhab,python3,python,rules
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
+Requires-Dist: webthing (==0.15.0)
+Requires-Dist: requests (==2.26.0)
+Requires-Dist: sseclient-py (==1.7.2)
+Requires-Dist: watchdog (==2.1.6)
+Requires-Dist: pycron (==3.0.0)
+Requires-Dist: python-dateutil (==2.8.2)
+
+# OpenHab python rule engine
+
+
