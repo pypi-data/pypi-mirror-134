@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: dreye-ext
+Version: 0.0.1
+Summary: Dreye: Color models and stimuli for all model organisms
+Home-page: UNKNOWN
+Author: Matthias Christenson
+Author-email: gucky@gucky.eu
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: pint (>=0.16.1)
+Requires-Dist: cloudpickle (>=1.5.0)
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: pytest
+Requires-Dist: cvxpy (>=1.1.10)
+Requires-Dist: pyarrow (>=3.0.0)
+Requires-Dist: pygam (>=0.8.0)
+Requires-Dist: tqdm
+Requires-Dist: cvxopt (>=1.2.6)
+Requires-Dist: qpsolvers (>=1.7.0)
+Requires-Dist: quadprog
+
+# DrEye: Exploiting Color Space Geometry for Visual Stimulus Design across Animals
+
+## Installation
+
+```
+pip install dreye_ext
+```
+
+## Hardware module
+
+For the hardware module in dreye the following packages will also have to be installed:
+
+```
+pip install seabreeze>=1.0.1
+pip install nidaqmx>=0.5.7
+```
+
+## Development
+
+This is the code for the old API of dreye. This repository is no longer properly maintained. For the new API go to https://github.com/gucky92/dreye.
+
+
