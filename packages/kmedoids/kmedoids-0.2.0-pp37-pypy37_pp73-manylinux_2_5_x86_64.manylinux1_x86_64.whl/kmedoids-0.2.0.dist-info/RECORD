@@ -1,0 +1,5 @@
+kmedoids-0.2.0.dist-info/METADATA,sha256=XhUGfSK9clVMMbFxtMbmQmPaBlImep3MsM_MaX9JXpg,3504
+kmedoids-0.2.0.dist-info/WHEEL,sha256=hMrNQF-wFP-7q1jgTtO3gZLlLHfNbRXUxWsTHEl_Ns4,138
+kmedoids/__init__.py,sha256=gBgH7Z9OdmwyQqyjMukj-bs1HApIeoKZRVLuzK9f2Bs,17676
+kmedoids/kmedoids.pypy37-pp73-x86_64-linux-gnu.so,sha256=iLQzDOygj7omAUSfPgx_kBGkxV1z5aTMKQ0uoXz1Su0,944608
+kmedoids-0.2.0.dist-info/RECORD,,
