@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: excalc
+Version: 1.0.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: hyunji
+Author-email: hyun_jjj523@naver.com
+License: MIT
+Keywords: test,calculate
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Python 패키지 배포 테스트 입니다.
+## 간단한 사칙연산 계산기
+<br>
+
+<실행결과>
+<br>
+종료 하려면 : 0 
+<br>
+첫번째 수 : 32
+<br>
+연산자를 입력하세요! ( +, -, *, / ) : +
+<br>
+두번째 수 : 43
+<br>
+결과 : 32 + 43 = 75
+<br>
+-------------------
+
