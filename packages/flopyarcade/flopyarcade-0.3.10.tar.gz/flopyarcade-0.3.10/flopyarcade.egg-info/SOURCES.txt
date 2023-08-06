@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+flopyarcade/__init__.py
+flopyarcade/flopyarcade.py
+flopyarcade/play.py
+flopyarcade/train_dqn.py
+flopyarcade/train_neuroevolution.py
+flopyarcade/train_rllib_apexdqn.py
+flopyarcade/unittest_complete.py
+flopyarcade.egg-info/PKG-INFO
+flopyarcade.egg-info/SOURCES.txt
+flopyarcade.egg-info/dependency_links.txt
+flopyarcade.egg-info/requires.txt
+flopyarcade.egg-info/top_level.txt
