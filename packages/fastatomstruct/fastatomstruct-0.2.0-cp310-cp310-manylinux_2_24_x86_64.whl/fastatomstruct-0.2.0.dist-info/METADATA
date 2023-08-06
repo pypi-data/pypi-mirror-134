@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: fastatomstruct
+Version: 0.2.0
+Author: Nils Cedric Holle <nils.holle@uni-muenster.de>
+Author-email: Nils Cedric Holle <nils.holle@uni-muenster.de>
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# Fast calculation of structural and autocorrelation functions
+
+`fastatomstruct` is a Python package written in Rust that includes functions to calculate atomic structural quantities.
+If possible, thread-based parallelization (using `rayon`) is employed to speed up calculations and take advantage of multicore processors.
+
+## What can this package do?
+The package can currently calculate the following quantities:
+
+...
+
+## Installation
+Installing `fastatomstruct` from source requires
+
+- Python 3
+- pip
+- a working Rust installation (1.56 and newer), including cargo
+- `maturin`, a Python package that can e.g. be installed using `pip3 install --upgrade maturin`
+
+To build the Python wheel, run
+```
+maturin build --release
+```
+The resulting wheel will be located in `target/wheels/`. You can install it using
+```
+python3 -m pip install target/wheels/fastatomstruct-version.whl
+```
+Replace "version" with your actual Python version.
+The package can then be used in Python using e.g. `from fastatomstruct import coordination_numbers`.
+
+## Documentation
+
+[The documentation can be found here.](https://ag-salinga.zivgitlabpages.uni-muenster.de/fastatomstruct)
+
+## Example usage
+
+## Optimizing your installation for performance
+Condider using
+```
+RUSTFLAGS="-c ..." maturin build --release
+```
+to optimize the binary for your local processor. As a downside, this will make the resulting Python wheel less portable.
+
