@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: little-bank
+Version: 0.0.0
+Summary: Double book-keeping transaction framework
+Home-page: https://github.com/antonagestam/little-bank/
+Author: Anton Agestam
+Author-email: git@antonagestam.se
+License: BSD 3-Clause License
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown; charset=UTF-8
+License-File: LICENSE
+Provides-Extra: test
+Requires-Dist: mypy (>=0.930) ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mypy-plugins ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: phantom-types ; extra == 'test'
+
+<h1 align=center>little-bank</h1>
+
+<p align=center>
+    <a href=https://github.com/antonagestam/little-bank/actions?query=workflow%3ACI+branch%3Amain><img src=https://github.com/antonagestam/little-bank/workflows/CI/badge.svg alt="CI Build Status"></a>
+</p>
+
+Little Bank is a framework for analyzing financial transactions.
+
+#### Design goals
+
+- All analysis should be a matter of summarizing credit, debit or balance of an account
+  in a system. The intention is to reduce bugs by making all analysis use the same
+  numerical implementation.
+- Allow defining rules for a system in a declarative way.
+- Disallow mutation. The design encourages immutable, append-only transactions.
+- All operations that update the system are very similar: appending transactions which
+  automatically verifies all defined rules, and persisting the new transactions. This
+  allows centralizing code that saves transactions to a single place.
+
+
