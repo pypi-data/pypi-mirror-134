@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dagos
+Version: 0.1.0
+Summary: A CLI for defining and deploying software enviornments.
+License: MIT
+Author: Lucas Resch
+Author-email: lucas.resch@gmx.de
+Maintainer: Lucas Resch
+Maintainer-email: lucas.resch@gmx.de
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: click (>=8.0.3,<9.0.0)
+Requires-Dist: click-option-group (>=0.5.3,<0.6.0)
+Requires-Dist: rich (>=11.0.0,<12.0.0)

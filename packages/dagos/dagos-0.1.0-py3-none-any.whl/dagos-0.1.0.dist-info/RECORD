@@ -1,0 +1,15 @@
+dagos/__init__.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+dagos/__main__.py,sha256=ge4iqfc9fLUPCE92JN02Snfcd-7HvHBfPQtkegn2rlE,68
+dagos/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dagos/commands/wsl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dagos/commands/wsl/group.py,sha256=iWbHwK6YEU2fRtUCow5ygNH0N9id8XoF7qHqPLxbD0I,331
+dagos/commands/wsl/import_wsl_distro.py,sha256=hiK5JiysLv3xvi_X73bSP08lvSR6j1xlF-j_hL1jiH0,2284
+dagos/commands/wsl/prepare_wsl_distro.py,sha256=MqEHVjbcGkfIENN9Q0UYi2WBEfZYzS9QTV-QPLJ2Eh8,4204
+dagos/console.py,sha256=UpMqeJ0C8i0pkue1AHnnyyX0bFJ9zZeJ7HBR6yhuA8A,54
+dagos/main.py,sha256=XrGsq2foolIyPM-tkA3K4GVNTloLIgBwD4h7kgwM9OQ,549
+dagos/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dagos/utils/wsl_utils.py,sha256=Q_eGHLnSMfK0EVgVCkdpbErsRgvaw7ZYhASki4JdDk0,2520
+dagos-0.1.0.dist-info/LICENSE,sha256=MRN4mqam94KLkN-sbXZO4i5xPQ7f53B6BglSdgp6_y4,1068
+dagos-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+dagos-0.1.0.dist-info/METADATA,sha256=pkS0gB7PhU140ArRdXZrn5fhWETmf-jc297Z5WoDjUg,697
+dagos-0.1.0.dist-info/RECORD,,
