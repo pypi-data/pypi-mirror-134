@@ -1,0 +1,7 @@
+numpy
+scipy
+uncertainties
+striprtf
+pytest
+tzlocal
+python-dateutil
