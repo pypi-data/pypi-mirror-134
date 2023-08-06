@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: flask-redis-ext
+Version: 1.0.0
+Summary: Flask extension for redis
+Home-page: https://github.com/Eastwu5788/Flask-Redis
+Author: Wu Dong <wudong@eastwu.cn>
+Author-email: wudong@eastwu.cn
+License: MIT License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.4
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: flask (>=2.0.2)
+Requires-Dist: redis (>=4.1.0)
+
+UNKNOWN
+
