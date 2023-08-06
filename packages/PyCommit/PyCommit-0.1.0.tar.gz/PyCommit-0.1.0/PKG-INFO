@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: PyCommit
+Version: 0.1.0
+Summary: A simple CLI to create uniform commits
+Home-page: https://github.com/Antoine-Meloche/PyCommit
+Author: Antoine Meloche
+Author-email: 53838501+Antoine-Meloche@users.noreply.github.com
+License: GPL-3.0
+Keywords: commit python py package git
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+License-File: LICENSE
+
+UNKNOWN
+
