@@ -1,0 +1,9 @@
+linkml_owl/__init__.py,sha256=D4mZqNxvaQjx6zYDokgMz4bxT7Ho8GwfBbC3N6POs8Q,249
+linkml_owl/owl_dumper.py,sha256=SjCOaxBOxc-mWkJwiiz1moSLMP_xwx6k00yFJ273OXg,17195
+linkml_owl/util/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+linkml_owl/util/csv_converter.py,sha256=uCRFg92n_CkyLzB3rI2wIX6AE-diJAWMRs_bApzosT8,659
+linkml_owl/util/trim_yaml.py,sha256=yPW52Y03YzR4uNdfom8Wb8sD_uTstoFfvAgfN5qS4tI,454
+linkml_owl-0.1.0.dist-info/entry_points.txt,sha256=pPLUxh_8W3ootaEtZEWEws3iK9dS8l1EyAekefvF628,61
+linkml_owl-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+linkml_owl-0.1.0.dist-info/METADATA,sha256=9nibht4Chsgyun_O5pWwbGUciLgK8puj7AidF8RZ1s4,8454
+linkml_owl-0.1.0.dist-info/RECORD,,
