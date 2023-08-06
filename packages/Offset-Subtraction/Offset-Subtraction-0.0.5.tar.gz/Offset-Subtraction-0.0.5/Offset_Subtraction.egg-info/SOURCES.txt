@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tox.ini
+.github/workflows/test_and_deploy.yml
+Offset_Subtraction/__init__.py
+Offset_Subtraction/_version.py
+Offset_Subtraction/subtraction.py
+Offset_Subtraction.egg-info/PKG-INFO
+Offset_Subtraction.egg-info/SOURCES.txt
+Offset_Subtraction.egg-info/dependency_links.txt
+Offset_Subtraction.egg-info/entry_points.txt
+Offset_Subtraction.egg-info/requires.txt
+Offset_Subtraction.egg-info/top_level.txt

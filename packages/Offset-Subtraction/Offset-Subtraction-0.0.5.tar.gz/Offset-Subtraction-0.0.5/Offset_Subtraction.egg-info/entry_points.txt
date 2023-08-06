@@ -1,0 +1,3 @@
+[napari.plugin]
+Offset-Subtraction = Offset_Subtraction
+
