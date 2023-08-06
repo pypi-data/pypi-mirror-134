@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: honeygain
+Version: 0.0.1
+Summary: A python library to interact with the Honeygain API
+Home-page: https://github.com/Woodie-07/honeygain.py
+Author: Woodie
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests
+
+UNKNOWN
+
+
