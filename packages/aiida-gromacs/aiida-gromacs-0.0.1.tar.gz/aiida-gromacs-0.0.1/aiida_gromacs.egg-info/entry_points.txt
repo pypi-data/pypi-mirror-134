@@ -1,0 +1,12 @@
+[aiida.calculations]
+gromacs = aiida_gromacs.calculations:DiffCalculation
+
+[aiida.cmdline.data]
+gromacs = aiida_gromacs.cli:data_cli
+
+[aiida.data]
+gromacs = aiida_gromacs.data:DiffParameters
+
+[aiida.parsers]
+gromacs = aiida_gromacs.parsers:DiffParser
+
