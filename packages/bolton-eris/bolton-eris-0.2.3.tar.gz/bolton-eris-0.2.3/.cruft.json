@@ -1,0 +1,23 @@
+{
+  "template": "https://github.com/python-boltons/cc-python",
+  "commit": "bb03109deada9bdb5be74dda28d31e6798324fb8",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author": "Bryan M Bugyi",
+      "email": "bryanbugyi34@gmail.com",
+      "github_username": "bbugyi200",
+      "git_org_name": "python-boltons",
+      "git_repo_name": "eris",
+      "package_name": "eris",
+      "pypi_package_name": "bolton-eris",
+      "read_the_docs_domain": "bolton-eris",
+      "package_description": "The Greek Goddess of Strife and Discord... A better way to handle, trace, and log errors in Python.",
+      "package_type": "library",
+      "_template": "https://github.com/python-boltons/cc-python",
+      "package_path": "eris",
+      "package_module": "eris"
+    }
+  },
+  "directory": null
+}

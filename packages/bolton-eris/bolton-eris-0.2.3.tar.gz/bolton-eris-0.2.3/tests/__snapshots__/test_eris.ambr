@@ -1,0 +1,208 @@
+# name: test_is_json__CHAIN
+  <class 'list'> [
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Some BAR error has occurred.',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__CHAIN::127{
+            Some BAR error has occurred.
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__CHAIN',
+      'lineno': 127,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+              err: Err[Any, ErisError] = Err("Some BAR error has occurred.")
+  
+        ',
+      ],
+    },
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Something went wrong...',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__CHAIN::128{
+            Something went wrong...
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__CHAIN',
+      'lineno': 128,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+              other_err: Err[Any, ErisError] = Err(ERROR_MSG)
+  
+        ',
+      ],
+    },
+  ]
+---
+# name: test_is_json__NO_CAUSE
+  <class 'list'> [
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Something went wrong...',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__NO_CAUSE::64{
+            Something went wrong...
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__NO_CAUSE',
+      'lineno': 64,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+              err: Err[Any, ErisError] = Err(ERROR_MSG)
+  
+        ',
+      ],
+    },
+  ]
+---
+# name: test_is_json__ONE_CAUSE
+  <class 'list'> [
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+        <class 'dict'> {
+          'exc_msg': 'division by zero',
+          'exc_type': "<class 'ZeroDivisionError'>",
+          'exc_value': "ZeroDivisionError('division by zero')",
+        },
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Something went wrong...',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__ONE_CAUSE::78{
+            Something went wrong...
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__ONE_CAUSE',
+      'lineno': 78,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+                  err: Err = Err(ERROR_MSG).chain(zero_div_error)
+  
+        ',
+        '
+            File "/eris/tests/test_eris.py", line 75, in test_is_json__ONE_CAUSE
+              x = 1 / 0
+  
+        ',
+      ],
+    },
+  ]
+---
+# name: test_is_json__TWO_CAUSE
+  <class 'list'> [
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+        <class 'dict'> {
+          'exc_msg': 'Why would we divide by zero?',
+          'exc_type': "<class 'RuntimeError'>",
+          'exc_value': "RuntimeError('Why would we divide by zero?')",
+        },
+        <class 'dict'> {
+          'exc_msg': 'division by zero',
+          'exc_type': "<class 'ZeroDivisionError'>",
+          'exc_value': "ZeroDivisionError('division by zero')",
+        },
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Something went wrong...',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__TWO_CAUSE::96{
+            Something went wrong...
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__TWO_CAUSE',
+      'lineno': 96,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+                      err: Err = Err(ERROR_MSG).chain(rt_error)
+  
+        ',
+        '
+            File "/eris/tests/test_eris.py", line 92, in test_is_json__TWO_CAUSE
+              raise RuntimeError(
+  
+        ',
+        '
+            File "/eris/tests/test_eris.py", line 88, in test_is_json__TWO_CAUSE
+              x = 1 / 0
+  
+        ',
+      ],
+    },
+  ]
+---
+# name: test_is_json__TWO_CAUSE_AND_RAISE_SELF
+  <class 'list'> [
+    <class 'dict'> {
+      'caused_by': <class 'list'> [
+        <class 'dict'> {
+          'exc_msg': 'Why would we divide by zero?',
+          'exc_type': "<class 'RuntimeError'>",
+          'exc_value': "RuntimeError('Why would we divide by zero?')",
+        },
+        <class 'dict'> {
+          'exc_msg': 'division by zero',
+          'exc_type': "<class 'ZeroDivisionError'>",
+          'exc_value': "ZeroDivisionError('division by zero')",
+        },
+      ],
+      'exc_info': <class 'dict'> {
+        'exc_msg': 'Something went wrong...',
+        'exc_type': "<class 'eris._errors.ErisError'>",
+        'exc_value': '
+          ErisError::tests.test_eris::test_is_json__TWO_CAUSE_AND_RAISE_SELF::115{
+            Something went wrong...
+          }
+        ',
+      },
+      'file_name': '/eris/tests/test_eris.py',
+      'func_name': 'test_is_json__TWO_CAUSE_AND_RAISE_SELF',
+      'lineno': 115,
+      'module_name': 'tests.test_eris',
+      'stack': <class 'list'> [
+        '
+                      error = ErisError(ERROR_MSG)
+  
+        ',
+        '
+            File "/eris/tests/test_eris.py", line 111, in test_is_json__TWO_CAUSE_AND_RAISE_SELF
+              raise RuntimeError(
+  
+        ',
+        '
+            File "/eris/tests/test_eris.py", line 107, in test_is_json__TWO_CAUSE_AND_RAISE_SELF
+              x = 1 / 0
+  
+        ',
+      ],
+    },
+  ]
+---
