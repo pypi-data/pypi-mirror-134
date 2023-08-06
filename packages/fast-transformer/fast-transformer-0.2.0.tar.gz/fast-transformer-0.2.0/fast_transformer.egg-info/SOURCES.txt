@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+fast_transformer/__init__.py
+fast_transformer/fast_attention.py
+fast_transformer/fast_transformer.py
+fast_transformer/test_fast_transformer.py
+fast_transformer/version.py
+fast_transformer.egg-info/PKG-INFO
+fast_transformer.egg-info/SOURCES.txt
+fast_transformer.egg-info/dependency_links.txt
+fast_transformer.egg-info/requires.txt
+fast_transformer.egg-info/top_level.txt
