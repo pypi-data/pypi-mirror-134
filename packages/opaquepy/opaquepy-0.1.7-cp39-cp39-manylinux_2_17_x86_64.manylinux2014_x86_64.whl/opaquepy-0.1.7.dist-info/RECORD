@@ -1,0 +1,6 @@
+opaquepy-0.1.7.dist-info/METADATA,sha256=Ob-Be-OVuirqkhbOoCrb39DspzAaQl4o5ZF0UUalYHs,621
+opaquepy-0.1.7.dist-info/WHEEL,sha256=fEroCQ2GdTAnMzcnRuSKHECeQpHejd_2a-FpaLXJrzk,202
+opaquepy-0.1.7.dist-info/RECORD,,
+opaquepy/__init__.py,sha256=Hs9h7bLIKGPewsbOc2mV9b21rxjRLSisLVlITwg3Y3o,79
+opaquepy/lib.py,sha256=c7IlGGIHQV8ftt6sUwUq1hLKMMg-ML1BD5wi8tvHG2w,1590
+opaquepy/opaquepy.cpython-39-x86_64-linux-gnu.so,sha256=laJ-0DhlcP1NPvLGy0mWkIxcsHKjuFSIc6zZPSnDprQ,4020296
