@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/old_norse_dictionary/__init__.py
+src/old_norse_dictionary/dictionary.py
+src/old_norse_dictionary/reader.py
+src/old_norse_dictionary.egg-info/PKG-INFO
+src/old_norse_dictionary.egg-info/SOURCES.txt
+src/old_norse_dictionary.egg-info/dependency_links.txt
+src/old_norse_dictionary.egg-info/top_level.txt
+src/old_norse_dictionary/resources/__init__.py
+src/old_norse_dictionary/resources/default.json
+src/old_norse_dictionary/resources/no-markup.json
