@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: dramatiq-mongodb
+Version: 0.2.0
+Summary: 
+License: MIT
+Author: Tory Clasen
+Author-email: ToryClasen@Gmail.com
+Requires-Python: >=3.7,<4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: dramatiq (>=1.12.1,<2.0.0)
+Requires-Dist: pymongo (>=4.0.1,<5.0.0)
