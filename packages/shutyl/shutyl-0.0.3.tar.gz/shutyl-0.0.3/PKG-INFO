@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: shutyl
+Version: 0.0.3
+Summary: A powerful file conversion utility
+Home-page: https://github.com/DarkArc/shutyl
+Author: Wyatt Childers
+Author-email: wchilders@nearce.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/DarkArc/shutyl/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# Shutyl
+
+Shutyl is a file conversion and copying tool.
+
+Shutyl's origins are in generating ogg files from flac and wav files,
+while cloning (rather than reconverting) mp3 files. Project goals are
+a bit more ambitious with a custom computer language to define
+conversions, and support for more types of conersions.
+
+

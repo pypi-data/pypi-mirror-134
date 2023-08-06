@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+shutyl/__init__.py
+shutyl/__main__.py
+shutyl/config.py
+shutyl/file_sync.py
+shutyl/main.py
+shutyl/signal_monitor.py
+shutyl.egg-info/PKG-INFO
+shutyl.egg-info/SOURCES.txt
+shutyl.egg-info/dependency_links.txt
+shutyl.egg-info/entry_points.txt
+shutyl.egg-info/top_level.txt
