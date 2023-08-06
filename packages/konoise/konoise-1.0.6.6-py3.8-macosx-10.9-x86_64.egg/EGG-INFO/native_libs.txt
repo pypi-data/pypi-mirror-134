@@ -1,0 +1,2 @@
+rust_generator.cpython-38-darwin.so
+konoise/rust_generator.cpython-38-darwin.so
