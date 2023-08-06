@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: workon-cli
+Version: 0.0.5
+Summary: A simple project manager
+Home-page: https://github.com/unlikeghost/workon
+Author: unlikeghost
+Author-email: unlikeghost@protonmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: typer
+
+# WORK ON
+A simple project manager for conda, windows 10 and vscode
+
+## Installation
+
+```bash
+pip install workon-cli
+```
+You must have anaconda3 on your path and vscode
+
+```bash
+function Workon (){
+    python -m workon $args
+}
+```
+Add this function to $PROFILE file using powershell
+
+## Usage
+
+```bash
+python workon --help
+python workon show
+python workon workon PROJECT
+python workon create PROJECT -d PATH -p PYTHON
+python workon remove PROJECT
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Developer
+* Jesus Alan Hernandez Galvan
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+

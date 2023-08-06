@@ -1,0 +1,9 @@
+workon/__init__.py,sha256=jI9V75yBZdTo0ZI5YS06XtTa6KIePfMqfEDBvuPOz-w,830
+workon/__main__.py,sha256=I7zpZm8GZo6nd6-hTpwtElB17vjHRlOUUtJ_78RJAEI,235
+workon/cli.py,sha256=kgdCIrcq6YmJs_l8Xn8zinTyTEyR5p2NodgI50M7xO0,5618
+workon/database.py,sha256=M6W3RyR_yYkSwF0umuEUm0AbLSxfCq4ya6JCwg_opKQ,2700
+workon_cli-0.0.5.dist-info/METADATA,sha256=Jukh7LIqoXnXGyHHt8uB6dsXyYX0MrFy-i39OzDDSHE,1128
+workon_cli-0.0.5.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+workon_cli-0.0.5.dist-info/entry_points.txt,sha256=YMThvMav2Ijdj4NOaDk-dShzsNYF6EqXCQ0W685Di_w,46
+workon_cli-0.0.5.dist-info/top_level.txt,sha256=3_QTmwF1KT2JYJhabpAUehAln5FMs60_ufmXouPUDf8,7
+workon_cli-0.0.5.dist-info/RECORD,,
