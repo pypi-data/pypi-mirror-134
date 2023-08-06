@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: Vreau-sa-dorm
+Version: 0.1.3
+Summary: First project
+Home-page: UNKNOWN
+Author: Andreea Teku
+Author-email: andreea.teku@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+#  Vreau-sa-dorm
+
+Vreau_sa_dorm is my first python library 
+
+
+## Installation 
+
+```bash
+pip install Vreau-sa-dorm
+```
+
+## Usage
+
+```python 
+from Vreau-sa-dorm import andreea
+
+andreea.hello_from_andreea()
+#Prints Hello from Andreea
+
+andreea.goodbye_from_andreea()
+#Prints Goodbye from Andreea
+```
+
+
+
