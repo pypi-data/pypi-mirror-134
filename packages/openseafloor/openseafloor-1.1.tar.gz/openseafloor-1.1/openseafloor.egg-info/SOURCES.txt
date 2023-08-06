@@ -1,0 +1,8 @@
+README.md
+osfloor.py
+setup.py
+openseafloor.egg-info/PKG-INFO
+openseafloor.egg-info/SOURCES.txt
+openseafloor.egg-info/dependency_links.txt
+openseafloor.egg-info/requires.txt
+openseafloor.egg-info/top_level.txt
