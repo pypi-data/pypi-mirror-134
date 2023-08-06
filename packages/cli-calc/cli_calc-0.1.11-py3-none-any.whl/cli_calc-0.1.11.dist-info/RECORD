@@ -1,0 +1,15 @@
+cli_calc/__init__.py,sha256=iwhKnzeBJLKxpRVjvzwiRE63_zNpIBfaKLITauVph-0,24
+cli_calc/cli_eval.py,sha256=dp2AfUpAVuMh62eJA29hB0BXnY9L6aA2EqpFPSUKiVg,1586
+cli_calc/cli_output.py,sha256=t4V0fueOJnOKOhdprncitoK4s3EoEZQTYAO9RuDnSkg,3050
+cli_calc/config.py,sha256=afVQcTjz6LeO8aU1m_NlZc0mFeKKLaPYt6HxwZgv0OA,5751
+cli_calc/format.py,sha256=4ZFSVses5mXRDuY7ML7YzxPdDvW0j0Sszm_zTg4UtHk,355
+cli_calc/ieee.py,sha256=sRj7D-_0kjAHdtvW-FZOWpu_F0QetZ_uAbotmH8Q-rc,3798
+cli_calc/main.py,sha256=S9XWk9YmT2NltEq96qwePkb6lo48bFLYTuOQEv8D-Oc,1180
+cli_calc/memory.py,sha256=f1rAb6jcjxnjkGGWiPcOvTpw56RHE6wMJistIzMyEfw,294
+cli_calc/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cli_calc/read_line_parser.py,sha256=MGD23w1mzDA3DlSYLLqHqd_O7896DfJVxUMiNJxCdGM,4442
+cli_calc/wrapper.sh,sha256=LAsG2MAUKyYQ2nsydnk1p3z4wSfv1UhfTFOE-oqVpOw,68
+cli_calc-0.1.11.dist-info/LICENSE,sha256=k4lKZp4BDyz2vVb9p15gIxaG_dh-W1mqW7FKCFBdKso,1109
+cli_calc-0.1.11.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+cli_calc-0.1.11.dist-info/METADATA,sha256=rbFETSZrBk7UGsP8BNJfDecJCNjQuf-0D5uETZicRkM,4744
+cli_calc-0.1.11.dist-info/RECORD,,
