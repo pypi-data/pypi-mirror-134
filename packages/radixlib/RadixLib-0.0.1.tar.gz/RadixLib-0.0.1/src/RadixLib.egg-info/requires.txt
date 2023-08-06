@@ -1,0 +1,11 @@
+wheel
+requests
+dateparser
+pycryptodome
+mnemonic
+hdwallet
+bech32
+
+[dev]
+pytest
+check-manifest
