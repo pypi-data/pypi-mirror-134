@@ -1,0 +1,9 @@
+configgery/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+configgery/client.py,sha256=PrmXnStjF0TfnYGx6F3te7BMq0qC91xpLLq6lvsNtFA,9946
+configgery/configurations_metadata.py,sha256=YpJVQdLxBj_jDDBynXq7CxBRVnM1MogS0mcKcBldK48,3573
+configgery/file.py,sha256=mNdVlyhvV1MVWJoDRdR7W4i11HFeTyq4Z9yGxXZr9cE,729
+configgery_client-1.0.2.dist-info/LICENSE,sha256=xP0q67zU7B8d5bImMJxpXNYnpcn6-PoA3sUiI6_D8wM,1067
+configgery_client-1.0.2.dist-info/METADATA,sha256=hEuETSIgcm2uAn8szqjzdPvQ5dL8EkrB6M5Xa_wDaCE,2195
+configgery_client-1.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+configgery_client-1.0.2.dist-info/top_level.txt,sha256=2wfv3nUDg34O6faMN2YYaeQoRioXpjg0LtXZwwOYxUo,11
+configgery_client-1.0.2.dist-info/RECORD,,
