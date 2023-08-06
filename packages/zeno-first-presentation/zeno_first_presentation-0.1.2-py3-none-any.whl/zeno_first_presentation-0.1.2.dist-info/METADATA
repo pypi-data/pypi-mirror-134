@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: zeno-first-presentation
+Version: 0.1.2
+Summary: first project
+Home-page: UNKNOWN
+Author: Zeno Laurentiu
+Author-email: zeno_ms_07@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# zeno-first-presentation
+
+zeno-first-presentation is my first python library
+
+## Installation
+
+```bash
+pip install zeno-first-presentation
+```
+
+## Usage
+
+```python
+from zeno_presentation import zeno
+
+zeno.hello_from_zeno()
+# prints Hello from zeno
+```
+
+
+
