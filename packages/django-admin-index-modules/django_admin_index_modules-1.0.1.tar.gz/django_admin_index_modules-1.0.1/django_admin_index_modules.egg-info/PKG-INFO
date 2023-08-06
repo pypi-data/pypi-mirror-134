@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: django-admin-index-modules
+Version: 1.0.1
+Summary: Django admin index modules is a Django app that gives you the ability to add widgets modules to the django admin dashboard (admin index)
+Home-page: https://github.com/Fethienv/django_admin_index_modules
+Author: Fethi BEN ABDELHAMID
+Author-email: fethi.env@gmail.com
+Maintainer: Fethi BEN ABDELHAMID
+Maintainer-email: fethi.env@gmail.com
+License: MIT
+Description: Django admin index modules
+        =======================
+        
+        Django admin index modules is a Django app that gives you the ability to add widgets modules to the django admin dashboard (admin index).
+        
+        
+        Quick start
+        -----------
+        
+        1. comment "django.contrib.admin" and add "django_admin_index_modules.apps.CustomAdminConfig" to your INSTALLED_APPS setting like this:
+        
+        ```
+            INSTALLED_APPS = [
+                ...
+                #'django.contrib.admin',
+                'django_admin_index_modules.apps.CustomAdminConfig',
+                ...
+        
+                'django.contrib.staticfiles',
+                ...
+        
+                'django_admin_index_modules.apps.ModulesDashboardsConfig',
+                ...
+            ]
+        ```
+        2. In admin.py file of any other app create ypur widget module like this:
+        
+        ```
+            class VisitorsAdminModuleView(AdminModuleView):
+        
+                template_name = 'visitors.html'
+                json_method_names = ['post']
+                http_method_names = ['get','post']
+                permissions = ['is_superuser']
+                css = []
+                js = []
+        
+                def get(self, request, **kwargs):
+                    context = {
+                        'stats': "visitors"
+                    }
+                    return context
+        ```
+        
+        3. register your widget module using one of those methods:
+        
+        3. 1. using register_module(AdminModuleView, position="middle_top") methods:
+        
+        ```
+            site.register_module(VisitorsAdminModuleView, position="middle_top")
+        ```
+        
+        3. 2. using @register_module(position="middle_top") decorator:
+        
+        ```
+            @register_module(position="middle_top")
+            class VisitorsAdminModuleView(AdminModuleView):
+                ...
+        ```
+        
+        3. 3. position keyword can take one of those values: top, middle_top, middle_bottom and bottom
+        
+        4. Visit http://127.0.0.1:8000/admin/ to see your widget module.
+Keywords: django admin index widgets modules
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
