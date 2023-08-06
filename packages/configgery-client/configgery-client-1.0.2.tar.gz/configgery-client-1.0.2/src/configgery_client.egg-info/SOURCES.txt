@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/configgery/__init__.py
+src/configgery/client.py
+src/configgery/configurations_metadata.py
+src/configgery/file.py
+src/configgery_client.egg-info/PKG-INFO
+src/configgery_client.egg-info/SOURCES.txt
+src/configgery_client.egg-info/dependency_links.txt
+src/configgery_client.egg-info/requires.txt
+src/configgery_client.egg-info/top_level.txt
