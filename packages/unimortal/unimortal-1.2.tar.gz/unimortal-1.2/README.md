@@ -1,0 +1,78 @@
+# User Guide
+
+### General information about the dataset and the purpose of this package
+
+This package, called 'unimortal', is created in order to analyse a dataset provided by UNICEF that shows children's mortality around the world from the year 2009 to 2019. The data set is available at [UNICEF website](https://data.unicef.org/dv_index/). Some of its categories are:
+- Infant mortality rate
+- Infant deaths
+- Child mortality rate (aged 1-4 years)
+- Child deaths (aged 1-4 years)
+- Mortality rate (children aged 5-14 years)
+- Deaths (children aged 5-14 years)
+- Stillbirth rate
+- Stillbirth
+
+
+In this Python package the user can explore the 'Child mortality rate (aged 1-4 years)' and the 'Infant mortality rate' datasets. The aim of this prototype package is to help countries to analyse their own child mortality rates and assess their health plans as preserving lives of the newborn children is a long-standing issue in public health. The mortality rate is an important indicator in the overall physical health of the community and shows unmet human health needs in sanitation, medical care, nutrition and education.
+
+This package gives an opportunity to select a country of interest from one of the two datasets provided, as mentioned above,  and explore it using the following options:
+1. Visualisation by producing a bar graph that shows the mortality rate for males and females or the total mortality rate from  2009 to 2019. 
+2. Predicting the mortality rate for the next five years (2020 to 2024) using three different prediction models:
+       - the Autoregressive model (AR)
+       - the Autoregressive Moving Average (ARMA)
+       - the Autoregressive Integrated Moving Average (ARIMA)
+3. It is also possible to read some of the summary statistics such as mean, maximum and minimum values for either sex or the total mortality rate over the eleven year period (2009-2019)
+
+## Modules
+### 1. utils 
+This module serves as the main utility module of the package. It consists of following functions which can be used to achieve various functionalities
+Uploading the dataset
+In order to upload a dataset the user needs to use utils.load_dataset(filetype) and put 1 in place of the 'filetype' if 'Infant mortality rate' dataset is required or 2 for 'Child mortality rate (aged 1-4 years)', i.e. df1 = utils.load_dataset(1) or df2 = utils.load_dataset(2). This is the first compulsory function to execute when using the package. This dataset is automatically cleaned and prepared for further use.
+
+Refer to EX1 in Example section
+
+Extracting the dataset
+For extracting a country of interest from the selected dataset the user needs to use utils.extract_dataset(country, df, sex='A') and put the name of the country of interest in place of 'country' and type of dataset in place of 'df', e.g. df1 = utils.extract_dataset('United Kingdom', df1,'A') for dataset with mortality rate for infants in the United Kingdom or df2 = utils.extract_dataset('India', df2,'A') for dataset with mortality rate for children aged 1 to 4 years in India. The 'sex' parameter accepts a single character: 'F'- Female (extract only Female data), 'M'- Male (extract only Male data), 'A'- All( this is default option). This is the second compulsory function to execute when using the package.
+
+Refer to EX2/EX2(a) in Example section
+
+Summary statistics
+The function utils.summary(df) returns summarised information of the subset of interest from the main dataset. The 'df' parameter accepts a pandas data frame which is received from invoking the extract_dataset(country, df, sex) function. The function will return the summary of dataset (i.e. min/max/mean values) for each sex in the selected country.
+
+Refer to EX3 in Example section
+
+Combining the datasets
+A user might be interested in looking at a dataset for both age groups, infants and children aged 1 to 4 years, for a country of interest. The merge_dataset(df1, df2) function merges the two datasets. Both parameters, 'df1' and 'df2', accept pandas data frame. Two dataframes of interest can be passed inside the function. Function will return the concatenated dataset. By default 'axis=0' concatenates 'df1' and 'df2' vertically.
+
+Refer to EX4 in Example section
+
+Changing dataset's format
+The wide_to_long(df)function displays the dataset in the wide format. The user might be interested in looking at the dataset in this format. Moreover, the wide format is essential if the user is going to visualise the dataset by plotting graphs. The 'df' parameter accepts the data frame which is received by invoking extract_dataset(country, df, sex), e.g. df_long_2 = utils.wide_to_long(df2) is changing of the infant dataset (df2) for the long format (df_long_2).
+
+Refer to EX5 in Example section
+
+### 2. plots 
+This module can be used for graphical representation of the mortality rates. It consists of two functions: comp_sex(df,filetype) and see_total(df,filetype).
+Graphs plotting
+Visualisation of the extracted dataset is possible if the dataset is changed from a 'wide format' to a 'long format'. To do that the user needs to use utils.wide_to_long(df),i.e. df_long_1 = utils.wide_to_long(df1) is the long format of the dataset for the infants and df_long_2 = utils.wide_to_long(df2) is the long format for dataset with the mortality rate for children aged 1 to 4 years. The 'df' parameter is received by invoking extract_dataset(country, df, sex)where 'sex' parameter must be selected as 'A' ('sex='A'). Otherwise, functions responsible for producing graphs will show an error.
+
+Once the dataset is in the 'long format' bar graphs can be produced by using plots.comp_sex(df,filetype) to see a double bar plot showing males and females mortality rate and plots.see_total(df,filetype) to see a horizontal bar plot with the total score of the mortality rate, where 'df' is the type of long format dataset (df_long_1 or df_long_2) and 'filetype' must be replaced by 1 for infant mortality rate or by 2 for the mortality rate of children aged 1 to 4 years. For example, plots.comp_sex(df_long_1,1) will produce a plot with males and females for infants and plots.comp_sex(df_long_2,2) will produce a plot with males and females for children aged 1 to 4 years. In the same way the user can produce a horizontal bar plot for the total rate using plots.see_total(df,filetype).
+
+Refer to EX9 and EX10 in Example section
+
+### 3. fcmodel 
+This module provides forcast of child mortality and predicts the same for next four years. It consists of following functions which can be used to achieve various timeseries analysis models
+For predicting the mortality rate over the next five years the user has a choice of three predicting models:
+
+fcmodel.autoreg(df, country, tp, sex, lg)- AR model,
+fcmodel.movavg(df, country, tp, sex, ord)- ARMA model ,
+fcmodel.movavgintg(df, country, tp, sex, ord)- ARIMA model,
+where 'df' is received from invoking extract_dataset(country, df, sex) and can be replaced by 'df1' or 'df2'. The 'country' parameter needs to be replaced by the name of the country of interest, e.g. 'Poland', 'tp' either by 1 for 'Infant mortality rate' or 2 for 'Child mortality rate (aged 1-4 years)', 'sex' should be replace by a single character 'F','M', or 'A' and 'lg' is the maximum lag and can take a single integer value, e.g. 2. Note that the replacement of 'country', 'tp' and 'sex' must be in single or double speech marks, for example, ARmodel = fcmodel.autoreg(df1, 'Iraq', 1, 'F', 2). Then the user needs to type print(ARmodel). The 'ord' parameter indicates the order in the ARIMA model. It accepts a tuple of three values e.g. (0,1,1). In the ARIMA(p,d,q) 'p' is the order of the autoregressive model (number of time lags), 'd' is the degree of differencing (the number of times the data have had past values subtracted), and 'q' is the order of the moving-average model. The 'ord' parameter indicates the order for the ARMA model. It accepts a tuple of two values e.g. (0,1). In the ARMA(p,q) model p is the order of the autoregressive polynomial, and q is the order of the moving average polynomial.
+
+Refer to EX6, EX7 and EX8 in Example section
+
+### 4. data 
+The package has two datasets , which are downloaded from unicef website. In this prototype, we demonstrate the features using the below two datasets.
+
+GLOBAL_DATAFLOW_infant_2009-2019
+GLOBAL_DATAFLOW_under5_2009-2019
