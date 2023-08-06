@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: rltrade-pypbo
+Version: 0.0.1
+Summary: probability for overfitting
+Home-page: https://github.com/esvhd/pypbo
+License: UNKNOWN
+Keywords: Reinforcement Learning
+Platform: UNKNOWN
+Requires-Python: >=3.7
+License-File: LICENSE
+
+probability for overfitting
+
