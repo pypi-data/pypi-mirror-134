@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: splt
+Version: 2.0
+Summary: 本函数会要求您输入字符串的长度及字符串本身（只适用于中文字符），本程序将会将这个字符串逐字分开
+Home-page: https://www.baidu.com
+Author: 高乐喆
+Author-email: gaolezhe@oulook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+本函数会要求您输入字符串的长度及字符串本身（只适用于中文字符），本程序将会将这个字符串逐字分开
+
