@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+docs/bioconverters.md
+src/bioconverters/__init__.py
+src/bioconverters/main.py
+src/bioconverters/pmcxml.py
+src/bioconverters/pubmedxml.py
+src/bioconverters/utils.py
+src/bioconverters.egg-info/PKG-INFO
+src/bioconverters.egg-info/SOURCES.txt
+src/bioconverters.egg-info/dependency_links.txt
+src/bioconverters.egg-info/requires.txt
+src/bioconverters.egg-info/top_level.txt
