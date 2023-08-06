@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICESNCE.txt
+MANIFEST.in
+README.txt
+__init__.py
+setup.py
+NiniGvenetadze.egg-info/PKG-INFO
+NiniGvenetadze.egg-info/SOURCES.txt
+NiniGvenetadze.egg-info/dependency_links.txt
+NiniGvenetadze.egg-info/top_level.txt

@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: NiniGvenetadze
+Version: 0.0.1
+Summary: simple Calculator
+Home-page: UNKNOWN
+Author: Nini Gvenetadze
+Author-email: nini.gvenetadze.1@btu.edu.ge
+License: MIT
+Keywords: calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+
+simple Calc:Add, subtract, multiply, divide
+
+version-0.0.1
+
