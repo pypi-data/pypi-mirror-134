@@ -1,0 +1,13 @@
+gp32_transfer/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+gp32_transfer/main.py,sha256=gi-QGGhIhwEM8nWvfQmp2TbMdcAot73OGgjDA5eWn_c,284
+gp32_transfer/typerApp/import_nmea.py,sha256=I5StXDjFspEVMi69xXKiobOpAJoW3Yy9xhz2GlgDcQU,317
+gp32_transfer/typerApp/write_to_gps.py,sha256=7X5mZXmPJwfaqbtUKHaWlTWbEx7gRCe3FL53XMiUB7M,1015
+gp32_transfer/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gp32_transfer/utils/const.py,sha256=BRASpej1EOIJGV_jmYCZD1L6cLjUpkFEwNqrk9hQIc4,3975
+gp32_transfer/utils/furuno_read.py,sha256=PLrMG0dnv_KRxRAuQFTQZ_AGRCAH24KqFRkGZQoRP6Q,1398
+gp32_transfer/utils/furuno_write.py,sha256=_c9wj32Cv8k809ZCP2J1gI7oFxASYUEOK3pHA4YDLs4,8532
+gp32_transfer/utils/serial_util.py,sha256=ounQ0AbNpphLuJJUIBQyT5Yw8hJF_UUhMMcFBEBdT4Y,4588
+gp32_transfer-0.1.0.dist-info/entry_points.txt,sha256=w7c1z7tt1FN6RIQVXpuHU341IwFKpSJAiHRKDrUjzsU,56
+gp32_transfer-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+gp32_transfer-0.1.0.dist-info/METADATA,sha256=Q7hxcYZsgriqSX-o4nCKAK3wRMi81BN0NQSdp7LPkwA,5202
+gp32_transfer-0.1.0.dist-info/RECORD,,
