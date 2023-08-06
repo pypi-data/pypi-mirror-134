@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: universal-answer-package-tutorial
+Version: 0.0.1
+Summary: Universal tool to determine the answer.
+Home-page: https://github.com/MDornacher/universal-answer
+Author: Manuel Dornacher
+Author-email: manuel.dornacher@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education :: Testing
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: tqdm (~=4.62)
+Provides-Extra: dev
+Requires-Dist: pytest (>=6.2) ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+
+# Universal Answer
+
+Universal tool to determine the answer. Only used to test Python packaging.
+
+## Installation
+
+Run the following to install:
+```commandline
+pip install universal-answer-package-tutorial
+```
+
+## Usage
+
+```python
+from answer import determine_answer
+
+# Find the general answer
+determine_answer()
+
+# Or provide some parameters
+determine_answer()
+```
+
+# Developing Universal Answer
+
+To install answer, along with tools you need to develop and run tests, run the following in your virtualenv:
+
+```commandline
+pip install -e .[dev]
+```
+
+
