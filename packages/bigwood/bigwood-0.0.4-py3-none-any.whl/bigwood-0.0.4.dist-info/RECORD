@@ -1,0 +1,12 @@
+bigwood/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bigwood/network/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bigwood/network/network.py,sha256=Ooi2Te_Q-cWZLsEhQzsKkCNlr8q1SiLiXVp0mFAeefo,233
+bigwood-0.0.4.dist-info/DESCRIPTION.rst,sha256=4SNk1o7fXJw_iimOBZBhBlGRoPf2PQNZd24p2LmWwGU,47
+bigwood-0.0.4.dist-info/METADATA,sha256=iT0c3aZCvLJ429aWwmHp8Rd0FzFs77wRcqdSWopVNuA,271
+bigwood-0.0.4.dist-info/RECORD,,
+bigwood-0.0.4.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+bigwood-0.0.4.dist-info/metadata.json,sha256=nJsvIpxZlY-zZOw3Q1TCk1oHGc0yEI2NtOvWZXQJdag,380
+bigwood-0.0.4.dist-info/top_level.txt,sha256=cXLITNLfrKagEqJNglTPQpKdgMqTMeI1nOaHhuqrtEc,8
+data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+network/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+network/network.py,sha256=Ooi2Te_Q-cWZLsEhQzsKkCNlr8q1SiLiXVp0mFAeefo,233

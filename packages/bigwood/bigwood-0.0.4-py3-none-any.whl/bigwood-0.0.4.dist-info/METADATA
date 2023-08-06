@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: bigwood
+Version: 0.0.4
+Summary: Packaged utility tools for bigwood
+Home-page: UNKNOWN
+Author: christopherhwoodall@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# My first pip package 
+
+This is pretty cool
+
+
