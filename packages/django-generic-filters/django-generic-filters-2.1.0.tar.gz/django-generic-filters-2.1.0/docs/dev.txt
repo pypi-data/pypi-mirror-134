@@ -1,0 +1,116 @@
+###########################
+Contributing to the project
+###########################
+
+This document provides guidelines for people who want to contribute to the
+project.
+
+
+**************
+Create tickets
+**************
+
+Please use the `bugtracker`_ **before** starting some work:
+
+* check if the bug or feature request has already been filed. It may have been
+  answered too!
+
+* else create a new ticket.
+
+* if you plan to contribute, tell us, so that we are given an opportunity to
+  give feedback as soon as possible.
+
+* Then, in your commit messages, reference the ticket with some
+  ``refs #TICKET-ID`` syntax.
+
+
+***************
+Fork and branch
+***************
+
+* Work in forks and branches.
+
+* Prefix your branch with the ticket ID corresponding to the issue. As an
+  example, if you are working on ticket #23 which is about contribute
+  documentation, name your branch like ``23-contribute-doc``.
+
+* If you work in a development branch and want to refresh it with changes from
+  master, please `rebase`_ or `merge-based rebase`_, i.e. don't merge master.
+
+
+*******************************
+Setup a development environment
+*******************************
+
+
+***********
+Development
+***********
+
+.. code-block:: console
+
+    $ # Launch a postgres DB with:
+    $ docker-compose up -d
+
+    $ # Configure environment variables with
+    $ export PGDATABASE=db PGHOST=localhost PGUSER=postgres PGPASSWORD=password
+    $ export DJANGO_SETTINGS_MODULE=demoproject.settings
+
+    $ # Create a virtualenv, activate it and install dev dependencies
+    $ python3 -m venv .venv
+    $ source .venv/bin/activate
+    $ pip install -r requirements.txt
+
+    $ # Launch tests with
+    $ tox
+
+    $ # Format code with
+    $ tox -e format
+
+    $ # Launch the demo
+    $ python -m django runserver
+
+*******
+Release
+*******
+
+Release in GitHub, GitHub Actions should take care of the rest.
+Note that there should be a release draft with a basic PR-based changelog, so
+start from this and iterate.
+
+*************
+Documentation
+*************
+
+Follow `style guide for Sphinx-based documentations`_ when editing the
+documentation.
+
+
+**************
+Test and build
+**************
+
+Use ``tox``.
+
+*********************
+Demo project included
+*********************
+
+The demo is part of the tests. Maintain it along with code and
+documentation.
+
+
+**********
+References
+**********
+
+.. target-notes::
+
+.. _`bugtracker`:
+   https://github.com/novapost/django-generic-filters/issues
+.. _`rebase`: http://git-scm.com/book/en/Git-Branching-Rebasing
+.. _`merge-based rebase`: http://tech.novapost.fr/psycho-rebasing-en.html
+.. _`Python`: http://python.org
+.. _`Virtualenv`: http://virtualenv.org
+.. _`style guide for Sphinx-based documentations`:
+   https://documentation-style-guide-sphinx.readthedocs.io/

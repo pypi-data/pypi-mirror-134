@@ -1,0 +1,13 @@
+Django
+munch
+
+[dev]
+psycopg2
+black
+isort
+flake8
+pytest
+pytest-cov
+pytest-django
+tox
+factory-boy
