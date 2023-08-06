@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cell-ai
+Version: 0.0.0
+Summary: cell-ai - vibrant models expressive of cell states
+Home-page: UNKNOWN
+Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
+Author-email: mvinyard@broadinstitute.org
+License: MIT
+Description: # cell-ai
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >3.6.0
+Description-Content-Type: text/markdown
