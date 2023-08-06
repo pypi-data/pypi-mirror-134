@@ -1,0 +1,4 @@
+fair-research-login>=0.1.5
+globus_nexus_client==0.3.*
+globus-sdk==2.0.*
+requests>=2.18.4
