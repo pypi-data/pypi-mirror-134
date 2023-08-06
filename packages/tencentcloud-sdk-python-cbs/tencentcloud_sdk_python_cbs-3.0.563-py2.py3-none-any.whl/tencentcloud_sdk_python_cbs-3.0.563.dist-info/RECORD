@@ -1,0 +1,10 @@
+tencentcloud/__init__.py,sha256=VxO-51TCiKBWWwbBTMbP6Ky76zG0w5FWlwSbRVh0bWo,630
+tencentcloud/cbs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tencentcloud/cbs/v20170312/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tencentcloud/cbs/v20170312/cbs_client.py,sha256=1xFgXpU9-y4L7J3uPDkg-_rtLdVwB5k4e04yPumv8ro,53180
+tencentcloud/cbs/v20170312/errorcodes.py,sha256=ZpeqYTkGu7SBTDJKv3kknBybaZFc5457y5KBxBkAkuI,6986
+tencentcloud/cbs/v20170312/models.py,sha256=J8r1VnJ94bUHOUu9AXZvupykA5gbZkTiNAI7Oiw7XdA,127259
+tencentcloud_sdk_python_cbs-3.0.563.dist-info/METADATA,sha256=2-mSUxNHnpPnyvAuht8pYJfRijQqnIdpDzPoguuc724,1432
+tencentcloud_sdk_python_cbs-3.0.563.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+tencentcloud_sdk_python_cbs-3.0.563.dist-info/top_level.txt,sha256=g-8OyzoqI6O6LiS85zkeNzhB-osEnRIPZMdyRd_0eL0,13
+tencentcloud_sdk_python_cbs-3.0.563.dist-info/RECORD,,
