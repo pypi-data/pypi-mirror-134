@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: form-schema-generator
+Version: 1.1
+Summary: model base form schema generator
+Home-page: UNKNOWN
+Author: Dong Uk Im
+Author-email: donguk.im@datamaker.io
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: Django (>=3.2.0)
+Requires-Dist: djangorestframework (>=3.12.4)
+Requires-Dist: drf-spectacular (>=0.19.0)
+
+UNKNOWN
+

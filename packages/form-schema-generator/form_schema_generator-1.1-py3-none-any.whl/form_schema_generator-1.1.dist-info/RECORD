@@ -1,0 +1,15 @@
+form_schema_generator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+form_schema_generator/apps.py,sha256=KSaQuBxsfqs28_3kMkkbHs965JC_0eBoq7knWkmlCi4,291
+form_schema_generator/enum_meta.py,sha256=PPHxkzPrtUMG0PiuDzvgkaV34cbtVEO6FY7hhxJrwHE,510
+form_schema_generator/enums.py,sha256=9OxO4qnwmpo_7W-SmyLDUV2ERy57yDU-kydEde4M6Cs,1152
+form_schema_generator/generator.py,sha256=YIV0FuPmVbNt8X_NhTFLfhbJKqzA0QxSkiLuJlMXdIw,3169
+form_schema_generator/serializers.py,sha256=Jt0qkj1zuMtGW7P8GrPPed570fgzsU2IcnugZ4cVg3M,719
+form_schema_generator/urls.py,sha256=WsyQYqEZnnKBNzPlNBZ61D7M12qNgFL1q7RVnXS4QYk,295
+form_schema_generator/viewset.py,sha256=KkEVcVO5vxjgYwDWeBHGcmGsc2Hkx5YYrMWXV5yeCFc,2670
+form_schema_generator/convertors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+form_schema_generator/convertors/base.py,sha256=C3_fRFXi4aoUhVSdO_NTSv4ejvSffct1RmYllDUxyzY,3559
+form_schema_generator/convertors/vue_formulator.py,sha256=mNlq9DoOoVlapokGqMzP9RK8kHIP2ieF16cFK8DfAsQ,5761
+form_schema_generator-1.1.dist-info/METADATA,sha256=16Kl_hhLBKMFs3PU9_cXQYh4GKrRHF_G5BZhb3JjsTQ,366
+form_schema_generator-1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+form_schema_generator-1.1.dist-info/top_level.txt,sha256=YbmwLJwLpB_sCmFGNpwtZD6-ROo4mqoHRXKx6G8No6c,22
+form_schema_generator-1.1.dist-info/RECORD,,
