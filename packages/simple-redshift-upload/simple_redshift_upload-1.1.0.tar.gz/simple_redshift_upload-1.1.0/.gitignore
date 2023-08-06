@@ -1,0 +1,10 @@
+*.csv
+*.pyc
+/test.py
+simple_redshift_upload.egg-info/*
+*.tar.gz
+aws_account_creds.json
+tests/aws_creds*.json
+*.png
+!documentation/*.png
+redshift_upload/credential_store/*.json
