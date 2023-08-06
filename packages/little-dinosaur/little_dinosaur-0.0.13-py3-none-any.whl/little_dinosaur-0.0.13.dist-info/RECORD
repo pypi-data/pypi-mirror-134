@@ -1,0 +1,12 @@
+little_dinosaur/__init__.py,sha256=eZz4EW7afGSZFs6esjEUYSh-KT_a8lA5EEDavkOfzdM,175
+little_dinosaur/confident_learning.py,sha256=pLRWL4_vlHeTCofW6DgDUNw_fz6Nm884oRfg1sz464c,1125
+little_dinosaur/confident_learning_model.py,sha256=sDoY_HBWRCjSoovDSq1X7qCJY3cD-yPr8_EaBXu0W9w,6803
+little_dinosaur/download_utils.py,sha256=nhe3h_Yfod49BJrPH4N_bFuedR2BuVYedmU8eB90ihE,4064
+little_dinosaur/eat.py,sha256=Tn8OhaSMI_X4Q6L25IWZ5XyCxYWZe60Iop_lpFKZfwQ,1742
+little_dinosaur/load_pre_model.py,sha256=nHTHVh9DIlWIW0xocjAW1eQtx7RLTWj--LefdrnO-_U,3925
+little_dinosaur/nlp_classification_model.py,sha256=XTMOGTVL_xT8O1CfAmJtfBHPQBR2SHKsnvyheXp6ojo,9385
+little_dinosaur/utils.py,sha256=lG1Dp4_RvT1Ycwu3_ufL4DE__IyKcN_DsTOLTd-Fay4,1379
+little_dinosaur-0.0.13.dist-info/METADATA,sha256=1DdTv9T2TIIU2dazcN78hhcoDVHDUbk99ZXubt4idw0,323
+little_dinosaur-0.0.13.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+little_dinosaur-0.0.13.dist-info/top_level.txt,sha256=sH5wbmSJ-rAXhd9vhjIbweB6UxxhtY-nRT5Vkn5s__g,16
+little_dinosaur-0.0.13.dist-info/RECORD,,
