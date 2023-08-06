@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: pyemddf
+Version: 1.3.0
+Summary: Bridge connecting python and java EMD-DF.
+Home-page: UNKNOWN
+Author: Manuel Pereira
+Author-email: afonso.pereira4525@gmail.com
+License: The MIT License
+Description: 
+        pyemddf
+        ===========
+        
+        EMD-DF is a sound file format developed in java.
+        ---
+        Example notebook inside the [pyemddf/docs](https://gitlab.com/ManelPereira/pyemddf/-/tree/master/pyemddf/docs) folder
+        
+        Install it from [PyPI](https://pypi.org/project/pyemddf/) by using **pip install pyemddf** 
+        
+        Core project available at: [EMD-DF](https://gitlab.com/alspereira/EMD-DF)
+        
+Platform: UNKNOWN
