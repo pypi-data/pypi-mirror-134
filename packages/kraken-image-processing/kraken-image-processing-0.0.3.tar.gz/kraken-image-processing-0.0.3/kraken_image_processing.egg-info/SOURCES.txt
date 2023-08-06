@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+kraken_image_processing/__init__.py
+kraken_image_processing/class_imageObject.py
+kraken_image_processing/class_person.py
+kraken_image_processing/flask_routes.py
+kraken_image_processing/kraken_engine.py
+kraken_image_processing/kraken_image_io.py
+kraken_image_processing/kraken_image_processing.py
+kraken_image_processing/post_to_image_share.py
+kraken_image_processing.egg-info/PKG-INFO
+kraken_image_processing.egg-info/SOURCES.txt
+kraken_image_processing.egg-info/dependency_links.txt
+kraken_image_processing.egg-info/requires.txt
+kraken_image_processing.egg-info/top_level.txt
