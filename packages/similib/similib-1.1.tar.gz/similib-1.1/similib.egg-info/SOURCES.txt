@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+similib/__init__.py
+similib/cmd.py
+similib/date_and_time.py
+similib/exceptions.py
+similib/mongodb.py
+similib/xpath.py
+similib.egg-info/PKG-INFO
+similib.egg-info/SOURCES.txt
+similib.egg-info/dependency_links.txt
+similib.egg-info/requires.txt
+similib.egg-info/top_level.txt
