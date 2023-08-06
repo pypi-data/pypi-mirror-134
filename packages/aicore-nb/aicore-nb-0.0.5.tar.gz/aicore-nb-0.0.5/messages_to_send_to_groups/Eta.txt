@@ -1,0 +1,20 @@
+What's up team?
+
+Here's what we should all be doing today:
+- 1830-1930: Focused pre-reading until you are ready to get hands-on
+- 1930-2100: Work together on practicals
+- 2100-2130: Complete the next quiz
+- 2100-2130: Demo hosted by Ivan: Teachable Machine Part II. Difficulty: Intermediate
+
+Here's the groups for today:
+- Room 10
+	- Hristo Petkov
+	- Tamim Ehsan
+	- Leslie Claussen
+- Room 11
+	- Ishtyaq Nabi
+	- Tafadzwa Zama
+	- Simeon Bamgbaye
+- Room 12
+	- Jason Ebblewhite
+	- Victor Bamgbaye

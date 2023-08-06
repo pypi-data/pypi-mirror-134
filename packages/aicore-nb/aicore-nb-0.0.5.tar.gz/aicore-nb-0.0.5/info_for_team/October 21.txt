@@ -1,0 +1,25 @@
+Hello everyone
+
+Here's the agenda for today:
+- 1830-1930: Focused pre-reading until you are ready to get hands-on
+- 1930-2100: Work together on practicals
+- 2100-2130: Complete the next quiz
+- 2100-2130: Demo hosted by Ivan: Teachable Machine Part II. Difficulty: Intermediate
+
+Here's the groups for today:
+- Room 2
+	- Ahsan Muzafar. Lesson: Web Scraping
+	- Darrel Anderson. Lesson: SQL Basics
+	- Luqman Awoniyi. Lesson: CRUD
+- Room 3
+	- Dan Bouchard. Lesson: CRUD
+	- Joseph Solomon. Lesson: Joins
+	- James Overend. Lesson: Joins
+- Room 4
+	- Euan Wrigglesworth. Lesson: Joins
+	- Dhaval Kakadiya. Lesson: Joins
+	- Regina Aiken. Lesson: Joins
+- Room 5
+	- Arman Hameed. Lesson: Joins
+	- Mateusz Baran. Lesson: Aggregations
+	- Quratulaen Ikram. Lesson: Aggregations

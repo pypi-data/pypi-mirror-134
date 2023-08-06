@@ -1,0 +1,21 @@
+Hi squad
+
+Here's the schedule for today:
+- 1830-1930: Focused pre-reading until you are ready to get hands-on
+- 1930-2100: Work together on practicals
+- 2100-2130: Complete the next quiz
+- 2100-2130: Demo hosted by Ivan: Teachable Machine Part II. Difficulty: Intermediate
+
+Here's the rooms:
+- Room 17
+	- Milan Sajiv. Lesson: Web Scraping
+	- Bilal Armiyawo. Lesson: Dynamic Programming
+	- Olumide Fatokun. Lesson: Joins
+- Room 18
+	- Alex Henderson. Lesson: Aggregations
+	- Yuya Ra. Lesson: Aggregations
+	- Easha Tu Razia. Lesson: Aggregations
+- Room 19
+	- Ana-Maria Dicu. Lesson: GitHub Actions
+	- Marianna Karavangeli. Lesson: GitHub Actions
+	- Harry Smith. Lesson: GitHub Actions

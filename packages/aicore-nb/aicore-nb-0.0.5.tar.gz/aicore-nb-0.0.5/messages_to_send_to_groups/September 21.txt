@@ -1,0 +1,24 @@
+Hello squad
+
+Here's what's happening today:
+- 1830-1930: Focused pre-reading until you are ready to get hands-on
+- 1930-2100: Work together on practicals
+- 2100-2130: Complete the next quiz
+- 2100-2130: Demo hosted by Ivan: Teachable Machine Part II. Difficulty: Intermediate
+
+Here are the groups for today:
+- Room 13
+	- Hesham Haikal
+	- Taj Patel
+	- Divya Munshi
+- Room 14
+	- Ellie Brakoniecki
+	- Eddie Evans
+	- Siraj Choudhury
+- Room 15
+	- Faiz Meghjee
+	- Dilan Lodhia
+	- Bolade Fadipe
+- Room 16
+	- Daniel Lund
+	- Ovidiu Popa

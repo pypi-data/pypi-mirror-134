@@ -1,0 +1,24 @@
+Hi squad
+
+Here's the agenda for today:
+- 1830-1930: Focused pre-reading until you are ready to get hands-on
+- 1930-2100: Work together on practicals
+- 2100-2130: Complete the next quiz
+- 2100-2130: Demo hosted by Ivan: Teachable Machine Part II. Difficulty: Intermediate
+
+Here's the groups:
+- Room 13
+	- Hesham Haikal. Lesson: EC2 Instances
+	- Taj Patel. Lesson: Intro to Docker
+	- Divya Munshi. Lesson: Docker
+- Room 14
+	- Ellie Brakoniecki. Lesson: Intro to Prometheus
+	- Eddie Evans. Lesson: Intro to Prometheus
+	- Siraj Choudhury. Lesson: Intro to Prometheus
+- Room 15
+	- Faiz Meghjee. Lesson: Prometheus
+	- Dilan Lodhia. Lesson: Grafana
+	- Bolade Fadipe. Lesson: GitHub Actions
+- Room 16
+	- Daniel Lund. Lesson: GitHub Actions
+	- Ovidiu Popa. Lesson: GitHub Actions
