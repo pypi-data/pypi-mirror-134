@@ -1,0 +1,8 @@
+README.md
+setup.py
+ejarosz_hello_world.egg-info/PKG-INFO
+ejarosz_hello_world.egg-info/SOURCES.txt
+ejarosz_hello_world.egg-info/dependency_links.txt
+ejarosz_hello_world.egg-info/top_level.txt
+sample_package/__init__.py
+sample_package/sample.py
