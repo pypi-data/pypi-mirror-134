@@ -1,0 +1,12 @@
+testudo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+testudo/cli.py,sha256=hEiFS4rKm2Eoq8xo4ECVHrC4AyA7_Ts1wG39Xvr_zTg,1809
+testudo/config.py,sha256=7dDt9gD0UNOfLhGb4sC4bJVGXWwAGIjZJznEnnotWOU,874
+testudo/log.py,sha256=NWr7h_F1J2LUnWypRmAn0uHD3ki56sYgu0_zpuVhAjo,1161
+testudo/reporter.py,sha256=f1dZS5yD091tHL7XszlzUpQs1dkBnPLtLB6DM2Bjrn4,3566
+testudo/runner.py,sha256=ZcQuskrLQj-YJKjIzriF22VSVO0r8VW7QfQd8EgkrTw,3589
+testudo/task_manager.py,sha256=PEL32MabJqdpddiE7SlT08-kAVGuRH4zAc4TfdlzRzE,5182
+testudo-0.1.7.dist-info/entry_points.txt,sha256=VzE3cy1c873qU7uUnhuV-XlcsDPX6KnGzahCh9WxaQg,44
+testudo-0.1.7.dist-info/LICENSE,sha256=fFDNm4Xit-666itWGLQChisB1aZr7_-OQUAe8_FORxo,34500
+testudo-0.1.7.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+testudo-0.1.7.dist-info/METADATA,sha256=YQ7GC7Y5zHgCEIQijwZK4n9GawPCP1Dv1psL7k-HR1o,3953
+testudo-0.1.7.dist-info/RECORD,,
