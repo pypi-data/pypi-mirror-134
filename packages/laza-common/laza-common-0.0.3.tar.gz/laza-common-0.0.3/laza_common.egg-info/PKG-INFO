@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: laza-common
+Version: 0.0.3
+Summary: A python development toolkit
+Home-page: https://github.com/laza-toolkit/common
+Author: David Kyalo
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/laza-toolkit/common/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: ~=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: json
+Provides-Extra: locale
+Provides-Extra: moment
+Provides-Extra: money
+Provides-Extra: networks
+Provides-Extra: phone
+Provides-Extra: all
+License-File: LICENSE.txt
+
+# Laza Common
+
+A set of common python utility modules.
+
+
+
+
+## Installation
+
+Install from [PyPi](https://pypi.org/project/laza-common/)
+
+```
+pip install laza-di
+```
+
+Full install. Installs all optional dependencies.
+```
+pip install laza-common[all]
+```
+
+
+#### Optional Dependencies
+
+The following features/modules have additional dependecies that you might need to install:-
+
+- `json` which requires `orjson`
+```
+pip install laza-common[json]
+```
+- `locale` which requires `babel`
+```
+pip install laza-common[locale]
+```
+- `moment` which requires `arrow`
+```
+pip install laza-common[moment]
+```
+- `money` which requires `py-moneyed`
+```
+pip install laza-common[money]
+```
+- `networks` which requires `pydantic[email]`
+```
+pip install laza-common[networks]
+```
+- `phone` which requires `phonenumbers`
+```
+pip install laza-common[phone]
+```
+
+or you can pick a set
+```
+pip install laza-common[phone,json,money]
+```
+
+
+
+## Documentation
+
+Coming soon.
+
+
+## Production
+
+__This package is still in active development and should not be used in production environment__
+
+
+
