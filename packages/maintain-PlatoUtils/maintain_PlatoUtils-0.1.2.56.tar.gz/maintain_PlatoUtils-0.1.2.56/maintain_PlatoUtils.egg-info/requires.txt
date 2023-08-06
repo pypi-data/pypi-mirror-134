@@ -1,0 +1,10 @@
+numpy
+nebula-python
+pandas
+tensorflow
+stellargraph
+numpy
+pandas
+tqdm
+networkx
+chardet
