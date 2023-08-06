@@ -1,0 +1,9 @@
+setup.py
+lxxgg/__init__.py
+lxxgg/demo.py
+test/test.py
+testlyh.egg-info/PKG-INFO
+testlyh.egg-info/SOURCES.txt
+testlyh.egg-info/dependency_links.txt
+testlyh.egg-info/top_level.txt
+testlyh.egg-info/zip-safe
