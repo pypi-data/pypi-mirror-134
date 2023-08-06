@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: types-tzlocal
+Version: 4.1.0
+Summary: Typing stubs for tzlocal
+Home-page: https://github.com/python/typeshed
+License: Apache-2.0 license
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Typing :: Stubs Only
+Description-Content-Type: text/markdown
+
+## Typing stubs for tzlocal
+
+This is a PEP 561 type stub package for the `tzlocal` package.
+It can be used by type-checking tools like mypy, PyCharm, pytype etc. to check code
+that uses `tzlocal`. The source for this package can be found at
+https://github.com/python/typeshed/tree/master/stubs/tzlocal. All fixes for
+types and metadata should be contributed there.
+
+See https://github.com/python/typeshed/blob/master/README.md for more details.
+This package was generated from typeshed commit `7920f502e2e9fd072b450d343a5d11018f674ec9`.
+
+
