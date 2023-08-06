@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: laza-common
+Version: 0.0.2
+Summary: A python development toolkit
+Home-page: https://github.com/laza-toolkit/common
+Author: David Kyalo
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/laza-toolkit/common/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: ~=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: typing-extensions (~=4.0.1)
+Provides-Extra: all
+Requires-Dist: laza-common[json,locale,moment,money,networks,phone] ; extra == 'all'
+Provides-Extra: json
+Requires-Dist: orjson (~=3.6.5) ; extra == 'json'
+Provides-Extra: locale
+Requires-Dist: Babel ; extra == 'locale'
+Provides-Extra: moment
+Requires-Dist: arrow ; extra == 'moment'
+Provides-Extra: money
+Requires-Dist: laza-common[locale] ; extra == 'money'
+Requires-Dist: py-moneyed (~=2.0) ; extra == 'money'
+Provides-Extra: networks
+Requires-Dist: pydantic[email] ; extra == 'networks'
+Provides-Extra: phone
+Requires-Dist: laza-common[locale] ; extra == 'phone'
+Requires-Dist: phonenumbers (~=8.12.40) ; extra == 'phone'
+
+# Laza Common
+
+A set of common python utility modules.
+
+
+
+
+## Install
+
+Basic install
+```
+    pip install laza-common
+```
+
+Full install. Installs all optional dependencies.
+```
+    pip install laza-common[all]
+```
+
+
+#### Optional Dependencies
+
+The following features/modules have additional dependecies that you might need to install:-
+
+- `json` which requires `orjson`
+    ```
+    pip install laza-common[json]
+    ```
+- `locale` which requires `babel`
+    ```
+    pip install laza-common[locale]
+    ```
+- `moment` which requires `arrow`
+    ```
+    pip install laza-common[moment]
+    ```
+- `money` which requires `py-moneyed`
+    ```
+    pip install laza-common[money]
+    ```
+- `networks` which requires `pydantic[email]`
+    ```
+    pip install laza-common[networks]
+    ```
+- `phone` which requires `phonenumbers`
+    ```
+    pip install laza-common[phone]
+    ```
+
+or you can pick a set
+```
+pip install laza-common[phone,json,money]
+```
+
+
+- `money` : install `pip install laza-common[money]`
+- `networks` : install `pip install laza-common[networks]`
+- `phone` : install `pip install laza-common[phone]`
+- or install all: `pip install laza-common[all]`
+
+
+
