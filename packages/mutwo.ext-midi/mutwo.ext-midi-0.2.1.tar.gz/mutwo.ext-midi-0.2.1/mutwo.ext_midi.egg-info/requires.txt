@@ -1,0 +1,9 @@
+mutwo<1.0.0,>=0.49.0
+mutwo.ext-music<1.0.0,>=0.2.0
+expenvelope<1.0.0,>=0.6.5
+mido<2,>=1.2.9
+numpy<2.00,>=1.18
+
+[testing]
+nose
+coveralls
