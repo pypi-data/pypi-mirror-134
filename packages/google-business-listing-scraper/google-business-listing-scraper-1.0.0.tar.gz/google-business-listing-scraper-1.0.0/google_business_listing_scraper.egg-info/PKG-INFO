@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: google-business-listing-scraper
+Version: 1.0.0
+Summary: A python library to scrape google business listing
+Home-page: UNKNOWN
+Author: DataKund
+Author-email: datakund@gmail.com
+License: Apache License 2.0
+Keywords: google python bot_studio automation search business listing scraper title description link
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Google business listing scraper is a python library to scrape for a google business listing results using browser automation. 
+It currently runs only on windows.
+
+### Example
+In this example we first import library, then we will replace "business_url" with url which you want to scrape.
+```sh
+from google_business_listing_scraper import *
+response = google.business_listing_scraper(business_url="business_url")
+#response = {
+#  {
+#    "bot": "google_business_listing_scraper",
+#    "user": "ampkdAT3PfT5kMoFVGuh5WqyGcD267      @6MC5N9IHGH8CR3R",
+#    "umail": "sabcrs12@gmail.com",
+#    "cookies_data": {},
+#    "run_type": "simple",
+#    "outputdata": {
+#      "business_url": "https://www.google.com/maps/place/CUTI+LYF+(Skin+clinic+-+Dr+Swapnil+Sanghavi)/@19.2312445,72.8472576,17z/data=!3m1!4b1!4m5!3m4!1s0x3be7b128652e2c45:0xc759baeeb5a34831!8m2!3d19.2310797!4d72.8494527"
+#    }.....}}
+
+```
+
+#### BotStudio
+[bot_studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up in which product will be bought. To buy first login will need to be done. Login can be done either with credentials or via cookies
+
+
+### Installation
+
+```sh
+pip install google-business-listing-scraper
+```
+
+### Import
+```sh
+from google-business-listing-scraper import *
+```
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
+
+
