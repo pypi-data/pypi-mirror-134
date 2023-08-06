@@ -1,0 +1,8 @@
+[Unit]
+Description=SRE Bot __name__
+
+[Service]
+ExecStart=__exec_start__
+
+[Install]
+WantedBy=multi-user.target
