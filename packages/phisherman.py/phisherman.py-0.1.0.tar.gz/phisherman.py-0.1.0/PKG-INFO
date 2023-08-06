@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: phisherman.py
+Version: 0.1.0
+Summary: Async API Wrapper for Phisherman.gg in Python
+License: MIT
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Requires-Dist: mkdocs (>=1.2.3,<2.0.0)
+Requires-Dist: mkdocstrings (>=0.17.0,<0.18.0)
+Requires-Dist: pytkdocs[numpy-style] (>=0.15.0,<0.16.0)
