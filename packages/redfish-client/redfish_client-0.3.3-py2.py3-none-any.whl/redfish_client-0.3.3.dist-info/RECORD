@@ -1,0 +1,12 @@
+redfish_client/__init__.py,sha256=_X5IIocoE5UVukCgpTfIF57M8QncoGdlBpFFG-mYRCY,1097
+redfish_client/caching_connector.py,sha256=JJW0prPIgJMtUIrxM8EZRtLRlhWhmhKU7qFUyUKqDys,1176
+redfish_client/connector.py,sha256=02ipPSwU2qNMDgp77V0R_l0Ngd8CtycWKO21ABrD2Kw,5649
+redfish_client/exceptions.py,sha256=pMTFI-OkJKdFnYLOmvfiqWSCVIgGOCNRROvtkjuq-x8,957
+redfish_client/resource.py,sha256=UPbV8VeVloYvpVdBfPADTOvfsl7Bip5u6muduawehJY,8019
+redfish_client/root.py,sha256=a14u67hmlaKaT018UOUT-wJ_s_gbt6S3sL4sMW9mkGQ,1271
+redfish_client-0.3.3.dist-info/LICENSE,sha256=DVQuDIgE45qn836wDaWnYhSdxoLXgpRRKH4RuTjpRZQ,10174
+redfish_client-0.3.3.dist-info/METADATA,sha256=g8KiOreOy5w-5WVhyQUpffUhagqdrcGANBCpUbm7EAo,1084
+redfish_client-0.3.3.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+redfish_client-0.3.3.dist-info/pbr.json,sha256=f7Vmr3-yEipf9m9Jq-2bikOs0Bu8r6KYBp1dIJDDGTE,47
+redfish_client-0.3.3.dist-info/top_level.txt,sha256=ZrXAc1gtTfY_LOGHeaQihZVL0xzTqzFBPDUfOztCix0,15
+redfish_client-0.3.3.dist-info/RECORD,,
