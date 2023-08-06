@@ -1,0 +1,11 @@
+chembl_downloader/__init__.py,sha256=9jVYkJpvO3PoRwJCB9F10bev8xLDaT1HI-b3iFB_JlU,337
+chembl_downloader/__main__.py,sha256=hWRTlVcyw8HhBeus72eAsS2oyGgS7_x-OEmwetARLFU,127
+chembl_downloader/api.py,sha256=acCNIUSg2YyjdPYUo8AWcHNbQm9wDqyFgja6t4-i62A,15201
+chembl_downloader/cli.py,sha256=Nb25lciO3d2Z9G-rpXAMmYHHED7xGHqdk-rP_xe1gHI,1260
+chembl_downloader/queries.py,sha256=8q03Np88aDG02Tir23YUxpBDURNrktZ4e53zslEcGK0,2500
+chembl_downloader-0.2.0.dist-info/LICENSE,sha256=GzLA83qaovFgoZWRYwaAmY-lkHZyDySJHU-YKE9NdVs,1076
+chembl_downloader-0.2.0.dist-info/METADATA,sha256=-qcxYukB1tjGtb8tG6O3U9GyaMXNzEuZFVu83uQar48,9277
+chembl_downloader-0.2.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+chembl_downloader-0.2.0.dist-info/entry_points.txt,sha256=zNJlAH59olFyQHwC5rXNWMg9AAws5meNEVu8SekHW78,66
+chembl_downloader-0.2.0.dist-info/top_level.txt,sha256=9p_-BEnjDi4RZmNNLjetCu08IjEQII0h8zngUaV0XH8,18
+chembl_downloader-0.2.0.dist-info/RECORD,,
