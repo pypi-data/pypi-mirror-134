@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+swayblur/__about__.py
+swayblur/__init__.py
+swayblur/__main__.py
+swayblur/blurManager.py
+swayblur/output.py
+swayblur/paths.py
+swayblur.egg-info/PKG-INFO
+swayblur.egg-info/SOURCES.txt
+swayblur.egg-info/dependency_links.txt
+swayblur.egg-info/entry_points.txt
+swayblur.egg-info/requires.txt
+swayblur.egg-info/top_level.txt

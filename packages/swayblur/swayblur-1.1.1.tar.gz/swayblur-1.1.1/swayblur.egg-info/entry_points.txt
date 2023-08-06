@@ -1,0 +1,3 @@
+[console_scripts]
+swayblur = swayblur.__main__:main
+
