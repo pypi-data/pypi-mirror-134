@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sign-off
+Version: 0.0.9
+Summary: pre-commit hook to add "signed-off-by" line to commit messages
+License: MIT
+Author: dynobo
+Author-email: dynobo@mailbox.org
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
