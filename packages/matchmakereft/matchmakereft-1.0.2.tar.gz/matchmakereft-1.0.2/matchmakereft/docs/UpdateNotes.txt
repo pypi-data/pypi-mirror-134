@@ -1,0 +1,5 @@
+Update notes for matchmakereft 1.x.y 
+
+1.0.2  12-01-22 AC: Added requirement of a recent version of the python package tqdm 
+1.0.1  22-12-21 AC: Fixed matchmakereft prompt 
+1.0.0  22-12 21: First public version
