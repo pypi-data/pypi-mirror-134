@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-crazy-thursday
+Version: 0.1.1
+Summary: Send crazy thursday articles of KFC randomly!
+License: MIT
+Author: KafCoppelia
+Author-email: k740677208@gmail.com
+Requires-Python: >=3.7.3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
