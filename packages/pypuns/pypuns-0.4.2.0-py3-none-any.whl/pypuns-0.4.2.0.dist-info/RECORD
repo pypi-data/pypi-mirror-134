@@ -1,0 +1,12 @@
+pypuns/__init__.py,sha256=VNZtYRGEy9diPbrKZpSD6Z6CUIvM_A6VIFPl62Svq40,27
+pypuns/pypuns.py,sha256=IfkLdrSfUYOgIXiTS_mnT8ukYT3jk2__Rb2vZVAtITs,1587
+pypuns/puns/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pypuns/puns/en.py,sha256=tO1ISOnEGD4QzgoWORJV42DCOqEXzrAJD4eVKh75Xyw,1843
+pypuns/puns/it.py,sha256=-dtjcGhFkxqXr4S6a8GGHRQrLVMNVzBRv3hYD9n5UaY,1806
+pypuns/puns/lang_template.py,sha256=6HIOnt0UzeDMVgpgZGQP2eJbu9fLWUIvNY9R4hwzkpc,359
+pypuns/puns/languages.py,sha256=TXjZ4D9vmZK7umYJ5A__z9_EGxVTxZMg2rbrGLUgp-E,211
+pypuns-0.4.2.0.dist-info/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+pypuns-0.4.2.0.dist-info/METADATA,sha256=rpR_ng1ayIgvbvrkxwDCq5BhZRHywMwH260KqXIwoPo,4571
+pypuns-0.4.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pypuns-0.4.2.0.dist-info/top_level.txt,sha256=w6b4IDxeYR99lzCILvk5OH9PrfhoFnpqCVRNu4qmT80,7
+pypuns-0.4.2.0.dist-info/RECORD,,
