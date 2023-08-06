@@ -1,0 +1,16 @@
+biopython>=1.74
+lxml>=4.6.3
+PyYAML>=5.4
+numpy
+
+[dev]
+coverage
+codecov
+pytest
+pytest-cov
+check-manifest
+twine
+pre-commit
+flake8
+flake8-bugbear
+black
