@@ -1,0 +1,1 @@
+class InvalidDatasetError(Exception): pass
