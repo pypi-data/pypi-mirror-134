@@ -1,0 +1,9 @@
+trml2pdf/__init__.py,sha256=EmirNLUeLEyhVePrXfu5oLts1YmRp8b8LS2pWLUFPI8,845
+trml2pdf/color.py,sha256=lham9puJ-LBmWeEJxzFdW5ysMZaIvbIXKNVqJ4OWLXQ,1392
+trml2pdf/trml2pdf.py,sha256=gTSY0i7Pw4v3aXdhdyGg4Fi7_jlpfzbS-NaPOB3_Qnw,21628
+trml2pdf/utils.py,sha256=7WmCAxepY6EUk0DeSNeN7nY6iTl9vc7ywvSqsDKcOKs,2035
+djangoplicity_trml2pdf-1.0.dist-info/LICENSE.txt,sha256=oZDcnIBDdV2Q-LCnX6ZrnkLUr0yYC_XdxjPwEk2zzuc,26430
+djangoplicity_trml2pdf-1.0.dist-info/METADATA,sha256=3C4AVTK45Gk8RuCJjXFJyfqSIknLxs9C38Rqm0h7yI8,1808
+djangoplicity_trml2pdf-1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+djangoplicity_trml2pdf-1.0.dist-info/top_level.txt,sha256=7AjpXDsFbH4050LdFRaGIZICdCNaSEbPH9zOTRLb66M,9
+djangoplicity_trml2pdf-1.0.dist-info/RECORD,,
