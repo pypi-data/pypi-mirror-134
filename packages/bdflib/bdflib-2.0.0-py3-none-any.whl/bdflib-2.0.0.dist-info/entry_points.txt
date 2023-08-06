@@ -1,0 +1,8 @@
+[console_scripts]
+bdflib-embolden = bdflib.tools:embolden
+bdflib-fill = bdflib.tools:fill
+bdflib-merge = bdflib.tools:merge
+bdflib-passthrough = bdflib.tools:passthrough
+bdflib-xlfd-fix = bdflib.tools:xlfd_fix
+bdflib-xlfd-validate = bdflib.tools:xlfd_validate
+
