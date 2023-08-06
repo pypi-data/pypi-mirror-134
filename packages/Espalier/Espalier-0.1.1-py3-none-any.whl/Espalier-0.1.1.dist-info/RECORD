@@ -1,0 +1,16 @@
+Espalier/ARGBuilder.py,sha256=NwmiKfduQlFjSEsne1Xm1f-ulZwLC2LTqvsq5DgmRoI,33885
+Espalier/Dendro2TSConverter.py,sha256=8KSzN58Pjtj09SpizC4GRKEvOl_LdOpaHkaIVV6pqbY,34472
+Espalier/MAF.py,sha256=hK3xheR2qo2GABU3D-AhPCW_UFcu97SUgSHG072tDIY,17028
+Espalier/RAxML.py,sha256=kPp8iXdeGlz9rl8qCJXYSG8Hqgz-fV7eoDusHFFYiwI,12953
+Espalier/Reconciler.py,sha256=0EZ-nBJPWPi-Ls3dqwb7oUQdFt5KzqEKV0Gr9_n8bnc,24064
+Espalier/SCARLikelihood.py,sha256=mx0GA01W1xQi18kHtKaDL8-BhxzUG13Ct-dt9hS_0ms,19480
+Espalier/TreeOps.py,sha256=PFSn9NXIQjvV-rcSIFvJl9OUbVtpyIiudUzydlAclMo,6756
+Espalier/Utils.py,sha256=CE52v-zoYvYHA58s66iyxS1lvD9EDh_lcfZI4lzuGDI,5763
+Espalier/Viterbi.py,sha256=EqrMY9GI7FqfHRClHINkyqGK140ANaJx4Sizv9Qd11s,7047
+Espalier/__init__.py,sha256=mt2Un9Y9qIO_slp790LtaN5FmGOt0HVaQVLpM43MhEM,659
+Espalier/espalier.py,sha256=TexF9MgVTys5yUo1rl2bIw-wxu64tKugYjqW2tvpwd8,6454
+Espalier-0.1.1.dist-info/METADATA,sha256=9wc4peDF3G_n1GV9w2nU7s2RBdAVgwvFHPtP1MRDNac,911
+Espalier-0.1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+Espalier-0.1.1.dist-info/entry_points.txt,sha256=_I0BG366BW5yqZVFNWGjJM2gznCOCpgdLSzgb0z_s54,53
+Espalier-0.1.1.dist-info/top_level.txt,sha256=Pohwe6iu4NtSBvip8Ory4grhuqF7Ht8BHx5-_lr3qsM,9
+Espalier-0.1.1.dist-info/RECORD,,

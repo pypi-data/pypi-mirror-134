@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Espalier
+Version: 0.1.1
+Summary: Espalier reconciles discordant trees and reconcstructs ARGs using maximum agreement forests.
+Home-page: https://github.ncsu.edu/phylodynamics-lab/Espalier
+Author: David Rasmussen
+Author-email: drasmus@ncsu.edu
+License: Apache License 2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: dendropy
+Requires-Dist: pandas
+Requires-Dist: tskit
+Requires-Dist: biopython
+Requires-Dist: scipy
+Requires-Dist: click
+
+# Espalier
+Espalier reconciles discordant trees and reconcstructs ARGs using maximum agreement forests.
+
+For more information on the algorithms behind Espalier please see:
+Rasmussen, D.A. and Guo, F. Espalier: Efficient tree reconciliation and ARG reconstruction using maximum agreement forests. (in prep).
+
+## Installation and set up
+
+Currently adding ability to install Espalier through PyPI. 
+
+
