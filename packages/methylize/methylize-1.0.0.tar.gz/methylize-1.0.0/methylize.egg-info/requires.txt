@@ -1,0 +1,10 @@
+pandas
+numpy
+scipy
+statsmodels
+matplotlib
+methylprep
+methylcheck
+pymysql
+toolshed
+interlap
