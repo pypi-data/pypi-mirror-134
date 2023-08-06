@@ -1,0 +1,9 @@
+url_or_relative_url_field/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+url_or_relative_url_field/apps.py,sha256=0fV_SxZ3KxAS367uTeeuPcCGmhYk1NdFGnIvD0n6qMI,121
+url_or_relative_url_field/fields.py,sha256=3DhlhNdLNM42Nr6oon80xHfWvKTpd-lc5D7lkk6-f1w,802
+url_or_relative_url_field/forms.py,sha256=kw2IlIJ3EliJA8o22DCxbYP_x_isGGguaLjUiDQ3ql0,730
+url_or_relative_url_field/validators.py,sha256=QwmIBVkuRkuYlLey4agoJFiam_-N2kMknlH9zudlcmI,317
+django_url_or_relative_url_field-0.2.0.dist-info/LICENSE,sha256=25jAJFAdL62MYJ7S8xKypmaQ57XbXrvRLkZTg2j9aJ4,1077
+django_url_or_relative_url_field-0.2.0.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+django_url_or_relative_url_field-0.2.0.dist-info/METADATA,sha256=FtlDfFfxiytQCaNOnaEE-aR61gMiAG26StUv5Irpbcw,1808
+django_url_or_relative_url_field-0.2.0.dist-info/RECORD,,
