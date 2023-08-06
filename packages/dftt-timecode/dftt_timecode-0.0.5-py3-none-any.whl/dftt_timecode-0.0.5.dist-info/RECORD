@@ -1,0 +1,11 @@
+dftt_timecode/__init__.py,sha256=g4H_PLEWecJ_-JYIJHHoqdd1TY1wxIqbcp8vcbuEBZw,123
+dftt_timecode/core.py,sha256=jgi_dM8Qt59Fxig-UEoAJMGQWOWGXbhFVg0KUnw2A6o,36866
+dftt_timecode/dftt_dispatch.py,sha256=-j25E7sc69N9JlGCfa957qrw0GgM6ytbeX8Smap9bbs,962
+dftt_timecode/dispatch.py,sha256=-j25E7sc69N9JlGCfa957qrw0GgM6ytbeX8Smap9bbs,962
+dftt_timecode/error.py,sha256=7BqC6yuGjY0u7E2dHZRflt-cSjusdLL-cJlMMx2XY8k,140
+dftt_timecode/pattern.py,sha256=VaqARkdHSBg9uMpOm1A-ORniE_y6Rdz6-Sj1OmULeoA,815
+dftt_timecode-0.0.5.dist-info/LICENSE.txt,sha256=IMF9i4xIpgCADf0U-V1cuf9HBmqWQd3qtI3FSuyW4zE,26526
+dftt_timecode-0.0.5.dist-info/METADATA,sha256=5S0znEMK6JbFP-Q03JA0ObTDTy56DhGJkygib3CxVjk,742
+dftt_timecode-0.0.5.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dftt_timecode-0.0.5.dist-info/top_level.txt,sha256=xAYtXzZuGIh7biSflqKbS1FpgKu1uhFq31CFcXT8ZsU,14
+dftt_timecode-0.0.5.dist-info/RECORD,,
