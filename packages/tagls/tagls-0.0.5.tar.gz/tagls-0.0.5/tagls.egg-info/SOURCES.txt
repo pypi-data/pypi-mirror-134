@@ -1,0 +1,10 @@
+README.md
+setup.py
+tagls/__init__.py
+tagls/__main__.py
+tagls/server.py
+tagls.egg-info/PKG-INFO
+tagls.egg-info/SOURCES.txt
+tagls.egg-info/dependency_links.txt
+tagls.egg-info/requires.txt
+tagls.egg-info/top_level.txt
