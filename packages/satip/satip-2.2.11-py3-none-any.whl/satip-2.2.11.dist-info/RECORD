@@ -1,0 +1,12 @@
+satip/__init__.py,sha256=_7OlQdbVkK4jad0CLdpI0grT-zEAb-qgFmH5mFzDXiA,22
+satip/compression.py,sha256=XMdhlVfZP1YDNGu2bHv7eyofToXrhLg_IZdNgLr7gBE,3962
+satip/download.py,sha256=dZntcILAzR-t3wy-ItNgxlKxzdzNSIC1U01S4p-MGUA,13962
+satip/eumetsat.py,sha256=WmyaZ8wMZRq2PHBE9bATLyH0f9jTO30OrUc7VygdSdA,10874
+satip/geospatial.py,sha256=arSw9bXYlwKiLLtj-qwVoNVLsFZ9gcJ1qe8K2q5UgIU,2078
+satip/intermediate.py,sha256=UUJR3p_r6LvDnlTkrXaRsXFPNOarYgBOSbqrVYq-SIE,11180
+satip/utils.py,sha256=6rAlKqvlOvDffQzYITP8Olio6sUbUhnpdiM_qs0A2pk,15045
+satip-2.2.11.dist-info/LICENSE,sha256=apuQBDvX5oNtuaWBJcgRQaTuS4pTiqvjP23FGA7P8J8,1073
+satip-2.2.11.dist-info/METADATA,sha256=k5LyUP5OwE9XrxZJj6mQw9VKpHMMYCxHhSsoRaVKwKY,1071
+satip-2.2.11.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+satip-2.2.11.dist-info/top_level.txt,sha256=GZytXBjOPEvPE3pdCSzrNk8K4SmByTTl-kr7xn07W3Q,6
+satip-2.2.11.dist-info/RECORD,,
