@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+OpenSeaScripts/AssetOptions.py
+OpenSeaScripts/OSSBrowser.py
+OpenSeaScripts/__init__.py
+OpenSeaScripts.egg-info/PKG-INFO
+OpenSeaScripts.egg-info/SOURCES.txt
+OpenSeaScripts.egg-info/dependency_links.txt
+OpenSeaScripts.egg-info/requires.txt
+OpenSeaScripts.egg-info/top_level.txt
