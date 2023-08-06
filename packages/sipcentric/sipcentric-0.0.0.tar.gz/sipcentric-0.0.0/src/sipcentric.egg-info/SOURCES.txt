@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/sipcentric/__init__.py
+src/sipcentric.egg-info/PKG-INFO
+src/sipcentric.egg-info/SOURCES.txt
+src/sipcentric.egg-info/dependency_links.txt
+src/sipcentric.egg-info/requires.txt
+src/sipcentric.egg-info/top_level.txt
+src/sipcentric/stream/__init__.py
