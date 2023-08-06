@@ -1,0 +1,1 @@
+from log_creator.log import Log
