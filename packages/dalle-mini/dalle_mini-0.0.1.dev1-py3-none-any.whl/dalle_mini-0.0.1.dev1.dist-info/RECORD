@@ -1,0 +1,12 @@
+dalle_mini/__init__.py,sha256=GA8C7Yzq5nUdE_c5qwjlFtLcc1s4Ec7OgG1qqFSRvkU,27
+dalle_mini/data.py,sha256=lCOFaGPgkcI0GkUb-9mifLzuVvYyp3U-f-dXZmzASmE,10967
+dalle_mini/text.py,sha256=YbuI8Zipg4sfAzSkXCdO4aY1BlwGM8by_S_70hJJisE,7264
+dalle_mini/model/__init__.py,sha256=1oU-A3_45sT9xYs1XqO-8I3ZoKMSiGBtiOksTisq5aU,75
+dalle_mini/model/configuration.py,sha256=_sWt-x2L2yJW7emGwzhr1JsLMRI2k-2gonWO44Y9uXE,4660
+dalle_mini/model/modeling.py,sha256=oH3MlcKKeub7O68zWHiKDh6ARIKwhfTyWWPP-3O-H4o,19770
+dalle_mini/model/partitions.py,sha256=hoBHGMJ5TBt2TJyomfwh4Xs-XT4GBk6XGH1AJKGazc4,2320
+dalle_mini-0.0.1.dev1.dist-info/LICENSE,sha256=NHdnngp-AU4ebNqmqwtQC4hcLpamPC1iCwav_fYK46Y,11354
+dalle_mini-0.0.1.dev1.dist-info/METADATA,sha256=Ca_x-B1iD3v0cuXrzbtMCxwbxCYq_wqRL9jyzzuykRg,7228
+dalle_mini-0.0.1.dev1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dalle_mini-0.0.1.dev1.dist-info/top_level.txt,sha256=0bazyEGZyIU4d-Y3_GETTySXbI2epsX4QrPxzG5AoYQ,11
+dalle_mini-0.0.1.dev1.dist-info/RECORD,,
