@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: phisherman.py
+Version: 0.1.1
+Summary: Async API Wrapper for Phisherman.gg in Python
+Home-page: https://github.com/QristaLabs/phisherman.py
+License: MIT
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Project-URL: Repository, https://github.com/QristaLabs/phisherman.py
+Description-Content-Type: text/markdown
+
+# Phisherman.py
+
+
+
