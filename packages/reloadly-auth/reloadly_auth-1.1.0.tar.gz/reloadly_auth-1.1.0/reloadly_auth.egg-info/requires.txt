@@ -1,0 +1,8 @@
+email-validator
+requests
+jwt
+pytest
+opentelemetry-launcher
+requests
+certifi
+reloadly_core
