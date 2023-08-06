@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: dbtoolspy
+Version: 0.0.2
+Summary: Simple database creator and manager.
+Home-page: UNKNOWN
+Author: Gregory Bockus
+Author-email: gregory.bockus@gmail.com
+License: UNKNOWN
+Keywords: python,mysql,database,manager
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+License-File: LICENSE.txt
+Requires-Dist: mysql-connector
+Requires-Dist: python-dotenv
+Requires-Dist: flask
+
+Simple database creator and manager that also allows for column, tables, etc. to be created as well as performing operations on the database like insert, update, select, delete
+
