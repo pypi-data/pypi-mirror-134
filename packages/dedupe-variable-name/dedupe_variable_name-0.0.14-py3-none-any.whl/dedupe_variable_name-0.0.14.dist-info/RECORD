@@ -1,0 +1,8 @@
+dedupe/variables/__init__.py,sha256=QDJyS5jtJnGFsSuOx43ZvLBCOrHImm8NrZk5f9URWdk,75
+dedupe/variables/frequency.py,sha256=H2hLk0Hjjqkpo4FkKbTEoJ0GL0JAcG26zVU8yJctnzQ,3881486
+dedupe/variables/gender.py,sha256=Og8xzUP5DuOX3HqXnnrebHhkHqaIvyQ2ckToUtzUMyc,102759
+dedupe/variables/name.py,sha256=-nCaz_l__fzcODATSHTRxq53leiTjva-5DNU9Nmya7A,9434
+dedupe_variable_name-0.0.14.dist-info/METADATA,sha256=TBw-p4PgDv4sMxigCCDnfJohPif58uW1Mw3lroyzKwU,375
+dedupe_variable_name-0.0.14.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dedupe_variable_name-0.0.14.dist-info/top_level.txt,sha256=uR9Dd6qhy1LBtxYtKogwE-EKT6EHvtG4jtDItJs85yc,7
+dedupe_variable_name-0.0.14.dist-info/RECORD,,

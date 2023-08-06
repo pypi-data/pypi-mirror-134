@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: dedupe-variable-name
+Version: 0.0.14
+Summary: Name variable type for dedupe
+Home-page: https://github.com/datamade/dedupe-variables-name
+License: The MIT License: http://www.opensource.org/licenses/mit-license.php
+Platform: UNKNOWN
+Requires-Dist: probablepeople (>=0.5)
+Requires-Dist: parseratorvariable (>=0.0.18)
+Requires-Dist: future
+
+UNKNOWN
+
