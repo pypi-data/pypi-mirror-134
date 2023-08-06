@@ -1,0 +1,13 @@
+LICENSE
+setup.py
+src/flaskFormRequest/__init__.py
+src/flaskFormRequest/formRequest.py
+src/flaskFormRequest/filters/__init__.py
+src/flaskFormRequest/validators/__init__.py
+src/flaskFormRequest/validators/required.py
+src/flaskFormRequest/validators/size.py
+src/flaskFormRequest/validators/validator.py
+src/flask_FormRequest.egg-info/PKG-INFO
+src/flask_FormRequest.egg-info/SOURCES.txt
+src/flask_FormRequest.egg-info/dependency_links.txt
+src/flask_FormRequest.egg-info/top_level.txt
