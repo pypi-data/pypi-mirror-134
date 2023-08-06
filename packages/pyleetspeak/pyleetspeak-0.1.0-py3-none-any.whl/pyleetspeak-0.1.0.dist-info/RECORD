@@ -1,0 +1,13 @@
+pyleetspeak/LeetSpeaker.py,sha256=aBUTMPSV7vjTJFNbGbTWQdWT7HkLxJGVggAQ-Rcrcws,37390
+pyleetspeak/Leet_NER_generator.py,sha256=MXkH7lIpbOuNQz-o5bus7zgHck9VIL39EBVVLYFhmHQ,12300
+pyleetspeak/__init__.py,sha256=5Nk7WxmYN5L4J1x6YdEBez5E-JS2E9ABznal2LvPQ2o,112
+pyleetspeak/format_converter.py,sha256=2ksq82Qy8ICXt5ptIV4m0wcL4sypEA6nRgtsjitHD58,1720
+pyleetspeak/modes.py,sha256=RwVhRKwyXOwqj2EmX0m1mzkvfU_N6sQLZC2fca8BDa8,2956
+pyleetspeak/spacy_ner_formal_test.py,sha256=r2--7gYHTG_1J7Tk56J-XNbF5DUHG3Mv2GHLQowDWBg,3911
+scripts/__init__.py,sha256=v7JtqZtvgzToF17w1JtGnH6PvNRokJwu47HcBsjx6n8,43
+scripts/pyleetspeak.py,sha256=u2348yJcC8jw52gHm5Dp7sZH8NzLC-iRpVHhBNH9faM,3319
+pyleetspeak-0.1.0.dist-info/LICENSE,sha256=ww_WOaBZt2fdI6HrS9HLM9U-IFmrCMTXGgVY5f8dK4M,1087
+pyleetspeak-0.1.0.dist-info/METADATA,sha256=HXnWVCbdeZ_YEUXGth702J6tYkXN9Am_90mERXHEspw,22527
+pyleetspeak-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+pyleetspeak-0.1.0.dist-info/top_level.txt,sha256=976vD1EcayH40WfTZkus4SUROjLIpPK1mfI7xpoHWrs,12
+pyleetspeak-0.1.0.dist-info/RECORD,,
