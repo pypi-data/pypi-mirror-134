@@ -1,0 +1,68 @@
+################################################################################
+# 01-filter6.rules
+#
+# Jinja2 template for iptables
+# The naming scheme is important. You can prefix the table name with a number
+# to specify the order in which the files are loaded. The name after '-'
+# is the table name the rules are applied upon. If the table is suffixed with a
+# '6' the rules are applied to ip6tables. Recognized file endings are rules
+# and fallback. Fallback files are applied before connecting to a nordvpn server
+# and after disconnecting. Rules files are applied after connecting to a nordvpn
+# server.
+#
+# Recognized variables which must not be present in the config file:
+# vpn_remote:   the remote ip address of the vpn server
+# vpn_protocol: the protocol in use: udp or tcp
+# vpn_port:     the port to communicate with the vpn server
+#
+# Furthermore there's the 'gateways' dictionary consisting of
+# gateways.default = (ip_address, interface)
+#   a tuple of ip_address and interface name of the default gateway. Note that
+#   the default gateway in rules files is the VPN gateway (most often 'tun0')
+#   and in fallback files it is the LAN interface.
+# gateways.default_inet6
+#   like above a tuple of ip_address and interface name but in case the default
+#   gateway has ipv6 nature.
+# gateways.other = [(ip_address, interface), ... ]
+#   with a list of ip_address, interface tuples which are not the default
+#   gateway. The list may be empty if there are no other interfaces.
+# gateways.other_inet6
+#   like above but if the interface has ipv6 nature.
+#
+# In addition to variables above which are exposed from connord there are a lot
+# of variables available from openvpn's environment. They can be seen
+# in the output of connord when not running in daemon mode and are well
+# documented in man 8 openvpn in the 'Environment Variables' section.
+#
+# This file is parsed from top to bottom so make sure chains and rules are in
+# right order. Chains are created if they are not present yet.
+#
+# An unindented line defines a chain.
+# policy: Policy like it is described in man iptables
+# action: Not used yet
+# rules:  List of rules in the format which is accepted by python-iptables. See
+#         documentation there.
+################################################################################
+
+INPUT:
+  policy: DROP
+  action: None
+  rules:
+  - in-interface: lo
+    target: ACCEPT
+OUTPUT:
+  policy: ACCEPT
+  action: None
+  rules:
+  - out-interface: lo
+    target: ACCEPT
+  - target:
+      LOG:
+        log-prefix: '[OUTPUT6]: '
+  - target:
+      REJECT:
+        reject-with: icmp-port-unreachable
+FORWARD:
+  policy: DROP
+  action: None
+  rules: []
