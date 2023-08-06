@@ -1,0 +1,3 @@
+[flox.plugin]
+github=flox_github:plugin
+
