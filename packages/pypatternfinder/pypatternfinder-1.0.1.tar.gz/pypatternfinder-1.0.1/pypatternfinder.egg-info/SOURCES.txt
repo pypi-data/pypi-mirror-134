@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+pypatternfinder/__init__.py
+pypatternfinder/pattern.py
+pypatternfinder.egg-info/PKG-INFO
+pypatternfinder.egg-info/SOURCES.txt
+pypatternfinder.egg-info/dependency_links.txt
+pypatternfinder.egg-info/top_level.txt
