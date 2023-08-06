@@ -1,0 +1,8 @@
+trovoApi/__init__.py,sha256=9EDU7kYARP9LT8FfZ1DajqscpIlvWLLgfIylPztkdKw,63
+trovoApi/common.py,sha256=r4sbBCZBtoLJ9RzEMi-E-7W3gq2NaJdU3FVP81ApIGA,92
+trovoApi/trovo.py,sha256=wtSDPwCM051fCpcaCgmKKwPqs8J5ojyRFyEA7LMa0FA,9537
+trovoApi/types.py,sha256=QTbM5nxom1rCj7oYIEpY14xa_1QJsp3pm5DeBH1yREE,75
+python_trovo-0.1.1.dist-info/LICENSE,sha256=7w3gil4muqV3vIgc1qUJz299e_wwfNT22gui7oIUvuA,35076
+python_trovo-0.1.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+python_trovo-0.1.1.dist-info/METADATA,sha256=uDdsTLZA9YAJfWVXGxF-UUIERXQOV8_p73hEfzgOqGA,1570
+python_trovo-0.1.1.dist-info/RECORD,,
