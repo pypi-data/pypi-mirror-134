@@ -1,0 +1,3 @@
+[console_scripts]
+probetools = probetools.probetools_v_0_1_7:main
+
