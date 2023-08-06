@@ -1,0 +1,3 @@
+[console_scripts]
+recitale = recitale.recitale:main
+
