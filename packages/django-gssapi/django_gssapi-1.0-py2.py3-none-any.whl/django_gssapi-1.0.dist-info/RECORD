@@ -1,0 +1,12 @@
+django_gssapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_gssapi/backends.py,sha256=TKH2QGsJT-EGj56iZxHdj6eVXEd7xWcvV83pi-atgyE,2842
+django_gssapi/drf.py,sha256=2sxW9ajIOCqC5j9JNwQFb4k4M0qu9G7lpGCiLOZXA5I,2478
+django_gssapi/models.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_gssapi/urls.py,sha256=EDT8d-t27LuG6tQn-GDJSTkTjibzgBAqoqyLBRearaY,898
+django_gssapi/utils.py,sha256=iMNOZ4HssW8CNsSS4bOMnD7LmpTOFTIsM46aV4fhrSs,3105
+django_gssapi/views.py,sha256=z6l16wkG5CzhQysUG5dFsYFw6zSfrZnZEBHBQ0alQHk,3395
+django_gssapi-1.0.dist-info/COPYING,sha256=JHrHDtYWSG4nIvJUgYg3emTSpLi06eyEp9f6oq6-isU,114
+django_gssapi-1.0.dist-info/METADATA,sha256=gOqX5S6BrKYyuS_xSoeDn3WXFXOM1WIQ1cNFmaJJfX4,3383
+django_gssapi-1.0.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+django_gssapi-1.0.dist-info/top_level.txt,sha256=QUONGxAp7ddOc88ahcHuRqFD7SAfP4TLbhu5aDguYF8,14
+django_gssapi-1.0.dist-info/RECORD,,
