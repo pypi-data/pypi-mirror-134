@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+setup.py
+sfe.egg-info/PKG-INFO
+sfe.egg-info/SOURCES.txt
+sfe.egg-info/dependency_links.txt
+sfe.egg-info/requires.txt
+sfe.egg-info/top_level.txt
