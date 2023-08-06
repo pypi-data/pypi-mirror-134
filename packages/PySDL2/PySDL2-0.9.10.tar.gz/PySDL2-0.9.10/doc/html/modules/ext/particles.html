@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A simple particle system &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.sdlttf - Python bindings for SDL2_ttf" href="../sdl2_sdlttf.html" />
+    <link rel="prev" title="Designing component-oriented user interfaces" href="uisystem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ebs.html">Working with component-based entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="events.html">General purpose event handling routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spritesystem.html">Sprite, texture and pixel surface routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uisystem.html">Designing component-oriented user interfaces</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">A simple particle system</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li>A simple particle system</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/particles.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-sdl2.ext.particles"></span><section id="a-simple-particle-system">
+<h1>A simple particle system<a class="headerlink" href="#a-simple-particle-system" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.particles.ParticleEngine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.particles.</span></span><span class="sig-name descname"><span class="pre">ParticleEngine</span></span><a class="reference internal" href="../../_modules/sdl2/ext/particles.html#ParticleEngine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.particles.ParticleEngine" title="Permalink to this definition"></a></dt>
+<dd><p>A simple particle processing system. The <a class="reference internal" href="#sdl2.ext.particles.ParticleEngine" title="sdl2.ext.particles.ParticleEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParticleEngine</span></code></a>
+takes care of creating, updating and deleting particles via callback
+functions. It only decreases the life of the particles by itself and
+marks them as dead, once the particle’s life attribute has reached 0
+or below.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.ParticleEngine.createfunc">
+<span class="sig-name descname"><span class="pre">createfunc</span></span><a class="headerlink" href="#sdl2.ext.particles.ParticleEngine.createfunc" title="Permalink to this definition"></a></dt>
+<dd><p>Function for creating new particles. The function needs to take
+two arguments, the <code class="docutils literal notranslate"><span class="pre">world</span></code> argument passed to <a class="reference internal" href="#sdl2.ext.particles.ParticleEngine.process" title="sdl2.ext.particles.ParticleEngine.process"><code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code></a>
+and a list of the particles considered dead (<a class="reference internal" href="#sdl2.ext.particles.Particle.life" title="sdl2.ext.particles.Particle.life"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Particle.life</span></code></a>
+&lt;= 0).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creation_func</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">deadparticles</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.ParticleEngine.updatefunc">
+<span class="sig-name descname"><span class="pre">updatefunc</span></span><a class="headerlink" href="#sdl2.ext.particles.ParticleEngine.updatefunc" title="Permalink to this definition"></a></dt>
+<dd><p>Function for updating existing, living particles. The function
+needs to take two arguments, the <code class="docutils literal notranslate"><span class="pre">world</span></code> argument passed to
+<a class="reference internal" href="#sdl2.ext.particles.ParticleEngine.process" title="sdl2.ext.particles.ParticleEngine.process"><code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code></a> and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> of the still living
+particles.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_func</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">livingparticles</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.ParticleEngine.deletefunc">
+<span class="sig-name descname"><span class="pre">deletefunc</span></span><a class="headerlink" href="#sdl2.ext.particles.ParticleEngine.deletefunc" title="Permalink to this definition"></a></dt>
+<dd><p>Function for deleting dead particles. The function needs to take
+two arguments, the <code class="docutils literal notranslate"><span class="pre">world</span></code> argument passed to <a class="reference internal" href="#sdl2.ext.particles.ParticleEngine.process" title="sdl2.ext.particles.ParticleEngine.process"><code class="xref py py-meth docutils literal notranslate"><span class="pre">process()</span></code></a>
+and a list of the particles considered dead (<a class="reference internal" href="#sdl2.ext.particles.Particle.life" title="sdl2.ext.particles.Particle.life"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Particle.life</span></code></a>
+&lt;= 0).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deletion_func</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">deadparticles</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.particles.ParticleEngine.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">World</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/sdl2/ext/particles.html#ParticleEngine.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.particles.ParticleEngine.process" title="Permalink to this definition"></a></dt>
+<dd><p>Processes all particle components, decreasing their life by 1.</p>
+<p>Once the life of all particle components has been decreased
+properly and the particles considered dead (life &lt;= 0) are
+identified, the creation, update and deletion callbacks are
+invoked.</p>
+<p>The creation callback takes the passed world as first and the
+list of dead particles as second argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">particle_createfunc</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">list_of_dead_ones</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Afterwards the still living particles are passed to the update
+callback, which also take the passed world as first and the
+living particles as set as second argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">particle_updatefunc</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">set_of_living_ones</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Finally, the dead particles need to be deleted in some way or
+another, which is done by the deletion callback, taking the
+passed world as first and the list of dead particles as second
+argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">particle_deletefunc</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">list_of_dead_ones</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.particles.Particle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.particles.</span></span><span class="sig-name descname"><span class="pre">Particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">life</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/particles.html#Particle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.particles.Particle" title="Permalink to this definition"></a></dt>
+<dd><p>A simple particle component type. It only contains information about
+a x- and y-coordinate and its current life time. The life time will
+be decreased by 1, every time the particle is processed by the
+<a class="reference internal" href="#sdl2.ext.particles.ParticleEngine" title="sdl2.ext.particles.ParticleEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParticleEngine</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.Particle.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#sdl2.ext.particles.Particle.x" title="Permalink to this definition"></a></dt>
+<dd><p>The x coordinate of the particle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.Particle.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#sdl2.ext.particles.Particle.y" title="Permalink to this definition"></a></dt>
+<dd><p>The y coordinate of the particle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.Particle.life">
+<span class="sig-name descname"><span class="pre">life</span></span><a class="headerlink" href="#sdl2.ext.particles.Particle.life" title="Permalink to this definition"></a></dt>
+<dd><p>The remaining life time of the particle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.particles.Particle.position">
+<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#sdl2.ext.particles.Particle.position" title="Permalink to this definition"></a></dt>
+<dd><p>The x- and y-coordinate of the particle as tuple.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uisystem.html" class="btn btn-neutral float-left" title="Designing component-oriented user interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sdl2_sdlttf.html" class="btn btn-neutral float-right" title="sdl2.sdlttf - Python bindings for SDL2_ttf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

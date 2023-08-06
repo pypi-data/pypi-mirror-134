@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.renderer &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.renderer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.renderer</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">byref</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_float</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">blendmode</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">video</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">dll</span><span class="p">,</span> <span class="n">hints</span>
+<span class="kn">from</span> <span class="nn">..stdinc</span> <span class="kn">import</span> <span class="n">Uint8</span><span class="p">,</span> <span class="n">Uint32</span>
+
+<span class="kn">from</span> <span class="nn">.color</span> <span class="kn">import</span> <span class="n">convert_to_color</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">raise_sdl_err</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">deprecated</span><span class="p">,</span> <span class="n">stringify</span><span class="p">,</span> <span class="n">byteify</span><span class="p">,</span> <span class="n">isiterable</span>
+<span class="kn">from</span> <span class="nn">.sprite</span> <span class="kn">import</span> <span class="n">SoftwareSprite</span><span class="p">,</span> <span class="n">TextureSprite</span>
+<span class="kn">from</span> <span class="nn">.surface</span> <span class="kn">import</span> <span class="n">_get_target_surface</span>
+<span class="kn">from</span> <span class="nn">.window</span> <span class="kn">import</span> <span class="n">Window</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;set_texture_scale_quality&quot;</span><span class="p">,</span> <span class="s2">&quot;Renderer&quot;</span><span class="p">,</span> <span class="s2">&quot;Texture&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">is_numeric</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_get_texture_size</span><span class="p">(</span><span class="n">texture</span><span class="p">):</span>
+    <span class="n">flags</span> <span class="o">=</span> <span class="n">Uint32</span><span class="p">()</span>
+    <span class="n">access</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">())</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_QueryTexture</span><span class="p">(</span>
+        <span class="n">texture</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">flags</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">access</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;getting texture attributes&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_sanitize_points</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+    <span class="c1"># If first item is numeric, assume flat list of points</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FPoint</span><span class="p">):</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">points</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">is_numeric</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Flat x/y coordinate lists must have even length&quot;</span><span class="p">)</span>
+        <span class="n">chunked</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">chunked</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">chunked</span>
+
+    <span class="n">type_err</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Points must be specified as either (x, y) tuples or &quot;</span>
+        <span class="s2">&quot;SDL_Point objects (Got unsupported format &#39;</span><span class="si">{0}</span><span class="s2">&#39;)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">points</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FPoint</span><span class="p">):</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">type_err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="p">]):</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Floating point rendering requires SDL 2.0.10 or newer&quot;</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="s2">&quot; (got &#39;</span><span class="si">{0}</span><span class="s2">&#39;)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)))</span>
+        <span class="n">pts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">pts</span>
+
+
+<span class="k">def</span> <span class="nf">_sanitize_rects</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+    <span class="n">type_err</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Rectangles must be specified as either (x, y, w, h) tuples or &quot;</span>
+        <span class="s2">&quot;SDL_Rect objects (Got unsupported format &#39;</span><span class="si">{0}</span><span class="s2">&#39;)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">rects</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">rects</span> <span class="o">=</span> <span class="p">[</span><span class="n">rects</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FRect</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">type_err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">r</span><span class="p">]):</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Floating point rendering requires SDL 2.0.10 or newer&quot;</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="s2">&quot; (got &#39;</span><span class="si">{0}</span><span class="s2">&#39;)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+
+<div class="viewcode-block" id="set_texture_scale_quality"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.set_texture_scale_quality">[docs]</a><span class="k">def</span> <span class="nf">set_texture_scale_quality</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the default scaling quailty for :obj:`~sdl2.ext.Texture` objects.</span>
+
+<span class="sd">    By default, SDL2 uses low-quality nearest-neighbour scaling for all new</span>
+<span class="sd">    textures. This method lets you change the default scaling method to one of</span>
+<span class="sd">    the following options:</span>
+<span class="sd">    </span>
+<span class="sd">    ========= =============================================================</span>
+<span class="sd">    Method    Description</span>
+<span class="sd">    ========= =============================================================</span>
+<span class="sd">    Nearest   Nearest-neighbour pixel scaling (no filtering)</span>
+<span class="sd">    Linear    Linear filtering</span>
+<span class="sd">    Best      Anisotropic filtering (falls back to linear if not available)</span>
+<span class="sd">    ========= =============================================================</span>
+
+<span class="sd">    This function does not apply retroactively, and will only affect textures</span>
+<span class="sd">    created after it is called.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        method (str): The default scaling method to use for SDL textures. Must</span>
+<span class="sd">            be one of &#39;nearest&#39;, &#39;linear&#39;, or &#39;best&#39;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">byteify</span><span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;best&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Texture scaling method must be &#39;nearest&#39;, &#39;linear&#39;, or &#39;best&#39;.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">hints</span><span class="o">.</span><span class="n">SDL_SetHint</span><span class="p">(</span><span class="n">hints</span><span class="o">.</span><span class="n">SDL_HINT_RENDER_SCALE_QUALITY</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Texture"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Texture">[docs]</a><span class="k">class</span> <span class="nc">Texture</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A 2D texture to be used with a :obj:`~sdl2.ext.Renderer`.</span>
+
+<span class="sd">    In SDL2, textures are 2D images that have been prepared for fast rendering</span>
+<span class="sd">    with a given renderer. For example, if an SDL surface is converted into a</span>
+<span class="sd">    texture with a :obj:`~sdl2.ext.Renderer` using the OpenGL backend, the pixel</span>
+<span class="sd">    data for the surface will internally be converted into an OpenGL texture.</span>
+
+<span class="sd">    Once a surface has been converted into a :obj:`Texture`, the surface can be</span>
+<span class="sd">    safely deleted if no longer needed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        renderer (:obj:`~sdl2.ext.Renderer`): The renderer associated with the</span>
+<span class="sd">            texture.</span>
+<span class="sd">        surface (:obj:`~sdl2.SDL_Surface`): An SDL surface from which the</span>
+<span class="sd">            texture will be created.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">surface</span><span class="p">):</span>
+        <span class="c1"># Validate and get reference to the parent renderer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">Renderer</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">_renderer_ref</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="s2">&quot;contents&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Renderer</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="o">=</span> <span class="p">[</span><span class="n">renderer</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;renderer&#39; must be a valid Renderer object or a pointer to &quot;</span>
+                <span class="s2">&quot;an SDL_Renderer.&quot;</span>
+            <span class="p">)</span>
+        <span class="c1"># Convert the passed surface into a texture</span>
+        <span class="n">surface</span> <span class="o">=</span> <span class="n">_get_target_surface</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="s2">&quot;surface&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="p">,</span> <span class="n">surface</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;creating the texture&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_tx&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># NOTE: This is sort of a hack to get around a ctypes problem. Basically,</span>
+        <span class="c1"># if the parent renderer of a texture is destroyed before the texture</span>
+        <span class="c1"># itself, destroying or doing anything with that texture will result in a</span>
+        <span class="c1"># segfault. By wrapping the renderer in a List, we can overwrite it with</span>
+        <span class="c1"># None when destroyed (within the Renderer class) and detect that in any</span>
+        <span class="c1"># child textures to avoid any memory-unsafe behaviour.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;:obj:`~sdl2.SDL_Texture`: The underlying base SDL texture object.</span>
+<span class="sd">        Can be used to perform operations with the texture using the base</span>
+<span class="sd">        PySDL2 bindings.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot use a texture after it has been destroyed.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot use a texture after its parent renderer has been &quot;</span>
+                <span class="s2">&quot;destroyed.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The width and height (in pixels) of the texture.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_get_texture_size</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Texture.destroy"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Texture.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the texture and frees its associated memory.</span>
+<span class="sd">        </span>
+<span class="sd">        When a texture is no longer needed, it should be destroyed using this</span>
+<span class="sd">        method to free up memory for new textures. After being destroyed, a</span>
+<span class="sd">        texture can no longer be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">render</span><span class="o">.</span><span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tx</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scale_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2012</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;unknown&quot;</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;best&quot;</span><span class="p">]</span>
+        <span class="n">mode_num</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetTextureScaleMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tx</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">mode_num</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;retrieving the texture scaling mode&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">modes</span><span class="p">[</span><span class="n">mode_num</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;unknown&quot;</span>
+
+    <span class="k">def</span> <span class="nf">set_scale_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2012</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;nearest&quot;</span><span class="p">:</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_ScaleModeNearest</span><span class="p">,</span>
+            <span class="s2">&quot;linear&quot;</span><span class="p">:</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_ScaleModeLinear</span><span class="p">,</span>
+            <span class="s2">&quot;best&quot;</span><span class="p">:</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_ScaleModeBest</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">modes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Texture scaling mode must be either &#39;nearest&#39;, &#39;linear&#39;, &quot;</span>
+                <span class="s2">&quot;or &#39;best&#39;.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_SetTextureScaleMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tx</span><span class="p">,</span> <span class="n">modes</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;setting the texture scaling mode&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Renderer"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer">[docs]</a><span class="k">class</span> <span class="nc">Renderer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering context for SDL2 windows and sprites.</span>
+
+<span class="sd">    A ``Renderer`` can be created from an SDL window, an SDL Surface, or a</span>
+<span class="sd">    :obj:`~sdl2.ext.SoftwareSprite`. Depending on the settings and operating</span>
+<span class="sd">    system, this rendering context can use either hardware or software</span>
+<span class="sd">    acceleration.</span>
+
+<span class="sd">    A useful feature of SDL renderers is that that the logical size of the</span>
+<span class="sd">    rendering context can be different than the actual size (in pixels) of its</span>
+<span class="sd">    target window or surface. For example, the renderer for a 1024x768 window</span>
+<span class="sd">    can be set to have a logical size of 640x480, improving performance at the</span>
+<span class="sd">    cost of image quality. The rendered content will be automatically scaled to</span>
+<span class="sd">    fit the target, and will be centered with black bars on either side in the</span>
+<span class="sd">    case of an aspect ratio mismatch.</span>
+
+<span class="sd">    If creating a rendering context from a window, you can customize the</span>
+<span class="sd">    renderer using flags to request different settings:</span>
+
+<span class="sd">    =============================== ===========================================</span>
+<span class="sd">    Flag                            Description</span>
+<span class="sd">    =============================== ===========================================</span>
+<span class="sd">    ``SDL_RENDERER_SOFTWARE``       Requests a software-accelerated renderer.</span>
+<span class="sd">    ``SDL_RENDERER_ACCELERATED``    Requests a hardware-accelerated renderer.</span>
+<span class="sd">    ``SDL_RENDERER_PRESENTVSYNC``   Enables vsync support for :meth:`present`.</span>
+<span class="sd">    ``SDL_RENDERER_TARGETTEXTURE``  Requests support for rendering to texture.</span>
+<span class="sd">    =============================== ===========================================</span>
+
+<span class="sd">    To combine multiple flags, you can use a bitwise OR to combine two or more</span>
+<span class="sd">    together before passing them to the `flags` argument::</span>
+
+<span class="sd">      render_flags = (</span>
+<span class="sd">          sdl2.SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC</span>
+<span class="sd">      )</span>
+<span class="sd">      sdl2.ext.Renderer(window, flags=render_flags)</span>
+
+<span class="sd">    By default, SDL2 will choose the first renderer backend that supports all</span>
+<span class="sd">    the requested flags. However, you can also request a specific rendering</span>
+<span class="sd">    backend by name (e.g. &#39;opengl&#39;, &#39;opengles2&#39;, &#39;metal&#39;, &#39;direct3d&#39;, etc.),</span>
+<span class="sd">    giving you more control but likely making your code less cross-platform.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target (:obj:`~sdl2.ext.Window`, :obj:`~sdl2.SDL_Surface`): The target</span>
+<span class="sd">            window or surface from which to create the rendering context.</span>
+<span class="sd">        backend (str or int, optional): The name of the specific backend to use</span>
+<span class="sd">            for the new rendering context (e.g. &#39;opengl&#39;). Defaults to letting</span>
+<span class="sd">            SDL2 decide. If ``target`` is not an SDL window, this argument has</span>
+<span class="sd">            no effect.</span>
+<span class="sd">        logical_size (tuple, optional): The initial logical size (in pixels) of</span>
+<span class="sd">            the rendering context as a ``(w, h)`` tuple. Defaults to the size</span>
+<span class="sd">            of the target window or surface.</span>
+<span class="sd">        flags (int, optional): The requested features and settings for the</span>
+<span class="sd">            new rendering context. Defaults to requesting a hardware-accelerated</span>
+<span class="sd">            context. If ``target`` is not an SDL window, this argument has no</span>
+<span class="sd">            effect.</span>
+<span class="sd"> </span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: If a requested rendering backend is not available.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">backend</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">logical_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">flags</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_RENDERER_ACCELERATED</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">available</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_render_drivers</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">backend</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">available</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">available</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">backend</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">e1</span> <span class="o">=</span> <span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; is not a supported renderer on this system. &quot;</span>
+                <span class="n">e2</span> <span class="o">=</span> <span class="s2">&quot;The renderer backend must be one of the following: &quot;</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">backend</span><span class="p">)</span> <span class="o">+</span> <span class="n">e2</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">available</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">backend</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Window</span><span class="p">):</span>
+            <span class="n">_renderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="n">_renderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">SoftwareSprite</span><span class="p">):</span>
+            <span class="n">_renderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">surface</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_Surface</span><span class="p">):</span>
+            <span class="n">_renderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;SDL_Surface&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">target</span><span class="p">)):</span>
+            <span class="n">_renderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported target type&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_renderer</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;creating the SDL renderer&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="o">=</span> <span class="p">[</span><span class="n">_renderer</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Set black as the default draw color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_original_logical_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logical_size</span>
+        <span class="k">if</span> <span class="n">logical_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logical_size</span> <span class="o">=</span> <span class="n">logical_size</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_get_render_drivers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">renderers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">drivers</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetNumRenderDrivers</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">drivers</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RendererInfo</span><span class="p">()</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetRenderDriverInfo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">renderers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stringify</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="n">error</span><span class="o">.</span><span class="n">SDL_ClearError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">renderers</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sdlrenderer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;:obj:`~sdl2.SDL_Renderer`: The underlying base SDL renderer object.</span>
+<span class="sd">        Can be used to perform operations with the renderer using the base</span>
+<span class="sd">        PySDL2 bindings.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot use a renderer after it has been destroyed.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@deprecated</span>
+    <span class="k">def</span> <span class="nf">renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logical_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The logical size of the rendering context (in pixels), as a</span>
+<span class="sd">        ``(width, height)`` tuple.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderGetLogicalSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@logical_size</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logical_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderSetLogicalSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;setting the logical size of the renderer&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;:obj:`~sdl2.ext.Color`: The current drawing color of the renderer.&quot;&quot;&quot;</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetRenderDrawColor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
+                                            <span class="n">byref</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;retrieving the drawing color of the renderer&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">convert_to_color</span><span class="p">((</span><span class="n">r</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="nd">@color</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;setting the drawing color of the renderer&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">blendmode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The blend mode used for :meth:`fill` and :meth:`line` drawing</span>
+<span class="sd">        operations. This value can be any of the following constants:</span>
+<span class="sd">        </span>
+<span class="sd">        ========================= ====================================</span>
+<span class="sd">        Flag                      Description</span>
+<span class="sd">        ========================= ====================================</span>
+<span class="sd">        ``SDL_BLENDMODE_NONE``    No blending</span>
+<span class="sd">        ``SDL_BLENDMODE_BLEND``   Alpha channel blending</span>
+<span class="sd">        ``SDL_BLENDMODE_ADD``     Additive blending</span>
+<span class="sd">        ``SDL_BLENDMODE_MOD``     Color modulation</span>
+<span class="sd">        ``SDL_BLENDMODE_MUL``     Color multiplication (SDL &gt;= 2.0.12)</span>
+<span class="sd">        ========================= ====================================</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">blendmode</span><span class="o">.</span><span class="n">SDL_BlendMode</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetRenderDrawBlendMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;retrieving the blend mode for the renderer&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mode</span>
+
+    <span class="nd">@blendmode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">blendmode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_SetRenderDrawBlendMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;setting the blend mode for the renderer&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The x/y scaling factors applied to all drawing coordinates</span>
+<span class="sd">        before rendering, in the format ``(scale_x, scale_y)``. These can be</span>
+<span class="sd">        used to facilitate resolution-independent drawing.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sx</span> <span class="o">=</span> <span class="n">c_float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">sy</span> <span class="o">=</span> <span class="n">c_float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderGetScale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">sx</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">sy</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">sx</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@scale</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factors must be greater than zero.&quot;</span><span class="p">)</span>
+        <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderSetScale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;setting the scaling factors for the renderer&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Renderer.destroy"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Destroys the renderer and any associated textures.</span>
+
+<span class="sd">        When a renderer is no longer needed, it should be destroyed using this</span>
+<span class="sd">        method to free up its associated memory. After being destroyed, a</span>
+<span class="sd">        renderer can no longer be used.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">render</span><span class="o">.</span><span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer_ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Renderer.reset_logical_size"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.reset_logical_size">[docs]</a>    <span class="k">def</span> <span class="nf">reset_logical_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resets the logical size of the renderer to its original value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logical_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_logical_size</span></div>
+
+<div class="viewcode-block" id="Renderer.clear"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Clears the rendering surface with a given color.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            color (:obj:`~sdl2.ext.Color`, optional): The color with which to</span>
+<span class="sd">                clear the entire rendering context. If not specified, the</span>
+<span class="sd">                renderer&#39;s current :attr:`color` will be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderClear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderClear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+           <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;clearing the rendering context&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.copy"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">srcrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dstrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">flip</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_FLIP_NONE</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Copies (blits) a texture to the rendering context.</span>
+
+<span class="sd">        If the source texture is an :obj:`~sdl2.SDL_Surface`, you will need</span>
+<span class="sd">        to convert it into a :obj:`~sdl2.ext.Texture` first before it can be</span>
+<span class="sd">        copied to the rendering surface.</span>
+
+<span class="sd">        The source texture can be flipped horizontally or vertically when</span>
+<span class="sd">        being copied to the rendering context using one of the following</span>
+<span class="sd">        flags:</span>
+
+<span class="sd">        ========================= ===================================</span>
+<span class="sd">        Flag                      Description</span>
+<span class="sd">        ========================= ===================================</span>
+<span class="sd">        ``SDL_FLIP_NONE``         Does not flip the source (default)</span>
+<span class="sd">        ``SDL_FLIP_HORIZONTAL``   Flips the source horizontally</span>
+<span class="sd">        ``SDL_FLIP_VERTICAL``     Flips the source vertically</span>
+<span class="sd">        ========================= ===================================</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           Subpixel rendering (i.e. using floats as pixel coordinates) requires</span>
+<span class="sd">           SDL 2.0.10 or newer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            src (:obj:`~sdl2.ext.Texture`, :obj:`~sdl2.SDL_Texture`): The source</span>
+<span class="sd">                texture to copy to the rendering surface.</span>
+<span class="sd">            srcrect (tuple, optional): An ``(x, y, w, h)`` rectangle defining</span>
+<span class="sd">                the subset of the source texture to copy to the rendering</span>
+<span class="sd">                surface. Defaults to copying the entire source texture.</span>
+<span class="sd">            dstrect (tuple, optional): An ``(x, y, w, h)`` rectangle</span>
+<span class="sd">                defining the region of the rendering surface to which the </span>
+<span class="sd">                source texture will be copied. Alternatively, if only</span>
+<span class="sd">                ``(x, y)`` coordinates are provided, the width and height of</span>
+<span class="sd">                the source rectangle will be used. Defaults to stretching</span>
+<span class="sd">                the source across the entire rendering context.</span>
+<span class="sd">            angle (float, optional): The clockwise rotation (in degrees) to</span>
+<span class="sd">                apply to the destination rectangle. Defaults to no rotation.</span>
+<span class="sd">            center (tuple, optional): The point around with the destination</span>
+<span class="sd">                rectangle will be rotated. Defaults to the center of the</span>
+<span class="sd">                destination rectangle.</span>
+<span class="sd">            flip (int, optional): A flag indicating whether the source should</span>
+<span class="sd">                be flipped (horizontally or vertically) when rendering to the</span>
+<span class="sd">                render context. Defaults to no flipping.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span><span class="p">:</span>
+            <span class="n">render_copy</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderCopyEx</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">render_copy</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderCopyExF</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FPoint</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FRect</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">TextureSprite</span><span class="p">):</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">texture</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="k">if</span> <span class="n">angle</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">src</span><span class="o">.</span><span class="n">angle</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">center</span> <span class="k">if</span> <span class="n">center</span> <span class="k">else</span> <span class="n">src</span><span class="o">.</span><span class="n">center</span>
+            <span class="n">flip</span> <span class="o">=</span> <span class="n">flip</span> <span class="k">if</span> <span class="n">flip</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">src</span><span class="o">.</span><span class="n">flip</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">Texture</span><span class="p">):</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">tx</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Texture</span><span class="p">):</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">src</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;src must be a Texture object or an SDL_Texture&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">srcrect</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">_sanitize_rects</span><span class="p">([</span><span class="n">srcrect</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">srcrect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">dstrect</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dstrect</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_sanitize_points</span><span class="p">([</span><span class="n">dstrect</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">srcrect</span><span class="p">:</span>
+                    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">srcrect</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">srcrect</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">_get_texture_size</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dstrect</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">_sanitize_rects</span><span class="p">([</span><span class="n">dstrect</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dstrect</span> <span class="o">=</span> <span class="n">Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">center</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_sanitize_points</span><span class="p">(</span><span class="n">center</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render_copy</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="n">srcrect</span><span class="p">,</span> <span class="n">dstrect</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">flip</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;copying the texture to the rendering context&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.blit"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.blit">[docs]</a>    <span class="k">def</span> <span class="nf">blit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">srcrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dstrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">flip</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_FLIP_NONE</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Copies a texture to the rendering context.</span>
+<span class="sd">        </span>
+<span class="sd">        An alias for the :meth:`copy` method.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">srcrect</span><span class="p">,</span> <span class="n">dstrect</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">flip</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.present"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.present">[docs]</a>    <span class="k">def</span> <span class="nf">present</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Presents the current rendering surface to the screen.</span>
+
+<span class="sd">        Because SDL renderers use batch rendering (i.e. they have a separate</span>
+<span class="sd">        backbuffer that is drawn to and buffer shown on screen which are</span>
+<span class="sd">        switched when this function is called), any drawing operations</span>
+<span class="sd">        performed with the renderer will not take effect until this method</span>
+<span class="sd">        is called.</span>
+
+<span class="sd">        It is recommended that you clear and redraw the contents of the</span>
+<span class="sd">        rendering context every time before this method is called, as the</span>
+<span class="sd">        contents of the buffers are not guaranteed to remain the same between</span>
+<span class="sd">        repeat presentations.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_line"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.draw_line">[docs]</a>    <span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or more connected lines on the rendering context.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           Subpixel rendering (i.e. using floats as pixel coordinates) requires</span>
+<span class="sd">           SDL 2.0.10 or newer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            points (list): A list of 2 or more ``(x, y)`` coordinates or</span>
+<span class="sd">                :obj:`~sdl2.SDL_Point` objects defining the set of connected</span>
+<span class="sd">                lines to draw.</span>
+<span class="sd">            color (:obj:`~sdl2.ext.Color`, optional): The color with which to</span>
+<span class="sd">                draw the lines. If not specified, the renderer&#39;s current</span>
+<span class="sd">                :attr:`color` will be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span><span class="p">:</span>
+            <span class="n">draw_lines</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawLines</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">draw_lines</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawLinesF</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FPoint</span>
+
+        <span class="n">points</span> <span class="o">=</span> <span class="n">_sanitize_points</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least two (x, y) points are required.&quot;</span><span class="p">)</span>
+        <span class="n">sdlpts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="n">sdlpts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">points_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Point</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))(</span><span class="o">*</span><span class="n">sdlpts</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_lines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">points_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_lines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">points_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;drawing lines to the renderer&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_point"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.draw_point">[docs]</a>    <span class="k">def</span> <span class="nf">draw_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or more points on the rendering context.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           Subpixel rendering (i.e. using floats as pixel coordinates) requires</span>
+<span class="sd">           SDL 2.0.10 or newer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            points (list): A list of ``(x, y)`` coordinates or</span>
+<span class="sd">                :obj:`~sdl2.SDL_Point` objects defining the set of points to</span>
+<span class="sd">                draw.</span>
+<span class="sd">            color (:obj:`~sdl2.ext.Color`, optional): The color with which to</span>
+<span class="sd">                draw the points. If not specified, the renderer&#39;s current</span>
+<span class="sd">                :attr:`color` will be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span><span class="p">:</span>
+            <span class="n">draw_points</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawPoints</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">draw_points</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawPointsF</span>
+            <span class="n">Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FPoint</span>
+
+        <span class="n">points</span> <span class="o">=</span> <span class="n">_sanitize_points</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="n">sdlpts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="n">sdlpts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">points_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Point</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))(</span><span class="o">*</span><span class="n">sdlpts</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_points</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">points_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_points</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">points_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;drawing points to the renderer&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_rect"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.draw_rect">[docs]</a>    <span class="k">def</span> <span class="nf">draw_rect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rects</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or more rectangles on the rendering context.</span>
+
+<span class="sd">        Rectangles can be specified as 4-item ``(x, y, w, h)`` tuples,</span>
+<span class="sd">        :obj:`~sdl2.rect.SDL_Rect` objects, or a list containing multiple</span>
+<span class="sd">        rectangles in either format.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           Subpixel rendering (i.e. using floats as pixel coordinates) requires</span>
+<span class="sd">           SDL 2.0.10 or newer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            rects (tuple, :obj:`~sdl2.SDL_Rect`, list): The rectangle(s) to draw</span>
+<span class="sd">                to the rendering context.</span>
+<span class="sd">            color (:obj:`~sdl2.ext.Color`, optional): The color with which to</span>
+<span class="sd">                draw the rectangle(s). If not specified, the renderer&#39;s current</span>
+<span class="sd">                :attr:`color` will be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span><span class="p">:</span>
+            <span class="n">draw_rects</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawRects</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">draw_rects</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawRectsF</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FRect</span>
+
+        <span class="n">rects</span> <span class="o">=</span> <span class="n">_sanitize_rects</span><span class="p">(</span><span class="n">rects</span><span class="p">)</span>
+        <span class="n">sdlrects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">r</span>
+            <span class="n">sdlrects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+        <span class="n">rects_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rect</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))(</span><span class="o">*</span><span class="n">sdlrects</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_rects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">rects_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">draw_rects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">rects_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+    
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;drawing rectangles to the renderer&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.fill"><a class="viewcode-back" href="../../../modules/ext/renderer.html#sdl2.ext.renderer.Renderer.fill">[docs]</a>    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rects</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fills one or more rectangular regions the rendering context.</span>
+
+<span class="sd">        Fill regions can be specified as 4-item ``(x, y, w, h)`` tuples,</span>
+<span class="sd">        :obj:`~sdl2.rect.SDL_Rect` objects, or a list containing multiple</span>
+<span class="sd">        rectangles in either format.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           Subpixel rendering (i.e. using floats as pixel coordinates) requires</span>
+<span class="sd">           SDL 2.0.10 or newer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            rects (tuple, :obj:`~sdl2.SDL_Rect`, list): The rectangle(s) to fill</span>
+<span class="sd">                within the rendering context.</span>
+<span class="sd">            color (:obj:`~sdl2.ext.Color`, optional): The color with which to</span>
+<span class="sd">                fill the rectangle(s). If not specified, the renderer&#39;s current</span>
+<span class="sd">                :attr:`color` will be used.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dll</span><span class="o">.</span><span class="n">version</span> <span class="o">&lt;</span> <span class="mi">2010</span><span class="p">:</span>
+            <span class="n">fill_rects</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderFillRects</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fill_rects</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderFillRectsF</span>
+            <span class="n">Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_FRect</span>
+
+        <span class="n">rects</span> <span class="o">=</span> <span class="n">_sanitize_rects</span><span class="p">(</span><span class="n">rects</span><span class="p">)</span>
+        <span class="n">sdlrects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">r</span>
+            <span class="n">sdlrects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+        <span class="n">rects_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rect</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))(</span><span class="o">*</span><span class="n">sdlrects</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">fill_rects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">rects_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">fill_rects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">rects_ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+    
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">raise_sdl_err</span><span class="p">(</span><span class="s2">&quot;filling rectangles in the renderer&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

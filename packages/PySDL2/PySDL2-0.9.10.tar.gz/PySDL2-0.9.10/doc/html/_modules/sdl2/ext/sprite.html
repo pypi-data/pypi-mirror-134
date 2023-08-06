@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.sprite &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.sprite</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.sprite</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Sprite, texture and pixel surface routines.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">byref</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_float</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.color</span> <span class="kn">import</span> <span class="n">convert_to_color</span>
+<span class="kn">from</span> <span class="nn">.ebs</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">.surface</span> <span class="kn">import</span> <span class="n">subsurface</span>
+<span class="kn">from</span> <span class="nn">.window</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">load_image</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">blendmode</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">video</span><span class="p">,</span> <span class="n">pixels</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">rwops</span>
+<span class="kn">from</span> <span class="nn">..stdinc</span> <span class="kn">import</span> <span class="n">Uint8</span><span class="p">,</span> <span class="n">Uint32</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sprite&quot;</span><span class="p">,</span> <span class="s2">&quot;SoftwareSprite&quot;</span><span class="p">,</span> <span class="s2">&quot;TextureSprite&quot;</span><span class="p">,</span> <span class="s2">&quot;SpriteFactory&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;SoftwareSpriteRenderSystem&quot;</span><span class="p">,</span> <span class="s2">&quot;SpriteRenderSystem&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;TextureSpriteRenderSystem&quot;</span><span class="p">,</span> <span class="s2">&quot;Renderer&quot;</span><span class="p">,</span> <span class="s2">&quot;TEXTURE&quot;</span><span class="p">,</span> <span class="s2">&quot;SOFTWARE&quot;</span>
+          <span class="p">]</span>
+
+<span class="n">TEXTURE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SOFTWARE</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<div class="viewcode-block" id="Renderer"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer">[docs]</a><span class="k">class</span> <span class="nc">Renderer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;SDL2-based renderer for windows and sprites.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">logical_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">flags</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_RENDERER_ACCELERATED</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Renderer for the given target.</span>
+
+<span class="sd">        If target is a Window or SDL_Window, index and flags are passed</span>
+<span class="sd">        to the relevant sdl.render.create_renderer() call. If target is</span>
+<span class="sd">        a SoftwareSprite or SDL_Surface, the index and flags arguments are</span>
+<span class="sd">        ignored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span>
+                                                         <span class="n">flags</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">SoftwareSprite</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">surface</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_Surface</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;SDL_Surface&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">target</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateSoftwareRenderer</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported target type&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">if</span> <span class="n">logical_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logical_size</span> <span class="o">=</span> <span class="n">logical_size</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">:</span>
+            <span class="n">render</span><span class="o">.</span><span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rendertarget</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@deprecated</span>
+    <span class="k">def</span> <span class="nf">renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logical_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The logical pixel size of the Renderer&quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderGetLogicalSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@logical_size</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logical_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The logical pixel size of the Renderer&quot;&quot;&quot;</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderSetLogicalSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The drawing color of the Renderer.&quot;&quot;&quot;</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">(),</span> <span class="n">Uint8</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetRenderDrawColor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>
+                                            <span class="n">byref</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">convert_to_color</span><span class="p">((</span><span class="n">r</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="nd">@color</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The drawing color of the Renderer.&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">blendmode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The blend mode used for drawing operations (fill and line).&quot;&quot;&quot;</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">blendmode</span><span class="o">.</span><span class="n">SDL_BlendMode</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_GetRenderDrawBlendMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">mode</span>
+
+    <span class="nd">@blendmode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">blendmode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The blend mode used for drawing operations (fill and line).&quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_SetRenderDrawBlendMode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The horizontal and vertical drawing scale.&quot;&quot;&quot;</span>
+        <span class="n">sx</span> <span class="o">=</span> <span class="n">c_float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">sy</span> <span class="o">=</span> <span class="n">c_float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderGetScale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">sx</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">sy</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">sx</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@scale</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The horizontal and vertical drawing scale.&quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderSetScale</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Renderer.clear"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Clears the renderer with the currently set or passed color.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderClear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.copy"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">srcrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dstrect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">flip</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_FLIP_NONE</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Copies (blits) the passed source to the target of the Renderer.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">TextureSprite</span><span class="p">):</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">texture</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="ow">or</span> <span class="n">src</span><span class="o">.</span><span class="n">angle</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">center</span> <span class="ow">or</span> <span class="n">src</span><span class="o">.</span><span class="n">center</span>
+            <span class="n">flip</span> <span class="o">=</span> <span class="n">flip</span> <span class="ow">or</span> <span class="n">src</span><span class="o">.</span><span class="n">flip</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Texture</span><span class="p">):</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">src</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;src must be a TextureSprite or SDL_Texture&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">srcrect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">srcrect</span>
+            <span class="n">srcrect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dstrect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">dstrect</span>
+            <span class="n">dstrect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderCopyEx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="n">srcrect</span><span class="p">,</span>
+                                      <span class="n">dstrect</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">flip</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.present"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.present">[docs]</a>    <span class="k">def</span> <span class="nf">present</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Refreshes the target of the Renderer.&quot;&quot;&quot;</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_line"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.draw_line">[docs]</a>    <span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or multiple connected lines on the renderer.&quot;&quot;&quot;</span>
+        <span class="c1"># (x1, y1, x2, y2, ...)</span>
+        <span class="n">pcount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pcount</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;points does not contain a valid set of points&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pcount</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;points must contain more that one point&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pcount</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">points</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawLine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">pcount</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">SDL_Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span>
+            <span class="n">ptlist</span> <span class="o">=</span> <span class="p">(</span><span class="n">SDL_Point</span> <span class="o">*</span> <span class="n">count</span><span class="p">)()</span>
+            <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pcount</span><span class="p">:</span>
+                <span class="n">ptlist</span><span class="p">[</span><span class="n">off</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDL_Point</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span>
+                <span class="n">off</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ptr</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">ptlist</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">SDL_Point</span><span class="p">))</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawLines</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_point"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.draw_point">[docs]</a>    <span class="k">def</span> <span class="nf">draw_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or multiple points on the renderer.&quot;&quot;&quot;</span>
+        <span class="c1"># (x1, y1, x2, y2, ...)</span>
+        <span class="n">pcount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pcount</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;points does not contain a valid set of points&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pcount</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                             <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">pcount</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">SDL_Point</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span>
+            <span class="n">ptlist</span> <span class="o">=</span> <span class="p">(</span><span class="n">SDL_Point</span> <span class="o">*</span> <span class="n">count</span><span class="p">)()</span>
+            <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pcount</span><span class="p">:</span>
+                <span class="n">ptlist</span><span class="p">[</span><span class="n">off</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDL_Point</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span>
+                <span class="n">off</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ptr</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">ptlist</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">SDL_Point</span><span class="p">))</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawPoints</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.draw_rect"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.draw_rect">[docs]</a>    <span class="k">def</span> <span class="nf">draw_rect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rects</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws one or multiple rectangles on the renderer.&quot;&quot;&quot;</span>
+        <span class="n">SDL_Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span>
+        <span class="c1"># ((x, y, w, h), ...)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="c1"># single rect</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">rects</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">SDL_Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">rlist</span> <span class="o">=</span> <span class="p">(</span><span class="n">SDL_Rect</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))()</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+                <span class="n">rlist</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDL_Rect</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ptr</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">rlist</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">SDL_Rect</span><span class="p">))</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderDrawRects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.fill"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Renderer.fill">[docs]</a>    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rects</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fills one or multiple rectangular areas on the renderer.&quot;&quot;&quot;</span>
+        <span class="n">SDL_Rect</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span>
+        <span class="c1"># ((x, y, w, h), ...)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="c1"># single rect</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">rects</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderFillRect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">SDL_Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">rlist</span> <span class="o">=</span> <span class="p">(</span><span class="n">SDL_Rect</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))()</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+                <span class="n">rlist</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDL_Rect</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">ptr</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">rlist</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">SDL_Rect</span><span class="p">))</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderFillRects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">ptr</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span></div></div>
+
+
+
+<div class="viewcode-block" id="Sprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.Sprite">[docs]</a><span class="k">class</span> <span class="nc">Sprite</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple 2D object.&quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sprite</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The top-left position of the Sprite as tuple.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="nd">@position</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The top-left position of the Sprite as tuple.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The size of the Sprite as tuple.&quot;&quot;&quot;</span>
+        <span class="k">return</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The rectangular area occupied by the Sprite.&quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SoftwareSprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SoftwareSprite">[docs]</a><span class="k">class</span> <span class="nc">SoftwareSprite</span><span class="p">(</span><span class="n">Sprite</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple, visible, pixel-based 2D object using software buffers.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsurface</span><span class="p">,</span> <span class="n">free</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SoftwareSprite.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SoftwareSprite</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">free</span> <span class="o">=</span> <span class="n">free</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_Surface</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">imgsurface</span>
+        <span class="k">elif</span> <span class="s2">&quot;SDL_Surface&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;imgsurface must be an SDL_Surface&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Releases the bound SDL_Surface, if it was created by the</span>
+<span class="sd">        SoftwareSprite.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">free</span> <span class="ow">and</span> <span class="n">imgsurface</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The size of the SoftwareSprite as tuple.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">h</span>
+
+<div class="viewcode-block" id="SoftwareSprite.subsprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SoftwareSprite.subsprite">[docs]</a>    <span class="k">def</span> <span class="nf">subsprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates another SoftwareSprite from a part of the SoftwareSprite.</span>
+
+<span class="sd">        The two sprites share pixel data, so if the parent sprite&#39;s surface is</span>
+<span class="sd">        not managed by the sprite (free is False), you will need to keep it</span>
+<span class="sd">        alive while the subsprite exists.&quot;&quot;&quot;</span>
+        <span class="n">ssurface</span> <span class="o">=</span> <span class="n">subsurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+        <span class="n">ssprite</span> <span class="o">=</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">ssurface</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Keeps the parent surface alive until subsprite is freed</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
+            <span class="n">ssprite</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="n">ssprite</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;SoftwareSprite(size=</span><span class="si">%s</span><span class="s2">, bpp=</span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">BitsPerPixel</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TextureSprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.TextureSprite">[docs]</a><span class="k">class</span> <span class="nc">TextureSprite</span><span class="p">(</span><span class="n">Sprite</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple, visible, texture-based 2D object, using a renderer.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new TextureSprite.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TextureSprite</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="n">texture</span>
+        <span class="n">flags</span> <span class="o">=</span> <span class="n">Uint32</span><span class="p">()</span>
+        <span class="n">access</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_QueryTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">flags</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">access</span><span class="p">),</span>
+                                      <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">free</span> <span class="o">=</span> <span class="n">free</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flip</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_FLIP_NONE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_center</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Releases the bound SDL_Texture.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">texture</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">render</span><span class="o">.</span><span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The center of the TextureSprite as tuple.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_center</span>
+
+    <span class="nd">@center</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the center of the TextureSprite.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_center</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Point</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_center</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The size of the TextureSprite as tuple.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">flags</span> <span class="o">=</span> <span class="n">Uint32</span><span class="p">()</span>
+        <span class="n">access</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_QueryTexture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">flags</span><span class="p">),</span>
+                                      <span class="n">byref</span><span class="p">(</span><span class="n">access</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;TextureSprite(format=</span><span class="si">%d</span><span class="s2">, access=</span><span class="si">%d</span><span class="s2">, size=</span><span class="si">%s</span><span class="s2">, angle=</span><span class="si">%f</span><span class="s2">, center=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+                <span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">access</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;TextureSprite(format=</span><span class="si">%d</span><span class="s2">, access=</span><span class="si">%d</span><span class="s2">, size=</span><span class="si">%s</span><span class="s2">, angle=</span><span class="si">%f</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+                <span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">access</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory">[docs]</a><span class="k">class</span> <span class="nc">SpriteFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A factory class for creating Sprite components.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprite_type</span><span class="o">=</span><span class="n">TEXTURE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SpriteFactory.</span>
+
+<span class="sd">        The SpriteFactory can create TextureSprite or SoftwareSprite</span>
+<span class="sd">        instances, depending on the sprite_type being passed to it,</span>
+<span class="sd">        which can be SOFTWARE or TEXTURE. The additional kwargs are used</span>
+<span class="sd">        as default arguments for creating sprites within the factory</span>
+<span class="sd">        methods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;renderer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;you have to provide a renderer=&lt;arg&gt; argument&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">sprite_type</span> <span class="o">!=</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spritetype</span> <span class="o">=</span> <span class="n">sprite_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sprite_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The sprite type created by the factory.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spritetype</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stype</span> <span class="o">=</span> <span class="s2">&quot;TEXTURE&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="n">stype</span> <span class="o">=</span> <span class="s2">&quot;SOFTWARE&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;SpriteFactory(sprite_type=</span><span class="si">%s</span><span class="s2">, default_args=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="n">stype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SpriteFactory.create_sprite_render_system"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.create_sprite_render_system">[docs]</a>    <span class="k">def</span> <span class="nf">create_sprite_render_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SpriteRenderSystem.</span>
+
+<span class="sd">        For TEXTURE mode, the passed args and kwargs are ignored and the</span>
+<span class="sd">        Renderer or SDL_Renderer passed to the SpriteFactory is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TextureSpriteRenderSystem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">[</span><span class="s2">&quot;renderer&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SoftwareSpriteRenderSystem</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_image"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.from_image">[docs]</a>    <span class="k">def</span> <span class="nf">from_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from the passed image file.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">load_image</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_surface"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.from_surface">[docs]</a>    <span class="k">def</span> <span class="nf">from_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsurface</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from the passed SDL_Surface.</span>
+
+<span class="sd">        If free is set to True, the passed surface will be freed</span>
+<span class="sd">        automatically.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">[</span><span class="s2">&quot;renderer&quot;</span><span class="p">]</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">renderer</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span>
+                                                          <span class="n">tsurface</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">texture</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="n">sprite</span> <span class="o">=</span> <span class="n">TextureSprite</span><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">free</span><span class="p">:</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">tsurface</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">sprite</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">tsurface</span><span class="p">,</span> <span class="n">free</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_object"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.from_object">[docs]</a>    <span class="k">def</span> <span class="nf">from_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from an arbitrary object.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="n">rw</span> <span class="o">=</span> <span class="n">rwops</span><span class="o">.</span><span class="n">rw_from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="c1"># TODO: support arbitrary objects.</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP_RW</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="n">rw</span> <span class="o">=</span> <span class="n">rwops</span><span class="o">.</span><span class="n">rw_from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP_RW</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_color"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.from_color">[docs]</a>    <span class="k">def</span> <span class="nf">from_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">bpp</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a sprite with a certain color.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">masks</span><span class="p">:</span>
+            <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span> <span class="o">=</span> <span class="n">masks</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rmask</span> <span class="o">=</span> <span class="n">gmask</span> <span class="o">=</span> <span class="n">bmask</span> <span class="o">=</span> <span class="n">amask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bpp</span><span class="p">,</span> <span class="n">rmask</span><span class="p">,</span>
+                                           <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sfc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="n">sfc</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">format</span>
+        <span class="k">if</span> <span class="n">fmt</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">Amask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Target has an alpha mask</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_MapRGBA</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_MapRGB</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FillRect</span><span class="p">(</span><span class="n">sfc</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">sfc</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_text"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.from_text">[docs]</a>    <span class="k">def</span> <span class="nf">from_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from a string of text.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">fontmanager</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;fontmanager&#39;</span><span class="p">]</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">fontmanager</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">sfc</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_sprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.create_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates an empty Sprite.</span>
+
+<span class="sd">        This will invoke create_software_sprite() or</span>
+<span class="sd">        create_texture_sprite() with the passed arguments and the set</span>
+<span class="sd">        default arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_texture_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_software_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_software_sprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.create_software_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_software_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">bpp</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a software sprite.</span>
+
+<span class="sd">        A size tuple containing the width and height of the sprite and a</span>
+<span class="sd">        bpp value, indicating the bits per pixel to be used, need to be</span>
+<span class="sd">        provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">masks</span><span class="p">:</span>
+            <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span> <span class="o">=</span> <span class="n">masks</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rmask</span> <span class="o">=</span> <span class="n">gmask</span> <span class="o">=</span> <span class="n">bmask</span> <span class="o">=</span> <span class="n">amask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bpp</span><span class="p">,</span>
+                                                  <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_texture_sprite"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteFactory.create_texture_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_texture_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span>
+                              <span class="n">pformat</span><span class="o">=</span><span class="n">pixels</span><span class="o">.</span><span class="n">SDL_PIXELFORMAT_RGBA8888</span><span class="p">,</span>
+                              <span class="n">access</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_TEXTUREACCESS_STATIC</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a texture sprite.</span>
+
+<span class="sd">        A size tuple containing the width and height of the sprite needs</span>
+<span class="sd">        to be provided.</span>
+
+<span class="sd">        TextureSprite objects are assumed to be static by default,</span>
+<span class="sd">        making it impossible to access their pixel buffer in favour for</span>
+<span class="sd">        faster copy operations. If you need to update the pixel data</span>
+<span class="sd">        frequently or want to use the texture as target for rendering</span>
+<span class="sd">        operations, access can be set to the relevant</span>
+<span class="sd">        SDL_TEXTUREACCESS_* flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">renderer</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">sdlrenderer</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;renderer must be a Renderer or SDL_Renderer&quot;</span><span class="p">)</span>
+        <span class="n">texture</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateTexture</span><span class="p">(</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">pformat</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span>
+                                           <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">texture</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">TextureSprite</span><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SpriteRenderSystem"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">SpriteRenderSystem</span><span class="p">(</span><span class="n">System</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for Sprite components.</span>
+
+<span class="sd">    This is a base class for rendering systems capable of drawing and</span>
+<span class="sd">    displaying Sprite-based objects. Inheriting classes need to</span>
+<span class="sd">    implement the rendering capability by overriding the render()</span>
+<span class="sd">    method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sprite</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">depth</span>
+
+<div class="viewcode-block" id="SpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Renders the passed sprites.</span>
+
+<span class="sd">        This is a no-op function and needs to be implemented by inheriting</span>
+<span class="sd">        classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SpriteRenderSystem.process"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SpriteRenderSystem.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed SoftSprite objects on the Window&#39;s surface.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span><span class="p">))</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sortfunc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sort function for the component processing order.</span>
+
+<span class="sd">        The default sort order is based on the depth attribute of every</span>
+<span class="sd">        sprite. Lower depth values will cause sprites to be drawn below</span>
+<span class="sd">        sprites with higher depth values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span>
+
+    <span class="nd">@sortfunc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sortfunc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sort function for the component processing order.</span>
+
+<span class="sd">        The default sort order is based on the depth attribute of every</span>
+<span class="sd">        sprite. Lower depth values will cause sprites to be drawn below</span>
+<span class="sd">        sprites with higher depth values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;sortfunc must be callable&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="SoftwareSpriteRenderSystem"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SoftwareSpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">SoftwareSpriteRenderSystem</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for SoftwareSprite components.</span>
+
+<span class="sd">    The SoftwareSpriteRenderSystem class uses a Window as drawing device to</span>
+<span class="sd">    display Sprite surfaces. It uses the Window&#39;s internal SDL surface as</span>
+<span class="sd">    drawing context, so that GL operations, such as texture handling or</span>
+<span class="sd">    using SDL renderers is not possible.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SoftwareSpriteRenderSystem for a specific Window.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SoftwareSpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">window</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported window type&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sfc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">sfc</span><span class="o">.</span><span class="n">contents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">SoftwareSprite</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="SoftwareSpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.SoftwareSpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed sprites (or sprite) on the Window&#39;s surface.</span>
+
+<span class="sd">        x and y are optional arguments that can be used as relative drawing</span>
+<span class="sd">        location for sprites. If set to None, the location information of the</span>
+<span class="sd">        sprites are used. If set and sprites is an iterable, such as a list of</span>
+<span class="sd">        SoftwareSprite objects, x and y are relative location values that will</span>
+<span class="sd">        be added to each individual sprite&#39;s position. If sprites is a single</span>
+<span class="sd">        SoftwareSprite, x and y denote the absolute position of the</span>
+<span class="sd">        SoftwareSprite, if set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">sprites</span><span class="p">):</span>
+            <span class="n">blit_surface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">sprite</span> <span class="ow">in</span> <span class="n">sprites</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span>
+                <span class="n">blit_surface</span><span class="p">(</span><span class="n">sprite</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">imgsurface</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">y</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">sprites</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TextureSpriteRenderSystem"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.TextureSpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">TextureSpriteRenderSystem</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for TextureSprite components.</span>
+
+<span class="sd">    The TextureSpriteRenderSystem class uses a SDL_Renderer as drawing</span>
+<span class="sd">    device to display TextureSprite objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new TextureSpriteRenderSystem.</span>
+
+<span class="sd">        target can be a Window, SDL_Window, Renderer or SDL_Renderer.</span>
+<span class="sd">        If it is a Window or SDL_Window instance, a Renderer will be</span>
+<span class="sd">        created to acquire the SDL_Renderer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TextureSpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="p">(</span><span class="n">Window</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">)):</span>
+            <span class="c1"># Create a Renderer for the window and use that one.</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">Renderer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Renderer</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="n">target</span>  <span class="c1"># Used to prevent GC</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">sdlrenderer</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported object type&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">sdlrenderer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">TextureSprite</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_renderer&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="TextureSpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/sdl2ext_sprite.html#sdl2.ext.TextureSpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed sprites (or sprite).</span>
+
+<span class="sd">        x and y are optional arguments that can be used as relative</span>
+<span class="sd">        drawing location for sprites. If set to None, the location</span>
+<span class="sd">        information of the sprites are used. If set and sprites is an</span>
+<span class="sd">        iterable, such as a list of TextureSprite objects, x and y are</span>
+<span class="sd">        relative location values that will be added to each individual</span>
+<span class="sd">        sprite&#39;s position. If sprites is a single TextureSprite, x and y</span>
+<span class="sd">        denote the absolute position of the TextureSprite, if set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">rcopy</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderCopyEx</span>
+        <span class="k">if</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">sprites</span><span class="p">):</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">sprite</span> <span class="ow">in</span> <span class="n">sprites</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">size</span>
+                <span class="k">if</span> <span class="n">rcopy</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+                         <span class="n">sprite</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">flip</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">y</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">size</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="k">if</span> <span class="n">rcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+                     <span class="n">sprites</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">flip</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

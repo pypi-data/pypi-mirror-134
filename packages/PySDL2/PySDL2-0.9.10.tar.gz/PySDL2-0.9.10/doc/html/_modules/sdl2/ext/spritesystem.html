@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.spritesystem &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.spritesystem</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.spritesystem</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">surface</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">video</span><span class="p">,</span> <span class="n">pixels</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">rwops</span>
+
+<span class="kn">from</span> <span class="nn">.color</span> <span class="kn">import</span> <span class="n">convert_to_color</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">isiterable</span>
+<span class="kn">from</span> <span class="nn">.ebs</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">load_image</span>
+<span class="kn">from</span> <span class="nn">.renderer</span> <span class="kn">import</span> <span class="n">Renderer</span>
+<span class="kn">from</span> <span class="nn">.sprite</span> <span class="kn">import</span> <span class="n">Sprite</span><span class="p">,</span> <span class="n">SoftwareSprite</span><span class="p">,</span> <span class="n">TextureSprite</span>
+<span class="kn">from</span> <span class="nn">.window</span> <span class="kn">import</span> <span class="n">Window</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;SpriteFactory&quot;</span><span class="p">,</span> <span class="s2">&quot;SoftwareSpriteRenderSystem&quot;</span><span class="p">,</span> <span class="s2">&quot;SpriteRenderSystem&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TextureSpriteRenderSystem&quot;</span><span class="p">,</span> <span class="s2">&quot;TEXTURE&quot;</span><span class="p">,</span> <span class="s2">&quot;SOFTWARE&quot;</span>
+<span class="p">]</span>
+
+
+<span class="n">TEXTURE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SOFTWARE</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<div class="viewcode-block" id="SpriteFactory"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory">[docs]</a><span class="k">class</span> <span class="nc">SpriteFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A factory class for creating Sprite components.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprite_type</span><span class="o">=</span><span class="n">TEXTURE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SpriteFactory.</span>
+
+<span class="sd">        The SpriteFactory can create TextureSprite or SoftwareSprite</span>
+<span class="sd">        instances, depending on the sprite_type being passed to it,</span>
+<span class="sd">        which can be SOFTWARE or TEXTURE. The additional kwargs are used</span>
+<span class="sd">        as default arguments for creating sprites within the factory</span>
+<span class="sd">        methods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;renderer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;you have to provide a renderer=&lt;arg&gt; argument&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">sprite_type</span> <span class="o">!=</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spritetype</span> <span class="o">=</span> <span class="n">sprite_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sprite_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The sprite type created by the factory.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spritetype</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stype</span> <span class="o">=</span> <span class="s2">&quot;TEXTURE&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="n">stype</span> <span class="o">=</span> <span class="s2">&quot;SOFTWARE&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;SpriteFactory(sprite_type=</span><span class="si">%s</span><span class="s2">, default_args=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="n">stype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SpriteFactory.create_sprite_render_system"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.create_sprite_render_system">[docs]</a>    <span class="k">def</span> <span class="nf">create_sprite_render_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SpriteRenderSystem.</span>
+
+<span class="sd">        For TEXTURE mode, the passed args and kwargs are ignored and the</span>
+<span class="sd">        Renderer or SDL_Renderer passed to the SpriteFactory is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TextureSpriteRenderSystem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">[</span><span class="s2">&quot;renderer&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SoftwareSpriteRenderSystem</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_image"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.from_image">[docs]</a>    <span class="k">def</span> <span class="nf">from_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from the passed image file.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">load_image</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_surface"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.from_surface">[docs]</a>    <span class="k">def</span> <span class="nf">from_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsurface</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from the passed SDL_Surface.</span>
+
+<span class="sd">        If free is set to True, the passed surface will be freed</span>
+<span class="sd">        automatically.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">[</span><span class="s2">&quot;renderer&quot;</span><span class="p">]</span>
+            <span class="n">texture</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">renderer</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span>
+                                                          <span class="n">tsurface</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">texture</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="n">sprite</span> <span class="o">=</span> <span class="n">TextureSprite</span><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">free</span><span class="p">:</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">tsurface</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">sprite</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">tsurface</span><span class="p">,</span> <span class="n">free</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_object"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.from_object">[docs]</a>    <span class="k">def</span> <span class="nf">from_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from an arbitrary object.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="n">rw</span> <span class="o">=</span> <span class="n">rwops</span><span class="o">.</span><span class="n">rw_from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="c1"># TODO: support arbitrary objects.</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP_RW</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">SOFTWARE</span><span class="p">:</span>
+            <span class="n">rw</span> <span class="o">=</span> <span class="n">rwops</span><span class="o">.</span><span class="n">rw_from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP_RW</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sprite_type must be TEXTURE or SOFTWARE&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_color"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.from_color">[docs]</a>    <span class="k">def</span> <span class="nf">from_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">bpp</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a sprite with a certain color.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">masks</span><span class="p">:</span>
+            <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span> <span class="o">=</span> <span class="n">masks</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rmask</span> <span class="o">=</span> <span class="n">gmask</span> <span class="o">=</span> <span class="n">bmask</span> <span class="o">=</span> <span class="n">amask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bpp</span><span class="p">,</span> <span class="n">rmask</span><span class="p">,</span>
+                                           <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sfc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="n">sfc</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">format</span>
+        <span class="k">if</span> <span class="n">fmt</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">Amask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Target has an alpha mask</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_MapRGBA</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_MapRGB</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FillRect</span><span class="p">(</span><span class="n">sfc</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">sfc</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.from_text"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.from_text">[docs]</a>    <span class="k">def</span> <span class="nf">from_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a Sprite from a string of text.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">fontmanager</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;fontmanager&#39;</span><span class="p">]</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">fontmanager</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">sfc</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_sprite"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.create_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates an empty Sprite.</span>
+
+<span class="sd">        This will invoke create_software_sprite() or</span>
+<span class="sd">        create_texture_sprite() with the passed arguments and the set</span>
+<span class="sd">        default arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite_type</span> <span class="o">==</span> <span class="n">TEXTURE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_texture_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_software_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_software_sprite"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.create_software_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_software_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">bpp</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a software sprite.</span>
+
+<span class="sd">        A size tuple containing the width and height of the sprite and a</span>
+<span class="sd">        bpp value, indicating the bits per pixel to be used, need to be</span>
+<span class="sd">        provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">masks</span><span class="p">:</span>
+            <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span> <span class="o">=</span> <span class="n">masks</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rmask</span> <span class="o">=</span> <span class="n">gmask</span> <span class="o">=</span> <span class="n">bmask</span> <span class="o">=</span> <span class="n">amask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bpp</span><span class="p">,</span>
+                                                  <span class="n">rmask</span><span class="p">,</span> <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpriteFactory.create_texture_sprite"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteFactory.create_texture_sprite">[docs]</a>    <span class="k">def</span> <span class="nf">create_texture_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span>
+                              <span class="n">pformat</span><span class="o">=</span><span class="n">pixels</span><span class="o">.</span><span class="n">SDL_PIXELFORMAT_RGBA8888</span><span class="p">,</span>
+                              <span class="n">access</span><span class="o">=</span><span class="n">render</span><span class="o">.</span><span class="n">SDL_TEXTUREACCESS_STATIC</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a texture sprite.</span>
+
+<span class="sd">        A size tuple containing the width and height of the sprite needs</span>
+<span class="sd">        to be provided.</span>
+
+<span class="sd">        TextureSprite objects are assumed to be static by default,</span>
+<span class="sd">        making it impossible to access their pixel buffer in favour for</span>
+<span class="sd">        faster copy operations. If you need to update the pixel data</span>
+<span class="sd">        frequently or want to use the texture as target for rendering</span>
+<span class="sd">        operations, access can be set to the relevant</span>
+<span class="sd">        SDL_TEXTUREACCESS_* flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">renderer</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">sdlrenderer</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;renderer must be a Renderer or SDL_Renderer&quot;</span><span class="p">)</span>
+        <span class="n">texture</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_CreateTexture</span><span class="p">(</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">pformat</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span>
+                                           <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">texture</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">TextureSprite</span><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SpriteRenderSystem"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">SpriteRenderSystem</span><span class="p">(</span><span class="n">System</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for Sprite components.</span>
+
+<span class="sd">    This is a base class for rendering systems capable of drawing and</span>
+<span class="sd">    displaying Sprite-based objects. Inheriting classes need to</span>
+<span class="sd">    implement the rendering capability by overriding the render()</span>
+<span class="sd">    method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sprite</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">depth</span>
+
+<div class="viewcode-block" id="SpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Renders the passed sprites.</span>
+
+<span class="sd">        This is a no-op function and needs to be implemented by inheriting</span>
+<span class="sd">        classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SpriteRenderSystem.process"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SpriteRenderSystem.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed SoftSprite objects on the Window&#39;s surface.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span><span class="p">))</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sortfunc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sort function for the component processing order.</span>
+
+<span class="sd">        The default sort order is based on the depth attribute of every</span>
+<span class="sd">        sprite. Lower depth values will cause sprites to be drawn below</span>
+<span class="sd">        sprites with higher depth values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span>
+
+    <span class="nd">@sortfunc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sortfunc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sort function for the component processing order.</span>
+
+<span class="sd">        The default sort order is based on the depth attribute of every</span>
+<span class="sd">        sprite. Lower depth values will cause sprites to be drawn below</span>
+<span class="sd">        sprites with higher depth values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;sortfunc must be callable&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sortfunc</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="SoftwareSpriteRenderSystem"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SoftwareSpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">SoftwareSpriteRenderSystem</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for SoftwareSprite components.</span>
+
+<span class="sd">    The SoftwareSpriteRenderSystem class uses a Window as drawing device to</span>
+<span class="sd">    display Sprite surfaces. It uses the Window&#39;s internal SDL surface as</span>
+<span class="sd">    drawing context, so that GL operations, such as texture handling or</span>
+<span class="sd">    using SDL renderers is not possible.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new SoftwareSpriteRenderSystem for a specific Window.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SoftwareSpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">window</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported window type&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="n">sfc</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sfc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">sfc</span><span class="o">.</span><span class="n">contents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">SoftwareSprite</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="SoftwareSpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.SoftwareSpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed sprites (or sprite) on the Window&#39;s surface.</span>
+
+<span class="sd">        x and y are optional arguments that can be used as relative drawing</span>
+<span class="sd">        location for sprites. If set to None, the location information of the</span>
+<span class="sd">        sprites are used. If set and sprites is an iterable, such as a list of</span>
+<span class="sd">        SoftwareSprite objects, x and y are relative location values that will</span>
+<span class="sd">        be added to each individual sprite&#39;s position. If sprites is a single</span>
+<span class="sd">        SoftwareSprite, x and y denote the absolute position of the</span>
+<span class="sd">        SoftwareSprite, if set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">sprites</span><span class="p">):</span>
+            <span class="n">blit_surface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">sprite</span> <span class="ow">in</span> <span class="n">sprites</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span>
+                <span class="n">blit_surface</span><span class="p">(</span><span class="n">sprite</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">imgsurface</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">y</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">sprites</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TextureSpriteRenderSystem"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.TextureSpriteRenderSystem">[docs]</a><span class="k">class</span> <span class="nc">TextureSpriteRenderSystem</span><span class="p">(</span><span class="n">SpriteRenderSystem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A rendering system for TextureSprite components.</span>
+
+<span class="sd">    The TextureSpriteRenderSystem class uses a SDL_Renderer as drawing</span>
+<span class="sd">    device to display TextureSprite objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new TextureSpriteRenderSystem.</span>
+
+<span class="sd">        target can be a Window, SDL_Window, Renderer or SDL_Renderer.</span>
+<span class="sd">        If it is a Window or SDL_Window instance, a Renderer will be</span>
+<span class="sd">        created to acquire the SDL_Renderer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TextureSpriteRenderSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="p">(</span><span class="n">Window</span><span class="p">,</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_Window</span><span class="p">)):</span>
+            <span class="c1"># Create a Renderer for the window and use that one.</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">Renderer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Renderer</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="n">target</span>  <span class="c1"># Used to prevent GC</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">sdlrenderer</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_Renderer</span><span class="p">):</span>
+            <span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported object type&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="n">sdlrenderer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">TextureSprite</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_renderer&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="TextureSpriteRenderSystem.render"><a class="viewcode-back" href="../../../modules/ext/spritesystem.html#sdl2.ext.TextureSpriteRenderSystem.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sprites</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Draws the passed sprites (or sprite).</span>
+
+<span class="sd">        x and y are optional arguments that can be used as relative</span>
+<span class="sd">        drawing location for sprites. If set to None, the location</span>
+<span class="sd">        information of the sprites are used. If set and sprites is an</span>
+<span class="sd">        iterable, such as a list of TextureSprite objects, x and y are</span>
+<span class="sd">        relative location values that will be added to each individual</span>
+<span class="sd">        sprite&#39;s position. If sprites is a single TextureSprite, x and y</span>
+<span class="sd">        denote the absolute position of the TextureSprite, if set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">rcopy</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderCopyEx</span>
+        <span class="k">if</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">sprites</span><span class="p">):</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">sprite</span> <span class="ow">in</span> <span class="n">sprites</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">size</span>
+                <span class="k">if</span> <span class="n">rcopy</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+                         <span class="n">sprite</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">sprite</span><span class="o">.</span><span class="n">flip</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">y</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">sprites</span><span class="o">.</span><span class="n">size</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="k">if</span> <span class="n">rcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+                     <span class="n">sprites</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">sprites</span><span class="o">.</span><span class="n">flip</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">render</span><span class="o">.</span><span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sdlrenderer</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.pixelaccess - Array-like Access to SDL Surface Contents &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.surface - Creating and Manipulating Software Surfaces" href="surface.html" />
+    <link rel="prev" title="sdl2.ext.array - Tools for Working with ctypes Arrays" href="array.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="compat.html"><cite>sdl2.ext.compat</cite> - Python Version Compatibility Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="array.html"><cite>sdl2.ext.array</cite> - Tools for Working with <cite>ctypes</cite> Arrays</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.pixelaccess</cite> - Array-like Access to SDL Surface Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.pixelaccess</cite> - Array-like Access to SDL Surface Contents</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/pixelaccess.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-pixelaccess-array-like-access-to-sdl-surface-contents">
+<h1><cite>sdl2.ext.pixelaccess</cite> - Array-like Access to SDL Surface Contents<a class="headerlink" href="#sdl2-ext-pixelaccess-array-like-access-to-sdl-surface-contents" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.pixelaccess" title="sdl2.ext.pixelaccess"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.pixelaccess</span></code></a> module offers a number of methods for reading,
+modifying, and copying the contents SDL surface objects.</p>
+<p>In most cases, the Numpy-based <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">surface_to_ndarray()</span></code> functions
+are the fastest and most flexible way of directly accessing the pixels of an
+SDL surface. However, the pure-Python <code class="xref py py-class docutils literal notranslate"><span class="pre">PixelView</span></code> class can
+be used instead to avoid adding Numpy as a dependency for your project.</p>
+<span class="target" id="module-sdl2.ext.pixelaccess"></span><dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.pixelaccess.PixelView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.pixelaccess.</span></span><span class="sig-name descname"><span class="pre">PixelView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/pixelaccess.html#PixelView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.pixelaccess.PixelView" title="Permalink to this definition"></a></dt>
+<dd><p>A 2D memory view for reading and writing SDL surface pixels.</p>
+<p>This class uses a <code class="docutils literal notranslate"><span class="pre">view[y][x]</span></code> layout, with the y-axis as the first
+dimension and the x-axis as the second. <code class="docutils literal notranslate"><span class="pre">PixelView</span></code> objects currently do
+not support array slicing, but support negative indexing as of
+PySDL2 0.9.10.</p>
+<p>If the source surface is RLE-accelerated, it will be locked automatically
+when the view is created and you will need to re-lock the surface using
+<code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_UnlockSurface()</span></code> once you are done with the view.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The source surface should not be freed or deleted until the view is no
+longer needed. Accessing the view for a freed surface will likely cause
+Python to hard-crash.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class is implemented on top of the <code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryView</span></code>
+class. As such, it makes heavy use of recursion to access rows and
+will generally be much slower than the <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code>-based
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code> functions.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>, <a class="reference internal" href="spritesystem.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>) – The
+SDL surface to access with the view.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.pixelaccess.SurfaceArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.pixelaccess.</span></span><span class="sig-name descname"><span class="pre">SurfaceArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strides=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/pixelaccess.html#SurfaceArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.pixelaccess.SurfaceArray" title="Permalink to this definition"></a></dt>
+<dd><p>A Numpy array that keeps a reference to its parent SDL surface.</p>
+<p>This class is used to keep track of the original source object for
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code> to prevent it from
+being automatically freed during garbage collection. It should never be used
+for any other purpose.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.pixelaccess.pixels2d">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.pixelaccess.</span></span><span class="sig-name descname"><span class="pre">pixels2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/pixelaccess.html#pixels2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.pixelaccess.pixels2d" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a 2D Numpy array view for a given SDL surface.</p>
+<p>This function casts the surface pixels to a 2D Numpy array view, providing
+read and write access to the underlying surface. If the source surface is
+RLE-accelerated, it will be locked automatically when the view is created
+and you will need to re-lock the surface using <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_UnlockSurface()</span></code>
+once you are done with the array.</p>
+<p>By default, the array is returned in <code class="docutils literal notranslate"><span class="pre">arr[x][y]</span></code> format with the x-axis
+as the first dimension, contrary to PIL and PyOpenGL convention. To obtain
+an <code class="docutils literal notranslate"><span class="pre">arr[y][x]</span></code> array, set the <code class="docutils literal notranslate"><span class="pre">transpose</span></code> argument to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The source surface should not be freed or deleted until the array is no
+longer needed. Accessing the array for a freed surface will likely cause
+Python to hard-crash.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function requires Numpy to be installed in the current Python
+environment.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>, <a class="reference internal" href="spritesystem.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>) – The
+SDL surface to cast to a numpy array.</p></li>
+<li><p><strong>transpose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether the output array should be
+transposed to have <code class="docutils literal notranslate"><span class="pre">arr[x][y]</span></code> axes instead of <code class="docutils literal notranslate"><span class="pre">arr[y][x]</span></code> axes.
+Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 2-dimensional Numpy array containing the integer
+color values for each pixel in the surface.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – If Numpy could not be imported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.pixelaccess.pixels3d">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.pixelaccess.</span></span><span class="sig-name descname"><span class="pre">pixels3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/pixelaccess.html#pixels3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.pixelaccess.pixels3d" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a 3D Numpy array view for a given SDL surface.</p>
+<p>This function casts the surface pixels to a 3D Numpy array view, providing
+read and write access to the underlying surface. If the source surface is
+RLE-accelerated, it will be locked automatically when the view is created
+and you will need to re-lock the surface using <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_UnlockSurface()</span></code>
+once you are done with the array.</p>
+<p>By default, the array is returned in <code class="docutils literal notranslate"><span class="pre">arr[x][y]</span></code> format with the x-axis
+as the first dimension, contrary to PIL and PyOpenGL convention. To obtain
+an <code class="docutils literal notranslate"><span class="pre">arr[y][x]</span></code> array, set the <code class="docutils literal notranslate"><span class="pre">transpose</span></code> argument to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>When creating a 3D array view, the order of the RGBA values for each pixel
+may be reversed for some common surface pixel formats (e.g. ‘BGRA’ for a
+<code class="docutils literal notranslate"><span class="pre">SDL_PIXELFORMAT_ARGB8888</span></code> surface). To correct this, you can call
+<code class="docutils literal notranslate"><span class="pre">numpy.flip(arr,</span> <span class="pre">axis=2)</span></code> to return a view of the array with the expected
+channel order.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The source surface should not be freed or deleted until the array is no
+longer needed. Accessing the array for a freed surface will likely cause
+Python to hard-crash.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function requires Numpy to be installed in the current Python
+environment.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>, <a class="reference internal" href="spritesystem.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>) – The
+SDL surface to cast to a numpy array.</p></li>
+<li><p><strong>transpose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether the output array should be
+transposed to have <code class="docutils literal notranslate"><span class="pre">arr[x][y]</span></code> axes instead of <code class="docutils literal notranslate"><span class="pre">arr[y][x]</span></code> axes.
+Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 3-dimensional Numpy array containing the values
+of each byte for each pixel in the surface.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – If Numpy could not be imported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.pixelaccess.surface_to_ndarray">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.pixelaccess.</span></span><span class="sig-name descname"><span class="pre">surface_to_ndarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/pixelaccess.html#surface_to_ndarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.pixelaccess.surface_to_ndarray" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of an SDL surface as a Numpy array.</p>
+<p>The main difference between this function and <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code> or
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code> is that it returns a copy of the surface instead
+of a view, meaning that modifying the returned array will not affect the
+original surface (or vice-versa). This function is also slightly safer,
+as it does not assume that the source surface has been kept in memory.</p>
+<p>When creating a 3D array copy, the order of the RGBA values for each pixel
+may be reversed for some common surface pixel formats (e.g. ‘BGRA’ for a
+<code class="docutils literal notranslate"><span class="pre">SDL_PIXELFORMAT_ARGB8888</span></code> surface). To correct this, you can call
+<code class="docutils literal notranslate"><span class="pre">numpy.flip(arr,</span> <span class="pre">axis=2)</span></code> to return a view of the array with the expected
+channel order.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code>, this
+function always returns arrays with the y-axis as the first dimension
+(e.g. <code class="docutils literal notranslate"><span class="pre">arr[y][x]</span></code>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function requires Numpy to be installed in the current Python
+environment.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>, <a class="reference internal" href="spritesystem.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>) – The
+SDL surface to convert to a numpy array.</p></li>
+<li><p><strong>ndim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of dimensions for the returned array,
+must be either 2 (for a 2D array) or 3 (for a 3D array). Defaults
+to 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Numpy array containing a copy of the pixel data
+for the given surface.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – If Numpy could not be imported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="array.html" class="btn btn-neutral float-left" title="sdl2.ext.array - Tools for Working with ctypes Arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="surface.html" class="btn btn-neutral float-right" title="sdl2.ext.surface - Creating and Manipulating Software Surfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

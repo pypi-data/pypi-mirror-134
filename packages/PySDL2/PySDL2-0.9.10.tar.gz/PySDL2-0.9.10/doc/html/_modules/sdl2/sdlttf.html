@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlttf &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.sdlttf</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.sdlttf</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">POINTER</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_long</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_void_p</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">POINTER</span> <span class="k">as</span> <span class="n">_P</span>
+<span class="kn">from</span> <span class="nn">.dll</span> <span class="kn">import</span> <span class="n">DLL</span><span class="p">,</span> <span class="n">SDLFunc</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="kn">import</span> <span class="n">SDL_version</span><span class="p">,</span> <span class="n">SDL_VERSIONNUM</span>
+<span class="kn">from</span> <span class="nn">.rwops</span> <span class="kn">import</span> <span class="n">SDL_RWops</span>
+<span class="kn">from</span> <span class="nn">.stdinc</span> <span class="kn">import</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">Uint32</span>
+<span class="kn">from</span> <span class="nn">.pixels</span> <span class="kn">import</span> <span class="n">SDL_Color</span>
+<span class="kn">from</span> <span class="nn">.surface</span> <span class="kn">import</span> <span class="n">SDL_Surface</span>
+<span class="kn">from</span> <span class="nn">.error</span> <span class="kn">import</span> <span class="n">SDL_GetError</span><span class="p">,</span> <span class="n">SDL_SetError</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Opaque Types</span>
+    <span class="s2">&quot;TTF_Font&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Defines</span>
+    <span class="s2">&quot;SDL_TTF_MAJOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_TTF_MINOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_TTF_PATCHLEVEL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_MAJOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_MINOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_PATCHLEVEL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;UNICODE_BOM_NATIVE&quot;</span><span class="p">,</span> <span class="s2">&quot;UNICODE_BOM_SWAPPED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_STYLE_NORMAL&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_STYLE_BOLD&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_STYLE_ITALIC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_STYLE_UNDERLINE&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_STYLE_STRIKETHROUGH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_HINTING_NORMAL&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_HINTING_LIGHT&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_HINTING_MONO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_HINTING_NONE&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Macro Functions</span>
+    <span class="s2">&quot;SDL_TTF_VERSION&quot;</span><span class="p">,</span>  <span class="s2">&quot;TTF_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_TTF_COMPILEDVERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SDL_TTF_VERSION_ATLEAST&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Functions</span>
+    <span class="s2">&quot;TTF_Linked_Version&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_ByteSwappedUNICODE&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_Init&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_OpenFont&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_OpenFontIndex&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_OpenFontRW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_OpenFontIndexRW&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GetFontStyle&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SetFontStyle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_GetFontOutline&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SetFontOutline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_GetFontHinting&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SetFontHinting&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_FontHeight&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_FontAscent&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_FontDescent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_FontLineSkip&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GetFontKerning&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SetFontKerning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_FontFaces&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_FontFaceIsFixedWidth&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_FontFaceFamilyName&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_FontFaceStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GlyphIsProvided&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GlyphMetrics&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_SizeText&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SizeUTF8&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_SizeUNICODE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderText_Solid&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderUTF8_Solid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderUNICODE_Solid&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderGlyph_Solid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderText_Shaded&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderUTF8_Shaded&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderUNICODE_Shaded&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderGlyph_Shaded&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderText_Blended&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderUTF8_Blended&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderUNICODE_Blended&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderText_Blended_Wrapped&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderUTF8_Blended_Wrapped&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderUNICODE_Blended_Wrapped&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderGlyph_Blended&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderText&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_RenderUTF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_RenderUNICODE&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_CloseFont&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_Quit&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_WasInit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_GetFontKerningSize&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GetFontKerningSizeGlyphs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TTF_SetError&quot;</span><span class="p">,</span> <span class="s2">&quot;TTF_GetError&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Python Functions</span>
+    <span class="s2">&quot;get_dll_file&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dll</span> <span class="o">=</span> <span class="n">DLL</span><span class="p">(</span><span class="s2">&quot;SDL2_ttf&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;SDL2_ttf&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL2_ttf-2.0&quot;</span><span class="p">],</span>
+              <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PYSDL2_DLL_PATH&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_dll_file</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the file name of the loaded SDL2_ttf library.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">dll</span><span class="o">.</span><span class="n">libfile</span>
+
+<span class="n">_bind</span> <span class="o">=</span> <span class="n">dll</span><span class="o">.</span><span class="n">bind_function</span>
+
+
+<span class="c1"># Constants, enums, type definitions, and macros</span>
+
+<span class="n">SDL_TTF_MAJOR_VERSION</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SDL_TTF_MINOR_VERSION</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SDL_TTF_PATCHLEVEL</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">def</span> <span class="nf">SDL_TTF_VERSION</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">major</span> <span class="o">=</span> <span class="n">SDL_TTF_MAJOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">minor</span> <span class="o">=</span> <span class="n">SDL_TTF_MINOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">patch</span> <span class="o">=</span> <span class="n">SDL_TTF_PATCHLEVEL</span>
+
+<span class="n">TTF_MAJOR_VERSION</span> <span class="o">=</span> <span class="n">SDL_TTF_MAJOR_VERSION</span>
+<span class="n">TTF_MINOR_VERSION</span> <span class="o">=</span> <span class="n">SDL_TTF_MINOR_VERSION</span>
+<span class="n">TTF_PATCHLEVEL</span> <span class="o">=</span> <span class="n">SDL_TTF_PATCHLEVEL</span>
+<span class="n">TTF_VERSION</span> <span class="o">=</span> <span class="n">SDL_TTF_VERSION</span>
+
+<span class="n">SDL_TTF_COMPILEDVERSION</span> <span class="o">=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">SDL_TTF_MAJOR_VERSION</span><span class="p">,</span> <span class="n">SDL_TTF_MINOR_VERSION</span><span class="p">,</span> <span class="n">SDL_TTF_PATCHLEVEL</span><span class="p">)</span>
+<span class="n">SDL_TTF_VERSION_ATLEAST</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">SDL_TTF_COMPILEDVERSION</span> <span class="o">&gt;=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+<span class="n">UNICODE_BOM_NATIVE</span> <span class="o">=</span> <span class="mh">0xFEFF</span>
+<span class="n">UNICODE_BOM_SWAPPED</span> <span class="o">=</span> <span class="mh">0xFFFE</span>
+
+<span class="n">TTF_STYLE_NORMAL</span> <span class="o">=</span> <span class="mh">0x00</span>
+<span class="n">TTF_STYLE_BOLD</span> <span class="o">=</span> <span class="mh">0x01</span>
+<span class="n">TTF_STYLE_ITALIC</span> <span class="o">=</span> <span class="mh">0x02</span>
+<span class="n">TTF_STYLE_UNDERLINE</span> <span class="o">=</span> <span class="mh">0x04</span>
+<span class="n">TTF_STYLE_STRIKETHROUGH</span> <span class="o">=</span> <span class="mh">0x08</span>
+
+<span class="n">TTF_HINTING_NORMAL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">TTF_HINTING_LIGHT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">TTF_HINTING_MONO</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">TTF_HINTING_NONE</span> <span class="o">=</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="TTF_Font"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_Font">[docs]</a><span class="k">class</span> <span class="nc">TTF_Font</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The opaque data type for fonts opened using the TTF library.</span>
+<span class="sd">    </span>
+<span class="sd">    This contains all data associated with a loaded font. Once you are done</span>
+<span class="sd">    with a :obj:`TTF_Font`, it should be freed using :func:`TTF_CloseFont`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="c1"># Raw ctypes function definitions</span>
+
+<span class="n">_funcdefs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_Linked_Version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_version</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_ByteSwappedUNICODE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_Init&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_OpenFont&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_OpenFontIndex&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_long</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_OpenFontRW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_OpenFontIndexRW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_long</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontStyle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SetFontStyle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontOutline&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SetFontOutline&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontHinting&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SetFontHinting&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontHeight&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontAscent&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontDescent&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontLineSkip&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontKerning&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SetFontKerning&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_int</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontFaces&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_long</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontFaceIsFixedWidth&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontFaceFamilyName&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_char_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_FontFaceStyleName&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)],</span> <span class="n">c_char_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GlyphIsProvided&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GlyphMetrics&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SizeText&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SizeUTF8&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_SizeUNICODE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderText_Solid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUTF8_Solid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUNICODE_Solid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderGlyph_Solid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderText_Shaded&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUTF8_Shaded&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUNICODE_Shaded&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderGlyph_Shaded&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderText_Blended&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUTF8_Blended&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUNICODE_Blended&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderText_Blended_Wrapped&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">Uint32</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUTF8_Blended_Wrapped&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">Uint32</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderUNICODE_Blended_Wrapped&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">SDL_Color</span><span class="p">,</span> <span class="n">Uint32</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_RenderGlyph_Blended&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">SDL_Color</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_CloseFont&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">)]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_Quit&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_WasInit&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontKerningSize&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;TTF_GetFontKerningSizeGlyphs&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">TTF_Font</span><span class="p">),</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">Uint16</span><span class="p">],</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.14&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">_funcs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_funcdefs</span><span class="p">:</span>
+    <span class="n">_funcs</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_bind</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">returns</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">added</span><span class="p">)</span>
+
+
+<span class="c1"># Python wrapper functions</span>
+
+<div class="viewcode-block" id="TTF_Linked_Version"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_Linked_Version">[docs]</a><span class="k">def</span> <span class="nf">TTF_Linked_Version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the version of the dynamically-linked **SDL2_ttf** library.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_version`): A pointer to a structure containing the</span>
+<span class="sd">        version of the SDL2_ttf library currently in use.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_Linked_Version&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="TTF_ByteSwappedUNICODE"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_ByteSwappedUNICODE">[docs]</a><span class="k">def</span> <span class="nf">TTF_ByteSwappedUNICODE</span><span class="p">(</span><span class="n">swapped</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tells the library whether UCS-2 unicode text is generally byteswapped.</span>
+<span class="sd">   </span>
+<span class="sd">    A unicode BOM character in a string will override this setting for the</span>
+<span class="sd">    remainder of that string. The default mode is non-swapped, native</span>
+<span class="sd">    endianness of the CPU. </span>
+
+<span class="sd">    Note that this only affects the behaviour of ``UNICODE`` (UCS-2) functions</span>
+<span class="sd">    and has no effect on UTF8 functions.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        swapped (int): If 0, native CPU endianness will be used. If not 0,</span>
+<span class="sd">            UCS-2 data will be byte-swapped relative to native CPU endianness.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_ByteSwappedUNICODE&quot;</span><span class="p">](</span><span class="n">swapped</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_Init"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_Init">[docs]</a><span class="k">def</span> <span class="nf">TTF_Init</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Initializes the TTF engine.</span>
+<span class="sd">   </span>
+<span class="sd">    This function must be called before using other functions in this library</span>
+<span class="sd">    (except for :func:`TTF_WasInit`). SDL does not have to be initialized</span>
+<span class="sd">    before this function is called. </span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 if successful, or -1 on error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_Init&quot;</span><span class="p">]()</span></div>
+
+
+<div class="viewcode-block" id="TTF_OpenFont"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_OpenFont">[docs]</a><span class="k">def</span> <span class="nf">TTF_OpenFont</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens a font file at a given size.</span>
+<span class="sd">    </span>
+<span class="sd">    Point sizes are based on a DPI of 72. Use the :func:`TTF_GetError` function</span>
+<span class="sd">    to check for any errors opening the font.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path of the font</span>
+<span class="sd">            file to load.</span>
+<span class="sd">        ptsize (int): The size (in points) at which to open the font.</span>
+<span class="sd">        index (int): The index (from 0 to 15) of the font face to open. For</span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`TTF_Font`): A pointer to the opened font object, or a null</span>
+<span class="sd">        pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_OpenFont&quot;</span><span class="p">](</span><span class="n">file</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_OpenFontIndex"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_OpenFontIndex">[docs]</a><span class="k">def</span> <span class="nf">TTF_OpenFontIndex</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens a specific font face by index from a file at a given size.</span>
+<span class="sd">    </span>
+<span class="sd">    This function allows for loading a specific font face from a multi-face</span>
+<span class="sd">    font. See :func:`TTF_OpenFont` for more information.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path of the font</span>
+<span class="sd">            file to load.</span>
+<span class="sd">        ptsize (int): The size (in points) at which to open the font.</span>
+<span class="sd">        index (int): The index (from 0 to 15) of the font face to open. For</span>
+<span class="sd">            font files with only one face, this should always be 0.</span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`TTF_Font`): A pointer to the opened font object, or a null</span>
+<span class="sd">        pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_OpenFontIndex&quot;</span><span class="p">](</span><span class="n">file</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_OpenFontRW"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_OpenFontRW">[docs]</a><span class="k">def</span> <span class="nf">TTF_OpenFontRW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens a font from a file object at a given size.</span>
+
+<span class="sd">    Point sizes are based on a DPI of 72. Use the :func:`TTF_GetError` function</span>
+<span class="sd">    to check for any errors opening the font.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       The file object used to create the font (``src``) must be kept in</span>
+<span class="sd">       memory until you are done with the font. Once the ``src`` has been freed,</span>
+<span class="sd">       performing any addotinoal operations with the returned :obj:`TTF_Font`</span>
+<span class="sd">       will result in a hard Python crash (segmentation fault).</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): A file object containing a valid font.</span>
+<span class="sd">        freesrc (int): If non-zero, the provided file object will be closed and</span>
+<span class="sd">            freed automatically when the resulting :obj:`TTF_Font` is closed (or</span>
+<span class="sd">            if an error is encountered opening the font).</span>
+<span class="sd">        ptsize (int): The size (in points) at which to open the font.</span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`TTF_Font`): A pointer to the opened font object, or a null</span>
+<span class="sd">        pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_OpenFontRW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_OpenFontIndexRW"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_OpenFontIndexRW">[docs]</a><span class="k">def</span> <span class="nf">TTF_OpenFontIndexRW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens a specific font face by index from a file object at a given size.</span>
+<span class="sd">    </span>
+<span class="sd">    This function allows for loading a specific font face from a multi-face</span>
+<span class="sd">    font. See :func:`TTF_OpenFontRW` for more information.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): A file object containing a valid font.</span>
+<span class="sd">        freesrc (int): If non-zero, the provided file object will be closed and</span>
+<span class="sd">            freed automatically when the resulting :obj:`TTF_Font` is closed (or</span>
+<span class="sd">            if an error is encountered opening the font).</span>
+<span class="sd">        ptsize (int): The size (in points) at which to open the font.</span>
+<span class="sd">        index (int): The index (from 0 to 15) of the font face to open. For</span>
+<span class="sd">            font files with only one face, this should always be 0.</span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`TTF_Font`): A pointer to the opened font object, or a null</span>
+<span class="sd">        pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_OpenFontIndexRW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="n">ptsize</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTF_GetFontStyle"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_GetFontStyle">[docs]</a><span class="k">def</span> <span class="nf">TTF_GetFontStyle</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the current rendering style of a given font.</span>
+
+<span class="sd">    To check for the presence of a given style within a font, the return value</span>
+<span class="sd">    of this function can be used with a bitwise ``&amp;`` operator::</span>
+
+<span class="sd">      style = TTF_GetFontStyle(font)</span>
+<span class="sd">      is_bold = style &amp; TTF_STYLE_BOLD == TTF_STYLE_BOLD</span>
+<span class="sd">      is_underlined = style &amp; TTF_STYLE_UNDERLINE == TTF_STYLE_UNDERLINE</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the style should be</span>
+<span class="sd">            retrieved.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A bitmask of one or more style constants (see</span>
+<span class="sd">        :func:`TTF_SetFontStyle`).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontStyle&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_SetFontStyle"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SetFontStyle">[docs]</a><span class="k">def</span> <span class="nf">TTF_SetFontStyle</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the rendering style for a given font.</span>
+<span class="sd">    </span>
+<span class="sd">    Font styles can be specified using the following constants:</span>
+
+<span class="sd">    ============= ===========================</span>
+<span class="sd">    Style         Constant</span>
+<span class="sd">    ============= ===========================</span>
+<span class="sd">    Normal        ``TTF_STYLE_NORMAL``</span>
+<span class="sd">    Bold          ``TTF_STYLE_BOLD``</span>
+<span class="sd">    Italics       ``TTF_STYLE_ITALICS``</span>
+<span class="sd">    Underlined    ``TTF_STYLE_UNDERLINE``</span>
+<span class="sd">    Strikethrough ``TTF_STYLE_STRIKETHROUGH``</span>
+<span class="sd">    ============= ===========================</span>
+
+<span class="sd">    Multiple font styles (e.g. bold and italics) can be combined using the</span>
+<span class="sd">    bitwise ``|`` operator::</span>
+<span class="sd"> </span>
+<span class="sd">      underlined_bold = (TTF_STYLE_BOLD | TTF_STYLE_UNDERLINE)</span>
+<span class="sd">      TTF_SetFontStyle(font, underlined_bold)</span>
+<span class="sd"> </span>
+<span class="sd">    .. note::</span>
+<span class="sd">       Setting the underline style for a font may cause the surfaces created by</span>
+<span class="sd">       :obj:`TTF_RenderGlyph` functions to be taller, in order to make room for</span>
+<span class="sd">       the underline to be drawn underneath.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the style will be set.</span>
+<span class="sd">        style (int): A bitmask specifying the style(s) to use for the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SetFontStyle&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span></div>
+
+<span class="k">def</span> <span class="nf">TTF_GetFontOutline</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the current outline thickness of a given font.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the outline thickness</span>
+<span class="sd">            should be retrieved.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The outline thickness (in pixels) of the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontOutline&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">TTF_SetFontOutline</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">outline</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the outline thickness of a given font.</span>
+<span class="sd">    </span>
+<span class="sd">    If the outline is set to zero, outlining will be disabled for the font.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the outline thickness</span>
+<span class="sd">            will be set.</span>
+<span class="sd">        outline (int): The new outline thickness (in pixels) for the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SetFontOutline&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">outline</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">TTF_GetFontHinting</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the current hinting style of a given font.</span>
+
+<span class="sd">    This function returns one of the constants specified in the documentation</span>
+<span class="sd">    for :func:`TTF_SetFontHinting`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the hinting style</span>
+<span class="sd">            should be retrieved.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A constant indicating the hinting style of the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontHinting&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TTF_SetFontHinting"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SetFontHinting">[docs]</a><span class="k">def</span> <span class="nf">TTF_SetFontHinting</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">hinting</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the rendering hinting mode for a given font.</span>
+<span class="sd">    </span>
+<span class="sd">    The hinting mode can be specified using one of the following constants:</span>
+
+<span class="sd">    ============= =======================</span>
+<span class="sd">    Hinting type  Constant</span>
+<span class="sd">    ============= =======================</span>
+<span class="sd">    Normal        ``TTF_HINTING_NORMAL``</span>
+<span class="sd">    Light         ``TTF_HINTING_LIGHT``</span>
+<span class="sd">    Mono          ``TTF_HINTING_MONO``</span>
+<span class="sd">    None          ``TTF_HINTING_NONE``</span>
+<span class="sd">    ============= =======================</span>
+
+<span class="sd">    If no hinting mode is is explicitly set, &quot;normal&quot; hinting is used for</span>
+<span class="sd">    rendering.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the hinting style</span>
+<span class="sd">            will be set.</span>
+<span class="sd">        hinting (int): A constant specifiying the hinting style to use when</span>
+<span class="sd">            rendering text.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SetFontHinting&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">hinting</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTF_FontHeight"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontHeight">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontHeight</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the maximum pixel height of all glyphs in a given font.</span>
+
+<span class="sd">    You can use this height for rendering text as close together vertically</span>
+<span class="sd">    as possible, though adding at least one pixel height to it will space it</span>
+<span class="sd">    so they can&#39;t touch.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the maximum glyph</span>
+<span class="sd">            height should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The maximum height (in pixels) of all glyphs in the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontHeight&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_FontAscent"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontAscent">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontAscent</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the maximum pixel ascent of all glyphs in a given font.</span>
+
+<span class="sd">    The ascent of a glyph is defined as the distance from the top of the</span>
+<span class="sd">    glyph to its baseline. For example, a lower-case &quot;t&quot; will generally have a</span>
+<span class="sd">    larger ascent than a lower-case &quot;o&quot;.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the maximum glyph</span>
+<span class="sd">            ascent should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The maximum ascent (in pixels) of all glyphs in the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontAscent&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_FontDescent"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontDescent">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontDescent</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the maximum pixel descent of all glyphs in a given font.</span>
+
+<span class="sd">    The descent of a glyph is defined as the distance from the bottom of the</span>
+<span class="sd">    glyph to its baseline. For example, a lower-case &quot;g&quot; will typically have a</span>
+<span class="sd">    non-zero descent whereas a lower-case &quot;o&quot; will generally have a descent of</span>
+<span class="sd">    zero.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the maximum glyph</span>
+<span class="sd">            descent should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The maximum descent (in pixels) of all glyphs in the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontDescent&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_FontLineSkip"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontLineSkip">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontLineSkip</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the recommended spacing between lines for a given font.</span>
+
+<span class="sd">    This is usually larger than the result of :func:`TTF_FontHeight`.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the recommended line</span>
+<span class="sd">            skip height should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The recommended line skip height (in pixels) for the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontLineSkip&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_GetFontKerning"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_GetFontKerning">[docs]</a><span class="k">def</span> <span class="nf">TTF_GetFontKerning</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks whether or not kerning is enabled for a given font.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the kerning status</span>
+<span class="sd">            should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Non-zero if kerning is enabled for the font, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontKerning&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_SetFontKerning"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SetFontKerning">[docs]</a><span class="k">def</span> <span class="nf">TTF_SetFontKerning</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">allowed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Enables or disables kerning for a given font.</span>
+
+<span class="sd">    Kerning is enabled for all fonts by default.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the kerning status</span>
+<span class="sd">            should be changed.</span>
+<span class="sd">        allowed (int): 0 to disable kerning, or non-zero to enable it.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SetFontKerning&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">allowed</span><span class="p">)</span></div>
+
+<span class="k">def</span> <span class="nf">TTF_FontFaces</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the number of faces (&quot;sub-fonts&quot;) available in a given font.</span>
+<span class="sd">   </span>
+<span class="sd">    This is a count of the number of specific fonts (based on size and style</span>
+<span class="sd">    and other typographical features) contained in the font itself.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the number of faces</span>
+<span class="sd">            should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The number of faces in the font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontFaces&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TTF_FontFaceIsFixedWidth"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontFaceIsFixedWidth">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontFaceIsFixedWidth</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if the current face of a given font is fixed width.</span>
+
+<span class="sd">    Fixed width fonts are monospace, meaning every character that exists in the</span>
+<span class="sd">    font is the same width, thus you can assume that a rendered string&#39;s width</span>
+<span class="sd">    is going to be the result of a simple calculation:</span>
+<span class="sd">    ``glyph_width * string_length``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the fixed-width status</span>
+<span class="sd">            should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A positive integer if the font is fixed-width, otherwise 0.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontFaceIsFixedWidth&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_FontFaceFamilyName"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontFaceFamilyName">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontFaceFamilyName</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the current family name (e.g. Helvetica) from a given font.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the family name</span>
+<span class="sd">            should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes: The family name of the given font, or ``None`` if not</span>
+<span class="sd">        available.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontFaceFamilyName&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_FontFaceStyleName"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_FontFaceStyleName">[docs]</a><span class="k">def</span> <span class="nf">TTF_FontFaceStyleName</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the current style name (e.g. Bold) from a given font.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the style name</span>
+<span class="sd">            should be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes: The style name of the given font, or ``None`` if not</span>
+<span class="sd">        available.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_FontFaceStyleName&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_GlyphIsProvided"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_GlyphIsProvided">[docs]</a><span class="k">def</span> <span class="nf">TTF_GlyphIsProvided</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks whether a character is provided by a given font.</span>
+
+<span class="sd">    The built-in Python :func:`ord` function can be used to convert a string</span>
+<span class="sd">    character to an integer for use with this function (e.g. ``ord(&quot;A&quot;)``).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object within which to check for a</span>
+<span class="sd">            glyph for the given character.</span>
+<span class="sd">        ch (int): A unicode integer representing the character to check for</span>
+<span class="sd">            within the font.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A non-zero integer if the font provides a glyph for the character,</span>
+<span class="sd">        otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GlyphIsProvided&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_GlyphMetrics"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_GlyphMetrics">[docs]</a><span class="k">def</span> <span class="nf">TTF_GlyphMetrics</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">minx</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span><span class="p">,</span> <span class="n">advance</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the glyph metrics for a character with a given font.</span>
+<span class="sd">    </span>
+<span class="sd">    This function returns the calculated metrics by reference, meaning that</span>
+<span class="sd">    it needs to be called using pre-allocated ctypes variables::</span>
+
+<span class="sd">       from ctypes import c_int, byref</span>
+
+<span class="sd">       minX, maxX, minY, maxY = c_int(0), c_int(0), c_int(0), c_int(0)</span>
+<span class="sd">       adv = c_int(0)</span>
+<span class="sd">       TTF_GlyphMetrics(</span>
+<span class="sd">           font, ord(char),</span>
+<span class="sd">           byref(minX), byref(maxX), byref(minY), byref(maxY), byref(adv)</span>
+<span class="sd">       )</span>
+<span class="sd">       results = [x.value for x in (minX, maxX, minY, maxY, adv)]</span>
+
+<span class="sd">    The following link may be useful for understanding what these metrics mean:</span>
+<span class="sd">    http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        ch (int): A unicode integer representing the character for which to</span>
+<span class="sd">            retrieve glyph metrics.</span>
+<span class="sd">        minx (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the glyph&#39;s minimum X offset.</span>
+<span class="sd">        maxx (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the glyph&#39;s maximum X offset.</span>
+<span class="sd">        miny (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the glyph&#39;s minimum Y offset.</span>
+<span class="sd">        maxy (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the glyph&#39;s maximum Y offset.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error (e.g. if the glyph does not exist in</span>
+<span class="sd">        the font). </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GlyphMetrics&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">minx</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span><span class="p">,</span> <span class="n">advance</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTF_SizeText"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SizeText">[docs]</a><span class="k">def</span> <span class="nf">TTF_SizeText</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the size of an ASCII string rendered with a given font.</span>
+
+<span class="sd">    This function does not perform any actual rendering, but correct kerning is</span>
+<span class="sd">    performed to get the actual width. For a string without any newlines, the</span>
+<span class="sd">    height will be the same as that returned by :func:`TTF_FontHeight`.</span>
+
+<span class="sd">    This function returns the calculated metrics by reference, meaning that</span>
+<span class="sd">    it needs to be called using pre-allocated ctypes variables::</span>
+
+<span class="sd">       from ctypes import c_int, byref</span>
+
+<span class="sd">       text_w, text_h = c_int(0), c_int(0)</span>
+<span class="sd">       TTF_SizeText(font, b&quot;hello!&quot;, byref(text_w), byref(text_h))</span>
+<span class="sd">       text_size = [x.value for x in (text_w, text_h)]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): An ASCII-encoded bytestring of text for which the rendered</span>
+<span class="sd">            surface size should be calculated.</span>
+<span class="sd">        w (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface width (in pixels).</span>
+<span class="sd">        h (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface height (in pixels).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error (e.g. if a glyph is not found in</span>
+<span class="sd">        the font).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SizeText&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_SizeUTF8"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SizeUTF8">[docs]</a><span class="k">def</span> <span class="nf">TTF_SizeUTF8</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the size of a UTF8-encoded string rendered with a given font.</span>
+
+<span class="sd">    See :func:`TTF_SizeText` for more info.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): A UTF8-encoded bytestring of text for which the rendered</span>
+<span class="sd">            surface size should be calculated.</span>
+<span class="sd">        w (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface width (in pixels).</span>
+<span class="sd">        h (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface height (in pixels).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error (e.g. if a glyph is not found in</span>
+<span class="sd">        the font).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SizeUTF8&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_SizeUNICODE"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_SizeUNICODE">[docs]</a><span class="k">def</span> <span class="nf">TTF_SizeUNICODE</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the size of a UCS-2 encoded string rendered with a given font.</span>
+
+<span class="sd">    See :func:`TTF_SizeText` and :func:`TTF_RenderUNICODE_Solid` for more info.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (byref(:obj:`~ctypes.c_uint16`)): A ctypes array containing a UCS-2</span>
+<span class="sd">            encoded string of text for which the rendered surface size should be</span>
+<span class="sd">            calculated.</span>
+<span class="sd">        w (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface width (in pixels).</span>
+<span class="sd">        h (byref(:obj:`~ctypes.c_int`)): A pointer to an integer in which to</span>
+<span class="sd">            store the calculated surface height (in pixels).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error (e.g. if a glyph is not found in</span>
+<span class="sd">        the font).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_SizeUNICODE&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTF_RenderText_Solid"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderText_Solid">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders an ASCII-encoded string to a non-antialiased 8-bit surface.</span>
+
+<span class="sd">    The ``Solid`` family of TTF functions render text to an 8-bit palettized</span>
+<span class="sd">    :obj:`SDL_Surface` with a transparent background and no antialiasing.</span>
+<span class="sd">    This is the fastest (and lowest quality) of all TTF rendering types.</span>
+
+<span class="sd">    The resulting surface has a transparent background unlike</span>
+<span class="sd">    :func:`TTF_RenderText_Shaded`, but the rendered text is not antialised and</span>
+<span class="sd">    will thus appear pixelated and difficult to read at small sizes. The</span>
+<span class="sd">    resulting surface should blit faster than the one returned by</span>
+<span class="sd">    :func:`TTF_RenderText_Blended`. This rendering type should be used in cases</span>
+<span class="sd">    when you need to render lots of text very quickly (e.g. if you&#39;re updating</span>
+<span class="sd">    it every frame) or when you don&#39;t care about antialiasing.</span>
+<span class="sd">   </span>
+<span class="sd">    The 0 pixel is the colorkey for the resulting surface, giving a transparent</span>
+<span class="sd">    background, and the 1 pixel is set to the text color. This allows you to</span>
+<span class="sd">    change the color without having to render the text again. Palette index 0</span>
+<span class="sd">    is not drawn when the returned surface is blitted to another surface (since</span>
+<span class="sd">    it is the colorkey and thus transparent), though its actual color is 255</span>
+<span class="sd">    minus each of the RGB components of the foreground color.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): An ASCII-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderText_Solid&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUTF8_Solid"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUTF8_Solid">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUTF8_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UTF8-encoded string to a non-antialiased 8-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Solid` for more details on the rendering style.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): A UTF8-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUTF8_Solid&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUNICODE_Solid"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUNICODE_Solid">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUNICODE_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UCS-2 encoded string to a non-antialiased 8-bit surface.</span>
+
+<span class="sd">    The required text input format for this function is a ctypes array of</span>
+<span class="sd">    UNICODE (UCS-2) glyphs in uint16 format, optionally terminated by a</span>
+<span class="sd">    byte-order mark (``UNICODE_BOM_NATIVE`` or ``UNICODE_BOM_SWAPPED``)</span>
+<span class="sd">    indicating how the text should be interpreted. Python strings can be</span>
+<span class="sd">    converted to this format using the following process::</span>
+
+<span class="sd">       # Generate a UCS-2 array from a Python string</span>
+<span class="sd">       teststr = u&quot;Hello world!&quot;</span>
+<span class="sd">       strlen = len(teststr + 1)  # +1 for byte-order mark</span>
+<span class="sd">       intstr = unpack(&#39;H&#39; * strlen, teststr.encode(&#39;utf-16&#39;))</span>
+<span class="sd">       intstr = intstr + (0, )  # Null-terminate the string</span>
+<span class="sd">       strarr = (ctypes.c_uint16 * len(intstr))(*intstr)</span>
+
+<span class="sd">       # Render the UCS-2 string</span>
+<span class="sd">       col = SDL_Color(0, 0, 0)</span>
+<span class="sd">       rendered = TTF_RenderUNICODE_Solid(font, strarr, col)</span>
+
+<span class="sd">    Unless there is a very specific need, the ``TTF_RenderUTF8`` functions should</span>
+<span class="sd">    always be used instead of their ``TTF_RenderUNICODE`` counterparts. In</span>
+<span class="sd">    addition to having a much friendlier Python API, SDL_ttf uses the</span>
+<span class="sd">    ``TTF_RenderUTF8`` functions internally for all the ``TTF_RenderUNICODE``</span>
+<span class="sd">    functions anyway so there is no benefit in terms of supporting a wider range</span>
+<span class="sd">    of characters.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Solid` for more details on the rendering style.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (byref(:obj:`~ctypes.c_uint16`)): A ctypes array containing a UCS-2</span>
+<span class="sd">            encoded string of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUNICODE_Solid&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderGlyph_Solid"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderGlyph_Solid">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderGlyph_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a unicode character to a non-antialiased 8-bit surface.</span>
+
+<span class="sd">    The built-in Python :func:`ord` function can be used to convert a string</span>
+<span class="sd">    character to an integer for use with this function (e.g. ``ord(&quot;A&quot;)``).</span>
+
+<span class="sd">    The glyph is rendered without any padding or centering in the X direction,</span>
+<span class="sd">    and is aligned normally in the Y direction. See :func:`TTF_RenderText_Solid`</span>
+<span class="sd">    for more details on the rendering style.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        ch (int): A unicode integer representing the glyph to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the glyph. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered glyph, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderGlyph_Solid&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderText_Shaded"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderText_Shaded">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderText_Shaded</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders an ASCII-encoded string to a solid antialiased 8-bit surface.</span>
+
+<span class="sd">    The ``Shaded`` family of TTF functions render text to an 8-bit palettized</span>
+<span class="sd">    :obj:`SDL_Surface` with a solid background color and antialiasing. This is</span>
+<span class="sd">    the second-fastest of the text rendering types, being slightly faster than</span>
+<span class="sd">    :func:`TTF_RenderText_Blended` but slower than :func:`TTF_RenderText_Solid`.</span>
+
+<span class="sd">    Text rendered using the ``Shaded`` method will be antialiased, but the</span>
+<span class="sd">    resulting surface will have a solid background colour instead of a</span>
+<span class="sd">    transparent one. Surfaces rendered with this function should blit as quickly</span>
+<span class="sd">    as those created with :func:`TTF_RenderText_Blended`. This rendering type</span>
+<span class="sd">    should be used in cases when you want nice-looking text but don&#39;t need</span>
+<span class="sd">    background transparency.</span>
+
+<span class="sd">    The 0 pixel is the background color for the resulting surface, while other</span>
+<span class="sd">    pixels have varying levels of the foreground color. This results in a box of</span>
+<span class="sd">    the background color around the text in the foreground color.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): An ASCII-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+<span class="sd">        bg (:obj:`SDL_Color`): The background fill color for the text. This</span>
+<span class="sd">            becomes colormap index 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderText_Shaded&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUTF8_Shaded"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUTF8_Shaded">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUTF8_Shaded</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UTF8-encoded string to a solid antialiased 8-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Shaded` for more details on the rendering style.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): A UTF8-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+<span class="sd">        bg (:obj:`SDL_Color`): The background fill color for the text. This</span>
+<span class="sd">            becomes colormap index 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUTF8_Shaded&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUNICODE_Shaded"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUNICODE_Shaded">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUNICODE_Shaded</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UCS-2 encoded string to a solid antialiased 8-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Shaded` for more details on the rendering style,</span>
+<span class="sd">    and :func:`TTF_RenderUNICODE_Solid` for documentation of the text format.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (byref(:obj:`~ctypes.c_uint16`)): A ctypes array containing a UCS-2</span>
+<span class="sd">            encoded string of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+<span class="sd">        bg (:obj:`SDL_Color`): The background fill color for the text. This</span>
+<span class="sd">            becomes colormap index 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUNICODE_Shaded&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderGlyph_Shaded"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderGlyph_Shaded">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderGlyph_Shaded</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a unicode character to an 8-bit surface using a given font.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Shaded` for more details on the rendering style,</span>
+<span class="sd">    and :func:`TTF_RenderGlyph_Solid` for additional usage information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        ch (int): A unicode integer representing the glyph to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the glyph. This</span>
+<span class="sd">            becomes colormap index 1.</span>
+<span class="sd">        bg (:obj:`SDL_Color`): The background fill color for the glyph. This</span>
+<span class="sd">            becomes colormap index 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered glyph, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderGlyph_Shaded&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderText_Blended"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderText_Blended">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderText_Blended</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders an ASCII-encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    The ``Blended`` family of TTF functions render text to a 32-bit ARGB</span>
+<span class="sd">    :obj:`SDL_Surface` with antialiasing and background transparency.</span>
+<span class="sd">    This is the highest quality (and slowest) of all TTF rendering types.</span>
+
+<span class="sd">    The rendered text will be antialiased on a transparent surface using alpha</span>
+<span class="sd">    blending. This rendering type should be used in cases when you want to</span>
+<span class="sd">    overlay the rendered text over something else, and in in most other cases</span>
+<span class="sd">    where high performance isn&#39;t the primary concern.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       To render an RGBA surface instead of an ARGB one, just swap the R and B</span>
+<span class="sd">       values when creating the SDL_Color.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): An ASCII-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderText_Blended&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUTF8_Blended"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUTF8_Blended">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUTF8_Blended</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UTF8-encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Blended` for more details on the rendering style.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): A UTF8-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUTF8_Blended&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUNICODE_Blended"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUNICODE_Blended">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUNICODE_Blended</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UCS-2 encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Blended` for more details on the rendering style,</span>
+<span class="sd">    and :func:`TTF_RenderUNICODE_Solid` for documentation of the text format.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (byref(:obj:`~ctypes.c_uint16`)): A ctypes array containing a UCS-2</span>
+<span class="sd">            encoded string of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUNICODE_Blended&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderText_Blended_Wrapped"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderText_Blended_Wrapped">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderText_Blended_Wrapped</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders an ASCII-encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    This function is identical to :func:`TTF_RenderText_Blended`, except that</span>
+<span class="sd">    any lines exceeding the specified wrap length will be wrapped to fit within</span>
+<span class="sd">    the given width.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): An ASCII-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+<span class="sd">        wrapLength (int): The maximum width of the output surface (in pixels)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderText_Blended_Wrapped&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUTF8_Blended_Wrapped"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUTF8_Blended_Wrapped">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUTF8_Blended_Wrapped</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UTF8-encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    This function is identical to :func:`TTF_RenderUTF8_Blended`, except that</span>
+<span class="sd">    any lines exceeding the specified wrap length will be wrapped to fit within</span>
+<span class="sd">    the given width.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (bytes): A UTF8-encoded bytestring of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+<span class="sd">        wrapLength (int): The maximum width of the output surface (in pixels)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUTF8_Blended_Wrapped&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderUNICODE_Blended_Wrapped"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderUNICODE_Blended_Wrapped">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderUNICODE_Blended_Wrapped</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a UCS-2 encoded string to an antialiased 32-bit surface.</span>
+
+<span class="sd">    This function is identical to :func:`TTF_RenderUNICODE_Blended`, except that</span>
+<span class="sd">    any lines exceeding the specified wrap length will be wrapped to fit within</span>
+<span class="sd">    the given width.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        text (byref(:obj:`~ctypes.c_uint16`)): A ctypes array containing a UCS-2</span>
+<span class="sd">            encoded string of text to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the text.</span>
+<span class="sd">        wrapLength (int): The maximum width of the output surface (in pixels)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered text, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderUNICODE_Blended_Wrapped&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">wrapLength</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_RenderGlyph_Blended"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_RenderGlyph_Blended">[docs]</a><span class="k">def</span> <span class="nf">TTF_RenderGlyph_Blended</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders a unicode character to an antialiased 32-bit surface.</span>
+
+<span class="sd">    See :func:`TTF_RenderText_Blended` for more details on the rendering style,</span>
+<span class="sd">    and :func:`TTF_RenderGlyph_Solid` for additional usage information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object to use.</span>
+<span class="sd">        ch (int): A unicode integer representing the glyph to render.</span>
+<span class="sd">        fg (:obj:`SDL_Color`): The color to use for rendering the glyph.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        rendered glyph, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_RenderGlyph_Blended&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span></div>
+
+<span class="n">TTF_RenderText</span> <span class="o">=</span> <span class="n">TTF_RenderText_Shaded</span>
+<span class="n">TTF_RenderUTF8</span> <span class="o">=</span> <span class="n">TTF_RenderUTF8_Shaded</span>
+<span class="n">TTF_RenderUNICODE</span> <span class="o">=</span> <span class="n">TTF_RenderUNICODE_Shaded</span>
+
+
+<div class="viewcode-block" id="TTF_CloseFont"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_CloseFont">[docs]</a><span class="k">def</span> <span class="nf">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Closes and frees the memory associated with a given font.</span>
+
+<span class="sd">    This function should be called on a font when you are done with it. A</span>
+<span class="sd">    :obj:`TTF_Font` cannot be used after it has been closed.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font to close.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_CloseFont&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TTF_Quit"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_Quit">[docs]</a><span class="k">def</span> <span class="nf">TTF_Quit</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;De-initializes the TTF engine.</span>
+<span class="sd">   </span>
+<span class="sd">    Once this has been called, other functions in the module should not be used</span>
+<span class="sd">    until :func:`TTF_Init` is called to re-initialize the engine (except for</span>
+<span class="sd">    :func:`TTF_WasInit`).</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       If :func:`TTF_Init` is called multiple times, this function should be</span>
+<span class="sd">       called an equal number of times to properly de-initialize the library.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_Quit&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="TTF_WasInit"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_WasInit">[docs]</a><span class="k">def</span> <span class="nf">TTF_WasInit</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Checks if the TTF engine is initialized.</span>
+<span class="sd">   </span>
+<span class="sd">    This function can be used before calling :func:`TTF_Init` to avoid</span>
+<span class="sd">    initializing twice in a row, or to determine if need to call</span>
+<span class="sd">    :func:`TTF_Quit`.</span>
+<span class="sd">   </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The number of times :func:`TTF_Init` has been called without a</span>
+<span class="sd">        corresponding :func:`TTF_Quit`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_WasInit&quot;</span><span class="p">]()</span></div>
+
+<span class="k">def</span> <span class="nf">TTF_GetFontKerningSize</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">prev_index</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="c1"># NOTE: Deprecated in SDL_ttf</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontKerningSize&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">prev_index</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TTF_GetFontKerningSizeGlyphs"><a class="viewcode-back" href="../../modules/sdl2_sdlttf.html#sdl2.sdlttf.TTF_GetFontKerningSizeGlyphs">[docs]</a><span class="k">def</span> <span class="nf">TTF_GetFontKerningSizeGlyphs</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">previous_ch</span><span class="p">,</span> <span class="n">ch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the kerning size of two glyphs (by FreeType index) for a given font.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       The units of kerning size returned by this function differ between fonts</span>
+<span class="sd">       depending on their format and how they were designed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        font (:obj:`TTF_Font`): The font object for which the kerning size</span>
+<span class="sd">            should be retrieved.</span>
+<span class="sd">        previous_ch (int): The unicode integer representing the first glyph.</span>
+<span class="sd">        ch (int): The unicode integer representing the second glyph.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The kerning size of the two glyphs in the current font.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;TTF_GetFontKerningSizeGlyphs&quot;</span><span class="p">](</span><span class="n">font</span><span class="p">,</span> <span class="n">previous_ch</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span></div>
+
+<span class="n">TTF_SetError</span> <span class="o">=</span> <span class="n">SDL_SetError</span>
+<span class="n">TTF_GetError</span> <span class="o">=</span> <span class="n">SDL_GetError</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

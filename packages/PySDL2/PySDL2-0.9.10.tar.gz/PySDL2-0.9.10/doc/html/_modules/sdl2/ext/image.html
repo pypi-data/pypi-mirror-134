@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.image &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.image</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.image</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Image loaders.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">UnsupportedError</span><span class="p">,</span> <span class="n">byteify</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">endian</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">pixels</span>
+
+<span class="n">_HASPIL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">_HASPIL</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">_HASSDLIMAGE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">sdlimage</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">_HASSDLIMAGE</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;get_image_formats&quot;</span><span class="p">,</span> <span class="s2">&quot;load_image&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="get_image_formats"><a class="viewcode-back" href="../../../modules/sdl2ext_image.html#sdl2.ext.get_image_formats">[docs]</a><span class="k">def</span> <span class="nf">get_image_formats</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the formats supported in the default installation.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_HASPIL</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_HASSDLIMAGE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;bmp&quot;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;bmp&quot;</span><span class="p">,</span> <span class="s2">&quot;cur&quot;</span><span class="p">,</span> <span class="s2">&quot;gif&quot;</span><span class="p">,</span> <span class="s2">&quot;ico&quot;</span><span class="p">,</span> <span class="s2">&quot;jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;lbm&quot;</span><span class="p">,</span> <span class="s2">&quot;pbm&quot;</span><span class="p">,</span> <span class="s2">&quot;pcx&quot;</span><span class="p">,</span> <span class="s2">&quot;pgm&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="s2">&quot;pnm&quot;</span><span class="p">,</span> <span class="s2">&quot;ppm&quot;</span><span class="p">,</span> <span class="s2">&quot;svg&quot;</span><span class="p">,</span> <span class="s2">&quot;tga&quot;</span><span class="p">,</span> <span class="s2">&quot;tif&quot;</span><span class="p">,</span> <span class="s2">&quot;webp&quot;</span><span class="p">,</span> <span class="s2">&quot;xcf&quot;</span><span class="p">,</span> <span class="s2">&quot;xpm&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_image"><a class="viewcode-back" href="../../../modules/sdl2ext_image.html#sdl2.ext.load_image">[docs]</a><span class="k">def</span> <span class="nf">load_image</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">enforce</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a SDL_Surface from an image file.</span>
+
+<span class="sd">    This function makes use of the Python Imaging Library, if it is available</span>
+<span class="sd">    on the target execution environment. The function will try to load the</span>
+<span class="sd">    file via sdl2 first. If the file could not be loaded, it will try</span>
+<span class="sd">    to load it via sdl2.sdlimage and PIL.</span>
+
+<span class="sd">    You can force the function to use only one of them, by passing the enforce</span>
+<span class="sd">    as either &quot;PIL&quot; or &quot;SDL&quot;.</span>
+
+<span class="sd">    Note: This will call sdl2.sdlimage.init() implicitly with the default</span>
+<span class="sd">    arguments, if the module is available and if sdl2.SDL_LoadBMP() failed to</span>
+<span class="sd">    load the image.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">enforce</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">enforce</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;PIL&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;enforce must be either &#39;PIL&#39; or &#39;SDL&#39;, if set&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fname must be a string&quot;</span><span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fname</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;encode&#39;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">byteify</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_HASPIL</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_HASSDLIMAGE</span><span class="p">:</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnsupportedError</span><span class="p">(</span><span class="n">load_image</span><span class="p">,</span>
+                                   <span class="s2">&quot;cannot use PIL or SDL for image loading&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+    <span class="k">if</span> <span class="n">enforce</span> <span class="o">==</span> <span class="s2">&quot;PIL&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_HASPIL</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">UnsupportedError</span><span class="p">(</span><span class="n">load_image</span><span class="p">,</span> <span class="s2">&quot;cannot use PIL (not found)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">enforce</span> <span class="o">==</span> <span class="s2">&quot;SDL&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_HASSDLIMAGE</span><span class="p">:</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnsupportedError</span><span class="p">(</span><span class="n">load_image</span><span class="p">,</span>
+                                   <span class="s2">&quot;cannot use SDL_image (not found)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+
+    <span class="n">imgsurface</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">enforce</span> <span class="o">!=</span> <span class="s2">&quot;PIL&quot;</span> <span class="ow">and</span> <span class="n">_HASSDLIMAGE</span><span class="p">:</span>
+        <span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_Init</span><span class="p">(</span><span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_INIT_JPG</span> <span class="o">|</span> <span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_INIT_PNG</span> <span class="o">|</span>
+                          <span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_INIT_TIF</span> <span class="o">|</span> <span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_INIT_WEBP</span><span class="p">)</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_Load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="c1"># An error occured - if we do not try PIL, break out now</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_HASPIL</span> <span class="ow">or</span> <span class="n">enforce</span> <span class="o">==</span> <span class="s2">&quot;SDL&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">sdlimage</span><span class="o">.</span><span class="n">IMG_GetError</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+
+    <span class="k">if</span> <span class="n">enforce</span> <span class="o">!=</span> <span class="s2">&quot;SDL&quot;</span> <span class="ow">and</span> <span class="n">_HASPIL</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">mode</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">rmask</span> <span class="o">=</span> <span class="n">gmask</span> <span class="o">=</span> <span class="n">bmask</span> <span class="o">=</span> <span class="n">amask</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">):</span>
+            <span class="c1"># 1 = B/W, 1 bit per byte</span>
+            <span class="c1"># &quot;L&quot; = greyscale, 8-bit</span>
+            <span class="c1"># &quot;P&quot; = palette-based, 8-bit</span>
+            <span class="n">pitch</span> <span class="o">=</span> <span class="n">width</span>
+            <span class="n">depth</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;RGB&quot;</span><span class="p">:</span>
+            <span class="c1"># 3x8-bit, 24bpp</span>
+            <span class="k">if</span> <span class="n">endian</span><span class="o">.</span><span class="n">SDL_BYTEORDER</span> <span class="o">==</span> <span class="n">endian</span><span class="o">.</span><span class="n">SDL_LIL_ENDIAN</span><span class="p">:</span>
+                <span class="n">rmask</span> <span class="o">=</span> <span class="mh">0x0000FF</span>
+                <span class="n">gmask</span> <span class="o">=</span> <span class="mh">0x00FF00</span>
+                <span class="n">bmask</span> <span class="o">=</span> <span class="mh">0xFF0000</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rmask</span> <span class="o">=</span> <span class="mh">0xFF0000</span>
+                <span class="n">gmask</span> <span class="o">=</span> <span class="mh">0x00FF00</span>
+                <span class="n">bmask</span> <span class="o">=</span> <span class="mh">0x0000FF</span>
+            <span class="n">depth</span> <span class="o">=</span> <span class="mi">24</span>
+            <span class="n">pitch</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="s2">&quot;RGBX&quot;</span><span class="p">):</span>
+            <span class="c1"># RGBX: 4x8-bit, no alpha</span>
+            <span class="c1"># RGBA: 4x8-bit, alpha</span>
+            <span class="k">if</span> <span class="n">endian</span><span class="o">.</span><span class="n">SDL_BYTEORDER</span> <span class="o">==</span> <span class="n">endian</span><span class="o">.</span><span class="n">SDL_LIL_ENDIAN</span><span class="p">:</span>
+                <span class="n">rmask</span> <span class="o">=</span> <span class="mh">0x000000FF</span>
+                <span class="n">gmask</span> <span class="o">=</span> <span class="mh">0x0000FF00</span>
+                <span class="n">bmask</span> <span class="o">=</span> <span class="mh">0x00FF0000</span>
+                <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span>
+                    <span class="n">amask</span> <span class="o">=</span> <span class="mh">0xFF000000</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rmask</span> <span class="o">=</span> <span class="mh">0xFF000000</span>
+                <span class="n">gmask</span> <span class="o">=</span> <span class="mh">0x00FF0000</span>
+                <span class="n">bmask</span> <span class="o">=</span> <span class="mh">0x0000FF00</span>
+                <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span>
+                    <span class="n">amask</span> <span class="o">=</span> <span class="mh">0x000000FF</span>
+            <span class="n">depth</span> <span class="o">=</span> <span class="mi">32</span>
+            <span class="n">pitch</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># We do not support CMYK or YCbCr for now</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported image format&quot;</span><span class="p">)</span>
+
+        <span class="n">pxbuf</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurfaceFrom</span><span class="p">(</span><span class="n">pxbuf</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>
+                                                      <span class="n">depth</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="n">rmask</span><span class="p">,</span>
+                                                      <span class="n">gmask</span><span class="p">,</span> <span class="n">bmask</span><span class="p">,</span> <span class="n">amask</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">imgsurface</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+        <span class="c1"># the pixel buffer must not be freed for the lifetime of the surface</span>
+        <span class="n">imgsurface</span><span class="o">.</span><span class="n">_pxbuf</span> <span class="o">=</span> <span class="n">pxbuf</span>
+
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;P&quot;</span><span class="p">:</span>
+            <span class="c1"># Create a SDL_Palette for the SDL_Surface</span>
+            <span class="k">def</span> <span class="nf">_chunk</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">),</span> <span class="n">size</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="n">seq</span><span class="p">[</span><span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span>
+
+            <span class="n">rgbcolors</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">getpalette</span><span class="p">()</span>
+            <span class="n">sdlpalette</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_AllocPalette</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rgbcolors</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">sdlpalette</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+            <span class="n">SDL_Color</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_chunk</span><span class="p">(</span><span class="n">rgbcolors</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
+                <span class="n">sdlpalette</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDL_Color</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_SetSurfacePalette</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">,</span> <span class="n">sdlpalette</span><span class="p">)</span>
+            <span class="c1"># This will decrease the refcount on the palette, so it gets</span>
+            <span class="c1"># freed properly on releasing the SDL_Surface.</span>
+            <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_FreePalette</span><span class="p">(</span><span class="n">sdlpalette</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+
+            <span class="c1"># If the image has a single transparent palette index, set</span>
+            <span class="c1"># that index as the color key to make blitting correct.</span>
+            <span class="k">if</span> <span class="s1">&#39;transparency&#39;</span> <span class="ow">in</span> <span class="n">image</span><span class="o">.</span><span class="n">info</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;transparency&#39;</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_SetColorKey</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;transparency&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">imgsurface</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

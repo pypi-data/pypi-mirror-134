@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlmixer - Python bindings for SDL_mixer &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sdl2.sdlgfx - Python bindings for SDL2_gfx" href="sdl2_sdlgfx.html" />
+    <link rel="prev" title="sdl2.sdlimage - Python bindings for SDL_image" href="sdl2_sdlimage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL_image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sdl2.sdlmixer - Python bindings for SDL_mixer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-data-types">Main data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialization-and-library-information-functions">Initialization and library information functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audio-loading-and-closing-functions">Audio loading and closing functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loading-and-closing-audio-clips">Loading and closing audio clips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loading-and-closing-music">Loading and closing music</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decoder-availability-info-functions">Decoder availability &amp; info functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-functions">Channel functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-configuration">Channel configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-grouping">Channel grouping</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#playback-functions">Playback functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-playback">Channel playback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#music-playback">Music playback</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-functions">Volume functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#playback-status-functions">Playback status functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-processing-functions">Effects-processing functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decoder-specific-functions">Decoder-specific functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#external-music-playback-functions">External music playback functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mikmod-configuration-functions">MikMod configuration functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#midi-soundfont-functions">MIDI SoundFont functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>sdl2.sdlmixer - Python bindings for SDL_mixer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2_sdlmixer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-sdlmixer-python-bindings-for-sdl-mixer">
+<h1>sdl2.sdlmixer - Python bindings for SDL_mixer<a class="headerlink" href="#sdl2-sdlmixer-python-bindings-for-sdl-mixer" title="Permalink to this headline"></a></h1>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.sdlmixer</span></code> module provides bindings for wrapper the SDL_mixer
+audio playback library. It supports loading, playing, and mixing audio from a
+wide range of popular formats (e.g. WAV, FLAC, MP3, OGG).</p>
+<p>The SDL_mixer library is designed around the concept of virtual channels, each
+of which can be set to different volumes, have different left/right panning, and
+play different effects and sounds simultaneously (like a mixing board in a
+recording studio). In addition to the main mixing channels, SDL_mixer also
+provides a single channel for music playback, which is less flexible than the
+other channels but supports a wider range of playback formats (including MIDI)
+and requires less memory for playback.</p>
+<p>Music playback is performed using <a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mix_Music</span></code></a> objects and their
+corresponding functions. All other audio playback is performed using
+<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a> objects.</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table Of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#main-data-types" id="id1">Main data types</a></p></li>
+<li><p><a class="reference internal" href="#initialization-and-library-information-functions" id="id2">Initialization and library information functions</a></p></li>
+<li><p><a class="reference internal" href="#audio-loading-and-closing-functions" id="id3">Audio loading and closing functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#loading-and-closing-audio-clips" id="id4">Loading and closing audio clips</a></p></li>
+<li><p><a class="reference internal" href="#loading-and-closing-music" id="id5">Loading and closing music</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#decoder-availability-info-functions" id="id6">Decoder availability &amp; info functions</a></p></li>
+<li><p><a class="reference internal" href="#channel-functions" id="id7">Channel functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#channel-configuration" id="id8">Channel configuration</a></p></li>
+<li><p><a class="reference internal" href="#channel-grouping" id="id9">Channel grouping</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#playback-functions" id="id10">Playback functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#channel-playback" id="id11">Channel playback</a></p></li>
+<li><p><a class="reference internal" href="#music-playback" id="id12">Music playback</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#volume-functions" id="id13">Volume functions</a></p></li>
+<li><p><a class="reference internal" href="#playback-status-functions" id="id14">Playback status functions</a></p></li>
+<li><p><a class="reference internal" href="#effects-processing-functions" id="id15">Effects-processing functions</a></p></li>
+<li><p><a class="reference internal" href="#decoder-specific-functions" id="id16">Decoder-specific functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#external-music-playback-functions" id="id17">External music playback functions</a></p></li>
+<li><p><a class="reference internal" href="#mikmod-configuration-functions" id="id18">MikMod configuration functions</a></p></li>
+<li><p><a class="reference internal" href="#midi-soundfont-functions" id="id19">MIDI SoundFont functions</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The PySDL2 documentation for this module is currently a work-in-progress, and
+not all functions are documented. The official C documentation (linked below)
+can be used in the meantime to fill in any gaps.</p>
+</div>
+<p>The official documentation for the SDL_mixer library can be found <a class="reference external" href="http://www.libsdl.org/projects/SDL_mixer/docs/index.html">here</a>. Note that
+not all functions may be documented, as the official doucmentation is
+currently several releases out-of-date.</p>
+<section id="main-data-types">
+<h2><a class="toc-backref" href="#id1">Main data types</a><a class="headerlink" href="#main-data-types" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Chunk">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Chunk</span></span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Chunk" title="Permalink to this definition"></a></dt>
+<dd><p>A loaded audio clip to use for playback with the mixer API.</p>
+<p>Chunk objects are created by the <a class="reference internal" href="#sdl2.sdlmixer.Mix_LoadWAV" title="sdl2.sdlmixer.Mix_LoadWAV"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_LoadWAV()</span></code></a> and <code class="docutils literal notranslate"><span class="pre">Mix_QuickLoad</span></code>
+functions, and should be freed using <a class="reference internal" href="#sdl2.sdlmixer.Mix_FreeChunk" title="sdl2.sdlmixer.Mix_FreeChunk"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_FreeChunk()</span></code></a> when no longer
+needed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Chunk.allocated">
+<span class="sig-name descname"><span class="pre">allocated</span></span><a class="headerlink" href="#sdl2.sdlmixer.Mix_Chunk.allocated" title="Permalink to this definition"></a></dt>
+<dd><p>Whether the associated audio buffer will be freed when
+the chunk is freed. <code class="docutils literal notranslate"><span class="pre">1</span></code> if the buffer is owned by the chunk, or
+<code class="docutils literal notranslate"><span class="pre">0</span></code> if it was allocated by a different function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Chunk.abuf">
+<span class="sig-name descname"><span class="pre">abuf</span></span><a class="headerlink" href="#sdl2.sdlmixer.Mix_Chunk.abuf" title="Permalink to this definition"></a></dt>
+<dd><p>A pointer to the chunk’s audio
+sample data, in the output format and sample rate of the current
+mixer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_ubyte" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_ubyte</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Chunk.alen">
+<span class="sig-name descname"><span class="pre">alen</span></span><a class="headerlink" href="#sdl2.sdlmixer.Mix_Chunk.alen" title="Permalink to this definition"></a></dt>
+<dd><p>The length of the chunk’s audio buffer (in bytes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Chunk.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><a class="headerlink" href="#sdl2.sdlmixer.Mix_Chunk.volume" title="Permalink to this definition"></a></dt>
+<dd><p>The volume of the chunk, with 0 being 0% and 127 being
+100%.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Music">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Music</span></span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Music"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Music" title="Permalink to this definition"></a></dt>
+<dd><p>The opaque data type representing a loaded music file.</p>
+<p>Music objects are created by the <a class="reference internal" href="#sdl2.sdlmixer.Mix_LoadMUS" title="sdl2.sdlmixer.Mix_LoadMUS"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_LoadMUS()</span></code></a> family of functions and
+should be freed using <a class="reference internal" href="#sdl2.sdlmixer.Mix_FreeMusic" title="sdl2.sdlmixer.Mix_FreeMusic"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_FreeMusic()</span></code></a> when no longer needed.</p>
+</dd></dl>
+
+</section>
+<section id="initialization-and-library-information-functions">
+<h2><a class="toc-backref" href="#id2">Initialization and library information functions</a><a class="headerlink" href="#initialization-and-library-information-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Init">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Init" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes the SDL2_mixer library.</p>
+<p>Calling this function enables support for the FLAC, MOD, MP3, and/or Ogg
+Vorbis audio formats as requested by the init flags. All other audio file
+formats can be loaded or used regardless of whether this has been called.</p>
+<p>The following init flags are supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Init flag</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FLAC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIX_INIT_FLAC</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>MOD</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIX_INIT_MID</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>MP3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIX_INIT_MP3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ogg Vorbis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIX_INIT_OGG</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>This can be called multiple times to enable support for these formats
+separately, or can initialize multiple formats at once by passing a set of
+flags as a bitwise OR. You can also call this function with 0 as a flag
+to check which audio decoding libraries have already been loaded, or to test
+whether a given decoder is available on the current system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize FLAC and MP3 support separately</span>
+<span class="k">for</span> <span class="n">flag</span> <span class="ow">in</span> <span class="p">[</span><span class="n">MIX_INIT_FLAC</span><span class="p">,</span> <span class="n">MIX_INIT_MP3</span><span class="p">]:</span>
+    <span class="n">Mix_Init</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">Mix_GetError</span><span class="p">()</span> <span class="c1"># check for any errors loading library</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">err</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+<span class="c1"># Initialize FLAC and MP3 support at the same time</span>
+<span class="n">flags</span> <span class="o">=</span> <span class="n">MIX_INIT_FLAC</span> <span class="o">|</span> <span class="n">MIX_INIT_MP3</span>
+<span class="n">Mix_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">Mix_Init</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="n">flags</span><span class="p">:</span> <span class="c1"># verify both libraries loaded properly</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">Mix_GetError</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not guaranteed to set an error string on failure, so
+the return value should be used for error checking instead of just
+<a class="reference internal" href="#sdl2.sdlmixer.Mix_GetError" title="sdl2.sdlmixer.Mix_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetError()</span></code></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A bitwise OR’d set of the flags of the audio formats to
+load support for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bitmask of all the currently initialized audio decoders.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Quit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Quit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Quit" title="Permalink to this definition"></a></dt>
+<dd><p>De-initializes the SDL2_mixer library.</p>
+<p>Calling this function disables FLAC, MOD, MP3, and Ogg support and frees
+all associated memory. Once this has been called, you can re-initialize
+support for those audio decoders using <a class="reference internal" href="#sdl2.sdlmixer.Mix_Init" title="sdl2.sdlmixer.Mix_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_Init()</span></code></a> and the
+corresponding init flags.</p>
+<p>You only need to call this function once, no matter how many times
+<a class="reference internal" href="#sdl2.sdlmixer.Mix_Init" title="sdl2.sdlmixer.Mix_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_Init()</span></code></a> was called.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_OpenAudio">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_OpenAudio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_OpenAudio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_OpenAudio" title="Permalink to this definition"></a></dt>
+<dd><p>Opens the default audio output device for use with the mixer API.</p>
+<p>This function opens the default audio device with a given output channel
+count, audio sample format, sample rate, and audio buffer size, and
+initializes the mixer with 8 virtual channels:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a 44.1 kHz 16-bit stereo mixer with a 1024-byte buffer size</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">Mix_OpenAudio</span><span class="p">(</span><span class="mi">44100</span><span class="p">,</span> <span class="n">sdl2</span><span class="o">.</span><span class="n">AUDIO_S16SYS</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">Mix_GetError</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Error initializing the mixer: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>A sample rate of 44100 Hz (CD quality) or 48000 Hz is recommended for any
+remotely modern computer. The chunk size must be a power of 8 (e.g. 512,
+1024, 2048), and specifies how much audio data to send to the output device
+at a time. Lower values will have lower latencies, but may introduce skips
+in the audio (2048 is a safe default). Supported channel counts are 1
+(mono), 2 (stereo), 4 (quad), and 6 (5.1 surround).</p>
+<p>For a full list of supported audio format flags, see the list of format
+values at the following link: <a class="reference external" href="https://wiki.libsdl.org/SDL_AudioSpec">https://wiki.libsdl.org/SDL_AudioSpec</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This should not be called if <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_OpenAudio()</span></code> has already opened the
+default audio device (and vice-versa).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The output sampling rate per channel (in Hz).</p></li>
+<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A constant indicating the audio sample format to use
+with the device (e.g. <code class="docutils literal notranslate"><span class="pre">sdl2.AUDIO_S16</span></code>).</p></li>
+<li><p><strong>channels</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of output channels to use for the device
+(e.g. 2 for stereo, 1 for mono).</p></li>
+<li><p><strong>chunksize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size of the audio buffer (in bytes).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_OpenAudioDevice">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_OpenAudioDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_changes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_OpenAudioDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="Permalink to this definition"></a></dt>
+<dd><p>Opens a specific audio output device for use with the mixer API.</p>
+<p>A specific audio device can be opened by name using the output of the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_GetAudioDeviceName()</span></code> function. Alternatively, passing <code class="docutils literal notranslate"><span class="pre">None</span></code> as
+the device name will make open the most reasonable default audio device.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">allowed_changes</span></code> flag specifies which output properties (channel
+count, frequency, sample format) are allowed to be be automatically changed
+if not supported by the chosen audio device. See the documentation for
+<code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_OpenAudioDevice()</span></code> for the list of supported flags and more info.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudio" title="sdl2.sdlmixer.Mix_OpenAudio"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudio()</span></code></a> for more usage details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once an output device has been opened with this function, it should not
+be opened again with <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_OpenAudioDevice()</span></code> (or vice-versa).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The output sampling rate per channel (in Hz).</p></li>
+<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A constant indicating the audio sample format to use
+with the device (e.g. <code class="docutils literal notranslate"><span class="pre">sdl2.AUDIO_S16</span></code>).</p></li>
+<li><p><strong>channels</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of output channels to use for the device
+(e.g. 2 for stereo, 1 for mono).</p></li>
+<li><p><strong>chunksize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p></li>
+<li><p><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded bytestring of the name of the audio
+output device to open (or <code class="docutils literal notranslate"><span class="pre">None</span></code> for the default).</p></li>
+<li><p><strong>allowed_changes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A bitmask of flags indicating the output
+properties allowed to be automatically changed to support the
+output device. If 0, no changes are allowed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_CloseAudio">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_CloseAudio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_CloseAudio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_CloseAudio" title="Permalink to this definition"></a></dt>
+<dd><p>Shuts down and de-initializes the mixer API.</p>
+<p>Calling this function stops all audio playback and closes the current mixer
+device. Once called, the mixer API should not be used until re-initialized
+with <a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> has been called multiple times, this must
+be called an equal number of times to actually de-initialize the API.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetError" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the most recently encountered SDL2 error message, if any.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_GetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retuns</dt>
+<dd class="field-odd"><p>A UTF-8 encoded string describing the most recent SDL2 error.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetError" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the most recent SDL2 error message to a given string.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_SetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fmt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded string containing the error message to set.</p>
+</dd>
+<dt class="field-even">Retuns</dt>
+<dd class="field-even"><p>Always returns <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_QuerySpec">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_QuerySpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_QuerySpec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_QuerySpec" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the actual audio format in use by the current mixer device.</p>
+<p>This function returns the calculated info by reference, meaning that
+it needs to be called using pre-allocated ctypes variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">byref</span>
+
+<span class="n">freq</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">chans</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">Mix_QuerySpec</span><span class="p">(</span><span class="n">byref</span><span class="p">(</span><span class="n">freq</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">fmt</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">chans</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">chans</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>The obtained values may or may not match the parameters you passed to
+<a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudio" title="sdl2.sdlmixer.Mix_OpenAudio"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudio()</span></code></a>, depending on the audio configurations supported by
+the output device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – The output sampling rate per
+channel (in Hz).</p></li>
+<li><p><strong>format</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – The output format used by the
+output device.</p></li>
+<li><p><strong>channels</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – The number of output channels
+used by the device (e.g. 2 for stereo, 1 for mono).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The number of times the mixer device has been opened, or 0 on
+error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Linked_Version">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Linked_Version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Linked_Version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Linked_Version" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the version of the dynamically-linked <strong>SDL2_mixer</strong> library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pointer to a structure containing the
+version of the SDL2_mixer library currently in use.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_version</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="audio-loading-and-closing-functions">
+<h2><a class="toc-backref" href="#id3">Audio loading and closing functions</a><a class="headerlink" href="#audio-loading-and-closing-functions" title="Permalink to this headline"></a></h2>
+<section id="loading-and-closing-audio-clips">
+<h3><a class="toc-backref" href="#id4">Loading and closing audio clips</a><a class="headerlink" href="#loading-and-closing-audio-clips" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_LoadWAV">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_LoadWAV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_LoadWAV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_LoadWAV" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an audio clip from a file.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetChunkDecoder" title="sdl2.sdlmixer.Mix_GetChunkDecoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetChunkDecoder()</span></code></a> for a list of supported file types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used in order to determine the correct output format for playback.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path of the audio
+clip to load.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the chunk containing the loaded
+audio.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_LoadWAV_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_LoadWAV_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_LoadWAV_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_LoadWAV_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an audio clip from an SDL2 file object.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetChunkDecoder" title="sdl2.sdlmixer.Mix_GetChunkDecoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetChunkDecoder()</span></code></a> for a list of supported file types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used in order to determine the correct output format for playback.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – A file object containing a valid audio clip.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the provided file object will be closed and
+freed automatically after being loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the chunk containing the loaded
+audio.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_QuickLoad_WAV">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_QuickLoad_WAV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mem</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_QuickLoad_WAV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_QuickLoad_WAV" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a memory buffer as a WAV file.</p>
+<p>Unlike <a class="reference internal" href="#sdl2.sdlmixer.Mix_LoadWAV_RW" title="sdl2.sdlmixer.Mix_LoadWAV_RW"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_LoadWAV_RW()</span></code></a>, this function performs no audio format
+conversion or error checking, and assumes that the WAV in the buffer is
+already in the correct output format for the mixer. Unless high performance
+is a must, <a class="reference internal" href="#sdl2.sdlmixer.Mix_LoadWAV_RW" title="sdl2.sdlmixer.Mix_LoadWAV_RW"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_LoadWAV_RW()</span></code></a> is a more flexible and much safer option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mem</strong> (POINTER(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_byte" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_byte</span></code></a>)) – A pointer to a memory buffer
+containing a valid WAVE audio file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the chunk containing the loaded
+audio.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_QuickLoad_RAW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_QuickLoad_RAW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_QuickLoad_RAW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_QuickLoad_RAW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a memory buffer as a raw audio clip.</p>
+<p>This function performs no error checking and assumes that the data in the
+buffer is in the correct output format for the mixer.</p>
+<p>This can be used for converting Numpy arrays or other Python data types
+into audio clips for use with the mixer API. For example, to generate a
+pure sine wave tone at a given frequency, you could use the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">duration</span> <span class="o">=</span> <span class="mi">3</span>      <span class="c1"># Seconds of sound</span>
+<span class="n">hz</span> <span class="o">=</span> <span class="mi">432</span>          <span class="c1"># Frequency of the generated tone</span>
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span>  <span class="c1"># Mixer output format is signed 16-bit int</span>
+<span class="n">max_int</span> <span class="o">=</span> <span class="mi">32767</span>   <span class="c1"># The max/min value for a signed 16-bit int</span>
+<span class="n">srate</span> <span class="o">=</span> <span class="mi">44100</span>     <span class="c1"># Sample rate for each channel is 44100 kHz</span>
+
+<span class="c1"># Generate a 3 sec. sine wave for a 2-channel, 44100 Hz, AUDIO_S16 mixer</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">duration</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">srate</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="n">srate</span> <span class="o">*</span> <span class="n">hz</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_int</span>
+
+<span class="c1"># Cast the array into ctypes format for use with mixer</span>
+<span class="n">arr_bytes</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>
+<span class="n">buflen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr_bytes</span><span class="p">)</span>
+<span class="n">c_buf</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ubyte</span> <span class="o">*</span> <span class="n">buflen</span><span class="p">)</span><span class="o">.</span><span class="n">from_buffer_copy</span><span class="p">(</span><span class="n">arr_bytes</span><span class="p">)</span>
+
+<span class="c1"># Convert the ctypes memory buffer into a mixer audio clip</span>
+<span class="n">sine_chunk</span> <span class="o">=</span> <span class="n">Mix_QuickLoad_RAW</span><span class="p">(</span>
+    <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">c_buf</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ubyte</span><span class="p">)),</span> <span class="n">buflen</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You <cite>must</cite> keep a reference to the created ctypes buffer as long as the
+resulting audio clip is in use. Otherwise, Python may automatically free
+the memory associated with the audio buffer, meaning that any subsequent
+attempts to play the clip will result in a segmentation fault.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mem</strong> (POINTER(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_byte" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_byte</span></code></a>)) – A pointer to a memory buffer
+containing audio samples in the current output format.</p></li>
+<li><p><strong>len</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The length (in bytes) of the memory buffer to load.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the chunk containing the loaded
+audio.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FreeChunk">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FreeChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FreeChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FreeChunk" title="Permalink to this definition"></a></dt>
+<dd><p>Closes and frees the memory associated with a given audio clip.</p>
+<p>This function should be called on a chunk when you are done with it. A
+<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a> cannot be used after it has been closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>chunk</strong> (<a class="reference internal" href="#sdl2.sdlmixer.Mix_Chunk" title="sdl2.sdlmixer.Mix_Chunk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Chunk</span></code></a>) – The chunk object to close.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="loading-and-closing-music">
+<h3><a class="toc-backref" href="#id5">Loading and closing music</a><a class="headerlink" href="#loading-and-closing-music" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_LoadMUS">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_LoadMUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_LoadMUS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_LoadMUS" title="Permalink to this definition"></a></dt>
+<dd><p>Loads music from a file.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetMusicDecoder" title="sdl2.sdlmixer.Mix_GetMusicDecoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetMusicDecoder()</span></code></a> for a list of supported file types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used in order to determine the correct output format for playback.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path of the music
+file to load.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the object containing the loaded
+music.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_LoadMUS_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_LoadMUS_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_LoadMUS_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_LoadMUS_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads music from an SDL2 file object.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetMusicDecoder" title="sdl2.sdlmixer.Mix_GetMusicDecoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetMusicDecoder()</span></code></a> for a list of supported file types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used in order to determine the correct output format for playback.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – A file object containing a valid music format.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the provided file object will be closed and
+freed automatically after being loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the object containing the loaded
+music.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_LoadMUSType_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_LoadMUSType_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_LoadMUSType_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_LoadMUSType_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads music from an SDL2 file object with a specific decoder.</p>
+<p>This function supports the following audio format constants:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Constant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>None (autodetect)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_NONE</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>External command</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_CMD</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>WAVE format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_WAV</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Amiga MOD format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_MOD</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>MIDI format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_MID</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ogg Vorbis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_OGG</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>MP3 format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_MP3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>FLAC format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_FLAC</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Opus format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MUS_OPUS</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.sdlmixer.Mix_OpenAudioDevice" title="sdl2.sdlmixer.Mix_OpenAudioDevice"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_OpenAudioDevice()</span></code></a> must be called before this function can be
+used in order to determine the correct output format for playback.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – A file object containing a valid music format.</p></li>
+<li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The decoder to use for loading the file object.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the provided file object will be closed and
+freed automatically after being loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the object containing the loaded
+music.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FreeMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FreeMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FreeMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FreeMusic" title="Permalink to this definition"></a></dt>
+<dd><p>Closes and frees the memory associated with a given music object.</p>
+<p>This function should be called on a music object when you are done with it.
+A <a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a> cannot be used after it has been closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>music</strong> (<a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a>) – The music object to close.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="decoder-availability-info-functions">
+<h2><a class="toc-backref" href="#id6">Decoder availability &amp; info functions</a><a class="headerlink" href="#decoder-availability-info-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetNumChunkDecoders">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetNumChunkDecoders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetNumChunkDecoders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetNumChunkDecoders" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the number of available audio chunk decoders.</p>
+<p>The returned value can differ between runs of a program due to changes in
+the availability of the shared libraries required for supporting different
+formats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of available audio chunk decoders.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetChunkDecoder">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetChunkDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetChunkDecoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetChunkDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the name of a given audio chunk decoder.</p>
+<p>The SDL_mixer library currently supports the following chunk decoders:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 41%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Decoder Name</p></th>
+<th class="head"><p>Format Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>b”FLAC”</p></td>
+<td><p>Free Lossless Audio Codec</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”MOD”</p></td>
+<td><p>Amiga MOD format</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”MP3”</p></td>
+<td><p>MP3 format</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”OGG”</p></td>
+<td><p>Ogg Vorbis</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”MID”</p></td>
+<td><p>MIDI format</p></td>
+<td><p>Not always available on Linux</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”OPUS”</p></td>
+<td><p>Opus Interactive Audio Codec</p></td>
+<td><p>Added in SDL_mixer 2.0.4</p></td>
+</tr>
+<tr class="row-even"><td><p>b”WAVE”</p></td>
+<td><p>Waveform Audio File Format</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”AIFF”</p></td>
+<td><p>Audio Interchange File Format</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”VOC”</p></td>
+<td><p>Creative Voice file</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Use the <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetNumChunkDecoders" title="sdl2.sdlmixer.Mix_GetNumChunkDecoders"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetNumChunkDecoders()</span></code></a> function to get the number of
+available chunk decoders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the given chunk decoder, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the index is
+invalid.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HasChunkDecoder">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HasChunkDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HasChunkDecoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HasChunkDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether a specific chunk decoder is available.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetChunkDecoder" title="sdl2.sdlmixer.Mix_GetChunkDecoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetChunkDecoder()</span></code></a> for a list of valid decoder names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A bytestring of the name of the decoder to query.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if the decoder is present, or 0 if unavailable.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetNumMusicDecoders">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetNumMusicDecoders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetNumMusicDecoders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetNumMusicDecoders" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the number of available music decoders.</p>
+<p>The returned value can differ between runs of a program due to changes in
+the availability of the shared libraries required for supporting different
+formats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of available music decoders.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetMusicDecoder">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetMusicDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetMusicDecoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetMusicDecoder" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the name of a given music decoder.</p>
+<p>The SDL_mixer library currently supports the following music decoders:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 41%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Decoder Name</p></th>
+<th class="head"><p>Format Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>b”FLAC”</p></td>
+<td><p>Free Lossless Audio Codec</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”MODPLUG”</p></td>
+<td><p>Amiga MOD (via libmodplug)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”MOD”</p></td>
+<td><p>Amiga MOD (via libmikmod)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”MP3”</p></td>
+<td><p>MP3 format</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”MPG123”</p></td>
+<td><p>MP3 format (duplicate)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>b”OGG”</p></td>
+<td><p>Ogg Vorbis</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>b”MIDI”</p></td>
+<td><p>MIDI format</p></td>
+<td><p>Not always available on Linux</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”NATIVEMIDI”</p></td>
+<td><p>MIDI format (OS native)</p></td>
+<td><p>Not available on Linux</p></td>
+</tr>
+<tr class="row-even"><td><p>b”OPUS”</p></td>
+<td><p>Opus Interactive Audio Codec</p></td>
+<td><p>Added in SDL_mixer 2.0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”CMD</p></td>
+<td><p>External music command</p></td>
+<td><p>Not available on Windows</p></td>
+</tr>
+<tr class="row-even"><td><p>b”WAVE”</p></td>
+<td><p>Waveform Audio File Format</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Use the <a class="reference internal" href="#sdl2.sdlmixer.Mix_GetNumMusicDecoders" title="sdl2.sdlmixer.Mix_GetNumMusicDecoders"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_GetNumMusicDecoders()</span></code></a> function to get the number of
+available chunk decoders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the given music decoder, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the index is
+invalid.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetMusicType">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetMusicType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetMusicType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetMusicType" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the format of a given music object.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlmixer.Mix_LoadMUSType_RW" title="sdl2.sdlmixer.Mix_LoadMUSType_RW"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_LoadMUSType_RW()</span></code></a> for a list of the possible type constants.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>music</strong> (<a class="reference internal" href="#sdl2.sdlmixer.Mix_Music" title="sdl2.sdlmixer.Mix_Music"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mix_Music</span></code></a>) – The music object for which the type will be
+retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A constant indicating the format of the music object, or
+<code class="docutils literal notranslate"><span class="pre">MUS_NONE</span></code> (0) if the format could not be identified.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="channel-functions">
+<h2><a class="toc-backref" href="#id7">Channel functions</a><a class="headerlink" href="#channel-functions" title="Permalink to this headline"></a></h2>
+<p>These functions affect regular mixer channels. Music is not affected by these functions.</p>
+<section id="channel-configuration">
+<h3><a class="toc-backref" href="#id8">Channel configuration</a><a class="headerlink" href="#channel-configuration" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_AllocateChannels">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_AllocateChannels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numchans</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_AllocateChannels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_AllocateChannels" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the number of channels to use for the mixer API.</p>
+<p>In this context, “channels” refers to the number of virtual channels used by
+the mixer API for playing multiple sounds simultaneously. It does not refer
+to the physical number of channels to use for the output device.</p>
+<p>This can be called multiple times, even with sounds playing. If <code class="docutils literal notranslate"><span class="pre">numchans</span></code>
+is less than the current number of channels, the channels above the new number
+will be stopped, freed, and not mixed any longer. If any channels are
+deallocated, any callback set by  <a class="reference internal" href="#sdl2.sdlmixer.Mix_ChannelFinished" title="sdl2.sdlmixer.Mix_ChannelFinished"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mix_ChannelFinished()</span></code></a> will be called
+when each channel is halted to be freed.</p>
+<p>If this function is called with a negative number (e.g. <code class="docutils literal notranslate"><span class="pre">-1</span></code>), it will
+return the number of currently-allocated virtual mixer channels without
+changing anything. If called with 0, all mixer channels will be freed.</p>
+<p>This function has no effect on music playback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>numchans</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of virtual channels to use for the mixer API,
+or a negative number to query the current allocated channel count.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_ReserveChannels">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_ReserveChannels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_ReserveChannels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_ReserveChannels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_ChannelFinished">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_ChannelFinished</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_finished</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_ChannelFinished"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_ChannelFinished" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="channel-grouping">
+<h3><a class="toc-backref" href="#id9">Channel grouping</a><a class="headerlink" href="#channel-grouping" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupChannels">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupChannels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupChannels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupChannels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupAvailable">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupCount">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupCount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupCount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupCount" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupOldest">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupOldest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupOldest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupOldest" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GroupNewer">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GroupNewer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GroupNewer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GroupNewer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HaltGroup">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HaltGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HaltGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HaltGroup" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeOutGroup">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeOutGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeOutGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeOutGroup" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="playback-functions">
+<h2><a class="toc-backref" href="#id10">Playback functions</a><a class="headerlink" href="#playback-functions" title="Permalink to this headline"></a></h2>
+<section id="channel-playback">
+<h3><a class="toc-backref" href="#id11">Channel playback</a><a class="headerlink" href="#channel-playback" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PlayChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PlayChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PlayChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PlayChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PlayChannelTimed">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PlayChannelTimed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PlayChannelTimed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PlayChannelTimed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeInChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeInChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeInChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeInChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeInChannelTimed">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeInChannelTimed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeInChannelTimed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeInChannelTimed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Pause">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Pause</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Pause"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Pause" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Resume">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Resume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Resume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Resume" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HaltChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HaltChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HaltChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HaltChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_ExpireChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_ExpireChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_ExpireChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_ExpireChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeOutChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeOutChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeOutChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeOutChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="music-playback">
+<h3><a class="toc-backref" href="#id12">Music playback</a><a class="headerlink" href="#music-playback" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PlayMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PlayMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PlayMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PlayMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeInMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeInMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeInMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeInMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeInMusicPos">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeInMusicPos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeInMusicPos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeInMusicPos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PauseMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PauseMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PauseMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PauseMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_ResumeMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_ResumeMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_ResumeMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_ResumeMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_RewindMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_RewindMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_RewindMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_RewindMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetMusicPosition">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetMusicPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetMusicPosition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetMusicPosition" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HaltMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HaltMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HaltMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HaltMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadeOutMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadeOutMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadeOutMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadeOutMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HookMusicFinished">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HookMusicFinished</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music_finished</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HookMusicFinished"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HookMusicFinished" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="volume-functions">
+<h2><a class="toc-backref" href="#id13">Volume functions</a><a class="headerlink" href="#volume-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Volume">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Volume" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_VolumeChunk">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_VolumeChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_VolumeChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_VolumeChunk" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_VolumeMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_VolumeMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_VolumeMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_VolumeMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="playback-status-functions">
+<h2><a class="toc-backref" href="#id14">Playback status functions</a><a class="headerlink" href="#playback-status-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Playing">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Playing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Playing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Playing" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_Paused">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_Paused</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_Paused"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_Paused" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadingChannel">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadingChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadingChannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadingChannel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetChunk">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetChunk" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PlayingMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PlayingMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PlayingMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PlayingMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_PausedMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_PausedMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_PausedMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_PausedMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_FadingMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_FadingMusic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_FadingMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_FadingMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="effects-processing-functions">
+<h2><a class="toc-backref" href="#id15">Effects-processing functions</a><a class="headerlink" href="#effects-processing-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_RegisterEffect">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_RegisterEffect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_RegisterEffect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_RegisterEffect" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_UnregisterEffect">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_UnregisterEffect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_UnregisterEffect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_UnregisterEffect" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_UnregisterAllEffects">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_UnregisterAllEffects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_UnregisterAllEffects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_UnregisterAllEffects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetPanning">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetPanning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetPanning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetPanning" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetPosition">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetPosition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetPosition" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetDistance">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetDistance" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetReverseStereo">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetReverseStereo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetReverseStereo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetReverseStereo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetPostMix">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetPostMix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mix_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetPostMix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetPostMix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="decoder-specific-functions">
+<h2><a class="toc-backref" href="#id16">Decoder-specific functions</a><a class="headerlink" href="#decoder-specific-functions" title="Permalink to this headline"></a></h2>
+<section id="external-music-playback-functions">
+<h3><a class="toc-backref" href="#id17">External music playback functions</a><a class="headerlink" href="#external-music-playback-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetMusicCMD">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetMusicCMD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetMusicCMD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetMusicCMD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_HookMusic">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_HookMusic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mix_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_HookMusic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_HookMusic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetMusicHookData">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetMusicHookData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetMusicHookData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetMusicHookData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="mikmod-configuration-functions">
+<h3><a class="toc-backref" href="#id18">MikMod configuration functions</a><a class="headerlink" href="#mikmod-configuration-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetSynchroValue">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetSynchroValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetSynchroValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetSynchroValue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetSynchroValue">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetSynchroValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetSynchroValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetSynchroValue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="midi-soundfont-functions">
+<h3><a class="toc-backref" href="#id19">MIDI SoundFont functions</a><a class="headerlink" href="#midi-soundfont-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_SetSoundFonts">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_SetSoundFonts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_SetSoundFonts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_SetSoundFonts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_GetSoundFonts">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_GetSoundFonts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_GetSoundFonts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_GetSoundFonts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlmixer.Mix_EachSoundFont">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlmixer.</span></span><span class="sig-name descname"><span class="pre">Mix_EachSoundFont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlmixer.html#Mix_EachSoundFont"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlmixer.Mix_EachSoundFont" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2_sdlimage.html" class="btn btn-neutral float-left" title="sdl2.sdlimage - Python bindings for SDL_image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2_sdlgfx.html" class="btn btn-neutral float-right" title="sdl2.sdlgfx - Python bindings for SDL2_gfx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

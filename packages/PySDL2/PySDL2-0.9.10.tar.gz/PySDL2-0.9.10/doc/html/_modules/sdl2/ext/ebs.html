@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.ebs &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.ebs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.ebs</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A component-based entity system framework.</span>
+
+<span class="sd">ebs loosely follows a component oriented pattern to separate object</span>
+<span class="sd">instances, carried data and processing logic within applications or</span>
+<span class="sd">games. It uses a entity based approach, in which object instances are</span>
+<span class="sd">unique identifiers, while their data is managed within components, which</span>
+<span class="sd">are separately stored. For each individual component type a processing</span>
+<span class="sd">system will take care of all necessary updates for the World</span>
+<span class="sd">environment.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;System&quot;</span><span class="p">,</span> <span class="s2">&quot;Applicator&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Entity"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.Entity">[docs]</a><span class="k">class</span> <span class="nc">Entity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple object entity.</span>
+
+<span class="sd">    An entity is a specific object living in the application world. It</span>
+<span class="sd">    does not carry any data or application logic, but merely acts as</span>
+<span class="sd">    identifier label for data that is maintained in the application</span>
+<span class="sd">    world itself.</span>
+
+<span class="sd">    As such, it is an composition of components, which would not exist</span>
+<span class="sd">    without the entity identifier. The entity itself is non-existent to</span>
+<span class="sd">    the application world as long as it does not carry any data that can</span>
+<span class="sd">    be processed by a system within the application world.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">World</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;world must be a World&quot;</span><span class="p">)</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="n">entity</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+        <span class="n">entity</span><span class="o">.</span><span class="n">_world</span> <span class="o">=</span> <span class="n">world</span>
+        <span class="n">world</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">entity</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Entity(id=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the component data related to the Entity.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;_world&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ctype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">_componenttypes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;object &#39;</span><span class="si">%r</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">%r</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> \
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">][</span><span class="bp">self</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the component data related to the Entity.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;_world&quot;</span><span class="p">):</span>
+            <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If the value is a compound component (e.g. a Button</span>
+            <span class="c1"># inheriting from a Sprite), it needs to be added to all</span>
+            <span class="c1"># supported component type instances.</span>
+            <span class="n">mro</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">mro</span><span class="p">:</span>
+                <span class="n">stop</span> <span class="o">=</span> <span class="n">mro</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">stop</span> <span class="o">=</span> <span class="n">mro</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+            <span class="n">mro</span> <span class="o">=</span> <span class="n">mro</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">stop</span><span class="p">]</span>
+            <span class="n">wctypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">componenttypes</span>
+            <span class="k">for</span> <span class="n">clstype</span> <span class="ow">in</span> <span class="n">mro</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">clstype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">wctypes</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">add_componenttype</span><span class="p">(</span><span class="n">clstype</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">clstype</span><span class="p">][</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__delattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the component data related to the Entity.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;_world&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; cannot be deleted.&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ctype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">_componenttypes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;object &#39;</span><span class="si">%s</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> \
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">][</span><span class="bp">self</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Entity.delete"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.Entity.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes the Entity from the world it belongs to.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The id of the Entity.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The world the Entity resides in.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_world</span></div>
+
+
+<div class="viewcode-block" id="World"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World">[docs]</a><span class="k">class</span> <span class="nc">World</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple application world.</span>
+
+<span class="sd">    An application world defines the combination of application data and</span>
+<span class="sd">    processing logic and how the data will be processed. As such, it is</span>
+<span class="sd">    a container object in which the application is defined.</span>
+
+<span class="sd">    The application world maintains a set of entities and their related</span>
+<span class="sd">    components as well as a set of systems that process the data of the</span>
+<span class="sd">    entities. Each processing system within the application world only</span>
+<span class="sd">    operates on a certain set of components, but not all components of</span>
+<span class="sd">    an entity at once.</span>
+
+<span class="sd">    The order in which data is processed depends on the order of the</span>
+<span class="sd">    added systems.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new World instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entities</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_systems</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_componenttypes</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">_system_is_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the passed object fulfills the requirements for being</span>
+<span class="sd">        a processing system.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="s2">&quot;componenttypes&quot;</span><span class="p">)</span> <span class="ow">and</span> \
+            <span class="n">isiterable</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">)</span> <span class="ow">and</span> \
+            <span class="nb">hasattr</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="s2">&quot;process&quot;</span><span class="p">)</span> <span class="ow">and</span> \
+            <span class="n">callable</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">process</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">combined_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comptypes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A generator view on combined sets of component items.&quot;&quot;&quot;</span>
+        <span class="n">comps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span>
+        <span class="n">keysets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">comps</span><span class="p">[</span><span class="n">ctype</span><span class="p">])</span> <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="n">comptypes</span><span class="p">]</span>
+        <span class="n">valsets</span> <span class="o">=</span> <span class="p">[</span><span class="n">comps</span><span class="p">[</span><span class="n">ctype</span><span class="p">]</span> <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="n">comptypes</span><span class="p">]</span>
+        <span class="n">entities</span> <span class="o">=</span> <span class="n">keysets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">keysets</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">for</span> <span class="n">ekey</span> <span class="ow">in</span> <span class="n">entities</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">component</span><span class="p">[</span><span class="n">ekey</span><span class="p">]</span> <span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">valsets</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_componenttype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classtype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a supported component type to the World.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">classtype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_componenttypes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">classtype</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_componenttypes</span><span class="p">[</span><span class="n">classtype</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">classtype</span>
+
+<div class="viewcode-block" id="World.delete"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes an Entity from the World, including all its data.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">componentset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">componentset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="World.delete_entities"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.delete_entities">[docs]</a>    <span class="k">def</span> <span class="nf">delete_entities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entities</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes multiple entities from the World at once.&quot;&quot;&quot;</span>
+        <span class="n">eids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ISPYTHON2</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">compkey</span><span class="p">,</span> <span class="n">compset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">compset</span><span class="o">.</span><span class="n">viewkeys</span><span class="p">())</span> <span class="o">-</span> <span class="n">eids</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">compkey</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">compset</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">compkey</span><span class="p">,</span> <span class="n">compset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">compset</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="n">eids</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">compkey</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">compset</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entities</span> <span class="o">-=</span> <span class="nb">set</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">get_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">componenttype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets all existing components for a sepcific component type.</span>
+
+<span class="sd">        If no components could be found for the passed component types, an</span>
+<span class="sd">        empty list is returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">componenttype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">componenttype</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="World.get_entities"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.get_entities">[docs]</a>    <span class="k">def</span> <span class="nf">get_entities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the entities using the passed component.</span>
+
+<span class="sd">        Note: this will not perform an identity check on the component</span>
+<span class="sd">        but rely on its __eq__ implementation instead.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">compset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">compset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">compset</span> <span class="k">if</span> <span class="n">compset</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">==</span> <span class="n">component</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="World.add_system"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.add_system">[docs]</a>    <span class="k">def</span> <span class="nf">add_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a processing system to the world.</span>
+
+<span class="sd">        The system will be added as last item in the processing order. Every</span>
+<span class="sd">        object can be added as long as it contains</span>
+
+<span class="sd">           * a &#39;componenttypes&#39; attribute that is iterable and contains the</span>
+<span class="sd">            class types to be processed</span>
+<span class="sd">           * a &#39;process()&#39; method, receiving two arguments, the world and</span>
+<span class="sd">             components</span>
+
+<span class="sd">        If the object contains a &#39;is_applicator&#39; attribute that evaluates to</span>
+<span class="sd">        True, the system will operate on combined sets of components.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_system_is_valid</span><span class="p">(</span><span class="n">system</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;system must have componenttypes and a process method&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">classtype</span> <span class="ow">in</span> <span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">classtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_componenttype</span><span class="p">(</span><span class="n">classtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_systems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">system</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="World.insert_system"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.insert_system">[docs]</a>    <span class="k">def</span> <span class="nf">insert_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a processing system to the world.</span>
+
+<span class="sd">        The system will be added at the specific position of the</span>
+<span class="sd">        processing order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_system_is_valid</span><span class="p">(</span><span class="n">system</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;system must have componenttypes and a process method&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">classtype</span> <span class="ow">in</span> <span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">classtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_componenttype</span><span class="p">(</span><span class="n">classtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_systems</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="World.remove_system"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.remove_system">[docs]</a>    <span class="k">def</span> <span class="nf">remove_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">system</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Removes a processing system from the world.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_systems</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">system</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="World.process"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.World.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Processes all components within their corresponding systems.&quot;&quot;&quot;</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span>
+        <span class="k">for</span> <span class="n">system</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_systems</span><span class="p">:</span>
+            <span class="n">s_process</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">process</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="s2">&quot;is_applicator&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="n">comps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">combined_components</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">)</span>
+                <span class="n">s_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comps</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ISPYTHON2</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+                        <span class="n">s_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">]</span><span class="o">.</span><span class="n">viewvalues</span><span class="p">())</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="n">system</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+                        <span class="n">s_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">systems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the systems bound to the world.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_systems</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">componenttypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the supported component types of the world.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_componenttypes</span><span class="o">.</span><span class="n">values</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="System"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.System">[docs]</a><span class="k">class</span> <span class="nc">System</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A processing system for component data.</span>
+
+<span class="sd">    A processing system within an application world consumes the</span>
+<span class="sd">    components of all entities, for which it was set up. At time of</span>
+<span class="sd">    processing, the system does not know about any other component type</span>
+<span class="sd">    that might be bound to any entity.</span>
+
+<span class="sd">    Also, the processing system does not know about any specific entity,</span>
+<span class="sd">    but only is aware of the data carried by all entities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="System.process"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.System.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Processes component items.</span>
+
+<span class="sd">        This must be implemented by inheriting classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="Applicator"><a class="viewcode-back" href="../../../modules/sdl2ext_ebs.html#sdl2.ext.Applicator">[docs]</a><span class="k">class</span> <span class="nc">Applicator</span><span class="p">(</span><span class="n">System</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A processing system for combined data sets.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Applicator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_applicator</span> <span class="o">=</span> <span class="kc">True</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

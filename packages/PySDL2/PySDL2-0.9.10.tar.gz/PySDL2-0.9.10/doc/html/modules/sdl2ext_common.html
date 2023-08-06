@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Initialization routines &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sdl2.ext.compat - Python compatibility helpers" href="sdl2ext_compat.html" />
+    <link rel="prev" title="sdl2.ext.colorpalettes - predefined sets of colors" href="sdl2ext_colorpalettes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_algorithms.html">Common algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_array.html">Converting sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_color.html">Color handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_colorpalettes.html">sdl2.ext.colorpalettes - predefined sets of colors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Initialization routines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_compat.html">sdl2.ext.compat - Python compatibility helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_draw.html">2D drawing routines for software surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_ebs.html">Working with component-based entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_events.html">General purpose event handling routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_font.html">Text rendering routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_gui.html">User interface elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_image.html">Image loaders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_particles.html">sdl2.ext.particles - A simple particle system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_pixelaccess.html">2D and 3D direct pixel access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_resources.html">Resource management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_sprite.html">Sprite, texture and pixel surface routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_surface.html">Software Surface manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_window.html">Window routines to manage on-screen windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlmixer.html">sdl2.sdlmixer - Python bindings for SDL_mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+          <li><a href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a> &raquo;</li>
+      <li>Initialization routines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2ext_common.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="initialization-routines">
+<h1>Initialization routines<a class="headerlink" href="#initialization-routines" title="Permalink to this headline"></a></h1>
+<p><a class="reference internal" href="#sdl2.ext.init" title="sdl2.ext.init"><code class="xref py py-func docutils literal notranslate"><span class="pre">init()</span></code></a> simply calls <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_Init()</span></code> to initialize only the video
+subsystem. If the call fails, <a class="reference internal" href="#sdl2.ext.SDLError" title="sdl2.ext.SDLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SDLError</span></code></a> is raised. See
+<a class="reference internal" href="../tutorial/pygamers.html#pygamers-pygame"><span class="std std-ref">pygame</span></a> for a comparison between this function and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pygame.init()</span></code>.</p>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="sdl2.ext.SDLError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">SDLError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/ext/common.html#SDLError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.SDLError" title="Permalink to this definition"></a></dt>
+<dd><p>An SDL2 specific <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> class. if no <em>msg</em> is provided,
+the message will be set to the value of <code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.error.SDL_GetError()</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.init">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/common.html#init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.init" title="Permalink to this definition"></a></dt>
+<dd><p>Initialises the underlying SDL2 video subsystem. Raises a
+<a class="reference internal" href="#sdl2.ext.SDLError" title="sdl2.ext.SDLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SDLError</span></code></a>, if the SDL2 video subsystem could not be
+initialised.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.quit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/common.html#quit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.quit" title="Permalink to this definition"></a></dt>
+<dd><p>Quits the underlying SDL2 video subysystem. If no other SDL2
+subsystems are active, this will also call <a class="reference internal" href="#sdl2.ext.quit" title="sdl2.ext.quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">quit()</span></code></a>,
+<a class="reference internal" href="sdl2_sdlttf.html#sdl2.sdlttf.TTF_Quit" title="sdl2.sdlttf.TTF_Quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.sdlttf.TTF_Quit()</span></code></a> and <a class="reference internal" href="sdl2_sdlimage.html#sdl2.sdlimage.IMG_Quit" title="sdl2.sdlimage.IMG_Quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.sdlimage.IMG_Quit()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.get_events">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">get_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="p"><span class="pre">[</span></span><span class="pre">SDL_Event</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">SDL_Event</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sdl2/ext/common.html#get_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.get_events" title="Permalink to this definition"></a></dt>
+<dd><p>Gets all SDL events that are currently on the event queue.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.TestEventProcessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">TestEventProcessor</span></span><a class="reference internal" href="../_modules/sdl2/ext/common.html#TestEventProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.TestEventProcessor" title="Permalink to this definition"></a></dt>
+<dd><p>A simple event processor for testing purposes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.TestEventProcessor.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="sdl2ext_window.html#sdl2.ext.Window" title="sdl2.ext.Window"><span class="pre">Window</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/common.html#TestEventProcessor.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.TestEventProcessor.run" title="Permalink to this definition"></a></dt>
+<dd><p>Starts an event loop without actually processing any event. The method
+will run endlessly until a <code class="docutils literal notranslate"><span class="pre">SDL_QUIT</span></code> event occurs.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2ext_colorpalettes.html" class="btn btn-neutral float-left" title="sdl2.ext.colorpalettes - predefined sets of colors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2ext_compat.html" class="btn btn-neutral float-right" title="sdl2.ext.compat - Python compatibility helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

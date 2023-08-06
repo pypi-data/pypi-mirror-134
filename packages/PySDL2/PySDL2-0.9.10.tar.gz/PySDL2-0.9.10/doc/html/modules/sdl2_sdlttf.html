@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlttf - Python bindings for SDL_ttf &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sdl2.sdlimage - Python bindings for SDL_image" href="sdl2_sdlimage.html" />
+    <link rel="prev" title="Window routines to manage on-screen windows" href="sdl2ext_window.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sdl2.sdlttf - Python bindings for SDL_ttf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialization-functions">Initialization functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#font-loading-functions">Font loading functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#font-attribute-functions">Font attribute functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-rendering-functions">Text rendering functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#size-calculation-functions">Size calculation functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solid-rendering-functions">Solid rendering functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shaded-rendering-functions">Shaded rendering functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blended-rendering-functions">Blended rendering functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-types">Data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-constants">Module constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlmixer.html">sdl2.sdlmixer - Python bindings for SDL_mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>sdl2.sdlttf - Python bindings for SDL_ttf</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2_sdlttf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-sdlttf-python-bindings-for-sdl-ttf">
+<h1>sdl2.sdlttf - Python bindings for SDL_ttf<a class="headerlink" href="#sdl2-sdlttf-python-bindings-for-sdl-ttf" title="Permalink to this headline"></a></h1>
+<p>py-sdl2 provides bindings for SDL2_ttf, a library designed for use with SDL2
+that provides high quality TrueType font rendering.</p>
+<p>SDL2_ttf supports a wide range of font formats, including TrueType (.ttf) and
+OpenType (.otf) fonts. It also supports different font styles, font hinting
+modes, and font outlines.</p>
+<p>The SDL2_ttf library provides functions for rendering three main formats of
+text, denoted by the suffix of the function. Functions ending in <code class="docutils literal notranslate"><span class="pre">Text</span></code> can only
+render plain ASCII text, whereas functions ending in <code class="docutils literal notranslate"><span class="pre">UTF8</span></code> or <code class="docutils literal notranslate"><span class="pre">UNICODE</span></code> can
+render most unicode characters provided that a font supports them. In general,
+you should always use the <code class="docutils literal notranslate"><span class="pre">UTF8</span></code> rendering functions unless you have a strong
+reason to do otherwise.</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table Of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#initialization-functions" id="id1">Initialization functions</a></p></li>
+<li><p><a class="reference internal" href="#font-loading-functions" id="id2">Font loading functions</a></p></li>
+<li><p><a class="reference internal" href="#font-attribute-functions" id="id3">Font attribute functions</a></p></li>
+<li><p><a class="reference internal" href="#text-rendering-functions" id="id4">Text rendering functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#size-calculation-functions" id="id5">Size calculation functions</a></p></li>
+<li><p><a class="reference internal" href="#solid-rendering-functions" id="id6">Solid rendering functions</a></p></li>
+<li><p><a class="reference internal" href="#shaded-rendering-functions" id="id7">Shaded rendering functions</a></p></li>
+<li><p><a class="reference internal" href="#blended-rendering-functions" id="id8">Blended rendering functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#data-types" id="id9">Data types</a></p></li>
+<li><p><a class="reference internal" href="#module-constants" id="id10">Module constants</a></p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module handles font sizes in units of points (pt) instead of pixels. To
+obtain a font with a given pixel height, you can use the
+<a class="reference internal" href="#sdl2.sdlttf.TTF_GlyphMetrics" title="sdl2.sdlttf.TTF_GlyphMetrics"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_GlyphMetrics()</span></code></a> function to get the pixel heights of different
+glyphs in the font at a given pt size and use the px/pt ratio to figure out
+the pt size needed to render text at a given height in px.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The surface sizes and contents of rendered text may vary slightly between
+systems depending on the version of FreeType used by SDL2_ttf.</p>
+</div>
+<section id="initialization-functions">
+<h2><a class="toc-backref" href="#id1">Initialization functions</a><a class="headerlink" href="#initialization-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_Init">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_Init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_Init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_Init" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes the TTF engine.</p>
+<p>This function must be called before using other functions in this library
+(except for <a class="reference internal" href="#sdl2.sdlttf.TTF_WasInit" title="sdl2.sdlttf.TTF_WasInit"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_WasInit()</span></code></a>). SDL does not have to be initialized
+before this function is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 if successful, or -1 on error.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_Quit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_Quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_Quit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_Quit" title="Permalink to this definition"></a></dt>
+<dd><p>De-initializes the TTF engine.</p>
+<p>Once this has been called, other functions in the module should not be used
+until <a class="reference internal" href="#sdl2.sdlttf.TTF_Init" title="sdl2.sdlttf.TTF_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Init()</span></code></a> is called to re-initialize the engine (except for
+<a class="reference internal" href="#sdl2.sdlttf.TTF_WasInit" title="sdl2.sdlttf.TTF_WasInit"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_WasInit()</span></code></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <a class="reference internal" href="#sdl2.sdlttf.TTF_Init" title="sdl2.sdlttf.TTF_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Init()</span></code></a> is called multiple times, this function should be
+called an equal number of times to properly de-initialize the library.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_WasInit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_WasInit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_WasInit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_WasInit" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the TTF engine is initialized.</p>
+<p>This function can be used before calling <a class="reference internal" href="#sdl2.sdlttf.TTF_Init" title="sdl2.sdlttf.TTF_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Init()</span></code></a> to avoid
+initializing twice in a row, or to determine if need to call
+<a class="reference internal" href="#sdl2.sdlttf.TTF_Quit" title="sdl2.sdlttf.TTF_Quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Quit()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of times <a class="reference internal" href="#sdl2.sdlttf.TTF_Init" title="sdl2.sdlttf.TTF_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Init()</span></code></a> has been called without a
+corresponding <a class="reference internal" href="#sdl2.sdlttf.TTF_Quit" title="sdl2.sdlttf.TTF_Quit"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_Quit()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GetError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlttf.TTF_GetError" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the most recently encountered SDL2 error message, if any.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_GetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retuns</dt>
+<dd class="field-odd"><p>A UTF-8 encoded string describing the most recent SDL2 error.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SetError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlttf.TTF_SetError" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the most recent SDL2 error message to a given string.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_SetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fmt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded string containing the error message to set.</p>
+</dd>
+<dt class="field-even">Retuns</dt>
+<dd class="field-even"><p>Always returns <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_ByteSwappedUNICODE">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_ByteSwappedUNICODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swapped</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_ByteSwappedUNICODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_ByteSwappedUNICODE" title="Permalink to this definition"></a></dt>
+<dd><p>Tells the library whether UCS-2 unicode text is generally byteswapped.</p>
+<p>A unicode BOM character in a string will override this setting for the
+remainder of that string. The default mode is non-swapped, native
+endianness of the CPU.</p>
+<p>Note that this only affects the behaviour of <code class="docutils literal notranslate"><span class="pre">UNICODE</span></code> (UCS-2) functions
+and has no effect on UTF8 functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>swapped</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If 0, native CPU endianness will be used. If not 0,
+UCS-2 data will be byte-swapped relative to native CPU endianness.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_Linked_Version">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_Linked_Version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_Linked_Version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_Linked_Version" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the version of the dynamically-linked <strong>SDL2_ttf</strong> library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pointer to a structure containing the
+version of the SDL2_ttf library currently in use.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_version</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="font-loading-functions">
+<h2><a class="toc-backref" href="#id2">Font loading functions</a><a class="headerlink" href="#font-loading-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_OpenFont">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_OpenFont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptsize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_OpenFont"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_OpenFont" title="Permalink to this definition"></a></dt>
+<dd><p>Opens a font file at a given size.</p>
+<p>Point sizes are based on a DPI of 72. Use the <a class="reference internal" href="#sdl2.sdlttf.TTF_GetError" title="sdl2.sdlttf.TTF_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_GetError()</span></code></a> function
+to check for any errors opening the font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path of the font
+file to load.</p></li>
+<li><p><strong>ptsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size (in points) at which to open the font.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The index (from 0 to 15) of the font face to open. For</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the opened font object, or a null
+pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_OpenFontIndex">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_OpenFontIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_OpenFontIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_OpenFontIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Opens a specific font face by index from a file at a given size.</p>
+<p>This function allows for loading a specific font face from a multi-face
+font. See <a class="reference internal" href="#sdl2.sdlttf.TTF_OpenFont" title="sdl2.sdlttf.TTF_OpenFont"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_OpenFont()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path of the font
+file to load.</p></li>
+<li><p><strong>ptsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size (in points) at which to open the font.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The index (from 0 to 15) of the font face to open. For
+font files with only one face, this should always be 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the opened font object, or a null
+pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_OpenFontRW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_OpenFontRW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptsize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_OpenFontRW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_OpenFontRW" title="Permalink to this definition"></a></dt>
+<dd><p>Opens a font from a file object at a given size.</p>
+<p>Point sizes are based on a DPI of 72. Use the <a class="reference internal" href="#sdl2.sdlttf.TTF_GetError" title="sdl2.sdlttf.TTF_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_GetError()</span></code></a> function
+to check for any errors opening the font.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The file object used to create the font (<code class="docutils literal notranslate"><span class="pre">src</span></code>) must be kept in
+memory until you are done with the font. Once the <code class="docutils literal notranslate"><span class="pre">src</span></code> has been freed,
+performing any addotinoal operations with the returned <a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>
+will result in a hard Python crash (segmentation fault).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – A file object containing a valid font.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the provided file object will be closed and
+freed automatically when the resulting <a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a> is closed (or
+if an error is encountered opening the font).</p></li>
+<li><p><strong>ptsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size (in points) at which to open the font.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the opened font object, or a null
+pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_OpenFontIndexRW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_OpenFontIndexRW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_OpenFontIndexRW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_OpenFontIndexRW" title="Permalink to this definition"></a></dt>
+<dd><p>Opens a specific font face by index from a file object at a given size.</p>
+<p>This function allows for loading a specific font face from a multi-face
+font. See <a class="reference internal" href="#sdl2.sdlttf.TTF_OpenFontRW" title="sdl2.sdlttf.TTF_OpenFontRW"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_OpenFontRW()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – A file object containing a valid font.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the provided file object will be closed and
+freed automatically when the resulting <a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a> is closed (or
+if an error is encountered opening the font).</p></li>
+<li><p><strong>ptsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size (in points) at which to open the font.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The index (from 0 to 15) of the font face to open. For
+font files with only one face, this should always be 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the opened font object, or a null
+pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_CloseFont">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_CloseFont</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_CloseFont"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_CloseFont" title="Permalink to this definition"></a></dt>
+<dd><p>Closes and frees the memory associated with a given font.</p>
+<p>This function should be called on a font when you are done with it. A
+<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a> cannot be used after it has been closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font to close.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="font-attribute-functions">
+<h2><a class="toc-backref" href="#id3">Font attribute functions</a><a class="headerlink" href="#font-attribute-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SetFontStyle">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SetFontStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SetFontStyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SetFontStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the rendering style for a given font.</p>
+<p>Font styles can be specified using the following constants:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Style</p></th>
+<th class="head"><p>Constant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_STYLE_NORMAL</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bold</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_STYLE_BOLD</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Italics</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_STYLE_ITALICS</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Underlined</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_STYLE_UNDERLINE</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Strikethrough</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_STYLE_STRIKETHROUGH</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Multiple font styles (e.g. bold and italics) can be combined using the
+bitwise <code class="docutils literal notranslate"><span class="pre">|</span></code> operator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">underlined_bold</span> <span class="o">=</span> <span class="p">(</span><span class="n">TTF_STYLE_BOLD</span> <span class="o">|</span> <span class="n">TTF_STYLE_UNDERLINE</span><span class="p">)</span>
+<span class="n">TTF_SetFontStyle</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">underlined_bold</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting the underline style for a font may cause the surfaces created by
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_RenderGlyph</span></code> functions to be taller, in order to make room for
+the underline to be drawn underneath.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the style will be set.</p></li>
+<li><p><strong>style</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A bitmask specifying the style(s) to use for the font.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GetFontStyle">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GetFontStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_GetFontStyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_GetFontStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the current rendering style of a given font.</p>
+<p>To check for the presence of a given style within a font, the return value
+of this function can be used with a bitwise <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="n">TTF_GetFontStyle</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+<span class="n">is_bold</span> <span class="o">=</span> <span class="n">style</span> <span class="o">&amp;</span> <span class="n">TTF_STYLE_BOLD</span> <span class="o">==</span> <span class="n">TTF_STYLE_BOLD</span>
+<span class="n">is_underlined</span> <span class="o">=</span> <span class="n">style</span> <span class="o">&amp;</span> <span class="n">TTF_STYLE_UNDERLINE</span> <span class="o">==</span> <span class="n">TTF_STYLE_UNDERLINE</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the style should be
+retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bitmask of one or more style constants (see
+<a class="reference internal" href="#sdl2.sdlttf.TTF_SetFontStyle" title="sdl2.sdlttf.TTF_SetFontStyle"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_SetFontStyle()</span></code></a>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SetFontHinting">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SetFontHinting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hinting</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SetFontHinting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SetFontHinting" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the rendering hinting mode for a given font.</p>
+<p>The hinting mode can be specified using one of the following constants:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hinting type</p></th>
+<th class="head"><p>Constant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_HINTING_NORMAL</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Light</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_HINTING_LIGHT</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Mono</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_HINTING_MONO</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>None</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTF_HINTING_NONE</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>If no hinting mode is is explicitly set, “normal” hinting is used for
+rendering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the hinting style
+will be set.</p></li>
+<li><p><strong>hinting</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A constant specifiying the hinting style to use when
+rendering text.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontHeight">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontHeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontHeight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontHeight" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the maximum pixel height of all glyphs in a given font.</p>
+<p>You can use this height for rendering text as close together vertically
+as possible, though adding at least one pixel height to it will space it
+so they can’t touch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the maximum glyph
+height should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The maximum height (in pixels) of all glyphs in the font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontAscent">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontAscent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontAscent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontAscent" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the maximum pixel ascent of all glyphs in a given font.</p>
+<p>The ascent of a glyph is defined as the distance from the top of the
+glyph to its baseline. For example, a lower-case “t” will generally have a
+larger ascent than a lower-case “o”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the maximum glyph
+ascent should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The maximum ascent (in pixels) of all glyphs in the font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontDescent">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontDescent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontDescent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontDescent" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the maximum pixel descent of all glyphs in a given font.</p>
+<p>The descent of a glyph is defined as the distance from the bottom of the
+glyph to its baseline. For example, a lower-case “g” will typically have a
+non-zero descent whereas a lower-case “o” will generally have a descent of
+zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the maximum glyph
+descent should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The maximum descent (in pixels) of all glyphs in the font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontLineSkip">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontLineSkip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontLineSkip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontLineSkip" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the recommended spacing between lines for a given font.</p>
+<p>This is usually larger than the result of <a class="reference internal" href="#sdl2.sdlttf.TTF_FontHeight" title="sdl2.sdlttf.TTF_FontHeight"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_FontHeight()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the recommended line
+skip height should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The recommended line skip height (in pixels) for the font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GetFontKerning">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GetFontKerning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_GetFontKerning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_GetFontKerning" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether or not kerning is enabled for a given font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the kerning status
+should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Non-zero if kerning is enabled for the font, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SetFontKerning">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SetFontKerning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SetFontKerning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SetFontKerning" title="Permalink to this definition"></a></dt>
+<dd><p>Enables or disables kerning for a given font.</p>
+<p>Kerning is enabled for all fonts by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the kerning status
+should be changed.</p></li>
+<li><p><strong>allowed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – 0 to disable kerning, or non-zero to enable it.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontFaceIsFixedWidth">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontFaceIsFixedWidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontFaceIsFixedWidth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontFaceIsFixedWidth" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the current face of a given font is fixed width.</p>
+<p>Fixed width fonts are monospace, meaning every character that exists in the
+font is the same width, thus you can assume that a rendered string’s width
+is going to be the result of a simple calculation:
+<code class="docutils literal notranslate"><span class="pre">glyph_width</span> <span class="pre">*</span> <span class="pre">string_length</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the fixed-width status
+should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A positive integer if the font is fixed-width, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontFaceFamilyName">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontFaceFamilyName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontFaceFamilyName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontFaceFamilyName" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the current family name (e.g. Helvetica) from a given font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the family name
+should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The family name of the given font, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not
+available.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_FontFaceStyleName">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_FontFaceStyleName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_FontFaceStyleName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_FontFaceStyleName" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the current style name (e.g. Bold) from a given font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the style name
+should be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The style name of the given font, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not
+available.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GlyphIsProvided">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GlyphIsProvided</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_GlyphIsProvided"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_GlyphIsProvided" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether a character is provided by a given font.</p>
+<p>The built-in Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#ord" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a> function can be used to convert a string
+character to an integer for use with this function (e.g. <code class="docutils literal notranslate"><span class="pre">ord(&quot;A&quot;)</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object within which to check for a
+glyph for the given character.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A unicode integer representing the character to check for
+within the font.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A non-zero integer if the font provides a glyph for the character,
+otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GlyphMetrics">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GlyphMetrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">miny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">advance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_GlyphMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_GlyphMetrics" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the glyph metrics for a character with a given font.</p>
+<p>This function returns the calculated metrics by reference, meaning that
+it needs to be called using pre-allocated ctypes variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">byref</span>
+
+<span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">adv</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">TTF_GlyphMetrics</span><span class="p">(</span>
+    <span class="n">font</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">),</span>
+    <span class="n">byref</span><span class="p">(</span><span class="n">minX</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">maxX</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">minY</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">maxY</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">adv</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span><span class="p">,</span> <span class="n">adv</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>The following link may be useful for understanding what these metrics mean:
+<a class="reference external" href="http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html">http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A unicode integer representing the character for which to
+retrieve glyph metrics.</p></li>
+<li><p><strong>minx</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the glyph’s minimum X offset.</p></li>
+<li><p><strong>maxx</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the glyph’s maximum X offset.</p></li>
+<li><p><strong>miny</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the glyph’s minimum Y offset.</p></li>
+<li><p><strong>maxy</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the glyph’s maximum Y offset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error (e.g. if the glyph does not exist in
+the font).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_GetFontKerningSizeGlyphs">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_GetFontKerningSizeGlyphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_ch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_GetFontKerningSizeGlyphs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_GetFontKerningSizeGlyphs" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the kerning size of two glyphs (by FreeType index) for a given font.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The units of kerning size returned by this function differ between fonts
+depending on their format and how they were designed.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object for which the kerning size
+should be retrieved.</p></li>
+<li><p><strong>previous_ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The unicode integer representing the first glyph.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The unicode integer representing the second glyph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The kerning size of the two glyphs in the current font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="text-rendering-functions">
+<h2><a class="toc-backref" href="#id4">Text rendering functions</a><a class="headerlink" href="#text-rendering-functions" title="Permalink to this headline"></a></h2>
+<section id="size-calculation-functions">
+<h3><a class="toc-backref" href="#id5">Size calculation functions</a><a class="headerlink" href="#size-calculation-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SizeText">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SizeText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SizeText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SizeText" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the size of an ASCII string rendered with a given font.</p>
+<p>This function does not perform any actual rendering, but correct kerning is
+performed to get the actual width. For a string without any newlines, the
+height will be the same as that returned by <a class="reference internal" href="#sdl2.sdlttf.TTF_FontHeight" title="sdl2.sdlttf.TTF_FontHeight"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_FontHeight()</span></code></a>.</p>
+<p>This function returns the calculated metrics by reference, meaning that
+it needs to be called using pre-allocated ctypes variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">byref</span>
+
+<span class="n">text_w</span><span class="p">,</span> <span class="n">text_h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">c_int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">TTF_SizeText</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;hello!&quot;</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">text_w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">text_h</span><span class="p">))</span>
+<span class="n">text_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">text_w</span><span class="p">,</span> <span class="n">text_h</span><span class="p">)]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – An ASCII-encoded bytestring of text for which the rendered
+surface size should be calculated.</p></li>
+<li><p><strong>w</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface width (in pixels).</p></li>
+<li><p><strong>h</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface height (in pixels).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error (e.g. if a glyph is not found in
+the font).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SizeUTF8">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SizeUTF8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SizeUTF8"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SizeUTF8" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the size of a UTF8-encoded string rendered with a given font.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_SizeText" title="sdl2.sdlttf.TTF_SizeText"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_SizeText()</span></code></a> for more info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring of text for which the rendered
+surface size should be calculated.</p></li>
+<li><p><strong>w</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface width (in pixels).</p></li>
+<li><p><strong>h</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface height (in pixels).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error (e.g. if a glyph is not found in
+the font).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_SizeUNICODE">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_SizeUNICODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_SizeUNICODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_SizeUNICODE" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the size of a UCS-2 encoded string rendered with a given font.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_SizeText" title="sdl2.sdlttf.TTF_SizeText"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_SizeText()</span></code></a> and <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderUNICODE_Solid" title="sdl2.sdlttf.TTF_RenderUNICODE_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderUNICODE_Solid()</span></code></a> for more info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint16" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_uint16</span></code></a>)) – A ctypes array containing a UCS-2
+encoded string of text for which the rendered surface size should be
+calculated.</p></li>
+<li><p><strong>w</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface width (in pixels).</p></li>
+<li><p><strong>h</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_int</span></code></a>)) – A pointer to an integer in which to
+store the calculated surface height (in pixels).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, or -1 on error (e.g. if a glyph is not found in
+the font).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="solid-rendering-functions">
+<h3><a class="toc-backref" href="#id6">Solid rendering functions</a><a class="headerlink" href="#solid-rendering-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderText_Solid">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderText_Solid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderText_Solid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderText_Solid" title="Permalink to this definition"></a></dt>
+<dd><p>Renders an ASCII-encoded string to a non-antialiased 8-bit surface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Solid</span></code> family of TTF functions render text to an 8-bit palettized
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code> with a transparent background and no antialiasing.
+This is the fastest (and lowest quality) of all TTF rendering types.</p>
+<p>The resulting surface has a transparent background unlike
+<a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Shaded" title="sdl2.sdlttf.TTF_RenderText_Shaded"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Shaded()</span></code></a>, but the rendered text is not antialised and
+will thus appear pixelated and difficult to read at small sizes. The
+resulting surface should blit faster than the one returned by
+<a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a>. This rendering type should be used in cases
+when you need to render lots of text very quickly (e.g. if you’re updating
+it every frame) or when you don’t care about antialiasing.</p>
+<p>The 0 pixel is the colorkey for the resulting surface, giving a transparent
+background, and the 1 pixel is set to the text color. This allows you to
+change the color without having to render the text again. Palette index 0
+is not drawn when the returned surface is blitted to another surface (since
+it is the colorkey and thus transparent), though its actual color is 255
+minus each of the RGB components of the foreground color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – An ASCII-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUTF8_Solid">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUTF8_Solid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUTF8_Solid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUTF8_Solid" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UTF8-encoded string to a non-antialiased 8-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Solid" title="sdl2.sdlttf.TTF_RenderText_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Solid()</span></code></a> for more details on the rendering style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUNICODE_Solid">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUNICODE_Solid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUNICODE_Solid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUNICODE_Solid" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UCS-2 encoded string to a non-antialiased 8-bit surface.</p>
+<p>The required text input format for this function is a ctypes array of
+UNICODE (UCS-2) glyphs in uint16 format, optionally terminated by a
+byte-order mark (<code class="docutils literal notranslate"><span class="pre">UNICODE_BOM_NATIVE</span></code> or <code class="docutils literal notranslate"><span class="pre">UNICODE_BOM_SWAPPED</span></code>)
+indicating how the text should be interpreted. Python strings can be
+converted to this format using the following process:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a UCS-2 array from a Python string</span>
+<span class="n">teststr</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;Hello world!&quot;</span>
+<span class="n">strlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">teststr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># +1 for byte-order mark</span>
+<span class="n">intstr</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;H&#39;</span> <span class="o">*</span> <span class="n">strlen</span><span class="p">,</span> <span class="n">teststr</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-16&#39;</span><span class="p">))</span>
+<span class="n">intstr</span> <span class="o">=</span> <span class="n">intstr</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">)</span>  <span class="c1"># Null-terminate the string</span>
+<span class="n">strarr</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint16</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">intstr</span><span class="p">))(</span><span class="o">*</span><span class="n">intstr</span><span class="p">)</span>
+
+<span class="c1"># Render the UCS-2 string</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">SDL_Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">rendered</span> <span class="o">=</span> <span class="n">TTF_RenderUNICODE_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">strarr</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unless there is a very specific need, the <code class="docutils literal notranslate"><span class="pre">TTF_RenderUTF8</span></code> functions should
+always be used instead of their <code class="docutils literal notranslate"><span class="pre">TTF_RenderUNICODE</span></code> counterparts. In
+addition to having a much friendlier Python API, SDL_ttf uses the
+<code class="docutils literal notranslate"><span class="pre">TTF_RenderUTF8</span></code> functions internally for all the <code class="docutils literal notranslate"><span class="pre">TTF_RenderUNICODE</span></code>
+functions anyway so there is no benefit in terms of supporting a wider range
+of characters.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Solid" title="sdl2.sdlttf.TTF_RenderText_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Solid()</span></code></a> for more details on the rendering style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint16" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_uint16</span></code></a>)) – A ctypes array containing a UCS-2
+encoded string of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderGlyph_Solid">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderGlyph_Solid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderGlyph_Solid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderGlyph_Solid" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a unicode character to a non-antialiased 8-bit surface.</p>
+<p>The built-in Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#ord" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a> function can be used to convert a string
+character to an integer for use with this function (e.g. <code class="docutils literal notranslate"><span class="pre">ord(&quot;A&quot;)</span></code>).</p>
+<p>The glyph is rendered without any padding or centering in the X direction,
+and is aligned normally in the Y direction. See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Solid" title="sdl2.sdlttf.TTF_RenderText_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Solid()</span></code></a>
+for more details on the rendering style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A unicode integer representing the glyph to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the glyph. This
+becomes colormap index 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered glyph, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="shaded-rendering-functions">
+<h3><a class="toc-backref" href="#id7">Shaded rendering functions</a><a class="headerlink" href="#shaded-rendering-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderText_Shaded">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderText_Shaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderText_Shaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderText_Shaded" title="Permalink to this definition"></a></dt>
+<dd><p>Renders an ASCII-encoded string to a solid antialiased 8-bit surface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Shaded</span></code> family of TTF functions render text to an 8-bit palettized
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code> with a solid background color and antialiasing. This is
+the second-fastest of the text rendering types, being slightly faster than
+<a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a> but slower than <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Solid" title="sdl2.sdlttf.TTF_RenderText_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Solid()</span></code></a>.</p>
+<p>Text rendered using the <code class="docutils literal notranslate"><span class="pre">Shaded</span></code> method will be antialiased, but the
+resulting surface will have a solid background colour instead of a
+transparent one. Surfaces rendered with this function should blit as quickly
+as those created with <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a>. This rendering type
+should be used in cases when you want nice-looking text but don’t need
+background transparency.</p>
+<p>The 0 pixel is the background color for the resulting surface, while other
+pixels have varying levels of the foreground color. This results in a box of
+the background color around the text in the foreground color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – An ASCII-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+<li><p><strong>bg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The background fill color for the text. This
+becomes colormap index 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUTF8_Shaded">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUTF8_Shaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUTF8_Shaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUTF8_Shaded" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UTF8-encoded string to a solid antialiased 8-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Shaded" title="sdl2.sdlttf.TTF_RenderText_Shaded"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Shaded()</span></code></a> for more details on the rendering style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+<li><p><strong>bg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The background fill color for the text. This
+becomes colormap index 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUNICODE_Shaded">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUNICODE_Shaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUNICODE_Shaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUNICODE_Shaded" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UCS-2 encoded string to a solid antialiased 8-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Shaded" title="sdl2.sdlttf.TTF_RenderText_Shaded"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Shaded()</span></code></a> for more details on the rendering style,
+and <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderUNICODE_Solid" title="sdl2.sdlttf.TTF_RenderUNICODE_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderUNICODE_Solid()</span></code></a> for documentation of the text format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint16" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_uint16</span></code></a>)) – A ctypes array containing a UCS-2
+encoded string of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text. This
+becomes colormap index 1.</p></li>
+<li><p><strong>bg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The background fill color for the text. This
+becomes colormap index 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderGlyph_Shaded">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderGlyph_Shaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderGlyph_Shaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderGlyph_Shaded" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a unicode character to an 8-bit surface using a given font.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Shaded" title="sdl2.sdlttf.TTF_RenderText_Shaded"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Shaded()</span></code></a> for more details on the rendering style,
+and <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderGlyph_Solid" title="sdl2.sdlttf.TTF_RenderGlyph_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderGlyph_Solid()</span></code></a> for additional usage information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A unicode integer representing the glyph to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the glyph. This
+becomes colormap index 1.</p></li>
+<li><p><strong>bg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The background fill color for the glyph. This
+becomes colormap index 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered glyph, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="blended-rendering-functions">
+<h3><a class="toc-backref" href="#id8">Blended rendering functions</a><a class="headerlink" href="#blended-rendering-functions" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderText_Blended">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderText_Blended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderText_Blended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="Permalink to this definition"></a></dt>
+<dd><p>Renders an ASCII-encoded string to an antialiased 32-bit surface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Blended</span></code> family of TTF functions render text to a 32-bit ARGB
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code> with antialiasing and background transparency.
+This is the highest quality (and slowest) of all TTF rendering types.</p>
+<p>The rendered text will be antialiased on a transparent surface using alpha
+blending. This rendering type should be used in cases when you want to
+overlay the rendered text over something else, and in in most other cases
+where high performance isn’t the primary concern.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To render an RGBA surface instead of an ARGB one, just swap the R and B
+values when creating the SDL_Color.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – An ASCII-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUTF8_Blended">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUTF8_Blended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUTF8_Blended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUTF8_Blended" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UTF8-encoded string to an antialiased 32-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a> for more details on the rendering style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUNICODE_Blended">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUNICODE_Blended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUNICODE_Blended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUNICODE_Blended" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UCS-2 encoded string to an antialiased 32-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a> for more details on the rendering style,
+and <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderUNICODE_Solid" title="sdl2.sdlttf.TTF_RenderUNICODE_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderUNICODE_Solid()</span></code></a> for documentation of the text format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint16" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_uint16</span></code></a>)) – A ctypes array containing a UCS-2
+encoded string of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderGlyph_Blended">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderGlyph_Blended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderGlyph_Blended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderGlyph_Blended" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a unicode character to an antialiased 32-bit surface.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a> for more details on the rendering style,
+and <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderGlyph_Solid" title="sdl2.sdlttf.TTF_RenderGlyph_Solid"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderGlyph_Solid()</span></code></a> for additional usage information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A unicode integer representing the glyph to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the glyph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered glyph, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderText_Blended_Wrapped">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderText_Blended_Wrapped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapLength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderText_Blended_Wrapped"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderText_Blended_Wrapped" title="Permalink to this definition"></a></dt>
+<dd><p>Renders an ASCII-encoded string to an antialiased 32-bit surface.</p>
+<p>This function is identical to <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderText_Blended" title="sdl2.sdlttf.TTF_RenderText_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderText_Blended()</span></code></a>, except that
+any lines exceeding the specified wrap length will be wrapped to fit within
+the given width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – An ASCII-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+<li><p><strong>wrapLength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum width of the output surface (in pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUTF8_Blended_Wrapped">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUTF8_Blended_Wrapped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapLength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUTF8_Blended_Wrapped"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUTF8_Blended_Wrapped" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UTF8-encoded string to an antialiased 32-bit surface.</p>
+<p>This function is identical to <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderUTF8_Blended" title="sdl2.sdlttf.TTF_RenderUTF8_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderUTF8_Blended()</span></code></a>, except that
+any lines exceeding the specified wrap length will be wrapped to fit within
+the given width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+<li><p><strong>wrapLength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum width of the output surface (in pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_RenderUNICODE_Blended_Wrapped">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_RenderUNICODE_Blended_Wrapped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapLength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_RenderUNICODE_Blended_Wrapped"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_RenderUNICODE_Blended_Wrapped" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a UCS-2 encoded string to an antialiased 32-bit surface.</p>
+<p>This function is identical to <a class="reference internal" href="#sdl2.sdlttf.TTF_RenderUNICODE_Blended" title="sdl2.sdlttf.TTF_RenderUNICODE_Blended"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_RenderUNICODE_Blended()</span></code></a>, except that
+any lines exceeding the specified wrap length will be wrapped to fit within
+the given width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font</strong> (<a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>) – The font object to use.</p></li>
+<li><p><strong>text</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint16" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_uint16</span></code></a>)) – A ctypes array containing a UCS-2
+encoded string of text to render.</p></li>
+<li><p><strong>fg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Color</span></code>) – The color to use for rendering the text.</p></li>
+<li><p><strong>wrapLength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum width of the output surface (in pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+rendered text, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="data-types">
+<h2><a class="toc-backref" href="#id9">Data types</a><a class="headerlink" href="#data-types" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_Font">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_Font</span></span><a class="reference internal" href="../_modules/sdl2/sdlttf.html#TTF_Font"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlttf.TTF_Font" title="Permalink to this definition"></a></dt>
+<dd><p>The opaque data type for fonts opened using the TTF library.</p>
+<p>This contains all data associated with a loaded font. Once you are done
+with a <a class="reference internal" href="#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a>, it should be freed using <a class="reference internal" href="#sdl2.sdlttf.TTF_CloseFont" title="sdl2.sdlttf.TTF_CloseFont"><code class="xref py py-func docutils literal notranslate"><span class="pre">TTF_CloseFont()</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="module-constants">
+<h2><a class="toc-backref" href="#id10">Module constants</a><a class="headerlink" href="#module-constants" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_MAJOR_VERSION">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_MAJOR_VERSION</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_MAJOR_VERSION" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_ttf library major number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_MINOR_VERSION">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_MINOR_VERSION</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_MINOR_VERSION" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_ttf library minor number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_PATCHLEVEL">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_PATCHLEVEL</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_PATCHLEVEL" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_ttf library patch level number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.UNICODE_BOM_NATIVE">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">UNICODE_BOM_NATIVE</span></span><a class="headerlink" href="#sdl2.sdlttf.UNICODE_BOM_NATIVE" title="Permalink to this definition"></a></dt>
+<dd><p>This allows you to switch byte-order of UNICODE (UCS-2) text data to
+native order, meaning the mode of your CPU. This is meant to be used
+in UNICODE strings that you are using with the SDL2_ttf API. Not needed
+for UTF8 strings.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.UNICODE_BOM_SWAPPED">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">UNICODE_BOM_SWAPPED</span></span><a class="headerlink" href="#sdl2.sdlttf.UNICODE_BOM_SWAPPED" title="Permalink to this definition"></a></dt>
+<dd><p>This allows you to switch byte-order of UNICODE (UCS-2) text data to
+swapped order, meaning the reversed mode of your CPU. Thus, if your CPU
+is LSB, then the data will be interpretted as MSB. This is meant to be
+used in UNICODE strings that you are using with the SDL2_ttf API. Not
+needed for UTF8 strings.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_STYLE_NORMAL">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_STYLE_NORMAL</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_STYLE_NORMAL" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate regular, normal, plain rendering style.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_STYLE_BOLD">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_STYLE_BOLD</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_STYLE_BOLD" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate bold rendering style. This is used in a bitmask along
+with other styles.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_STYLE_ITALIC">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_STYLE_ITALIC</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_STYLE_ITALIC" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate italicized rendering style. This is used in a bitmask
+along with other styles.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_STYLE_UNDERLINE">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_STYLE_UNDERLINE</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_STYLE_UNDERLINE" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate underlined rendering style. This is used in a bitmask
+along with other styles.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_STYLE_STRIKETHROUGH">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_STYLE_STRIKETHROUGH</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_STYLE_STRIKETHROUGH" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate strikethrough rendering style. This is used in a bitmask
+along with other styles.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_HINTING_NORMAL">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_HINTING_NORMAL</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_HINTING_NORMAL" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate set hinting type to normal.
+This corresponds to the default hinting algorithm, optimized for standard
+gray-level rendering.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_HINTING_LIGHT">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_HINTING_LIGHT</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_HINTING_LIGHT" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate set hinting type to light.
+A lighter hinting algorithm for non-monochrome modes. Many generated
+glyphs are more fuzzy but better resemble its original shape. A bit like
+rendering on macOS.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_HINTING_MONO">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_HINTING_MONO</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_HINTING_MONO" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate set hinting type to monochrome.
+Strong hinting algorithm that should only be used for monochrome output.
+The result is probably unpleasant if the glyph is rendered in
+non-monochrome modes.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlttf.TTF_HINTING_NONE">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlttf.</span></span><span class="sig-name descname"><span class="pre">TTF_HINTING_NONE</span></span><a class="headerlink" href="#sdl2.sdlttf.TTF_HINTING_NONE" title="Permalink to this definition"></a></dt>
+<dd><p>Used to indicate set hinting type to none.
+No hinting is used, so the font may become very blurry or messy at
+smaller sizes.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2ext_window.html" class="btn btn-neutral float-left" title="Window routines to manage on-screen windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2_sdlimage.html" class="btn btn-neutral float-right" title="sdl2.sdlimage - Python bindings for SDL_image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

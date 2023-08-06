@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.resources &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.resources</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.resources</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Resource management methods.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;open_zipfile&quot;</span><span class="p">,</span> <span class="s2">&quot;open_tarfile&quot;</span><span class="p">,</span> <span class="s2">&quot;open_url&quot;</span><span class="p">,</span> <span class="s2">&quot;Resources&quot;</span><span class="p">]</span>
+
+<span class="c1"># Python 3.x workarounds for the changed urllib modules.</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">urllib.parse</span> <span class="k">as</span> <span class="nn">urlparse</span>
+    <span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="nn">urllib2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">urlparse</span>
+    <span class="kn">import</span> <span class="nn">urllib2</span>
+
+
+<div class="viewcode-block" id="open_zipfile"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.open_zipfile">[docs]</a><span class="k">def</span> <span class="nf">open_zipfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens and reads a certain file from a ZIP archive.</span>
+
+<span class="sd">    Opens and reads a certain file from a ZIP archive. The result is</span>
+<span class="sd">    returned as StringIO stream. filename can be a relative or absolute</span>
+<span class="sd">    path within the ZIP archive. The optional directory argument can be</span>
+<span class="sd">    used to supply a relative directory path, under which filename will</span>
+<span class="sd">    be searched.</span>
+
+<span class="sd">    If the filename could not be found, a KeyError will be raised.</span>
+<span class="sd">    Raises a TypeError, if archive is not a valid ZIP archive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">opened</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">is_zipfile</span><span class="p">(</span><span class="n">archive</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;passed file does not seem to be a ZIP archive&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">archive</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+            <span class="n">opened</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">apath</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">if</span> <span class="n">directory</span><span class="p">:</span>
+        <span class="n">apath</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dmpdata</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">apath</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">dmpdata</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">opened</span><span class="p">:</span>
+            <span class="n">archive</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="open_tarfile"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.open_tarfile">[docs]</a><span class="k">def</span> <span class="nf">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens and reads a certain file from a TAR archive.</span>
+
+<span class="sd">    Opens and reads a certain file from a TAR archive. The result is</span>
+<span class="sd">    returned as StringIO stream. filename can be a relative or absolute</span>
+<span class="sd">    path within the TAR archive. The optional directory argument can be</span>
+<span class="sd">    used to supply a relative directory path, under which filename will</span>
+<span class="sd">    be searched.</span>
+
+<span class="sd">    ftype is used to supply additional compression information, in case</span>
+<span class="sd">    the system cannot determine the compression type itself, and can be</span>
+<span class="sd">    either &#39;gz&#39; for gzip compression or &#39;bz2&#39; for bzip2 compression.</span>
+
+<span class="sd">    Note:</span>
+
+<span class="sd">      If ftype is supplied, the compression mode will be enforced for</span>
+<span class="sd">      opening and reading.</span>
+
+<span class="sd">    If the filename could not be found or an error occured on reading it,</span>
+<span class="sd">    None will be returned.</span>
+
+<span class="sd">    Raises a TypeError, if archive is not a valid TAR archive or if type</span>
+<span class="sd">    is not a valid value of (&#39;gz&#39;, &#39;bz2&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">opened</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+    <span class="k">if</span> <span class="n">ftype</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ftype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;gz&#39;</span><span class="p">,</span> <span class="s1">&#39;bz2&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;invalid TAR compression type&quot;</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;r:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ftype</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">TarFile</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">is_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;passed file does not seem to be a TAR archive&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">archive</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+            <span class="n">opened</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">apath</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">if</span> <span class="n">directory</span><span class="p">:</span>
+        <span class="n">apath</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dmpdata</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">extractfile</span><span class="p">(</span><span class="n">apath</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">dmpdata</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">opened</span><span class="p">:</span>
+            <span class="n">archive</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="open_url"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.open_url">[docs]</a><span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">basepath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens and reads a certain file from a web or remote location.</span>
+
+<span class="sd">    Opens and reads a certain file from a web or remote location. This</span>
+<span class="sd">    function utilizes the urllib2 module, which means that it is</span>
+<span class="sd">    restricted to the types of remote locations supported by urllib2.</span>
+
+<span class="sd">    basepath can be used to supply an additional location prefix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">if</span> <span class="n">basepath</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">basepath</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Resources"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources">[docs]</a><span class="k">class</span> <span class="nc">Resources</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The Resources class manages a set of file resources and eases</span>
+<span class="sd">    accessing them by using relative paths, scanning archives</span>
+<span class="sd">    automatically and so on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subdir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">excludepattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new resource container instance.</span>
+
+<span class="sd">        If path is provided, the resource container will scan the path</span>
+<span class="sd">        and add all found files to itself by invoking</span>
+<span class="sd">        scan(path, subdir, excludepattern).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">excludepattern</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_scanzip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scans the passed ZIP archive and indexes all the files</span>
+<span class="sd">        contained by it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">is_zipfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;file &#39;</span><span class="si">%s</span><span class="s2">&#39; is not a valid ZIP archive&quot;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">archname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">zipf</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">zipf</span><span class="o">.</span><span class="n">namelist</span><span class="p">():</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">fname</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">archname</span><span class="p">,</span> <span class="s1">&#39;zip&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">zipf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_scantar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scans the passed TAR archive and indexes all the files</span>
+<span class="sd">        contained by it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">is_tarfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;file &#39;</span><span class="si">%s</span><span class="s2">&#39; is not a valid TAR archive&quot;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+        <span class="k">if</span> <span class="n">ftype</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ftype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;gz&#39;</span><span class="p">,</span> <span class="s1">&#39;bz2&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;invalid TAR compression type&quot;</span><span class="p">)</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;r:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ftype</span>
+        <span class="n">archname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">archtype</span> <span class="o">=</span> <span class="s1">&#39;tar&#39;</span>
+        <span class="k">if</span> <span class="n">ftype</span><span class="p">:</span>
+            <span class="n">archtype</span> <span class="o">=</span> <span class="s1">&#39;tar</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ftype</span>
+        <span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">tar</span><span class="o">.</span><span class="n">getnames</span><span class="p">():</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">archname</span><span class="p">,</span> <span class="n">archtype</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Resources.add"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a file to the Resources container.</span>
+
+<span class="sd">        Depending on the file type (determined by the file suffix or name),</span>
+<span class="sd">        the file will be automatically scanned (if it is an archive) or</span>
+<span class="sd">        checked for availability (if it is a stream/network resource).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid file path&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">is_zipfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_archive</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">is_tarfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_archive</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;tar&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Resources.add_file"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.add_file">[docs]</a>    <span class="k">def</span> <span class="nf">add_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds a file to the Resources container.</span>
+
+<span class="sd">        This will only add the passed file and do not scan an archive or</span>
+<span class="sd">        check a stream for availability.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid file path&quot;</span><span class="p">)</span>
+        <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">abspath</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fname</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid file path&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">abspath</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Resources.add_archive"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.add_archive">[docs]</a>    <span class="k">def</span> <span class="nf">add_archive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">typehint</span><span class="o">=</span><span class="s1">&#39;zip&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds an archive file to the Resources container.</span>
+
+<span class="sd">        This will scan the passed archive and add its contents to the</span>
+<span class="sd">        list of available resources.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid file path&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">typehint</span> <span class="o">==</span> <span class="s1">&#39;zip&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scanzip</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">typehint</span> <span class="o">==</span> <span class="s1">&#39;tar&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scantar</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">typehint</span> <span class="o">==</span> <span class="s1">&#39;tarbz2&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scantar</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;bz2&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">typehint</span> <span class="o">==</span> <span class="s1">&#39;targz&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scantar</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;gz&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unsupported archive type&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Resources.get"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a specific file from the Resources.</span>
+
+<span class="sd">        Raises a KeyError, if filename could not be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">archive</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">pathname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">archive</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;zip&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_zipfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;tar&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;tarbz2&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bz2&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;targz&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;gz&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unsupported archive type&quot;</span><span class="p">)</span>
+        <span class="n">dmpdata</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">dmpdata</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">dmpdata</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Resources.get_filelike"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.get_filelike">[docs]</a>    <span class="k">def</span> <span class="nf">get_filelike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Like get(), but tries to return the original file handle, if</span>
+<span class="sd">        possible.</span>
+
+<span class="sd">        If the passed filename is only available within an archive, a</span>
+<span class="sd">        StringIO instance will be returned.</span>
+
+<span class="sd">        Raises a KeyError, if filename could not be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">archive</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">pathname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">archive</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;zip&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_zipfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;tar&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;tarbz2&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;bz2&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;targz&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">open_tarfile</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s1">&#39;gz&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unsupported archive type&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Resources.get_path"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.get_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the path of the passed filename.</span>
+
+<span class="sd">        If filename is only available within an archive, a string in</span>
+<span class="sd">        the form &#39;filename@archivename&#39; will be returned.</span>
+
+<span class="sd">        Raises a KeyError, if filename could not be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">archive</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">pathname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">archive</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">@</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="n">archive</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pathname</span></div>
+
+<div class="viewcode-block" id="Resources.scan"><a class="viewcode-back" href="../../../modules/sdl2ext_resources.html#sdl2.ext.Resources.scan">[docs]</a>    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">subdir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">excludepattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scans a path and adds all found files to the Resources</span>
+<span class="sd">        container.</span>
+
+<span class="sd">        Scans a path and adds all found files to the Resources</span>
+<span class="sd">        container. If a file is a supported (ZIP or TAR) archive, its</span>
+<span class="sd">        contents will be indexed and added automatically.</span>
+
+<span class="sd">        The method will consider the directory part (os.path.dirname) of</span>
+<span class="sd">        the provided path as path to scan, if the path is not a</span>
+<span class="sd">        directory. If subdir is provided, it will be appended to the</span>
+<span class="sd">        path and used as starting point for adding files to the</span>
+<span class="sd">        Resources container.</span>
+
+<span class="sd">        excludepattern can be a regular expression to skip directories, which</span>
+<span class="sd">        match the pattern.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">excludepattern</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">excludepattern</span><span class="p">)</span><span class="o">.</span><span class="n">match</span>
+        <span class="n">join</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span>
+        <span class="n">add</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span>
+        <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">abspath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid path &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">abspath</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">abspath</span><span class="p">):</span>
+            <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abspath</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subdir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">abspath</span><span class="p">,</span> <span class="n">subdir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">abspath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid path &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">abspath</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">pdir</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">abspath</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">match</span> <span class="ow">and</span> <span class="n">match</span><span class="p">(</span><span class="n">pdir</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">pdir</span><span class="p">,</span> <span class="n">fname</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

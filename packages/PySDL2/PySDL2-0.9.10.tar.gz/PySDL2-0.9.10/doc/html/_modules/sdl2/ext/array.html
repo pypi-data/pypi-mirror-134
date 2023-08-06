@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.array &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.array</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.array</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Conversion routines for sequences.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">ctypes</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CTypesView&quot;</span><span class="p">,</span> <span class="s2">&quot;to_ctypes&quot;</span><span class="p">,</span> <span class="s2">&quot;to_list&quot;</span><span class="p">,</span> <span class="s2">&quot;to_tuple&quot;</span><span class="p">,</span> <span class="s2">&quot;create_array&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;MemoryView&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Hack around an import error using relative import paths in Python 2.7</span>
+<span class="n">_ARRAY</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;array&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="to_tuple"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.to_tuple">[docs]</a><span class="k">def</span> <span class="nf">to_tuple</span><span class="p">(</span><span class="n">dataseq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts a ``ctypes`` array to a tuple.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dataseq</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="to_list"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.to_list">[docs]</a><span class="k">def</span> <span class="nf">to_list</span><span class="p">(</span><span class="n">dataseq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts a ``ctypes`` array to a list.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">dataseq</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="to_ctypes"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.to_ctypes">[docs]</a><span class="k">def</span> <span class="nf">to_ctypes</span><span class="p">(</span><span class="n">dataseq</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">mcount</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts an arbitrary sequence to a ``ctypes`` array of a given type.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataseq: A sequence to convert to a ``ctypes`` array.</span>
+<span class="sd">        dtype (class): The ``ctypes`` data type to use for the array (e.g.</span>
+<span class="sd">            ``ctypes.c_uint8``).</span>
+<span class="sd">        mcount (int, optional): The number of elements in ``dataseq``. If</span>
+<span class="sd">            not specified, this will be inferred automatically.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: A tuple in the form ``(valset, count)``, where ``valset`` is</span>
+<span class="sd">            the converted ``ctypes`` array and ``count`` is the number of</span>
+<span class="sd">            elements in the array.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: if any elements in the passed sequence do not</span>
+<span class="sd">            match the specified type.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">mcount</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataseq</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataseq</span><span class="p">,</span> <span class="n">CTypesView</span><span class="p">):</span>
+        <span class="n">itemsize</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">sizeof</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">dataseq</span> <span class="o">=</span> <span class="n">dataseq</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">dataseq</span> <span class="o">=</span> <span class="n">dataseq</span><span class="o">.</span><span class="n">to_uint16</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">dataseq</span> <span class="o">=</span> <span class="n">dataseq</span><span class="o">.</span><span class="n">to_uint32</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="n">dataseq</span> <span class="o">=</span> <span class="n">dataseq</span><span class="o">.</span><span class="n">to_uint64</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported data type for the passed CTypesView&quot;</span><span class="p">)</span>
+    <span class="n">valset</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">*</span> <span class="n">dtype</span><span class="p">)(</span><span class="o">*</span><span class="n">dataseq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">valset</span><span class="p">,</span> <span class="n">count</span></div>
+
+
+<div class="viewcode-block" id="create_array"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.create_array">[docs]</a><span class="k">def</span> <span class="nf">create_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">itemsize</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates an :obj:`array.array` copy of a given object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj: The object from which the array will be created.</span>
+<span class="sd">        itemsize: The size (in bytes) of each item in the given object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        :obj:`array.array`: The array created from the object.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ARRAY</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ARRAY</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ARRAY</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">itemsize</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ARRAY</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;unsupported data type&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CTypesView"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.CTypesView">[docs]</a><span class="k">class</span> <span class="nc">CTypesView</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A proxy for accessing byte-wise ``ctypes`` data types.</span>
+
+<span class="sd">    This class provides read-write access for arbitrary ``ctypes`` objects</span>
+<span class="sd">    that are iterable. In case the object does not provide a :func:`buffer`</span>
+<span class="sd">    interface for direct access, a ``CTypesView`` can copy the object&#39;s contents</span>
+<span class="sd">    into an internal buffer from which data can be retrieved.</span>
+
+<span class="sd">    Depending on the item type stored in the iterable object, you might</span>
+<span class="sd">    need to manually specify the object&#39;s item size (in bytes). Additionally,</span>
+<span class="sd">    you may need to manually specify the number of items in the iterable if</span>
+<span class="sd">    it does not properly return its length using the ``len`` function.</span>
+
+<span class="sd">    For certain types, such as the bytearray, the original object must not be</span>
+<span class="sd">    reassigned after being encapsuled and used in ctypes bindings if the</span>
+<span class="sd">    contents are not copied.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj: An arbitrary iterable ``ctypes`` object to access.</span>
+<span class="sd">        itemsize (int, optional): The size (in bytes) of each item of the</span>
+<span class="sd">            iterable object. Defaults to ``1``.</span>
+<span class="sd">        docopy (bool, optional): If True, the view will be created for a copy</span>
+<span class="sd">            of the object and will not modify the original ``ctypes`` instance.</span>
+<span class="sd">            Defalts to False (original object will be modified).</span>
+<span class="sd">        objsize (int, optional): The number of items in the iterable object.</span>
+<span class="sd">            If not specified, the number of items will try to be inferred</span>
+<span class="sd">            automatically. Defaults to ``None`` (automatic inferrence).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">itemsize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">docopy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">objsize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_isshared</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_itemsize</span> <span class="o">=</span> <span class="n">itemsize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_view</span><span class="p">(</span><span class="n">itemsize</span><span class="p">,</span> <span class="nb">bool</span><span class="p">(</span><span class="n">docopy</span><span class="p">),</span> <span class="n">objsize</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">itemsize</span><span class="p">,</span> <span class="n">docopy</span><span class="p">,</span> <span class="n">objsize</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates the view on the specified object.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_isshared</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">docopy</span>
+        <span class="n">bsize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">objsize</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">)</span> <span class="o">*</span> <span class="n">itemsize</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bsize</span> <span class="o">=</span> <span class="n">objsize</span> <span class="o">*</span> <span class="n">itemsize</span>
+
+        <span class="k">if</span> <span class="n">docopy</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">create_array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">itemsize</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ubyte</span> <span class="o">*</span> <span class="n">bsize</span><span class="p">)</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="c1"># pypy ctypes arrays do not feature a from_buffer() method.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_isshared</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="c1"># in case we requested a copy earlier, we do not need to recreate</span>
+            <span class="c1"># the array, since we have it already. In any other case, create</span>
+            <span class="c1"># a byte array.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">docopy</span><span class="p">:</span>
+                <span class="c1"># Try to determine the itemsize again for array</span>
+                <span class="c1"># instances, just in case the user assumed it to work.</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">_ARRAY</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
+                    <span class="n">itemsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="o">.</span><span class="n">itemsize</span>
+                    <span class="n">bsize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">)</span> <span class="o">*</span> <span class="n">itemsize</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">create_array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">itemsize</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ubyte</span> <span class="o">*</span> <span class="n">bsize</span><span class="p">)(</span><span class="o">*</span><span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">bsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span>
+        <span class="k">return</span> <span class="s2">&quot;CTypesView(type=</span><span class="si">%s</span><span class="s2">, bytesize=</span><span class="si">%d</span><span class="s2">, shared=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">bsize</span><span class="p">,</span>
+                                                                <span class="bp">self</span><span class="o">.</span><span class="n">is_shared</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the length of the underlying object in bytes.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span>
+
+<div class="viewcode-block" id="CTypesView.to_bytes"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.CTypesView.to_bytes">[docs]</a>    <span class="k">def</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Casts the object to an array of bytes.</span>
+<span class="sd">        </span>
+<span class="sd">        If the view was created with ``docopy = False`` (the default), the</span>
+<span class="sd">        returned object provides direct read-write access to the object data.</span>
+<span class="sd">        Otherwise, the returned object will only modify a copy of the data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`ctypes._Pointer`: A pointer to a :class:`ctypes.c_uint8`</span>
+<span class="sd">                array.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">castval</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint8</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="n">castval</span><span class="p">)</span><span class="o">.</span><span class="n">contents</span></div>
+
+<div class="viewcode-block" id="CTypesView.to_uint16"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.CTypesView.to_uint16">[docs]</a>    <span class="k">def</span> <span class="nf">to_uint16</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Casts the object to an array of 16-bit unsigned ints.</span>
+<span class="sd">        </span>
+<span class="sd">        If the view was created with ``docopy = False`` (the default), the</span>
+<span class="sd">        returned object provides direct read-write access to the object data.</span>
+<span class="sd">        Otherwise, the returned object will only modify a copy of the data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`ctypes._Pointer`: A pointer to a :class:`ctypes.c_uint16`</span>
+<span class="sd">                array.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">castval</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint16</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="n">castval</span><span class="p">)</span><span class="o">.</span><span class="n">contents</span></div>
+
+<div class="viewcode-block" id="CTypesView.to_uint32"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.CTypesView.to_uint32">[docs]</a>    <span class="k">def</span> <span class="nf">to_uint32</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Casts the object to an array of 32-bit unsigned ints.</span>
+<span class="sd">        </span>
+<span class="sd">        If the view was created with ``docopy = False`` (the default), the</span>
+<span class="sd">        returned object provides direct read-write access to the object data.</span>
+<span class="sd">        Otherwise, the returned object will only modify a copy of the data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`ctypes._Pointer`: A pointer to a :class:`ctypes.c_uint32`</span>
+<span class="sd">                array.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">castval</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint32</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span> <span class="o">//</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="n">castval</span><span class="p">)</span><span class="o">.</span><span class="n">contents</span></div>
+
+<div class="viewcode-block" id="CTypesView.to_uint64"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.CTypesView.to_uint64">[docs]</a>    <span class="k">def</span> <span class="nf">to_uint64</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Casts the object to an array of 64-bit unsigned ints.</span>
+<span class="sd">        </span>
+<span class="sd">        If the view was created with ``docopy = False`` (the default), the</span>
+<span class="sd">        returned object provides direct read-write access to the object data.</span>
+<span class="sd">        Otherwise, the returned object will only modify a copy of the data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`ctypes._Pointer`: A pointer to a :class:`ctypes.c_uint64`</span>
+<span class="sd">                array.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">castval</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint64</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bytesize</span> <span class="o">//</span> <span class="mi">8</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="n">castval</span><span class="p">)</span><span class="o">.</span><span class="n">contents</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bytesize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The size (in bytes) of the underlying object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">sizeof</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides a read/write-aware ``ctypes`` view of the encapsuled</span>
+<span class="sd">        object.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_view</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_shared</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;bool: Whether any modifications to the view will also modify the</span>
+<span class="sd">        underlying object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isshared</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The underlying object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span></div>
+
+
+<div class="viewcode-block" id="MemoryView"><a class="viewcode-back" href="../../../modules/sdl2ext_array.html#sdl2.ext.MemoryView">[docs]</a><span class="k">class</span> <span class="nc">MemoryView</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class that provides read-write access to indexable ``ctypes`` objects.</span>
+
+<span class="sd">    .. note: ``MemoryView`` makes heavy use of recursion for multi-dimensional</span>
+<span class="sd">       access, making it slow for many use-cases. For better performance, the</span>
+<span class="sd">       ``numpy`` library can be used for fast access to many array-like data</span>
+<span class="sd">       types, but it may support fewer types of arbitrary objects than the</span>
+<span class="sd">       ``MemoryView`` class.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        source: An arbitrary indexable ``ctypes`` object to access.</span>
+<span class="sd">        itemsize (int): The size (in bytes) of each item of the indexable</span>
+<span class="sd">            object.</span>
+<span class="sd">        strides (tuple): The length of each dimension in the object (e.g.</span>
+<span class="sd">            ``(4, 3)`` for a 4 x 3 2D array).</span>
+<span class="sd">        getfunc (function, optional): Deprecated, do not use.</span>
+<span class="sd">        setfunc (function, optional): Deprecated, do not use.</span>
+<span class="sd">        srcsize (int, optional): The size (in bytes) of the input object.</span>
+<span class="sd">            If ``len(source)`` returns the size of the object in bytes this will</span>
+<span class="sd">            be inferred automatically, otherwise it must be manually specified.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">itemsize</span><span class="p">,</span> <span class="n">strides</span><span class="p">,</span> <span class="n">getfunc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setfunc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">srcsize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_source</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_itemsize</span> <span class="o">=</span> <span class="n">itemsize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_strides</span> <span class="o">=</span> <span class="n">strides</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_srcsize</span> <span class="o">=</span> <span class="n">srcsize</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getfunc</span> <span class="o">=</span> <span class="n">getfunc</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getbytes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setfunc</span> <span class="o">=</span> <span class="n">setfunc</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_setbytes</span>
+
+        <span class="n">tsum</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">strides</span><span class="p">:</span>
+            <span class="n">tsum</span> <span class="o">*=</span> <span class="n">v</span>
+        <span class="k">if</span> <span class="n">tsum</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_srcsize</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;strides exceed the accesible source size&quot;</span><span class="p">)</span>
+        <span class="c1">#if itemsize &gt; strides[-1]:</span>
+        <span class="c1">#    raise ValueError(&quot;itemsize exceeds the accessible stride length&quot;)</span>
+
+    <span class="k">def</span> <span class="nf">_getbytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the bytes within the range of start:end.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_setbytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the bytes within the range of start:end to the passed</span>
+<span class="sd">        value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The length of the MemoryView over the current dimension</span>
+<span class="sd">        (amount of items for the current dimension).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">retval</span> <span class="o">=</span> <span class="s2">&quot;[&quot;</span>
+        <span class="n">slen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">slen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">retval</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, &quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>
+        <span class="n">retval</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">slen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">retval</span> <span class="o">+=</span> <span class="s2">&quot;]&quot;</span>
+        <span class="k">return</span> <span class="n">retval</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the item at the specified index.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">slice</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;slicing is not supported&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;index &#39;</span><span class="si">%d</span><span class="s2">&#39;is out of bounds for &#39;</span><span class="si">%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">index</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getfunc</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">advance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span>
+                <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                    <span class="n">advance</span> <span class="o">*=</span> <span class="n">b</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">advance</span> <span class="o">*</span> <span class="n">index</span>
+                <span class="n">view</span> <span class="o">=</span> <span class="n">MemoryView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getfunc</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_setfunc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_srcsize</span><span class="p">)</span>
+                <span class="n">view</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="n">offset</span>
+                <span class="k">return</span> <span class="n">view</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the item at index to the specified value.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">slice</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;slicing is not supported&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;index &#39;</span><span class="si">%d</span><span class="s2">&#39;is out of bounds for &#39;</span><span class="si">%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">index</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_setfunc</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">offset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">advance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span>
+                <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                    <span class="n">advance</span> <span class="o">*=</span> <span class="n">b</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">advance</span> <span class="o">*</span> <span class="n">index</span>
+                <span class="n">view</span> <span class="o">=</span> <span class="n">MemoryView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemsize</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getfunc</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_setfunc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_srcsize</span><span class="p">)</span>
+                <span class="n">view</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="n">offset</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;value does not match the view strides&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">view</span><span class="p">)):</span>
+                    <span class="n">view</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The size (in bytes) of the underlying source object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_srcsize</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">strides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The length of each dimension the MemoryView.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strides</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">itemsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The size (in bytes) of a single item in the object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_itemsize</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ndim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The number of dimensions of the MemoryView.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The underlying data source.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

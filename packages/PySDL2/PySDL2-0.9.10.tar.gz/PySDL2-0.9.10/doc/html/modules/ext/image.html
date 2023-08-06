@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.image - Importing and Exporting Image Files &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.ttf - Rendering Text With TrueType Fonts" href="ttf.html" />
+    <link rel="prev" title="sdl2.ext.draw - Drawing Routines for Software Surfaces" href="draw.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surface.html"><cite>sdl2.ext.surface</cite> - Creating and Manipulating Software Surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="draw.html"><cite>sdl2.ext.draw</cite> - Drawing Routines for Software Surfaces</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.image</cite> - Importing and Exporting Image Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttf.html"><cite>sdl2.ext.ttf</cite> - Rendering Text With TrueType Fonts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bitmapfont.html"><cite>sdl2.ext.bitmapfont</cite> - Basic Bitmap Font Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.image</cite> - Importing and Exporting Image Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/image.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-image-importing-and-exporting-image-files">
+<h1><cite>sdl2.ext.image</cite> - Importing and Exporting Image Files<a class="headerlink" href="#sdl2-ext-image-importing-and-exporting-image-files" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.image" title="sdl2.ext.image"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.image</span></code></a> module provides some simple functions for importing
+images as SDL surfaces and exporting SDL surfaces to image files.</p>
+<p>The basic functions <code class="xref py py-func docutils literal notranslate"><span class="pre">load_bmp()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">save_bmp()</span></code> load and save BMP
+files, and are guaranteed to be available on all systems supported by PySDL2.
+The <code class="xref py py-func docutils literal notranslate"><span class="pre">load_img()</span></code> function can be used to import additional image formats
+(e.g. JPEG, PNG), but requires that the <strong>SDL_image</strong> library is installed on
+the target system (can be installed as a Python dependency with <code class="docutils literal notranslate"><span class="pre">pysdl2-dll</span></code>
+on platforms that support it).</p>
+<p>In addition to importing images from files, this module also provides the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pillow_to_surface()</span></code> function for converting <code class="xref py py-obj docutils literal notranslate"><span class="pre">Image</span></code> objects from the
+<a class="reference external" href="https://pillow.readthedocs.io/en/stable/">Pillow</a> Python library to SDL
+surfaces.</p>
+<span class="target" id="module-sdl2.ext.image"></span><dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.image.load_bmp">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.image.</span></span><span class="sig-name descname"><span class="pre">load_bmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/image.html#load_bmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.image.load_bmp" title="Permalink to this definition"></a></dt>
+<dd><p>Imports a BMP (bitmap image) file as an SDL surface.</p>
+<p>Because BMP importing and exporting is part of the core SDL2 library,
+this function is guaranteed to be available on all platforms and
+installations that support PySDL2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the BMP image to import.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An SDL surface containing the imported image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.image.load_img">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.image.</span></span><span class="sig-name descname"><span class="pre">load_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_argb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/image.html#load_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.image.load_img" title="Permalink to this definition"></a></dt>
+<dd><p>Imports an image file as an SDL surface using the <strong>SDL_image</strong> library.</p>
+<p>This function supports a wide range of image formats, including GIF, BMP,
+JPEG, PNG, TIFF, and WebP. For a full list, consult the SDL_image
+documentation.</p>
+<p>By default, this function also converts the imported surface to 32-bit ARGB
+format for consistency across functions and better compatibility with SDL2
+renderers. To disable ARGB conversion, set the <code class="docutils literal notranslate"><span class="pre">as_argb</span></code> parameter to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because SDL_image is not part of the core SDL2 library, this function
+will only work on systems where the SDL_image library is installed.
+Additionally, support for PNG, JPEG, TIFF, and WebP in SDL_image is
+dynamic and are not guaranteed to be available on all systems.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the image to import.</p></li>
+<li><p><strong>as_argb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether the obtained surface should be
+converted to 32-bit ARGB pixel format or left as-is. Defaults to
+<code class="docutils literal notranslate"><span class="pre">True</span></code> (convert to ARGB).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An SDL surface containing the imported image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.image.save_bmp">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.image.</span></span><span class="sig-name descname"><span class="pre">save_bmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/image.html#save_bmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.image.save_bmp" title="Permalink to this definition"></a></dt>
+<dd><p>Exports an SDL surface to a BMP (bitmap image) file.</p>
+<p>Because BMP importing and exporting is part of the core SDL2 library,
+this function is guaranteed to be available on all platforms and
+installations that support PySDL2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The surface to save as a BMP file.</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to which the BMP should be
+saved.</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether the image should be overwritten if
+a file at that path already exists. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.image.pillow_to_surface">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.image.</span></span><span class="sig-name descname"><span class="pre">pillow_to_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_argb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/image.html#pillow_to_surface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.image.pillow_to_surface" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a <code class="xref py py-obj docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code> object to an SDL surface.</p>
+<p>This function returns a copy of the original object’s pixel data, meaning
+that the original Image can be modified or deleted without affecting the
+returned surface (and vice versa).</p>
+<p>By default, this function also converts the surface to 32-bit ARGB format
+for consistency across functions and better compatibility with SDL2
+renderers. To disable ARGB conversion, set the <code class="docutils literal notranslate"><span class="pre">as_argb</span></code> parameter to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code>) – The Image object to convert to an SDL
+surface.</p></li>
+<li><p><strong>as_argb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether the obtained surface should be
+converted to 32-bit ARGB pixel format or left as-is. Defaults to
+<code class="docutils literal notranslate"><span class="pre">True</span></code> (convert to ARGB).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An SDL surface copy of the PIL image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.image.load_image">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.image.</span></span><span class="sig-name descname"><span class="pre">load_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enforce</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/image.html#load_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.image.load_image" title="Permalink to this definition"></a></dt>
+<dd><p><strong>[Deprecated]</strong> Imports an image file as an SDL surface.</p>
+<p>This function uses either the SDL_image library or the Pillow Python package
+for importing images, using SDL2’s built-in BMP loader as a fall-back if
+neither are available.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to a long-standing bug, the resulting image surfaces can have
+different pixel formats depending on which backend was used, making
+behavior unpredictable across different systems. As such this function
+is deprecated, and is only maintained to avoid breaking existing code.
+For new projects, the <a class="reference internal" href="#sdl2.ext.image.load_bmp" title="sdl2.ext.image.load_bmp"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_bmp()</span></code></a>, <a class="reference internal" href="#sdl2.ext.image.load_img" title="sdl2.ext.image.load_img"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_img()</span></code></a>, and/or
+<a class="reference internal" href="#sdl2.ext.image.pillow_to_surface" title="sdl2.ext.image.pillow_to_surface"><code class="xref py py-func docutils literal notranslate"><span class="pre">pillow_to_surface()</span></code></a> functions should be used instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the image to import.</p></li>
+<li><p><strong>enforce</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – A string indicating the specific backend to
+use for loading images. Can be either “PIL” for Pillow-only, “SDL”
+for SDL2 and SDL_image only, or <code class="docutils literal notranslate"><span class="pre">None</span></code> for no enforced backend.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An SDL surface containing the imported image.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="draw.html" class="btn btn-neutral float-left" title="sdl2.ext.draw - Drawing Routines for Software Surfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ttf.html" class="btn btn-neutral float-right" title="sdl2.ext.ttf - Rendering Text With TrueType Fonts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

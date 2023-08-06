@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlimage &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.sdlimage</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.sdlimage</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">POINTER</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">POINTER</span> <span class="k">as</span> <span class="n">_P</span>
+<span class="kn">from</span> <span class="nn">.dll</span> <span class="kn">import</span> <span class="n">DLL</span><span class="p">,</span> <span class="n">SDLFunc</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="kn">import</span> <span class="n">SDL_version</span><span class="p">,</span> <span class="n">SDL_VERSIONNUM</span>
+<span class="kn">from</span> <span class="nn">.surface</span> <span class="kn">import</span> <span class="n">SDL_Surface</span>
+<span class="kn">from</span> <span class="nn">.rwops</span> <span class="kn">import</span> <span class="n">SDL_RWops</span>
+<span class="kn">from</span> <span class="nn">.render</span> <span class="kn">import</span> <span class="n">SDL_Texture</span><span class="p">,</span> <span class="n">SDL_Renderer</span>
+<span class="kn">from</span> <span class="nn">.error</span> <span class="kn">import</span> <span class="n">SDL_SetError</span><span class="p">,</span> <span class="n">SDL_GetError</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Defines</span>
+    <span class="s2">&quot;SDL_IMAGE_MAJOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_IMAGE_MINOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_IMAGE_PATCHLEVEL&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Enums</span>
+    <span class="s2">&quot;IMG_InitFlags&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_INIT_JPG&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_INIT_PNG&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_INIT_TIF&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_INIT_WEBP&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># Macro Functions</span>
+    <span class="s2">&quot;SDL_IMAGE_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_IMAGE_COMPILEDVERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SDL_IMAGE_VERSION_ATLEAST&quot;</span><span class="p">,</span> 
+    
+    <span class="c1"># Functions</span>
+    <span class="s2">&quot;IMG_Linked_Version&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_Init&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_Quit&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadTyped_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_Load&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_Load_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadTexture&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadTexture_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadTextureTyped_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isICO&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isCUR&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isBMP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_isGIF&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isJPG&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isLBM&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isPNG&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isPNM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_isPCX&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isTIF&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isXCF&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isXV&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_isWEBP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadBMP_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadCUR_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadCUR_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadGIF_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadICO_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadJPG_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadLBM_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadPCX_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadPNM_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadPNG_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadTGA_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadTIF_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadXCF_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadWEBP_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_LoadXPM_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_LoadXV_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_ReadXPMFromArray&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IMG_GetError&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_SetError&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_SaveJPG&quot;</span><span class="p">,</span> <span class="s2">&quot;IMG_SaveJPG_RW&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># Python Functions</span>
+    <span class="s2">&quot;get_dll_file&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dll</span> <span class="o">=</span> <span class="n">DLL</span><span class="p">(</span><span class="s2">&quot;SDL2_image&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;SDL2_image&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL2_image-2.0&quot;</span><span class="p">],</span>
+              <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PYSDL2_DLL_PATH&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_dll_file</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the file name of the loaded SDL2_image library.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">dll</span><span class="o">.</span><span class="n">libfile</span>
+
+<span class="n">_bind</span> <span class="o">=</span> <span class="n">dll</span><span class="o">.</span><span class="n">bind_function</span>
+
+
+<span class="c1"># Constants, enums, type definitions, and macros</span>
+
+<span class="n">SDL_IMAGE_MAJOR_VERSION</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SDL_IMAGE_MINOR_VERSION</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SDL_IMAGE_PATCHLEVEL</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">SDL_IMAGE_VERSION</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">major</span> <span class="o">=</span> <span class="n">SDL_IMAGE_MAJOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">minor</span> <span class="o">=</span> <span class="n">SDL_IMAGE_MINOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">patch</span> <span class="o">=</span> <span class="n">SDL_IMAGE_PATCHLEVEL</span>
+
+<span class="n">SDL_IMAGE_COMPILEDVERSION</span> <span class="o">=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">SDL_IMAGE_MAJOR_VERSION</span><span class="p">,</span> <span class="n">SDL_IMAGE_MINOR_VERSION</span><span class="p">,</span> <span class="n">SDL_IMAGE_PATCHLEVEL</span><span class="p">)</span>
+<span class="n">SDL_IMAGE_VERSION_ATLEAST</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">SDL_IMAGE_COMPILEDVERSION</span> <span class="o">&gt;=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+<span class="n">IMG_InitFlags</span> <span class="o">=</span> <span class="n">c_int</span>
+<span class="n">IMG_INIT_JPG</span> <span class="o">=</span> <span class="mh">0x00000001</span>
+<span class="n">IMG_INIT_PNG</span> <span class="o">=</span> <span class="mh">0x00000002</span>
+<span class="n">IMG_INIT_TIF</span> <span class="o">=</span> <span class="mh">0x00000004</span>
+<span class="n">IMG_INIT_WEBP</span> <span class="o">=</span> <span class="mh">0x00000008</span>
+
+
+<span class="c1"># Raw ctypes function definitions</span>
+
+<span class="n">_funcdefs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_Linked_Version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_version</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_Init&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_Quit&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTyped_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_Load&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_Load_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTexture&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Renderer</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Texture</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTexture_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Renderer</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Texture</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTextureTyped_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Renderer</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Texture</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isICO&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isCUR&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isBMP&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isGIF&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isJPG&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isLBM&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isPCX&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isPNG&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isPNM&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isSVG&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isTIF&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isXCF&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isXPM&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isXV&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_isWEBP&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadICO_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadCUR_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadBMP_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadGIF_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadJPG_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadLBM_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadPCX_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadPNG_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadPNM_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadSVG_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">),</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTGA_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadTIF_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadXCF_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadXPM_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadXV_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_LoadWEBP_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_ReadXPMFromArray&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">c_char_p</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_SaveJPG&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_SaveJPG_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_SavePNG&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">),</span> <span class="n">c_char_p</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;IMG_SavePNG_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_Surface</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">_funcs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_funcdefs</span><span class="p">:</span>
+    <span class="n">_funcs</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_bind</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">returns</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">added</span><span class="p">)</span>
+
+
+<span class="c1"># Python wrapper functions</span>
+
+<div class="viewcode-block" id="IMG_Linked_Version"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_Linked_Version">[docs]</a><span class="k">def</span> <span class="nf">IMG_Linked_Version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the version of the dynamically-linked **SDL2_image** library.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_version`): A pointer to a structure containing the</span>
+<span class="sd">        version of the SDL2_image library currently in use.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_Linked_Version&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="IMG_Init"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_Init">[docs]</a><span class="k">def</span> <span class="nf">IMG_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initializes the SDL2_image library.</span>
+<span class="sd">    </span>
+<span class="sd">    Calling this function enables support for the JPEG, PNG, TIF, and/or WebP</span>
+<span class="sd">    image formats as requested by the init flags. All other image formats can</span>
+<span class="sd">    be loaded or used regardless of whether this has been called.</span>
+
+<span class="sd">    The following init flags are supported:</span>
+
+<span class="sd">    ====== =================</span>
+<span class="sd">    Format Init flag</span>
+<span class="sd">    ====== =================</span>
+<span class="sd">    JPEG   ``IMG_INIT_JPG``</span>
+<span class="sd">    PNG    ``IMG_INIT_PNG``</span>
+<span class="sd">    TIFF   ``IMG_INIT_TIF``</span>
+<span class="sd">    WebP   ``IMG_INIT_WEBP``</span>
+<span class="sd">    ====== =================</span>
+
+<span class="sd">    This can be called multiple times to enable support for these formats</span>
+<span class="sd">    separately, or can initialize multiple formats at once by passing a set of</span>
+<span class="sd">    flags as a bitwise OR. You can also call this function with 0 as a flag</span>
+<span class="sd">    to check which image libraries have already been loaded, or to test</span>
+<span class="sd">    whether a given image format is available on the current system::</span>
+
+<span class="sd">       # Initialize JPEG and PNG support separately</span>
+<span class="sd">       for flag in [IMG_INIT_JPG, IMG_INIT_PNG]:</span>
+<span class="sd">           IMG_Init(flag)</span>
+<span class="sd">           err = IMG_GetError() # check for any errors loading library</span>
+<span class="sd">           if len(err):</span>
+<span class="sd">               print(err)</span>
+
+<span class="sd">       # Initialize JPEG and PNG support at the same time</span>
+<span class="sd">       flags = IMG_INIT_JPG | IMG_INIT_PNG</span>
+<span class="sd">       IMG_Init(flags)</span>
+<span class="sd">       if IMG_Init(0) != flags: # verify both libraries loaded properly</span>
+<span class="sd">           print(IMG_GetError())</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        flags (int): A bitwise OR&#39;d set of the flags of the image formats to</span>
+<span class="sd">            load support for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A bitmask of all the currently initialized image loaders.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_Init&quot;</span><span class="p">](</span><span class="n">flags</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_Quit"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_Quit">[docs]</a><span class="k">def</span> <span class="nf">IMG_Quit</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;De-initializes the SDL2_image library.</span>
+<span class="sd">    </span>
+<span class="sd">    Calling this function disables JPEG, PNG, TIF, and WEBP support and frees</span>
+<span class="sd">    all associated memory. Once this has been called, you can re-initialize</span>
+<span class="sd">    support for those image formats using :func:`IMG_Init` and the corresponding</span>
+<span class="sd">    init flags.</span>
+
+<span class="sd">    You only need to call this function once, no matter how many times</span>
+<span class="sd">    :func:`IMG_Init` was called.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_Quit&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTyped_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTyped_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTyped_RW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image file from an SDL2 file object as a specific format.</span>
+<span class="sd">    </span>
+<span class="sd">    This function allows you to explicitly specify the format type of the image</span>
+<span class="sd">    to load. Here are the different possible image format strings:</span>
+
+<span class="sd">    =============  ===========================</span>
+<span class="sd">    Format String  Format Type</span>
+<span class="sd">    =============  ===========================</span>
+<span class="sd">    b&quot;TGA&quot;         TrueVision Targa</span>
+<span class="sd">    b&quot;CUR&quot;         Windows Cursor</span>
+<span class="sd">    b&quot;ICO&quot;         Windows Icon</span>
+<span class="sd">    b&quot;BMP&quot;         Windows Bitmap</span>
+<span class="sd">    b&quot;GIF&quot;         Graphics Interchange Format</span>
+<span class="sd">    b&quot;JPG&quot;         JPEG</span>
+<span class="sd">    b&quot;LBM&quot;         Interleaved Bitmap</span>
+<span class="sd">    b&quot;PCX&quot;         IBM PC Paintbrush</span>
+<span class="sd">    b&quot;PNG&quot;         Portable Network Graphics</span>
+<span class="sd">    b&quot;PNM&quot;         Portable Anymap</span>
+<span class="sd">    b&quot;SVG&quot;         Scalable Vector Graphics</span>
+<span class="sd">    b&quot;TIF&quot;         Tagged Image File Format</span>
+<span class="sd">    b&quot;XCF&quot;         GIMP native format</span>
+<span class="sd">    b&quot;XPM&quot;         X11 Pixmap</span>
+<span class="sd">    b&quot;XV&quot;          XV Thumbnail</span>
+<span class="sd">    b&quot;WEBP&quot;        WebP</span>
+<span class="sd">    =============  ===========================</span>
+
+<span class="sd">    See :func:`IMG_Load` for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the image.</span>
+<span class="sd">        freesrc (int): If non-zero, the input file object will be closed and</span>
+<span class="sd">            freed after it has been read.</span>
+<span class="sd">        type (bytes): A bytestring indicating the image format with which the</span>
+<span class="sd">            file object should be loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTyped_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_Load"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_Load">[docs]</a><span class="k">def</span> <span class="nf">IMG_Load</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image file to a new surface.</span>
+
+<span class="sd">    This can load all supported image files, including TGA as long as the</span>
+<span class="sd">    filename ends with &quot;.tga&quot;.</span>
+
+<span class="sd">    It is best to call this outside of event loops and keep the loaded</span>
+<span class="sd">    images around until you are really done with them, as disk speed and</span>
+<span class="sd">    image conversion to a surface can be slow.</span>
+
+<span class="sd">    Once you are done with a loaded image, you can call :func:`SDL_FreeSurface`</span>
+<span class="sd">    on the returned surface pointer to free up the memory associated with it.</span>
+
+<span class="sd">    If the image format supports a transparent pixel, SDL_image will set the</span>
+<span class="sd">    colorkey for the surface. You can enable RLE acceleration on the surface</span>
+<span class="sd">    afterwards by calling::</span>
+
+<span class="sd">       SDL_SetColorKey(image, SDL_RLEACCEL, image.contents.format.colorkey)</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       If the loader for the image&#39;s format requires initialization (e.g. PNG)</span>
+<span class="sd">       and it is not already initialized, this function will attempt to load</span>
+<span class="sd">       it automatically.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path to the </span>
+<span class="sd">            image file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_Load&quot;</span><span class="p">](</span><span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_Load_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_Load_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_Load_RW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image file from an SDL2 file object to a new surface.</span>
+
+<span class="sd">    This can load all supported formats, *except* TGA. See :func:`IMG_Load` </span>
+<span class="sd">    for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the image.</span>
+<span class="sd">        freesrc (int): If non-zero, the input file object will be closed and</span>
+<span class="sd">            freed after it has been read.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to the new surface containing the</span>
+<span class="sd">        image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_Load_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTexture"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTexture">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTexture</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image file to a new texture using a given renderer.</span>
+<span class="sd">    </span>
+<span class="sd">    This function can load all supported image files, including TGA as long as</span>
+<span class="sd">    the filename ends with &quot;.tga&quot;.</span>
+
+<span class="sd">    It is best to call this outside of event loops and keep the loaded</span>
+<span class="sd">    images around until you are really done with them, as disk speed and</span>
+<span class="sd">    image conversion to a texture can be slow.</span>
+
+<span class="sd">    Once you are done with a loaded image, you can call</span>
+<span class="sd">    :func:`SDL_DestroyTexture` on the returned texture pointer to free up the</span>
+<span class="sd">    memory associated with it.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       If the image loader for the format of the given image requires</span>
+<span class="sd">       initialization (e.g. PNG) and it is not already initialized, this</span>
+<span class="sd">       function will attempt to load it automatically.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        renderer (:obj:`SDL_Renderer`): The SDL rendering context with which to</span>
+<span class="sd">            create the texture.</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path to the </span>
+<span class="sd">            image file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Texture`): A pointer to the new texture containing</span>
+<span class="sd">        the image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTexture&quot;</span><span class="p">](</span><span class="n">renderer</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTexture_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTexture_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTexture_RW</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image from a file object to a texture using a given renderer.</span>
+<span class="sd">    </span>
+<span class="sd">    This function can load all supported formats, *except* TGA. See</span>
+<span class="sd">    :func:`IMG_LoadTexture` for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        renderer (:obj:`SDL_Renderer`): The SDL rendering context with which to</span>
+<span class="sd">            create the texture.</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the image.</span>
+<span class="sd">        freesrc (int): If non-zero, the input file object will be closed and</span>
+<span class="sd">            freed after it has been read.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Texture`): A pointer to the new texture containing</span>
+<span class="sd">        the image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTexture_RW&quot;</span><span class="p">](</span><span class="n">renderer</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTextureTyped_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTextureTyped_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTextureTyped_RW</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an image file from a file object to a texture as a specific format.</span>
+
+<span class="sd">    This function allows you to explicitly specify the format type of the image</span>
+<span class="sd">    to load. The different possible format strings are listed in the</span>
+<span class="sd">    documentation for :func:`IMG_LoadTyped_RW`.</span>
+
+<span class="sd">    See :func:`IMG_LoadTexture` for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        renderer (:obj:`SDL_Renderer`): The SDL rendering context with which to</span>
+<span class="sd">            create the texture.</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the image.</span>
+<span class="sd">        freesrc (int): If non-zero, the input file object will be closed and</span>
+<span class="sd">            freed after it has been read.</span>
+<span class="sd">        type (bytes): A bytestring indicating the image format with which the</span>
+<span class="sd">            file object should be loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Texture`): A pointer to the new texture containing</span>
+<span class="sd">        the image, or a null pointer if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTextureTyped_RW&quot;</span><span class="p">](</span><span class="n">renderer</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IMG_isICO"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isICO">[docs]</a><span class="k">def</span> <span class="nf">IMG_isICO</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an ICO (Windows icon) image.</span>
+
+<span class="sd">    The ICO format </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if BMPs are supported and file is a valid ICO, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isICO&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isCUR"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isCUR">[docs]</a><span class="k">def</span> <span class="nf">IMG_isCUR</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a CUR (Windows cursor) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if BMPs are supported and file is a valid CUR, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isCUR&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isBMP"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isBMP">[docs]</a><span class="k">def</span> <span class="nf">IMG_isBMP</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a BMP (Windows bitmap) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if BMPs are supported and file is a valid BMP, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isBMP&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isGIF"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isGIF">[docs]</a><span class="k">def</span> <span class="nf">IMG_isGIF</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a GIF image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if GIFs are supported and file is a valid GIF, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isGIF&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isJPG"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isJPG">[docs]</a><span class="k">def</span> <span class="nf">IMG_isJPG</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a JPEG image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if JPEGs are supported and file is a valid JPEG, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isJPG&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isLBM"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isLBM">[docs]</a><span class="k">def</span> <span class="nf">IMG_isLBM</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an LBM (Interleaved Bitmap) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if LBMs are supported and file is a valid LBM, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isLBM&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isPCX"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isPCX">[docs]</a><span class="k">def</span> <span class="nf">IMG_isPCX</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a PCX (IBM PC Paintbrush) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if PCXs are supported and file is a valid PCX, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isPCX&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isPNG"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isPNG">[docs]</a><span class="k">def</span> <span class="nf">IMG_isPNG</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a PNG image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if PNGs are supported and file is a valid PNG, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isPNG&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isPNM"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isPNM">[docs]</a><span class="k">def</span> <span class="nf">IMG_isPNM</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a PNM (Portable Anymap) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if PNMs are supported and file is a valid PNM, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isPNM&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isSVG"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isSVG">[docs]</a><span class="k">def</span> <span class="nf">IMG_isSVG</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an SVG image.</span>
+
+<span class="sd">    .. note:: This function is only available in SDL_image 2.0.2 or later.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if SVGs are supported and file is a valid SVG, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isSVG&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isTIF"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isTIF">[docs]</a><span class="k">def</span> <span class="nf">IMG_isTIF</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a TIFF image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if TIFFs are supported and file is a valid TIFF, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isTIF&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isXCF"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isXCF">[docs]</a><span class="k">def</span> <span class="nf">IMG_isXCF</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an XCF (native GIMP format) image.</span>
+
+<span class="sd">    .. note:: XCF support is currently missing in official macOS binaries</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if XCFs are supported and file is a valid XCF, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isXCF&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isXPM"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isXPM">[docs]</a><span class="k">def</span> <span class="nf">IMG_isXPM</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an XPM (X11 Pixmap) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if XPMs are supported and file is a valid XPM, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isXPM&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isXV"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isXV">[docs]</a><span class="k">def</span> <span class="nf">IMG_isXV</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains an XV (XV Visual Schnauzer) image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if XVs are supported and file is a valid XV, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isXV&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_isWEBP"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_isWEBP">[docs]</a><span class="k">def</span> <span class="nf">IMG_isWEBP</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests whether a file object contains a WebP image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object to check.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if WebPs are supported and file is a valid WebP, otherwise 0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_isWEBP&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IMG_LoadICO_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadICO_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadICO_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an ICO (Windows icon) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the ICO.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadICO_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadCUR_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadCUR_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadCUR_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a CUR (Windows cursor) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the CUR.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadCUR_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadBMP_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadBMP_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadBMP_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a BMP (Windows bitmap) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the BMP.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadBMP_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadGIF_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadGIF_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadGIF_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a GIF (Graphics Interchange Format) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the GIF.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadGIF_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadJPG_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadJPG_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadJPG_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a JPEG image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the JPEG.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadJPG_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadLBM_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadLBM_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadLBM_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an LBM (Interleaved Bitmap) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the LBM.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadLBM_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadPCX_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadPCX_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadPCX_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a PCX (IBM PC Paintbrush) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the PCX.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadPCX_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadPNG_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadPNG_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadPNG_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a PNG image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the PNG.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadPNG_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadPNM_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadPNM_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadPNM_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a PNM (Portable Anymap) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the PNM.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadPNM_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadSVG_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadSVG_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadSVG_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an SVG image from an SDL file object.</span>
+
+<span class="sd">    .. note:: This function is only available in SDL_image 2.0.2 or later.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the SVG.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadSVG_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTGA_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTGA_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTGA_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a TGA (TrueVision Targa) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the TGA.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTGA_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadTIF_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadTIF_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadTIF_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a TIFF (Tagged Image File Format) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the TIFF.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadTIF_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadXCF_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadXCF_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadXCF_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an TIFF (native GIMP format) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the XCF.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadXCF_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadXPM_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadXPM_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadXPM_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an XPM (X11 Pixmap) image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the XPM.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadXPM_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadXV_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadXV_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadXV_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an XV thumbnail (XV Visual Schnauzer) from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the XV.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadXV_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_LoadWEBP_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_LoadWEBP_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_LoadWEBP_RW</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a WebP image from an SDL file object.</span>
+
+<span class="sd">    Use the :func:`IMG_GetError` function to check for any errors.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): The file object from which to load the WebP.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_LoadWEBP_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IMG_ReadXPMFromArray"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_ReadXPMFromArray">[docs]</a><span class="k">def</span> <span class="nf">IMG_ReadXPMFromArray</span><span class="p">(</span><span class="n">xpm</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an X11 Pixmap from an array to a new surface.</span>
+<span class="sd">    </span>
+<span class="sd">    The XPM format consists of a C header with an array of strings defining the</span>
+<span class="sd">    dimensions, colors, and pixels of a pixel art image: this is the data format</span>
+<span class="sd">    that this function expects to be passed. </span>
+
+<span class="sd">    The input string for this function must be cast to a ``ctypes.c_char_p``</span>
+<span class="sd">    (pointer to a character array) and passed by reference using</span>
+<span class="sd">    :func:`ctypes.byref`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        xpm (byref(:obj:`ctypes.c_char_p`)): A pointer to a ctypes string</span>
+<span class="sd">            defining an XPM image.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_Surface`): A pointer to a new surface containing the</span>
+<span class="sd">        image, or ``None`` if there was an error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_ReadXPMFromArray&quot;</span><span class="p">](</span><span class="n">xpm</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IMG_SavePNG"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_SavePNG">[docs]</a><span class="k">def</span> <span class="nf">IMG_SavePNG</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Saves an SDL surface to a PNG file.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       This should work regardless of whether PNG support was</span>
+<span class="sd">       successfully initialized with :func:`IMG_Init`, but the full set</span>
+<span class="sd">       of PNG features may not be available.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        surface (:obj:`SDL_Surface`): The surface to be saved to PNG.</span>
+<span class="sd">        file (bytes): A UTF-8 encoded bytestring containing the path at which</span>
+<span class="sd">            to save the PNG.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success or a negative error code on failure, can call</span>
+<span class="sd">        :func:`IMG_GetError` for more information.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_SavePNG&quot;</span><span class="p">](</span><span class="n">surface</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_SavePNG_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_SavePNG_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_SavePNG_RW</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">freedst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Saves an SDL surface to a file object containing a PNG.</span>
+
+<span class="sd">    See :func:`IMG_SavePNG` for more information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        surface (:obj:`SDL_Surface`): The surface to be saved to PNG.</span>
+<span class="sd">        dst (:obj:`SDL_RWops`): The destination file object for the saved PNG.</span>
+<span class="sd">        freedst (int): If non-zero, the destination file object will be closed</span>
+<span class="sd">            once the PNG has been written.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success or a negative error code on failure, can call</span>
+<span class="sd">        :func:`IMG_GetError` for more information.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_SavePNG_RW&quot;</span><span class="p">](</span><span class="n">surface</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">freedst</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_SaveJPG"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_SaveJPG">[docs]</a><span class="k">def</span> <span class="nf">IMG_SaveJPG</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">quality</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Saves an SDL surface to a JPEG file at a given quality.</span>
+
+<span class="sd">    JPEG support must be already initialized using :func:`IMG_Init` before this</span>
+<span class="sd">    function can be used. Otherwise, this function will fail without an explicit</span>
+<span class="sd">    error that can be retrieved with :func:`IMG_GetError`.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       As of SDL_image 2.0.5, JPEG saving is not supported by the official</span>
+<span class="sd">       libsdl.org macOS binaries.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        surface (:obj:`SDL_Surface`): The surface to be saved to JPEG.</span>
+<span class="sd">        file (bytes): A UTF-8 encoded bytestring containing the path at which</span>
+<span class="sd">            to save the PNG.</span>
+<span class="sd">        quality (int): The compression level of the saved JPEG, from 1</span>
+<span class="sd">            (lowest quality) to 100 (highest quality).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success or a negative error code on failure, can call</span>
+<span class="sd">        :func:`IMG_GetError` for more information.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># NOTE: Not available in official macOS binaries</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_SaveJPG&quot;</span><span class="p">](</span><span class="n">surface</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">quality</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IMG_SaveJPG_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlimage.html#sdl2.sdlimage.IMG_SaveJPG_RW">[docs]</a><span class="k">def</span> <span class="nf">IMG_SaveJPG_RW</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">freedst</span><span class="p">,</span> <span class="n">quality</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Saves an SDL surface to a file object containing a JPEG.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       As of SDL_image 2.0.5, JPEG saving is not supported by the official</span>
+<span class="sd">       libsdl.org macOS binaries.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        surface (:obj:`SDL_Surface`): The surface to be saved to JPEG.</span>
+<span class="sd">        file (bytes): A UTF-8 encoded bytestring containing the path at which</span>
+<span class="sd">            to save the PNG.</span>
+<span class="sd">        quality (int): The compression level of the saved JPEG, from 1</span>
+<span class="sd">            (lowest quality) to 100 (highest quality).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success or a negative error code on failure, can call</span>
+<span class="sd">        :func:`IMG_GetError` for more information.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># NOTE: Not available in official macOS binaries</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;IMG_SaveJPG_RW&quot;</span><span class="p">](</span><span class="n">surface</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">freedst</span><span class="p">,</span> <span class="n">quality</span><span class="p">)</span></div>
+
+
+<span class="n">IMG_SetError</span> <span class="o">=</span> <span class="n">SDL_SetError</span>
+<span class="n">IMG_GetError</span> <span class="o">=</span> <span class="n">SDL_GetError</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

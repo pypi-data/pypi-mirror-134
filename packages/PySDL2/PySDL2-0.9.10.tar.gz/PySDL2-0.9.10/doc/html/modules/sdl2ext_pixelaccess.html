@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D and 3D direct pixel access &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resource management" href="sdl2ext_resources.html" />
+    <link rel="prev" title="sdl2.ext.particles - A simple particle system" href="sdl2ext_particles.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_algorithms.html">Common algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_array.html">Converting sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_color.html">Color handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_colorpalettes.html">sdl2.ext.colorpalettes - predefined sets of colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_common.html">Initialization routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_compat.html">sdl2.ext.compat - Python compatibility helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_draw.html">2D drawing routines for software surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_ebs.html">Working with component-based entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_events.html">General purpose event handling routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_font.html">Text rendering routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_gui.html">User interface elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_image.html">Image loaders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_particles.html">sdl2.ext.particles - A simple particle system</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2D and 3D direct pixel access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_resources.html">Resource management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_sprite.html">Sprite, texture and pixel surface routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_surface.html">Software Surface manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_window.html">Window routines to manage on-screen windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlmixer.html">sdl2.sdlmixer - Python bindings for SDL_mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+          <li><a href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a> &raquo;</li>
+      <li>2D and 3D direct pixel access</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2ext_pixelaccess.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-and-3d-direct-pixel-access">
+<h1>2D and 3D direct pixel access<a class="headerlink" href="#d-and-3d-direct-pixel-access" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.PixelView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">PixelView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/ext/pixelaccess.html#PixelView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.PixelView" title="Permalink to this definition"></a></dt>
+<dd><p>2D <a class="reference internal" href="sdl2ext_array.html#sdl2.ext.MemoryView" title="sdl2.ext.MemoryView"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryView</span></code></a> for <a class="reference internal" href="sdl2ext_sprite.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sdl2.SDL_surface</span></code> pixel access.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>If necessary, the <em>source</em> surface will be locked for accessing its
+pixel data. The lock will be removed once the <a class="reference internal" href="#sdl2.ext.PixelView" title="sdl2.ext.PixelView"><code class="xref py py-class docutils literal notranslate"><span class="pre">PixelView</span></code></a> is
+garbage-collected or deleted.</p>
+</div></blockquote>
+<p>The <a class="reference internal" href="#sdl2.ext.PixelView" title="sdl2.ext.PixelView"><code class="xref py py-class docutils literal notranslate"><span class="pre">PixelView</span></code></a>  uses a y/x-layout. Accessing <code class="docutils literal notranslate"><span class="pre">view[N]</span></code> will
+operate on the Nth row of the underlying surface. To access a specific
+column within that row, <code class="docutils literal notranslate"><span class="pre">view[N][C]</span></code> has to be used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.ext.PixelView" title="sdl2.ext.PixelView"><code class="xref py py-class docutils literal notranslate"><span class="pre">PixelView</span></code></a> is implemented on top of the <a class="reference internal" href="sdl2ext_array.html#sdl2.ext.MemoryView" title="sdl2.ext.MemoryView"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryView</span></code></a>
+class. As such it makes heavy use of recursion to access rows and
+columns and can be considered as slow in contrast to optimised
+ndim-array solutions such as <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.pixels2d">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">pixels2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.ext.pixels2d" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a 2D pixel array, based on <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, from the passed
+<em>source</em>. <em>source</em> can be a <a class="reference internal" href="sdl2ext_sprite.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sdl2.SDL_Surface</span></code>. The <code class="docutils literal notranslate"><span class="pre">SDL_Surface</span></code> of the <em>source</em> will be
+locked and unlocked automatically.</p>
+<p>By default, the returned array is formatted so that the first dimension
+corresponds to height on the source and the second dimension corresponds
+to width, contrary to PIL and PyOpenGL convention. To obtain an array where
+the first dimension is width and second dimension is height, set the
+<cite>transpose</cite> argument to False.</p>
+<p>The <em>source</em> pixels will be accessed and manipulated directly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.ext.pixels2d" title="sdl2.ext.pixels2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">pixels2d()</span></code></a> is only usable, if the numpy package is available
+within the target environment. If numpy could not be imported, a
+<a class="reference internal" href="sdl2ext_compat.html#sdl2.ext.compat.UnsupportedError" title="sdl2.ext.compat.UnsupportedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">sdl2.ext.compat.UnsupportedError</span></code></a> will be raised.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.pixels3d">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.</span></span><span class="sig-name descname"><span class="pre">pixels3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.ext.pixels3d" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a 3D pixel array, based on <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, from the passed
+<em>source</em>. <em>source</em> can be a <a class="reference internal" href="sdl2ext_sprite.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>
+or <code class="xref py py-class docutils literal notranslate"><span class="pre">sdl2.SDL_Surface</span></code>. The <code class="docutils literal notranslate"><span class="pre">SDL_Surface</span></code> of the <em>source</em>
+will be locked and unlocked automatically.</p>
+<p>By default, the returned array is formatted so that the first dimension
+corresponds to height on the source and the second dimension corresponds
+to width, contrary to PIL and PyOpenGL convention. To obtain an array where
+the first dimension is width and second dimension is height, set the
+<cite>transpose</cite> argument to False.</p>
+<p>The <em>source</em> pixels will be accessed and manipulated directly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sdl2.ext.pixels3d" title="sdl2.ext.pixels3d"><code class="xref py py-func docutils literal notranslate"><span class="pre">pixels3d()</span></code></a> is only usable, if the numpy package is available
+within the target environment. If numpy could not be imported, a
+<a class="reference internal" href="sdl2ext_compat.html#sdl2.ext.compat.UnsupportedError" title="sdl2.ext.compat.UnsupportedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">sdl2.ext.compat.UnsupportedError</span></code></a> will be raised.</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2ext_particles.html" class="btn btn-neutral float-left" title="sdl2.ext.particles - A simple particle system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2ext_resources.html" class="btn btn-neutral float-right" title="Resource management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlimage - Python bindings for SDL_image &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sdl2.sdlmixer - Python bindings for SDL_mixer" href="sdl2_sdlmixer.html" />
+    <link rel="prev" title="sdl2.sdlttf - Python bindings for SDL_ttf" href="sdl2_sdlttf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL_ttf</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sdl2.sdlimage - Python bindings for SDL_image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialization-and-library-information-functions">Initialization and library information functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-format-checking-functions">Image format-checking functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-image-loading-functions">General image loading functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format-specific-image-loading-functions">Format-specific image loading functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-writing-functions">Image writing functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-constants">Module constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlmixer.html">sdl2.sdlmixer - Python bindings for SDL_mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>sdl2.sdlimage - Python bindings for SDL_image</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2_sdlimage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-sdlimage-python-bindings-for-sdl-image">
+<h1>sdl2.sdlimage - Python bindings for SDL_image<a class="headerlink" href="#sdl2-sdlimage-python-bindings-for-sdl-image" title="Permalink to this headline"></a></h1>
+<p>py-sdl2 provides bindings for SDL2_image, a library designed for use with SDL2
+that adds support for loading a wide range of different common (and uncommon)
+image formats for easy use with SDL2. In addition, SDL2_image includes functions
+for saving <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code> objects to PNG and/or JPEG images.</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table Of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#initialization-and-library-information-functions" id="id1">Initialization and library information functions</a></p></li>
+<li><p><a class="reference internal" href="#image-format-checking-functions" id="id2">Image format-checking functions</a></p></li>
+<li><p><a class="reference internal" href="#general-image-loading-functions" id="id3">General image loading functions</a></p></li>
+<li><p><a class="reference internal" href="#format-specific-image-loading-functions" id="id4">Format-specific image loading functions</a></p></li>
+<li><p><a class="reference internal" href="#image-writing-functions" id="id5">Image writing functions</a></p></li>
+<li><p><a class="reference internal" href="#module-constants" id="id6">Module constants</a></p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using an alternative rendering system that doesn’t use SDL surfaces as
+input (e.g. PyOpenGL), the Pillow imaging library may be a better fit for
+your project.</p>
+</div>
+<section id="initialization-and-library-information-functions">
+<h2><a class="toc-backref" href="#id1">Initialization and library information functions</a><a class="headerlink" href="#initialization-and-library-information-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_Init">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_Init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_Init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_Init" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes the SDL2_image library.</p>
+<p>Calling this function enables support for the JPEG, PNG, TIF, and/or WebP
+image formats as requested by the init flags. All other image formats can
+be loaded or used regardless of whether this has been called.</p>
+<p>The following init flags are supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Init flag</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>JPEG</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IMG_INIT_JPG</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>PNG</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IMG_INIT_PNG</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>TIFF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IMG_INIT_TIF</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>WebP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IMG_INIT_WEBP</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>This can be called multiple times to enable support for these formats
+separately, or can initialize multiple formats at once by passing a set of
+flags as a bitwise OR. You can also call this function with 0 as a flag
+to check which image libraries have already been loaded, or to test
+whether a given image format is available on the current system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize JPEG and PNG support separately</span>
+<span class="k">for</span> <span class="n">flag</span> <span class="ow">in</span> <span class="p">[</span><span class="n">IMG_INIT_JPG</span><span class="p">,</span> <span class="n">IMG_INIT_PNG</span><span class="p">]:</span>
+    <span class="n">IMG_Init</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">IMG_GetError</span><span class="p">()</span> <span class="c1"># check for any errors loading library</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">err</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+<span class="c1"># Initialize JPEG and PNG support at the same time</span>
+<span class="n">flags</span> <span class="o">=</span> <span class="n">IMG_INIT_JPG</span> <span class="o">|</span> <span class="n">IMG_INIT_PNG</span>
+<span class="n">IMG_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">IMG_Init</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="n">flags</span><span class="p">:</span> <span class="c1"># verify both libraries loaded properly</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">IMG_GetError</span><span class="p">())</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – A bitwise OR’d set of the flags of the image formats to
+load support for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A bitmask of all the currently initialized image loaders.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_Quit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_Quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_Quit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_Quit" title="Permalink to this definition"></a></dt>
+<dd><p>De-initializes the SDL2_image library.</p>
+<p>Calling this function disables JPEG, PNG, TIF, and WEBP support and frees
+all associated memory. Once this has been called, you can re-initialize
+support for those image formats using <a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> and the corresponding
+init flags.</p>
+<p>You only need to call this function once, no matter how many times
+<a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> was called.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_GetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_GetError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlimage.IMG_GetError" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the most recently encountered SDL2 error message, if any.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_GetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retuns</dt>
+<dd class="field-odd"><p>A UTF-8 encoded string describing the most recent SDL2 error.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_SetError">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_SetError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.sdlimage.IMG_SetError" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the most recent SDL2 error message to a given string.</p>
+<p>This function is a simple wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_SetError()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fmt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded string containing the error message to set.</p>
+</dd>
+<dt class="field-even">Retuns</dt>
+<dd class="field-even"><p>Always returns <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_Linked_Version">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_Linked_Version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_Linked_Version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_Linked_Version" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the version of the dynamically-linked <strong>SDL2_image</strong> library.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pointer to a structure containing the
+version of the SDL2_image library currently in use.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_version</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="image-format-checking-functions">
+<h2><a class="toc-backref" href="#id2">Image format-checking functions</a><a class="headerlink" href="#image-format-checking-functions" title="Permalink to this headline"></a></h2>
+<p>These functions are used to check whether an SDL file object
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) is a valid image file of a given format. Note that
+all of these functions will return 0 if SDL2_image was not built with
+support for that format, even if it is a valid image of that type, so be
+cautious when using these for formats like WEBP, JPEG, PNG, and TIFF, which
+are optional when building SDL2_image.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isICO">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isICO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isICO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isICO" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an ICO (Windows icon) image.</p>
+<p>The ICO format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if BMPs are supported and file is a valid ICO, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isCUR">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isCUR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isCUR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isCUR" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a CUR (Windows cursor) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if BMPs are supported and file is a valid CUR, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isBMP">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isBMP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isBMP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isBMP" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a BMP (Windows bitmap) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if BMPs are supported and file is a valid BMP, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isGIF">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isGIF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isGIF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isGIF" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a GIF image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if GIFs are supported and file is a valid GIF, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isJPG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isJPG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isJPG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isJPG" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a JPEG image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if JPEGs are supported and file is a valid JPEG, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isLBM">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isLBM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isLBM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isLBM" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an LBM (Interleaved Bitmap) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if LBMs are supported and file is a valid LBM, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isPCX">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isPCX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isPCX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isPCX" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a PCX (IBM PC Paintbrush) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if PCXs are supported and file is a valid PCX, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isPNG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isPNG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isPNG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isPNG" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a PNG image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if PNGs are supported and file is a valid PNG, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isPNM">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isPNM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isPNM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isPNM" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a PNM (Portable Anymap) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if PNMs are supported and file is a valid PNM, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isSVG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isSVG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isSVG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isSVG" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an SVG image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is only available in SDL_image 2.0.2 or later.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if SVGs are supported and file is a valid SVG, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isTIF">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isTIF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isTIF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isTIF" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a TIFF image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if TIFFs are supported and file is a valid TIFF, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isXCF">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isXCF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isXCF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isXCF" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an XCF (native GIMP format) image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>XCF support is currently missing in official macOS binaries</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if XCFs are supported and file is a valid XCF, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isXPM">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isXPM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isXPM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isXPM" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an XPM (X11 Pixmap) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if XPMs are supported and file is a valid XPM, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isXV">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isXV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isXV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isXV" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains an XV (XV Visual Schnauzer) image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if XVs are supported and file is a valid XV, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_isWEBP">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_isWEBP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_isWEBP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_isWEBP" title="Permalink to this definition"></a></dt>
+<dd><p>Tests whether a file object contains a WebP image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object to check.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 if WebPs are supported and file is a valid WebP, otherwise 0.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="general-image-loading-functions">
+<h2><a class="toc-backref" href="#id3">General image loading functions</a><a class="headerlink" href="#general-image-loading-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_Load">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_Load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_Load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_Load" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image file to a new surface.</p>
+<p>This can load all supported image files, including TGA as long as the
+filename ends with “.tga”.</p>
+<p>It is best to call this outside of event loops and keep the loaded
+images around until you are really done with them, as disk speed and
+image conversion to a surface can be slow.</p>
+<p>Once you are done with a loaded image, you can call <code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_FreeSurface()</span></code>
+on the returned surface pointer to free up the memory associated with it.</p>
+<p>If the image format supports a transparent pixel, SDL_image will set the
+colorkey for the surface. You can enable RLE acceleration on the surface
+afterwards by calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_SetColorKey</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">SDL_RLEACCEL</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">colorkey</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the loader for the image’s format requires initialization (e.g. PNG)
+and it is not already initialized, this function will attempt to load
+it automatically.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path to the
+image file to load.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_Load_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_Load_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_Load_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_Load_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image file from an SDL2 file object to a new surface.</p>
+<p>This can load all supported formats, <em>except</em> TGA. See <a class="reference internal" href="#sdl2.sdlimage.IMG_Load" title="sdl2.sdlimage.IMG_Load"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Load()</span></code></a>
+for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the image.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the input file object will be closed and
+freed after it has been read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTyped_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTyped_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTyped_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTyped_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image file from an SDL2 file object as a specific format.</p>
+<p>This function allows you to explicitly specify the format type of the image
+to load. Here are the different possible image format strings:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format String</p></th>
+<th class="head"><p>Format Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>b”TGA”</p></td>
+<td><p>TrueVision Targa</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”CUR”</p></td>
+<td><p>Windows Cursor</p></td>
+</tr>
+<tr class="row-even"><td><p>b”ICO”</p></td>
+<td><p>Windows Icon</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”BMP”</p></td>
+<td><p>Windows Bitmap</p></td>
+</tr>
+<tr class="row-even"><td><p>b”GIF”</p></td>
+<td><p>Graphics Interchange Format</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”JPG”</p></td>
+<td><p>JPEG</p></td>
+</tr>
+<tr class="row-even"><td><p>b”LBM”</p></td>
+<td><p>Interleaved Bitmap</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”PCX”</p></td>
+<td><p>IBM PC Paintbrush</p></td>
+</tr>
+<tr class="row-even"><td><p>b”PNG”</p></td>
+<td><p>Portable Network Graphics</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”PNM”</p></td>
+<td><p>Portable Anymap</p></td>
+</tr>
+<tr class="row-even"><td><p>b”SVG”</p></td>
+<td><p>Scalable Vector Graphics</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”TIF”</p></td>
+<td><p>Tagged Image File Format</p></td>
+</tr>
+<tr class="row-even"><td><p>b”XCF”</p></td>
+<td><p>GIMP native format</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”XPM”</p></td>
+<td><p>X11 Pixmap</p></td>
+</tr>
+<tr class="row-even"><td><p>b”XV”</p></td>
+<td><p>XV Thumbnail</p></td>
+</tr>
+<tr class="row-odd"><td><p>b”WEBP”</p></td>
+<td><p>WebP</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="#sdl2.sdlimage.IMG_Load" title="sdl2.sdlimage.IMG_Load"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Load()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the image.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the input file object will be closed and
+freed after it has been read.</p></li>
+<li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A bytestring indicating the image format with which the
+file object should be loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new surface containing the
+image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTexture">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTexture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTexture" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image file to a new texture using a given renderer.</p>
+<p>This function can load all supported image files, including TGA as long as
+the filename ends with “.tga”.</p>
+<p>It is best to call this outside of event loops and keep the loaded
+images around until you are really done with them, as disk speed and
+image conversion to a texture can be slow.</p>
+<p>Once you are done with a loaded image, you can call
+<code class="xref py py-func docutils literal notranslate"><span class="pre">SDL_DestroyTexture()</span></code> on the returned texture pointer to free up the
+memory associated with it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the image loader for the format of the given image requires
+initialization (e.g. PNG) and it is not already initialized, this
+function will attempt to load it automatically.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>renderer</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Renderer</span></code>) – The SDL rendering context with which to
+create the texture.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF8-encoded bytestring containing the path to the
+image file to load.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new texture containing
+the image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Texture</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTexture_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTexture_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTexture_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTexture_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image from a file object to a texture using a given renderer.</p>
+<p>This function can load all supported formats, <em>except</em> TGA. See
+<a class="reference internal" href="#sdl2.sdlimage.IMG_LoadTexture" title="sdl2.sdlimage.IMG_LoadTexture"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_LoadTexture()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>renderer</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Renderer</span></code>) – The SDL rendering context with which to
+create the texture.</p></li>
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the image.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the input file object will be closed and
+freed after it has been read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new texture containing
+the image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Texture</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTextureTyped_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTextureTyped_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freesrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTextureTyped_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTextureTyped_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an image file from a file object to a texture as a specific format.</p>
+<p>This function allows you to explicitly specify the format type of the image
+to load. The different possible format strings are listed in the
+documentation for <a class="reference internal" href="#sdl2.sdlimage.IMG_LoadTyped_RW" title="sdl2.sdlimage.IMG_LoadTyped_RW"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_LoadTyped_RW()</span></code></a>.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlimage.IMG_LoadTexture" title="sdl2.sdlimage.IMG_LoadTexture"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_LoadTexture()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>renderer</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Renderer</span></code>) – The SDL rendering context with which to
+create the texture.</p></li>
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the image.</p></li>
+<li><p><strong>freesrc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the input file object will be closed and
+freed after it has been read.</p></li>
+<li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A bytestring indicating the image format with which the
+file object should be loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the new texture containing
+the image, or a null pointer if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Texture</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="format-specific-image-loading-functions">
+<h2><a class="toc-backref" href="#id4">Format-specific image loading functions</a><a class="headerlink" href="#format-specific-image-loading-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadICO_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadICO_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadICO_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadICO_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an ICO (Windows icon) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the ICO.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadCUR_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadCUR_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadCUR_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadCUR_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a CUR (Windows cursor) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the CUR.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadBMP_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadBMP_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadBMP_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadBMP_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a BMP (Windows bitmap) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the BMP.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadGIF_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadGIF_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadGIF_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadGIF_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a GIF (Graphics Interchange Format) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the GIF.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadJPG_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadJPG_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadJPG_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadJPG_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a JPEG image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the JPEG.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadLBM_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadLBM_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadLBM_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadLBM_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an LBM (Interleaved Bitmap) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the LBM.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadPCX_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadPCX_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadPCX_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadPCX_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a PCX (IBM PC Paintbrush) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the PCX.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadPNG_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadPNG_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadPNG_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadPNG_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a PNG image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the PNG.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadPNM_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadPNM_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadPNM_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadPNM_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a PNM (Portable Anymap) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the PNM.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadSVG_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadSVG_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadSVG_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadSVG_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an SVG image from an SDL file object.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is only available in SDL_image 2.0.2 or later.</p>
+</div>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the SVG.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTGA_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTGA_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTGA_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTGA_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a TGA (TrueVision Targa) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the TGA.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadTIF_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadTIF_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadTIF_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadTIF_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a TIFF (Tagged Image File Format) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the TIFF.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadXCF_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadXCF_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadXCF_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadXCF_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an TIFF (native GIMP format) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the XCF.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadXPM_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadXPM_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadXPM_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadXPM_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an XPM (X11 Pixmap) image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the XPM.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadXV_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadXV_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadXV_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadXV_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an XV thumbnail (XV Visual Schnauzer) from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the XV.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_LoadWEBP_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_LoadWEBP_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_LoadWEBP_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_LoadWEBP_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a WebP image from an SDL file object.</p>
+<p>Use the <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> function to check for any errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The file object from which to load the WebP.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_ReadXPMFromArray">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_ReadXPMFromArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_ReadXPMFromArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_ReadXPMFromArray" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an X11 Pixmap from an array to a new surface.</p>
+<p>The XPM format consists of a C header with an array of strings defining the
+dimensions, colors, and pixels of a pixel art image: this is the data format
+that this function expects to be passed.</p>
+<p>The input string for this function must be cast to a <code class="docutils literal notranslate"><span class="pre">ctypes.c_char_p</span></code>
+(pointer to a character array) and passed by reference using
+<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.byref" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ctypes.byref()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xpm</strong> (byref(<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_char_p" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctypes.c_char_p</span></code></a>)) – A pointer to a ctypes string
+defining an XPM image.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to a new surface containing the
+image, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there was an error.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>POINTER(<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="image-writing-functions">
+<h2><a class="toc-backref" href="#id5">Image writing functions</a><a class="headerlink" href="#image-writing-functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_SavePNG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_SavePNG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_SavePNG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_SavePNG" title="Permalink to this definition"></a></dt>
+<dd><p>Saves an SDL surface to a PNG file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This should work regardless of whether PNG support was
+successfully initialized with <a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a>, but the full set
+of PNG features may not be available.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The surface to be saved to PNG.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded bytestring containing the path at which
+to save the PNG.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success or a negative error code on failure, can call
+<a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> for more information.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_SavePNG_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_SavePNG_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freedst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_SavePNG_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_SavePNG_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Saves an SDL surface to a file object containing a PNG.</p>
+<p>See <a class="reference internal" href="#sdl2.sdlimage.IMG_SavePNG" title="sdl2.sdlimage.IMG_SavePNG"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_SavePNG()</span></code></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The surface to be saved to PNG.</p></li>
+<li><p><strong>dst</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_RWops</span></code>) – The destination file object for the saved PNG.</p></li>
+<li><p><strong>freedst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If non-zero, the destination file object will be closed
+once the PNG has been written.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success or a negative error code on failure, can call
+<a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> for more information.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_SaveJPG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_SaveJPG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_SaveJPG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_SaveJPG" title="Permalink to this definition"></a></dt>
+<dd><p>Saves an SDL surface to a JPEG file at a given quality.</p>
+<p>JPEG support must be already initialized using <a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> before this
+function can be used. Otherwise, this function will fail without an explicit
+error that can be retrieved with <a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of SDL_image 2.0.5, JPEG saving is not supported by the official
+libsdl.org macOS binaries.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The surface to be saved to JPEG.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded bytestring containing the path at which
+to save the PNG.</p></li>
+<li><p><strong>quality</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The compression level of the saved JPEG, from 1
+(lowest quality) to 100 (highest quality).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success or a negative error code on failure, can call
+<a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> for more information.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_SaveJPG_RW">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_SaveJPG_RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freedst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/sdlimage.html#IMG_SaveJPG_RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.sdlimage.IMG_SaveJPG_RW" title="Permalink to this definition"></a></dt>
+<dd><p>Saves an SDL surface to a file object containing a JPEG.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of SDL_image 2.0.5, JPEG saving is not supported by the official
+libsdl.org macOS binaries.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The surface to be saved to JPEG.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><em>bytes</em></a>) – A UTF-8 encoded bytestring containing the path at which
+to save the PNG.</p></li>
+<li><p><strong>quality</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The compression level of the saved JPEG, from 1
+(lowest quality) to 100 (highest quality).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success or a negative error code on failure, can call
+<a class="reference internal" href="#sdl2.sdlimage.IMG_GetError" title="sdl2.sdlimage.IMG_GetError"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_GetError()</span></code></a> for more information.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-constants">
+<h2><a class="toc-backref" href="#id6">Module constants</a><a class="headerlink" href="#module-constants" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_MAJOR_VERSION">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_MAJOR_VERSION</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_MAJOR_VERSION" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_image library major number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_MINOR_VERSION">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_MINOR_VERSION</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_MINOR_VERSION" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_image library minor number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_PATCHLEVEL">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_PATCHLEVEL</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_PATCHLEVEL" title="Permalink to this definition"></a></dt>
+<dd><p>Latest SDL2_image library patch level number supported by PySDL2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_INIT_JPG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_INIT_JPG</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_INIT_JPG" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> flag to enable support for the JPEG image format.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_INIT_PNG">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_INIT_PNG</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_INIT_PNG" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> flag to enable support for the PNG image format.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_INIT_TIF">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_INIT_TIF</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_INIT_TIF" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> flag to enable support for the TIFF image format.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.sdlimage.IMG_INIT_WEBP">
+<span class="sig-prename descclassname"><span class="pre">sdl2.sdlimage.</span></span><span class="sig-name descname"><span class="pre">IMG_INIT_WEBP</span></span><a class="headerlink" href="#sdl2.sdlimage.IMG_INIT_WEBP" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference internal" href="#sdl2.sdlimage.IMG_Init" title="sdl2.sdlimage.IMG_Init"><code class="xref py py-func docutils literal notranslate"><span class="pre">IMG_Init()</span></code></a> flag to enable support for the WEBP image format.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2_sdlttf.html" class="btn btn-neutral float-left" title="sdl2.sdlttf - Python bindings for SDL_ttf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2_sdlmixer.html" class="btn btn-neutral float-right" title="sdl2.sdlmixer - Python bindings for SDL_mixer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

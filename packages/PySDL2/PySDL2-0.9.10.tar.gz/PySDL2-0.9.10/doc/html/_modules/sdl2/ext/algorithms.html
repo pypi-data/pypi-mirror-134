@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.algorithms &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.algorithms</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.algorithms</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Common algorithms.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;liangbarsky&quot;</span><span class="p">,</span> <span class="s2">&quot;cohensutherland&quot;</span><span class="p">,</span> <span class="s2">&quot;clipline&quot;</span><span class="p">,</span> <span class="s2">&quot;point_on_line&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="cohensutherland"><a class="viewcode-back" href="../../../modules/sdl2ext_algorithms.html#sdl2.ext.cohensutherland">[docs]</a><span class="k">def</span> <span class="nf">cohensutherland</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clips a line to a rectangular area.</span>
+
+<span class="sd">    This implements the Cohen-Sutherland line clipping algorithm. ``left``,</span>
+<span class="sd">    ``top``, ``right`` and ``bottom`` define the bounds of the clipping area,</span>
+<span class="sd">    by which the line from ``(x1, y1)`` to ``(x2, y2)`` will be clipped.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        left (int): The left boundary of the clipping area.</span>
+<span class="sd">        top (int): The top boundary of the clipping area.</span>
+<span class="sd">        right (int): The right boundary of the clipping area.</span>
+<span class="sd">        bottom (int): The bottom boundary of the clipping area.</span>
+<span class="sd">        x1 (int): The x-coordinate of the starting point of the line.</span>
+<span class="sd">        y1 (int): The y-coordinate of the starting point of the line.</span>
+<span class="sd">        x2 (int): The x-coordinate of the end point of the line.</span>
+<span class="sd">        y2 (int): The y-coordinate of the end point of the line.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: The start and end coordinates of the clipped line in the form</span>
+<span class="sd">            ``(cx1, cy1, cx2, cy2)``. If the line does not intersect with the</span>
+<span class="sd">            rectangular clipping area, all 4 values will be ``None``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">LEFT</span><span class="p">,</span> <span class="n">RIGHT</span><span class="p">,</span> <span class="n">LOWER</span><span class="p">,</span> <span class="n">UPPER</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span>
+
+    <span class="k">if</span> <span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">top</span><span class="p">:</span>
+        <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getclip</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">xa</span> <span class="o">&lt;</span> <span class="n">left</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">LEFT</span>
+        <span class="k">elif</span> <span class="n">xa</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">RIGHT</span>
+        <span class="k">if</span> <span class="n">ya</span> <span class="o">&lt;</span> <span class="n">bottom</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">|=</span> <span class="n">LOWER</span>
+        <span class="k">elif</span> <span class="n">ya</span> <span class="o">&gt;</span> <span class="n">top</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">|=</span> <span class="n">UPPER</span>
+        <span class="k">return</span> <span class="n">p</span>
+
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">_getclip</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">_getclip</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">k1</span> <span class="o">|</span> <span class="n">k2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k1</span> <span class="o">&amp;</span> <span class="n">k2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">k2</span> <span class="k">if</span> <span class="n">k2</span> <span class="o">&gt;</span> <span class="n">k1</span> <span class="k">else</span> <span class="n">k1</span>
+        <span class="k">if</span> <span class="n">opt</span> <span class="o">&amp;</span> <span class="n">UPPER</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">top</span>
+        <span class="k">elif</span> <span class="n">opt</span> <span class="o">&amp;</span> <span class="n">LOWER</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">bottom</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">bottom</span>
+        <span class="k">elif</span> <span class="n">opt</span> <span class="o">&amp;</span> <span class="n">RIGHT</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">x1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">right</span>
+        <span class="k">elif</span> <span class="n">opt</span> <span class="o">&amp;</span> <span class="n">LEFT</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">x1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># this should not happen</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;invalid clipping state&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opt</span> <span class="o">==</span> <span class="n">k1</span><span class="p">:</span>
+            <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+            <span class="n">k1</span> <span class="o">=</span> <span class="n">_getclip</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+            <span class="n">k2</span> <span class="o">=</span> <span class="n">_getclip</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span></div>
+
+
+<div class="viewcode-block" id="liangbarsky"><a class="viewcode-back" href="../../../modules/sdl2ext_algorithms.html#sdl2.ext.liangbarsky">[docs]</a><span class="k">def</span> <span class="nf">liangbarsky</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clips a line to a rectangular area.</span>
+
+<span class="sd">    This implements the Liang-Barsky line clipping algorithm. ``left``,</span>
+<span class="sd">    ``top``, ``right`` and ``bottom`` define the bounds of the clipping area,</span>
+<span class="sd">    by which the line from ``(x1, y1)`` to ``(x2, y2)`` will be clipped.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        left (int): The left boundary of the clipping area.</span>
+<span class="sd">        top (int): The top boundary of the clipping area.</span>
+<span class="sd">        right (int): The right boundary of the clipping area.</span>
+<span class="sd">        bottom (int): The bottom boundary of the clipping area.</span>
+<span class="sd">        x1 (int): The x-coordinate of the starting point of the line.</span>
+<span class="sd">        y1 (int): The y-coordinate of the starting point of the line.</span>
+<span class="sd">        x2 (int): The x-coordinate of the end point of the line.</span>
+<span class="sd">        y2 (int): The y-coordinate of the end point of the line.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: The start and end coordinates of the clipped line in the form</span>
+<span class="sd">            ``(cx1, cy1, cx2, cy2)``. If the line does not intersect with the</span>
+<span class="sd">            rectangular clipping area, all 4 values will be ``None``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span> <span class="o">*</span> <span class="mf">1.0</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span> <span class="o">*</span> <span class="mf">1.0</span>
+    <span class="n">dt0</span><span class="p">,</span> <span class="n">dt1</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>
+    <span class="n">xx1</span> <span class="o">=</span> <span class="n">x1</span>
+    <span class="n">yy1</span> <span class="o">=</span> <span class="n">y1</span>
+
+    <span class="k">if</span> <span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">top</span><span class="p">:</span>
+        <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">)</span>
+
+    <span class="n">checks</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">left</span><span class="p">),</span>
+              <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">x1</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="n">dy</span><span class="p">,</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">bottom</span><span class="p">),</span>
+              <span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">top</span> <span class="o">-</span> <span class="n">y1</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">checks</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">q</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">q</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dt</span> <span class="o">&gt;</span> <span class="n">dt1</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="n">dt0</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dt0</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dt</span> <span class="o">&lt;</span> <span class="n">dt0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="n">dt1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt1</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dt0</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x1</span> <span class="o">+=</span> <span class="n">dt0</span> <span class="o">*</span> <span class="n">dx</span>
+        <span class="n">y1</span> <span class="o">+=</span> <span class="n">dt0</span> <span class="o">*</span> <span class="n">dy</span>
+    <span class="k">if</span> <span class="n">dt1</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">xx1</span> <span class="o">+</span> <span class="n">dt1</span> <span class="o">*</span> <span class="n">dx</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">yy1</span> <span class="o">+</span> <span class="n">dt1</span> <span class="o">*</span> <span class="n">dy</span>
+
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span></div>
+
+
+<div class="viewcode-block" id="clipline"><a class="viewcode-back" href="../../../modules/sdl2ext_algorithms.html#sdl2.ext.clipline">[docs]</a><span class="k">def</span> <span class="nf">clipline</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;liangbarsky&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clips a line to a rectangular area using a given method.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        l (int): The left boundary of the clipping area.</span>
+<span class="sd">        t (int): The top boundary of the clipping area.</span>
+<span class="sd">        r (int): The right boundary of the clipping area.</span>
+<span class="sd">        b (int): The bottom boundary of the clipping area.</span>
+<span class="sd">        x1 (int): The x-coordinate of the starting point of the line.</span>
+<span class="sd">        y1 (int): The y-coordinate of the starting point of the line.</span>
+<span class="sd">        x2 (int): The x-coordinate of the end point of the line.</span>
+<span class="sd">        y2 (int): The y-coordinate of the end point of the line.</span>
+<span class="sd">        method (str, optional): The method to use for clipping lines, can be</span>
+<span class="sd">            either &#39;cohensutherland&#39; or &#39;liangbarsky&#39;. Defaults to liangbarsky.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: The start and end coordinates of the clipped line in the form</span>
+<span class="sd">            ``(cx1, cy1, cx2, cy2)``. If the line does not intersect with the</span>
+<span class="sd">            rectangular clipping area, all 4 values will be ``None``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;cohensutherland&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cohensutherland</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;liangbarsky&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">liangbarsky</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown clipping method &#39;</span><span class="si">{0}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="point_on_line"><a class="viewcode-back" href="../../../modules/sdl2ext_algorithms.html#sdl2.ext.point_on_line">[docs]</a><span class="k">def</span> <span class="nf">point_on_line</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if a point falls along a given line segment.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        p1 (tuple): The (x, y) coordinates of the starting point of the line.</span>
+<span class="sd">        p2 (tuple): The (x, y) coordinates of the end point of the line.</span>
+<span class="sd">        point (tuple): The (x, y) coordinates to test against the line.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: ``True`` if the point falls along the line segment, otherwise</span>
+<span class="sd">            ``False``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">p1</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">p2</span>
+    <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">point</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="p">(</span><span class="n">py</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">px</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">det</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">px</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="nb">min</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">py</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.sdlmixer &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.sdlmixer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.sdlmixer</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">CFUNCTYPE</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_double</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">POINTER</span> <span class="k">as</span> <span class="n">_P</span>
+<span class="kn">from</span> <span class="nn">.dll</span> <span class="kn">import</span> <span class="n">DLL</span><span class="p">,</span> <span class="n">SDLFunc</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="kn">import</span> <span class="n">SDL_version</span><span class="p">,</span> <span class="n">SDL_VERSIONNUM</span>
+<span class="kn">from</span> <span class="nn">.audio</span> <span class="kn">import</span> <span class="n">AUDIO_S16LSB</span><span class="p">,</span> <span class="n">AUDIO_S16MSB</span><span class="p">,</span> <span class="n">SDL_MIX_MAXVOLUME</span>
+<span class="kn">from</span> <span class="nn">.stdinc</span> <span class="kn">import</span> <span class="n">Uint8</span><span class="p">,</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">Uint32</span><span class="p">,</span> <span class="n">Sint16</span><span class="p">,</span> <span class="n">SDL_bool</span>
+<span class="kn">from</span> <span class="nn">.endian</span> <span class="kn">import</span> <span class="n">SDL_LIL_ENDIAN</span><span class="p">,</span> <span class="n">SDL_BYTEORDER</span>
+<span class="kn">from</span> <span class="nn">.rwops</span> <span class="kn">import</span> <span class="n">SDL_RWops</span><span class="p">,</span> <span class="n">SDL_RWFromFile</span>
+<span class="kn">from</span> <span class="nn">.error</span> <span class="kn">import</span> <span class="n">SDL_SetError</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">,</span> <span class="n">SDL_ClearError</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Structs</span>
+    <span class="s2">&quot;Mix_Chunk&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Music&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Defines</span>
+    <span class="s2">&quot;SDL_MIXER_MAJOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_MIXER_MINOR_VERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SDL_MIXER_PATCHLEVEL&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_MAJOR_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_MINOR_VERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_PATCHLEVEL&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_CHANNELS&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_DEFAULT_FREQUENCY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_DEFAULT_FORMAT&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_DEFAULT_CHANNELS&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_MAX_VOLUME&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_CHANNEL_POST&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_EFFECTSMAXSPEED&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Enums</span>
+    <span class="s2">&quot;MIX_InitFlags&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_INIT_FLAC&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_INIT_MOD&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_INIT_MP3&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_INIT_OGG&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_INIT_MID&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_INIT_OPUS&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;Mix_Fading&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MIX_NO_FADING&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_FADING_OUT&quot;</span><span class="p">,</span> <span class="s2">&quot;MIX_FADING_IN&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;Mix_MusicType&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MUS_NONE&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_CMD&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_WAV&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_MOD&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_MID&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_OGG&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MUS_MP3&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_MP3_MAD_UNUSED&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_FLAC&quot;</span><span class="p">,</span> <span class="s2">&quot;MUS_MODPLUG_UNUSED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MUS_OPUS&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># Macro Functions</span>
+    <span class="s2">&quot;SDL_MIXER_VERSION&quot;</span><span class="p">,</span>  <span class="s2">&quot;MIX_VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL_MIXER_COMPILEDVERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SDL_MIXER_VERSION_ATLEAST&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_LoadWAV&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_PlayChannel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_FadeInChannel&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;Mix_Linked_Version&quot;</span><span class="p">,</span>  <span class="s2">&quot;Mix_Init&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Quit&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_OpenAudioDevice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_OpenAudio&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_AllocateChannels&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_QuerySpec&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_LoadWAV_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_LoadMUS&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_LoadMUS_RW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_LoadMUSType_RW&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_QuickLoad_WAV&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_QuickLoad_RAW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_FreeChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FreeMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetNumChunkDecoders&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_GetChunkDecoder&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetNumMusicDecoders&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_HasChunkDecoder&quot;</span><span class="p">,</span> <span class="c1">#&quot;Mix_HasMusicDecoder&quot;,</span>
+    <span class="s2">&quot;Mix_GetMusicDecoder&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetMusicType&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Mix_SetPostMix&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_HookMusic&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Mix_HookMusicFinished&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetMusicHookData&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Mix_ChannelFinished&quot;</span><span class="p">,</span>  <span class="s2">&quot;Mix_RegisterEffect&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_UnregisterEffect&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_UnregisterAllEffects&quot;</span><span class="p">,</span>  <span class="s2">&quot;Mix_SetPanning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_SetPosition&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetDistance&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetReverseStereo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_ReserveChannels&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GroupChannel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GroupChannels&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_GroupAvailable&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GroupCount&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GroupOldest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_GroupNewer&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_PlayChannelTimed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_PlayMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FadeInMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FadeInMusicPos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_FadeInChannelTimed&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Volume&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_VolumeChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_VolumeMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_HaltChannel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_HaltGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_HaltMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_ExpireChannel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_FadeOutChannel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FadeOutGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FadeOutMusic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_FadingMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_FadingChannel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Pause&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Resume&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_Paused&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_PauseMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_ResumeMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_RewindMusic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_PausedMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetMusicPosition&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_Playing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_PlayingMusic&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetMusicCMD&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetSynchroValue&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_GetSynchroValue&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetSoundFonts&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetSoundFonts&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_EachSoundFont&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetChunk&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_CloseAudio&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_SetError&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_GetError&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_ClearError&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Callback Functions</span>
+    <span class="s2">&quot;channel_finished&quot;</span><span class="p">,</span> <span class="s2">&quot;music_finished&quot;</span><span class="p">,</span> <span class="s2">&quot;mix_func&quot;</span><span class="p">,</span> <span class="s2">&quot;soundfont_function&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mix_EffectFunc_t&quot;</span><span class="p">,</span> <span class="s2">&quot;Mix_EffectDone_t&quot;</span><span class="p">,</span>
+
+    <span class="c1"># Python Functions</span>
+    <span class="s2">&quot;get_dll_file&quot;</span>
+<span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dll</span> <span class="o">=</span> <span class="n">DLL</span><span class="p">(</span><span class="s2">&quot;SDL2_mixer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;SDL2_mixer&quot;</span><span class="p">,</span> <span class="s2">&quot;SDL2_mixer-2.0&quot;</span><span class="p">],</span>
+              <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PYSDL2_DLL_PATH&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_dll_file</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the file name of the loaded SDL2_mixer library.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">dll</span><span class="o">.</span><span class="n">libfile</span>
+
+<span class="n">_bind</span> <span class="o">=</span> <span class="n">dll</span><span class="o">.</span><span class="n">bind_function</span>
+
+
+<span class="c1"># Constants, enums, type definitions, and macros</span>
+
+<span class="n">SDL_MIXER_MAJOR_VERSION</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SDL_MIXER_MINOR_VERSION</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SDL_MIXER_PATCHLEVEL</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">def</span> <span class="nf">SDL_MIXER_VERSION</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">major</span> <span class="o">=</span> <span class="n">SDL_MIXER_MAJOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">minor</span> <span class="o">=</span> <span class="n">SDL_MIXER_MINOR_VERSION</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">patch</span> <span class="o">=</span> <span class="n">SDL_MIXER_PATCHLEVEL</span>
+
+<span class="n">MIX_MAJOR_VERSION</span> <span class="o">=</span> <span class="n">SDL_MIXER_MAJOR_VERSION</span>
+<span class="n">MIX_MINOR_VERSION</span> <span class="o">=</span> <span class="n">SDL_MIXER_MINOR_VERSION</span>
+<span class="n">MIX_PATCHLEVEL</span> <span class="o">=</span> <span class="n">SDL_MIXER_PATCHLEVEL</span>
+<span class="n">MIX_VERSION</span> <span class="o">=</span> <span class="n">SDL_MIXER_VERSION</span>
+
+<span class="n">SDL_MIXER_COMPILEDVERSION</span> <span class="o">=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">SDL_MIXER_MAJOR_VERSION</span><span class="p">,</span> <span class="n">SDL_MIXER_MINOR_VERSION</span><span class="p">,</span> <span class="n">SDL_MIXER_PATCHLEVEL</span><span class="p">)</span>
+<span class="n">SDL_MIXER_VERSION_ATLEAST</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">SDL_MIXER_COMPILEDVERSION</span> <span class="o">&gt;=</span> <span class="n">SDL_VERSIONNUM</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+<span class="n">MIX_InitFlags</span> <span class="o">=</span> <span class="n">c_int</span>
+<span class="n">MIX_INIT_FLAC</span> <span class="o">=</span> <span class="mh">0x00000001</span>
+<span class="n">MIX_INIT_MOD</span> <span class="o">=</span>  <span class="mh">0x00000002</span>
+<span class="n">MIX_INIT_MP3</span> <span class="o">=</span> <span class="mh">0x00000008</span>
+<span class="n">MIX_INIT_OGG</span> <span class="o">=</span> <span class="mh">0x000000010</span>
+<span class="n">MIX_INIT_MID</span> <span class="o">=</span> <span class="mh">0x00000020</span>
+<span class="n">MIX_INIT_OPUS</span> <span class="o">=</span> <span class="mh">0x00000040</span>
+
+<span class="n">Mix_Fading</span> <span class="o">=</span> <span class="n">c_int</span>
+<span class="n">MIX_NO_FADING</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MIX_FADING_OUT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MIX_FADING_IN</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">Mix_MusicType</span> <span class="o">=</span> <span class="n">c_int</span>
+<span class="n">MUS_NONE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MUS_CMD</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MUS_WAV</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MUS_MOD</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">MUS_MID</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">MUS_OGG</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MUS_MP3</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">MUS_MP3_MAD_UNUSED</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">MUS_FLAC</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">MUS_MODPLUG_UNUSED</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">MUS_OPUS</span> <span class="o">=</span> <span class="mi">11</span>
+
+<span class="n">MIX_CHANNELS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">MIX_DEFAULT_FREQUENCY</span> <span class="o">=</span> <span class="mi">22050</span>
+<span class="k">if</span> <span class="n">SDL_BYTEORDER</span> <span class="o">==</span> <span class="n">SDL_LIL_ENDIAN</span><span class="p">:</span>
+    <span class="n">MIX_DEFAULT_FORMAT</span> <span class="o">=</span> <span class="n">AUDIO_S16LSB</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">MIX_DEFAULT_FORMAT</span> <span class="o">=</span> <span class="n">AUDIO_S16MSB</span>
+<span class="n">MIX_DEFAULT_CHANNELS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MIX_MAX_VOLUME</span> <span class="o">=</span> <span class="n">SDL_MIX_MAXVOLUME</span>
+
+<span class="n">MIX_CHANNEL_POST</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">MIX_EFFECTSMAXSPEED</span> <span class="o">=</span> <span class="s2">&quot;MIX_EFFECTSMAXSPEED&quot;</span>
+
+<div class="viewcode-block" id="Mix_Chunk"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Chunk">[docs]</a><span class="k">class</span> <span class="nc">Mix_Chunk</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A loaded audio clip to use for playback with the mixer API.</span>
+
+<span class="sd">    Chunk objects are created by the :func:`Mix_LoadWAV` and ``Mix_QuickLoad``</span>
+<span class="sd">    functions, and should be freed using :func:`Mix_FreeChunk` when no longer</span>
+<span class="sd">    needed.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        allocated (int): Whether the associated audio buffer will be freed when</span>
+<span class="sd">            the chunk is freed. ``1`` if the buffer is owned by the chunk, or</span>
+<span class="sd">            ``0`` if it was allocated by a different function.</span>
+<span class="sd">        abuf (POINTER(:obj:`~ctypes.c_ubyte`)): A pointer to the chunk&#39;s audio</span>
+<span class="sd">            sample data, in the output format and sample rate of the current</span>
+<span class="sd">            mixer.</span>
+<span class="sd">        alen (int): The length of the chunk&#39;s audio buffer (in bytes).</span>
+<span class="sd">        volume (int): The volume of the chunk, with 0 being 0% and 127 being</span>
+<span class="sd">            100%.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;allocated&quot;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;abuf&quot;</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint8</span><span class="p">)),</span>
+                <span class="p">(</span><span class="s2">&quot;alen&quot;</span><span class="p">,</span> <span class="n">Uint32</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="n">Uint8</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Mix_Music"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Music">[docs]</a><span class="k">class</span> <span class="nc">Mix_Music</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The opaque data type representing a loaded music file.</span>
+
+<span class="sd">    Music objects are created by the :func:`Mix_LoadMUS` family of functions and</span>
+<span class="sd">    should be freed using :func:`Mix_FreeMusic` when no longer needed.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="c1"># Callback function definitions for various methods </span>
+
+<span class="n">mix_func</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint8</span><span class="p">),</span> <span class="n">c_int</span><span class="p">)</span>
+<span class="n">music_finished</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">channel_finished</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)</span>
+<span class="n">Mix_EffectFunc_t</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">)</span>
+<span class="n">Mix_EffectDone_t</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">)</span>
+<span class="n">soundfont_function</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">)</span>
+
+
+<span class="c1"># Raw ctypes function definitions</span>
+
+<span class="n">_funcdefs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Linked_Version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">SDL_version</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Init&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Quit&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_OpenAudio&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_OpenAudioDevice&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Uint16</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_AllocateChannels&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_QuerySpec&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">Uint16</span><span class="p">),</span> <span class="n">_P</span><span class="p">(</span><span class="n">c_int</span><span class="p">)],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_LoadWAV_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_LoadMUS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_LoadMUS_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_LoadMUSType_RW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">SDL_RWops</span><span class="p">),</span> <span class="n">Mix_MusicType</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_QuickLoad_WAV&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Uint8</span><span class="p">)],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_QuickLoad_RAW&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Uint8</span><span class="p">),</span> <span class="n">Uint32</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FreeChunk&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">)]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FreeMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">)]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetNumChunkDecoders&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetChunkDecoder&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_char_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HasChunkDecoder&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">],</span> <span class="n">SDL_bool</span><span class="p">,</span> <span class="n">added</span><span class="o">=</span><span class="s1">&#39;2.0.2&#39;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetNumMusicDecoders&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetMusicDecoder&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_char_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetMusicType&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">)],</span> <span class="n">Mix_MusicType</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetPostMix&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HookMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HookMusicFinished&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">music_finished</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetMusicHookData&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_ChannelFinished&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">channel_finished</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_RegisterEffect&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Mix_EffectFunc_t</span><span class="p">,</span> <span class="n">Mix_EffectDone_t</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_UnregisterEffect&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Mix_EffectFunc_t</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_UnregisterAllEffects&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetPanning&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Uint8</span><span class="p">,</span> <span class="n">Uint8</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetPosition&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Sint16</span><span class="p">,</span> <span class="n">Uint8</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetDistance&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">Uint8</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetReverseStereo&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_ReserveChannels&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupChannel&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupChannels&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupAvailable&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupCount&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupOldest&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GroupNewer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_PlayChannelTimed&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_PlayMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeInMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeInMusicPos&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Music</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_double</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeInChannelTimed&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">),</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Volume&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_VolumeChunk&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">),</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_VolumeMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HaltChannel&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HaltGroup&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_HaltMusic&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_ExpireChannel&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeOutChannel&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeOutGroup&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">,</span> <span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadeOutMusic&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadingMusic&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Mix_Fading</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_FadingChannel&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">Mix_Fading</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Pause&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Resume&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">]),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Paused&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_PauseMusic&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_ResumeMusic&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_RewindMusic&quot;</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_PausedMusic&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetMusicPosition&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_double</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_Playing&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_PlayingMusic&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetMusicCMD&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetSynchroValue&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetSynchroValue&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_SetSoundFonts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_char_p</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetSoundFonts&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_EachSoundFont&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">soundfont_function</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">],</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_GetChunk&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c_int</span><span class="p">],</span> <span class="n">_P</span><span class="p">(</span><span class="n">Mix_Chunk</span><span class="p">)),</span>
+    <span class="n">SDLFunc</span><span class="p">(</span><span class="s2">&quot;Mix_CloseAudio&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">_funcs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_funcdefs</span><span class="p">:</span>
+    <span class="n">_funcs</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_bind</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">returns</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">added</span><span class="p">)</span>
+
+
+<span class="c1"># Python wrapper functions</span>
+
+<div class="viewcode-block" id="Mix_Linked_Version"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Linked_Version">[docs]</a><span class="k">def</span> <span class="nf">Mix_Linked_Version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Gets the version of the dynamically-linked **SDL2_mixer** library.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`SDL_version`): A pointer to a structure containing the</span>
+<span class="sd">        version of the SDL2_mixer library currently in use.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Linked_Version&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_Init"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Init">[docs]</a><span class="k">def</span> <span class="nf">Mix_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initializes the SDL2_mixer library.</span>
+<span class="sd">    </span>
+<span class="sd">    Calling this function enables support for the FLAC, MOD, MP3, and/or Ogg</span>
+<span class="sd">    Vorbis audio formats as requested by the init flags. All other audio file</span>
+<span class="sd">    formats can be loaded or used regardless of whether this has been called.</span>
+
+<span class="sd">    The following init flags are supported:</span>
+
+<span class="sd">    ========== =================</span>
+<span class="sd">    Format     Init flag</span>
+<span class="sd">    ========== =================</span>
+<span class="sd">    FLAC       ``MIX_INIT_FLAC``</span>
+<span class="sd">    MOD        ``MIX_INIT_MID``</span>
+<span class="sd">    MP3        ``MIX_INIT_MP3``</span>
+<span class="sd">    Ogg Vorbis ``MIX_INIT_OGG``</span>
+<span class="sd">    ========== =================</span>
+
+<span class="sd">    This can be called multiple times to enable support for these formats</span>
+<span class="sd">    separately, or can initialize multiple formats at once by passing a set of</span>
+<span class="sd">    flags as a bitwise OR. You can also call this function with 0 as a flag</span>
+<span class="sd">    to check which audio decoding libraries have already been loaded, or to test</span>
+<span class="sd">    whether a given decoder is available on the current system::</span>
+
+<span class="sd">       # Initialize FLAC and MP3 support separately</span>
+<span class="sd">       for flag in [MIX_INIT_FLAC, MIX_INIT_MP3]:</span>
+<span class="sd">           Mix_Init(flag)</span>
+<span class="sd">           err = Mix_GetError() # check for any errors loading library</span>
+<span class="sd">           if len(err):</span>
+<span class="sd">               print(err)</span>
+
+<span class="sd">       # Initialize FLAC and MP3 support at the same time</span>
+<span class="sd">       flags = MIX_INIT_FLAC | MIX_INIT_MP3</span>
+<span class="sd">       Mix_Init(flags)</span>
+<span class="sd">       if Mix_Init(0) != flags: # verify both libraries loaded properly</span>
+<span class="sd">           print(Mix_GetError())</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       This function is not guaranteed to set an error string on failure, so</span>
+<span class="sd">       the return value should be used for error checking instead of just</span>
+<span class="sd">       :func:`Mix_GetError`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        flags (int): A bitwise OR&#39;d set of the flags of the audio formats to</span>
+<span class="sd">            load support for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A bitmask of all the currently initialized audio decoders. </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Init&quot;</span><span class="p">](</span><span class="n">flags</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_Quit"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Quit">[docs]</a><span class="k">def</span> <span class="nf">Mix_Quit</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;De-initializes the SDL2_mixer library.</span>
+<span class="sd">    </span>
+<span class="sd">    Calling this function disables FLAC, MOD, MP3, and Ogg support and frees</span>
+<span class="sd">    all associated memory. Once this has been called, you can re-initialize</span>
+<span class="sd">    support for those audio decoders using :func:`Mix_Init` and the</span>
+<span class="sd">    corresponding init flags.</span>
+
+<span class="sd">    You only need to call this function once, no matter how many times</span>
+<span class="sd">    :func:`Mix_Init` was called.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Quit&quot;</span><span class="p">]()</span></div>
+
+
+<div class="viewcode-block" id="Mix_OpenAudio"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_OpenAudio">[docs]</a><span class="k">def</span> <span class="nf">Mix_OpenAudio</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens the default audio output device for use with the mixer API.</span>
+
+<span class="sd">    This function opens the default audio device with a given output channel</span>
+<span class="sd">    count, audio sample format, sample rate, and audio buffer size, and</span>
+<span class="sd">    initializes the mixer with 8 virtual channels::</span>
+
+<span class="sd">       # Initialize a 44.1 kHz 16-bit stereo mixer with a 1024-byte buffer size</span>
+<span class="sd">       ret = Mix_OpenAudio(44100, sdl2.AUDIO_S16SYS, 2, 1024)</span>
+<span class="sd">       if ret &lt; 0:</span>
+<span class="sd">           err = Mix_GetError().decode(&quot;utf8&quot;)</span>
+<span class="sd">           raise RuntimeError(&quot;Error initializing the mixer: {0}&quot;.format(err))</span>
+
+<span class="sd">    A sample rate of 44100 Hz (CD quality) or 48000 Hz is recommended for any</span>
+<span class="sd">    remotely modern computer. The chunk size must be a power of 8 (e.g. 512,</span>
+<span class="sd">    1024, 2048), and specifies how much audio data to send to the output device</span>
+<span class="sd">    at a time. Lower values will have lower latencies, but may introduce skips</span>
+<span class="sd">    in the audio (2048 is a safe default). Supported channel counts are 1</span>
+<span class="sd">    (mono), 2 (stereo), 4 (quad), and 6 (5.1 surround).</span>
+
+<span class="sd">    For a full list of supported audio format flags, see the list of format</span>
+<span class="sd">    values at the following link: https://wiki.libsdl.org/SDL_AudioSpec</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       This should not be called if :func:`SDL_OpenAudio` has already opened the</span>
+<span class="sd">       default audio device (and vice-versa).</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        frequency (int): The output sampling rate per channel (in Hz).</span>
+<span class="sd">        format (int): A constant indicating the audio sample format to use</span>
+<span class="sd">            with the device (e.g. ``sdl2.AUDIO_S16``).</span>
+<span class="sd">        channels (int): The number of output channels to use for the device </span>
+<span class="sd">            (e.g. 2 for stereo, 1 for mono).</span>
+<span class="sd">        chunksize (int): The size of the audio buffer (in bytes).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_OpenAudio&quot;</span><span class="p">](</span><span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_OpenAudioDevice"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_OpenAudioDevice">[docs]</a><span class="k">def</span> <span class="nf">Mix_OpenAudioDevice</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">allowed_changes</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Opens a specific audio output device for use with the mixer API.</span>
+
+<span class="sd">    A specific audio device can be opened by name using the output of the</span>
+<span class="sd">    :func:`SDL_GetAudioDeviceName` function. Alternatively, passing ``None`` as</span>
+<span class="sd">    the device name will make open the most reasonable default audio device.</span>
+
+<span class="sd">    The ``allowed_changes`` flag specifies which output properties (channel</span>
+<span class="sd">    count, frequency, sample format) are allowed to be be automatically changed</span>
+<span class="sd">    if not supported by the chosen audio device. See the documentation for</span>
+<span class="sd">    :func:`SDL_OpenAudioDevice` for the list of supported flags and more info.</span>
+
+<span class="sd">    See :func:`Mix_OpenAudio` for more usage details.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       Once an output device has been opened with this function, it should not</span>
+<span class="sd">       be opened again with :func:`SDL_OpenAudioDevice` (or vice-versa).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        frequency (int): The output sampling rate per channel (in Hz).</span>
+<span class="sd">        format (int): A constant indicating the audio sample format to use</span>
+<span class="sd">            with the device (e.g. ``sdl2.AUDIO_S16``).</span>
+<span class="sd">        channels (int): The number of output channels to use for the device </span>
+<span class="sd">            (e.g. 2 for stereo, 1 for mono).</span>
+<span class="sd">        chunksize (int):</span>
+<span class="sd">        device (bytes): A UTF-8 encoded bytestring of the name of the audio</span>
+<span class="sd">            output device to open (or ``None`` for the default).</span>
+<span class="sd">        allowed_changes (int): A bitmask of flags indicating the output</span>
+<span class="sd">            properties allowed to be automatically changed to support the</span>
+<span class="sd">            output device. If 0, no changes are allowed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 0 on success, or -1 on error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_OpenAudioDevice&quot;</span><span class="p">](</span>
+        <span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">allowed_changes</span>
+    <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_AllocateChannels"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_AllocateChannels">[docs]</a><span class="k">def</span> <span class="nf">Mix_AllocateChannels</span><span class="p">(</span><span class="n">numchans</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sets the number of channels to use for the mixer API.</span>
+<span class="sd">    </span>
+<span class="sd">    In this context, &quot;channels&quot; refers to the number of virtual channels used by</span>
+<span class="sd">    the mixer API for playing multiple sounds simultaneously. It does not refer</span>
+<span class="sd">    to the physical number of channels to use for the output device.</span>
+<span class="sd">    </span>
+<span class="sd">    This can be called multiple times, even with sounds playing. If ``numchans``</span>
+<span class="sd">    is less than the current number of channels, the channels above the new number</span>
+<span class="sd">    will be stopped, freed, and not mixed any longer. If any channels are</span>
+<span class="sd">    deallocated, any callback set by  :func:`Mix_ChannelFinished` will be called</span>
+<span class="sd">    when each channel is halted to be freed.</span>
+
+<span class="sd">    If this function is called with a negative number (e.g. ``-1``), it will</span>
+<span class="sd">    return the number of currently-allocated virtual mixer channels without</span>
+<span class="sd">    changing anything. If called with 0, all mixer channels will be freed.</span>
+
+<span class="sd">    This function has no effect on music playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        numchans (int): The number of virtual channels to use for the mixer API,</span>
+<span class="sd">            or a negative number to query the current allocated channel count.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_AllocateChannels&quot;</span><span class="p">](</span><span class="n">numchans</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_QuerySpec"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_QuerySpec">[docs]</a><span class="k">def</span> <span class="nf">Mix_QuerySpec</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the actual audio format in use by the current mixer device.</span>
+
+<span class="sd">    This function returns the calculated info by reference, meaning that</span>
+<span class="sd">    it needs to be called using pre-allocated ctypes variables::</span>
+
+<span class="sd">       from ctypes import c_int, byref</span>
+
+<span class="sd">       freq, fmt, chans = c_int(0), c_int(0), c_int(0)</span>
+<span class="sd">       ret = Mix_QuerySpec(byref(freq), byref(fmt), byref(chans))</span>
+<span class="sd">       if ret &gt; 0:</span>
+<span class="sd">           results = [x.value for x in (freq, fmt, chans)]</span>
+
+<span class="sd">    The obtained values may or may not match the parameters you passed to</span>
+<span class="sd">    :func:`Mix_OpenAudio`, depending on the audio configurations supported by</span>
+<span class="sd">    the output device.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        frequency (byref(:obj:`~ctypes.c_int`)): The output sampling rate per</span>
+<span class="sd">            channel (in Hz).</span>
+<span class="sd">        format (byref(:obj:`~ctypes.c_int`)): The output format used by the</span>
+<span class="sd">            output device.</span>
+<span class="sd">        channels (byref(:obj:`~ctypes.c_int`)): The number of output channels</span>
+<span class="sd">            used by the device (e.g. 2 for stereo, 1 for mono).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The number of times the mixer device has been opened, or 0 on</span>
+<span class="sd">        error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_QuerySpec&quot;</span><span class="p">](</span><span class="n">frequency</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">channels</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_LoadWAV_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_LoadWAV_RW">[docs]</a><span class="k">def</span> <span class="nf">Mix_LoadWAV_RW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an audio clip from an SDL2 file object.</span>
+
+<span class="sd">    See :func:`Mix_GetChunkDecoder` for a list of supported file types.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used in order to determine the correct output format for playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): A file object containing a valid audio clip.</span>
+<span class="sd">        freesrc (int): If non-zero, the provided file object will be closed and</span>
+<span class="sd">            freed automatically after being loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Chunk`): A pointer to the chunk containing the loaded</span>
+<span class="sd">        audio.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_LoadWAV_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_LoadWAV"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_LoadWAV">[docs]</a><span class="k">def</span> <span class="nf">Mix_LoadWAV</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads an audio clip from a file.</span>
+
+<span class="sd">    See :func:`Mix_GetChunkDecoder` for a list of supported file types.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used in order to determine the correct output format for playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path of the audio</span>
+<span class="sd">            clip to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Chunk`): A pointer to the chunk containing the loaded</span>
+<span class="sd">        audio.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Mix_LoadWAV_RW</span><span class="p">(</span><span class="n">SDL_RWFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;rb&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_LoadMUS"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_LoadMUS">[docs]</a><span class="k">def</span> <span class="nf">Mix_LoadMUS</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads music from a file.</span>
+
+<span class="sd">    See :func:`Mix_GetMusicDecoder` for a list of supported file types.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used in order to determine the correct output format for playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file (bytes): A UTF8-encoded bytestring containing the path of the music</span>
+<span class="sd">            file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Music`): A pointer to the object containing the loaded</span>
+<span class="sd">        music.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_LoadMUS&quot;</span><span class="p">](</span><span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_LoadMUS_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_LoadMUS_RW">[docs]</a><span class="k">def</span> <span class="nf">Mix_LoadMUS_RW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads music from an SDL2 file object.</span>
+
+<span class="sd">    See :func:`Mix_GetMusicDecoder` for a list of supported file types.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used in order to determine the correct output format for playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): A file object containing a valid music format.</span>
+<span class="sd">        freesrc (int): If non-zero, the provided file object will be closed and</span>
+<span class="sd">            freed automatically after being loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Music`): A pointer to the object containing the loaded</span>
+<span class="sd">        music.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_LoadMUS_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_LoadMUSType_RW"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_LoadMUSType_RW">[docs]</a><span class="k">def</span> <span class="nf">Mix_LoadMUSType_RW</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads music from an SDL2 file object with a specific decoder.</span>
+
+<span class="sd">    This function supports the following audio format constants:</span>
+
+<span class="sd">    ================= =================</span>
+<span class="sd">    Format            Constant</span>
+<span class="sd">    ================= =================</span>
+<span class="sd">    None (autodetect) ``MUS_NONE``</span>
+<span class="sd">    External command  ``MUS_CMD``</span>
+<span class="sd">    WAVE format       ``MUS_WAV``</span>
+<span class="sd">    Amiga MOD format  ``MUS_MOD``</span>
+<span class="sd">    MIDI format       ``MUS_MID``</span>
+<span class="sd">    Ogg Vorbis        ``MUS_OGG``</span>
+<span class="sd">    MP3 format        ``MUS_MP3``</span>
+<span class="sd">    FLAC format       ``MUS_FLAC``</span>
+<span class="sd">    Opus format       ``MUS_OPUS``</span>
+<span class="sd">    ================= =================</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used in order to determine the correct output format for playback.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        src (:obj:`SDL_RWops`): A file object containing a valid music format.</span>
+<span class="sd">        type (int): The decoder to use for loading the file object.</span>
+<span class="sd">        freesrc (int): If non-zero, the provided file object will be closed and</span>
+<span class="sd">            freed automatically after being loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Music`): A pointer to the object containing the loaded</span>
+<span class="sd">        music.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_LoadMUSType_RW&quot;</span><span class="p">](</span><span class="n">src</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">freesrc</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_QuickLoad_WAV"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_QuickLoad_WAV">[docs]</a><span class="k">def</span> <span class="nf">Mix_QuickLoad_WAV</span><span class="p">(</span><span class="n">mem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a memory buffer as a WAV file.</span>
+
+<span class="sd">    Unlike :func:`Mix_LoadWAV_RW`, this function performs no audio format</span>
+<span class="sd">    conversion or error checking, and assumes that the WAV in the buffer is</span>
+<span class="sd">    already in the correct output format for the mixer. Unless high performance</span>
+<span class="sd">    is a must, :func:`Mix_LoadWAV_RW` is a more flexible and much safer option.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mem (POINTER(:obj:`~ctypes.c_byte`)): A pointer to a memory buffer</span>
+<span class="sd">            containing a valid WAVE audio file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Chunk`): A pointer to the chunk containing the loaded</span>
+<span class="sd">        audio.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_QuickLoad_WAV&quot;</span><span class="p">](</span><span class="n">mem</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_QuickLoad_RAW"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_QuickLoad_RAW">[docs]</a><span class="k">def</span> <span class="nf">Mix_QuickLoad_RAW</span><span class="p">(</span><span class="n">mem</span><span class="p">,</span> <span class="nb">len</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads a memory buffer as a raw audio clip.</span>
+
+<span class="sd">    This function performs no error checking and assumes that the data in the</span>
+<span class="sd">    buffer is in the correct output format for the mixer.</span>
+<span class="sd">    </span>
+<span class="sd">    This can be used for converting Numpy arrays or other Python data types</span>
+<span class="sd">    into audio clips for use with the mixer API. For example, to generate a</span>
+<span class="sd">    pure sine wave tone at a given frequency, you could use the following code::</span>
+
+<span class="sd">       import ctypes</span>
+<span class="sd">       import numpy as np</span>
+
+<span class="sd">       duration = 3      # Seconds of sound</span>
+<span class="sd">       hz = 432          # Frequency of the generated tone</span>
+<span class="sd">       dtype = np.int16  # Mixer output format is signed 16-bit int</span>
+<span class="sd">       max_int = 32767   # The max/min value for a signed 16-bit int</span>
+<span class="sd">       srate = 44100     # Sample rate for each channel is 44100 kHz</span>
+<span class="sd">    </span>
+<span class="sd">       # Generate a 3 sec. sine wave for a 2-channel, 44100 Hz, AUDIO_S16 mixer</span>
+<span class="sd">       size = int((duration / 1000.0) * srate)</span>
+<span class="sd">       arr = np.sin(np.pi * np.arange(size) / srate * hz) * max_int</span>
+
+<span class="sd">       # Cast the array into ctypes format for use with mixer</span>
+<span class="sd">       arr_bytes = arr.tostring()</span>
+<span class="sd">       buflen = len(arr_bytes)</span>
+<span class="sd">       c_buf = (ctypes.c_ubyte * buflen).from_buffer_copy(arr_bytes)</span>
+
+<span class="sd">       # Convert the ctypes memory buffer into a mixer audio clip</span>
+<span class="sd">       sine_chunk = Mix_QuickLoad_RAW(</span>
+<span class="sd">           ctypes.cast(c_buf, ctypes.POINTER(ctypes.c_ubyte)), buflen</span>
+<span class="sd">       )</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       You `must` keep a reference to the created ctypes buffer as long as the</span>
+<span class="sd">       resulting audio clip is in use. Otherwise, Python may automatically free</span>
+<span class="sd">       the memory associated with the audio buffer, meaning that any subsequent</span>
+<span class="sd">       attempts to play the clip will result in a segmentation fault.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        :func:`Mix_OpenAudioDevice` must be called before this function can be</span>
+<span class="sd">        used.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mem (POINTER(:obj:`~ctypes.c_byte`)): A pointer to a memory buffer</span>
+<span class="sd">            containing audio samples in the current output format.</span>
+<span class="sd">        len (int): The length (in bytes) of the memory buffer to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        POINTER(:obj:`Mix_Chunk`): A pointer to the chunk containing the loaded</span>
+<span class="sd">        audio.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_QuickLoad_RAW&quot;</span><span class="p">](</span><span class="n">mem</span><span class="p">,</span> <span class="nb">len</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FreeChunk"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FreeChunk">[docs]</a><span class="k">def</span> <span class="nf">Mix_FreeChunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Closes and frees the memory associated with a given audio clip.</span>
+
+<span class="sd">    This function should be called on a chunk when you are done with it. A</span>
+<span class="sd">    :obj:`Mix_Chunk` cannot be used after it has been closed.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        chunk (:obj:`Mix_Chunk`): The chunk object to close.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FreeChunk&quot;</span><span class="p">](</span><span class="n">chunk</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FreeMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FreeMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_FreeMusic</span><span class="p">(</span><span class="n">music</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Closes and frees the memory associated with a given music object.</span>
+
+<span class="sd">    This function should be called on a music object when you are done with it.</span>
+<span class="sd">    A :obj:`Mix_Music` cannot be used after it has been closed.</span>
+<span class="sd">   </span>
+<span class="sd">    Args:</span>
+<span class="sd">        music (:obj:`Mix_Music`): The music object to close.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FreeMusic&quot;</span><span class="p">](</span><span class="n">music</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_GetNumChunkDecoders"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetNumChunkDecoders">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetNumChunkDecoders</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the number of available audio chunk decoders.</span>
+<span class="sd">    </span>
+<span class="sd">    The returned value can differ between runs of a program due to changes in</span>
+<span class="sd">    the availability of the shared libraries required for supporting different</span>
+<span class="sd">    formats.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The number of available audio chunk decoders.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetNumChunkDecoders&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_GetChunkDecoder"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetChunkDecoder">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetChunkDecoder</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the name of a given audio chunk decoder.</span>
+<span class="sd">    </span>
+<span class="sd">    The SDL_mixer library currently supports the following chunk decoders:</span>
+
+<span class="sd">    ============  ============================= =============================</span>
+<span class="sd">    Decoder Name  Format Type                   Notes</span>
+<span class="sd">    ============  ============================= =============================</span>
+<span class="sd">    b&quot;FLAC&quot;       Free Lossless Audio Codec</span>
+<span class="sd">    b&quot;MOD&quot;        Amiga MOD format</span>
+<span class="sd">    b&quot;MP3&quot;        MP3 format</span>
+<span class="sd">    b&quot;OGG&quot;        Ogg Vorbis</span>
+<span class="sd">    b&quot;MID&quot;        MIDI format                   Not always available on Linux</span>
+<span class="sd">    b&quot;OPUS&quot;       Opus Interactive Audio Codec  Added in SDL_mixer 2.0.4</span>
+<span class="sd">    b&quot;WAVE&quot;       Waveform Audio File Format</span>
+<span class="sd">    b&quot;AIFF&quot;       Audio Interchange File Format</span>
+<span class="sd">    b&quot;VOC&quot;        Creative Voice file</span>
+<span class="sd">    ============  ============================= =============================</span>
+
+<span class="sd">    Use the :func:`Mix_GetNumChunkDecoders` function to get the number of</span>
+<span class="sd">    available chunk decoders.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes: The name of the given chunk decoder, or ``None`` if the index is</span>
+<span class="sd">        invalid.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetChunkDecoder&quot;</span><span class="p">](</span><span class="n">index</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_HasChunkDecoder"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HasChunkDecoder">[docs]</a><span class="k">def</span> <span class="nf">Mix_HasChunkDecoder</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks whether a specific chunk decoder is available.</span>
+
+<span class="sd">    See :func:`Mix_GetChunkDecoder` for a list of valid decoder names.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (bytes): A bytestring of the name of the decoder to query.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: 1 if the decoder is present, or 0 if unavailable.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HasChunkDecoder&quot;</span><span class="p">](</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GetNumMusicDecoders"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetNumMusicDecoders">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetNumMusicDecoders</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the number of available music decoders.</span>
+<span class="sd">    </span>
+<span class="sd">    The returned value can differ between runs of a program due to changes in</span>
+<span class="sd">    the availability of the shared libraries required for supporting different</span>
+<span class="sd">    formats.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The number of available music decoders.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetNumMusicDecoders&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_GetMusicDecoder"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetMusicDecoder">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetMusicDecoder</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieves the name of a given music decoder.</span>
+<span class="sd">    </span>
+<span class="sd">    The SDL_mixer library currently supports the following music decoders:</span>
+
+<span class="sd">    ============= ============================= =============================</span>
+<span class="sd">    Decoder Name  Format Type                   Notes</span>
+<span class="sd">    ============= ============================= =============================</span>
+<span class="sd">    b&quot;FLAC&quot;       Free Lossless Audio Codec</span>
+<span class="sd">    b&quot;MODPLUG&quot;    Amiga MOD (via libmodplug)</span>
+<span class="sd">    b&quot;MOD&quot;        Amiga MOD (via libmikmod)</span>
+<span class="sd">    b&quot;MP3&quot;        MP3 format</span>
+<span class="sd">    b&quot;MPG123&quot;     MP3 format (duplicate)</span>
+<span class="sd">    b&quot;OGG&quot;        Ogg Vorbis</span>
+<span class="sd">    b&quot;MIDI&quot;       MIDI format                   Not always available on Linux</span>
+<span class="sd">    b&quot;NATIVEMIDI&quot; MIDI format (OS native)       Not available on Linux</span>
+<span class="sd">    b&quot;OPUS&quot;       Opus Interactive Audio Codec  Added in SDL_mixer 2.0.4</span>
+<span class="sd">    b&quot;CMD         External music command        Not available on Windows</span>
+<span class="sd">    b&quot;WAVE&quot;       Waveform Audio File Format</span>
+<span class="sd">    ============= ============================= =============================</span>
+
+<span class="sd">    Use the :func:`Mix_GetNumMusicDecoders` function to get the number of</span>
+<span class="sd">    available chunk decoders.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes: The name of the given music decoder, or ``None`` if the index is</span>
+<span class="sd">        invalid.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetMusicDecoder&quot;</span><span class="p">](</span><span class="n">index</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GetMusicType"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetMusicType">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetMusicType</span><span class="p">(</span><span class="n">music</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets the format of a given music object.</span>
+
+<span class="sd">    See :func:`Mix_LoadMUSType_RW` for a list of the possible type constants.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        music (:obj:`Mix_Music`): The music object for which the type will be</span>
+<span class="sd">            retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: A constant indicating the format of the music object, or</span>
+<span class="sd">        ``MUS_NONE`` (0) if the format could not be identified.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetMusicType&quot;</span><span class="p">](</span><span class="n">music</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_SetPostMix"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetPostMix">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetPostMix</span><span class="p">(</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetPostMix&quot;</span><span class="p">](</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_HookMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HookMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_HookMusic</span><span class="p">(</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HookMusic&quot;</span><span class="p">](</span><span class="n">mix_func</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_HookMusicFinished"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HookMusicFinished">[docs]</a><span class="k">def</span> <span class="nf">Mix_HookMusicFinished</span><span class="p">(</span><span class="n">music_finished</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HookMusicFinished&quot;</span><span class="p">](</span><span class="n">music_finished</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GetMusicHookData"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetMusicHookData">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetMusicHookData</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetMusicHookData&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_ChannelFinished"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_ChannelFinished">[docs]</a><span class="k">def</span> <span class="nf">Mix_ChannelFinished</span><span class="p">(</span><span class="n">channel_finished</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_ChannelFinished&quot;</span><span class="p">](</span><span class="n">channel_finished</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_RegisterEffect"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_RegisterEffect">[docs]</a><span class="k">def</span> <span class="nf">Mix_RegisterEffect</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_RegisterEffect&quot;</span><span class="p">](</span><span class="n">chan</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_UnregisterEffect"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_UnregisterEffect">[docs]</a><span class="k">def</span> <span class="nf">Mix_UnregisterEffect</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_UnregisterEffect&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_UnregisterAllEffects"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_UnregisterAllEffects">[docs]</a><span class="k">def</span> <span class="nf">Mix_UnregisterAllEffects</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_UnregisterAllEffects&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_SetPanning"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetPanning">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetPanning</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetPanning&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_SetPosition"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetPosition">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetPosition</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetPosition&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_SetDistance"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetDistance">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetDistance</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetDistance&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_SetReverseStereo"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetReverseStereo">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetReverseStereo</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">flip</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetReverseStereo&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">flip</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_ReserveChannels"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_ReserveChannels">[docs]</a><span class="k">def</span> <span class="nf">Mix_ReserveChannels</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_ReserveChannels&quot;</span><span class="p">](</span><span class="n">num</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_GroupChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupChannel</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupChannel&quot;</span><span class="p">](</span><span class="n">which</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GroupChannels"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupChannels">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupChannels</span><span class="p">(</span><span class="n">from_</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupChannels&quot;</span><span class="p">](</span><span class="n">from_</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GroupAvailable"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupAvailable">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupAvailable</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupAvailable&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GroupCount"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupCount">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupCount</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupCount&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GroupOldest"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupOldest">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupOldest</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupOldest&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GroupNewer"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GroupNewer">[docs]</a><span class="k">def</span> <span class="nf">Mix_GroupNewer</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GroupNewer&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_PlayChannelTimed"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PlayChannelTimed">[docs]</a><span class="k">def</span> <span class="nf">Mix_PlayChannelTimed</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ticks</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_PlayChannelTimed&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ticks</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_PlayChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PlayChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_PlayChannel</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Mix_PlayChannelTimed</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_PlayMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PlayMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_PlayMusic</span><span class="p">(</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_PlayMusic&quot;</span><span class="p">](</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_FadeInMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeInMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeInMusic</span><span class="p">(</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeInMusic&quot;</span><span class="p">](</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadeInMusicPos"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeInMusicPos">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeInMusicPos</span><span class="p">(</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeInMusicPos&quot;</span><span class="p">](</span><span class="n">music</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadeInChannelTimed"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeInChannelTimed">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeInChannelTimed</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">ticks</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeInChannelTimed&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">ticks</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadeInChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeInChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeInChannel</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Mix_FadeInChannelTimed</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">loops</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_Volume"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Volume">[docs]</a><span class="k">def</span> <span class="nf">Mix_Volume</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">volume</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Volume&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_VolumeChunk"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_VolumeChunk">[docs]</a><span class="k">def</span> <span class="nf">Mix_VolumeChunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">volume</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_VolumeChunk&quot;</span><span class="p">](</span><span class="n">chunk</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_VolumeMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_VolumeMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_VolumeMusic</span><span class="p">(</span><span class="n">volume</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_VolumeMusic&quot;</span><span class="p">](</span><span class="n">volume</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_HaltChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HaltChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_HaltChannel</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HaltChannel&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_HaltGroup"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HaltGroup">[docs]</a><span class="k">def</span> <span class="nf">Mix_HaltGroup</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HaltGroup&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_HaltMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_HaltMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_HaltMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_HaltMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_ExpireChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_ExpireChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_ExpireChannel</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">ticks</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_ExpireChannel&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">,</span> <span class="n">ticks</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_FadeOutChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeOutChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeOutChannel</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">ms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeOutChannel&quot;</span><span class="p">](</span><span class="n">which</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadeOutGroup"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeOutGroup">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeOutGroup</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">ms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeOutGroup&quot;</span><span class="p">](</span><span class="n">tag</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadeOutMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadeOutMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadeOutMusic</span><span class="p">(</span><span class="n">ms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadeOutMusic&quot;</span><span class="p">](</span><span class="n">ms</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_FadingMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadingMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadingMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadingMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_FadingChannel"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_FadingChannel">[docs]</a><span class="k">def</span> <span class="nf">Mix_FadingChannel</span><span class="p">(</span><span class="n">which</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_FadingChannel&quot;</span><span class="p">](</span><span class="n">which</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_Pause"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Pause">[docs]</a><span class="k">def</span> <span class="nf">Mix_Pause</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Pause&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_Resume"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Resume">[docs]</a><span class="k">def</span> <span class="nf">Mix_Resume</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Resume&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_Paused"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Paused">[docs]</a><span class="k">def</span> <span class="nf">Mix_Paused</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Paused&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_PauseMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PauseMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_PauseMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_PauseMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_ResumeMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_ResumeMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_ResumeMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_ResumeMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_RewindMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_RewindMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_RewindMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_RewindMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_PausedMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PausedMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_PausedMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_PausedMusic&quot;</span><span class="p">]()</span></div>
+
+
+<div class="viewcode-block" id="Mix_SetMusicPosition"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetMusicPosition">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetMusicPosition</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetMusicPosition&quot;</span><span class="p">](</span><span class="n">position</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_Playing"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_Playing">[docs]</a><span class="k">def</span> <span class="nf">Mix_Playing</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_Playing&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_PlayingMusic"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_PlayingMusic">[docs]</a><span class="k">def</span> <span class="nf">Mix_PlayingMusic</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_PlayingMusic&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_SetMusicCMD"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetMusicCMD">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetMusicCMD</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetMusicCMD&quot;</span><span class="p">](</span><span class="n">command</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_SetSynchroValue"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetSynchroValue">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetSynchroValue</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetSynchroValue&quot;</span><span class="p">](</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GetSynchroValue"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetSynchroValue">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetSynchroValue</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetSynchroValue&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_SetSoundFonts"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_SetSoundFonts">[docs]</a><span class="k">def</span> <span class="nf">Mix_SetSoundFonts</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_SetSoundFonts&quot;</span><span class="p">](</span><span class="n">paths</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_GetSoundFonts"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetSoundFonts">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetSoundFonts</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetSoundFonts&quot;</span><span class="p">]()</span></div>
+
+<div class="viewcode-block" id="Mix_EachSoundFont"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_EachSoundFont">[docs]</a><span class="k">def</span> <span class="nf">Mix_EachSoundFont</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_EachSoundFont&quot;</span><span class="p">](</span><span class="n">function</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Mix_GetChunk"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_GetChunk">[docs]</a><span class="k">def</span> <span class="nf">Mix_GetChunk</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_GetChunk&quot;</span><span class="p">](</span><span class="n">channel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mix_CloseAudio"><a class="viewcode-back" href="../../modules/sdl2_sdlmixer.html#sdl2.sdlmixer.Mix_CloseAudio">[docs]</a><span class="k">def</span> <span class="nf">Mix_CloseAudio</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Shuts down and de-initializes the mixer API.</span>
+
+<span class="sd">    Calling this function stops all audio playback and closes the current mixer</span>
+<span class="sd">    device. Once called, the mixer API should not be used until re-initialized</span>
+<span class="sd">    with :func:`Mix_OpenAudioDevice`.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">       If :func:`Mix_OpenAudioDevice` has been called multiple times, this must</span>
+<span class="sd">       be called an equal number of times to actually de-initialize the API.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_funcs</span><span class="p">[</span><span class="s2">&quot;Mix_CloseAudio&quot;</span><span class="p">]()</span></div>
+
+
+<span class="n">Mix_SetError</span> <span class="o">=</span> <span class="n">SDL_SetError</span>
+<span class="n">Mix_GetError</span> <span class="o">=</span> <span class="n">SDL_GetError</span>
+<span class="n">Mix_ClearError</span> <span class="o">=</span> <span class="n">SDL_ClearError</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

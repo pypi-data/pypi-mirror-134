@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.compat - Python compatibility helpers &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2D drawing routines for software surfaces" href="sdl2ext_draw.html" />
+    <link rel="prev" title="Initialization routines" href="sdl2ext_common.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_algorithms.html">Common algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_array.html">Converting sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_color.html">Color handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_colorpalettes.html">sdl2.ext.colorpalettes - predefined sets of colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_common.html">Initialization routines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sdl2.ext.compat - Python compatibility helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_draw.html">2D drawing routines for software surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_ebs.html">Working with component-based entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_events.html">General purpose event handling routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_font.html">Text rendering routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_gui.html">User interface elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_image.html">Image loaders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_particles.html">sdl2.ext.particles - A simple particle system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_pixelaccess.html">2D and 3D direct pixel access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_resources.html">Resource management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_sprite.html">Sprite, texture and pixel surface routines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_surface.html">Software Surface manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdl2ext_window.html">Window routines to manage on-screen windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlmixer.html">sdl2.sdlmixer - Python bindings for SDL_mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdl2_sdlgfx.html">sdl2.sdlgfx - Python bindings for SDL2_gfx</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+          <li><a href="sdl2ext.html">sdl2.ext - Python extensions for SDL2</a> &raquo;</li>
+      <li>sdl2.ext.compat - Python compatibility helpers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/sdl2ext_compat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-sdl2.ext.compat"></span><section id="sdl2-ext-compat-python-compatibility-helpers">
+<h1>sdl2.ext.compat - Python compatibility helpers<a class="headerlink" href="#sdl2-ext-compat-python-compatibility-helpers" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.compat" title="sdl2.ext.compat: Python compatibility helpers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.compat</span></code></a> module is for internal purposes of the <a class="reference internal" href="sdl2.html#module-sdl2" title="sdl2: SDL2 library wrapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2</span></code></a>
+package and should not be used outside of the package. Classes, methods and
+interfaces might change between versions and there is no guarantee of API
+compatibility on different platforms and python implementations or between
+releases.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.ext.compat.ISPYTHON2">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">ISPYTHON2</span></span><a class="headerlink" href="#sdl2.ext.compat.ISPYTHON2" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code>, if executed in a Python 2.x compatible interpreter, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sdl2.ext.compat.ISPYTHON3">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">ISPYTHON3</span></span><a class="headerlink" href="#sdl2.ext.compat.ISPYTHON3" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code>, if executed in a Python 3.x compatible interpreter, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.long">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">long</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.ext.compat.long" title="Permalink to this definition"></a></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only defined for Python 3.x, for which it is the same as <code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.unichr">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">unichr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.ext.compat.unichr" title="Permalink to this definition"></a></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only defined for Python 3.x, for which it is the same as <a class="reference external" href="https://docs.python.org/3/library/functions.html#chr" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.unicode">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">unicode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#sdl2.ext.compat.unicode" title="Permalink to this definition"></a></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only defined for Python 3.x, for which it is the same as <code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.callable">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">callable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#sdl2.ext.compat.callable" title="Permalink to this definition"></a></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only defined for Python 3.x, for which it is the same as
+<code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">collections.Callable)</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.byteify">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">byteify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#sdl2.ext.compat.byteify" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a string to a <code class="xref py py-func docutils literal notranslate"><span class="pre">bytes()</span></code> object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.stringify">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">stringify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">string</span></span></span><a class="headerlink" href="#sdl2.ext.compat.stringify" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a <code class="xref py py-func docutils literal notranslate"><span class="pre">bytes()</span></code> to a string object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.isiterable">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">isiterable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#isiterable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.isiterable" title="Permalink to this definition"></a></dt>
+<dd><p>Shortcut for <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">collections.Iterable)</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.platform_is_64bit">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">platform_is_64bit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#platform_is_64bit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.platform_is_64bit" title="Permalink to this definition"></a></dt>
+<dd><p>Checks, if the interpreter is 64-bit capable.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.deprecated">
+<span class="sig-prename descclassname"><span class="pre">&#64;</span></span><span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">deprecated</span></span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#deprecated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.deprecated" title="Permalink to this definition"></a></dt>
+<dd><p>A simple decorator to mark functions and methods as deprecated. This will
+print a deprecation message each time the function or method is invoked.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.deprecation">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">deprecation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#deprecation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.deprecation" title="Permalink to this definition"></a></dt>
+<dd><p>Prints a deprecation message using the <a class="reference external" href="https://docs.python.org/3/library/warnings.html#warnings.warn" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">warnings.warn()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="sdl2.ext.compat.UnsupportedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">UnsupportedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span> <span class="pre">:</span> <span class="pre">object</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">msg=None</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#UnsupportedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.UnsupportedError" title="Permalink to this definition"></a></dt>
+<dd><p>Indicates that a certain class, function or behaviour is not supported in
+the specific execution environment.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.compat.experimental">
+<span class="sig-prename descclassname"><span class="pre">&#64;</span></span><span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">experimental</span></span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#experimental"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.experimental" title="Permalink to this definition"></a></dt>
+<dd><p>A simple decorator to mark functions and methods as
+experimental. This will print a warning each time the function or
+method is invoked.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="sdl2.ext.compat.ExperimentalWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.compat.</span></span><span class="sig-name descname"><span class="pre">ExperimentalWarning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span> <span class="pre">:</span> <span class="pre">object</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">msg=None</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdl2/ext/compat.html#ExperimentalWarning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.compat.ExperimentalWarning" title="Permalink to this definition"></a></dt>
+<dd><p>Indicates that a certain class, function or behaviour is in an
+experimental state.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdl2ext_common.html" class="btn btn-neutral float-left" title="Initialization routines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdl2ext_draw.html" class="btn btn-neutral float-right" title="2D drawing routines for software surfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

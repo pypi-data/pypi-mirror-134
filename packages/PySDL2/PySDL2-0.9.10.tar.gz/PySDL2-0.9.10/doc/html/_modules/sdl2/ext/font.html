@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.font &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.font</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.font</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Font and text rendering routines.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">surface</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">pixels</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.sprite</span> <span class="kn">import</span> <span class="n">SoftwareSprite</span>
+<span class="kn">from</span> <span class="nn">.color</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">convert_to_color</span>
+<span class="kn">from</span> <span class="nn">.draw</span> <span class="kn">import</span> <span class="n">_get_target_surface</span><span class="p">,</span> <span class="n">prepare_color</span>
+
+<span class="n">_HASSDLTTF</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">sdlttf</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">_HASSDLTTF</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BitmapFont&quot;</span><span class="p">,</span> <span class="s2">&quot;FontManager&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="BitmapFont"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.BitmapFont">[docs]</a><span class="k">class</span> <span class="nc">BitmapFont</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A bitmap graphics to character mapping.</span>
+
+<span class="sd">    The BitmapFont class uses an image surface to find and render font</span>
+<span class="sd">    character glyphs for text. It requires a mapping table, which</span>
+<span class="sd">    denotes the characters available on the image.</span>
+
+<span class="sd">    The mapping table is a list of strings, where each string reflects a</span>
+<span class="sd">    &#39;line&#39; of characters on the image. Each character within each line</span>
+<span class="sd">    has the same size as specified by the size argument.</span>
+
+<span class="sd">    A typical mapping table might look like</span>
+
+<span class="sd">      [ &#39;0123456789&#39;,</span>
+<span class="sd">        &#39;ABCDEFGHIJ&#39;,</span>
+<span class="sd">        &#39;KLMNOPQRST&#39;,</span>
+<span class="sd">        &#39;UVWXYZ    &#39;,</span>
+<span class="sd">        &#39;abcdefghij&#39;,</span>
+<span class="sd">        &#39;klmnopqrst&#39;,</span>
+<span class="sd">        &#39;uvwxyz    &#39;,</span>
+<span class="sd">        &#39;,;.:!?+-()&#39; ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULTMAP</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0123456789&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;ABCDEFGHIJ&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;KLMNOPQRST&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;UVWXYZ    &quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;abcdefghij&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;klmnopqrst&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;uvwxyz    &quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;,;.:!?+-()&quot;</span>
+                <span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsurface</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new BitmapFont instance from the passed image.</span>
+
+<span class="sd">        Each character is expected to be of the same size (a 2-value tuple</span>
+<span class="sd">        denoting the width and height) and to be in order of the passed</span>
+<span class="sd">        mapping.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mapping</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">BitmapFont</span><span class="o">.</span><span class="n">DEFAULTMAP</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">,</span> <span class="n">SoftwareSprite</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">surface</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sprite</span> <span class="o">=</span> <span class="n">imgsurface</span> <span class="c1"># prevent GC on the Sprite</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_Surface</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">imgsurface</span>
+        <span class="k">elif</span> <span class="s2">&quot;SDL_Surface&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">imgsurface</span><span class="o">.</span><span class="n">contents</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;imgsurface must be a Sprite or SDL_Surface&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_offsets</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_offsets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculates the internal character offsets for each line.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">offsets</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="n">w</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">h</span>
+
+    <span class="k">def</span> <span class="nf">_validate_chars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;The character &#39;</span><span class="si">{0}</span><span class="s2">&#39; does not exist within the current font mapping&quot;</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_render_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">fontsf</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">dstr</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">offset</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">dstr</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">offset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">dstr</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">fontsf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">target</span><span class="p">,</span> <span class="n">dstr</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="n">w</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">h</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BitmapFont.render"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.BitmapFont.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">bpp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Renders the passed text on a new Sprite and returns it.&quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_chars</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
+
+        <span class="n">tw</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">tw</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="nb">sum</span><span class="p">([</span><span class="n">w</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">]))</span>
+            <span class="n">th</span> <span class="o">+=</span> <span class="n">h</span>
+        <span class="k">if</span> <span class="n">bpp</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bpp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">BitsPerPixel</span>
+        <span class="n">sf</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tw</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="n">bpp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sf</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="n">imgsurface</span> <span class="o">=</span> <span class="n">SoftwareSprite</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_render_text</span><span class="p">(</span><span class="n">imgsurface</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">imgsurface</span></div>
+
+<div class="viewcode-block" id="BitmapFont.render_on"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.BitmapFont.render_on">[docs]</a>    <span class="k">def</span> <span class="nf">render_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsurface</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="sd">&quot;&quot;&quot;Renders a text on the passed sprite, starting at a specific</span>
+<span class="sd">        offset.</span>
+
+<span class="sd">        The top-left start position of the text will be the passed offset and</span>
+<span class="sd">        4-value tuple with the changed area will be returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">_get_target_surface</span><span class="p">(</span><span class="n">imgsurface</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_chars</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render_text</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">offset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">offset</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BitmapFont.contains"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.BitmapFont.contains">[docs]</a>    <span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, whether a certain character exists in the font.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span> <span class="ow">or</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span></div>
+
+<div class="viewcode-block" id="BitmapFont.can_render"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.BitmapFont.can_render">[docs]</a>    <span class="k">def</span> <span class="nf">can_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, whether all characters in the passed text can be rendered.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s1">&#39; &#39;</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="FontManager"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.FontManager">[docs]</a><span class="k">class</span> <span class="nc">FontManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Manage fonts and rendering of text.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">font_path</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">bg_color</span><span class="o">=</span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the FontManager</span>
+
+<span class="sd">        One font path must be given to initialize the FontManager. The</span>
+<span class="sd">        default_font will be set to this font. color and bg_color</span>
+<span class="sd">        will give the FontManager a default color. size is the default</span>
+<span class="sd">        font size in pixels.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_HASSDLTTF</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnsupportedError</span><span class="p">(</span><span class="n">FontManager</span><span class="p">,</span>
+                                   <span class="s2">&quot;FontManager requires sdlttf support&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_WasInit</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_Init</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># fonts = {alias: {size:font_ptr}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aliases</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># aliases = {alias:font_path}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span> <span class="o">=</span> <span class="n">bg_color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">font_path</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close all opened fonts.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="FontManager.close"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.FontManager.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close all opened fonts.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">alias</span><span class="p">,</span> <span class="n">fonts</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">size</span><span class="p">,</span> <span class="n">font</span> <span class="ow">in</span> <span class="n">fonts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">font</span><span class="p">:</span>
+                    <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aliases</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="FontManager.add"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.FontManager.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">font_path</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a font to the Font Manager.</span>
+
+<span class="sd">        alias is by default the font name. But another name can be</span>
+<span class="sd">        passed. Returns the font pointer stored in self.fonts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">size</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">alias</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># If no alias given, take the font name as alias</span>
+            <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">font_path</span><span class="p">)</span>
+            <span class="n">alias</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">basename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">size</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]:</span>
+                    <span class="c1"># font with selected size already opened</span>
+                    <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_change_font_size</span><span class="p">(</span><span class="n">alias</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+                    <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">font_path</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;Cannot find </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">font_path</span><span class="p">)</span>
+
+        <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_font</span><span class="p">(</span><span class="n">font_path</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aliases</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="o">=</span> <span class="n">font_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">][</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">font</span>
+        <span class="k">return</span> <span class="n">font</span></div>
+
+    <span class="k">def</span> <span class="nf">_load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">font_path</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Helper function to open the font.</span>
+
+<span class="sd">        Raises an exception if something went wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">font</span> <span class="o">=</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_OpenFont</span><span class="p">(</span><span class="n">byteify</span><span class="p">(</span><span class="n">font_path</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">font</span> <span class="o">=</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_OpenFontIndex</span><span class="p">(</span><span class="n">byteify</span><span class="p">(</span><span class="n">font_path</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">size</span><span class="p">,</span>
+                                            <span class="n">index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">font</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_GetError</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">font</span>
+
+    <span class="k">def</span> <span class="nf">_change_font_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads an already opened font in another size.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">alias</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Font </span><span class="si">%s</span><span class="s2"> not loaded in FontManager&quot;</span> <span class="o">%</span> <span class="n">alias</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_font</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aliases</span><span class="p">[</span><span class="n">alias</span><span class="p">],</span> <span class="n">size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">][</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">font</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The text color to be used.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Color</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="nd">@color</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The text color to be used.&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bg_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The background color to be used.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Color</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="nd">@bg_color</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">bg_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The background color to be used.&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_font</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the name of the current default_font.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">size</span><span class="p">,</span> <span class="n">font</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">font</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_font</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">alias</span>
+
+    <span class="nd">@default_font</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">default_font</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;value must be a font alias</span>
+
+<span class="sd">        Set the default_font to the given font name alias,</span>
+<span class="sd">        provided it&#39;s loaded in the font manager.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">alias</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Font </span><span class="si">%s</span><span class="s2"> not loaded in FontManager&quot;</span> <span class="o">%</span> <span class="n">alias</span><span class="p">)</span>
+        <span class="c1"># Check if size is already loaded, otherwise do it.</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_change_font_size</span><span class="p">(</span><span class="n">alias</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">][</span><span class="n">size</span><span class="p">]</span>
+
+<div class="viewcode-block" id="FontManager.render"><a class="viewcode-back" href="../../../modules/sdl2ext_font.html#sdl2.ext.FontManager.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">bg_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Renders text to a surface.</span>
+
+<span class="sd">        This method uses the font designated by the alias or the</span>
+<span class="sd">        default_font.  A size can be passed even if the font was not</span>
+<span class="sd">        loaded with this size.  A width can be given for line wrapping.</span>
+<span class="sd">        If no bg_color or color are given, it will default to the</span>
+<span class="sd">        FontManager&#39;s bg_color and color.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_font</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">size</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">bg_color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bg_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bgcolor</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bg_color</span><span class="p">,</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">bg_color</span><span class="p">)</span>
+            <span class="n">bg_color</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_textcolor</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">convert_to_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;There are no fonts selected.&quot;</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_font</span>
+        <span class="k">if</span> <span class="n">alias</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aliases</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Font </span><span class="si">%s</span><span class="s2"> not loaded&quot;</span> <span class="o">%</span> <span class="n">font</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">size</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_change_font_size</span><span class="p">(</span><span class="n">alias</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fonts</span><span class="p">[</span><span class="n">alias</span><span class="p">][</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">byteify</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">width</span><span class="p">:</span>
+            <span class="n">fontsf</span> <span class="o">=</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_RenderUTF8_Blended_Wrapped</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span>
+                                                           <span class="n">width</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">fontsf</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_GetError</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">bg_color</span> <span class="o">!=</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">fontsf</span> <span class="o">=</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">contents</span>
+                <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">h</span>
+                <span class="n">bpp</span> <span class="o">=</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">BitsPerPixel</span>
+                <span class="n">fmt</span> <span class="o">=</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">format</span>
+                <span class="n">bgsf</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">SDL_CreateRGBSurfaceWithFormat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">bpp</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">bgsf</span><span class="p">:</span>
+                    <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">fontsf</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+                <span class="n">bg_color</span> <span class="o">=</span> <span class="n">prepare_color</span><span class="p">(</span><span class="n">bg_color</span><span class="p">,</span> <span class="n">bgsf</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_FillRect</span><span class="p">(</span><span class="n">bgsf</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">)</span>
+                <span class="n">surface</span><span class="o">.</span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">fontsf</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">bgsf</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">bgsf</span><span class="o">.</span><span class="n">contents</span>
+            <span class="k">return</span> <span class="n">fontsf</span><span class="o">.</span><span class="n">contents</span>
+        <span class="n">sf</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">bg_color</span> <span class="o">==</span> <span class="n">pixels</span><span class="o">.</span><span class="n">SDL_Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">sf</span> <span class="o">=</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_RenderUTF8_Blended</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sf</span> <span class="o">=</span> <span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_RenderUTF8_Shaded</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span>
+                                              <span class="n">bg_color</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sf</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">sdlttf</span><span class="o">.</span><span class="n">TTF_GetError</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">sf</span><span class="o">.</span><span class="n">contents</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

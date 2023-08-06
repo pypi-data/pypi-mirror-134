@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.gui &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.gui</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.gui</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;User interface elements.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">byref</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">POINTER</span>
+<span class="kn">from</span> <span class="nn">.color</span> <span class="kn">import</span> <span class="n">Color</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">isiterable</span><span class="p">,</span> <span class="n">stringify</span><span class="p">,</span> <span class="n">utf8</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">.ebs</span> <span class="kn">import</span> <span class="n">System</span><span class="p">,</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">EventHandler</span>
+<span class="kn">from</span> <span class="nn">.sprite</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">.window</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">dll</span><span class="p">,</span> <span class="n">mouse</span><span class="p">,</span> <span class="n">keyboard</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">SDL_PumpEvents</span><span class="p">,</span>
+    <span class="n">SDL_Window</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">messagebox</span> <span class="k">as</span> <span class="n">mb</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;RELEASED&quot;</span><span class="p">,</span> <span class="s2">&quot;HOVERED&quot;</span><span class="p">,</span> <span class="s2">&quot;PRESSED&quot;</span><span class="p">,</span> <span class="s2">&quot;BUTTON&quot;</span><span class="p">,</span> <span class="s2">&quot;CHECKBUTTON&quot;</span><span class="p">,</span> <span class="s2">&quot;TEXTENTRY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MessageBoxTheme&quot;</span><span class="p">,</span> <span class="s2">&quot;MessageBox&quot;</span><span class="p">,</span> <span class="s2">&quot;show_messagebox&quot;</span><span class="p">,</span> <span class="s2">&quot;show_alert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;UIProcessor&quot;</span><span class="p">,</span> <span class="s2">&quot;UIFactory&quot;</span>
+<span class="p">]</span>
+
+
+<span class="n">RELEASED</span> <span class="o">=</span> <span class="mh">0x0000</span>
+<span class="n">HOVERED</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">PRESSED</span> <span class="o">=</span> <span class="mh">0x0002</span>
+
+<span class="n">BUTTON</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">CHECKABLE</span> <span class="o">=</span> <span class="mh">0x0002</span>
+<span class="n">CHECKBUTTON</span> <span class="o">=</span> <span class="p">(</span><span class="n">CHECKABLE</span> <span class="o">|</span> <span class="n">BUTTON</span><span class="p">)</span>
+<span class="n">TEXTENTRY</span> <span class="o">=</span> <span class="mh">0x0004</span>
+
+
+<span class="k">class</span> <span class="nc">MessageBoxTheme</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initializes a color scheme for use with :obj:`MessageBox` objects.</span>
+
+<span class="sd">    This is used to define the background, text, and various button colors</span>
+<span class="sd">    to use when presenting dialog boxes to users. All colors must be defined</span>
+<span class="sd">    as either :obj:`sdl2.ext.Color` objects or 8-bit ``(r, g, b)`` tuples.</span>
+
+<span class="sd">    .. note: SDL2 only supports MessageBox themes on a few platforms, including</span>
+<span class="sd">       Linux/BSD (if using X11) and Haiku. MessageBox themes will have no effect</span>
+<span class="sd">       on Windows, macOS, or Linux if using Wayland.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bg (:obj:~`sdl2.ext.Color`, tuple, optional): The color to use for the</span>
+<span class="sd">            background of the dialog box. Defaults to ``(56, 54, 53)``.</span>
+<span class="sd">        text (:obj:~`sdl2.ext.Color`, tuple, optional): The color to use for the</span>
+<span class="sd">            text of the dialog box. Defaults to ``(209, 207, 205)``.</span>
+<span class="sd">        btn (:obj:~`sdl2.ext.Color`, tuple, optional): The color to use for the</span>
+<span class="sd">            backgrounds of buttons. Defaults to ``(140, 135, 129)``.</span>
+<span class="sd">        btn_border (:obj:~`sdl2.ext.Color`, tuple, optional): The color to use</span>
+<span class="sd">            for the borders of buttons. Defaults to ``(105, 102, 99)``.</span>
+<span class="sd">        btn_selected (:obj:~`sdl2.ext.Color`, tuple, optional): The color to use</span>
+<span class="sd">            for selected buttons. Defaults to ``(205, 202, 53)``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">btn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">btn_border</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">btn_selected</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="c1"># NOTE: Default colors taken from SDL_x11messagebox.c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="mi">56</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">53</span><span class="p">),</span>     <span class="c1"># Background color</span>
+            <span class="p">(</span><span class="mi">209</span><span class="p">,</span> <span class="mi">207</span><span class="p">,</span> <span class="mi">205</span><span class="p">),</span>  <span class="c1"># Text color</span>
+            <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="mi">129</span><span class="p">),</span>  <span class="c1"># Button border color</span>
+            <span class="p">(</span><span class="mi">105</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">99</span><span class="p">),</span>   <span class="c1"># Button background color</span>
+            <span class="p">(</span><span class="mi">205</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>    <span class="c1"># Selected button color</span>
+        <span class="p">]</span>
+        <span class="c1"># Update default theme colors based on provided values</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">bg</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">btn_border</span><span class="p">,</span> <span class="n">btn</span><span class="p">,</span> <span class="n">btn_selected</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_color</span><span class="p">(</span><span class="n">elements</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_validate_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">Color</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;MessageBox colors must be specified as (r, g, b) tuples.&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">col</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+                    <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;All RGB values must be integers between 0 and 255.&quot;</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">col</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="n">col</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_theme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sdl_colors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="p">:</span>
+            <span class="n">sdl_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxColor</span><span class="p">(</span><span class="o">*</span><span class="n">col</span><span class="p">))</span>
+        <span class="n">col_array</span> <span class="o">=</span> <span class="p">(</span><span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxColor</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)(</span><span class="o">*</span><span class="n">sdl_colors</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxColorScheme</span><span class="p">(</span><span class="n">col_array</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MessageBox</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a prototype for a dialog box that can be presented to the user.</span>
+
+<span class="sd">    The `MessageBox` class is for designing a dialog box in the style of the</span>
+<span class="sd">    system&#39;s window manager, containing a title, a message to present, and</span>
+<span class="sd">    one or more response buttons.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        title (str): The title to use for the dialog box. All UTF-8 characters</span>
+<span class="sd">            are supported.</span>
+<span class="sd">        msg (str): The main body of text to display in the dialog box. All UTF-8</span>
+<span class="sd">            characters are supported.</span>
+<span class="sd">        buttons (list): A list of strings, containing the labels of the buttons</span>
+<span class="sd">            to place at the bottom of the dialog box (e.g. ``[&quot;No&quot;, &quot;Yes&quot;]``).</span>
+<span class="sd">            Buttons will be placed in left-to-right order.</span>
+<span class="sd">        default (str, optional): The label of the button to highlight as the</span>
+<span class="sd">            default option (e.g. ``&quot;Yes&quot;``). Must match one of the labels in</span>
+<span class="sd">            ``buttons``. This option will be accepted if the Return/Enter key</span>
+<span class="sd">            is pressed on the keyboard.</span>
+<span class="sd">        msgtype (str, optional): The type of dialog box to create, if supported</span>
+<span class="sd">            by the system. On most window managers, this changes the icon used</span>
+<span class="sd">            in the dialog box. Must be one of &#39;error&#39;, &#39;warning&#39;, or &#39;info&#39;, or</span>
+<span class="sd">            None (the default).</span>
+<span class="sd">        theme (:obj:`MessageBoxTheme`, optional): The color scheme to use for</span>
+<span class="sd">            the dialog box, if supported by the window manager. Defaults to the</span>
+<span class="sd">            system default theme.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">buttons</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">msgtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="n">utf8</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">utf8</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_buttons</span><span class="p">(</span><span class="n">buttons</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span> <span class="o">=</span> <span class="n">buttons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sdlbuttons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_buttons</span><span class="p">(</span><span class="n">buttons</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_msgtype</span><span class="p">(</span><span class="n">msgtype</span><span class="p">)</span> <span class="k">if</span> <span class="n">msgtype</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span> <span class="o">=</span> <span class="n">theme</span><span class="o">.</span><span class="n">_get_theme</span><span class="p">()</span> <span class="k">if</span> <span class="n">theme</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_set_msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgtype</span><span class="p">):</span>
+        <span class="n">_flagmap</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MESSAGEBOX_ERROR</span><span class="p">,</span>
+            <span class="s1">&#39;warning&#39;</span><span class="p">:</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MESSAGEBOX_WARNING</span><span class="p">,</span>
+            <span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MESSAGEBOX_INFORMATION</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">msgtype</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_flagmap</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;MessageBox type must be &#39;error&#39;, &#39;warning&#39;, &#39;info&#39;, or None.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">_flagmap</span><span class="p">[</span><span class="n">msgtype</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_validate_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buttons</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">buttons</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Buttons must be provided as a list.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">buttons</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;MessageBox must have at least one button.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_init_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buttons</span><span class="p">,</span> <span class="n">default</span><span class="p">):</span>
+        <span class="n">default_flag</span> <span class="o">=</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT</span>
+        <span class="n">buttonset</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">buttons</span><span class="p">)):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxButtonData</span><span class="p">(</span>
+                <span class="n">flags</span> <span class="o">=</span> <span class="p">(</span><span class="n">default_flag</span> <span class="k">if</span> <span class="n">buttons</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">default</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">buttonid</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">utf8</span><span class="p">(</span><span class="n">buttons</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">buttonset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxButtonData</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">buttons</span><span class="p">))(</span><span class="o">*</span><span class="n">buttonset</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_window_pointer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">win</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">Window</span><span class="p">):</span>
+            <span class="n">win</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">window</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="n">win</span> <span class="o">=</span> <span class="n">dll</span><span class="o">.</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot;contents&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">win</span><span class="o">.</span><span class="n">contents</span><span class="p">,</span> <span class="n">SDL_Window</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">win</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;&#39;window&#39; must be a Window or SDL_Window object (got </span><span class="si">{0}</span><span class="s2">)&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">win</span><span class="p">))))</span>
+
+    <span class="k">def</span> <span class="nf">_get_msgbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">window</span><span class="p">:</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_window_pointer</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MessageBoxData</span><span class="p">(</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">|</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT</span><span class="p">,</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="p">,</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_title</span><span class="p">,</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">,</span>
+            <span class="n">numbuttons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">),</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sdlbuttons</span><span class="p">,</span>
+            <span class="n">colorScheme</span> <span class="o">=</span> <span class="n">dll</span><span class="o">.</span><span class="n">get_pointer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+        
+
+<span class="k">def</span> <span class="nf">show_messagebox</span><span class="p">(</span><span class="n">msgbox</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Displays a dialog box to the user and waits for a response.</span>
+
+<span class="sd">    By default message boxes are presented independently of any window, but</span>
+<span class="sd">    they can optionally be attached explicitly to a specific SDL window. This</span>
+<span class="sd">    prevents that window from regaining focus until a response to the dialog</span>
+<span class="sd">    box is made.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        msgbox (:obj:`~sdl2.ext.MessageBox`): The dialog box to display</span>
+<span class="sd">            on-screen.</span>
+<span class="sd">        window (:obj:`~sdl2.SDL_Window`, :obj:`~sdl2.ext.Window`, optional): The</span>
+<span class="sd">            window to associate with the dialog box. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The label of the button selected by the user.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_ShowMessageBox</span><span class="p">(</span>
+        <span class="n">msgbox</span><span class="o">.</span><span class="n">_get_msgbox</span><span class="p">(</span><span class="n">window</span><span class="p">),</span>
+        <span class="n">byref</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">SDL_PumpEvents</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">msgbox</span><span class="o">.</span><span class="n">_buttons</span><span class="p">[</span><span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">errmsg</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">SDL_GetError</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">SDL_ClearError</span><span class="p">()</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Error encountered displaying message box&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errmsg</span><span class="p">):</span>
+            <span class="n">e</span> <span class="o">+=</span> <span class="s2">&quot;: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">show_alert</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">msgtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Displays a simple alert to the user and waits for a response.</span>
+
+<span class="sd">    This function is a simplified version of :func:`show_messagebox` for cases</span>
+<span class="sd">    where only one response button (&quot;OK&quot;) is needed and a custom color scheme</span>
+<span class="sd">    is not necessary.</span>
+
+<span class="sd">    By default message boxes are presented independently of any window, but</span>
+<span class="sd">    they can optionally be attached explicitly to a specific SDL window. This</span>
+<span class="sd">    prevents that window from regaining focus until a response to the dialog</span>
+<span class="sd">    box is made.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        msgbox (:obj:`~sdl2.ext.MessageBox`): The dialog box to display</span>
+<span class="sd">            on-screen.</span>
+<span class="sd">        window (:obj:`~sdl2.SDL_Window`, :obj:`~sdl2.ext.Window`, optional): The</span>
+<span class="sd">            window to associate with the dialog box. Defaults to ``None``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">box</span> <span class="o">=</span> <span class="n">MessageBox</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;OK&quot;</span><span class="p">],</span> <span class="n">msgtype</span><span class="o">=</span><span class="n">msgtype</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">window</span><span class="p">:</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">_get_window_pointer</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">mb</span><span class="o">.</span><span class="n">SDL_ShowSimpleMessageBox</span><span class="p">(</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">_title</span><span class="p">,</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">_text</span><span class="p">,</span>
+        <span class="n">window</span>
+    <span class="p">)</span>
+    <span class="n">SDL_PumpEvents</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">errmsg</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">SDL_GetError</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">SDL_ClearError</span><span class="p">()</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Error encountered displaying message box&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errmsg</span><span class="p">):</span>
+            <span class="n">e</span> <span class="o">+=</span> <span class="s2">&quot;: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_button</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds button attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">BUTTON</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">RELEASED</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">motion</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">released</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">click</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">released</span>
+        <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_checkbutton</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds check button attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_compose_button</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">CHECKBUTTON</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">checked</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_textentry</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds text entry attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">TEXTENTRY</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">motion</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">released</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">keydown</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">keyup</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">editing</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">released</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTEDITING</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">editing</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTINPUT</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">input</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_KEYDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">keydown</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_KEYUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">keyup</span>
+        <span class="p">}</span>
+
+
+<div class="viewcode-block" id="UIFactory"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory">[docs]</a><span class="k">class</span> <span class="nc">UIFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple UI factory for creating GUI elements for software- or</span>
+<span class="sd">    texture-based rendering.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spritefactory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UIFactory.</span>
+
+<span class="sd">        The additional kwargs will be stored internally and passed to the</span>
+<span class="sd">        UI creation methods as arguments. Hence they can act as default</span>
+<span class="sd">        arguments to be passed to each and every UI element to be</span>
+<span class="sd">        created.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span> <span class="o">=</span> <span class="n">spritefactory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+<div class="viewcode-block" id="UIFactory.from_image"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.from_image">[docs]</a>    <span class="k">def</span> <span class="nf">from_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from the passed image file.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_surface"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.from_surface">[docs]</a>    <span class="k">def</span> <span class="nf">from_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from the passed SDL surface.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">free</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_object"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.from_object">[docs]</a>    <span class="k">def</span> <span class="nf">from_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from an arbitrary object.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_color"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.from_color">[docs]</a>    <span class="k">def</span> <span class="nf">from_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element using a certain color.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.create_button"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.create_button">[docs]</a>    <span class="k">def</span> <span class="nf">create_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on mouse events.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+    <span class="k">def</span> <span class="nf">create_checkbutton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on mouse events and</span>
+<span class="sd">        retains its state.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span>
+
+<div class="viewcode-block" id="UIFactory.create_text_entry"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIFactory.create_text_entry">[docs]</a>    <span class="k">def</span> <span class="nf">create_text_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on text input.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;UIFactory(spritefactory=</span><span class="si">%s</span><span class="s2">, default_args=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="UIProcessor"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor">[docs]</a><span class="k">class</span> <span class="nc">UIProcessor</span><span class="p">(</span><span class="n">System</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A processing system for user interface elements and events.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UIProcessor.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">UIProcessor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sprite</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mousemotion</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mousedown</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouseup</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTINPUT</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">textinput</span>
+            <span class="p">}</span>
+
+<div class="viewcode-block" id="UIProcessor.activate"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Activates a control to receive input.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">!=</span> <span class="n">component</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+            <span class="n">area</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">component</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                 <span class="n">component</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">component</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_SetTextInputRect</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+            <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_StartTextInput</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="n">component</span></div>
+
+<div class="viewcode-block" id="UIProcessor.deactivate"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deactivates the currently active control.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">component</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+                <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_StopTextInput</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="UIProcessor.passevent"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.passevent">[docs]</a>    <span class="k">def</span> <span class="nf">passevent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Passes the event to a component without any additional checks</span>
+<span class="sd">        or restrictions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">textinput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if an active component is available and matches the</span>
+<span class="sd">        passed component and passes the event on to that component.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">==</span> <span class="n">component</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">text</span> <span class="o">+=</span> <span class="n">stringify</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UIProcessor.mousemotion"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.mousemotion">[docs]</a>    <span class="k">def</span> <span class="nf">mousemotion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s motion position is on the component</span>
+<span class="sd">        and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the motion event position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, if it is</span>
+<span class="sd">        currently hovered or not.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">|=</span> <span class="n">HOVERED</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="c1"># The mouse is not within the area of the button, reset the</span>
+            <span class="c1"># state</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">HOVERED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.mousedown"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.mousedown">[docs]</a>    <span class="k">def</span> <span class="nf">mousedown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s button press position is on the</span>
+<span class="sd">        component and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the button press position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, if it is</span>
+<span class="sd">        currently pressed or not. In case the component is a TextEntry and</span>
+<span class="sd">        the pressed button is the primary mouse button, the component will</span>
+<span class="sd">        be marked as the next control to activate for text input.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">PRESSED</span> <span class="o">|</span> <span class="n">HOVERED</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">CHECKABLE</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="n">mouse</span><span class="o">.</span><span class="n">SDL_BUTTON_LEFT</span><span class="p">:</span>
+                        <span class="n">component</span><span class="o">.</span><span class="n">checked</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">component</span><span class="o">.</span><span class="n">checked</span>
+            <span class="c1"># Since we loop over all components, and might deactivate</span>
+            <span class="c1"># some, store it temporarily for later activation.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="n">component</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">PRESSED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.mouseup"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.mouseup">[docs]</a>    <span class="k">def</span> <span class="nf">mouseup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s button release position is on the</span>
+<span class="sd">        component and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the button release position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, whether it is</span>
+<span class="sd">        hovered or not. If the button release followed a button press on</span>
+<span class="sd">        the same component and if the button is the primary button, the</span>
+<span class="sd">        click() event handler is invoked, if the component is a Button.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;</span> <span class="n">PRESSED</span><span class="p">)</span> <span class="o">==</span> <span class="n">PRESSED</span><span class="p">:</span>
+                    <span class="c1"># Was pressed already, now it is a click</span>
+                    <span class="n">component</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">RELEASED</span> <span class="o">|</span> <span class="n">HOVERED</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">HOVERED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.dispatch"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.dispatch">[docs]</a>    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Passes an event to the given object.</span>
+
+<span class="sd">        If obj is a World object, UI relevant components will receive</span>
+<span class="sd">        the event, if they support the event type.</span>
+
+<span class="sd">        If obj is a single object, obj.events MUST be a dictionary</span>
+<span class="sd">        consisting of SDL event type identifiers and EventHandler</span>
+<span class="sd">        instances bound to the object. obj also must have a &#39;uitype&#39; attribute</span>
+<span class="sd">        referring to the UI type of the object.</span>
+<span class="sd">        If obj is an iterable, such as a list or set, every item within</span>
+<span class="sd">        obj MUST feature an &#39;events&#39; and &#39;uitype&#39; attribute as described</span>
+<span class="sd">        above.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">event</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">passevent</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">World</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_components</span><span class="p">(</span><span class="n">ctype</span><span class="p">)</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">(</span><span class="n">event</span><span class="p">,)</span>
+                         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;uitype&quot;</span><span class="p">)</span> \
+                            <span class="ow">and</span> <span class="n">e</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">events</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">)</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">(</span><span class="n">event</span><span class="p">,)</span>
+                     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">events</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="n">handler</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="UIProcessor.process"><a class="viewcode-back" href="../../../modules/sdl2ext_gui.html#sdl2.ext.UIProcessor.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The UIProcessor class does not implement the process() method</span>
+<span class="sd">        by default. Instead it uses dispatch() to send events around to</span>
+<span class="sd">        components.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;UIProcessor()&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

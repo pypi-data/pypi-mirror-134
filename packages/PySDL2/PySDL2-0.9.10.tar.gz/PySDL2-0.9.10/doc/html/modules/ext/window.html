@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.window - Creating and Working with SDL2 Windows &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.renderer - Accelerated 2D Rendering" href="renderer.html" />
+    <link rel="prev" title="sdl2.ext.common - Frequently Used SDL2 Functions" href="common.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common.html"><cite>sdl2.ext.common</cite> - Frequently Used SDL2 Functions</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.window</cite> - Creating and Working with SDL2 Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="renderer.html"><cite>sdl2.ext.renderer</cite> - Accelerated 2D Rendering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="msgbox.html"><cite>sdl2.ext.msgbox</cite> - Displaying Alerts and Dialog Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.window</cite> - Creating and Working with SDL2 Windows</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/window.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-window-creating-and-working-with-sdl2-windows">
+<h1><cite>sdl2.ext.window</cite> - Creating and Working with SDL2 Windows<a class="headerlink" href="#sdl2-ext-window-creating-and-working-with-sdl2-windows" title="Permalink to this headline"></a></h1>
+<p>This module contains the <code class="docutils literal notranslate"><span class="pre">Window</span></code> class, which provides a friendly Pythonic
+API for creating, moving, resizing, closing, or otherwise working with SDL2
+windows.</p>
+<span class="target" id="module-sdl2.ext.window"></span><p>Window routines to manage on-screen windows.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.window.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a visible window with an optional border and title text.</p>
+<p>In SDL2, a window is the object through which visuals are displayed and
+all input events are captured. This class is a Pythonic alternative to
+working directly with SDL2’s <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Window</span></code> type, wrapping a
+number of useful functions for working with windows.</p>
+<p>The created Window is hidden by default, but can be shown using the
+<a class="reference internal" href="#sdl2.ext.window.Window.show" title="sdl2.ext.window.Window.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">show()</span></code></a> method. Additionally, the type and properties of the
+created window can be configured using various flags:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_SHOWN</span></code></p></td>
+<td><p>Will be shown when created</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_HIDDEN</span></code></p></td>
+<td><p>Will be hidden when created</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_BORDERLESS</span></code></p></td>
+<td><p>Will not be decorated by the OS</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_RESIZABLE</span></code></p></td>
+<td><p>Will be resizable</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_MINIMIZED</span></code></p></td>
+<td><p>Will be created in a minimized state</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_MAXIMIZED</span></code></p></td>
+<td><p>Will be created in a maximized state</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_FULLSCREEN</span></code></p></td>
+<td><p>Will be fullscreen</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_FULLSCREEN_DESKTOP</span></code></p></td>
+<td><p>Will be fullscreen at the current desktop
+resolution</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_OPENGL</span></code></p></td>
+<td><p>Will be usable with an OpenGL context</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_VULKAN</span></code></p></td>
+<td><p>Will be usable with a Vulkan instance</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_METAL</span></code></p></td>
+<td><p>Will be usable with a Metal context</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_ALLOW_HIGHDPI</span></code></p></td>
+<td><p>Will be created in high-DPI mode
+(if supported)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_INPUT_FOCUS</span></code></p></td>
+<td><p>Will have input focus when created</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_MOUSE_FOCUS</span></code></p></td>
+<td><p>Will have mouse focus when created</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_INPUT_GRABBED</span></code></p></td>
+<td><p>Will prevent the mouse from leaving the
+bounds of the window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_MOUSE_CAPTURE</span></code></p></td>
+<td><p>Will capture mouse to track input outside
+of the window when created</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are also a few additional window creation flags that only affect the
+X11 window manager (i.e. most distributions of Linux and BSD):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_ALWAYS_ON_TOP</span></code></p></td>
+<td><p>Should stay on top of other windows</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_SKIP_TASKBAR</span></code></p></td>
+<td><p>Should not be added to the taskbar</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_UTILITY</span></code></p></td>
+<td><p>Should be treated as a utility window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_TOOLTIP</span></code></p></td>
+<td><p>Should be treated as a tooltip</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_POPUP_MENU</span></code></p></td>
+<td><p>Should be treated as a popup menu</p></td>
+</tr>
+</tbody>
+</table>
+<p>To combine multiple flags, you can use a bitwise OR to combine two or more
+together before passing them to the <cite>flags</cite> argument. For example, to create
+a fullscreen window that supports an OpenGL context and is shown on
+creation, you would use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">win_flags</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">sdl2</span><span class="o">.</span><span class="n">SDL_WINDOW_FULLSCREEN</span> <span class="o">|</span> <span class="n">sdl2</span><span class="o">.</span><span class="n">SDL_WINDOW_OPENGL</span> <span class="o">|</span>
+    <span class="n">sdl2</span><span class="o">.</span><span class="n">SDL_WINDOW_SHOWN</span>
+<span class="p">)</span>
+<span class="n">sdl2</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s2">&quot;PySDL2&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">),</span> <span class="n">flags</span><span class="o">=</span><span class="n">win_flags</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The title to use for the window.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – The initial size (in pixels) of the window, in the format
+<cite>(width, height)</cite>.</p></li>
+<li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>optional</em>) – The initial <cite>(x, y)</cite> coordinates of the
+top-left corner of the window. If not specified, defaults to letting
+the system’s window manager choose a location for the window.</p></li>
+<li><p><strong>flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The window attribute flags with which the window
+will be created. Defaults to <code class="docutils literal notranslate"><span class="pre">SDL_WINDOW_HIDDEN</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.window">
+<span class="sig-name descname"><span class="pre">window</span></span><a class="headerlink" href="#sdl2.ext.window.Window.window" title="Permalink to this definition"></a></dt>
+<dd><p>The underlying SDL2 Window
+object. If the window has been closed, this value will be <cite>None</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Window</span></code>, None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.position">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#sdl2.ext.window.Window.position" title="Permalink to this definition"></a></dt>
+<dd><p>The (x, y) pixel coordinates of the top-left corner of the
+window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.title">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#sdl2.ext.window.Window.title" title="Permalink to this definition"></a></dt>
+<dd><p>The title of the window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#sdl2.ext.window.Window.size" title="Permalink to this definition"></a></dt>
+<dd><p>The dimensions of the window (in pixels) in the form
+(width, height).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.create" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the window if it does not already exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.open" title="Permalink to this definition"></a></dt>
+<dd><p>Creates and shows the window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes and destroys the window.</p>
+<p>Once this method has been called, the window cannot be re-opened.
+However, you can create a new window with the same settings using the
+<a class="reference internal" href="#sdl2.ext.window.Window.create" title="sdl2.ext.window.Window.create"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create()</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.show" title="Permalink to this definition"></a></dt>
+<dd><p>Shows the window on the display.</p>
+<p>If the window is already visible, this method does nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.hide">
+<span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.hide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.hide" title="Permalink to this definition"></a></dt>
+<dd><p>Hides the window.</p>
+<p>If the window is already hidden, this method does nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.maximize">
+<span class="sig-name descname"><span class="pre">maximize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.maximize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.maximize" title="Permalink to this definition"></a></dt>
+<dd><p>Maximizes the window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.minimize">
+<span class="sig-name descname"><span class="pre">minimize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.minimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.minimize" title="Permalink to this definition"></a></dt>
+<dd><p>Minimizes the window into the system’s dock or task bar.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.restore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.restore" title="Permalink to this definition"></a></dt>
+<dd><p>Restores a minimized or maximized window to its original state.</p>
+<p>If the window has not been minimized or maximized, this method does
+nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.refresh" title="Permalink to this definition"></a></dt>
+<dd><p>Updates the window to reflect any changes made to its surface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only needs to be called if the window surface was acquired and
+modified using <a class="reference internal" href="#sdl2.ext.window.Window.get_surface" title="sdl2.ext.window.Window.get_surface"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_surface()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.window.Window.get_surface">
+<span class="sig-name descname"><span class="pre">get_surface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/window.html#Window.get_surface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.window.Window.get_surface" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code> used by the window.</p>
+<p>This method obtains the SDL surface used by the window, which can be
+then be modified to change the contents of the window (e.g draw shapes
+or images) using functions such as <code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.SDL_BlitSurface()</span></code> or
+<code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.ext.fill()</span></code>.</p>
+<p>The obtained surface will be invalidated if the window is resized. As
+such, you will need to call this method again whenever this happens
+in order to continue to access the window’s contents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using OpenGL/Vulkan/Metal rendering or the SDL rendering API (e.g.
+<code class="xref py py-func docutils literal notranslate"><span class="pre">sdl2.SDL_CreateRenderer()</span></code>) for drawing to the window, this
+method should not be used.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The surface associated with the window.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common.html" class="btn btn-neutral float-left" title="sdl2.ext.common - Frequently Used SDL2 Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="renderer.html" class="btn btn-neutral float-right" title="sdl2.ext.renderer - Accelerated 2D Rendering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.window &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.window</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.window</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Window routines to manage on-screen windows.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">byref</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">stringify</span><span class="p">,</span> <span class="n">utf8</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">SDLError</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">video</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Window&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Window"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window">[docs]</a><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a visible window with an optional border and title text.</span>
+
+<span class="sd">    In SDL2, a window is the object through which visuals are displayed and</span>
+<span class="sd">    all input events are captured. This class is a Pythonic alternative to</span>
+<span class="sd">    working directly with SDL2&#39;s :obj:`~sdl2.SDL_Window` type, wrapping a</span>
+<span class="sd">    number of useful functions for working with windows.</span>
+
+<span class="sd">    The created Window is hidden by default, but can be shown using the</span>
+<span class="sd">    :meth:`~Window.show` method. Additionally, the type and properties of the</span>
+<span class="sd">    created window can be configured using various flags:</span>
+
+<span class="sd">    ================================== =========================================</span>
+<span class="sd">    Flag                               Description</span>
+<span class="sd">    ================================== =========================================</span>
+<span class="sd">    sdl2.SDL_WINDOW_SHOWN              Will be shown when created</span>
+<span class="sd">    sdl2.SDL_WINDOW_HIDDEN             Will be hidden when created</span>
+<span class="sd">    sdl2.SDL_WINDOW_BORDERLESS         Will not be decorated by the OS</span>
+<span class="sd">    sdl2.SDL_WINDOW_RESIZABLE          Will be resizable</span>
+<span class="sd">    sdl2.SDL_WINDOW_MINIMIZED          Will be created in a minimized state</span>
+<span class="sd">    sdl2.SDL_WINDOW_MAXIMIZED          Will be created in a maximized state</span>
+<span class="sd">    sdl2.SDL_WINDOW_FULLSCREEN         Will be fullscreen</span>
+<span class="sd">    sdl2.SDL_WINDOW_FULLSCREEN_DESKTOP Will be fullscreen at the current desktop</span>
+<span class="sd">                                       resolution</span>
+<span class="sd">    sdl2.SDL_WINDOW_OPENGL             Will be usable with an OpenGL context</span>
+<span class="sd">    sdl2.SDL_WINDOW_VULKAN             Will be usable with a Vulkan instance</span>
+<span class="sd">    sdl2.SDL_WINDOW_METAL              Will be usable with a Metal context</span>
+<span class="sd">    sdl2.SDL_WINDOW_ALLOW_HIGHDPI      Will be created in high-DPI mode</span>
+<span class="sd">                                       (if supported)</span>
+<span class="sd">    sdl2.SDL_WINDOW_INPUT_FOCUS        Will have input focus when created</span>
+<span class="sd">    sdl2.SDL_WINDOW_MOUSE_FOCUS        Will have mouse focus when created</span>
+<span class="sd">    sdl2.SDL_WINDOW_INPUT_GRABBED      Will prevent the mouse from leaving the</span>
+<span class="sd">                                       bounds of the window</span>
+<span class="sd">    sdl2.SDL_WINDOW_MOUSE_CAPTURE      Will capture mouse to track input outside</span>
+<span class="sd">                                       of the window when created</span>
+<span class="sd">    ================================== =========================================</span>
+
+<span class="sd">    There are also a few additional window creation flags that only affect the</span>
+<span class="sd">    X11 window manager (i.e. most distributions of Linux and BSD):</span>
+
+<span class="sd">    ================================== =====================================</span>
+<span class="sd">    Flag                               Description</span>
+<span class="sd">    ================================== =====================================</span>
+<span class="sd">    sdl2.SDL_WINDOW_ALWAYS_ON_TOP      Should stay on top of other windows</span>
+<span class="sd">    sdl2.SDL_WINDOW_SKIP_TASKBAR       Should not be added to the taskbar</span>
+<span class="sd">    sdl2.SDL_WINDOW_UTILITY            Should be treated as a utility window</span>
+<span class="sd">    sdl2.SDL_WINDOW_TOOLTIP            Should be treated as a tooltip</span>
+<span class="sd">    sdl2.SDL_WINDOW_POPUP_MENU         Should be treated as a popup menu</span>
+<span class="sd">    ================================== =====================================</span>
+
+<span class="sd">    To combine multiple flags, you can use a bitwise OR to combine two or more</span>
+<span class="sd">    together before passing them to the `flags` argument. For example, to create</span>
+<span class="sd">    a fullscreen window that supports an OpenGL context and is shown on</span>
+<span class="sd">    creation, you would use::</span>
+
+<span class="sd">      win_flags = (</span>
+<span class="sd">          sdl2.SDL_WINDOW_FULLSCREEN | sdl2.SDL_WINDOW_OPENGL |</span>
+<span class="sd">          sdl2.SDL_WINDOW_SHOWN</span>
+<span class="sd">      )</span>
+<span class="sd">      sdl2.ext.Window(&quot;PySDL2&quot;, (800, 600), flags=win_flags)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        title (str): The title to use for the window.</span>
+<span class="sd">        size (tuple): The initial size (in pixels) of the window, in the format</span>
+<span class="sd">            `(width, height)`.</span>
+<span class="sd">        position (tuple, optional): The initial `(x, y)` coordinates of the</span>
+<span class="sd">            top-left corner of the window. If not specified, defaults to letting</span>
+<span class="sd">            the system&#39;s window manager choose a location for the window.</span>
+<span class="sd">        flags (int, optional): The window attribute flags with which the window</span>
+<span class="sd">            will be created. Defaults to `SDL_WINDOW_HIDDEN`.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        window (:obj:`~sdl2.SDL_Window`, None): The underlying SDL2 Window</span>
+<span class="sd">            object. If the window has been closed, this value will be `None`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DEFAULTFLAGS</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_WINDOW_HIDDEN</span>
+    <span class="n">DEFAULTPOS</span> <span class="o">=</span> <span class="p">(</span><span class="n">video</span><span class="o">.</span><span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">,</span>
+                  <span class="n">video</span><span class="o">.</span><span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULTPOS</span>
+        <span class="k">if</span> <span class="n">flags</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULTFLAGS</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flags</span> <span class="o">=</span> <span class="n">flags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Releases the resources of the Window, implicitly destroying the</span>
+<span class="sd">        underlying SDL2 window.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The (x, y) pixel coordinates of the top-left corner of the</span>
+<span class="sd">        window.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowPosition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@position</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">(</span><span class="s2">&quot;The window is not available&quot;</span><span class="p">)</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_SetWindowPosition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;str: The title of the window.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">stringify</span><span class="p">(</span><span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowTitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">),</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+    <span class="nd">@title</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">title_bytes</span> <span class="o">=</span> <span class="n">utf8</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_SetWindowTitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">title_bytes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple: The dimensions of the window (in pixels) in the form</span>
+<span class="sd">        (width, height).</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">c_int</span><span class="p">(),</span> <span class="n">c_int</span><span class="p">()</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">byref</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="nd">@size</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_SetWindowSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Window.create"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates the window if it does not already exist.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="n">utf8</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_title</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">_flags</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">window</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">contents</span></div>
+
+<div class="viewcode-block" id="Window.open"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates and shows the window.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Window.close"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Closes and destroys the window.</span>
+<span class="sd">        </span>
+<span class="sd">        Once this method has been called, the window cannot be re-opened.</span>
+<span class="sd">        However, you can create a new window with the same settings using the</span>
+<span class="sd">        :meth:`create` method.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;window&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">video</span><span class="o">.</span><span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Window.show"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Shows the window on the display.</span>
+<span class="sd">        </span>
+<span class="sd">        If the window is already visible, this method does nothing.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_ShowWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Window.hide"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.hide">[docs]</a>    <span class="k">def</span> <span class="nf">hide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Hides the window.</span>
+
+<span class="sd">        If the window is already hidden, this method does nothing.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_HideWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Window.maximize"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.maximize">[docs]</a>    <span class="k">def</span> <span class="nf">maximize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Maximizes the window.&quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_MaximizeWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Window.minimize"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.minimize">[docs]</a>    <span class="k">def</span> <span class="nf">minimize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Minimizes the window into the system&#39;s dock or task bar.&quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_MinimizeWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">restore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Restores a minimized or maximized window to its original state.</span>
+<span class="sd">        </span>
+<span class="sd">        If the window has not been minimized or maximized, this method does</span>
+<span class="sd">        nothing.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_RestoreWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Window.refresh"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Updates the window to reflect any changes made to its surface.</span>
+
+<span class="sd">        .. note: This only needs to be called if the window surface was</span>
+<span class="sd">                 acquired and modified using :meth:`get_surface`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">video</span><span class="o">.</span><span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Window.get_surface"><a class="viewcode-back" href="../../../modules/sdl2ext_window.html#sdl2.ext.Window.get_surface">[docs]</a>    <span class="k">def</span> <span class="nf">get_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the :obj:`~sdl2.SDL_Surface` used by the window.</span>
+
+<span class="sd">        This method obtains the SDL surface used by the window, which can be</span>
+<span class="sd">        then be modified to change the contents of the window (e.g draw shapes</span>
+<span class="sd">        or images) using functions such as :func:`sdl2.SDL_BlitSurface` or</span>
+<span class="sd">        :func:`sdl2.ext.fill`.</span>
+
+<span class="sd">        The obtained surface will be invalidated if the window is resized. As</span>
+<span class="sd">        such, you will need to call this method again whenever this happens</span>
+<span class="sd">        in order to continue to access the window&#39;s contents.</span>
+
+<span class="sd">        .. note: If using OpenGL/Vulkan/Metal rendering or the SDL rendering</span>
+<span class="sd">                 API (e.g. :func:`sdl2.SDL_CreateRenderer`) for drawing to the</span>
+<span class="sd">                 window, this method should not be used.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`~sdl2.SDL_Surface`: The surface associated with the window.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sf</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sf</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SDLError</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">sf</span><span class="o">.</span><span class="n">contents</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-09.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.ttf - Rendering Text With TrueType Fonts &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.bitmapfont - Basic Bitmap Font Rendering" href="bitmapfont.html" />
+    <link rel="prev" title="sdl2.ext.image - Importing and Exporting Image Files" href="image.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="surface.html"><cite>sdl2.ext.surface</cite> - Creating and Manipulating Software Surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="draw.html"><cite>sdl2.ext.draw</cite> - Drawing Routines for Software Surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image.html"><cite>sdl2.ext.image</cite> - Importing and Exporting Image Files</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.ttf</cite> - Rendering Text With TrueType Fonts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bitmapfont.html"><cite>sdl2.ext.bitmapfont</cite> - Basic Bitmap Font Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.ttf</cite> - Rendering Text With TrueType Fonts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/ttf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-ttf-rendering-text-with-truetype-fonts">
+<h1><cite>sdl2.ext.ttf</cite> - Rendering Text With TrueType Fonts<a class="headerlink" href="#sdl2-ext-ttf-rendering-text-with-truetype-fonts" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.ttf" title="sdl2.ext.ttf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.ttf</span></code></a> module provides the <code class="xref py py-class docutils literal notranslate"><span class="pre">FontTTF</span></code> class,
+which provides a friendly and Pythonic API for font rendering based around
+the <strong>SDL_ttf</strong> library. <strong>SDL_ttf</strong> can be installed as a Python dependency
+with <code class="docutils literal notranslate"><span class="pre">pysdl2-dll</span></code> on platforms that support it).</p>
+<p>Additionally, this module provides the deprecated <code class="xref py py-class docutils literal notranslate"><span class="pre">FontManager</span></code>
+class, which provides a different (and less featureful) API for rendering text
+using <strong>SDL_ttf</strong>.</p>
+<span class="target" id="module-sdl2.ext.ttf"></span><dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.ttf.</span></span><span class="sig-name descname"><span class="pre">FontTTF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_chars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF" title="Permalink to this definition"></a></dt>
+<dd><p>A class for rendering text with a given TrueType font.</p>
+<p>This class loads a TrueType or OpenType font using the <strong>SDL_ttf</strong> library
+and allows the user to render text with it in various sizes and colors.</p>
+<p>To simplify rendering text with different font sizes and colors, this class
+allows users to define font styles (e.g. ‘instructions’, ‘error’, ‘title’,
+etc.) using <a class="reference internal" href="#sdl2.ext.ttf.FontTTF.add_style" title="sdl2.ext.ttf.FontTTF.add_style"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_style()</span></code></a>, which can then be used by name with the
+<a class="reference internal" href="#sdl2.ext.ttf.FontTTF.render_text" title="sdl2.ext.ttf.FontTTF.render_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render_text()</span></code></a> method.</p>
+<p>By default, the <a class="reference internal" href="#sdl2.ext.ttf.FontTTF" title="sdl2.ext.ttf.FontTTF"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontTTF</span></code></a> class defines font sizes in points (pt), a
+common unit of font size used by many libraries and text editors. However,
+you can also define font sizes in units of <em>pixel height</em> (px), i.e. the
+ascent height of the font’s tallest alphanumeric ASCII character. This is
+done by calculating each font’s px-to-pt scaling factor on import, meaning
+that some rounding error may occur. If using a font that does not include
+all alphanumeric ASCII characters (A-Z, a-z, 0-9) or wanting to scale the
+maximum pixel height to a different subset of characters (e.g. just 0-9
+digits), you will need to specifiy a custom ‘height_chars’ string when
+creating the font object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the font to load.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The default size for the font, either as an integer
+(assumed to be in pt) or as a string specifying the unit of size
+(e.g. ‘12pt’ or ‘22px’).</p></li>
+<li><p><strong>color</strong> (<em>Color</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – The default color to use for
+rendering text. Defaults to white if not specified.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The index of the font face to load if the font
+file contains multiple faces. Defaults to 0 (first face in the file)
+if not specified.</p></li>
+<li><p><strong>height_chars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The set of font characters to use for
+calculating the maximum height (in pixels) of the font for</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.get_ttf_font">
+<span class="sig-name descname"><span class="pre">get_ttf_font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF.get_ttf_font"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.get_ttf_font" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the base <a class="reference internal" href="../sdl2_sdlttf.html#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a> for a given font style.</p>
+<p>This method provides access to the base ctypes object for each font
+style so that they can be used with the full set of <code class="xref py py-mod docutils literal notranslate"><span class="pre">sdlttf</span></code>
+functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>style</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The font style for which the base ctypes font
+object will be retrieved. Defaults to the ‘default’ style if not
+specified.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The base ctypes font for the style.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../sdl2_sdlttf.html#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.add_style">
+<span class="sig-name descname"><span class="pre">add_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF.add_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.add_style" title="Permalink to this definition"></a></dt>
+<dd><p>Defines a named font style for the current font.</p>
+<p>Currently, a font style defines a font size, color, and background color
+combination to use for rendering text. Additional style attributes may
+be added in future releases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the new font style (e.g. ‘title’).</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The font size for the style, either as an integer
+(assumed to be in pt) or as a string specifying the unit of size
+(e.g. ‘12pt’ or ‘22px’).</p></li>
+<li><p><strong>color</strong> (<em>Color</em>) – The font color for the style.</p></li>
+<li><p><strong>bg_color</strong> (<em>Color</em><em>, </em><em>optional</em>) – The background surface color
+for the style. Defaults to a fully-transparent background if not
+specified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.render_text">
+<span class="sig-name descname"><span class="pre">render_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF.render_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.render_text" title="Permalink to this definition"></a></dt>
+<dd><p>Renders a string of text to a new surface.</p>
+<p>If a newline character (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) is encountered in the string, it will
+be rendered as a line break in the rendered text. Additionally, if a
+surface width is specified, any lines of text that exceed the width of
+the surface will be wrapped. Multi-line text can be left-aligned
+(the default), right-aligned, or centered, and the spacing between lines
+can be modified using the <cite>line_h</cite> argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The string of text to render to the target surface.</p></li>
+<li><p><strong>style</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The font style with which to render the
+given string. Defaults to the ‘default’ style if not specified.</p></li>
+<li><p><strong>line_h</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The line height (in pixels) to use for each
+line of the rendered text. If not specified, the suggested line
+height for the font will be used. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The width (in pixels) of the output surface.
+If a line of text exceeds this value, it will be automatically
+wrapped to fit within the specified width. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>align</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The alignment of lines of text for multi-line
+strings. Can be ‘left’ (left-aligned), ‘right’ (right-aligned),
+or ‘center’ (centered). Defaults to ‘left’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 32-bit ARGB surface containing the
+rendered text.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.close" title="Permalink to this definition"></a></dt>
+<dd><p>Cleanly closes the font and frees all associated memory.</p>
+<p>This method should be called when you are finished with the font to free
+the resources taken up by the font and its styles. Once this method has
+been called, the font can no longer be used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontTTF.contains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.contains" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether a given character exists within the font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>c</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The glpyh (i.e. character) to check for within the font.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the font contains the glpyh, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.family_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family_name</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.family_name" title="Permalink to this definition"></a></dt>
+<dd><p>The family name (e.g. “Helvetica”) of the loaded font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.style_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">style_name</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.style_name" title="Permalink to this definition"></a></dt>
+<dd><p>The style name (e.g. “Bold”) of the loaded font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontTTF.is_fixed_width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_fixed_width</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontTTF.is_fixed_width" title="Permalink to this definition"></a></dt>
+<dd><p>Whether the current font face is fixed-width (i.e. monospaced).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, all characters in the current font have the same width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.ttf.</span></span><span class="sig-name descname"><span class="pre">FontManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Color(r=255,</span> <span class="pre">g=255,</span> <span class="pre">b=255,</span> <span class="pre">a=255)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Color(r=0,</span> <span class="pre">g=0,</span> <span class="pre">b=0,</span> <span class="pre">a=255)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontManager" title="Permalink to this definition"></a></dt>
+<dd><p>A class for managing and rendering TrueType fonts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class is has been deprecated in favor of the more flexible
+<code class="xref py py-class docutils literal notranslate"><span class="pre">FontTTF</span></code> class.</p>
+</div>
+<p>This class provides a basic wrapper around the SDL_ttf library. One font
+path must be given to initialise the FontManager.</p>
+<p>The first face is always at index 0. It can be used for TTC (TrueType Font
+Collection) fonts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the font
+to load.</p></li>
+<li><p><strong>alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The name to give the font within the
+FontManager. Defaults to the font filename if not specified.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The size (in pt) at which to load the default
+font. Defaults to 16pt if not specified.</p></li>
+<li><p><strong>color</strong> (<em>Color</em>) – The default font rendering color. Defaults
+to opaque white if not specified.</p></li>
+<li><p><strong>bg_color</strong> (<em>Color</em><em>, </em><em>optional</em>) – The default background surface
+color. Defaults to a fully-transparent background if not specified.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The index of the font face to load if the
+font file contains multiple faces. Defaults to 0 (first face in
+the file) if not specified.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontManager.size" title="Permalink to this definition"></a></dt>
+<dd><p>The default font size in pt.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontManager.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontManager.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes all fonts opened by the class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontManager.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontManager.add" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a font to the <a class="reference internal" href="#sdl2.ext.ttf.FontManager" title="sdl2.ext.ttf.FontManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontManager</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The relative (or absolute) path to the font
+to load.</p></li>
+<li><p><strong>alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The name to give the font within the
+FontManager. Defaults to the font filename if not specified.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The size (in pt) at which to load the font.
+Defaults to the FontManager’s default size if not specified.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The index of the font face to load if the
+font file contains multiple faces. Defaults to 0 (first face in
+the file) if not specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pointer to the ctypes font object
+for the added font.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../sdl2_sdlttf.html#sdl2.sdlttf.TTF_Font" title="sdl2.sdlttf.TTF_Font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTF_Font</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontManager.color" title="Permalink to this definition"></a></dt>
+<dd><p>The color to use for rendering text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.bg_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bg_color</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontManager.bg_color" title="Permalink to this definition"></a></dt>
+<dd><p>The background color to use for rendering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.default_font">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_font</span></span><a class="headerlink" href="#sdl2.ext.ttf.FontManager.default_font" title="Permalink to this definition"></a></dt>
+<dd><p>The name of the default font. Must be set to the alias of a
+currently-loaded font.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.ttf.FontManager.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/ttf.html#FontManager.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.ttf.FontManager.render" title="Permalink to this definition"></a></dt>
+<dd><p>Renders text to a surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The text to render.</p></li>
+<li><p><strong>alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The alias of the font to use for rendering
+the text. Defaults to the FontManager’s default font if not
+specified.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The size (in pt) at which to render the font.
+Defaults to the FontManager’s default size if not specified.</p></li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The width (in pixels) of the output surface.
+If a line of text exceeds this value, it will be automatically
+wrapped to fit within the specified width. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>color</strong> (<em>Color</em>) – The font rendering color. Defaults to the
+FontManager’s default color if not specified.</p></li>
+<li><p><strong>bg_color</strong> (<em>Color</em><em>, </em><em>optional</em>) – The background surface color.
+Defaults to the FontManager’s default background color if not
+specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 32-bit ARGB surface containing the
+rendered text.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="image.html" class="btn btn-neutral float-left" title="sdl2.ext.image - Importing and Exporting Image Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bitmapfont.html" class="btn btn-neutral float-right" title="sdl2.ext.bitmapfont - Basic Bitmap Font Rendering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

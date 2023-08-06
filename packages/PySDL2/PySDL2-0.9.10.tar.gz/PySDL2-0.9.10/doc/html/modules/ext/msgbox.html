@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.msgbox - Displaying Alerts and Dialog Boxes &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.compat - Python Version Compatibility Helpers" href="compat.html" />
+    <link rel="prev" title="sdl2.ext.renderer - Accelerated 2D Rendering" href="renderer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common.html"><cite>sdl2.ext.common</cite> - Frequently Used SDL2 Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="window.html"><cite>sdl2.ext.window</cite> - Creating and Working with SDL2 Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="renderer.html"><cite>sdl2.ext.renderer</cite> - Accelerated 2D Rendering</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.msgbox</cite> - Displaying Alerts and Dialog Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.msgbox</cite> - Displaying Alerts and Dialog Boxes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/msgbox.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-msgbox-displaying-alerts-and-dialog-boxes">
+<h1><cite>sdl2.ext.msgbox</cite> - Displaying Alerts and Dialog Boxes<a class="headerlink" href="#sdl2-ext-msgbox-displaying-alerts-and-dialog-boxes" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.msgbox" title="sdl2.ext.msgbox"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.msgbox</span></code></a> module provides a Pythonic interface for working
+with the SDL MesssageBox API. These classes and functions make it easy to
+create user prompts and simple alerts using the system’s window manager.</p>
+<span class="target" id="module-sdl2.ext.msgbox"></span><dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.msgbox.MessageBoxTheme">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.msgbox.</span></span><span class="sig-name descname"><span class="pre">MessageBoxTheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btn_border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btn_selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/msgbox.html#MessageBoxTheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.msgbox.MessageBoxTheme" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes a color scheme for use with <a class="reference internal" href="#sdl2.ext.msgbox.MessageBox" title="sdl2.ext.msgbox.MessageBox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageBox</span></code></a> objects.</p>
+<p>This is used to define the background, text, and various button colors
+to use when presenting dialog boxes to users. All colors must be defined
+as either <code class="xref py py-obj docutils literal notranslate"><span class="pre">sdl2.ext.Color</span></code> objects or 8-bit <code class="docutils literal notranslate"><span class="pre">(r,</span> <span class="pre">g,</span> <span class="pre">b)</span></code> tuples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SDL2 only supports MessageBox themes on a few platforms, including
+Linux/BSD (if using X11) and Haiku. MessageBox themes will have no effect
+on Windows, macOS, or Linux if using Wayland.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bg</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, tuple, optional) – The color to use for the
+background of the dialog box. Defaults to <code class="docutils literal notranslate"><span class="pre">(56,</span> <span class="pre">54,</span> <span class="pre">53)</span></code>.</p></li>
+<li><p><strong>text</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, tuple, optional) – The color to use for the
+text of the dialog box. Defaults to <code class="docutils literal notranslate"><span class="pre">(209,</span> <span class="pre">207,</span> <span class="pre">205)</span></code>.</p></li>
+<li><p><strong>btn</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, tuple, optional) – The color to use for the
+backgrounds of buttons. Defaults to <code class="docutils literal notranslate"><span class="pre">(140,</span> <span class="pre">135,</span> <span class="pre">129)</span></code>.</p></li>
+<li><p><strong>btn_border</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, tuple, optional) – The color to use
+for the borders of buttons. Defaults to <code class="docutils literal notranslate"><span class="pre">(105,</span> <span class="pre">102,</span> <span class="pre">99)</span></code>.</p></li>
+<li><p><strong>btn_selected</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, tuple, optional) – The color to use
+for selected buttons. Defaults to <code class="docutils literal notranslate"><span class="pre">(205,</span> <span class="pre">202,</span> <span class="pre">53)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.msgbox.MessageBox">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.msgbox.</span></span><span class="sig-name descname"><span class="pre">MessageBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buttons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/msgbox.html#MessageBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.msgbox.MessageBox" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a prototype for a dialog box that can be presented to the user.</p>
+<p>The <cite>MessageBox</cite> class is for designing a dialog box in the style of the
+system’s window manager, containing a title, a message to present, and
+one or more response buttons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The title to use for the dialog box. All UTF-8 characters
+are supported.</p></li>
+<li><p><strong>msg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The main body of text to display in the dialog box. All UTF-8
+characters are supported.</p></li>
+<li><p><strong>buttons</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of strings, containing the labels of the buttons
+to place at the bottom of the dialog box (e.g. <code class="docutils literal notranslate"><span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;Yes&quot;]</span></code>).
+Buttons will be placed in left-to-right order.</p></li>
+<li><p><strong>default</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The label of the button to highlight as the
+default option (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;Yes&quot;</span></code>). Must match one of the labels in
+<code class="docutils literal notranslate"><span class="pre">buttons</span></code>. This option will be accepted if the Return/Enter key
+is pressed on the keyboard.</p></li>
+<li><p><strong>msgtype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of dialog box to create, if supported
+by the system. On most window managers, this changes the icon used
+in the dialog box. Must be one of ‘error’, ‘warning’, or ‘info’, or
+None (the default).</p></li>
+<li><p><strong>theme</strong> (<a class="reference internal" href="#sdl2.ext.msgbox.MessageBoxTheme" title="sdl2.ext.msgbox.MessageBoxTheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageBoxTheme</span></code></a>, optional) – The color scheme to use for
+the dialog box, if supported by the window manager. Defaults to the
+system default theme.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.msgbox.show_messagebox">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.msgbox.</span></span><span class="sig-name descname"><span class="pre">show_messagebox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msgbox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/msgbox.html#show_messagebox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.msgbox.show_messagebox" title="Permalink to this definition"></a></dt>
+<dd><p>Displays a dialog box to the user and waits for a response.</p>
+<p>By default message boxes are presented independently of any window, but
+they can optionally be attached explicitly to a specific SDL window. This
+prevents that window from regaining focus until a response to the dialog
+box is made.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msgbox</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageBox</span></code>) – The dialog box to display
+on-screen.</p></li>
+<li><p><strong>window</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Window</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Window</span></code>, optional) – The
+window to associate with the dialog box. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The label of the button selected by the user.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.msgbox.show_alert">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.msgbox.</span></span><span class="sig-name descname"><span class="pre">show_alert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/msgbox.html#show_alert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.msgbox.show_alert" title="Permalink to this definition"></a></dt>
+<dd><p>Displays a simple alert to the user and waits for a response.</p>
+<p>This function is a simplified version of <a class="reference internal" href="#sdl2.ext.msgbox.show_messagebox" title="sdl2.ext.msgbox.show_messagebox"><code class="xref py py-func docutils literal notranslate"><span class="pre">show_messagebox()</span></code></a> for cases
+where only one response button (“OK”) is needed and a custom color scheme
+is not necessary.</p>
+<p>By default message boxes are presented independently of any window, but
+they can optionally be attached explicitly to a specific SDL window. This
+prevents that window from regaining focus until a response to the dialog
+box is made.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msgbox</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">MessageBox</span></code>) – The dialog box to display
+on-screen.</p></li>
+<li><p><strong>window</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Window</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Window</span></code>, optional) – The
+window to associate with the dialog box. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="renderer.html" class="btn btn-neutral float-left" title="sdl2.ext.renderer - Accelerated 2D Rendering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compat.html" class="btn btn-neutral float-right" title="sdl2.ext.compat - Python Version Compatibility Helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

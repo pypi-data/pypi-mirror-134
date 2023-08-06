@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.uisystem &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>sdl2.ext.uisystem</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sdl2.ext.uisystem</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;User interface elements.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">isiterable</span><span class="p">,</span> <span class="n">stringify</span>
+<span class="kn">from</span> <span class="nn">.ebs</span> <span class="kn">import</span> <span class="n">System</span><span class="p">,</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">EventHandler</span>
+<span class="kn">from</span> <span class="nn">.sprite</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">events</span><span class="p">,</span> <span class="n">mouse</span><span class="p">,</span> <span class="n">keyboard</span><span class="p">,</span> <span class="n">rect</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;RELEASED&quot;</span><span class="p">,</span> <span class="s2">&quot;HOVERED&quot;</span><span class="p">,</span> <span class="s2">&quot;PRESSED&quot;</span><span class="p">,</span> <span class="s2">&quot;BUTTON&quot;</span><span class="p">,</span> <span class="s2">&quot;CHECKBUTTON&quot;</span><span class="p">,</span> <span class="s2">&quot;TEXTENTRY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;UIProcessor&quot;</span><span class="p">,</span> <span class="s2">&quot;UIFactory&quot;</span>
+<span class="p">]</span>
+
+
+<span class="n">RELEASED</span> <span class="o">=</span> <span class="mh">0x0000</span>
+<span class="n">HOVERED</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">PRESSED</span> <span class="o">=</span> <span class="mh">0x0002</span>
+
+<span class="n">BUTTON</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">CHECKABLE</span> <span class="o">=</span> <span class="mh">0x0002</span>
+<span class="n">CHECKBUTTON</span> <span class="o">=</span> <span class="p">(</span><span class="n">CHECKABLE</span> <span class="o">|</span> <span class="n">BUTTON</span><span class="p">)</span>
+<span class="n">TEXTENTRY</span> <span class="o">=</span> <span class="mh">0x0004</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_button</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds button attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">BUTTON</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">RELEASED</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">motion</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">released</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">click</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">released</span>
+        <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_checkbutton</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds check button attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_compose_button</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">CHECKBUTTON</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">checked</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_compose_textentry</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Binds text entry attributes to the object, so it can be properly</span>
+<span class="sd">    processed by the UIProcessor.</span>
+
+<span class="sd">    Note: this is an internal helper method to avoid multiple</span>
+<span class="sd">    inheritance and composition issues and should not be used by user</span>
+<span class="sd">    code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">uitype</span> <span class="o">=</span> <span class="n">TEXTENTRY</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">motion</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">released</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">keydown</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">keyup</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">editing</span> <span class="o">=</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">pressed</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">released</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTEDITING</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">editing</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTINPUT</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">input</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_KEYDOWN</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">keydown</span><span class="p">,</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">SDL_KEYUP</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">keyup</span>
+        <span class="p">}</span>
+
+
+<div class="viewcode-block" id="UIFactory"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory">[docs]</a><span class="k">class</span> <span class="nc">UIFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple UI factory for creating GUI elements for software- or</span>
+<span class="sd">    texture-based rendering.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spritefactory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UIFactory.</span>
+
+<span class="sd">        The additional kwargs will be stored internally and passed to the</span>
+<span class="sd">        UI creation methods as arguments. Hence they can act as default</span>
+<span class="sd">        arguments to be passed to each and every UI element to be</span>
+<span class="sd">        created.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span> <span class="o">=</span> <span class="n">spritefactory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+<div class="viewcode-block" id="UIFactory.from_image"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.from_image">[docs]</a>    <span class="k">def</span> <span class="nf">from_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from the passed image file.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_surface"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.from_surface">[docs]</a>    <span class="k">def</span> <span class="nf">from_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from the passed SDL surface.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_surface</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">free</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_object"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.from_object">[docs]</a>    <span class="k">def</span> <span class="nf">from_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element from an arbitrary object.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.from_color"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.from_color">[docs]</a>    <span class="k">def</span> <span class="nf">from_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uitype</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UI element using a certain color.&quot;&quot;&quot;</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">from_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">BUTTON</span><span class="p">:</span>
+            <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">CHECKBUTTON</span><span class="p">:</span>
+            <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">uitype</span> <span class="o">==</span> <span class="n">TEXTENTRY</span><span class="p">:</span>
+            <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">sprite</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;uitype must be a valid UI type identifier&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+<div class="viewcode-block" id="UIFactory.create_button"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.create_button">[docs]</a>    <span class="k">def</span> <span class="nf">create_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on mouse events.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_button</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+    <span class="k">def</span> <span class="nf">create_checkbutton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on mouse events and</span>
+<span class="sd">        retains its state.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_checkbutton</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span>
+
+<div class="viewcode-block" id="UIFactory.create_text_entry"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIFactory.create_text_entry">[docs]</a>    <span class="k">def</span> <span class="nf">create_text_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new Sprite that can react on text input.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">sprite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="o">.</span><span class="n">create_sprite</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">_compose_textentry</span><span class="p">(</span><span class="n">sprite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sprite</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;UIFactory(spritefactory=</span><span class="si">%s</span><span class="s2">, default_args=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spritefactory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_args</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="UIProcessor"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor">[docs]</a><span class="k">class</span> <span class="nc">UIProcessor</span><span class="p">(</span><span class="n">System</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A processing system for user interface elements and events.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new UIProcessor.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">UIProcessor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sprite</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEMOTION</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mousemotion</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mousedown</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_MOUSEBUTTONUP</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouseup</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">SDL_TEXTINPUT</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">textinput</span>
+            <span class="p">}</span>
+
+<div class="viewcode-block" id="UIProcessor.activate"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Activates a control to receive input.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">!=</span> <span class="n">component</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+            <span class="n">area</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">SDL_Rect</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">component</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                 <span class="n">component</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">component</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_SetTextInputRect</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+            <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_StartTextInput</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="n">component</span></div>
+
+<div class="viewcode-block" id="UIProcessor.deactivate"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deactivates the currently active control.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">component</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+                <span class="n">keyboard</span><span class="o">.</span><span class="n">SDL_StopTextInput</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="UIProcessor.passevent"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.passevent">[docs]</a>    <span class="k">def</span> <span class="nf">passevent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Passes the event to a component without any additional checks</span>
+<span class="sd">        or restrictions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">textinput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if an active component is available and matches the</span>
+<span class="sd">        passed component and passes the event on to that component.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activecomponent</span> <span class="o">==</span> <span class="n">component</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">TEXTENTRY</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">text</span> <span class="o">+=</span> <span class="n">stringify</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UIProcessor.mousemotion"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.mousemotion">[docs]</a>    <span class="k">def</span> <span class="nf">mousemotion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s motion position is on the component</span>
+<span class="sd">        and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the motion event position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, if it is</span>
+<span class="sd">        currently hovered or not.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">motion</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">|=</span> <span class="n">HOVERED</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="c1"># The mouse is not within the area of the button, reset the</span>
+            <span class="c1"># state</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">HOVERED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.mousedown"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.mousedown">[docs]</a>    <span class="k">def</span> <span class="nf">mousedown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s button press position is on the</span>
+<span class="sd">        component and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the button press position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, if it is</span>
+<span class="sd">        currently pressed or not. In case the component is a TextEntry and</span>
+<span class="sd">        the pressed button is the primary mouse button, the component will</span>
+<span class="sd">        be marked as the next control to activate for text input.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">PRESSED</span> <span class="o">|</span> <span class="n">HOVERED</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">CHECKABLE</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="n">mouse</span><span class="o">.</span><span class="n">SDL_BUTTON_LEFT</span><span class="p">:</span>
+                        <span class="n">component</span><span class="o">.</span><span class="n">checked</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">component</span><span class="o">.</span><span class="n">checked</span>
+            <span class="c1"># Since we loop over all components, and might deactivate</span>
+            <span class="c1"># some, store it temporarily for later activation.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="n">component</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">PRESSED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.mouseup"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.mouseup">[docs]</a>    <span class="k">def</span> <span class="nf">mouseup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks, if the event&#39;s button release position is on the</span>
+<span class="sd">        component and executes the component&#39;s event handlers on demand.</span>
+
+<span class="sd">        If the button release position is not within the area of the</span>
+<span class="sd">        component, nothing will be done. In case the component is a</span>
+<span class="sd">        Button, its state will be adjusted to reflect, whether it is</span>
+<span class="sd">        hovered or not. If the button release followed a button press on</span>
+<span class="sd">        the same component and if the button is the primary button, the</span>
+<span class="sd">        click() event handler is invoked, if the component is a Button.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x2</span> <span class="ow">and</span> \
+                <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">:</span>
+            <span class="c1"># Within the area of the component, raise the event on it.</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">](</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;</span> <span class="n">PRESSED</span><span class="p">)</span> <span class="o">==</span> <span class="n">PRESSED</span><span class="p">:</span>
+                    <span class="c1"># Was pressed already, now it is a click</span>
+                    <span class="n">component</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">RELEASED</span> <span class="o">|</span> <span class="n">HOVERED</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">uitype</span> <span class="o">&amp;</span> <span class="n">BUTTON</span><span class="p">):</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">state</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">HOVERED</span></div>
+
+<div class="viewcode-block" id="UIProcessor.dispatch"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.dispatch">[docs]</a>    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Passes an event to the given object.</span>
+
+<span class="sd">        If obj is a World object, UI relevant components will receive</span>
+<span class="sd">        the event, if they support the event type.</span>
+
+<span class="sd">        If obj is a single object, obj.events MUST be a dictionary</span>
+<span class="sd">        consisting of SDL event type identifiers and EventHandler</span>
+<span class="sd">        instances bound to the object. obj also must have a &#39;uitype&#39; attribute</span>
+<span class="sd">        referring to the UI type of the object.</span>
+<span class="sd">        If obj is an iterable, such as a list or set, every item within</span>
+<span class="sd">        obj MUST feature an &#39;events&#39; and &#39;uitype&#39; attribute as described</span>
+<span class="sd">        above.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">event</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">passevent</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">World</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">componenttypes</span><span class="p">:</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_components</span><span class="p">(</span><span class="n">ctype</span><span class="p">)</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">(</span><span class="n">event</span><span class="p">,)</span>
+                         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;uitype&quot;</span><span class="p">)</span> \
+                            <span class="ow">and</span> <span class="n">e</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">events</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">)</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">(</span><span class="n">event</span><span class="p">,)</span>
+                     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">events</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="n">handler</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nextactive</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="UIProcessor.process"><a class="viewcode-back" href="../../../modules/ext/uisystem.html#sdl2.ext.UIProcessor.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The UIProcessor class does not implement the process() method</span>
+<span class="sd">        by default. Instead it uses dispatch() to send events around to</span>
+<span class="sd">        components.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;UIProcessor()&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

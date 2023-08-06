@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sdl2.ext.renderer - Accelerated 2D Rendering &mdash; PySDL2 0.9.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sdl2.ext.msgbox - Displaying Alerts and Dialog Boxes" href="msgbox.html" />
+    <link rel="prev" title="sdl2.ext.window - Creating and Working with SDL2 Windows" href="window.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PySDL2
+          </a>
+              <div class="version">
+                0.9
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integrating PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">PySDL2 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Learn to fly - the tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdl2.html">sdl2 - SDL2 library wrapper</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../sdl2ext.html#sdl2-module-wrappers">SDL2 module wrappers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common.html"><cite>sdl2.ext.common</cite> - Frequently Used SDL2 Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="window.html"><cite>sdl2.ext.window</cite> - Creating and Working with SDL2 Windows</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><cite>sdl2.ext.renderer</cite> - Accelerated 2D Rendering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="msgbox.html"><cite>sdl2.ext.msgbox</cite> - Displaying Alerts and Dialog Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#utilities-for-working-with-sdl2-in-python">Utilities for working with SDL2 in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#sdl2-based-extensions">SDL2-based extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#useful-helpers-for-building-apps">Useful helpers for building apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdl2ext.html#component-oriented-systems">Component-Oriented Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlttf.html">sdl2.sdlttf - Python bindings for SDL2_ttf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlimage.html">sdl2.sdlimage - Python bindings for SDL2_image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlmixer.html">sd2.sdlmixer - SDL2_mixer library wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdl2_sdlgfx.html">sdl2.sdlgfx - SDL2_gfx library wrapper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">Release News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todos.html">Todo list for PySDL2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copying.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySDL2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="../sdl2ext.html">sdl2.ext - Helpful wrappers for the SDL2 API</a> &raquo;</li>
+      <li><cite>sdl2.ext.renderer</cite> - Accelerated 2D Rendering</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/ext/renderer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdl2-ext-renderer-accelerated-2d-rendering">
+<h1><cite>sdl2.ext.renderer</cite> - Accelerated 2D Rendering<a class="headerlink" href="#sdl2-ext-renderer-accelerated-2d-rendering" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="#module-sdl2.ext.renderer" title="sdl2.ext.renderer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sdl2.ext.renderer</span></code></a> module implements a Pythonic interface for working
+with the SDL Renderer API, which allows for easy hardware-accelerated 2D
+rendering with backends for a number of platforms (e.g. OpenGL, Direct3D, Metal)
+as well as a software-accelerated fallback.</p>
+<span class="target" id="module-sdl2.ext.renderer"></span><dl class="py function">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.set_texture_scale_quality">
+<span class="sig-prename descclassname"><span class="pre">sdl2.ext.renderer.</span></span><span class="sig-name descname"><span class="pre">set_texture_scale_quality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#set_texture_scale_quality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.set_texture_scale_quality" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the default scaling quailty for <code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture</span></code> objects.</p>
+<p>By default, SDL2 uses low-quality nearest-neighbour scaling for all new
+textures. This method lets you change the default scaling method to one of
+the following options:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nearest</p></td>
+<td><p>Nearest-neighbour pixel scaling (no filtering)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linear</p></td>
+<td><p>Linear filtering</p></td>
+</tr>
+<tr class="row-even"><td><p>Best</p></td>
+<td><p>Anisotropic filtering (falls back to linear if not available)</p></td>
+</tr>
+</tbody>
+</table>
+<p>This function does not apply retroactively, and will only affect textures
+created after it is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The default scaling method to use for SDL textures. Must
+be one of ‘nearest’, ‘linear’, or ‘best’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.renderer.</span></span><span class="sig-name descname"><span class="pre">Renderer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logical_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer" title="Permalink to this definition"></a></dt>
+<dd><p>A rendering context for SDL2 windows and sprites.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Renderer</span></code> can be created from an SDL window, an SDL Surface, or a
+<a class="reference internal" href="spritesystem.html#sdl2.ext.SoftwareSprite" title="sdl2.ext.SoftwareSprite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSprite</span></code></a>. Depending on the settings and operating
+system, this rendering context can use either hardware or software
+acceleration.</p>
+<p>A useful feature of SDL renderers is that that the logical size of the
+rendering context can be different than the actual size (in pixels) of its
+target window or surface. For example, the renderer for a 1024x768 window
+can be set to have a logical size of 640x480, improving performance at the
+cost of image quality. The rendered content will be automatically scaled to
+fit the target, and will be centered with black bars on either side in the
+case of an aspect ratio mismatch.</p>
+<p>If creating a rendering context from a window, you can customize the
+renderer using flags to request different settings:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_RENDERER_SOFTWARE</span></code></p></td>
+<td><p>Requests a software-accelerated renderer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_RENDERER_ACCELERATED</span></code></p></td>
+<td><p>Requests a hardware-accelerated renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_RENDERER_PRESENTVSYNC</span></code></p></td>
+<td><p>Enables vsync support for <a class="reference internal" href="#sdl2.ext.renderer.Renderer.present" title="sdl2.ext.renderer.Renderer.present"><code class="xref py py-meth docutils literal notranslate"><span class="pre">present()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_RENDERER_TARGETTEXTURE</span></code></p></td>
+<td><p>Requests support for rendering to texture.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To combine multiple flags, you can use a bitwise OR to combine two or more
+together before passing them to the <cite>flags</cite> argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">render_flags</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">sdl2</span><span class="o">.</span><span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span>
+<span class="p">)</span>
+<span class="n">sdl2</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">Renderer</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">render_flags</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, SDL2 will choose the first renderer backend that supports all
+the requested flags. However, you can also request a specific rendering
+backend by name (e.g. ‘opengl’, ‘opengles2’, ‘metal’, ‘direct3d’, etc.),
+giving you more control but likely making your code less cross-platform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Window</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – The target
+window or surface from which to create the rendering context.</p></li>
+<li><p><strong>backend</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The name of the specific backend to use
+for the new rendering context (e.g. ‘opengl’). Defaults to letting
+SDL2 decide. If <code class="docutils literal notranslate"><span class="pre">target</span></code> is not an SDL window, this argument has
+no effect.</p></li>
+<li><p><strong>logical_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>optional</em>) – The initial logical size (in pixels) of
+the rendering context as a <code class="docutils literal notranslate"><span class="pre">(w,</span> <span class="pre">h)</span></code> tuple. Defaults to the size
+of the target window or surface.</p></li>
+<li><p><strong>flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The requested features and settings for the
+new rendering context. Defaults to requesting a hardware-accelerated
+context. If <code class="docutils literal notranslate"><span class="pre">target</span></code> is not an SDL window, this argument has no
+effect.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – If a requested rendering backend is not available.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.sdlrenderer">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sdlrenderer</span></span><a class="headerlink" href="#sdl2.ext.renderer.Renderer.sdlrenderer" title="Permalink to this definition"></a></dt>
+<dd><p>The underlying base SDL renderer object.
+Can be used to perform operations with the renderer using the base
+PySDL2 bindings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Renderer</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.logical_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">logical_size</span></span><a class="headerlink" href="#sdl2.ext.renderer.Renderer.logical_size" title="Permalink to this definition"></a></dt>
+<dd><p>The logical size of the rendering context (in pixels), as a
+<code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code> tuple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#sdl2.ext.renderer.Renderer.color" title="Permalink to this definition"></a></dt>
+<dd><p>The current drawing color of the renderer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.blendmode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blendmode</span></span><a class="headerlink" href="#sdl2.ext.renderer.Renderer.blendmode" title="Permalink to this definition"></a></dt>
+<dd><p>The blend mode used for <a class="reference internal" href="#sdl2.ext.renderer.Renderer.fill" title="sdl2.ext.renderer.Renderer.fill"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fill()</span></code></a> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">line()</span></code> drawing
+operations. This value can be any of the following constants:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_BLENDMODE_NONE</span></code></p></td>
+<td><p>No blending</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_BLENDMODE_BLEND</span></code></p></td>
+<td><p>Alpha channel blending</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_BLENDMODE_ADD</span></code></p></td>
+<td><p>Additive blending</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_BLENDMODE_MOD</span></code></p></td>
+<td><p>Color modulation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_BLENDMODE_MUL</span></code></p></td>
+<td><p>Color multiplication (SDL &gt;= 2.0.12)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.scale">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scale</span></span><a class="headerlink" href="#sdl2.ext.renderer.Renderer.scale" title="Permalink to this definition"></a></dt>
+<dd><p>The x/y scaling factors applied to all drawing coordinates
+before rendering, in the format <code class="docutils literal notranslate"><span class="pre">(scale_x,</span> <span class="pre">scale_y)</span></code>. These can be
+used to facilitate resolution-independent drawing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>Destroys the renderer and any associated textures.</p>
+<p>When a renderer is no longer needed, it should be destroyed using this
+method to free up its associated memory. After being destroyed, a
+renderer can no longer be used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.reset_logical_size">
+<span class="sig-name descname"><span class="pre">reset_logical_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.reset_logical_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.reset_logical_size" title="Permalink to this definition"></a></dt>
+<dd><p>Resets the logical size of the renderer to its original value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the rendering surface with a given color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>color</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, optional) – The color with which to
+clear the entire rendering context. If not specified, the
+renderer’s current <a class="reference internal" href="#sdl2.ext.renderer.Renderer.color" title="sdl2.ext.renderer.Renderer.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a> will be used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srcrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dstrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.copy" title="Permalink to this definition"></a></dt>
+<dd><p>Copies (blits) a texture to the rendering context.</p>
+<p>If the source texture is an <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>, you will need
+to convert it into a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture</span></code> first before it can be
+copied to the rendering surface.</p>
+<p>The source texture can be flipped horizontally or vertically when
+being copied to the rendering context using one of the following
+flags:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_FLIP_NONE</span></code></p></td>
+<td><p>Does not flip the source (default)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_FLIP_HORIZONTAL</span></code></p></td>
+<td><p>Flips the source horizontally</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SDL_FLIP_VERTICAL</span></code></p></td>
+<td><p>Flips the source vertically</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subpixel rendering (i.e. using floats as pixel coordinates) requires
+SDL 2.0.10 or newer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Texture</span></code>) – The source
+texture to copy to the rendering surface.</p></li>
+<li><p><strong>srcrect</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>optional</em>) – An <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h)</span></code> rectangle defining
+the subset of the source texture to copy to the rendering
+surface. Defaults to copying the entire source texture.</p></li>
+<li><p><strong>dstrect</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>optional</em>) – An <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h)</span></code> rectangle
+defining the region of the rendering surface to which the
+source texture will be copied. Alternatively, if only
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> coordinates are provided, the width and height of
+the source rectangle will be used. Defaults to stretching
+the source across the entire rendering context.</p></li>
+<li><p><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – The clockwise rotation (in degrees) to
+apply to the destination rectangle. Defaults to no rotation.</p></li>
+<li><p><strong>center</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>optional</em>) – The point around with the destination
+rectangle will be rotated. Defaults to the center of the
+destination rectangle.</p></li>
+<li><p><strong>flip</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – A flag indicating whether the source should
+be flipped (horizontally or vertically) when rendering to the
+render context. Defaults to no flipping.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.blit">
+<span class="sig-name descname"><span class="pre">blit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srcrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dstrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.blit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.blit" title="Permalink to this definition"></a></dt>
+<dd><p>Copies a texture to the rendering context.</p>
+<p>An alias for the <a class="reference internal" href="#sdl2.ext.renderer.Renderer.copy" title="sdl2.ext.renderer.Renderer.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copy()</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.present">
+<span class="sig-name descname"><span class="pre">present</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.present"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.present" title="Permalink to this definition"></a></dt>
+<dd><p>Presents the current rendering surface to the screen.</p>
+<p>Because SDL renderers use batch rendering (i.e. they have a separate
+backbuffer that is drawn to and buffer shown on screen which are
+switched when this function is called), any drawing operations
+performed with the renderer will not take effect until this method
+is called.</p>
+<p>It is recommended that you clear and redraw the contents of the
+rendering context every time before this method is called, as the
+contents of the buffers are not guaranteed to remain the same between
+repeat presentations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.draw_line">
+<span class="sig-name descname"><span class="pre">draw_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.draw_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.draw_line" title="Permalink to this definition"></a></dt>
+<dd><p>Draws one or more connected lines on the rendering context.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subpixel rendering (i.e. using floats as pixel coordinates) requires
+SDL 2.0.10 or newer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of 2 or more <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> coordinates or
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Point</span></code> objects defining the set of connected
+lines to draw.</p></li>
+<li><p><strong>color</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, optional) – The color with which to
+draw the lines. If not specified, the renderer’s current
+<a class="reference internal" href="#sdl2.ext.renderer.Renderer.color" title="sdl2.ext.renderer.Renderer.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a> will be used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.draw_point">
+<span class="sig-name descname"><span class="pre">draw_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.draw_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.draw_point" title="Permalink to this definition"></a></dt>
+<dd><p>Draws one or more points on the rendering context.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subpixel rendering (i.e. using floats as pixel coordinates) requires
+SDL 2.0.10 or newer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> coordinates or
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Point</span></code> objects defining the set of points to
+draw.</p></li>
+<li><p><strong>color</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, optional) – The color with which to
+draw the points. If not specified, the renderer’s current
+<a class="reference internal" href="#sdl2.ext.renderer.Renderer.color" title="sdl2.ext.renderer.Renderer.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a> will be used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.draw_rect">
+<span class="sig-name descname"><span class="pre">draw_rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.draw_rect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.draw_rect" title="Permalink to this definition"></a></dt>
+<dd><p>Draws one or more rectangles on the rendering context.</p>
+<p>Rectangles can be specified as 4-item <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h)</span></code> tuples,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Rect</span></code> objects, or a list containing multiple
+rectangles in either format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subpixel rendering (i.e. using floats as pixel coordinates) requires
+SDL 2.0.10 or newer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rects</strong> (tuple, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Rect</span></code>, list) – The rectangle(s) to draw
+to the rendering context.</p></li>
+<li><p><strong>color</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, optional) – The color with which to
+draw the rectangle(s). If not specified, the renderer’s current
+<a class="reference internal" href="#sdl2.ext.renderer.Renderer.color" title="sdl2.ext.renderer.Renderer.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a> will be used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Renderer.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Renderer.fill"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Renderer.fill" title="Permalink to this definition"></a></dt>
+<dd><p>Fills one or more rectangular regions the rendering context.</p>
+<p>Fill regions can be specified as 4-item <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h)</span></code> tuples,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Rect</span></code> objects, or a list containing multiple
+rectangles in either format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subpixel rendering (i.e. using floats as pixel coordinates) requires
+SDL 2.0.10 or newer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rects</strong> (tuple, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Rect</span></code>, list) – The rectangle(s) to fill
+within the rendering context.</p></li>
+<li><p><strong>color</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code>, optional) – The color with which to
+fill the rectangle(s). If not specified, the renderer’s current
+<a class="reference internal" href="#sdl2.ext.renderer.Renderer.color" title="sdl2.ext.renderer.Renderer.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a> will be used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Texture">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sdl2.ext.renderer.</span></span><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Texture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Texture" title="Permalink to this definition"></a></dt>
+<dd><p>A 2D texture to be used with a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer</span></code>.</p>
+<p>In SDL2, textures are 2D images that have been prepared for fast rendering
+with a given renderer. For example, if an SDL surface is converted into a
+texture with a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer</span></code> using the OpenGL backend, the pixel
+data for the surface will internally be converted into an OpenGL texture.</p>
+<p>Once a surface has been converted into a <a class="reference internal" href="#sdl2.ext.renderer.Texture" title="sdl2.ext.renderer.Texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture</span></code></a>, the surface can be
+safely deleted if no longer needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>renderer</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer</span></code>) – The renderer associated with the
+texture.</p></li>
+<li><p><strong>surface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Surface</span></code>) – An SDL surface from which the
+texture will be created.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Texture.tx">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tx</span></span><a class="headerlink" href="#sdl2.ext.renderer.Texture.tx" title="Permalink to this definition"></a></dt>
+<dd><p>The underlying base SDL texture object.
+Can be used to perform operations with the texture using the base
+PySDL2 bindings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDL_Texture</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Texture.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#sdl2.ext.renderer.Texture.size" title="Permalink to this definition"></a></dt>
+<dd><p>The width and height (in pixels) of the texture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdl2.ext.renderer.Texture.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdl2/ext/renderer.html#Texture.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdl2.ext.renderer.Texture.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>Deletes the texture and frees its associated memory.</p>
+<p>When a texture is no longer needed, it should be destroyed using this
+method to free up memory for new textures. After being destroyed, a
+texture can no longer be used.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="window.html" class="btn btn-neutral float-left" title="sdl2.ext.window - Creating and Working with SDL2 Windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="msgbox.html" class="btn btn-neutral float-right" title="sdl2.ext.msgbox - Displaying Alerts and Dialog Boxes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Marcus von Appen. Last updated: 2022-01-08.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
