@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+slackops/__init__.py
+slackops/blocks.py
+slackops/interfaces.py
+slackops/templates.py
+slackops.egg-info/PKG-INFO
+slackops.egg-info/SOURCES.txt
+slackops.egg-info/dependency_links.txt
+slackops.egg-info/requires.txt
+slackops.egg-info/top_level.txt
