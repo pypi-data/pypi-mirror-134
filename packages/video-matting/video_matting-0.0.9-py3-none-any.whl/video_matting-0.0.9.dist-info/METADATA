@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: video-matting
+Version: 0.0.9
+Summary: video tool
+Home-page: https://github.com/CSPHQ/video-matting
+Author: qhduan
+Author-email: mail@qhduan.com
+License: GPLv3
+Keywords: pip,video
+Platform: any
+Requires-Dist: fire
+Requires-Dist: jax
+Requires-Dist: jax[cpu]
+Requires-Dist: moviepy
+Requires-Dist: numpy
+Requires-Dist: onnxruntime
+Requires-Dist: opencv-python
+Requires-Dist: tqdm
+
+video tool
+
+
