@@ -1,0 +1,8 @@
+pyproject.toml
+setup.cfg
+src/BetterThreads/BetterThreads.py
+src/BetterThreads/__init__.py
+src/better_threads.egg-info/PKG-INFO
+src/better_threads.egg-info/SOURCES.txt
+src/better_threads.egg-info/dependency_links.txt
+src/better_threads.egg-info/top_level.txt
