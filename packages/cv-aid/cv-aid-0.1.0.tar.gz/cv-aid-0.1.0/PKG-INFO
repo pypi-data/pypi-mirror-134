@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cv-aid
+Version: 0.1.0
+Summary: CV Aid is a set of helpers of computer vision tasks.
+License: GNU Version 3
+Author: Khalid Mohamed Elborai
+Author-email: accnew820@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: deepstack-sdk (>=0.2.1,<0.3.0)
+Requires-Dist: filetype (>=1.0.9,<2.0.0)
