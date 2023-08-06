@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+tox.ini
+src/mimetypes_extensions/__init__.py
+src/mimetypes_extensions/__init__.pyi
+src/mimetypes_extensions/mimetypes_extensions.py
+src/mimetypes_extensions/mimetypes_extensions.pyi
+src/mimetypes_extensions/py.typed
+src/mimetypes_extensions.egg-info/PKG-INFO
+src/mimetypes_extensions.egg-info/SOURCES.txt
+src/mimetypes_extensions.egg-info/dependency_links.txt
+src/mimetypes_extensions.egg-info/top_level.txt
+tests/__init__.py
+tests/test_mimetypes_extensions.py
