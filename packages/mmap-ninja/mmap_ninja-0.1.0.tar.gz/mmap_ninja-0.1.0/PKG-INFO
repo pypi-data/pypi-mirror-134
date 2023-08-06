@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: mmap_ninja
+Version: 0.1.0
+Summary: mmap.ninja: Memory mapped data structures
+Home-page: https://github.com/hristo-vrigazov/mmap.ninja
+Author: Hristo Vrigazov
+Author-email: hvrigazov@gmail.com
+License: MIT
+Description: ## mmap.ninja Python API
+        
+        Extension to `numpy.memmap`, which currently includes a `RaggedMemoryMap` (where the elements are of different shape),
+        and a `StringsMmmap`  (which is about 9 times faster than just storing your documents as text files).
+        
+        Currently under active development, API is not yet stable.
+        
+        Examples:
+        
+        ```python
+        from mmap_ninja.string import StringsMmmap
+        from pathlib import Path
+        
+        tmp_path = Path('.')
+        memmap = StringsMmmap.open_existing(tmp_path / 'strings_memmap')
+        for i in range(len(memmap)):
+            print(memmap[i])
+        memmap.close()
+        ```
+        
+        
+        ```python
+        from mmap_ninja.ragged import RaggedMMap
+        from pathlib import Path
+        
+        tmp_path = Path('.')
+        memmap = RaggedMMap.open_existing(tmp_path / 'ragged')
+        for i in range(len(memmap)):
+            print(memmap[i])
+        memmap.close()
+        ```
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
