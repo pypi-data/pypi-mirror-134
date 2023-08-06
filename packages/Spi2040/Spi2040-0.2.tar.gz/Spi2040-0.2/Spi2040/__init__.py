@@ -1,0 +1,1 @@
+from Spi2040.Devices import SpiDevice
