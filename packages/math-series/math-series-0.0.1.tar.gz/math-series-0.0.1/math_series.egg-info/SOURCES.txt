@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+math-series/__init__.py
+math-series/harmonic.py
+math_series.egg-info/PKG-INFO
+math_series.egg-info/SOURCES.txt
+math_series.egg-info/dependency_links.txt
+math_series.egg-info/top_level.txt
