@@ -1,0 +1,17 @@
+[dependencies.opaquebind]
+path = "local_dependencies/opaquebind"
+
+[dependencies.pyo3]
+features = ["extension-module"]
+version = "~0.14"
+
+[lib]
+crate-type = ["cdylib"]
+name = "opaquepy"
+
+[package]
+edition = "2021"
+name = "opaquepy"
+version = "0.2.0"
+[package.metadata.maturin]
+python-source = "python"
