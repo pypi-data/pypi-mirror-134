@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: sofa-spm
+Version: 1.0.9
+Summary: A package manager for the simulation framework called Sofa (https://www.sofa-framework.org)
+Home-page: https://github.com/SofaDefrost/SPM
+Author: Damien Marchal
+Author-email: damien.marchal@univ-lille1.fr
+License: GPL
+Platform: UNKNOWN
+License-File: LICENSE
+
+UNKNOWN
+
