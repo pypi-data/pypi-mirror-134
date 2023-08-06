@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: nhentaidevs
+Version: 1.0.0
+Summary: Mini Nhentai Scraper.
+Home-page: https://pypi.org/project/nhentaidevs
+Author: John Lester Dev :>
+Author-email: johnlesterincbusiness@gmail.com
+License: UNKNOWN
+Keywords: nhentai,download,images
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4
+Requires-Dist: coloredevs
+Requires-Dist: requests
+Requires-Dist: click
+Requires-Dist: tqdm
+
+## NhentaiDevs - Nhentai Scraper
+
+---
+
+This is my basic Nhentai Scraper for downloading images and fetching
+information from [nhentai.net](https://nhentai.net)
+using bs4, requests and other required modules.
+
+---
+
+> For Windows:
+```shell
+pip install nhentaidevs
+pip -m nhentaidevs your_code
+```
+> for Linux:
+```bash
+pip3 install nhentaidevs
+pip3 -m nhentaidevs your_code
+```
+
+
