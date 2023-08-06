@@ -1,0 +1,6 @@
+pydantic<1.10,>=0.32
+
+[dev]
+prospector[with_pyroma]
+yapf
+isort
