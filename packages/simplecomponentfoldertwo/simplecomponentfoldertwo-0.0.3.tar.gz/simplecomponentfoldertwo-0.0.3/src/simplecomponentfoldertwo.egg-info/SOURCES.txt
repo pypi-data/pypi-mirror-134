@@ -1,0 +1,11 @@
+LICENSE.txt
+README.txt
+pyproject.toml
+setup.cfg
+src/packagefolder/__init__.py
+src/packagefolder/__main__.py
+src/packagefolder/simplecomponenttwo.py
+src/simplecomponentfoldertwo.egg-info/PKG-INFO
+src/simplecomponentfoldertwo.egg-info/SOURCES.txt
+src/simplecomponentfoldertwo.egg-info/dependency_links.txt
+src/simplecomponentfoldertwo.egg-info/top_level.txt
