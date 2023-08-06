@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: Victor-project
+Version: 0.1.4
+Summary: First project
+Home-page: UNKNOWN
+Author: Munteanu-Victor
+Author-email: munteanuviktor@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# victor-project
+
+victor-project is my first python library
+
+## installation
+
+```bash
+pip install Victor-project
+```
+
+## Usage
+
+```python
+from victor_project import victor
+
+victor.hello_from_victor()
+#Prints Hello from Victor
+
+victor.goodbye_from_victor()
+#Prints Goodbye from Victor
+```
+
+
