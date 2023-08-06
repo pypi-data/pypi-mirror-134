@@ -1,0 +1,10 @@
+poglossary/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poglossary/__main__.py,sha256=SLVcv0-BwbcAxU70OGWsZIezRmuRYhVnZBLIMN-g6UY,55
+poglossary/config.py,sha256=oZ6E4k0pjsA4cFS7xFatRUR-3d52zoI0WpWmE8jQA14,2895
+poglossary/find_sources.py,sha256=r3289KxSuT7kv6qF5VJAIAnpvlwJ0TKvUcl-c4X-zVE,1890
+poglossary/logger.py,sha256=dE__imDIhB4nSB6FXqgYWivUuNbyeQEbZ0d_JAghP5E,246
+poglossary/poglossary.py,sha256=oXwvbwzDb1_Q2bdyFabqn40GLHombxCC-kVE_7V9joo,4045
+poglossary-0.1.0.dist-info/LICENSE,sha256=rTOtBXvTiRr9AWcjC2WPlSVTlJkGZ9jx5lJ1URMhY3w,1079
+poglossary-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+poglossary-0.1.0.dist-info/METADATA,sha256=5gCevZlJXEVXH80x_4SqCDAYb89--h267QxytHfUNB0,682
+poglossary-0.1.0.dist-info/RECORD,,
