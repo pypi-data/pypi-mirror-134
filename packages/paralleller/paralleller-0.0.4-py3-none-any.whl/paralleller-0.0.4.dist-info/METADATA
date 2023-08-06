@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: paralleller
+Version: 0.0.4
+Summary: 用于进行并行处理的接口库。
+Home-page: https://github.com/llango/paralleller
+License: MIT
+Author: Rontomai
+Author-email: rontomai@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: importlib_metadata (>=3.4.0,<4.0.0)
+Description-Content-Type: text/markdown
+
+# paralleller 介绍
+
+
+[![PyPI version](https://badge.fury.io/py/paralleller.svg)](https://badge.fury.io/py/paralleller)
+![versions](https://img.shields.io/pypi/pyversions/paralleller.svg)
+[![GitHub license](https://img.shields.io/github/license/mgancita/paralleller.svg)](https://github.com/mgancita/paralleller/blob/main/LICENSE)
+
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+
+用于进行并行处理的接口库。
+
+
+- 开源许可: MIT
+- 文档: https://llango.github.io/paralleller.
+
+
+## 特征
+
+* TODO
+
+
+## 项目布局
+
+    main.py    # 项目主文件，服务使用它启动。 uvicorn main:app --reload
+    .env       # 环境变量文件
+    requirements.txt    # 依赖文件
+    readme.md       # 简单说明文件
+    test.db         # 生成的数据库文件
+    mkdocs.yml      # mkdocs文档构建配置文件
+    LICENSE         # 开源许可文件
+    Procfile        # 容器用来执行用户设定的命令
+    Makefile        # 用来启动docker-compose 文件
+    .dockerignore   # docker打包上传到容器里过滤文件
+    .gitignore      # 版本控制过滤上传文件
+    docker-compose.yaml # docker-compose配置启动文件
+    Dockerfile      # Docker文件
+    core/
+        blog.py     # 与数据库进行博客交互文件
+        user.py     # 与数据库进行用户交互文件
+        __init__.py # 声明为包所需文件
+    database/
+        config.py   # 数据库连接配置文件
+        __init__.py # 声明为包所需文件
+    docs/
+        index.md    # 文档首页
+        database_config.md      # 对应database/config.py 文件的讲解
+    models/
+        models.py   # 用来建立数据库表映射的类文件
+        __init__.py # 声明为包所需文件
+    route/
+        auth.py     # 登录认证接口文件
+        blog.py     # 博客接口文件
+        user.py     # 用户接口文件
+        __init__.py # 声明为包所需文件
+    schema/
+        schemas.py  # 声明类型文件
+        __init__.py # 声明为包所需文件
+    static/
+        css/
+            index.css   # 样式文件
+        js/
+            main.js     # 脚步
+        images/         # 图片文件夹
+    templates/
+        index.html      # 模板文件
+    test/               # 测试目录
+    utils/
+        hash.py         # 密码处理文件
+        oa2.py          # 认证处理文件
+        token.py        # 指令处理文件
+        __init__.py     # 声明为包所需文件  
+
+
+## 项目启动
+    1. 进行该项目中，建立虚拟环境
+    ```
+    virtualenv venv
+    source  venv/bin/activate
+    ```
+    2. 安装依赖
+    ```
+    pip install -r requirements.txt
+    ```
+    3. 直接使用如下命令启动:
+        ``` 
+        uvicorn main:app --realod 
+        ```
+    
+## 文档启动
+
+```
+mkdocs serve --livereload -t shadocs -a localhost:8080
+```
+
+
+## 制作
+
+
+该包使用 [Cookiecutter](https://github.com/audreyr/cookiecutter) 和 [`llango/cookiecutter-mkdoc-shapackage`](https://github.com/llango/cookiecutter-mkdoc-shapackage/) 项目模版创建。
+
