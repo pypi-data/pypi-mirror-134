@@ -1,0 +1,15 @@
+LICENSE
+pyproject.toml
+setup.py
+src/botfights/__init__.py
+src/botfights.egg-info/PKG-INFO
+src/botfights.egg-info/SOURCES.txt
+src/botfights.egg-info/dependency_links.txt
+src/botfights.egg-info/entry_points.txt
+src/botfights.egg-info/requires.txt
+src/botfights.egg-info/top_level.txt
+src/botfights/wordle/README.md
+src/botfights/wordle/__init__.py
+src/botfights/wordle/sample_bot.py
+src/botfights/wordle/wordle.py
+src/botfights/wordle/wordlist.txt
