@@ -1,0 +1,9 @@
+[console_scripts]
+satproc_extract_chips = satproc.console.extract_chips:run
+satproc_generalize = satproc.console.generalize:run
+satproc_make_masks = satproc.console.make_masks:run
+satproc_match_histograms = satproc.console.match_histograms:run
+satproc_polygonize = satproc.console.polygonize:run
+satproc_scale = satproc.console.scale:run
+satproc_smooth_stitch = satproc.console.smooth_stitch:run
+
