@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: kintro
+Version: 0.0.1rc7
+Summary: Command line tool for creating kodi compatible edl from plex
+Home-page: https://github.com/neckbeard-io/kintro
+Author: brutog
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/neckbeard-io/kintro
+Description: UNKNOWN
+Keywords: kodi,plex,intro,edl
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >= 3.6
