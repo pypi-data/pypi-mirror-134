@@ -1,0 +1,48 @@
+{%- extends "sphinx_book_theme/layout.html" %}
+
+{%- block body_tag %}
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+{%- endblock %}
+
+{%- block content %}
+<div class="container-fluid" id="shim"></div>
+{{ super() }}
+{%- endblock %}
+
+{%- block docs_sidebar %}
+{%- if sidebars %}
+{{ super() }}
+{%- endif %}
+{% endblock %}
+
+{%- block docs_main %}
+{%- if theme_page_layouts and pagename in theme_page_layouts %}
+{%- include theme_page_layouts[pagename] %}
+{%- else %}
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+  {%- block docs_body %}
+  {%- if sidebars %}
+  {%- include "topbar.html" %}
+  {%- endif %}
+  <div id="main-content" class="row">
+    <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+      {{ super.super() }}
+      {% if theme_show_prev_next %}
+      {% include "_templates/prev-next.html" %}
+      {% endif %}
+    </div>
+  </div>
+  {%- endblock %}
+</main>
+{%- endif %}
+{%- endblock %}
+
+{%- block docs_navbar %}
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
+  {%- include "docs-navbar.html" %}
+</nav>
+{%- endblock %}
+
+{%- block footer %}
+{{ super.super() }}
+{%- endblock %}
