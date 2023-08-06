@@ -1,0 +1,13 @@
+networkx
+protobuf
+intervaltree
+sortedcontainers
+typing-extensions>=3.7.4.2
+
+[dev]
+mypy
+mypy-protobuf
+
+[doc]
+sphinx
+sphinx-autodoc-typehints
