@@ -1,0 +1,4 @@
+fuzzywuzzy
+lxml
+requests
+sqlalchemy
