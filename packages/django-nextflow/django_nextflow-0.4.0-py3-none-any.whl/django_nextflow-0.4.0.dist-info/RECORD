@@ -1,0 +1,10 @@
+django_nextflow/__init__.py,sha256=rgrSWqk5a7Gzfeq_YbBglAgr8K92jmdgmfjs7hqIyZ8,48
+django_nextflow/models.py,sha256=Tnk1wxLm-r8w2iTLlPXoxD7E5HFY0P2gq46uISf3W14,14338
+django_nextflow/utils.py,sha256=rbtZvWmokq6X0pVcXoHJtgiAJQKM3ap7qyHKu4ub1Q4,996
+django_nextflow/migrations/0001_initial.py,sha256=MkJr9gvMtqudGIxb3eCz4N0cVJIPEnF59q4SDMPgER0,3536
+django_nextflow/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_nextflow-0.4.0.dist-info/LICENSE,sha256=EW7UiAr9bU9-IvpU0V6OYDDHKaAZPzhR4cY4i4XITp8,35067
+django_nextflow-0.4.0.dist-info/METADATA,sha256=394XHKJBrwaM-t3typRzVh1P5AWJ6_a1YSkqlsfNQaE,6323
+django_nextflow-0.4.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+django_nextflow-0.4.0.dist-info/top_level.txt,sha256=mUcx1x53GjxkGnIErXkcq4vFz9ppoo4cuQtCRXGBPGo,16
+django_nextflow-0.4.0.dist-info/RECORD,,
