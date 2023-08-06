@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+miflora/__init__.py
+miflora/_static_version.py
+miflora/_version.py
+miflora/miflora_poller.py
+miflora/miflora_scanner.py
+miflora.egg-info/PKG-INFO
+miflora.egg-info/SOURCES.txt
+miflora.egg-info/dependency_links.txt
+miflora.egg-info/not-zip-safe
+miflora.egg-info/requires.txt
+miflora.egg-info/top_level.txt
