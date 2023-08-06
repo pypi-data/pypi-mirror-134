@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: PyRhoV0
+Version: 0.0.1
+Summary: Control Earth Resistivity Monitoring System
+Home-page: https://github.com/hojoonch/PyRho
+Author: HOJOON CHUNG
+Author-email: hojoonch@googl.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/hojoonch/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+#PyRho Package 
+
+This is a PyRho package. 
+- Control Earth Resistivity monitoring system
+- Display Data
+- Sending Data to Server
+
+
