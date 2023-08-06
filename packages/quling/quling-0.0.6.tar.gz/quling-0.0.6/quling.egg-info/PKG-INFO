@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: quling
+Version: 0.0.6
+Summary: 此库用于处理前面是0的近似与数型字符串，去掉前面的0后以数型输出。This package is used to handle near-numeric strings preceded by0,remove the 0 from it，then output it as a number.
+Home-page: https://github.com/
+Author: xw
+Author-email: 260726831@qq.com
+Maintainer: wx
+License: MIT License
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.5
+
+此库用于处理前面是0的近似与数型字符串，去掉前面的0后以数型输出。This package is used to handle near-numeric strings preceded by0,remove the 0 from it，then output it as a number./markdown
+
