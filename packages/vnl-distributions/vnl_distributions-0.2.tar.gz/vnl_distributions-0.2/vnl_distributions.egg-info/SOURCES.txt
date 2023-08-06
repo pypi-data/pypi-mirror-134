@@ -1,0 +1,11 @@
+README.md
+setup.py
+vnl_distributions/Binomialdistribution.py
+vnl_distributions/Gaussiandistribution.py
+vnl_distributions/Generaldistribution.py
+vnl_distributions/__init__.py
+vnl_distributions.egg-info/PKG-INFO
+vnl_distributions.egg-info/SOURCES.txt
+vnl_distributions.egg-info/dependency_links.txt
+vnl_distributions.egg-info/not-zip-safe
+vnl_distributions.egg-info/top_level.txt
