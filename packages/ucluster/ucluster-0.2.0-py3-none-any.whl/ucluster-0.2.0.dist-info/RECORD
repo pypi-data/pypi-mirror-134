@@ -1,0 +1,7 @@
+ucluster/__init__.py,sha256=GgQlqVBIKXbSrzJ7J_O44q51HRKFli7b0IBeT_rJcx4,72
+ucluster/text_cluster.py,sha256=xSvae6x1Nbj1FRhUIPOLUi53oFAewOf1mBffZtRynFY,4927
+ucluster/vd/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ucluster/vd/plugin.py,sha256=nATEB2-mJVfMJao1A6SZcx5Uqfe4gVv8RstU4S3Ge2A,1383
+ucluster-0.2.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+ucluster-0.2.0.dist-info/METADATA,sha256=soXRQ1OyvE695oWj7xspdVrY8U4SqdKUHo5bYFs3H0o,575
+ucluster-0.2.0.dist-info/RECORD,,
