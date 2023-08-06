@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sjt
+Version: 0.1.2
+Summary: Simple Jinja Templater
+Home-page: UNKNOWN
+Author: Miroslav Hudec <http://github.com/mihudec>
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: jinja2
+Requires-Dist: pyyaml
+
+UNKNOWN
+
