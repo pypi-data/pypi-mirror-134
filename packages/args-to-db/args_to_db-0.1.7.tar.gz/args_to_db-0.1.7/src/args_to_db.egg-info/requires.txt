@@ -1,0 +1,14 @@
+pandas
+cursor
+
+[dev]
+bandit
+mypy
+numpy
+parameterized
+prospector
+pylint
+pyroma
+pytest
+scipy
+setuptools
