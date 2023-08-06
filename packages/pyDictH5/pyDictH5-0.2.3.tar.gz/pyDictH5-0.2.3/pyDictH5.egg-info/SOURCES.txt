@@ -1,0 +1,16 @@
+LICENSE.txt
+README.rst
+pyproject.toml
+setup.py
+pyDictH5/__init__.py
+pyDictH5/_version.py
+pyDictH5/base.py
+pyDictH5/dep.py
+pyDictH5/io.py
+pyDictH5/pkl.py
+pyDictH5/tabular.py
+pyDictH5.egg-info/PKG-INFO
+pyDictH5.egg-info/SOURCES.txt
+pyDictH5.egg-info/dependency_links.txt
+pyDictH5.egg-info/requires.txt
+pyDictH5.egg-info/top_level.txt
