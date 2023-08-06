@@ -1,0 +1,1 @@
+from .sqlclass import dataclass
