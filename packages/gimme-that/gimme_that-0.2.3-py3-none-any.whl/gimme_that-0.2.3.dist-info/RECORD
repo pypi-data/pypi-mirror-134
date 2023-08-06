@@ -1,0 +1,13 @@
+gimme/__init__.py,sha256=cVkNJv84D528SUsrYPFSnoUT-oZQ460rZFjapLu-P4U,685
+gimme/attribute.py,sha256=74Ja6-Vg2ezGYSY1tXVrFRzsdFkBk3rePZBdGPCoWvg,709
+gimme/exceptions.py,sha256=4uCIo1RtHCi1HmfKXoxTjiREI9wWkVuGAmJHi-NVqhs,569
+gimme/helpers.py,sha256=pQb07tEb0vv8kKA7S-GZD6cm1RAQ39dkOd3-zycLvVc,1928
+gimme/main.py,sha256=td9KVPXU1U4rBsqhdwFJTkmf5LkmnSu35bpnEkerbQI,6709
+gimme/repository.py,sha256=ny7H9J1DUE0JqNE1bQDSXam80hAJfB_Jvs2xkEkazHg,5816
+gimme/resolvers.py,sha256=hgDdZUUNpzH2bIDkU9ybA0a6iyxc-6yT8ui5w9newig,4840
+gimme/types.py,sha256=NIH1LZ_u3oVrViBphqSEubPaPxLdZKt-jEWDWoo1yZ4,282
+gimme_that-0.2.3.dist-info/LICENSE,sha256=JMUStSmvMr6vEgxGQp3pK-H8z-mSf1_3_uuwA9bp8lY,1079
+gimme_that-0.2.3.dist-info/METADATA,sha256=g0cI5uU6BwbMSFfgCz-ll39zwnNXzb0m_Newv5g0__o,3958
+gimme_that-0.2.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+gimme_that-0.2.3.dist-info/top_level.txt,sha256=EhmTpZB4raF2Xwvlc-0ObUBCIpgPhikIVnKffoW6yno,6
+gimme_that-0.2.3.dist-info/RECORD,,
