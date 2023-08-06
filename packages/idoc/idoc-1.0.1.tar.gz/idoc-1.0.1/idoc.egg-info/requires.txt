@@ -1,0 +1,11 @@
+imutils
+pyfirmata
+opencv-python
+numpy
+pandas
+sklearn
+netifaces
+bottle
+gitpython
+cheroot
+requests
