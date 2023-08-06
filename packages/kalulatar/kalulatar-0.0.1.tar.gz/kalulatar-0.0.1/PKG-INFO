@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: kalulatar
+Version: 0.0.1
+Summary: awesome calculator
+Home-page: UNKNOWN
+Author: Dylan
+Author-email: dylansugito@gmail.com
+License: MIT
+Keywords: Calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+Test Library
+
+Change Log
+==========
+
+0.0.1 (17/01/2022)
+-------------------
+- First Release
+
+
