@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: mixologist
+Version: 0.1.0
+Summary: 
+Author: David Francos
+Author-email: opensource@davidfrancos.net
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: asyncio-mqtt (>=0.11.0,<0.12.0)
+Requires-Dist: fastapi (>=0.70.1,<0.71.0)
+Requires-Dist: httpx (>=0.21.1,<0.22.0)
+Requires-Dist: uvicorn (>=0.16.0,<0.17.0)
