@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gzdice
+Version: 0.1.2
+Summary: A Python diceroller designed for tabletop roleplayers and running in terminal to make you feel like a wizard.
+Author-email: Urse Searle <hello@gleeblezoid.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Home, https://github.com/gleeblezoid/Diceroller
+
+# Diceroller
+
+A Python diceroller designed for tabletop roleplayers and running in terminal to make you feel like a wizard.
+
