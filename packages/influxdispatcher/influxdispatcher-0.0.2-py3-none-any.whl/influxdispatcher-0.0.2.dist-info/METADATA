@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: influxdispatcher
+Version: 0.0.2
+Summary: A simple asynchronous/non-asynchronous package for sending requests
+Home-page: UNKNOWN
+Author: Jake Strouse
+Author-email: jstrouse@meh.llc
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# InfluxDispatcher
+
+A simple asynchronous/non-asynchronous package for sending requests. I made this because I
+was tired of using a bunch of try/except statements in my code when sending requests to my apis.
+This package will attempt to send requests twice. It returns the response object and a boolean indicating whether the request
+was successful or not. The format for the response is a tuple of the following (response_from_request, boolean)
+
