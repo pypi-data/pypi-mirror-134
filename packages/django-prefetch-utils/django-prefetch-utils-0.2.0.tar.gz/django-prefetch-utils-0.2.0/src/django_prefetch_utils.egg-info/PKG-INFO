@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: django-prefetch-utils
+Version: 0.2.0
+Summary: An library of utilities and enhancements for Django's prefetch_related system.
+Home-page: https://github.com/roverdotcom/django-prefetch-utils
+Author: Mike Hansen
+Author-email: mike@rover.com
+License: BSD 3-Clause License
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        This library provides a number of utilities for working with and extending
+        Django's ``prefetch_related`` system. Currently, it consists of:
+        
+          * a collection of descriptors to define relationships between models which
+            support prefetching
+          * a new implementation of ``prefetch_related_objects`` which supports an
+            identity map so that multiple copies of the same object are not fetched
+            multiple times.
+        
+        * Free software: BSD 3-Clause License
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install django-prefetch-utils
+        
+        Documentation
+        =============
+        
+        
+        https://django-prefetch-utils.readthedocs.io/
+        
+        Changelog
+        =========
+        
+        0.2.0 (2022-01-12)
+        ------------------
+        * Added library of descriptors for defining relationships of Django models
+          which can be prefetched.
+        
+        * Add support for the latest version of Django and Python.
+        
+        * Removed support for Python 2 and unsupported Django versions.
+        
+        * Updated backport of prefetch_related_objects to latest version from Django 4.0.
+        
+        0.1.0 (2019-07-16)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
