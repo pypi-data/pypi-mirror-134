@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+hotvect/__init__.py
+hotvect/hyperparam.py
+hotvect/mlutils.py
+hotvect/pyhotvect.py
+hotvect/utils.py
+hotvect.egg-info/PKG-INFO
+hotvect.egg-info/SOURCES.txt
+hotvect.egg-info/dependency_links.txt
+hotvect.egg-info/requires.txt
+hotvect.egg-info/top_level.txt
