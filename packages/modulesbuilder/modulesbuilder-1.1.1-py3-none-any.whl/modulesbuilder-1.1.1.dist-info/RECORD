@@ -1,0 +1,10 @@
+modulesbuilder/__init__.py,sha256=1pJ5FS_L-z1CbqUUR209EFdph5TdPGLJCn3y5vLKfqI,111
+modulesbuilder/build.py,sha256=A6TfD-SD6mpALjIlKjt8wpkLMRduOKuWupkWh-UQ-sA,14304
+modulesbuilder/module.py,sha256=C6vihTMT4VK4qZZZl6ZxsXX7-m9wu4TYehJWE3cB4Vk,7572
+modulesbuilder/modules.py,sha256=DiUgPjPI59hKubXGZ-KbahQTHG4RWCLmg6onvzOSbkM,3244
+modulesbuilder/version.py,sha256=q8_5C0f-8mHWNb6mMw02zlYPnEGXBqvOmP3z0CEwZKM,22
+modulesbuilder-1.1.1.dist-info/LICENSE.txt,sha256=K5eovM9S1VTIJpFxHab0V-8_7E7tTxdrQm5kJApUG80,1076
+modulesbuilder-1.1.1.dist-info/METADATA,sha256=2jAAvaqG6emM18Yuv4Rq2dLXZOPw6enmOOwE6aOwe28,982
+modulesbuilder-1.1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+modulesbuilder-1.1.1.dist-info/top_level.txt,sha256=Cg7E0xHToCaIlBgLhgsfMiJ5bVRRqzqNtT44g31aokE,15
+modulesbuilder-1.1.1.dist-info/RECORD,,
