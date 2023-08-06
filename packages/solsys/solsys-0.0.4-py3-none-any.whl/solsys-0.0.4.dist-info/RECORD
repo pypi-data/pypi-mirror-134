@@ -1,0 +1,12 @@
+solsys/__init__.py,sha256=0F-zqXGYQVyjIWQthtMGi7bFGn7Dol-c18z6XxQA6K0,52
+solsys/core.py,sha256=js5pRfmG8RN5yIZS58Yc4EHlQG9Cb9wYElWtd_LrVK8,1898
+solsys/horizons.py,sha256=kYbXM9Cmw_ruReh0-hsyCUtnzIfIBUQzz2f9O2ekrmE,12473
+solsys/plots.py,sha256=dKba5rSGMZtD6uHtAkHYqiTfCA3vkOoyXiO2CphiElE,4670
+solsys/transform.py,sha256=XFdAIcMb315RkUh8CTrhxmuz7SX7u0ujtgwE5CHnXcU,7595
+solsys/data/constellations.txt,sha256=m2DxkYCNjlE2bSyaIkwdtE7BB4-nNsqomGX7F3EIoXU,10882
+solsys/data/hipparcos.csv,sha256=lXIAit1L8vbW0eXqydqw41Q4UAf_Dku2phJij_juZd4,180711
+solsys-0.0.4.dist-info/LICENSE.txt,sha256=GVwI2lLxQ8oTlnPQsQ-RRiTufK7BM5lJaWSUq_Ogz7Y,1071
+solsys-0.0.4.dist-info/METADATA,sha256=a0FgOO2gQ232nqZL89mBb_nzqbU5gZOdslzPIH43Mxg,1101
+solsys-0.0.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+solsys-0.0.4.dist-info/top_level.txt,sha256=DZXgMbYlGARgt_NMmgG7-pyI0zDp74gzjIOtyfNCenk,7
+solsys-0.0.4.dist-info/RECORD,,
