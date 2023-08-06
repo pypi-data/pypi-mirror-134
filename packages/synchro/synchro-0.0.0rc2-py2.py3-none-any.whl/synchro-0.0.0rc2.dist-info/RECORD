@@ -1,0 +1,12 @@
+synchro/__init__.py,sha256=Mg6l0lelprkYC7YfTX6Gea5WYcWOSldv2lpGA_xwh_8,26
+synchro/cli.py,sha256=fSxlTS1mBije1WWkF6LXDEFd-OuznjwcHj_upgbQpZY,1118
+synchro/sync.py,sha256=0n5wD8WgDkG8nK8tdVwomJ0bnchxasvABSm-PowPzCs,13912
+synchro/utils.py,sha256=EzJEUEk8LU0bR5h-oxMCH-PymGgancVI_irab9nLSEU,4067
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_unit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_unit/test_utils.py,sha256=2mXdNwO1Ds5gh7tqLhpwNNsAMg4rLyBS6MGCo8B2SL8,251
+synchro-0.0.0rc2.dist-info/METADATA,sha256=NRz0UKlIepzRxv8weH8gJFE7WaZOzjQNzj82WNF1HKY,2465
+synchro-0.0.0rc2.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+synchro-0.0.0rc2.dist-info/entry_points.txt,sha256=tC7WVvwJa89PyZeGvGpqdKk-qMEsLKnKGysev1bnFpo,46
+synchro-0.0.0rc2.dist-info/top_level.txt,sha256=gwrM0HAv3Q7TA2kp36Y4ZBgU63UtVBWsg3DybahUR1E,14
+synchro-0.0.0rc2.dist-info/RECORD,,
