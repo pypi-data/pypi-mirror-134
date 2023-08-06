@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mimeutil
+Version: 1.0.4
+Summary: A MIME type and file extension library.
+Home-page: UNKNOWN
+Author: HOMEINFO - Digitale Informationssysteme GmbH
+Author-email: <info@homeinfo.de>
+Maintainer: Richard Neumann
+Maintainer-email: <r.neumann@homeinfo.de>
+License: GPLv3
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: python-magic
+
+UNKNOWN
+
