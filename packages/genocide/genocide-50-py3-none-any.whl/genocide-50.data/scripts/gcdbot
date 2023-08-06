@@ -1,0 +1,117 @@
+#!python
+# This file is placed in the Public Domain.
+
+
+"OTP-CR-117/19"
+
+
+import os
+import readline
+import sys
+import termios
+import time
+
+
+sys.path.insert(0, os.getcwd())
+
+
+from gcd.spc import Bus, Cfg, Client, Event, Handler, boot, kcmd, root, scan, launch
+
+
+from gcd.mod.irc import IRC
+from gcd.mod.irc import Cfg as ICfg
+from gcd.mod.rss import Fetcher
+
+
+import gcd.all
+import gcd.mod.all
+
+
+Cfg.wd = os.path.expanduser("~/.genocide")
+
+
+class Console(Client, Handler):
+
+
+    def __init__(self):
+        Client.__init__(self)
+        Handler.__init__(self)
+        Bus.add(self)
+
+    def handle(self, e):
+        launch(Handler.handle, self, e)
+        e.wait()
+
+    def poll(self):
+        e = Event()
+        e.orig = repr(self)
+        e.txt = input("> ")
+        return e
+
+    def raw(self, txt):
+        print(txt)
+
+
+def daemon():
+    pid = os.fork()
+    if pid != 0:
+        os._exit(0)
+    os.setsid()
+    os.umask(0)
+    si = open("/dev/null", 'r')
+    so = open("/dev/null", 'a+')
+    se = open("/dev/null", 'a+')
+    os.dup2(si.fileno(), sys.stdin.fileno())
+    os.dup2(so.fileno(), sys.stdout.fileno())
+    os.dup2(se.fileno(), sys.stderr.fileno())
+
+
+def watcher(clt, quit=False):
+    done = []
+    while 1:
+        time.sleep(1.0)
+        for ex in clt.errors:
+            if "reason" in dir(ex) and ex not in done:
+                print("\n")
+                traceback.print_exception(type(ex), ex, ex.__traceback__)
+                if quit:
+                    break
+            done.append(ex)
+        if quit:
+            break
+    for ex in done:
+        clt.errors.remove(ex)
+
+
+def wrap(func):
+    fd = sys.stdin.fileno()
+    old = termios.tcgetattr(fd)
+    try:
+        func()
+    except (EOFError, KeyboardInterrupt):
+        print("")
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old)
+
+
+ 
+def main():
+    boot(" ".join(sys.argv[1:]))
+    scan()
+    c = Console()
+    if Cfg.txt:
+        return kcmd(c, Cfg.otxt)
+    print("GENOCIDE start at %s (reconsider OTP-CR-117/19)" % time.ctime(time.time()))
+    print("channel=%s daemon=%s sasl=%s" % (ICfg.channel, Cfg.daemon, ICfg.sasl))
+    if Cfg.daemon:
+        daemon()
+    i = IRC()
+    i.start()
+    launch(watcher, i)
+    f = Fetcher()
+    f.start()
+    c.start()
+    while 1:
+        time.sleep(1.0)
+
+wrap(main)
