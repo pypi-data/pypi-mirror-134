@@ -1,0 +1,10 @@
+bobcat_miner/__init__.py,sha256=DcJs06HYvCoh3YS9-1VEVAMXLX-VaVZNH015kcWo6C0,80
+bobcat_miner/autopilot.py,sha256=aPfsBja3bH73Zes98_P76YjD4aeZFn4NFqJQRy6rvb8,12214
+bobcat_miner/bobcat.py,sha256=HaWrvQaAZ2D6H4qKVrWNv4B4i3Q9F_xnZIpRqT-F5aI,12346
+bobcat_miner/cli.py,sha256=EGn--CykuhdyGu0Pve4rafSHV1s_8o4V49MGKLIE4o4,1727
+bobcat_miner/helpers.py,sha256=ihUnX8e-iWV0bY_mDYo7Wc-6V_x1Av5RnrcBipiccfQ,1436
+bobcat_miner-0.4.0.dist-info/entry_points.txt,sha256=XP9AUIT8DqLHU8h9JiXItQqLCT6UjFQbaoiT65uu-gw,393
+bobcat_miner-0.4.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+bobcat_miner-0.4.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+bobcat_miner-0.4.0.dist-info/METADATA,sha256=yJIBEPb9aJl_xcnP5fQfT0OZCO8MInyrjk8aTz2SM_0,3856
+bobcat_miner-0.4.0.dist-info/RECORD,,
