@@ -1,0 +1,16 @@
+rdkit_step/__init__.py,sha256=R4xPSFGV2DjbPUJWAG0Pe9LShZICP0cjbTxuIG0Cf6A,757
+rdkit_step/_version.py,sha256=jhDWyyojn2NwcarSWGQUR4d2XYV6C5DruZK-ts3Vfxc,503
+rdkit_step/metadata.py,sha256=SxaOUZ4MDAWUkmG1rKqsioe6ytAdQ9vaYuId3j4yFO0,60247
+rdkit_step/rdkit.py,sha256=SB1M-rU1LV1G-mw1SFWJIQkrswpqjBA_VspYWRNKVIQ,7936
+rdkit_step/rdkit_parameters.py,sha256=vy4y2nwYw0rpRB98iDtBrgCkbC3lcougz7cE4NxfnIY,4230
+rdkit_step/rdkit_step.py,sha256=jcVkMYZAVei-rDYoiXfxbikAZnq6aPS4SvOZS8BlvJM,2887
+rdkit_step/tk_rdkit.py,sha256=0hi8H3ZWL8bVwIF7kTXANCeGPVwbyhBRgpRTTB8NS34,7567
+rdkit_step/data/references.bib,sha256=yw5N9A74ixUTOgMTQMNLpjZ8BbSWvvyY9NdT8XJQc-c,13170
+rdkit_step-2022.1.11.1.dist-info/AUTHORS.rst,sha256=XrJ0a8YWFOpNYJLyrVlkbx_CNpHK_qScQrwV6beDLsM,176
+rdkit_step-2022.1.11.1.dist-info/LICENSE,sha256=tv8mlx2Vb4XDzxBmljC94FqyJr4bYxy2Q_bgr8K16T8,1531
+rdkit_step-2022.1.11.1.dist-info/METADATA,sha256=uvOm4lz2aaQGqxbPGs5cekITDtpNdBMbakaorMXfkFg,3174
+rdkit_step-2022.1.11.1.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+rdkit_step-2022.1.11.1.dist-info/entry_points.txt,sha256=evGIBd6hSZm-7gMI3ZuwUOglLeS4DlzVw7QSPRddcKk,101
+rdkit_step-2022.1.11.1.dist-info/top_level.txt,sha256=CdRuuQe1NuqJjxV1ajPVlNZDPhUuOkqw1sb5TMf1fls,11
+rdkit_step-2022.1.11.1.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+rdkit_step-2022.1.11.1.dist-info/RECORD,,
