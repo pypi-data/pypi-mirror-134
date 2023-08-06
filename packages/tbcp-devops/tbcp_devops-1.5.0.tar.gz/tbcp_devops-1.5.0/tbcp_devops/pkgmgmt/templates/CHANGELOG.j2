@@ -1,0 +1,36 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+{# ## [Unreleased]
+### Added
+### Changed
+### Removed
+### Fixed #}
+{% for day in days %}
+## {{day.date}}
+
+{% if day.added %}### Added (Features)
+
+{% for add in day.added %}
+- **{{add.type}}** (*{{ add.scope }}*): {{ add.description }}{% endfor %}{% endif %}
+
+{% if day.fixed %}### Fixed (Patches)
+
+{% for fix in day.fixed %}
+- **{{fix.type}}** (*{{ fix.scope }}*): {{ fix.description }}{% endfor %}{% endif %}
+
+{% if day.changed %}### Changed
+
+{% for change in day.changed %}
+- **{{change.type}}** (*{{ change.scope }}*): {{ change.description }}{% endfor %}{% endif %}
+
+{% if day.maintained %}### Maintained
+
+{% for maintain in day.maintained %}
+- **{{maintain.type}}** (*{{ maintain.scope }}*): {{ maintain.description }}{% endfor %}{% endif %}
+
+{% endfor %}
