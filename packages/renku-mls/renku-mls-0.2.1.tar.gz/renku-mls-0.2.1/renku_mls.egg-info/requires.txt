@@ -1,0 +1,4 @@
+mlschema-converters
+deepdiff
+renku>=0.16.0
+prettytable
