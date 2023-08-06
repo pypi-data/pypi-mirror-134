@@ -1,0 +1,11 @@
+README.md
+setup.py
+ostur/__init__.py
+ostur/ostur_packet.py
+ostur/osturdb.py
+ostur/packets.py
+ostur.egg-info/PKG-INFO
+ostur.egg-info/SOURCES.txt
+ostur.egg-info/dependency_links.txt
+ostur.egg-info/not-zip-safe
+ostur.egg-info/top_level.txt
