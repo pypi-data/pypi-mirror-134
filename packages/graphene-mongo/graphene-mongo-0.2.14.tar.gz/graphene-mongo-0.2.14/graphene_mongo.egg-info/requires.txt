@@ -1,0 +1,8 @@
+graphene==3.0b7
+promise==2.3
+mongoengine>=0.23.0
+singledispatch>=3.4.0.3
+iso8601>=0.1.12
+
+[:python_version < "3.0"]
+futures
