@@ -1,0 +1,10 @@
+README.md
+setup.py
+quantperf/__init__.py
+quantperf.egg-info/PKG-INFO
+quantperf.egg-info/SOURCES.txt
+quantperf.egg-info/dependency_links.txt
+quantperf.egg-info/requires.txt
+quantperf.egg-info/top_level.txt
+tests/__init__.py
+tests/test_quantperf.py
