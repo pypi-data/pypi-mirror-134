@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+nian/nian.egg-info/PKG-INFO
+nian/nian.egg-info/SOURCES.txt
+nian/nian.egg-info/dependency_links.txt
+nian/nian.egg-info/top_level.txt
