@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: SmileRating
+Version: 0.1
+Summary: Smile Rating is a custom Widget for Qt Designer
+Home-page: https://github.com/PedroGM80/SmileRating.git
+Author: RDCH106
+Author-email: pedro13087@gmail.com
+License: LGPL v3
+Download-URL: https://codeload.github.com/PedroGM80/SmileRating/zip/refs/heads/main
+Project-URL: Bug Tracker, https://github.com/PedroGM80/SmileRating/issues
+Keywords: custom Widget for Qt Designer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# SmileRating
+This a custom Widget for Qt Designer provides a graphical interface to collect the degree of satisfaction of a product or service in an intuitive and pleasant way, to later collect results and assess the opinions of consumers of the product or service.
+
