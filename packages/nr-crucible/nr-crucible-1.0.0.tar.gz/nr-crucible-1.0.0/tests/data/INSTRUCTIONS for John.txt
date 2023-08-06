@@ -1,0 +1,35 @@
+John,
+
+Natasha wasn't done with the listings copy, so I've worked on a test file instead. If it will help you work the bugs out, it is here. If not, I hope we'll have final copy this afternoon. 
+
+In this folder:
+G:\Alltrans\to-johnb\TheCrucibleListings
+
+I've provided a TEST export. Hopefully the final export will be ready this afternoon. 
+TEST export for processing Crucible.csv
+
+This is the stylesheets document, with an example of how the text needs to be styled and the order of the text:
+CRUCIBLE-Stylesheets.docx
+
+This is the example of what the final design will look like:
+CRUCIBLE-Design.pdf
+
+
+Instructions for you 
+This time, you need to pull out the PREREQUISITE copy
+Search for the word "PREREQUISITE" in the description field, and pull it and everything after it until the end of the description out and into a separate field. 
+Make the word 'PREREQUISITE' lower case. 
+Leave the case alone on the rest of the copy in this prerequisite field. 
+It will be tagged with the "prerequisite' style
+
+When they run the formatting script NEXT year, they will have the prerequisite separated out into its own field.
+
+
+OTHER NOTES
+Section is a sort field that only displays once, at beginning of section.
+Department is a sort field that only displays once, at beginning of department.
+File has already been sorted (Sort: 1) Section; 2) Department; 3) ClassName)
+Add styles as shown on example document.
+
+
+

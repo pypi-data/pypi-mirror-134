@@ -1,0 +1,36 @@
+AUTHORS.rst
+CONTRIBUTING.rst
+HISTORY.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+crucible/__init__.py
+crucible/cli.py
+crucible/calendar/__init__.py
+crucible/calendar/calendar.py
+crucible/calendar/exceptions.py
+docs/Makefile
+docs/authors.rst
+docs/conf.py
+docs/contributing.rst
+docs/history.rst
+docs/index.rst
+docs/installation.rst
+docs/make.bat
+docs/readme.rst
+docs/usage.rst
+nr_crucible.egg-info/PKG-INFO
+nr_crucible.egg-info/SOURCES.txt
+nr_crucible.egg-info/dependency_links.txt
+nr_crucible.egg-info/entry_points.txt
+nr_crucible.egg-info/not-zip-safe
+nr_crucible.egg-info/requires.txt
+nr_crucible.egg-info/top_level.txt
+tests/__init__.py
+tests/test_calendar.py
+tests/data/CRUCIBLE-Design.pdf
+tests/data/CRUCIBLE-Stylesheets.docx
+tests/data/INSTRUCTIONS for John.txt
+tests/data/TEST export for processing Crucible.csv
