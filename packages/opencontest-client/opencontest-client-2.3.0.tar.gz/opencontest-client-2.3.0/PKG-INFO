@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: opencontest-client
+Version: 2.3.0
+Summary: A very simple OpenContest command line client written in Python
+Home-page: https://github.com/LadueCS/OpenContest-Client
+Author: Anthony Wang
+Author-email: ta180m@pm.me
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# OpenContest Client
+
+A very simple [OpenContest](https://github.com/LadueCS/OpenContest) command line client written in Python. The only dependency is the [requests](https://docs.python-requests.org/en/master/index.html) library. Tested with Linux only. Please report bugs on our [issues page](https://github.com/LadueCS/OpenContest-Client/).
+
+
+## Usage
+
+You can get started with 
+```
+pip install opencontest-client
+```
+
+Now register an account on an OpenContest server with
+```
+occ register -s homeserver.com -N name -E email -U username -P password
+```
+
+You can save your username, homeserver (the server you registered your account on), and password with
+```
+occ save -U username -H homeserver.com -P pasword
+```
+
+Query information about an OpenContest server with
+```
+occ about -s server.com
+```
+
+You can view the contests on the server with
+```
+occ contests -s server.com
+```
+
+Check the contest info with
+```
+occ info -s server.com -c contest
+```
+
+Save a problem statement with
+```
+occ problems -s server.com -c contest -p problem
+```
+
+Now you can submit with
+```
+occ submit -s server.com -c contest -p problem -c code_file
+```
+
+And check your status with
+```
+occ status -s server.com -c contest
+```
+
+You can query your submission history for a contest
+```
+occ submissions -s server.com -c contest
+```
+
+And examine a particular submission with
+```
+occ code -s server.com -c contest -n submission_number
+```
+
+View the number of solves of each problem with
+```
+occ solves -s server.com -c contest
+```
+
+
