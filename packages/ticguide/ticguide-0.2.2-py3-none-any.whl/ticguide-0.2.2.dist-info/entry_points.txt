@@ -1,0 +1,3 @@
+[console_scripts]
+ticguide = ticguide.cli:main
+
