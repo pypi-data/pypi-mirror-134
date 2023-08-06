@@ -1,0 +1,7 @@
+Django>=3.2
+Pillow>=2.0.0
+django-mptt>=0.7.1
+six
+
+[tests]
+coverage
