@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/gcodepy/__init__.py
+src/gcodepy/gcode.py
+src/gcodepy/util.py
+src/gcodepy.egg-info/PKG-INFO
+src/gcodepy.egg-info/SOURCES.txt
+src/gcodepy.egg-info/dependency_links.txt
+src/gcodepy.egg-info/top_level.txt
