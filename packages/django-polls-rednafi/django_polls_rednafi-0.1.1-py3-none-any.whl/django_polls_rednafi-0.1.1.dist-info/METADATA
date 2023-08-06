@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: django-polls-rednafi
+Version: 0.1.1
+Summary: This is the canonical `polls` app from the Django tutorial.
+Home-page: https://github.com/rednafi/django-polls
+Author: Redowan Delowar
+Author-email: redowan.nafi@gmail.com
+License: MIT  # Example license
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: Django (>=3.2)
+Requires-Dist: tblib (>=1.7.0)
+Provides-Extra: dev_deps
+Requires-Dist: black ; extra == 'dev_deps'
+Requires-Dist: flake8 ; extra == 'dev_deps'
+Requires-Dist: isort ; extra == 'dev_deps'
+Requires-Dist: twine ; extra == 'dev_deps'
+Requires-Dist: build ; extra == 'dev_deps'
+
+<h1>Django Polls<img src='https://user-images.githubusercontent.com/30027932/149640721-177e46fc-f108-4cd7-a379-5446b414fd32.png' align='right' width='128' height='128'></h1>
+
+<strong>>> <i>Django Polls App for Experimentation</i> <<</strong>
+
+</div>
+
+![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![github_actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
+## What?
+
+This is the canonical `polls` app from the Django tutorial.
+
+## Why?
+
+Experimenting with Django requires you to write a whole bunch of boilerplate code before you can get to the main point. So, I wanted to make it a reusable package. This is also helpful while communciating with people in blogs and tutorials on Django.
+
+## Quickstart
+
+
+
+
+
+<div align="center">
+<i> ✨ 🍰 ✨ </i>
+</div>
+
+
