@@ -1,0 +1,12 @@
+# GeoArchive
+
+The GeoArchive is a loosely coupled architecture for adopting various kinds of data, information, and knowledge repositories as archives of important scientific material that an institution (the USGS in this case) wants to adopt for long-term curation and management. This Python package provides utilities for operating curation and management tasks in standardized ways across different types of third party technologies. The archives of the GeoArchive construct are considered "active archives" in that they may be used in practice. 
+
+Enterprise archival tasks include things like:
+
+* Registering a repository for adoption
+* Reading and checking the metadata that describe items in a repository for compliance with standards and conventions that make the materials viable for archival
+* Examining, evaluating, and reporting on the digital contents of a repository, classifying materials as to their long-term viability and recommended actions for curation
+* Pulling all or select materials from a participating repository into a long-term backup/storage solution
+* Registering links for a repository's items through a handle system for the purpose of creating long-lasting references
+* Creating additional linkages for the items in a repository and/or descriptive metadata to other information sources inside or outside the GeoArchive framework (e.g., between repositories known to the GeoArchive, between items in a GeoArchive repository and third party information systems)
