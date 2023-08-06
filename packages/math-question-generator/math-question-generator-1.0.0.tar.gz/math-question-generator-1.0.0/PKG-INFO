@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: math-question-generator
+Version: 1.0.0
+Summary: Generate math questions & answers
+Home-page: https://github.com/shaun-ps-04/math_question_generator
+Author: Shaun Stocker
+Author-email: s.stocker04@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+## Welcome to Math Question Generator!
+
+### Basic Usage
+-----------
+
+from generator import basic_arithmetic
+print(basic_arithmetic())
+
+output:
+{"question": "5 + 14 * 2", "answer": "33"}
+
+
