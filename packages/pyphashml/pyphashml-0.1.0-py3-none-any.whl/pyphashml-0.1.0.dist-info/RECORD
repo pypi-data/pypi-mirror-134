@@ -1,0 +1,11 @@
+pyphashml/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyphashml/imgclient.py,sha256=PmJ5DDFzqqskMEBzrkwXPnfAdNK0FBH4YmiOBwE4TYg,1798
+pyphashml/imgcmp.py,sha256=fYn5KhEMkvCIDUQsUVU0lZJa9wmhsL_15WWDqQIg3Lw,851
+pyphashml/phashml.py,sha256=tC3oZSuZ9E_dHo6fZcRJF-GzvAKy_8pdfyMxfvWjqxI,2388
+pyphashml/resources/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyphashml/resources/mobilenetv2_deepaec_1792to256_combined.pb,sha256=PbEwKwg3X1HA0Co9hJ-kHofQZnt4271QsWjoelkIwJs,34501394
+pyphashml-0.1.0.dist-info/LICENSE,sha256=CtBNzPV5wlLB8wWDpjzkcLYdBjksux8IjMh6gsRV2WE,563
+pyphashml-0.1.0.dist-info/METADATA,sha256=3eSRQxoOlySN9TslRJxLYw1obXyh3gKRJXGZFiL3ypA,2204
+pyphashml-0.1.0.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+pyphashml-0.1.0.dist-info/top_level.txt,sha256=u6hZBzxBq5Oq2jXuE8gvbNBldiS0wHdtvgfS7pGtxqo,10
+pyphashml-0.1.0.dist-info/RECORD,,
