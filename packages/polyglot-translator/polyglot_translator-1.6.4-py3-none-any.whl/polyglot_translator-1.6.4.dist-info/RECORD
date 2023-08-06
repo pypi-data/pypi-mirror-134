@@ -1,0 +1,10 @@
+polyglot/__init__.py,sha256=KSUqNux2QCl2ko8mmUsYWwvTtPV0rbG6GzpDUkaFJVI,45
+polyglot/__main__.py,sha256=9WA3GZJ4D3kzHn7HDlusk3xkmHYkhWknoGsRAlVASnM,3306
+polyglot/deepl_request.py,sha256=Kg0_ucE0cSc1Ca1iR3qOQonerWNR5ZqjVDVMBiMuuuM,7007
+polyglot/managers.py,sha256=pZk37BNHbipsIOasEkBtvt5AIj0BubuC4Z70V13YA88,6721
+polyglot_translator-1.6.4.dist-info/LICENSE,sha256=X58VXa_PoT_AVZPVh5EXc6WO8RPe8KNXieogWZJOd3I,1057
+polyglot_translator-1.6.4.dist-info/METADATA,sha256=-ah5u-vYNIAW6T8j1vGK1UOYbzepJLOIvwijyirkZsM,4631
+polyglot_translator-1.6.4.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+polyglot_translator-1.6.4.dist-info/entry_points.txt,sha256=ua168LsfQpTuTVx2sjuiI8hgG2_dXPH7lJBLnEeSy_I,72
+polyglot_translator-1.6.4.dist-info/top_level.txt,sha256=vWBHK-c1j1_UAQrfuc8SDNtmLO13vXTDkLIKeHnM4Q8,9
+polyglot_translator-1.6.4.dist-info/RECORD,,
