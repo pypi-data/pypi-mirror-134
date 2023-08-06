@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+django_polls_rednafi.egg-info/PKG-INFO
+django_polls_rednafi.egg-info/SOURCES.txt
+django_polls_rednafi.egg-info/dependency_links.txt
+django_polls_rednafi.egg-info/requires.txt
+django_polls_rednafi.egg-info/top_level.txt
