@@ -1,0 +1,3 @@
+[vdk.plugin.run]
+vdk-kerberos-auth = vdk.plugin.kerberos.kerberos_plugin
+
