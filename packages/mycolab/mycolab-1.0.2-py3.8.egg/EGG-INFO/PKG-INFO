@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: mycolab
+Version: 1.0.2
+Summary: Command line tools for MycoLab
+Home-page: https://github.com/mycolab/mycolab
+Author: Joseph Harrison
+Author-email: joe@mycolab.org
+License: Apache Software
+Download-URL: https://github.com/mycolab/mycolab/archive/1.0.2.tar.gz
+Description: ![architecture](images/logo-s.png)  
+        
+        Suite of mycology applications and tools for automating common lab workflows.
+        
+        - Website: https://mycolab.org
+        - Email: <info@mycolab.org>
+        - Github: https://github.com/mycolab
+        - Discord: https://discord.gg/STW6wXaNBC
+        
+        ## Features
+        
+        - Query BLAST
+        - Curate FASTA files
+        - Generate phylogenetic trees
+        - Periodic tree updates
+        - Publish results to various sites: inaturalist.org, mushroomobserver.org, etc.
+        
+        ## Architecture
+        ![architecture](images/architecture.png)
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
