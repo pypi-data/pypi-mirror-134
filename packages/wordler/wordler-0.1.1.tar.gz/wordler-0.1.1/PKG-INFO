@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: wordler
+Version: 0.1.1
+Summary: solves the wordle word puzzle
+Home-page: https://github.com/martino-vic/wordler
+Author: Viktor Martinović
+Author-email: viktormartin95@hotmail.com
+License: MIT
+Download-URL: https://github.com/martino-vic/wordler/archive/refs/tags/v0.1.tar.gz
+Description: UNKNOWN
+Keywords: wordle,puzzle,anagram
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
