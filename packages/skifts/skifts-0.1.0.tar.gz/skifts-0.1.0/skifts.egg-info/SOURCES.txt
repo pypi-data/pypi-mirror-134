@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+skifts/__init__.py
+skifts/_array2d.py
+skifts/_fts.py
+skifts.egg-info/PKG-INFO
+skifts.egg-info/SOURCES.txt
+skifts.egg-info/dependency_links.txt
+skifts.egg-info/requires.txt
+skifts.egg-info/top_level.txt
