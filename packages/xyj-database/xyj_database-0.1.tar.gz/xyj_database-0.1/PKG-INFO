@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: xyj_database
+Version: 0.1
+Summary: A package for show data
+Home-page: UNKNOWN
+Author: Yijie Xia
+Author-email: yijiexia@pku.edu.cn
+License: UNKNOWN
+Description: 待更新说明
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
