@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: didyou
+Version: 0.1.0
+Summary: Misspelling detection tool
+License: GPL-3.0
+Author: Gabriel Gazola Milan
+Author-email: gabriel.gazola@poli.ufrj.br
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
