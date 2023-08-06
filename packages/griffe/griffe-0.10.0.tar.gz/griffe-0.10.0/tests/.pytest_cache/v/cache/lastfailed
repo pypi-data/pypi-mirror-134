@@ -1,0 +1,20 @@
+{
+  "test_cli.py": true,
+  "test_docstrings/test_google.py": true,
+  "test_docstrings/test_google.py::test_multi_single_line_sections": true,
+  "test_docstrings/test_numpy.py": true,
+  "test_docstrings/test_rst.py": true,
+  "test_functions.py": true,
+  "test_inspector.py": true,
+  "test_inspector.py::test_s": true,
+  "test_nodes.py": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from . import c-a.b-True-a.c]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from . import d-a.b.c-True-a.b.d]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from .. import e-a.c.d.i-True-a.c.e]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from ... import f-a.c.d.i-True-a.f]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from ...b import f-a.c.d.i-True-a.b.f]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from ...c.d import e-a.c.d.i-True-a.c.d.e]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from ..d import e-a.c.d.i-True-a.c.d.e]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from .c import d-a.b-True-a.c.d]": true,
+  "test_nodes.py::test_relative_to_absolute_imports[from .polynomial import P-numpy.polynomial-numpy.polynomial.polynomial.P]": true
+}
