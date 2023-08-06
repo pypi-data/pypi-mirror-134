@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: goddess
+Version: 0.0.1
+Summary: Spawn your personal website.
+License: CC0-1.0
+Author: Angelo Gladding
+Author-email: angelo@ragt.ag
+Requires-Python: >=3.9,<3.10
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PySide6 (>=6.2.2,<7.0.0)
+Requires-Dist: canopy-platform (>=0,<1)
+Requires-Dist: understory (>=0,<1)
+Description-Content-Type: text/markdown
+
+# Gaea
+
+Spawn your personal website.
+
+## Use
+
+### Binary Executables
+
+Linux x64 | Windows | OS X
+
+### Source Installation
+
+    pip install goddess
+
+## Develop
+
+### Try/Test
+
+    git clone https://github.com/canopy/gaea.git && cd gaea
+    poetry install
+    poetry run python -m gaea
+
+### Build
+
+    poetry run python build.py ( linux | macos | windows )
+    ./dist/gaea [ port ]
+

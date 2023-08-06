@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "goddess"
+version = "0.0.1"
+description = "Spawn your personal website."
+authors = ["Angelo Gladding <angelo@ragt.ag>"]
+license = "CC0-1.0"
+readme = "README.md"
+packages = [{include = "gaea"}]
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.10"
+PySide6 = "^6.2.2"
+understory = "^0"
+canopy-platform = "^0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+flake8-docstrings = "^1.6.0"
+pep8-naming = "^0.12.1"
+radon = "^5.1.0"
+ipython = "^7.30.1"
+understory = {path = "../understory"}
+canopy-platform = {path = "../canopy"}
+Nuitka = "^0.6.19"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

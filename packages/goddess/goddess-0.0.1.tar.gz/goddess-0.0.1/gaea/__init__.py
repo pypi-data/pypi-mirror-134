@@ -1,0 +1,1 @@
+"""Spawn your personal website."""
