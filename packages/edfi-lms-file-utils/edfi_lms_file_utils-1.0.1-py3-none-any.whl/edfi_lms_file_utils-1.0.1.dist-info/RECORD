@@ -1,0 +1,9 @@
+edfi_lms_file_utils/__init__.py,sha256=w39m7mNqlHjqoOS7p7bCgFsWk6Ph39SljinaaLivl_E,269
+edfi_lms_file_utils/constants.py,sha256=4o4Vng6W1HD2OO12FNe1YqT7xn39UulGi-QkIhM7ejc,1286
+edfi_lms_file_utils/directory_repository.py,sha256=XcpcttBHYVbmr6I5DkplaQoyhpSLC0ndpyg1MackAA8,5639
+edfi_lms_file_utils/file_reader.py,sha256=e5Styy9QHmL0JD4zF6vrIT3ZycCTG88krC-Vr3HBgcw,22626
+edfi_lms_file_utils/file_repository.py,sha256=uQtzR5uEzbm1sa71TWyqoSEIsqeDGUJljt5V31B-oNs,6581
+edfi_lms_file_utils/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+edfi_lms_file_utils-1.0.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+edfi_lms_file_utils-1.0.1.dist-info/METADATA,sha256=I26vWH7OXyw2_zYunorO8Bsy2QKpGJquBFecPzqrC44,1000
+edfi_lms_file_utils-1.0.1.dist-info/RECORD,,
