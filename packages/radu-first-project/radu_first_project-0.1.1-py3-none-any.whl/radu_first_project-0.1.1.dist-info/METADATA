@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: radu-first-project
+Version: 0.1.1
+Summary: Demo library
+Home-page: UNKNOWN
+Author: catalin
+Author-email: raducatalin97@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Foobar
+
+Foobar is a Python library for dealing with word pluralization.
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install foobar
+```
+
+## Usage
+
+```python
+import setup
+
+# returns 'words'
+setup.pluralize('word')
+
+# returns 'geese'
+setup.pluralize('goose')
+
+# returns 'phenomenon'
+setup.singularize('phenomena')
+```
+
