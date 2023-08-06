@@ -1,0 +1,3 @@
+[console_scripts]
+toyrobot = toyrobot.app:main
+
