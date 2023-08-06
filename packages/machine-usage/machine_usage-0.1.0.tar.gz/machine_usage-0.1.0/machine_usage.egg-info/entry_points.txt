@@ -1,0 +1,3 @@
+[console_scripts]
+machine_usage = src.machine_usage.argparse:main
+

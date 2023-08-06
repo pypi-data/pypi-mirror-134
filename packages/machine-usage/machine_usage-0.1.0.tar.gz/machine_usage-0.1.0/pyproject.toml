@@ -1,0 +1,13 @@
+# name = "machine_usage"
+# version = "0.1.0"
+# description = "Display the available recourses on our local cluster."
+# authors = ["jan-stevens <stevens.jan.adriaan@gmail.com>"]
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "click",
+    "textual",
+    "distro"
+]
+build-backend = "setuptools.build_meta"
