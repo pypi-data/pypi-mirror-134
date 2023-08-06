@@ -1,0 +1,8 @@
+setup.py
+nmstools/__init__.py
+nmstools/nmstools.py
+nmstools.egg-info/PKG-INFO
+nmstools.egg-info/SOURCES.txt
+nmstools.egg-info/dependency_links.txt
+nmstools.egg-info/requires.txt
+nmstools.egg-info/top_level.txt
