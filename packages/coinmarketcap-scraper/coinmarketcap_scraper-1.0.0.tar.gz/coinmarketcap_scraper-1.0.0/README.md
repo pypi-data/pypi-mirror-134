@@ -1,0 +1,54 @@
+Coin Market Scraper is a python library to scrape circulation, market price, name.... using browser automation. 
+It currently runs only on windows.
+
+## Scrape Coin Market
+* In this, we first import library, then we fetched data using simple function. 
+```json
+from coinmarketcap_scraper import *
+response=coinmarketcap.data_scrape()
+```
+### Response Data
+```json
+        "sr": "1",
+        "name": "Bitcoin",
+        "price": "$42,795.40",
+        "24h": "2.07%",
+        "7d": "2.07%",
+        "market_cap": "$810,202,436,959",
+        "volume": "$19,986,771,982",
+        "circulating_supply": "18,932,000 BTC"
+```
+
+
+#### BotStudio
+[bot_studio](https://pypi.org/project/bot_studio/) is needed for browser automation. As soon as this library is imported in code, automated browser will open up and opens coin market cap web page and scrapes the data.
+#### Installation
+```sh
+pip install coinmarketcap-scraper
+```
+
+#### Import
+```sh
+from coinmarketcap_scraper import *
+```
+#### Get Data from Coin Market
+```sh
+response=coinmarketcap.data_scrape()
+data=response['body']
+```
+
+#### Run bot on cloud
+You can run bot on [cloud](https://datakund.com/products/coin-market-cap-scraper?_pos=1&_sid=637b4f656&_ss=r).
+
+### Send Feedback to Developers
+```sh
+bot_studio.send_feedback(feedback="Need help with this ......")
+```
+
+### Contact Us
+* [Telegram](https://t.me/datakund)
+* [Website](https://datakund.com)
+
+
+
+
