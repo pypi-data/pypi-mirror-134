@@ -1,0 +1,13 @@
+FaceIn/FaceIn.py,sha256=bRc-BRy1U-gyw0o1oKOEgj5syvCptHdqxMEC1pUl9FI,28071
+FaceIn/FaceIn_BuildDatabase.py,sha256=Pqw8JQqnukKAeEOMgrZU9GryR7gJi8-DcoXTSzcrOZg,7696
+testing/test_csicamera.py,sha256=djfNW9Sy4-owL_lbrFzZR7ztibcSH0pnpsNWoWSMhHE,1861
+testing/test_detectface.py,sha256=WdavQIfe5kCcRM_Va1YrnvaL_nRuNQ9OYKrlGUVX_iQ,10839
+testing/test_keyinput.py,sha256=9x8eT9UWfDSaVI5vyVn_Ws8G6A7TdBOglTponoeRlBY,227
+testing/test_mtcnn.py,sha256=ALIa64EgnxRQY3dHf89_j73KTXvFat0fswUZJC44TJo,3795
+testing/test_retinaface.py,sha256=_YqoKqP2Ux9G3XI0EULr1Y8GTuO71-CdNXwMd3ddNko,4944
+testing/test_tk.py,sha256=9arVrXAGcYCNeLaXynloS1JW6W7wG4rRj4JTqDbN_K4,1792
+FaceIn-1.0.1.dist-info/LICENSE,sha256=GhTsTNsL6vNglT-IYC51B6RerhukbY1Qfn8KVUIqiwk,1100
+FaceIn-1.0.1.dist-info/METADATA,sha256=T84ry8H9YM__kr8zmUe_bqncPlLKfdEfOMVB502TdMw,3107
+FaceIn-1.0.1.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+FaceIn-1.0.1.dist-info/top_level.txt,sha256=N2yqQhQdXOhqhlTmGkXJakKw94woUFHSrcYO5x-aFb4,15
+FaceIn-1.0.1.dist-info/RECORD,,
