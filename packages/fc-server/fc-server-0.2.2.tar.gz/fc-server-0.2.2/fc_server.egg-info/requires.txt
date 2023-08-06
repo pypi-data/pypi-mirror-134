@@ -1,0 +1,4 @@
+aiohttp==3.7.4.post0
+lavacli==1.2
+labgrid==0.4.1
+pyserial-labgrid==3.4.0.1
