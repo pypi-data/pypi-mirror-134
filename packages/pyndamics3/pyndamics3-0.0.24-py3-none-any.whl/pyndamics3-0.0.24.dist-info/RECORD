@@ -1,0 +1,13 @@
+pyndamics3/__init__.py,sha256=qpNkLSMBNPRCOZ0UG5QOLGZH0F-MFtjm-RpXc16l-KM,84
+pyndamics3/_nbdev.py,sha256=apXQOL7hRzAtrruh3ygja69qqoZ6WJWWV__nIe0hM_A,2927
+pyndamics3/chem.py,sha256=LTQ4Hk7kVjyURsNw6G8QpyYF6Sp8CsTiD-AYgRlUjLY,1784
+pyndamics3/core.py,sha256=vJAxk7S5mbLIW3e-vrmpK59vyPyUCbbQFKC4u2DZtd8,52760
+pyndamics3/fit.py,sha256=6KeZhpX2AazJQNyLTRkFdr9Mjz7T4Bd9gvVuuZ9rGrA,2553
+pyndamics3/mcmc.py,sha256=knjOPgRgTp0SrSsoTZU6xPUvtcY-yeolZMkxFzbwmQg,29841
+pyndamics3/testit.py,sha256=gSwCaK90aLrOqbrNTxdYq6cSQEK2krzYTTVOLavfvt8,203
+pyndamics3-0.0.24.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pyndamics3-0.0.24.dist-info/METADATA,sha256=e9lzem6u-fsgOHe0OrK5YOBeHhFsRI07WMtpQSjPVGE,1387
+pyndamics3-0.0.24.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyndamics3-0.0.24.dist-info/entry_points.txt,sha256=eqGnTHtEVMYwfXVk1Z9MhC8O2N8wuqAbr0lisLmrkxs,20
+pyndamics3-0.0.24.dist-info/top_level.txt,sha256=0hSo8qFkiD0y0kAOkv7wAYdCFYYkUjSpm3jX5hg3yKU,11
+pyndamics3-0.0.24.dist-info/RECORD,,
