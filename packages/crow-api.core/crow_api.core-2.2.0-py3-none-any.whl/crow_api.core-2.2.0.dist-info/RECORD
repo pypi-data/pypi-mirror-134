@@ -1,0 +1,10 @@
+crow_api/core/__init__.py,sha256=I8BsdeApup3xD2nFfOXyiZJB066UDUauXAK5lHiU6Tw,45079
+crow_api/core/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+crow_api/core/_jsii/__init__.py,sha256=SmuFrzyA58cF-O7S0ls2ucW_iFP9QE8HYRk4ssh8FOQ,349
+crow_api/core/_jsii/crow-api@2.2.0.jsii.tgz,sha256=uMejM2GiU3DIHS0YRQ58zYQTcd63l8oH7kqW0TqEbls,310804
+crow_api.core-2.2.0.data/scripts/crow-api,sha256=imEsIfddqPcdiba5eMXMq_s46ywNq7o7SQbgYwtKu6w,221
+crow_api.core-2.2.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+crow_api.core-2.2.0.dist-info/METADATA,sha256=5HzJyHiKsGR7HQRZdqNzRAik3HgLFjSdHqO5IHUtMWM,16027
+crow_api.core-2.2.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+crow_api.core-2.2.0.dist-info/top_level.txt,sha256=cml3i6wYcAtznKtRwoW6Scciajqmf2zSWv5S37DReek,9
+crow_api.core-2.2.0.dist-info/RECORD,,
