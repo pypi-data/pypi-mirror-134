@@ -1,0 +1,10 @@
+nonebot_plugin_memes/__init__.py,sha256=YootU89x_Rn9_vbcSOTxQLFaT_9u1sp4Cb3EHBDVzLc,2823
+nonebot_plugin_memes/data_source.py,sha256=Lkzzx67-KAJQmiPj8bGL7UNdgQAdbEB9bkY9M37N6eI,284
+nonebot_plugin_memes/download.py,sha256=MQIhfojxwObZ4OQ8duXQfRZAWkJ0rhWhZLwsude0cGw,1380
+nonebot_plugin_memes/functions.py,sha256=0VHuS4cPCCsyDa_uOqLEZF5aihzK-WjL42VzMK3ysp0,2682
+nonebot_plugin_memes/gif_meme.py,sha256=zwhJrxFZa-WlAypBxwpQt-Q500gvH4tK18srs1OX63Q,3491
+nonebot_plugin_memes/static_meme.py,sha256=Gm0ZIoAK0aR7JGGv0e8xy4MxvoBPQQBMsDdToz8-wq0,5062
+nonebot_plugin_memes-0.1.5.dist-info/LICENSE,sha256=Y46u2BV5EbnQLp5EIx5YRLcHcCiB7sY06At5fiA6PiM,1063
+nonebot_plugin_memes-0.1.5.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+nonebot_plugin_memes-0.1.5.dist-info/METADATA,sha256=TcZwgVi9fh8XcxhGsOtu3s9BAsZidHuSCBtAzS7dWwY,722
+nonebot_plugin_memes-0.1.5.dist-info/RECORD,,
