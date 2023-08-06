@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: ml-express
+Version: 0.1.3
+Summary: A Python library for day to day data analysis and machine learning.
+Home-page: https://github.com/ved93/ml-express
+Author: Ved
+Author-email: vpved93@gmail.com
+License: License :: OSI Approved :: MIT License
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: scipy (>=1.2.1)
+Requires-Dist: numpy (>=1.16.2)
+Requires-Dist: pandas (>=0.24)
+Requires-Dist: scikit-learn (>=0.23.2)
+Requires-Dist: pandas-profiling (>=2.11.0)
+Requires-Dist: matplotlib (>=3.0.0)
+Requires-Dist: joblib (>=0.13.2)
+Requires-Dist: Pillow (>=8.2.0)
+Requires-Dist: seaborn (>=0.11.0)
+Requires-Dist: graphviz (>=0.16)
+Requires-Dist: sklearn-pandas (>=1.8.0)
+Requires-Dist: pandas-summary (>=0.0.7)
+
+# ml_express
+
+A Python library for day to day data analysis and machine learning.
+This aims to make data building, cleaning and machine learning much much faster.
+
+
+
+## Installation
+
+pip install ml-express
+
+## Usage
+
+```python
+import ml_express as mlx
+from ml_express import eda
+
+# this will create an html report and report will be saved in report folder in working directory
+eda.create_summary_report(df)
+
+```
+
+
+## Contributing
+Contributions are very welcome. Please feel free to submit PR. 
+
+
+## License
+Distributed under the terms of the MIT license, "ml-express" is free and open source software
+
+## Issues
+If you encounter any problems, please file an issue along with a detailed description.
+
