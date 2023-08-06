@@ -1,0 +1,3 @@
+[console_scripts]
+amdnet=train_AMDNet:main
+
