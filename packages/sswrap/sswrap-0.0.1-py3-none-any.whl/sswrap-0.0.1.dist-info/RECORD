@@ -1,0 +1,15 @@
+sswrap/__init__.py,sha256=dOKnLswC1qV8FLVgDby7SSuu0gyGPtgQWVDxrMAEDEw,801
+sswrap/exceptions.py,sha256=xQsCHn2XvrngTCjls1BXnV7pyCGBA8enOumDWBvljgw,46
+sswrap/spreadsheet.py,sha256=2H4uYY8GPMJp9savrkmf8aO3LNwA0OHm8Vkdj5QGqLQ,544
+sswrap/worksheet.py,sha256=-7gdyltnbBJXxSDCsasp3MR55bvoNaBubu7WP8ON2L4,226
+sswrap/writable_spreadsheet.py,sha256=zuHVF9wCIAfh8ytCAa_uag4TY3PPa0yzubjr7dPUUq4,309
+sswrap/writable_worksheet.py,sha256=ZSmnZiFH-_EREPxFWzxe6mahu474xgB72pUEn9zTCBo,357
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_empty.py,sha256=akaUoUroHWUNLxuXGrmdCH6tbos1m41lAvu15UP_aDw,94
+tests/test_sswrap.py,sha256=RT9nzyD_C9p-5OxZdcrCJ_rBrUbbr_uExKcEZDySh0c,528
+sswrap-0.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+sswrap-0.0.1.dist-info/METADATA,sha256=mPj-SPt99gGR6o6rT1qo8extBQzq4TyO169GQdHgfiE,781
+sswrap-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+sswrap-0.0.1.dist-info/entry_points.txt,sha256=Ltj9gDBxKbJxsRQnI44NjRi14APpp4mxq6NT_8lkSWY,103
+sswrap-0.0.1.dist-info/top_level.txt,sha256=6vCjXXjk6tTdLqmZ4GIW3Ne7wVn_7erjQbw111n6Rw0,13
+sswrap-0.0.1.dist-info/RECORD,,
