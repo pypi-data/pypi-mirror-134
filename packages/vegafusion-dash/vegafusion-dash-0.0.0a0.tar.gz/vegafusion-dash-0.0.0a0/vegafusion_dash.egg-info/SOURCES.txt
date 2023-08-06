@@ -1,0 +1,5 @@
+setup.py
+vegafusion_dash.egg-info/PKG-INFO
+vegafusion_dash.egg-info/SOURCES.txt
+vegafusion_dash.egg-info/dependency_links.txt
+vegafusion_dash.egg-info/top_level.txt
