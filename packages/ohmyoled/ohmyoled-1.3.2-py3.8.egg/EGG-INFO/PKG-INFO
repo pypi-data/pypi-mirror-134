@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: ohmyoled
+Version: 1.3.2
+Summary: 64x32 Oled Matrix Display
+Home-page: https://github.com/TheFinalJoke/ohmyoled
+Author: thefinaljoke
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8.9
