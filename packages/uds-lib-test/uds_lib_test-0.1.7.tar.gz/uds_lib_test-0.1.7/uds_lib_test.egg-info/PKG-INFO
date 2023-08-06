@@ -1,0 +1,111 @@
+Metadata-Version: 2.1
+Name: uds-lib-test
+Version: 0.1.7
+Summary: Lib for UDS API
+Home-page: UNKNOWN
+Author-email: s@uds.app
+License: UNKNOWN
+Platform: UNKNOWN
+
+This library for API calls to UDS App
+
+All information about UDS App API: https://docs.uds.app/
+
+Data Types
+
+There are special notices regarding data types used by Partner API. Please consider these notices as requirements since not following them may result in lack of functionality, errors or unpredictable behavior.
+
+Numbers and Rounding
+
+All numbers given to API must be rounded off to two decimal places by the round half up method. All responses from the server shall also follow this rule; so every field which is calculated on the server side will have not more than two decimal digits and the number will be rounded off by the "half up" method.
+
+UUID
+
+Partner API uses UUID 4 (or similar) to distinguish each request sent by the application.
+
+Standard integration scenario:
+
+1. Customer downloads the UDS app at promo.uds.app.
+2. Customer shows a promo code (6 digits) from the app to a cashier.
+3. Cashier registers this code and information on the customer is displayed (first name, last name, the balance of points).
+4. Cashier enters the number of points to be deducted, 1 point = 1 ruble.
+5. Total bill amount is reduced by the number of deducted points. For example, the amount payable is 100, 30 points to be deducted and 70 rubles are to be paid in total.
+6. When the payment is completed, information on this transaction would be sent to UDS.
+
+A detailed description of called methods.
+
+Requirements
+API key (token) and company id used for integration with POS system shall not be hardcoded. I.e., when setting up the integration module, it should be possible to register API key and id in some configuration file (config), because they are different for each company.
+
+Warning!
+If error 401 unauthorized is returned when sending requests, API key or company id are incorrect.
+
+The integration module shall be accompanied by documentation on how to configure this module so that any cash processing specialist can do this.
+
+Описание на русском языке.
+
+В настоящем документе дается описание библиотеки запросов к PARTNER API, предоставляемого UDS для партнеров. PARTNER API предназначен для разработчиков для интеграции UDS в системы.
+Сайт с описанием методов UDS Partner API: https://docs.uds.app/
+PARTNER API предоставляет функциональные возможности, которые направлены на выполнение различных программных действий, в том числе:
+
+- получение информации о компании, ее настройкам;
+- получение списка клиентов компании;
+- получение информации о клиенте по его ID в компании;
+- получение списка проведенных операций;
+- получение информации о проведенной операции по ID в компании;
+- получение списка товаров/ категорий;
+- получение информации о товаре/ категории по ID в компании;
+- получение информации о заказе по ID в компании;
+- поиск информации о клиенте по 6-значному коду из приложения UDS App, номеру телефона, UID;
+- создание операции;
+- возврат по операции;
+- расчет максимального количества списываемых бонусов/ размера скидки для операции;
+- начисление бонусных баллов;
+- создание ваучера;
+- создание товара/ категории;
+- редактирование товара/ категории;
+- удаление товара/ категории;
+- редактирование заказа;
+- закрытие заказа;
+- генерирование кода клиента для заказа;
+
+
+Числа и округление
+
+Все числа должны быть округлены с точностью до двух десятичных знаков до ближайшего числа. Все ответы от сервера также должны следовать этому правилу; поэтому каждое поле, рассчитанное на стороне сервера, будет иметь не более двух десятичных цифр, а число будет округлено до ближайшего числа.
+
+UUID
+
+Partner API использует UUID 4 (или аналогичный) для идентификации каждого запроса, отправленного приложением.
+
+Временные отметки и даты
+
+Для любой временной отметки или даты в Partner API используется формат ISO 8601.
+
+Временные отметки используются в:
+
+- заголовке X-Timestamp
+- поле для операции dateCreated
+- других заголовках или полях, имеющих явное описание типов Date или ISO 8601 Date.
+
+Коды ответов и ошибки
+
+Partner API использует стандартные коды состояния HTTP для индикации успешности запроса. Некоторые ответы также могут содержать поле errorCode, которое содержит подробное объяснение возникшей ошибки. Ожидается, что все запросы, приведшие к состоянию ответа 4xx (ошибка на стороне клиента), не будут повторяться до тех пор, пока не будет найден источник ошибки.
+
+Типовой сценарий интеграции:
+
+1. Клиент скачивает приложение UDS promo.uds.app
+2. Показывает свой код на оплату (6 цифр) из приложения кассиру.
+3. Кассир вводит данный код в кассу и отображается информация о клиенте (Имя, Фамилия, сколько бонусных баллов накопил).
+4. Кассир вводит сколько бонусов списать, 1 бонусный балл = 1 рубль
+5. Итоговая сумма счета понижается на количество списываемых бонусных баллов. Например, счет 100, списываем 30 бонусных баллов, итого клиент должен оплатить 70 рублей.
+6. После оплаты в UDS отправляется информация о данной оплате.
+7. Если по каким-то причинам чек был проведен без использования UDS, то реализовать печать ваучера для накопления бонусов после покупки.
+
+Требования
+
+API key (токен) и id компании, которые мы используем при интеграции с кассой, не должны жестко прописываться в коде. Т.е. при настройке интеграционного модуля должна быть возможность прописать API key и id в какой-нибудь конфигурационный файл (config), т.к. они для каждой компании свои.
+Внимание!
+
+Если при отправке запросов возвращается 401 ошибка unauthorized, то API key или id компании введены неверно
+
