@@ -1,0 +1,2 @@
+octodns>=0.9.14
+python-transip>=0.5.0
