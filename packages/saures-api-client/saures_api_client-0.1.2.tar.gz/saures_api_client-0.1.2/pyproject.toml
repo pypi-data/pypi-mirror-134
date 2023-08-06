@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "saures_api_client"
+version = "0.1.2"
+description = "SAURES API client"
+authors = ["Yury Sokov <yury@yurzs.dev>"]
+readme = "README.md"
+homepage = "https://github.com/Yurzs/saures_api_client"
+repository = "https://github.com/Yurzs/saures_api_client"
+keywords = ["api", "saures", "iot", "client"]
+exclude = ["tests"]
+
+[tool.poetry.dependencies]
+python = ">=3.6.2 <4"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.4"
+isort = "^5.10.1"
+black = "^21.11b1"
+pylint = "^2.12.2"
+
+[tools.isort]
+profile = "black"
+src_paths = ["saures_api_client", "tests"]
+
+[tools.black]
+line-length = 99
+target-version = ["py36", "py37", "py38", "py39", "py310"]
+
+[tool.pytest]

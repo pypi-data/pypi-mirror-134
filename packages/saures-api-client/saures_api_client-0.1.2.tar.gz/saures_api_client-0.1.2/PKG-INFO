@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: saures-api-client
+Version: 0.1.2
+Summary: SAURES API client
+Home-page: https://github.com/Yurzs/saures_api_client
+Keywords: api,saures,iot,client
+Author: Yury Sokov
+Author-email: yury@yurzs.dev
+Requires-Python: >=3.6.2,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Project-URL: Repository, https://github.com/Yurzs/saures_api_client
+Description-Content-Type: text/markdown
+
+SAURES API Client
+=================
+
+[SAURES](https://saures.ru) API client
+
+Stage: Alpha
+
+Installation
+------------
+
+1. From this repository (`poetry` required)
+* `git clone https://github.com/Yurzs/saures_api_client.git`
+* `cd saures_api_client`
+* `poetry install --no-dev`
+
+2. From PyPi
+* `pip install saures_api_client`
+
+Usage
+-----
+
+1. You can use all the api methods like they are named in [SAURES API docs](https://api.saures.ru/doc/):
+```python
+from saures_api_client import SauresAPIClient
+
+async def main():
+    client = SauresAPIClient("your email", "your password")
+
+    objects = await client.user_objects()
+
+...
+```
+
+2. Or you can use more user-friendly wrapper around the client:
+```python
+from saures_api_client import SauresAPIClient
+from saures_api_client import types
+
+async def main():
+    user = SauresAPIClient.get_user("your email", "your password")
+    
+    locations = await user.get_locations()
+    # returns typing.List[types.Location]
+    
+    location = locations[0]
+    location_controllers = await location.get_controllers()
+    # returns typing.List[types.Controller]
+    # so you can easily propagate deeper in entities without
+    # specifically providing their IDs to the client.
+
+```
+
