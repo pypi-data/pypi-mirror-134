@@ -1,0 +1,10 @@
+LICENSE
+README.md
+main.py
+setup.py
+opencontest_cli.egg-info/PKG-INFO
+opencontest_cli.egg-info/SOURCES.txt
+opencontest_cli.egg-info/dependency_links.txt
+opencontest_cli.egg-info/entry_points.txt
+opencontest_cli.egg-info/requires.txt
+opencontest_cli.egg-info/top_level.txt
