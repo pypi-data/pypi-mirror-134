@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: aioworkers-consul
+Version: 0.1.1
+Summary: 
+Home-page: https://github.com/aioworkers/aioworkers-consul
+License: Apache Software License 2.0
+Author: Alexander Malev
+Author-email: malev@somedev.ru
+Requires-Python: >=3.6.2,<4.0.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aioworkers (>=0.19)
+Project-URL: Repository, https://github.com/aioworkers/aioworkers-consul
+Description-Content-Type: text/x-rst
+
+aioworkers-consul
+=================
+
+.. image:: https://img.shields.io/pypi/v/aioworkers-consul.svg
+  :target: https://pypi.org/project/aioworkers-consul
+  :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/pyversions/aioworkers-consul.svg
+  :target: https://pypi.org/project/aioworkers-consul
+  :alt: Python versions
+
+About
+=====
+
+Integration with `Hashicorp Consul <https://www.consul.io>`_.
+
+Use
+---
+
+.. code-block:: yaml
+
+    consul:
+      host: localhost:8500  # optional
+      service:              # optional
+        name: my
+        tags:
+          - worker
+
+
+Development
+-----------
+
+Install dev requirements:
+
+
+.. code-block:: shell
+
+    poetry install
+
+
+Run linters:
+
+.. code-block:: shell
+
+    make
+
