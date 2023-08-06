@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: pyCKW
+Version: 0.2-1
+Summary: Access your myCKW smartmeter data.
+Home-page: https://github.com/diaznet/pyCKW
+Author: Jeremy Diaz
+Author-email: jd@diaznet.fr
+License: MIT
+Download-URL: https://github.com/diaznet/pyCKW/archive/pyCKW-0.2.tar.gz
+Description: UNKNOWN
+Keywords: myCKW,smartmeter,data,power,consumption
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
