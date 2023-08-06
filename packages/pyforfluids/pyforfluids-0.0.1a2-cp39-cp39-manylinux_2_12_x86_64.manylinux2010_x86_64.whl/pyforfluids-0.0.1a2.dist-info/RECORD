@@ -1,0 +1,14 @@
+pyforfluids/core.py,sha256=OVIQt2tJWmE1pvT9Jfq91msNyX9iGRxvf3IAxMsGXLY,7454
+pyforfluids/__init__.py,sha256=wKw8jru-MtWH3bQ1DuCUxwY9wOAaiqjeuSHipJlSmI4,195
+pyforfluids/fortran/__init__.py,sha256=xiFMHRqPKMMAuxdVQpCMY_bTQ2CGknQ4ldPirW_FRaA,64
+pyforfluids/fortran/thermo_props.cpython-39-x86_64-linux-gnu.so,sha256=oWOOHIQ0On874n9KzrZz0q8ZBFDaZGLrs5DXHVEyUhM,413112
+pyforfluids/fortran/gerg2008f.cpython-39-x86_64-linux-gnu.so,sha256=qJLFjNLGWX_If0ld0WKm5qaxDWad-JQYw6zEk3PTXoI,306176
+pyforfluids/models/__init__.py,sha256=eOjOvDuxugN_roFfn6VC0nE_DiP9GY16lJdc1BUYxFc,130
+pyforfluids/models/gerg2008.py,sha256=82YZJMLAUW86Z5I0_VJ4CvKh2lvazQ87fmReoGkY0gM,9938
+pyforfluids.libs/libgfortran-2e0d59d6.so.5.0.0,sha256=iF7pNyumQrHZq6sLPdW_7YahPLHEhykty75kPBU2IyQ,2223184
+pyforfluids.libs/libquadmath-2d0c479f.so.0.0.0,sha256=nw_dV1mLMDFbFsMwYHIwErTgu6dsMaBajxJfe8TohIA,263992
+pyforfluids-0.0.1a2.dist-info/METADATA,sha256=Qv4cmjIUkuB3_lIjdB3dOUsItuh0BLRAe82vlnjLIYM,4537
+pyforfluids-0.0.1a2.dist-info/WHEEL,sha256=QSK99oJHZ5OD0kXw0lOM2wKosPFP5cmehycCIX3llvk,148
+pyforfluids-0.0.1a2.dist-info/RECORD,,
+pyforfluids-0.0.1a2.dist-info/LICENSE,sha256=gQDHyFkIzKZvtlXm0Abu92HhSFWfSsYmMqmuFI5h5dw,1072
+pyforfluids-0.0.1a2.dist-info/top_level.txt,sha256=DDHnIMcDW01JTJuMadK57Mbzhcx3icPxbCo6LtZWRG8,12
