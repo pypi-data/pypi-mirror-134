@@ -1,0 +1,11 @@
+attrs
+numpy
+scipy
+lmfit
+numba
+scikit-learn
+matplotlib
+pytest
+sympy
+wrapt
+zipfile_deflate64
