@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "habitmove"
+version = "0.4.1"
+description = "migrate nomie data to loop habits tracker"
+license="GPL-3.0-only"
+readme="README.md"
+repository="https://git.martyoeh.me/Marty/habit-migrate"
+authors = ["Marty Oehme <marty.oehme@gmail.com>"]
+packages = [
+    { include = "habitmove", from = "src"},
+]
+
+[tool.poetry.dependencies]
+importlib-metadata = {version = "^0.23", python = "<3.8"}
+python = "^3.7"
+click = "^8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+coverage = {extras = ["toml"], version = "^6.2"}
+pytest-cov = "^3.0.0"
+pytest-mock = "^3.6.1"
+
+[tool.poetry.scripts]
+habitmove = "habitmove.cli:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["habitmove"]
+
+[tool.coverage.report]
+show_missing = true
+# fail_under = 80  # if we want pytest to automatically fail if not enough tests supplied
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
