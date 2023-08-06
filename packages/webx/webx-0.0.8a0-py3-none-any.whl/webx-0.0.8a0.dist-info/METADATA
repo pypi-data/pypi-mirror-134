@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: webx
+Version: 0.0.8a0
+Summary: A next-generation ASGI Python web-framework, focused on Speed and Stability
+Home-page: https://github.com/justanotherbyte/webx
+Author: justanotherbyte
+License: MIT
+Project-URL: Documentation, https://webx.kozumikku.tech/
+Project-URL: Issue tracker, https://github.com/justanotherbyte/webx/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Requires-Dist: jinja2 (==3.0.3)
+Requires-Dist: aiofiles (==0.8.0)
+Requires-Dist: click (==8.0.3)
+Requires-Dist: rich (==11.0.0)
+
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/justanotherbyte/webx/main/.github/images/logo.png" width="224px"/><br/>
+</h1>
+<p align="center">A next-generation <b>ASGI</b> Python web-framework, focused on <b>Speed</b> and <b>Stability</b></p>
+
+## Welcome to WebX
+
+WebX is a next-generation **ASGI** Python web-framework, which is focused on *Speed* *Stability*.
+
+WebX is heavily inspired by django, making it a bit easier to try out WebX for the first time. However, WebX is asynchronous, meaning it uses the ASGI protocol. Sure, `django-channels` exists, however it's never TRULY `async`. You don't experience the true abilities of asynchronous programming. This is where WebX comes in. It's completely written to handle the ASGI spec, allowing for awesome features such as WebSockets, and background tasks.
+
+WebX also encourages heavy contribution, allowing for extensions to be natively integrated into WebX, through the `webx.ext` import paths. It's advised to write extensions that fit within this `ext` folder, as it's hidden away from the rest of WebX, avoiding silly problems.
+
