@@ -1,0 +1,14 @@
+jsonpointer
+ocdskit>=1
+ocdsmerge>=0.6
+
+[docs]
+furo
+sphinx
+sphinx-autobuild
+
+[test]
+coveralls
+pytest
+pytest-cov
+pytest-vcr
