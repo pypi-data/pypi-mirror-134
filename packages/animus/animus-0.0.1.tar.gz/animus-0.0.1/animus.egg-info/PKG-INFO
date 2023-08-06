@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: animus
+Version: 0.0.1
+Summary: Animus is a minimalistic framework to run machine learning experiments.
+Home-page: https://github.com/Scitator/animus
+Author: Sergey Kolesnikov
+Author-email: scitator@gmail.com
+License: Apache License 2.0
+Download-URL: https://github.com/Scitator/animus
+Keywords: Machine Learning,Deep Learning
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Animus
+
+> One framework to rule them all.
+
+Animus is a "write it yourself"-based machine learning framework.
+Please see `examples/` for more information.
+
+
