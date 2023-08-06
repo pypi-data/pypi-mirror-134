@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Flask-Sockets-Skeh
+Version: 0.2.2
+Summary: Elegant WebSockets for your Flask apps.
+Home-page: https://git.skeh.site/skeh/flask-sockets
+Author: Derek Schmidt
+Author-email: skeh@is.nota.live
+License: MIT
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+Requires-Dist: flask (>=2)
+Requires-Dist: gevent
+Requires-Dist: gevent-websocket
+
+
+Flask-Sockets
+-------------
+
+Elegant WebSockets for your Flask apps.
+A (hopefully) maintained fork of https://github.com/heroku-python/flask-sockets by the wonderful Kenneth Reitz
+
+
