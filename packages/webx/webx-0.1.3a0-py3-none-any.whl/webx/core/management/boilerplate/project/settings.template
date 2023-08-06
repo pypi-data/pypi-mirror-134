@@ -1,0 +1,15 @@
+import os
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Secrets
+SECRET_KEY = "{{ secret_key }}"
+
+# Routing
+ROUTING_FILE = "{{ project_name }}.routes"
+
+# Templates and static files
+TEMPLATES_DIRECTORY = "{{ project_name }}/templates" # Global templates directory.
+STATIC_DIRECTORY = "{{ project_name }}/static" # Global static directory.
