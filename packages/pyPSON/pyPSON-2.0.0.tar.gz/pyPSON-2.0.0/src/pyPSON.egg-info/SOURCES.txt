@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.py
+src/pson/__init__.py
+src/pyPSON.egg-info/PKG-INFO
+src/pyPSON.egg-info/SOURCES.txt
+src/pyPSON.egg-info/dependency_links.txt
+src/pyPSON.egg-info/top_level.txt
