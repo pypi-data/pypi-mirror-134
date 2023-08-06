@@ -1,0 +1,8 @@
+README.md
+setup.py
+codecovopentelem/__init__.py
+codecovopentelem.egg-info/PKG-INFO
+codecovopentelem.egg-info/SOURCES.txt
+codecovopentelem.egg-info/dependency_links.txt
+codecovopentelem.egg-info/requires.txt
+codecovopentelem.egg-info/top_level.txt
