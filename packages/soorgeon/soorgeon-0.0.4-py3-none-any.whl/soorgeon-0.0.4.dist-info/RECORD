@@ -1,0 +1,17 @@
+soorgeon/__init__.py,sha256=P36tApWXdBX9ZK3V_8JoY-R91gbWBT1LRDl-g_z3IK4,2011
+soorgeon/_kaggle.py,sha256=iop7ymAqSzMwtbKX9Ns6hH55C6A91aoysyCqB7gD6Vw,2430
+soorgeon/cli.py,sha256=7VENHCZqNf0a1Y5JGm494dyXjUN9ThgqALzIgE-EZrw,821
+soorgeon/definitions.py,sha256=42a6tOK4qHtPRVwSnPrHJqlLXHpNhVbFhnSk1Y4PT3Q,1041
+soorgeon/detect.py,sha256=ePqCxlIiNMAg4-0_8RoDoB2ZMWT5EZ0ClULPzGLPZAs,4046
+soorgeon/exceptions.py,sha256=mB_GwD52sIRNkWz_Dn39oOMHUbfMLJQtD3rkfO1hRyk,111
+soorgeon/export.py,sha256=bxFVVEhA-4thZqgjZYoQO0F49BBtiYRoNg_bUigQPS8,8067
+soorgeon/get.py,sha256=C5fgjU14tzlF_SreqmsOvLhwirEYkNF1RzJLlmFbhPI,463
+soorgeon/io.py,sha256=-zwqR82iZCPguxC4W1Y5m4ln2juk1OGjFInWQgmhT1U,24359
+soorgeon/proto.py,sha256=7yvb1v5C5WsBXODUyeSbylaSYVEla7BeMVytW13XseE,5860
+soorgeon/split.py,sha256=UmUlYTzkL_N8Vj8GRcBMNZNmhJLTgqfg9EiNpQyEN4w,2028
+soorgeon-0.0.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+soorgeon-0.0.4.dist-info/METADATA,sha256=FDx9lycADsVTVyjMpspjcEnLbPaiRHB2d8UT-1tLDYg,968
+soorgeon-0.0.4.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+soorgeon-0.0.4.dist-info/entry_points.txt,sha256=C0sTahuLKwlzk5pyqyAC-09K_U0p383ZdF6NdcwPTRg,47
+soorgeon-0.0.4.dist-info/top_level.txt,sha256=YLj1aNweW1Wea8-DaEpIj36j7nN0w3oPo1k_K_sN61w,9
+soorgeon-0.0.4.dist-info/RECORD,,
