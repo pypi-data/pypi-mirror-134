@@ -1,0 +1,16 @@
+CHANGES.txt
+LICENSE.txt
+MANIFEST.in
+README.rst
+netfilterqueue.c
+netfilterqueue.pxd
+netfilterqueue.pyx
+pyproject.toml
+setup.py
+test-requirements.txt
+NetfilterQueue.egg-info/PKG-INFO
+NetfilterQueue.egg-info/SOURCES.txt
+NetfilterQueue.egg-info/dependency_links.txt
+NetfilterQueue.egg-info/top_level.txt
+tests/conftest.py
+tests/test_basic.py
