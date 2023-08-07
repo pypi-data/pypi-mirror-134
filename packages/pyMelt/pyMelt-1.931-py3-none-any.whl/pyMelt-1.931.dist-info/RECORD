@@ -1,0 +1,16 @@
+pyMelt/__init__.py,sha256=8E3NIXfDa514fs98ikDsxNOh-2Ze0YtdQmXWs76PL4M,857
+pyMelt/core.py,sha256=EjkGZ4xwb-e050-wjFerHydxH_umkSai9-6nU4EoEvk,646
+pyMelt/lithology_classes.py,sha256=reA8A-qxjaxAd76V_FEyyxVmRSMCeAF2WFhfzb7xBoQ,13908
+pyMelt/mantle_class.py,sha256=Ll0c7zLIfG7V5nfRvUJaD8126g-pSDVK7gtMmNrXobg,15679
+pyMelt/meltingcolumn_classes.py,sha256=kyPTc8UxNvMFSbwauzePBXXU8z467PZW36F2kWXo484,10079
+pyMelt/lithologies/__init__.py,sha256=sEbgnz8ZlZcBVXYUhNWWumBOOfMe-fxPHNASwRIgPTs,453
+pyMelt/lithologies/katz.py,sha256=pvHmHG6WLKqCtWsWuXURrDgkSDmB3BpSIzB4xvuI7ts,13552
+pyMelt/lithologies/matthews.py,sha256=-Dxv62bg-B6CghiJ9ahNbR6LU8BmsWrSmY5A7JwFCUo,38019
+pyMelt/lithologies/mckenzie.py,sha256=X8laDA94o8SrkSMp838HgBjBVlQfJ83law0TaOPDFOg,9677
+pyMelt/lithologies/pertermann.py,sha256=s2he5-kElpdaLd9C3zdn485hmGDeaEMToSZ2W-uppmc,5922
+pyMelt/lithologies/shorttle.py,sha256=4gKMDG9yg-Qk5caT0MKE-zpbr1sKKD54YCxgVAU0aVc,12732
+pyMelt-1.931.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+pyMelt-1.931.dist-info/METADATA,sha256=il2zUs6PKxN_6jb_hMyr-bwO7Bxje0919MFV8qd62K8,3011
+pyMelt-1.931.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyMelt-1.931.dist-info/top_level.txt,sha256=jKV2ZdWkmU5WQbTfpJNVYqOtGKGGtlLQZFETZN88_So,7
+pyMelt-1.931.dist-info/RECORD,,
