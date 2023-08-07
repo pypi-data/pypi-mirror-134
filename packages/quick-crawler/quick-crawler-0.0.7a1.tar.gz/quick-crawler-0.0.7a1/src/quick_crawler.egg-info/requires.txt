@@ -1,0 +1,13 @@
+requests
+bs4
+selenium
+scrapy
+deep-translator
+semantic-kit
+trafilatura
+
+[dev]
+check-manifest
+
+[test]
+coverage
