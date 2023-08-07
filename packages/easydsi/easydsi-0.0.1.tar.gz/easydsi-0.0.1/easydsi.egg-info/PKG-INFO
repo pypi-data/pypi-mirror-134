@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: easydsi
+Version: 0.0.1
+Summary: The library which helps users to implement data structres & algoithms easily without implementing each and every structure.
+Home-page: https://github.com/fazil2003/easydsi
+Author: Mohamed Fazil
+Author-email: mohamedfazil463@gmail.com
+License: MIT
+Keywords: data-structures,algorithms,data,structures,data structures,data structure
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# easydsi 0.0.1
+
+The library which helps users to implement data structres & algoithms easily without implementing everything briefly.
+
+<br />
+
+### ðŸŒŸ How to install
+ðŸ’« Go to your command prompt and type the following command.
+```
+pip install easydsi
+```
+<br />
+
+### ðŸŒŸ How to use
+ðŸ’« Import the library in your project
+```python
+import easydsi
+```
+<br />
+
+### ðŸŒŸ How to build and upload
+```
+pip install setuptools twine
+python setup.py sdist
+twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+```
+
+Change Log
+=========
+
+0.0.1 (17/01/2022)
+-------------------
+- Initial Release
+
