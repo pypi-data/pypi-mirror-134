@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: albert-xin-py-pk
+Version: 0.0.1
+Summary: all function in one packages
+Home-page: https://github.com/xinalbert/
+Author: albert_xin@qq.com
+Author-email: albert_xin@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9.9
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+
+# albert_xin_py_pk
+这是一个python包集合各种奇怪的功能
+
+
