@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+exdown/__about__.py
+exdown/__init__.py
+exdown/main.py
+exdown.egg-info/PKG-INFO
+exdown.egg-info/SOURCES.txt
+exdown.egg-info/dependency_links.txt
+exdown.egg-info/requires.txt
+exdown.egg-info/top_level.txt
+test/test_exdown.py
+test/test_readme.py
